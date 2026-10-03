@@ -6,7 +6,7 @@ from threading import Event
 
 import pytest
 
-from geological_agent.agent.compaction import fit_request, request_size
+from geological_agent.agent.compaction import fit_request, request_size, unpack_data
 from geological_agent.bootstrap import create_agent
 from geological_agent.contracts import Message, ModelRequest, ModelResponse, ToolCall, ToolResult
 from geological_agent.settings import Settings
@@ -231,7 +231,7 @@ class Archive:
                 "kind": kind, "total_chars": len(json.dumps(payload))}
 
 
-def test_archive_index_fits_actual_remaining_budget_with_headroom():
+def test_archive_index_fits_actual_budget_without_evicting_fitting_evidence():
     messages = [Message("user", "Keep exact user requirements.")]
     for i in range(15):
         call = ToolCall(str(i), "lookup", {"part": i})
@@ -244,11 +244,16 @@ def test_archive_index_fits_actual_remaining_budget_with_headroom():
         summaries.append((source, target))
         return "Earlier failed inspections; source still needed."
     fitted = fit_request(request, state, Settings(max_context_chars=48000), archive=archive, summarize=summarize)
-    assert request_size(fitted) <= 43200
+    assert request_size(fitted) <= 48000
     assert fitted.messages[0] == request.messages[0] and fitted.messages[-2:] == request.messages[-2:]
+    originals = {m.tool_call_id: m.content for m in messages if m.role == "tool"}
+    retained = {m.tool_call_id: m.content for m in fitted.messages if m.role == "tool"}
+    assert {"13", "14"} <= set(retained)
+    assert all(unpack_data(json.loads(content)) == json.loads(originals[identity])
+               for identity, content in retained.items())
     assert len(archive.rows) == 14
     assert state["messages"] == messages
-    assert state["metadata"]["context_compactions"][-1]["headroom_chars"] >= 4800
+    assert state["metadata"]["context_compactions"][-1]["headroom_chars"] == 48000 - request_size(fitted)
 
 def test_reference_guidance_is_loaded_only_with_reference_tools(tmp_path):
     agent = create_agent(object(), settings=Settings(verify_completion=False))

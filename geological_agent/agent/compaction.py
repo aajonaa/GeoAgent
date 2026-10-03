@@ -336,11 +336,13 @@ def fit_request(request, state, settings, *, phase="execution", summarize=None, 
         if request_size(candidate) < request_size(request):
             request = candidate
             strategies.append("exact_history_ledger")
-        if request_size(request) > int(limit * .9) and archive is not None:
+        if request_size(request) > limit and archive is not None:
             # Budget references against the ACTUAL final serialized request,
             # including schemas and guidance. A fixed index fraction can itself
-            # cause overflow; reserve headroom, but never remove protected data.
-            target = int(limit * .9)
+            # cause overflow. The 90% trigger is a soft compaction hint, not
+            # permission to evict usable evidence from a request that fits.
+            # All current schemas and guidance are already included here.
+            target = limit
             minimal = _json_messages(_history_view(original, state, archive=archive,
                                                    index_budget=0), state)
             # Retain the largest recent native suffix that fits. Previously

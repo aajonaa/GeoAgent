@@ -313,6 +313,7 @@
         node.dataset.block = block.id; node.dataset.signature = signature; order.push(node);
       }
       rich.blocks.replaceChildren(...order);
+      window.GeoScientificViewer?.attach(rid, ui, result);
     } catch (error) {
       if (!current()) return;
       rich.status.replaceChildren(document.createTextNode('结果视图加载失败：' + error.message + '。文字和文件仍可使用。 '), button('重试', () => refresh(rid,ui), 'quiet'));

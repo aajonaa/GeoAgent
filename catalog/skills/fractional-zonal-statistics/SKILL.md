@@ -76,3 +76,16 @@ https://github.com/isciences/exactextract
 Rasterio supplies raster access; Shapely validates geometry.
 Dependency definitions: requirements-source-tools.txt.
 Formal asset packaging is deferred; the runtime loads this same skill.
+
+## Source interface and delivery
+
+Call legacy.ToolsAgent.ToolsFuns.GeoEval.scientific_tools.exact_zonal_statistics(args) with a parameter dictionary. The source and runtime use the same implementation. Preserve fractional coverage, valid-area definitions, CRS and no-valid-cell results.
+
+### Current availability
+
+Availability: tool_candidates_available_workflow_unverified.
+The referenced tools have callable source-interface candidates. This is not
+complete skill-workflow validation, scientific certification or receiving-platform
+acceptance. Workflow and platform validation remain not_run. Institutional
+provider, asset version, licensing confirmation and official protocol version
+remain pending; no formal delivery package has been issued.

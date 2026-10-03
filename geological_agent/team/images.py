@@ -7,6 +7,9 @@ from .protocol import relative_name
 
 
 def install_image_routes(app, auth, store):
+    from .scientific_images import install_scientific_image_routes
+    install_scientific_image_routes(app, auth, store)
+
     @app.get("/api/conversations/{cid}/image")
     def preview(cid: str, request: Request, name: str, generation: str = ""):
         uid = auth(request)["id"]

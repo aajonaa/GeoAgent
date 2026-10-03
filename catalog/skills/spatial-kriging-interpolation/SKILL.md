@@ -72,3 +72,16 @@ PyKrige 1.7.3, BSD-3-Clause:
 https://github.com/GeoStat-Framework/PyKrige
 Dependency definitions: requirements-source-tools.txt.
 This skill is used directly by the runtime; formal asset packaging is deferred.
+
+## Source interface and delivery
+
+Call legacy.ToolsAgent.ToolsFuns.GeoEval.scientific_tools.ordinary_kriging_grid(args, output_dir=...) with a parameter dictionary. The source and runtime use the same implementation; prediction and conditional-variance units and CRS must remain explicit.
+
+### Current availability
+
+Availability: tool_candidates_available_workflow_unverified.
+The referenced tools have callable source-interface candidates. This is not
+complete skill-workflow validation, scientific certification or receiving-platform
+acceptance. Workflow and platform validation remain not_run. Institutional
+provider, asset version, licensing confirmation and official protocol version
+remain pending; no formal delivery package has been issued.

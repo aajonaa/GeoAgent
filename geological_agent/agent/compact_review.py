@@ -17,6 +17,13 @@ from .execution_contract import obligations
 from .compaction import fit_request
 
 
+# These runtime tools supply source/context evidence, not substitute calculations.
+# Keep executable generic code and file creation outside this supporting set.
+_SUPPORTING_EVIDENCE_TOOLS = frozenset((
+    "read_file", "context_read", "context_search", "web_fetch", "web_search",
+))
+
+
 def indexes(state):
     task = state["task"].rsplit("Current user request:\n", 1)[-1]
     replies = [r["text"] for r in state["metadata"].get("human_responses", [])]
@@ -71,6 +78,7 @@ A request_user_input result proves only a question was asked; skill_find/skill_l
 For requested professional calculations, check EACH requested operation independently against the observed tool name, input and result.
 A professional result for one quantity does not prove another calculation. Generic Python/file tools do not satisfy a request for professional computation.
 Cite the relevant professional results for ALL operations in that requirement, not just one successful call. If any operation lacks such evidence, use continue and explain the gap.
+Source reads may accompany professional result references; they do not invalidate real professional execution or replace it. Discovery is not source or calculation evidence. Context reads locate existing evidence but do not create a new execution result. Never request a rerun just to repair an answer or its evidence references.
 Do not approve a line-count constraint by citing only the desired result lines while ignoring extra introductory or concluding lines.
 Use the smallest sufficient set of relevant line IDs, not every line in the answer. Check the whole answer regardless.
 Keep feedback empty on success and concise on failure. Return only the native assessment call."""
@@ -183,20 +191,29 @@ def parse_compact_review(response, state, request):
         args["feedback"] = "Unmet requirements: " + ", ".join(unmet) + ". " + args["feedback"]
     professional_names = set(state["metadata"].get("professional_tool_names", []))
     if professional_names:
-        professional_ids = {m.tool_call_id for m in state["messages"] if m.role == "tool"
-                            and strict_json(m.content).get("status") == "ok"
-                            and strict_json(m.content)["name"] in professional_names}
+        successful_results = {m.tool_call_id: strict_json(m.content) for m in state["messages"]
+                              if m.role == "tool" and strict_json(m.content).get("status") == "ok"}
+        professional_ids = {identity for identity, result in successful_results.items()
+                            if result["name"] in professional_names}
         unsupported = []
         for key, text in requirements.items():
-            requires_professional = obligations({"task": text, "metadata": {}}, professional_names)[0]
+            requires_professional, _, required_names = obligations(
+                {"task": text, "metadata": {}}, professional_names)
             cited = set(checks[key]["call_ids"])
-            if requires_professional and (not cited or not cited <= professional_ids):
+            professional_cited = cited & professional_ids
+            cited_names = {successful_results[identity]["name"] for identity in professional_cited}
+            substitutes = {identity for identity in cited - professional_ids
+                           if successful_results[identity]["name"] not in _SUPPORTING_EVIDENCE_TOOLS}
+            if (requires_professional or required_names) and (
+                    not professional_cited or required_names - cited_names or substitutes):
                 checks[key]["satisfied"] = False
                 unsupported.append(key)
         if unsupported and args["verdict"] in ("complete", "revise_answer"):
             args["verdict"] = "continue"
-            args["feedback"] = ("Professional execution evidence is missing or cites generic/discovery tools for " +
-                                ", ".join(unsupported) + ". Check EACH requested calculation and invoke its applicable "
-                                "professional tool. Preserve already successful results. " + args["feedback"])
+            args["feedback"] = ("Professional execution coverage is missing or cites substitute calculations for " +
+                                ", ".join(unsupported) + ". Check EACH requested operation against existing successful "
+                                "professional results first. Source reads may support those results "
+                                "but cannot replace them. Execute only genuinely missing operations; do not rerun "
+                                "successful work to repair answer text or evidence references. " + args["feedback"])
     args["evidence_index"] = {"answer_lines": answers, "tool_results": tools, "requirements": requirements}
     return args

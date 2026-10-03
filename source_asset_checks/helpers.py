@@ -38,6 +38,26 @@ def create(workspace):
         output.write(np.asarray([[1, 2], [3, 4]], dtype='float32'), 1)
     (root / 'kriging.csv').write_text(
         'x,y,value\n0.5,1.5,1\n1.5,1.5,2\n0.5,0.5,3\n1.5,0.5,4\n', encoding='utf-8')
+    with rasterio.open(root / 'scientific-bands.tif', 'w', driver='GTiff',
+                       height=2, width=2, count=2, dtype='float32', crs='EPSG:32650',
+                       transform=from_origin(500000, 4400000, 10, 10), nodata=-9999) as output:
+        output.write(np.asarray([[[1, 1], [1, 1]], [[3, 3], [3, 3]]], dtype='float32'))
+    with rasterio.open(root / 'scientific-after.tif', 'w', driver='GTiff',
+                       height=2, width=2, count=1, dtype='float32', crs='EPSG:32650',
+                       transform=from_origin(0, 2, 1, 1), nodata=-9999) as output:
+        output.write(np.asarray([[2, 1], [3, 4]], dtype='float32'), 1)
+    from PIL import Image, ImageDraw
+    picture = Image.new('RGB', (30, 20), 'white')
+    drawing = ImageDraw.Draw(picture)
+    drawing.rectangle((2, 2, 10, 10), fill=(200, 20, 20))
+    drawing.rectangle((15, 2, 23, 10), fill=(20, 20, 200))
+    picture.save(root / 'scientific-map.png')
+    picture = Image.new('RGB', (50, 50), 'white')
+    drawing = ImageDraw.Draw(picture)
+    for column in range(5, 45):
+        if column != 20:
+            drawing.point((column, 49-column), fill=(0, 80, 180))
+    picture.save(root / 'scientific-curve.png')
     return root
 
 def close(actual, expected, rel=1e-06, absolute=1e-09):
@@ -46,6 +66,35 @@ def close(actual, expected, rel=1e-06, absolute=1e-09):
 
 def oracle(name, response, workspace):
     value = response['result']
+    if name in ('GeoRasterIndexAnalysis', 'GeoRasterChangeAnalysis', 'GeoMapColorExtract', 'GeoPlotDigitize'):
+        assert response['artifacts'], 'Scientific file-producing tool returned no artifacts.'
+        manifest_path = Path(workspace) / value['manifest_path']
+        manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+        assert manifest['schema'] == 'geoagent.scientific-image/v1'
+        for item in value['outputs']:
+            assert digest(Path(workspace) / item['path']) == item['sha256']
+        stats = value['statistics']
+        if name in ('GeoRasterIndexAnalysis', 'GeoRasterChangeAnalysis'):
+            import numpy as np
+            import rasterio
+            with rasterio.open(manifest_path.parent / 'values.tif') as data:
+                expected = [[.5, .5], [.5, .5]] if name == 'GeoRasterIndexAnalysis' else [[1, -1], [0, 0]]
+                np.testing.assert_allclose(data.read(1), expected, rtol=0, atol=1e-7)
+                assert data.crs.to_epsg() == 32650
+            assert stats['valid_pixels'] == 4
+            close(stats['mean'], .5 if name == 'GeoRasterIndexAnalysis' else 0)
+        elif name == 'GeoMapColorExtract':
+            assert stats['candidate_regions'] == 2 and stats['matched_pixels'] == 162
+            vectors = json.loads((manifest_path.parent / 'regions.pixel.json').read_text())
+            assert 'NOT RFC7946' in vectors['coordinate_space'] and len(vectors['features']) == 2
+        else:
+            assert stats['extracted_columns'] == 39 and stats['unmatched_columns'] == 1
+            assert stats['interpolated_points'] == 0
+            with (manifest_path.parent / 'curve.csv').open(encoding='utf-8', newline='') as stream:
+                rows = list(csv.DictReader(stream))
+            assert len(rows) == 39
+            assert all(int(row['pixel_column']) != 20 for row in rows)
+            assert all(float(row['x']) == float(row['y']) for row in rows)
     if name == 'GeoMagnitudeToEnergy':
         close(value['energy_j'], 10 ** 14.55, rel=0.0005)
         close(value['tnt_tons'], 10 ** 14.55 / 4184000000.0, rel=0.0005)

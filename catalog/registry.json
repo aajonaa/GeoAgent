@@ -43,7 +43,34 @@
         {
           "prompt": "请对我上传的采样点 CSV 做普通克里金插值，输出带坐标参考的预测值和条件方差栅格；先确认坐标系、数值单位和目标网格。"
         }
-      ]
+      ],
+      "delivery": {
+        "source_candidates": [
+          "GeoOrdinaryKrigingGrid"
+        ],
+        "unavailable_references": [],
+        "availability_status": "tool_candidates_available_workflow_unverified",
+        "workflow_validation": "not_run"
+      },
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "unavailable_tools": [],
+        "agent_end_to_end": "not_tested"
+      },
+      "registration_metadata": {
+        "asset_version": null,
+        "provider": null,
+        "license": null,
+        "official_protocol_version": null,
+        "pending_fields": [
+          "asset_version",
+          "provider",
+          "license",
+          "official_protocol_version"
+        ],
+        "platform_validation": "not_run",
+        "registration_status": "pending_metadata"
+      }
     },
     {
       "id": "fractional-zonal-statistics",
@@ -89,7 +116,34 @@
         {
           "prompt": "请统计我上传的栅格在各矿区多边形内的均值、最小值和最大值，边界像元按覆盖比例计入，排除 NoData，并明确无有效像元的矿区。"
         }
-      ]
+      ],
+      "delivery": {
+        "source_candidates": [
+          "GeoExactZonalStatistics"
+        ],
+        "unavailable_references": [],
+        "availability_status": "tool_candidates_available_workflow_unverified",
+        "workflow_validation": "not_run"
+      },
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "unavailable_tools": [],
+        "agent_end_to_end": "not_tested"
+      },
+      "registration_metadata": {
+        "asset_version": null,
+        "provider": null,
+        "license": null,
+        "official_protocol_version": null,
+        "pending_fields": [
+          "asset_version",
+          "provider",
+          "license",
+          "official_protocol_version"
+        ],
+        "platform_validation": "not_run",
+        "registration_status": "pending_metadata"
+      }
     },
     {
       "id": "deep-earth-model-query",
@@ -7219,9 +7273,7 @@
       "skill_file": "catalog/skills/remote-sensing-trend-distribution/SKILL.md",
       "source_interface": {
         "status": "source_revised_unverified",
-        "unavailable_tools": [
-          "RemoteSensingMannKendallTest"
-        ],
+        "unavailable_tools": [],
         "agent_end_to_end": "not_tested"
       },
       "tool_references": [
@@ -7241,13 +7293,12 @@
         "source_candidates": [
           "RemoteSensingLinearTrend",
           "RemoteSensingSensSlope",
+          "RemoteSensingMannKendallTest",
           "RemoteSensingKurtosis",
           "RemoteSensingCoefficientOfVariation"
         ],
-        "unavailable_references": [
-          "RemoteSensingMannKendallTest"
-        ],
-        "availability_status": "partially_blocked",
+        "unavailable_references": [],
+        "availability_status": "tool_candidates_available_workflow_unverified",
         "workflow_validation": "not_run"
       },
       "registration_metadata": {
@@ -8396,6 +8447,232 @@
         ],
         "platform_validation": "not_run",
         "registration_status": "pending_metadata"
+      }
+    },
+    {
+      "id": "scientific-raster-analysis",
+      "name": "Scientific raster indices and change analysis",
+      "description": "Inspect actual multispectral provenance, calculate a selected index and optionally compare aligned dates or aggregate explicit zones.",
+      "version": "0.5.0",
+      "skill_file": "catalog/skills/scientific-raster-analysis/SKILL.md",
+      "tool_references": [
+        "GeoRasterIndexAnalysis",
+        "GeoRasterChangeAnalysis",
+        "GeoExactZonalStatistics"
+      ],
+      "applicability": {
+        "keywords": [
+          "NDVI",
+          "NDWI",
+          "NBR",
+          "remote sensing",
+          "raster change",
+          "遥感",
+          "影像",
+          "植被指数",
+          "变化分析"
+        ],
+        "preconditions": {
+          "data": [
+            "Actual source files and explicit scientific calibration or parameters"
+          ],
+          "environment": [
+            "Native scientific-image dependencies installed in the execution environment"
+          ]
+        }
+      },
+      "constraints": {
+        "data_must_be_present": true,
+        "no_fabricated_inputs": true
+      },
+      "metadata": {
+        "domain": {
+          "primary": "ScientificImaging"
+        },
+        "workflow": {
+          "type": "adaptive_playbook",
+          "steps": []
+        },
+        "planning": {
+          "deterministic": false,
+          "policy": "Use the SKILL.md playbook; only execute operations required by the request."
+        },
+        "canonical_skill_file": "geological_agent/geology/skills/scientific_raster_analysis/SKILL.md"
+      },
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "unavailable_tools": [],
+        "agent_end_to_end": "not_tested"
+      },
+      "delivery": {
+        "source_candidates": [
+          "GeoRasterIndexAnalysis",
+          "GeoRasterChangeAnalysis",
+          "GeoExactZonalStatistics"
+        ],
+        "unavailable_references": [],
+        "availability_status": "tool_candidates_available_workflow_unverified",
+        "workflow_validation": "not_run"
+      },
+      "registration_metadata": {
+        "asset_version": "0.5.0",
+        "provider": null,
+        "license": null,
+        "official_protocol_version": null,
+        "pending_fields": [
+          "provider",
+          "license_for_project_entrypoint",
+          "official_protocol_version"
+        ],
+        "platform_validation": "not_run",
+        "registration_status": "not_packaged"
+      }
+    },
+    {
+      "id": "map-color-digitization",
+      "name": "Map legend-color region extraction",
+      "description": "Extract explicit map legend-color candidates into masks, overlays and polygons with honest pixel/geographic coordinates.",
+      "version": "0.5.0",
+      "skill_file": "catalog/skills/map-color-digitization/SKILL.md",
+      "tool_references": [
+        "GeoMapColorExtract"
+      ],
+      "applicability": {
+        "keywords": [
+          "geological map",
+          "legend",
+          "regions",
+          "polygon",
+          "地质图",
+          "图例",
+          "色块",
+          "矢量化"
+        ],
+        "preconditions": {
+          "data": [
+            "Actual source files and explicit scientific calibration or parameters"
+          ],
+          "environment": [
+            "Native scientific-image dependencies installed in the execution environment"
+          ]
+        }
+      },
+      "constraints": {
+        "data_must_be_present": true,
+        "no_fabricated_inputs": true
+      },
+      "metadata": {
+        "domain": {
+          "primary": "ScientificImaging"
+        },
+        "workflow": {
+          "type": "adaptive_playbook",
+          "steps": []
+        },
+        "planning": {
+          "deterministic": false,
+          "policy": "Use the SKILL.md playbook; only execute operations required by the request."
+        },
+        "canonical_skill_file": "geological_agent/geology/skills/map_color_digitization/SKILL.md"
+      },
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "unavailable_tools": [],
+        "agent_end_to_end": "not_tested"
+      },
+      "delivery": {
+        "source_candidates": [
+          "GeoMapColorExtract"
+        ],
+        "unavailable_references": [],
+        "availability_status": "tool_candidates_available_workflow_unverified",
+        "workflow_validation": "not_run"
+      },
+      "registration_metadata": {
+        "asset_version": "0.5.0",
+        "provider": null,
+        "license": null,
+        "official_protocol_version": null,
+        "pending_fields": [
+          "provider",
+          "license_for_project_entrypoint",
+          "official_protocol_version"
+        ],
+        "platform_validation": "not_run",
+        "registration_status": "not_packaged"
+      }
+    },
+    {
+      "id": "plot-curve-digitization",
+      "name": "Calibrated scientific curve digitization",
+      "description": "Extract one colored curve using actual axis calibration, report missing columns and export approximate numerical values.",
+      "version": "0.5.0",
+      "skill_file": "catalog/skills/plot-curve-digitization/SKILL.md",
+      "tool_references": [
+        "GeoPlotDigitize"
+      ],
+      "applicability": {
+        "keywords": [
+          "curve",
+          "plot",
+          "digitization",
+          "axis",
+          "论文",
+          "曲线",
+          "数字化"
+        ],
+        "preconditions": {
+          "data": [
+            "Actual source files and explicit scientific calibration or parameters"
+          ],
+          "environment": [
+            "Native scientific-image dependencies installed in the execution environment"
+          ]
+        }
+      },
+      "constraints": {
+        "data_must_be_present": true,
+        "no_fabricated_inputs": true
+      },
+      "metadata": {
+        "domain": {
+          "primary": "ScientificImaging"
+        },
+        "workflow": {
+          "type": "adaptive_playbook",
+          "steps": []
+        },
+        "planning": {
+          "deterministic": false,
+          "policy": "Use the SKILL.md playbook; only execute operations required by the request."
+        },
+        "canonical_skill_file": "geological_agent/geology/skills/plot_curve_digitization/SKILL.md"
+      },
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "unavailable_tools": [],
+        "agent_end_to_end": "not_tested"
+      },
+      "delivery": {
+        "source_candidates": [
+          "GeoPlotDigitize"
+        ],
+        "unavailable_references": [],
+        "availability_status": "tool_candidates_available_workflow_unverified",
+        "workflow_validation": "not_run"
+      },
+      "registration_metadata": {
+        "asset_version": "0.5.0",
+        "provider": null,
+        "license": null,
+        "official_protocol_version": null,
+        "pending_fields": [
+          "provider",
+          "license_for_project_entrypoint",
+          "official_protocol_version"
+        ],
+        "platform_validation": "not_run",
+        "registration_status": "not_packaged"
       }
     }
   ],
@@ -28723,6 +29000,1775 @@
         ],
         "platform_validation": "not_run",
         "registration_status": "pending_metadata"
+      }
+    },
+    {
+      "id": "GeoRasterIndexAnalysis",
+      "name": "GeoRasterIndexAnalysis",
+      "version": "0.5.0",
+      "category": "ScientificImaging",
+      "description": "Compute calibrated NDVI/NDWI/NBR, interval statistics and scientific GeoTIFF; create aligned RGB/index/class layers with a reproducible analysis manifest.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+          },
+          "output_dir": {
+            "type": "string",
+            "minLength": 1,
+            "description": "New task-relative output directory; must not already exist."
+          },
+          "index": {
+            "type": "string",
+            "enum": [
+              "NDVI",
+              "NDWI",
+              "NBR"
+            ],
+            "description": "Index formula: NDVI=(NIR-red)/(NIR+red), NDWI=(green-NIR)/(green+NIR), NBR=(NIR-SWIR2)/(NIR+SWIR2). Results are dimensionless."
+          },
+          "bands": {
+            "type": "object",
+            "properties": {
+              "red": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "green": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "blue": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "nir": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "swir2": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [],
+            "additionalProperties": false,
+            "description": "Actual one-based spectral band roles, from source metadata. NDVI uses NIR/red, NDWI green/NIR, NBR NIR/SWIR2. Optional red/green/blue enable true-color preview."
+          },
+          "calibration_source": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Source/version confirming dataset scale and offset convert stored values to dimensionless reflectance. This statement is attribution, not automatic verification."
+          },
+          "valid_mask_path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional aligned one-band mask: valid finite values >0 are included. Supply QA-derived clear pixels; no cloud detection is guessed."
+          },
+          "breaks": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "exclusiveMinimum": -1,
+              "exclusiveMaximum": 1
+            },
+            "minItems": 1,
+            "maxItems": 8,
+            "description": "Strictly increasing display/statistical class edges. Default [0,0.2,0.5]; intervals are NOT land-cover labels."
+          }
+        },
+        "required": [
+          "path",
+          "output_dir",
+          "index",
+          "bands",
+          "calibration_source"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "analysis_type": {
+            "type": "string",
+            "description": "Analysis family identifying the scientific processing method, not a geological classification."
+          },
+          "manifest_path": {
+            "type": "string",
+            "description": "Task-relative analysis.geoanalysis.json containing input/output hashes, parameters, grid, layers, statistics and limitations."
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "media_type": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "media_type",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Actual generated files with task-relative paths, SHA-256 hashes, MIME types and scientific/display roles."
+          },
+          "statistics": {
+            "type": "object",
+            "description": "Actual computed statistics; null means unavailable, never zero."
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Scientific and data-quality limitations that must accompany interpretation; not evidence of successful independent scientific certification."
+          }
+        },
+        "required": [
+          "analysis_type",
+          "manifest_path",
+          "outputs",
+          "statistics",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "GeoRasterIndexAnalysis",
+          "description": "Compute calibrated NDVI/NDWI/NBR, interval statistics and scientific GeoTIFF; create aligned RGB/index/class layers with a reproducible analysis manifest.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "output_dir": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New task-relative output directory; must not already exist."
+              },
+              "index": {
+                "type": "string",
+                "enum": [
+                  "NDVI",
+                  "NDWI",
+                  "NBR"
+                ],
+                "description": "Index formula: NDVI=(NIR-red)/(NIR+red), NDWI=(green-NIR)/(green+NIR), NBR=(NIR-SWIR2)/(NIR+SWIR2). Results are dimensionless."
+              },
+              "bands": {
+                "type": "object",
+                "properties": {
+                  "red": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "green": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "blue": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "nir": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "swir2": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [],
+                "additionalProperties": false,
+                "description": "Actual one-based spectral band roles, from source metadata. NDVI uses NIR/red, NDWI green/NIR, NBR NIR/SWIR2. Optional red/green/blue enable true-color preview."
+              },
+              "calibration_source": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Source/version confirming dataset scale and offset convert stored values to dimensionless reflectance. This statement is attribution, not automatic verification."
+              },
+              "valid_mask_path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Optional aligned one-band mask: valid finite values >0 are included. Supply QA-derived clear pixels; no cloud detection is guessed."
+              },
+              "breaks": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "exclusiveMinimum": -1,
+                  "exclusiveMaximum": 1
+                },
+                "minItems": 1,
+                "maxItems": 8,
+                "description": "Strictly increasing display/statistical class edges. Default [0,0.2,0.5]; intervals are NOT land-cover labels."
+              }
+            },
+            "required": [
+              "path",
+              "output_dir",
+              "index",
+              "bands",
+              "calibration_source"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "GeoRasterIndexAnalysis",
+          "description": "Compute calibrated NDVI/NDWI/NBR, interval statistics and scientific GeoTIFF; create aligned RGB/index/class layers with a reproducible analysis manifest.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "output_dir": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New task-relative output directory; must not already exist."
+              },
+              "index": {
+                "type": "string",
+                "enum": [
+                  "NDVI",
+                  "NDWI",
+                  "NBR"
+                ],
+                "description": "Index formula: NDVI=(NIR-red)/(NIR+red), NDWI=(green-NIR)/(green+NIR), NBR=(NIR-SWIR2)/(NIR+SWIR2). Results are dimensionless."
+              },
+              "bands": {
+                "type": "object",
+                "properties": {
+                  "red": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "green": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "blue": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "nir": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "swir2": {
+                    "type": "integer",
+                    "minimum": 1
+                  }
+                },
+                "required": [],
+                "additionalProperties": false,
+                "description": "Actual one-based spectral band roles, from source metadata. NDVI uses NIR/red, NDWI green/NIR, NBR NIR/SWIR2. Optional red/green/blue enable true-color preview."
+              },
+              "calibration_source": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Source/version confirming dataset scale and offset convert stored values to dimensionless reflectance. This statement is attribution, not automatic verification."
+              },
+              "valid_mask_path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Optional aligned one-band mask: valid finite values >0 are included. Supply QA-derived clear pixels; no cloud detection is guessed."
+              },
+              "breaks": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "exclusiveMinimum": -1,
+                  "exclusiveMaximum": 1
+                },
+                "minItems": 1,
+                "maxItems": 8,
+                "description": "Strictly increasing display/statistical class edges. Default [0,0.2,0.5]; intervals are NOT land-cover labels."
+              }
+            },
+            "required": [
+              "path",
+              "output_dir",
+              "index",
+              "bands",
+              "calibration_source"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "example_arguments": {
+        "path": "assets/full-examples/scientific-bands.tif",
+        "output_dir": "scientific-index",
+        "index": "NDVI",
+        "bands": {
+          "red": 1,
+          "nir": 2
+        },
+        "calibration_source": "Explicit synthetic reflectance fixture; not real research data"
+      },
+      "constraints": {
+        "finite_numbers_only": true,
+        "no_implicit_crs_conversion": true,
+        "no_private_default_dataset": true,
+        "side_effects": "create_new_workspace_artifacts"
+      },
+      "metadata": {
+        "category": "ScientificImaging",
+        "category_role": "discovery_tag",
+        "input_format": "Dictionary conforming to input_schema, with task-relative paths. No positional text or serialized JSON string at the Python entrypoint.",
+        "output_format": "Object conforming to output_schema, with actual file references, hashes and scientific limitations.",
+        "contract_validation": "json_schema_and_source_semantics",
+        "limitations": [
+          "Requires real spectral band roles and recorded reflectance scale/offset; RGB alone cannot establish NIR or SWIR.",
+          "QA is caller-supplied, not automatic cloud removal. Numerical intervals are not land-cover classes.",
+          "Invalid and negative reflectance, masked cells and zero denominators are excluded. Geographic-CRS physical area is unavailable."
+        ],
+        "scientific_contract": {
+          "implementation_kind": "native_project",
+          "review_status": "pending_full_acceptance",
+          "formal_eligible": false
+        },
+        "environment": {
+          "python": "3.12",
+          "requirements_file": "catalog/source_delivery/scientific-imaging-requirements.txt",
+          "network_required": false
+        },
+        "source_materials": [
+          "geological_agent/scientific_imaging.py",
+          "catalog/source_delivery/SCIENTIFIC_IMAGING.md",
+          "tests_local/test_scientific_imaging.py"
+        ]
+      },
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "native_scientific_workspace",
+        "path_fields": [
+          "path",
+          "valid_mask_path"
+        ],
+        "function_name": "operate",
+        "implementation": "geological_agent.scientific_imaging:operate",
+        "validation": "pending_full_acceptance",
+        "input_encodings": [
+          "object"
+        ],
+        "path_semantics": "workspace_relative",
+        "entrypoint": {
+          "callable": "geological_agent.scientific_imaging:operate",
+          "argument_parameter": "args",
+          "bound_arguments": {
+            "name": "GeoRasterIndexAnalysis"
+          },
+          "workspace_parameter": "workspace"
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ToolFailure",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "retry_policy": "Correct invalid inputs, missing prerequisites or resource limits before retrying; never fabricate substitutes."
+      },
+      "limitations": [
+        "Requires real spectral band roles and recorded reflectance scale/offset; RGB alone cannot establish NIR or SWIR.",
+        "QA is caller-supplied, not automatic cloud removal. Numerical intervals are not land-cover classes.",
+        "Invalid and negative reflectance, masked cells and zero denominators are excluded. Geographic-CRS physical area is unavailable."
+      ],
+      "tags": [
+        "scientific-imaging",
+        "geoscience",
+        "raster"
+      ],
+      "registration_metadata": {
+        "asset_version": "0.5.0",
+        "provider": null,
+        "license": null,
+        "official_protocol_version": null,
+        "pending_fields": [
+          "provider",
+          "license_for_project_entrypoint",
+          "official_protocol_version"
+        ],
+        "platform_validation": "not_run",
+        "registration_status": "not_packaged"
+      }
+    },
+    {
+      "id": "GeoRasterChangeAnalysis",
+      "name": "GeoRasterChangeAnalysis",
+      "version": "0.5.0",
+      "category": "ScientificImaging",
+      "description": "Compare aligned one-band rasters: calibrated after minus before, threshold classes, statistics and synchronized image layers. Reject grid/CRS mismatch; never silently resample.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "before_path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+          },
+          "after_path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+          },
+          "output_dir": {
+            "type": "string",
+            "minLength": 1,
+            "description": "New task-relative output directory; must not already exist."
+          },
+          "threshold": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Symmetric change threshold in value_unit; classification is numerical, not causal attribution."
+          },
+          "value_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "description": "Shared physical unit of the two comparable calibrated rasters and the change threshold, e.g. dimensionless or K. No unit conversion or physical comparability is inferred."
+          }
+        },
+        "required": [
+          "before_path",
+          "after_path",
+          "output_dir",
+          "threshold",
+          "value_unit"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "analysis_type": {
+            "type": "string",
+            "description": "Analysis family identifying the scientific processing method, not a geological classification."
+          },
+          "manifest_path": {
+            "type": "string",
+            "description": "Task-relative analysis.geoanalysis.json containing input/output hashes, parameters, grid, layers, statistics and limitations."
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "media_type": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "media_type",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Actual generated files with task-relative paths, SHA-256 hashes, MIME types and scientific/display roles."
+          },
+          "statistics": {
+            "type": "object",
+            "description": "Actual computed statistics; null means unavailable, never zero."
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Scientific and data-quality limitations that must accompany interpretation; not evidence of successful independent scientific certification."
+          }
+        },
+        "required": [
+          "analysis_type",
+          "manifest_path",
+          "outputs",
+          "statistics",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "GeoRasterChangeAnalysis",
+          "description": "Compare aligned one-band rasters: calibrated after minus before, threshold classes, statistics and synchronized image layers. Reject grid/CRS mismatch; never silently resample.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "before_path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "after_path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "output_dir": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New task-relative output directory; must not already exist."
+              },
+              "threshold": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "Symmetric change threshold in value_unit; classification is numerical, not causal attribution."
+              },
+              "value_unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "description": "Shared physical unit of the two comparable calibrated rasters and the change threshold, e.g. dimensionless or K. No unit conversion or physical comparability is inferred."
+              }
+            },
+            "required": [
+              "before_path",
+              "after_path",
+              "output_dir",
+              "threshold",
+              "value_unit"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "GeoRasterChangeAnalysis",
+          "description": "Compare aligned one-band rasters: calibrated after minus before, threshold classes, statistics and synchronized image layers. Reject grid/CRS mismatch; never silently resample.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "before_path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "after_path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "output_dir": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New task-relative output directory; must not already exist."
+              },
+              "threshold": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "Symmetric change threshold in value_unit; classification is numerical, not causal attribution."
+              },
+              "value_unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64,
+                "description": "Shared physical unit of the two comparable calibrated rasters and the change threshold, e.g. dimensionless or K. No unit conversion or physical comparability is inferred."
+              }
+            },
+            "required": [
+              "before_path",
+              "after_path",
+              "output_dir",
+              "threshold",
+              "value_unit"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "example_arguments": {
+        "before_path": "assets/full-examples/projected.tif",
+        "after_path": "assets/full-examples/scientific-after.tif",
+        "output_dir": "scientific-change",
+        "threshold": 0.5,
+        "value_unit": "dimensionless"
+      },
+      "constraints": {
+        "finite_numbers_only": true,
+        "no_implicit_crs_conversion": true,
+        "no_private_default_dataset": true,
+        "side_effects": "create_new_workspace_artifacts"
+      },
+      "metadata": {
+        "category": "ScientificImaging",
+        "category_role": "discovery_tag",
+        "input_format": "Dictionary conforming to input_schema, with task-relative paths. No positional text or serialized JSON string at the Python entrypoint.",
+        "output_format": "Object conforming to output_schema, with actual file references, hashes and scientific limitations.",
+        "contract_validation": "json_schema_and_source_semantics",
+        "limitations": [
+          "Inputs must measure a comparable quantity in the same units on an exactly shared grid. No implicit registration, resampling or unit conversion.",
+          "After-minus-before differences and threshold bins do not establish event causation."
+        ],
+        "scientific_contract": {
+          "implementation_kind": "native_project",
+          "review_status": "pending_full_acceptance",
+          "formal_eligible": false
+        },
+        "environment": {
+          "python": "3.12",
+          "requirements_file": "catalog/source_delivery/scientific-imaging-requirements.txt",
+          "network_required": false
+        },
+        "source_materials": [
+          "geological_agent/scientific_imaging.py",
+          "catalog/source_delivery/SCIENTIFIC_IMAGING.md",
+          "tests_local/test_scientific_imaging.py"
+        ]
+      },
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "native_scientific_workspace",
+        "path_fields": [
+          "before_path",
+          "after_path"
+        ],
+        "function_name": "operate",
+        "implementation": "geological_agent.scientific_imaging:operate",
+        "validation": "pending_full_acceptance",
+        "input_encodings": [
+          "object"
+        ],
+        "path_semantics": "workspace_relative",
+        "entrypoint": {
+          "callable": "geological_agent.scientific_imaging:operate",
+          "argument_parameter": "args",
+          "bound_arguments": {
+            "name": "GeoRasterChangeAnalysis"
+          },
+          "workspace_parameter": "workspace"
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ToolFailure",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "retry_policy": "Correct invalid inputs, missing prerequisites or resource limits before retrying; never fabricate substitutes."
+      },
+      "limitations": [
+        "Inputs must measure a comparable quantity in the same units on an exactly shared grid. No implicit registration, resampling or unit conversion.",
+        "After-minus-before differences and threshold bins do not establish event causation."
+      ],
+      "tags": [
+        "scientific-imaging",
+        "geoscience",
+        "raster"
+      ],
+      "registration_metadata": {
+        "asset_version": "0.5.0",
+        "provider": null,
+        "license": null,
+        "official_protocol_version": null,
+        "pending_fields": [
+          "provider",
+          "license_for_project_entrypoint",
+          "official_protocol_version"
+        ],
+        "platform_validation": "not_run",
+        "registration_status": "not_packaged"
+      }
+    },
+    {
+      "id": "GeoMapColorExtract",
+      "name": "GeoMapColorExtract",
+      "version": "0.5.0",
+      "category": "ScientificImaging",
+      "description": "Extract candidate map regions by explicit legend colors inside a supplied ROI; create a mask, polygons and overlay. Color matching is not geological identification.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+          },
+          "output_dir": {
+            "type": "string",
+            "minLength": 1,
+            "description": "New task-relative output directory; must not already exist."
+          },
+          "roi": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "[left, top, right, bottom] in EXIF-oriented source pixels, right/bottom exclusive. Exclude legends and axes."
+          },
+          "classes": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 12,
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 100
+                },
+                "rgb": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 255
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Explicit [red, green, blue] sample in 8-bit sRGB."
+                },
+                "tolerance": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 120,
+                  "description": "Maximum Euclidean RGB distance in 8-bit sRGB; nearest eligible color wins; exact ties are excluded."
+                }
+              },
+              "required": [
+                "label",
+                "rgb",
+                "tolerance"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Explicit legend labels, sRGB samples and tolerances for candidate region extraction; these do not infer geological identity."
+          },
+          "minimum_pixels": {
+            "type": "integer",
+            "minimum": 1,
+            "default": 20,
+            "description": "Minimum 4-connected component size. Removed components are counted, never relabelled."
+          },
+          "reference_raster": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Optional georeferenced GeoTIFF aligned pixel-for-pixel with the oriented image. Otherwise vectors use image pixels, not geographic coordinates."
+          }
+        },
+        "required": [
+          "path",
+          "output_dir",
+          "roi",
+          "classes"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "analysis_type": {
+            "type": "string",
+            "description": "Analysis family identifying the scientific processing method, not a geological classification."
+          },
+          "manifest_path": {
+            "type": "string",
+            "description": "Task-relative analysis.geoanalysis.json containing input/output hashes, parameters, grid, layers, statistics and limitations."
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "media_type": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "media_type",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Actual generated files with task-relative paths, SHA-256 hashes, MIME types and scientific/display roles."
+          },
+          "statistics": {
+            "type": "object",
+            "description": "Actual computed statistics; null means unavailable, never zero."
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Scientific and data-quality limitations that must accompany interpretation; not evidence of successful independent scientific certification."
+          }
+        },
+        "required": [
+          "analysis_type",
+          "manifest_path",
+          "outputs",
+          "statistics",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "GeoMapColorExtract",
+          "description": "Extract candidate map regions by explicit legend colors inside a supplied ROI; create a mask, polygons and overlay. Color matching is not geological identification.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "output_dir": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New task-relative output directory; must not already exist."
+              },
+              "roi": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[left, top, right, bottom] in EXIF-oriented source pixels, right/bottom exclusive. Exclude legends and axes."
+              },
+              "classes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "rgb": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255
+                      },
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "description": "Explicit [red, green, blue] sample in 8-bit sRGB."
+                    },
+                    "tolerance": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 120,
+                      "description": "Maximum Euclidean RGB distance in 8-bit sRGB; nearest eligible color wins; exact ties are excluded."
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "rgb",
+                    "tolerance"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "Explicit legend labels, sRGB samples and tolerances for candidate region extraction; these do not infer geological identity."
+              },
+              "minimum_pixels": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 20,
+                "description": "Minimum 4-connected component size. Removed components are counted, never relabelled."
+              },
+              "reference_raster": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Optional georeferenced GeoTIFF aligned pixel-for-pixel with the oriented image. Otherwise vectors use image pixels, not geographic coordinates."
+              }
+            },
+            "required": [
+              "path",
+              "output_dir",
+              "roi",
+              "classes"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "GeoMapColorExtract",
+          "description": "Extract candidate map regions by explicit legend colors inside a supplied ROI; create a mask, polygons and overlay. Color matching is not geological identification.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "output_dir": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New task-relative output directory; must not already exist."
+              },
+              "roi": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[left, top, right, bottom] in EXIF-oriented source pixels, right/bottom exclusive. Exclude legends and axes."
+              },
+              "classes": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "minLength": 1,
+                      "maxLength": 100
+                    },
+                    "rgb": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "maximum": 255
+                      },
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "description": "Explicit [red, green, blue] sample in 8-bit sRGB."
+                    },
+                    "tolerance": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 120,
+                      "description": "Maximum Euclidean RGB distance in 8-bit sRGB; nearest eligible color wins; exact ties are excluded."
+                    }
+                  },
+                  "required": [
+                    "label",
+                    "rgb",
+                    "tolerance"
+                  ],
+                  "additionalProperties": false
+                },
+                "description": "Explicit legend labels, sRGB samples and tolerances for candidate region extraction; these do not infer geological identity."
+              },
+              "minimum_pixels": {
+                "type": "integer",
+                "minimum": 1,
+                "default": 20,
+                "description": "Minimum 4-connected component size. Removed components are counted, never relabelled."
+              },
+              "reference_raster": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Optional georeferenced GeoTIFF aligned pixel-for-pixel with the oriented image. Otherwise vectors use image pixels, not geographic coordinates."
+              }
+            },
+            "required": [
+              "path",
+              "output_dir",
+              "roi",
+              "classes"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "example_arguments": {
+        "path": "assets/full-examples/scientific-map.png",
+        "output_dir": "scientific-map",
+        "roi": [
+          0,
+          0,
+          30,
+          20
+        ],
+        "classes": [
+          {
+            "label": "Synthetic A",
+            "rgb": [
+              200,
+              20,
+              20
+            ],
+            "tolerance": 0
+          },
+          {
+            "label": "Synthetic B",
+            "rgb": [
+              20,
+              20,
+              200
+            ],
+            "tolerance": 0
+          }
+        ]
+      },
+      "constraints": {
+        "finite_numbers_only": true,
+        "no_implicit_crs_conversion": true,
+        "no_private_default_dataset": true,
+        "side_effects": "create_new_workspace_artifacts"
+      },
+      "metadata": {
+        "category": "ScientificImaging",
+        "category_role": "discovery_tag",
+        "input_format": "Dictionary conforming to input_schema, with task-relative paths. No positional text or serialized JSON string at the Python entrypoint.",
+        "output_format": "Object conforming to output_schema, with actual file references, hashes and scientific limitations.",
+        "contract_validation": "json_schema_and_source_semantics",
+        "limitations": [
+          "Explicit RGB segmentation produces candidate regions, not rock, age or fault identification.",
+          "Image vectors are pixel coordinates unless a genuinely aligned reference raster is supplied; equal dimensions alone do not prove alignment.",
+          "Legend/text/hatching can interrupt regions; ambiguous ties and small components are excluded and reported."
+        ],
+        "scientific_contract": {
+          "implementation_kind": "native_project",
+          "review_status": "pending_full_acceptance",
+          "formal_eligible": false
+        },
+        "environment": {
+          "python": "3.12",
+          "requirements_file": "catalog/source_delivery/scientific-imaging-requirements.txt",
+          "network_required": false
+        },
+        "source_materials": [
+          "geological_agent/scientific_imaging.py",
+          "catalog/source_delivery/SCIENTIFIC_IMAGING.md",
+          "tests_local/test_scientific_imaging.py"
+        ]
+      },
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "native_scientific_workspace",
+        "path_fields": [
+          "path",
+          "reference_raster"
+        ],
+        "function_name": "operate",
+        "implementation": "geological_agent.scientific_imaging:operate",
+        "validation": "pending_full_acceptance",
+        "input_encodings": [
+          "object"
+        ],
+        "path_semantics": "workspace_relative",
+        "entrypoint": {
+          "callable": "geological_agent.scientific_imaging:operate",
+          "argument_parameter": "args",
+          "bound_arguments": {
+            "name": "GeoMapColorExtract"
+          },
+          "workspace_parameter": "workspace"
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ToolFailure",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "retry_policy": "Correct invalid inputs, missing prerequisites or resource limits before retrying; never fabricate substitutes."
+      },
+      "limitations": [
+        "Explicit RGB segmentation produces candidate regions, not rock, age or fault identification.",
+        "Image vectors are pixel coordinates unless a genuinely aligned reference raster is supplied; equal dimensions alone do not prove alignment.",
+        "Legend/text/hatching can interrupt regions; ambiguous ties and small components are excluded and reported."
+      ],
+      "tags": [
+        "scientific-imaging",
+        "geoscience",
+        "digitization"
+      ],
+      "registration_metadata": {
+        "asset_version": "0.5.0",
+        "provider": null,
+        "license": null,
+        "official_protocol_version": null,
+        "pending_fields": [
+          "provider",
+          "license_for_project_entrypoint",
+          "official_protocol_version"
+        ],
+        "platform_validation": "not_run",
+        "registration_status": "not_packaged"
+      }
+    },
+    {
+      "id": "GeoPlotDigitize",
+      "name": "GeoPlotDigitize",
+      "version": "0.5.0",
+      "category": "ScientificImaging",
+      "description": "Digitize one explicitly selected colored curve using supplied linear/log axis calibration. Save CSV, pixel uncertainty, selected-point overlay and reconstructed plot; omit ambiguous columns.",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+          },
+          "output_dir": {
+            "type": "string",
+            "minLength": 1,
+            "description": "New task-relative output directory; must not already exist."
+          },
+          "roi": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "[left, top, right, bottom] in EXIF-oriented source pixels, right/bottom exclusive. Exclude legends and axes."
+          },
+          "rgb": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Explicit [red, green, blue] sample in 8-bit sRGB."
+          },
+          "tolerance": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 120,
+            "description": "Maximum Euclidean distance from the selected curve color in 8-bit sRGB; unrelated matching pixels must be excluded by the ROI."
+          },
+          "x_axis": {
+            "type": "object",
+            "properties": {
+              "pixel_start": {
+                "type": "number"
+              },
+              "value_start": {
+                "type": "number"
+              },
+              "pixel_end": {
+                "type": "number"
+              },
+              "value_end": {
+                "type": "number"
+              },
+              "scale": {
+                "type": "string",
+                "enum": [
+                  "linear",
+                  "log10"
+                ]
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            },
+            "required": [
+              "pixel_start",
+              "value_start",
+              "pixel_end",
+              "value_end",
+              "scale",
+              "unit"
+            ],
+            "additionalProperties": false,
+            "description": "Two known tick positions and values. X uses image column; Y uses image row increasing downward. Log values must be positive. Never guess unreadable ticks."
+          },
+          "y_axis": {
+            "type": "object",
+            "properties": {
+              "pixel_start": {
+                "type": "number"
+              },
+              "value_start": {
+                "type": "number"
+              },
+              "pixel_end": {
+                "type": "number"
+              },
+              "value_end": {
+                "type": "number"
+              },
+              "scale": {
+                "type": "string",
+                "enum": [
+                  "linear",
+                  "log10"
+                ]
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 64
+              }
+            },
+            "required": [
+              "pixel_start",
+              "value_start",
+              "pixel_end",
+              "value_end",
+              "scale",
+              "unit"
+            ],
+            "additionalProperties": false,
+            "description": "Two known tick positions and values. X uses image column; Y uses image row increasing downward. Log values must be positive. Never guess unreadable ticks."
+          },
+          "max_thickness": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 50,
+            "default": 8,
+            "description": "Maximum vertical pixel span per column. Thicker or disconnected matches are ambiguous and omitted; no interpolation."
+          }
+        },
+        "required": [
+          "path",
+          "output_dir",
+          "roi",
+          "rgb",
+          "tolerance",
+          "x_axis",
+          "y_axis"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "analysis_type": {
+            "type": "string",
+            "description": "Analysis family identifying the scientific processing method, not a geological classification."
+          },
+          "manifest_path": {
+            "type": "string",
+            "description": "Task-relative analysis.geoanalysis.json containing input/output hashes, parameters, grid, layers, statistics and limitations."
+          },
+          "outputs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string"
+                },
+                "sha256": {
+                  "type": "string"
+                },
+                "media_type": {
+                  "type": "string"
+                },
+                "role": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "media_type",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Actual generated files with task-relative paths, SHA-256 hashes, MIME types and scientific/display roles."
+          },
+          "statistics": {
+            "type": "object",
+            "description": "Actual computed statistics; null means unavailable, never zero."
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Scientific and data-quality limitations that must accompany interpretation; not evidence of successful independent scientific certification."
+          }
+        },
+        "required": [
+          "analysis_type",
+          "manifest_path",
+          "outputs",
+          "statistics",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "GeoPlotDigitize",
+          "description": "Digitize one explicitly selected colored curve using supplied linear/log axis calibration. Save CSV, pixel uncertainty, selected-point overlay and reconstructed plot; omit ambiguous columns.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "output_dir": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New task-relative output directory; must not already exist."
+              },
+              "roi": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[left, top, right, bottom] in EXIF-oriented source pixels, right/bottom exclusive. Exclude legends and axes."
+              },
+              "rgb": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Explicit [red, green, blue] sample in 8-bit sRGB."
+              },
+              "tolerance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 120,
+                "description": "Maximum Euclidean distance from the selected curve color in 8-bit sRGB; unrelated matching pixels must be excluded by the ROI."
+              },
+              "x_axis": {
+                "type": "object",
+                "properties": {
+                  "pixel_start": {
+                    "type": "number"
+                  },
+                  "value_start": {
+                    "type": "number"
+                  },
+                  "pixel_end": {
+                    "type": "number"
+                  },
+                  "value_end": {
+                    "type": "number"
+                  },
+                  "scale": {
+                    "type": "string",
+                    "enum": [
+                      "linear",
+                      "log10"
+                    ]
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  }
+                },
+                "required": [
+                  "pixel_start",
+                  "value_start",
+                  "pixel_end",
+                  "value_end",
+                  "scale",
+                  "unit"
+                ],
+                "additionalProperties": false,
+                "description": "Two known tick positions and values. X uses image column; Y uses image row increasing downward. Log values must be positive. Never guess unreadable ticks."
+              },
+              "y_axis": {
+                "type": "object",
+                "properties": {
+                  "pixel_start": {
+                    "type": "number"
+                  },
+                  "value_start": {
+                    "type": "number"
+                  },
+                  "pixel_end": {
+                    "type": "number"
+                  },
+                  "value_end": {
+                    "type": "number"
+                  },
+                  "scale": {
+                    "type": "string",
+                    "enum": [
+                      "linear",
+                      "log10"
+                    ]
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  }
+                },
+                "required": [
+                  "pixel_start",
+                  "value_start",
+                  "pixel_end",
+                  "value_end",
+                  "scale",
+                  "unit"
+                ],
+                "additionalProperties": false,
+                "description": "Two known tick positions and values. X uses image column; Y uses image row increasing downward. Log values must be positive. Never guess unreadable ticks."
+              },
+              "max_thickness": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 8,
+                "description": "Maximum vertical pixel span per column. Thicker or disconnected matches are ambiguous and omitted; no interpolation."
+              }
+            },
+            "required": [
+              "path",
+              "output_dir",
+              "roi",
+              "rgb",
+              "tolerance",
+              "x_axis",
+              "y_axis"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "GeoPlotDigitize",
+          "description": "Digitize one explicitly selected colored curve using supplied linear/log axis calibration. Save CSV, pixel uncertainty, selected-point overlay and reconstructed plot; omit ambiguous columns.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Existing task-relative file, not a URL. Source files stay unchanged."
+              },
+              "output_dir": {
+                "type": "string",
+                "minLength": 1,
+                "description": "New task-relative output directory; must not already exist."
+              },
+              "roi": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "minItems": 4,
+                "maxItems": 4,
+                "description": "[left, top, right, bottom] in EXIF-oriented source pixels, right/bottom exclusive. Exclude legends and axes."
+              },
+              "rgb": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Explicit [red, green, blue] sample in 8-bit sRGB."
+              },
+              "tolerance": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 120,
+                "description": "Maximum Euclidean distance from the selected curve color in 8-bit sRGB; unrelated matching pixels must be excluded by the ROI."
+              },
+              "x_axis": {
+                "type": "object",
+                "properties": {
+                  "pixel_start": {
+                    "type": "number"
+                  },
+                  "value_start": {
+                    "type": "number"
+                  },
+                  "pixel_end": {
+                    "type": "number"
+                  },
+                  "value_end": {
+                    "type": "number"
+                  },
+                  "scale": {
+                    "type": "string",
+                    "enum": [
+                      "linear",
+                      "log10"
+                    ]
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  }
+                },
+                "required": [
+                  "pixel_start",
+                  "value_start",
+                  "pixel_end",
+                  "value_end",
+                  "scale",
+                  "unit"
+                ],
+                "additionalProperties": false,
+                "description": "Two known tick positions and values. X uses image column; Y uses image row increasing downward. Log values must be positive. Never guess unreadable ticks."
+              },
+              "y_axis": {
+                "type": "object",
+                "properties": {
+                  "pixel_start": {
+                    "type": "number"
+                  },
+                  "value_start": {
+                    "type": "number"
+                  },
+                  "pixel_end": {
+                    "type": "number"
+                  },
+                  "value_end": {
+                    "type": "number"
+                  },
+                  "scale": {
+                    "type": "string",
+                    "enum": [
+                      "linear",
+                      "log10"
+                    ]
+                  },
+                  "unit": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 64
+                  }
+                },
+                "required": [
+                  "pixel_start",
+                  "value_start",
+                  "pixel_end",
+                  "value_end",
+                  "scale",
+                  "unit"
+                ],
+                "additionalProperties": false,
+                "description": "Two known tick positions and values. X uses image column; Y uses image row increasing downward. Log values must be positive. Never guess unreadable ticks."
+              },
+              "max_thickness": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 50,
+                "default": 8,
+                "description": "Maximum vertical pixel span per column. Thicker or disconnected matches are ambiguous and omitted; no interpolation."
+              }
+            },
+            "required": [
+              "path",
+              "output_dir",
+              "roi",
+              "rgb",
+              "tolerance",
+              "x_axis",
+              "y_axis"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "example_arguments": {
+        "path": "assets/full-examples/scientific-curve.png",
+        "output_dir": "scientific-curve",
+        "roi": [
+          5,
+          5,
+          45,
+          45
+        ],
+        "rgb": [
+          0,
+          80,
+          180
+        ],
+        "tolerance": 0,
+        "x_axis": {
+          "pixel_start": 5,
+          "pixel_end": 44,
+          "value_start": 0,
+          "value_end": 39,
+          "scale": "linear",
+          "unit": "s"
+        },
+        "y_axis": {
+          "pixel_start": 44,
+          "pixel_end": 5,
+          "value_start": 0,
+          "value_end": 39,
+          "scale": "linear",
+          "unit": "m"
+        }
+      },
+      "constraints": {
+        "finite_numbers_only": true,
+        "no_implicit_crs_conversion": true,
+        "no_private_default_dataset": true,
+        "side_effects": "create_new_workspace_artifacts"
+      },
+      "metadata": {
+        "category": "ScientificImaging",
+        "category_role": "discovery_tag",
+        "input_format": "Dictionary conforming to input_schema, with task-relative paths. No positional text or serialized JSON string at the Python entrypoint.",
+        "output_format": "Object conforming to output_schema, with actual file references, hashes and scientific limitations.",
+        "contract_validation": "json_schema_and_source_semantics",
+        "limitations": [
+          "Requires explicit curve color, plot ROI and readable axis calibration with units.",
+          "Ambiguous or disconnected columns are omitted without interpolation.",
+          "Pixel span is not a statistical confidence interval; extracted values are approximations, not original measurements."
+        ],
+        "scientific_contract": {
+          "implementation_kind": "native_project",
+          "review_status": "pending_full_acceptance",
+          "formal_eligible": false
+        },
+        "environment": {
+          "python": "3.12",
+          "requirements_file": "catalog/source_delivery/scientific-imaging-requirements.txt",
+          "network_required": false
+        },
+        "source_materials": [
+          "geological_agent/scientific_imaging.py",
+          "catalog/source_delivery/SCIENTIFIC_IMAGING.md",
+          "tests_local/test_scientific_imaging.py"
+        ]
+      },
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "native_scientific_workspace",
+        "path_fields": [
+          "path"
+        ],
+        "function_name": "operate",
+        "implementation": "geological_agent.scientific_imaging:operate",
+        "validation": "pending_full_acceptance",
+        "input_encodings": [
+          "object"
+        ],
+        "path_semantics": "workspace_relative",
+        "entrypoint": {
+          "callable": "geological_agent.scientific_imaging:operate",
+          "argument_parameter": "args",
+          "bound_arguments": {
+            "name": "GeoPlotDigitize"
+          },
+          "workspace_parameter": "workspace"
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ToolFailure",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "retry_policy": "Correct invalid inputs, missing prerequisites or resource limits before retrying; never fabricate substitutes."
+      },
+      "limitations": [
+        "Requires explicit curve color, plot ROI and readable axis calibration with units.",
+        "Ambiguous or disconnected columns are omitted without interpolation.",
+        "Pixel span is not a statistical confidence interval; extracted values are approximations, not original measurements."
+      ],
+      "tags": [
+        "scientific-imaging",
+        "geoscience",
+        "digitization"
+      ],
+      "registration_metadata": {
+        "asset_version": "0.5.0",
+        "provider": null,
+        "license": null,
+        "official_protocol_version": null,
+        "pending_fields": [
+          "provider",
+          "license_for_project_entrypoint",
+          "official_protocol_version"
+        ],
+        "platform_validation": "not_run",
+        "registration_status": "not_packaged"
       }
     }
   ],

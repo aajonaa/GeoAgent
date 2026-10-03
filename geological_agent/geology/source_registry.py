@@ -37,7 +37,10 @@ REFERENCE_DATA_INPUTS = {
 }
 
 EXISTING_SKILLS = {"earthquake-energy-estimation": "earthquake_energy",
-                   "geodesic-coordinate-analysis": "geodesic_coordinate_analysis"}
+                   "geodesic-coordinate-analysis": "geodesic_coordinate_analysis",
+                   "scientific-raster-analysis": "scientific_raster_analysis",
+                   "map-color-digitization": "map_color_digitization",
+                   "plot-curve-digitization": "plot_curve_digitization"}
 
 
 def source_tools():
@@ -153,6 +156,24 @@ def register(registry):
         name = native_name(spec)
         if not re.fullmatch(r"[A-Za-z0-9_-]{1,64}", name):
             raise ValueError("Invalid native function name: " + name)
+        if spec["source_interface"].get("kind") == "native_scientific_workspace":
+            # Already installed by the canonical module. Verify its contract;
+            # do not wrap it, remap its arguments, or register a second handler.
+            from ..scientific_imaging import SCHEMAS
+            entry = spec["source_interface"]["entrypoint"]
+            if (name not in SCHEMAS or entry != {
+                    "callable": "geological_agent.scientific_imaging:operate",
+                    "argument_parameter": "args", "bound_arguments": {"name": name},
+                    "workspace_parameter": "workspace"}):
+                raise ValueError("Unreviewed native scientific entrypoint: " + name)
+            tool = registry.get(name)
+            if (tool.definition.input_schema != spec["input_schema"] or
+                    tool.definition.result_schema != spec["output_schema"] or
+                    tool.definition.description != spec["description"] or
+                    tool.input_paths != tuple(spec["source_interface"]["path_fields"])):
+                raise ValueError("Native scientific asset contract drift: " + name)
+            registered[source_id] = name
+            continue
         usage = "Use for the stated scientific operation, with the declared inputs and units."
         if spec["source_interface"].get("path_fields"):
             usage += " Input paths must be task-relative; generated files are returned as artifacts."

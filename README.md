@@ -66,6 +66,40 @@ synthetic and are not geological observations.
 
 ## Tests
 
+## Scientific image analysis
+
+Four additional source-native tools extend the image workflow beyond display
+transforms: `GeoRasterIndexAnalysis`, `GeoRasterChangeAnalysis`,
+`GeoMapColorExtract`, and `GeoPlotDigitize`. Their schemas and deterministic
+implementations live together in `geological_agent/scientific_imaging.py`.
+They can also be called directly with `operate(name, arguments, workspace=path)`.
+Three discoverable skills document their scientific assumptions and limitations.
+
+Each operation writes a new directory containing scientific data, aligned PNG
+layers, statistics and a hashed `analysis.geoanalysis.json`. The authenticated
+viewer binds that manifest to the actual tool receipt and immutable run snapshot.
+It supports layer selection, opacity, swipe comparison, zoom and exact raster
+pixel inspection. Display PNG colors are never used to recover scientific values.
+
+The spectral index tools require actual spectral bands and documented radiometric
+calibration. RGB photographs cannot substitute for NIR. Map color extraction is
+explicitly candidate segmentation, not automatic rock/fault identification.
+Curve digitization requires real axis calibration and does not interpolate gaps.
+
+Acquire the real-data demonstration on the analysis host:
+
+```bash
+python scripts/scientific_image_demo.py /path/to/new-sentinel-demo
+```
+
+This fetches a documented 512x512 Sentinel-2 COG subset near Beijing, preserves
+scale/offset and stores source metadata/hashes. The SCL quality mask is explicitly
+resampled with nearest neighbour. Upload the resulting GeoTIFFs and sources.json
+to a new conversation and use demo-prompt.txt. Do not present synthetic test
+fixtures as observed remote sensing data.
+
+## Tests
+
 ```bash
 python -m pytest tests_local/test_image_workflow.py tests_local/test_scientific_source_tools.py tests_local/test_team.py -q
 node --check geological_agent/team/web/app.js

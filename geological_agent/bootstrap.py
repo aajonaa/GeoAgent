@@ -19,6 +19,8 @@ def build_registry(*, human_input=False):
     register_file_tools(registry)
     from .imaging import register_image_tools
     register_image_tools(registry)
+    from .scientific_imaging import register_scientific_image_tools
+    register_scientific_image_tools(registry)
     professional = register_professional(registry)
     skills = load_source_skills(SkillLoader.from_directory(Path(__file__).parent / "geology" / "skills"), professional)
     for summary in skills.registry.list():

@@ -73,3 +73,15 @@ https://github.com/mmhs013/pyMannKendall
 Install dependencies from requirements-source-tools.txt.
 Formal packaging and institutional registration are deferred.
 
+## Source interface and delivery
+
+Use the native parameter dictionaries and source entrypoints in catalog/registry.json. The five referenced operations now have source-interface candidates, including RemoteSensingMannKendallTest. Choose only operations required by the task and retain the statistical limitations documented above.
+
+### Current availability
+
+Availability: tool_candidates_available_workflow_unverified.
+The referenced tools have callable source-interface candidates. This is not
+complete skill-workflow validation, scientific certification or receiving-platform
+acceptance. Workflow and platform validation remain not_run. Institutional
+provider, asset version, licensing confirmation and official protocol version
+remain pending; no formal delivery package has been issued.

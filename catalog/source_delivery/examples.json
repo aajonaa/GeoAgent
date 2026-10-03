@@ -462,5 +462,84 @@
     "method": "original",
     "value_unit": "ppm",
     "time_unit": "year"
+  },
+  "GeoRasterIndexAnalysis": {
+    "path": "assets/full-examples/scientific-bands.tif",
+    "output_dir": "scientific-index",
+    "index": "NDVI",
+    "bands": {
+      "red": 1,
+      "nir": 2
+    },
+    "calibration_source": "Explicit synthetic reflectance fixture; not real research data"
+  },
+  "GeoRasterChangeAnalysis": {
+    "before_path": "assets/full-examples/projected.tif",
+    "after_path": "assets/full-examples/scientific-after.tif",
+    "output_dir": "scientific-change",
+    "threshold": 0.5,
+    "value_unit": "dimensionless"
+  },
+  "GeoMapColorExtract": {
+    "path": "assets/full-examples/scientific-map.png",
+    "output_dir": "scientific-map",
+    "roi": [
+      0,
+      0,
+      30,
+      20
+    ],
+    "classes": [
+      {
+        "label": "Synthetic A",
+        "rgb": [
+          200,
+          20,
+          20
+        ],
+        "tolerance": 0
+      },
+      {
+        "label": "Synthetic B",
+        "rgb": [
+          20,
+          20,
+          200
+        ],
+        "tolerance": 0
+      }
+    ]
+  },
+  "GeoPlotDigitize": {
+    "path": "assets/full-examples/scientific-curve.png",
+    "output_dir": "scientific-curve",
+    "roi": [
+      5,
+      5,
+      45,
+      45
+    ],
+    "rgb": [
+      0,
+      80,
+      180
+    ],
+    "tolerance": 0,
+    "x_axis": {
+      "pixel_start": 5,
+      "pixel_end": 44,
+      "value_start": 0,
+      "value_end": 39,
+      "scale": "linear",
+      "unit": "s"
+    },
+    "y_axis": {
+      "pixel_start": 44,
+      "pixel_end": 5,
+      "value_start": 0,
+      "value_end": 39,
+      "scale": "linear",
+      "unit": "m"
+    }
   }
 }

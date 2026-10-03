@@ -12,6 +12,7 @@ from ..llm import ModelProtocolError, missing_native_tool_message, native_respon
 from ..tools import ToolExecutionContext, ToolExecutor
 from ..tracing import NullTrace
 from .context import ContextManager
+from .skill_scope import fit_skill_scope
 from .resource_policy import resource_request, source_tools_available, missing_reference_paths, source_attempted, repair_guidance
 from ..tool_evidence import EvidenceLedger, identity, reference_gaps, reference_gap_message
 from .compaction import ContextOverflow, fit_request, request_size
@@ -310,23 +311,14 @@ class AgentRuntime:
                             return ask_human(state, {"question": question, "reason": "Missing task objective",
                                                      "missing": ["task objective"], "options": []})
                         return publish({**state, "answer": question}, "needs_input", "Missing task objective")
-                    selected_ids = list(state["selected_skill_ids"])
-                    exposed_names = list(state["exposed_tool_names"])
-                    for sid in dict.fromkeys(decision.get("skill_ids", [])):
-                        skill = self.skills.load(sid)
-                        if sid not in selected_ids:
-                            selected_ids.append(sid)
-                        for name in skill.tool_names:
-                            self.tools.get(name)
-                            if name not in exposed_names:
-                                exposed_names.append(name)
-                        # Runtime disclosure, not a fabricated model tool call or execution evidence.
-                        trace.emit("skill_loaded", run_id=run_id, skill_id=sid,
-                                   exposed_tools=list(exposed_names), source="intent_selection")
-                        activity("skill_loaded", skill_id=sid, source="intent_selection")
-                    state = {**state, "selected_skill_ids": selected_ids, "exposed_tool_names": exposed_names,
+                    candidates = list(dict.fromkeys(decision.get("skill_ids", [])))
+                    # This is a relevance proposal, not authorization to expose
+                    # every schema. Admission uses the final execution request.
+                    state = {**state, "selected_skill_ids": list(dict.fromkeys(
+                                [*state["selected_skill_ids"], *candidates])),
                              "metadata": {**metadata, "objective_checked": True,
-                                          "intent_selected_skill_ids": list(dict.fromkeys(decision.get("skill_ids", [])))}}
+                                          "intent_selected_skill_ids": candidates,
+                                          "skill_scope_source": "intent_selection"}}
                     record(state, state)
                 except ModelProtocolError as exc:
                     if intent_requested and not intent_responded:
@@ -350,17 +342,36 @@ class AgentRuntime:
             response = None
             try:
                 answer_only = tool_choice == "none" and self.settings.verify_completion
-                request = final_answer_request(state, self.context, self.settings, defer_compaction=True) if answer_only else replace(self.context.build(state, defer_compaction=True), tool_choice=tool_choice)
-                if tool_choice == "none" and not answer_only:
-                    request = replace(request, tools=())
-                if metadata.get("requirement_coverage"):
-                    request = enrich_request(request, state, self.settings, defer_compaction=True)
-                if pending_execution and tool_choice != "none":
-                    request = replace(request, messages=(*request.messages, Message(
-                        "user", "Unfulfilled execution requirement: " +
-                        "\n".join(issue.message for issue in pending_execution))))
+                def assemble(current):
+                    built = (final_answer_request(current, self.context, self.settings, defer_compaction=True)
+                             if answer_only else replace(self.context.build(current, defer_compaction=True), tool_choice=tool_choice))
+                    if tool_choice == "none" and not answer_only:
+                        built = replace(built, tools=())
+                    if current["metadata"].get("requirement_coverage"):
+                        built = enrich_request(built, current, self.settings, defer_compaction=True)
+                    if pending_execution and tool_choice != "none":
+                        built = replace(built, messages=(*built.messages, Message(
+                            "user", "Unfulfilled execution requirement: " +
+                            "\n".join(issue.message for issue in pending_execution))))
+                    if not answer_only and tool_choice != "none":
+                        return resource_request(built, self.tools, execution.workspace)
+                    return built, None
+
+                state = {**state, "metadata": metadata}
                 if not answer_only and tool_choice != "none":
-                    request, availability = resource_request(request, self.tools, execution.workspace)
+                    state, scope = fit_skill_scope(state, build_request=lambda current: assemble(current)[0],
+                        base_tool_names=self.base_tools, skills=self.skills, settings=self.settings,
+                        archive=self.context_store)
+                    metadata = dict(state["metadata"])
+                    if scope is not None:
+                        trace.emit("skill_scope_updated", run_id=run_id, **scope)
+                        activity("skill_scope_updated", **scope)
+                        for sid in scope["activated_skill_ids"]:
+                            trace.emit("skill_loaded", run_id=run_id, skill_id=sid,
+                                       exposed_tools=scope["exposed_tool_names"], source=scope["source"])
+                            activity("skill_loaded", skill_id=sid, source=scope["source"])
+                request, availability = assemble(state)
+                if not answer_only and tool_choice != "none":
                     if availability != metadata.get("resource_availability"):
                         trace.emit("resource_availability", run_id=run_id, availability=availability)
                     metadata["resource_availability"] = availability
@@ -575,7 +586,8 @@ class AgentRuntime:
                         self.tools.get(name)
                         if name not in exposed:
                             exposed.append(name)
-                    trace.emit("skill_loaded", run_id=run_id, skill_id=sid, exposed_tools=exposed)
+                    metadata["skill_scope_focus"] = list(dict.fromkeys([
+                        *metadata.get("skill_scope_focus", []), sid]))
             source_tools = source_tools_available(exposed)
             if missing_resources and source_tools and not cancel.is_set():
                 feedback = repair_guidance(sorted(missing_resources), source_tools)

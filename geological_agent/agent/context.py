@@ -105,6 +105,17 @@ class ContextManager:
             skill = self.skills.load(sid)
             instructions += "\nLoaded skill: " + sid + " (already available; no skill_load needed)\n" + skill.instructions
             instructions += "\nConstraints: " + "; ".join(skill.constraints)
+        deferred = state.get("metadata", {}).get("deferred_skill_ids", [])
+        if deferred:
+            instructions += (
+                "\nSkill disclosure deferred by the actual context budget: " +
+                json.dumps(deferred, ensure_ascii=False) +
+                ". These skills are still in the registry, NOT unavailable. "
+                "Their schemas are NOT authorized in this request. Use skill_load for the "
+                "specific next operation when it is needed; it will prioritize that scope. "
+                "A prior successful skill_load is discovery, not proof that its tools ran. "
+                "Previously observed tool results stay valid; do not repeat successful work "
+                "merely because its schema is no longer active.\n")
         from .delivery_contract import line_count_requirement
         line_count = line_count_requirement(state)
         if line_count is not None:
