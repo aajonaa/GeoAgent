@@ -1,0 +1,11 @@
+/* Named API connections, within the existing research-group design. */
+.model-profile-picker{margin:20px 0;padding:16px;border:1px solid #d3dfcf;border-radius:14px;background:linear-gradient(120deg,#eef3e9,#fafbf7)}
+.model-profile-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:9px}
+.model-profile-heading label{margin:0;font-weight:600}
+#model-profile-count{font-size:12px;color:#69776b;white-space:nowrap}
+.model-profile-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px;align-items:center}
+#model-profile-select{width:100%;min-width:0;margin:0;text-overflow:ellipsis}
+#model-new{margin:0;white-space:nowrap}
+#model-active-label{margin:10px 0 0;font-size:12px;line-height:1.6;color:#426552;overflow-wrap:anywhere}
+#model-profile-name{width:100%}
+@media(max-width:480px){.model-profile-picker{padding:12px}.model-profile-row{grid-template-columns:1fr}#model-new{justify-self:start;padding:8px 12px}.model-profile-heading{align-items:flex-start;flex-wrap:wrap}}

@@ -1,0 +1,2 @@
+"""Natural-hazard tool category."""
+

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>GeoToolAgent | Native LangGraph</title><link rel="stylesheet" href="/style.css"><script src="/vendor/katex.min.js" defer></script><script src="/vendor/auto-render.min.js" defer></script><script src="/app.js" defer></script></head>
+<body><div class="app"><aside>
+<div class="brand"><span class="mark">G</span><div>GeoToolAgent<small>NATIVE LANGGRAPH</small></div></div>
+<button id="new" class="primary">New workspace +</button>
+<div class="section">Your files <button id="refresh" class="text-button">Refresh</button></div>
+<div id="files">No files yet.</div>
+<label class="upload">Add a file<input id="upload" type="file"></label>
+<button id="example" class="secondary">Load repair example</button>
+<div class="boundary"><strong>A small, real workspace.</strong><p>The latest verified agent core. Private SSH access. Python execution is trusted local execution, not a security sandbox.</p><button id="about-open" class="text-button">About this version</button></div>
+</aside><main>
+<header><div><span class="eyebrow">LATEST / NATIVE TOOLS / VERIFIED OUTPUTS</span><h1>From question to working files.</h1><small id="release"></small></div><span id="status">Ready</span></header>
+<section id="conversation" aria-live="polite"><div id="welcome"><span class="eyebrow">A WORKSPACE, NOT A TOOL CATALOG</span><h2>Give it something<br>to work on.</h2><p>Upload a dataset or load the repair example. The agent can inspect it, write a program, run it, fix errors, and deliver the resulting files.</p><button id="try" class="example-card"><strong>Try the repair workflow</strong><span>Repair calc.py and actually verify the saved function with two numerical cases.</span></button></div></section>
+<div id="notice" class="hidden" role="status"></div>
+<footer><form id="composer"><label class="sr-only" for="prompt">Your task</label><textarea id="prompt" rows="3" maxlength="8000" placeholder="Describe the task and the files you want back..."></textarea><div class="composer-bottom"><span>Enter to send · Shift+Enter for a new line</span><div><button id="resume" type="button" class="secondary hidden">Resume</button><button id="stop" type="button" class="secondary hidden">Stop</button><button id="send" class="primary" type="submit">Start task</button></div></div></form><p class="footnote">Native LangGraph · Live progress · Answers published after review</p></footer>
+</main></div>
+<dialog id="login"><form id="login-form"><span class="eyebrow">PRIVATE WORKSPACE</span><h2>Connect to your agent.</h2><p>Use your existing workspace access key. This is separate from your SSH credentials.</p><label for="key">Workspace access key</label><input id="key" type="password" autocomplete="off" required><p id="login-error"></p><button class="primary">Connect</button></form></dialog>
+<dialog id="about"><h2>The latest native agent</h2><p>This page directly runs the same LangGraph core verified through the CLI. It uses native model tool calls, execution records and completion checks. No legacy agent runs behind this page.</p><p>For a trusted single operator through SSH only. Python execution is NOT a security sandbox. Do not share access with untrusted users.</p><p>Files and event history persist. Each submitted task starts a fresh core run in this workspace; previous model state is not resumed. Progress arrives over SSE; final answers are published after review, not token by token.</p><button id="about-close" class="primary">Close</button></dialog>
+</body></html>

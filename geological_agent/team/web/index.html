@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>GeoAgent · 研究组</title>
+  <link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/library.css?v=20261003-nav-icons2"><link rel="stylesheet" href="/assets/model-profiles.css"><link rel="stylesheet" href="/assets/knowledge.css">
+  <link rel="stylesheet" href="/assets/images.css?v=20261003-images1">
+  <script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261003-images1" defer></script><script src="/assets/images.js?v=20261003-images1" defer></script>
+</head>
+<body>
+<div id="auth-screen" class="auth-screen">
+  <section class="intro"><div class="brand-mark">G</div><p class="eyebrow">GEOSCIENCE / RESEARCH GROUP</p><h1>从一个问题，<br>到有据可查的结果。</h1><p class="intro-copy">与 GeoGPT 一起分析、计算和整理研究材料。<br>你的对话、你的文件、独立运行的任务环境。</p><div class="contours" aria-hidden="true"></div></section>
+  <section class="auth-panel"><p class="eyebrow">GEOTOOLAGENT</p><h2 id="auth-title">登录研究组</h2><p id="auth-hint" class="muted">使用你的个人账号。新成员请向管理员索取邀请链接。</p>
+    <form id="auth-form"><label>用户名<input id="username" name="username" autocomplete="username" required minlength="3" maxlength="40"></label><label>密码<input id="password" name="password" type="password" autocomplete="current-password" required minlength="12" maxlength="256"></label><button id="auth-submit" class="primary" type="submit">登录</button></form>
+    <p id="auth-error" role="alert" class="error"></p><p class="privacy-note">研究组测试版。执行记录可能发送至研究组的 LangSmith 审计项目，凭证会遮蔽。请勿提交未获授权的敏感材料。</p>
+  </section>
+</div>
+<div id="app" class="shell" hidden>
+  <aside id="sidebar" class="sidebar"><a class="brand" href="/"><span class="brand-mark small">G</span><span>GeoAgent<small>研究组 · 私有对话</small></span></a><button id="new-chat" class="new-chat">＋ 新对话</button><button id="library-open" class="library-nav" type="button" aria-pressed="false"><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1M3 12h18M8 10.5v3M16 10.5v3"/></svg>技能与工具</button><button id="knowledge-open" class="library-nav" type="button"><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6.5C9.7 4.8 6.8 4.2 3 5v14c3.8-.8 6.7-.2 9 1.5 2.3-1.7 5.2-2.3 9-1.5V5c-3.8-.8-6.7-.2-9 1.5Z"/><path d="M12 6.5v14"/></svg>知识资料</button><p class="section-label">最近对话</p><nav id="conversation-list" aria-label="对话历史"></nav><div class="account"><strong id="account-name"></strong><span id="account-role"></span><button id="invite-button" hidden>邀请成员</button><button id="password-button">修改密码</button><button id="logout">退出登录</button></div></aside>
+  <main class="main"><header class="topbar"><button id="menu-button" class="quiet mobile-only" aria-label="打开导航菜单">☰</button><div><p class="eyebrow">GEOSCIENCE ASSISTANT</p><span id="chat-title">新的研究问题</span></div><div class="top-actions"><button id="model-settings-button" class="quiet model-selector" aria-label="模型配置">模型：GeoGPT</button><span id="connection" class="badge">已连接</span><button id="files-toggle" class="quiet">文件 <span id="file-count">0</span></button></div></header>
+    <section id="library-view" class="library-view" aria-labelledby="library-title" hidden>
+      <div class="library-topline"><span class="eyebrow">RESEARCH LIBRARY</span><button id="library-back" class="quiet" type="button">返回对话</button></div>
+      <header class="library-hero"><div><p class="library-kicker">技能与工具库</p><h1 id="library-title">找到方法，<br>开始你的研究。</h1><p class="library-intro">从专业方法到具体计算，查看输入、输出与适用边界。<br>与 Agent 共用一份注册表，不是另一个工具清单。</p></div><div id="library-stats" class="library-stats" aria-label="目录概览"></div></header>
+      <div class="library-toolbar"><div class="library-tabs" role="tablist" aria-label="目录类型"><button id="library-skills-tab" type="button" role="tab" aria-selected="true" aria-controls="library-results" data-library-kind="skills">Skills <span id="library-skills-count"></span></button><button id="library-tools-tab" type="button" role="tab" aria-selected="false" aria-controls="library-results" data-library-kind="tools" tabindex="-1">Tools <span id="library-tools-count"></span></button></div><label class="library-search"><span class="visually-hidden">搜索技能与工具</span><input id="library-search" type="search" placeholder="搜索名称、用途、关键词…" autocomplete="off" maxlength="200"></label></div>
+      <div class="library-filters"><label>分类<select id="library-category"><option value="">全部分类</option></select></label><label>状态<select id="library-status"><option value="">全部状态</option><option value="registered">已接入</option><option value="partial">部分受阻</option><option value="blocked">未接入</option></select></label><span id="library-match-count" role="status" aria-live="polite"></span><button id="library-reset" type="button" class="quiet">重置筛选</button></div>
+      <div id="library-results" class="library-results" role="tabpanel" aria-labelledby="library-skills-tab" aria-busy="false"></div>
+      <footer class="library-footer"><p id="library-disclaimer"></p><span id="library-revision"></span></footer>
+    </section>
+    <section id="messages" class="messages" aria-live="polite"><div id="welcome" class="welcome"><span class="rule"></span><p class="eyebrow">ASK / INVESTIGATE / VERIFY</p><h1>今天想研究什么？</h1><p>提出问题或附上文件。计算过程可以展开查看，结果与文件会保留在这段对话中。</p><div class="suggestions"><button data-prompt="估算 6.5 级地震释放的能量，给出公式、焦耳值和 TNT 当量，并解释这是近似估算。">估算地震释放能量<span>计算与解释</span></button><button data-prompt="请用 Python 生成 5.0、6.0、7.0 三个震级的能量比较表，公式为 log10(E/J)=1.5M+4.8。保存为 earthquake_energy.csv，并简要总结相邻震级的能量比。">生成一个比较表<span>代码、计算与文件</span></button></div></div></section>
+    <div class="composer-wrap"><p id="notice" class="notice" role="status"></p><form id="composer"><textarea id="prompt" rows="3" placeholder="提出研究问题，或说明要如何处理文件…" aria-label="研究问题" maxlength="20000" required></textarea><div class="composer-bottom"><button id="attach" type="button" class="quiet">＋ 添加文件</button><span class="composer-help">Enter 发送 · Shift+Enter 换行</span><button id="stop" type="button" class="stop" hidden>停止任务</button><button id="send" type="submit" class="primary">发送</button></div></form><p id="execution-note" class="privacy-note"></p><p class="footer-note">进度实时更新 · 最终答复经检查后发布 · 文件在任务完成时保存</p></div>
+  </main>
+  <aside id="files-panel" class="files-panel" hidden><div class="panel-heading"><h2>对话文件</h2><button id="files-close" class="quiet" aria-label="关闭文件面板">×</button></div><p class="muted">网页按账号管理文件访问。下载保留原始内容；执行环境的隔离状态见输入框下方。</p><div id="files-list"></div><button id="upload-button" class="outline">添加文件</button><p class="privacy-note">单文件 8 MiB，每段对话 64 MiB。停止或失败前尚未提交的任务改动不会覆盖已保存文件。</p></aside>
+</div>
+<input id="upload" type="file" hidden>
+<dialog id="account-dialog"><form id="account-form"><h2 id="dialog-title"></h2><div id="dialog-body"></div><p id="dialog-error" class="error"></p><div class="dialog-actions"><button id="dialog-close" type="button" class="quiet">关闭</button><button id="dialog-submit" type="submit" class="primary">确认</button></div></form></dialog>
+<dialog id="model-dialog" aria-labelledby="model-dialog-title">
+  <form id="model-form" autocomplete="off">
+    <p class="eyebrow">MODEL CONNECTION</p><h2 id="model-dialog-title">选择你的模型</h2>
+    <p class="model-help">为不同供应商和模型分别保存连接，随时切换，无需反复输入 Token。正在运行的任务保持原模型；等待回复的任务仍需使用其原模型恢复。</p>
+    <section class="model-profile-picker" aria-label="已保存的模型连接"><div class="model-profile-heading"><label for="model-profile-select">你的连接</label><span id="model-profile-count"></span></div><div class="model-profile-row"><select id="model-profile-select"></select><button id="model-new" type="button" class="outline">新增配置</button></div><p id="model-active-label" role="status"></p></section>
+    <input id="model-source" type="hidden" value="builtin">
+    <p id="builtin-model-note" class="model-help"></p>
+    <fieldset id="custom-model-fields" hidden>
+      <label>配置名称<input id="model-profile-name" placeholder="例如：供应商 A · 日常模型" autocomplete="off" maxlength="96"></label>
+      <label>API Base URL<input id="model-base-url" type="url" placeholder="https://your-provider.example/v1" autocomplete="off" maxlength="2048"></label>
+      <label>Model ID<input id="model-id" placeholder="供应商提供的准确模型名称" autocomplete="off" maxlength="256"></label>
+      <label>API Token<input id="model-token" type="password" autocomplete="off" spellcheck="false" maxlength="4096" placeholder="留空表示不发送 Token"></label>
+      <label id="model-keep-wrap" class="model-check" hidden><input id="model-keep-token" type="checkbox">保留这份配置已保存的 Token（仅限同一 Endpoint）</label>
+      <label class="model-check"><input id="model-remember" type="checkbox" checked>记住配置：按账号加密保存，重启后自动恢复</label>
+      <p class="model-help">取消勾选时仅临时使用本次修改，不覆盖或删除任何已保存连接。</p>
+      <p class="model-help">支持 Chat Completions 与原生 tools。请求由 A100 发起，127.0.0.1 指 A100，不是你的电脑。自定义公网接口必须使用 HTTPS；其他内网地址需要管理员允许。</p>
+      <p class="model-warning">使用外部服务会将任务上下文与工具结果发送给该服务。请确认有权发送这些材料。记住配置时，Token 经加密后存入服务器，不回显、不写入浏览器存储或 LangSmith。当前仍为受信任研究组模式：同一服务账号下运行的代码没有系统级隔离。</p>
+    </fieldset>
+    <p id="model-storage-status" class="model-help" role="status"></p>
+    <p id="model-test-result" class="model-help" role="status"></p><p id="model-error" class="error" role="alert"></p>
+    <div class="dialog-actions model-actions"><button id="model-clear" type="button" class="quiet">删除这份配置</button><button id="model-test" type="button" class="outline">测试连接与工具调用</button><button id="model-close" type="button" class="quiet">取消</button><button id="model-save" type="submit" class="primary">保存并使用</button></div>
+    <p class="model-help">测试会向所选服务发送两次简短请求，可能产生费用，不会发送对话或执行真实工具。通过测试不代表所有 Agent 任务都能成功。</p>
+  </form>
+</dialog>
+<script src="/assets/hitl.js" defer></script>
+<dialog id="library-detail" class="library-drawer" aria-labelledby="library-detail-title">
+  <header class="library-drawer-top"><button id="library-detail-back" type="button" class="quiet" hidden>返回上一个条目</button><span class="eyebrow">ASSET DETAILS</span><button id="library-detail-close" type="button" class="quiet" aria-label="关闭条目详情">关闭</button></header>
+  <div id="library-detail-body" class="library-detail-body"></div>
+  <footer class="library-drawer-footer"><p id="library-use-note"></p><button id="library-use" type="button" class="primary">将示例填入对话</button></footer>
+</dialog>
+<script src="/assets/library.js?v=20261003-nav1" defer></script>
+<dialog id="knowledge-dialog" aria-labelledby="knowledge-heading">
+<header class="knowledge-heading"><div><p class="eyebrow">YOUR RESEARCH SOURCES</p><h2 id="knowledge-heading">让答案，有据可查。</h2><span id="knowledge-count" class="muted"></span></div><button id="knowledge-close" type="button" class="quiet">关闭</button></header>
+<div class="knowledge-layout"><section class="knowledge-column"><h3>你的知识资料</h3><p class="knowledge-note">资料按账号管理。新提问自动检索，命中片段会发给你选择的模型并记录到研究组 LangSmith。请仅上传有权使用和发送的资料。</p><div id="knowledge-documents"></div>
+<form id="knowledge-form"><label for="knowledge-file">导入 UTF-8 文本 / Markdown</label><input id="knowledge-file" type="file" accept=".txt,.md,.markdown"><label for="knowledge-title">资料标题</label><input id="knowledge-title" maxlength="160" required><label for="knowledge-source">来源或版本说明</label><input id="knowledge-source" maxlength="1000" placeholder="例如：实验记录 v1 · 合成验收数据"><label for="knowledge-text">正文</label><textarea id="knowledge-text" rows="7" maxlength="120000" required placeholder="粘贴需要检索的原始内容…"></textarea><div class="knowledge-actions"><button id="knowledge-save" type="submit" class="primary">保存并建立索引</button></div><p class="knowledge-note">首版支持文本与 Markdown；不解析 PDF、图片或扫描件。每账号最多 100 份资料，每份最多 120,000 字符。相同标题与内容不会重复建索引。</p></form></section>
+<section class="knowledge-column"><h3>看看能召回什么</h3><p class="knowledge-note">向量语义 + PostgreSQL 关键词召回，经多语言 cross-encoder 重排。这里只检查检索，不调用聊天模型。</p><form id="knowledge-search-form"><label for="knowledge-query">检索问题</label><input id="knowledge-query" required maxlength="24000" placeholder="用不同的说法，问问这份资料"><div class="knowledge-actions"><button id="knowledge-search" type="submit" class="outline">测试召回</button></div></form><div id="knowledge-results" aria-live="polite"></div></section></div><p id="knowledge-status" class="knowledge-status" role="status" aria-live="polite"></p></dialog>
+<script src="/assets/knowledge.js" defer></script>
+</body>
+</html>
