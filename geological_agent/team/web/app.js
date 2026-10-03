@@ -151,7 +151,7 @@ function renderRun(run) {
   elapsed.setAttribute('role', 'timer'); elapsed.setAttribute('aria-live', 'off');
   elapsed.title = 'Elapsed time for this run, including model, tool and review time. Waiting for a human reply is excluded.';
   turn.append(user, label, elapsed, activity, answer, reason); $('messages').append(turn);
-  const ui = {elapsed, elapsedBase:0, elapsedAnchor:performance.now(), elapsedKnown:runIsWorking(run.status), status:run.status, turn, activity, summary, list, answer, reason, tools:new Map(), finished:!['running','stopping'].includes(run.status)}; state.runs.set(run.id, ui); setRunElapsed(ui, run); window.GeoToolHITL?.attachCards(); return ui;
+  const ui = {elapsed, elapsedBase:0, elapsedAnchor:performance.now(), elapsedKnown:runIsWorking(run.status), status:run.status, turn, activity, summary, list, answer, reason, tools:new Map(), finished:!['running','stopping'].includes(run.status)}; state.runs.set(run.id, ui); setRunElapsed(ui, run); window.GeoToolHITL?.attachCards(); window.GeoAgentPresentation?.attach(run.id, ui); return ui;
 }
 const statusText = {'Model is working':'模型正在处理','Starting an isolated task environment':'正在启动独立任务环境','GeoGPT is working':'GeoGPT 正在处理','Preparing answer':'正在整理答复','Checking the result':'正在检查结果','Correcting the result':'正在修正结果','Correcting a model response':'正在修正模型响应','Retrying the completion check':'正在重新检查完成情况'};
 statusText['Running in the service account environment (OS isolation disabled)'] = '正在服务账号环境中运行（未启用系统沙箱）';
@@ -177,6 +177,7 @@ function handleEvent(rid, data) {
     setRunElapsed(ui, data); ui.finished = true; markdown(ui.answer, data.answer); ui.summary.textContent = `${data.status === 'completed' ? '已完成' : data.status === 'needs_input' ? '需要补充信息' : data.status === 'stopped' ? '已停止' : '未完成'} · ${ui.tools.size} 次工具调用${data.turns ? ` · ${data.turns} 次模型调用` : ''}`; ui.reason.textContent = data.reason || '';
     const source = state.sources.get(rid); if (source) source.close(); state.sources.delete(rid); if (state.busy === rid) busy(null); window.GeoToolHITL?.refresh(data.status === 'needs_input'); loadFiles().catch(e => notice(e.message)); loadConversations().catch(e => notice(e.message));
   }
+  window.GeoAgentPresentation?.event(rid, data);
   if (wasNearEnd) scrollEnd();
 }
 function subscribe(rid) {

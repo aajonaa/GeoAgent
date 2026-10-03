@@ -425,6 +425,11 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                 store.event(rid, {'kind': 'context_compacted', 'before_chars': fields['before_chars'],
                                  'after_chars': fields['after_chars'], 'phase': fields['phase'],
                                  'strategies': fields['strategies']})
+            elif kind == 'knowledge_completed':
+                # Preserve the retrieval receipt, not a model-written bibliography.
+                payload = clean.get('result', {})
+                store.event(rid, {'kind': 'knowledge_sources',
+                                 'references': payload.get('references', [])})
             elif kind in ('model_requested', 'completion_review_requested', 'completion_rejected', 'model_protocol_error', 'completion_review_protocol_error'):
                 labels = {'model_requested': 'Compacting context' if fields.get('phase') == 'context_compaction' else 'Preparing answer' if fields.get('phase') == 'final_answer' else 'Model is working',
                           'completion_review_requested': 'Checking the result', 'completion_rejected': 'Correcting the result',
@@ -584,7 +589,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
 
     @app.get('/assets/{name}')
     def asset(name: str):
-        if name not in ('app.js', 'style.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css'):
+        if name not in ('app.js', 'style.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js'):
             raise HTTPException(404)
         return FileResponse(assets / name)
 
@@ -600,6 +605,8 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     install_knowledge_routes(app, auth, body)
     from .images import install_image_routes
     install_image_routes(app, auth, store)
+    from .presentation import install_presentation_routes
+    install_presentation_routes(app, auth, store)
     return app
 
 

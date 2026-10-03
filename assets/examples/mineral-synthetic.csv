@@ -1,0 +1,6 @@
+dep_id,country,commod1,commod2,name
+101,Exampleland,Copper,Gold,SYNTHETIC-A
+102,Exampleland,"Copper, Gold",,SYNTHETIC-B
+103,Exampleland,Gold,Silver,SYNTHETIC-C
+104,Otherland,Nickel,Copper,SYNTHETIC-D
+105,Otherland,Copper,,SYNTHETIC-E

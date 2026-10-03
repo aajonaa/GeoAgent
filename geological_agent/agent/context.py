@@ -74,7 +74,11 @@ class ContextManager:
             instructions += ("\nOlder observations may be archived in PostgreSQL. Use context_read on an evidence ID, "
                              "or context_search when the ID is unknown; follow pagination rather than repeating a successful calculation. "
                              "Archive summaries and previews are navigation aids, NOT execution proof. "
-                             "Read the original evidence before using its exact values, and check source run and file version.\n")
+                             "Read the original evidence before using its exact values, and check source run and file version. "
+                             "Do not reread results still present in the current messages. A linked-native-exchange-v1 record "
+                             "may externalize a prior retrieval receipt: recalled_evidence identifies its source, and "
+                             "original_message identifies the exact receipt. Prefer the actual scientific tool result "
+                             "rather than recursively reading records of previous context_read calls.\n")
         if state.get("metadata", {}).get("optimize_round_trips"):
             index = json.dumps([{"id": s.id, "name": s.name} for s in self.skills.registry.list()
                                 if s.id not in state["selected_skill_ids"]], ensure_ascii=False)

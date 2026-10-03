@@ -48,7 +48,7 @@ def test_unmatched_search_is_empty_and_empty_query_lists_registry():
                 for s in catalog()["skills"] if any(
                     tools[name].get("source_interface", {}).get("status") == READY
                     for name in s.get("tool_references", []))}
-    expected.add("geological_table_analysis")
+    expected.update({"geological_table_analysis", "image_workflow"})
     assert {s.id for s in runtime.skills.registry.list()} == expected
     assert {"earthquake_energy", "geodesic_coordinate_analysis", "remote_sensing_trend_distribution",
             "natural_hazard_table_analytics"} <= expected

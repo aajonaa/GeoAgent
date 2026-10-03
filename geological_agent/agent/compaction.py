@@ -9,6 +9,7 @@ import hashlib
 import json
 
 from ..contracts import Message, strict_json
+from ..model_context import native_context
 
 
 class ContextOverflow(ValueError):
@@ -20,10 +21,11 @@ def dumps(value):
 
 
 def request_size(request):
-    # Retain the existing conservative character allowance, including schemas.
-    # This is not an assertion about a provider-specific tokenizer.
-    return (len(json.dumps([asdict(m) for m in request.messages], ensure_ascii=False)) +
-            len(json.dumps([asdict(t) for t in request.tools], ensure_ascii=False)))
+    # Count the same native messages/input schemas used by the HTTP client.
+    # Output validation schemas never reach the model. Counting them caused
+    # premature eviction of observations. This remains a character budget,
+    # not a claim about any provider's tokenizer or multimodal token usage.
+    return len(json.dumps(native_context(request), ensure_ascii=False, allow_nan=False))
 
 
 def fingerprint(value):
@@ -180,18 +182,21 @@ def _blocks(messages):
     return blocks
 
 
-def _history_view(request, state, summarize=None, target_chars=0, *, archive=None, index_budget=0):
+def _history_view(request, state, summarize=None, target_chars=0, *, archive=None, index_budget=0,
+                  retain_exchanges=1):
     blocks = _blocks(list(request.messages))
     # A native exchange is one ATOMIC block, not two messages. Protect the
     # latest exchange and everything following it, not two whole exchanges.
-    boundary = max((i for i, block in enumerate(blocks) if block[0].tool_calls),
-                   default=max(0, len(blocks) - 1))
+    native_indices = [i for i, block in enumerate(blocks) if block[0].tool_calls]
+    boundary = (native_indices[-min(max(1, retain_exchanges), len(native_indices))]
+                if native_indices else max(0, len(blocks) - 1))
     recent = {}
     for block in blocks[boundary:]:
         results = {m.tool_call_id: m.content for m in block[1:]}
         for call in block[0].tool_calls:
             recent[fingerprint([call.name, call.arguments, results[call.id]])] = call.id
     known = {fingerprint(asdict(m)) for m in state.get("messages", [])[1:]}
+    positions = {fingerprint(asdict(m)): i for i, m in enumerate(state.get("messages", []))}
     groups, pending = [], []
 
     def flush():
@@ -226,10 +231,37 @@ def _history_view(request, state, summarize=None, target_chars=0, *, archive=Non
                 drafts.append(first.content)
             if archive is not None:
                 source = {"messages": [asdict(message) for message in block]}
+                retrieval_names = {call.id: call.name for call in first.tool_calls
+                                   if call.name in ("context_read", "context_search")}
+                recalled = []
+                for i, message in enumerate(block):
+                    if message.role != "tool" or message.tool_call_id not in retrieval_names:
+                        continue
+                    original = asdict(message)
+                    # The exact retrieval result remains an immutable original
+                    # message. Do not embed its quoted archive inside another
+                    # exchange: repeated reads otherwise grow exponentially.
+                    original_ref = archive.put(state["run_id"], "message",
+                        str(positions[fingerprint(original)]), original,
+                        "tool " + (message.tool_call_id or ""))
+                    source["messages"][i] = {"role": "tool", "tool_call_id": message.tool_call_id,
+                        "content_externalized": True, "original_message": original_ref,
+                        "trust": "Retrieval receipt, not a new execution. Read original_message for exact content."}
+                    source["representation"] = "linked-native-exchange-v1"
+                    try:
+                        data = strict_json(message.content).get("data", {})
+                        if isinstance(data, dict) and data.get("evidence_id"):
+                            recalled.append({key: data[key] for key in
+                                ("evidence_id", "source_run_id", "sha256", "offset", "next_offset", "total_chars")
+                                if key in data})
+                    except (ValueError, AttributeError):
+                        pass
                 reference = archive.put(state["run_id"], "exchange", fingerprint(source), source,
                                         " ".join(call.name + " " + call.id for call in first.tool_calls))
                 entries.append({**reference, "call_ids": [call.id for call in first.tool_calls],
                                 "tools": [call.name for call in first.tool_calls]})
+                if recalled:
+                    entries[-1]["recalled_evidence"] = recalled
             elif first.tool_calls:
                 results = {m.tool_call_id: m for m in block[1:]}
                 for call in first.tool_calls:
@@ -311,13 +343,27 @@ def fit_request(request, state, settings, *, phase="execution", summarize=None, 
             target = int(limit * .9)
             minimal = _json_messages(_history_view(original, state, archive=archive,
                                                    index_budget=0), state)
+            # Retain the largest recent native suffix that fits. Previously
+            # every old observation was archived at once, even when several
+            # complete exchanges would fit, forcing needless retrievals.
+            retained = 1
+            low, high = 2, sum(bool(m.tool_calls) for m in original.messages)
+            if request_size(minimal) <= target:
+                while low <= high:
+                    trial = (low + high) // 2
+                    recent = _json_messages(_history_view(original, state, archive=archive,
+                        index_budget=0, retain_exchanges=trial), state)
+                    if request_size(recent) <= target:
+                        minimal, retained, low = recent, trial, trial + 1
+                    else:
+                        high = trial - 1
             remaining = max(0, target - request_size(minimal))
             candidate = minimal
             if remaining:
                 budget = remaining
                 while budget > 0:
                     indexed = _json_messages(_history_view(original, state, archive=archive,
-                                                          index_budget=budget), state)
+                                                          index_budget=budget, retain_exchanges=retained), state)
                     excess = request_size(indexed) - target
                     if excess <= 0:
                         candidate = indexed

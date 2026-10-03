@@ -68,7 +68,7 @@ class JsonlTrace:
 def configured_trace(path, secrets=()):
     """Local logs always; external tracing requires an explicit opt-in."""
     key = os.environ.get("LANGSMITH_API_KEY", "")
-    local = JsonlTrace(path, secrets=(*secrets, key))
+    local = JsonlTrace(path, secrets=(*secrets, key, os.environ.get("TAVILY_API_KEY", "")))
     if os.environ.get("GEOTOOL_LANGSMITH_ENABLED", "").lower() != "true":
         return local
     if not key:

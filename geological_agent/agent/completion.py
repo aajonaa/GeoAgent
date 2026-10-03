@@ -118,7 +118,7 @@ def completion_evidence(state, context):
                 "establish external catalog facts. A URL inside a generated file is not acquisition evidence."),
                 "task": state["task"],
                 "knowledge_sources": state.get("metadata", {}).get("knowledge", {"status": "disabled", "references": []}),
-"knowledge_scope": "Source excerpts are not executed tool results. Check each claim against the exact excerpt identified by its citation, including bare K... IDs. Verify that titles, sample identifiers, numbers, units and limitations belong to that cited source, not merely another retrieved source. A known but swapped citation is revise_answer, not complete. Deterministic identity checks do not establish semantic entailment or scientific truth. Cite exact [K...] IDs when used. Empty retrieval does not establish a fact.",
+                "knowledge_scope": "Source excerpts are not executed tool results. Check each claim against the exact excerpt identified by its citation, including bare K... IDs. Verify that titles, sample identifiers, numbers, units and limitations belong to that cited source, not merely another retrieved source. A known but swapped citation is revise_answer, not complete. Deterministic identity checks do not establish semantic entailment or scientific truth. Cite exact [K...] IDs when used. Empty retrieval does not establish a fact.",
 
                 "user_supplements": [{"request_id": reply.get("request_id"), "text": reply["text"]}
                                      for reply in state.get("metadata", {}).get("human_responses", [])],

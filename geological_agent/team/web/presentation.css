@@ -1,0 +1,62 @@
+/* GeoAgent result components: existing research palette, no remote fonts/assets. */
+.rich-results{margin:23px 0 12px;min-width:0}
+.rich-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;border-top:1px solid var(--line);padding-top:14px}
+.rich-eyebrow{font-size:9px;letter-spacing:1.8px;font-weight:700;color:var(--muted)}
+.rich-segments{display:inline-flex;gap:2px;padding:3px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+.rich-segments button{font-size:11px;padding:6px 12px;border-radius:6px}
+.rich-segments button[aria-pressed=true]{background:var(--green);color:var(--surface)}
+.rich-blocks{display:grid;gap:16px;min-width:0}
+.rich-card{min-width:0;border:1px solid var(--line);border-radius:14px;padding:20px;background:linear-gradient(145deg,#fffefa,#f6f8f0);overflow:hidden}
+.rich-card-heading{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:15px}
+.rich-card-heading h3{font:normal 19px/1.4 var(--serif);margin:0;overflow-wrap:anywhere}
+.rich-card-heading>.rich-eyebrow{font-size:8px;letter-spacing:1.3px}
+.rich-note{font-size:11px;line-height:1.7;color:var(--muted);overflow-wrap:anywhere;margin:10px 0}
+.rich-card-actions{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:10px;margin-top:-4px}
+.rich-link{display:inline-block;font-size:11px;text-underline-offset:4px;margin:5px 10px 5px 0;overflow-wrap:anywhere}
+.rich-metric-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(180px,100%),1fr));gap:10px}
+.rich-metric{padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:10px;min-width:0}
+.rich-metric-label{display:block;color:var(--muted);font-size:10px;overflow-wrap:anywhere;margin-bottom:7px}
+.rich-metric-value{font-family:var(--serif);font-size:clamp(19px,2vw,25px);font-weight:normal;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.rich-details{margin:10px 0;font-size:11px}
+.rich-details>summary{cursor:pointer;color:var(--green);padding:5px 0}
+.rich-details>pre{font:11px/1.7 Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;padding:12px;background:var(--light);border-radius:7px;max-height:360px;overflow:auto}
+.rich-details>.rich-metric-grid{margin-top:10px}
+.rich-table-scroll{overflow:auto;max-height:490px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+.rich-table-scroll table{border-collapse:collapse;width:100%;font-size:12px;font-variant-numeric:tabular-nums}
+.rich-table-scroll caption{position:absolute;clip-path:inset(50%);width:1px;height:1px;overflow:hidden}
+.rich-table-scroll th{position:sticky;top:0;background:var(--light);z-index:1;text-align:left}
+.rich-table-scroll td{padding:10px 12px;border-top:1px solid var(--line);white-space:pre-wrap;overflow-wrap:anywhere;min-width:80px;max-width:380px}
+.rich-table-scroll tbody tr:hover{background:#e8eee170}
+.rich-sort{display:block;font-weight:bold;font-size:11px;white-space:nowrap;padding:11px 12px;border-radius:0;width:100%;text-align:left}
+.rich-null{color:var(--muted);font-style:italic}
+.rich-pager{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px}
+.rich-pager button{font-size:11px;padding:7px 12px}
+.rich-chart-controls{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:10px}
+.rich-select{font-size:11px;color:var(--muted);margin:8px 0;min-width:0;flex:1}
+.rich-select select{display:block;width:100%;min-width:0;max-width:100%;margin-top:5px;border:1px solid var(--line);border-radius:7px;padding:8px;background:var(--surface);font:12px var(--sans);color:var(--ink)}
+.rich-chart-canvas{background:var(--surface);border:1px solid var(--line);border-radius:9px;overflow:hidden}
+.rich-chart-canvas svg{display:block;width:100%;height:auto;min-height:180px}
+.rich-grid-line{stroke:var(--line);stroke-width:1}
+.rich-axis-text{fill:var(--muted);font:11px var(--sans)}
+.rich-axis-label{fill:var(--ink);font:12px var(--sans)}
+.rich-plot-line{stroke:var(--green);stroke-width:2;stroke-linejoin:round}
+.rich-plot-point,.rich-plot-bar{fill:var(--green);stroke:var(--surface);stroke-width:1.5}
+.rich-plot-point:hover,.rich-plot-point:focus,.rich-plot-bar:hover,.rich-plot-bar:focus{fill:#ae732c;stroke:var(--ink);outline:none}
+.rich-chart-cursor{font:11px/1.7 Consolas,monospace;color:var(--ink);padding:8px 10px;background:var(--light);border-radius:6px;min-height:35px;overflow-wrap:anywhere}
+.rich-image-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.rich-image-pair>section{min-width:0}
+.rich-image-viewport{height:235px;border:1px solid var(--line);border-radius:9px;overflow:hidden;background:repeating-conic-gradient(#eef0e9 0% 25%,#fafbf7 0% 50%) 50%/16px 16px;display:grid;place-items:center}
+.rich-image-viewport img{display:block;max-width:100%;max-height:100%;object-fit:contain}
+.rich-image-viewport .rich-note{background:var(--surface);padding:12px;margin:10px}
+.rich-image-pair button{font-size:11px}
+.rich-source{border-top:1px solid var(--line);padding:17px 0 5px}
+.rich-source-id{font:10px Consolas,monospace;color:var(--green);overflow-wrap:anywhere}
+.rich-source h4{font-size:14px;font-weight:normal;margin:5px 0;overflow-wrap:anywhere}
+.rich-modal{max-width:1100px;width:calc(100% - 32px);max-height:90dvh;overflow:auto;padding:22px}
+.rich-modal-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:15px;margin-bottom:15px}
+.rich-modal-heading h2{font-size:20px;overflow-wrap:anywhere;margin:0}
+.rich-image-large{display:block;max-width:100%;height:auto;margin:auto}
+.rich-source-document{white-space:pre-wrap;overflow-wrap:anywhere;font:13px/1.85 var(--sans)}
+#messages:has(.rich-result-view:not([hidden]) .rich-image)>#image-gallery{display:none}
+@media(max-width:760px){.rich-card{padding:15px}.rich-toolbar{flex-wrap:wrap}.rich-card-heading h3{font-size:17px}.rich-image-pair{grid-template-columns:1fr}.rich-image-viewport{height:240px}.rich-chart-controls{gap:8px}.rich-chart-controls>.rich-select{flex-basis:42%}.rich-chart-canvas{overflow-x:auto}.rich-chart-canvas svg{min-width:520px}.rich-metric-grid{grid-template-columns:1fr 1fr}.rich-metric{padding:12px}.rich-metric-value{font-size:19px}.rich-table-scroll td{max-width:220px}}
+@media(max-width:400px){.rich-metric-grid{grid-template-columns:1fr}}

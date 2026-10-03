@@ -1,0 +1,6 @@
+{
+  "dataset_path": "assets/examples/mineral-synthetic.csv",
+  "country": "Exampleland",
+  "commodity": "Copper",
+  "limit": 2
+}

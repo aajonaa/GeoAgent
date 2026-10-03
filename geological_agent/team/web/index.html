@@ -5,6 +5,7 @@
   <title>GeoAgent · 研究组</title>
   <link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/library.css?v=20261003-nav-icons2"><link rel="stylesheet" href="/assets/model-profiles.css"><link rel="stylesheet" href="/assets/knowledge.css">
   <link rel="stylesheet" href="/assets/images.css?v=20261003-images1">
+  <link rel="stylesheet" href="/assets/presentation.css?v=20261003-rich1">
   <script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261003-images1" defer></script><script src="/assets/images.js?v=20261003-images1" defer></script>
 </head>
 <body>
@@ -70,5 +71,7 @@
 <form id="knowledge-form"><label for="knowledge-file">导入 UTF-8 文本 / Markdown</label><input id="knowledge-file" type="file" accept=".txt,.md,.markdown"><label for="knowledge-title">资料标题</label><input id="knowledge-title" maxlength="160" required><label for="knowledge-source">来源或版本说明</label><input id="knowledge-source" maxlength="1000" placeholder="例如：实验记录 v1 · 合成验收数据"><label for="knowledge-text">正文</label><textarea id="knowledge-text" rows="7" maxlength="120000" required placeholder="粘贴需要检索的原始内容…"></textarea><div class="knowledge-actions"><button id="knowledge-save" type="submit" class="primary">保存并建立索引</button></div><p class="knowledge-note">首版支持文本与 Markdown；不解析 PDF、图片或扫描件。每账号最多 100 份资料，每份最多 120,000 字符。相同标题与内容不会重复建索引。</p></form></section>
 <section class="knowledge-column"><h3>看看能召回什么</h3><p class="knowledge-note">向量语义 + PostgreSQL 关键词召回，经多语言 cross-encoder 重排。这里只检查检索，不调用聊天模型。</p><form id="knowledge-search-form"><label for="knowledge-query">检索问题</label><input id="knowledge-query" required maxlength="24000" placeholder="用不同的说法，问问这份资料"><div class="knowledge-actions"><button id="knowledge-search" type="submit" class="outline">测试召回</button></div></form><div id="knowledge-results" aria-live="polite"></div></section></div><p id="knowledge-status" class="knowledge-status" role="status" aria-live="polite"></p></dialog>
 <script src="/assets/knowledge.js" defer></script>
+<script src="/assets/presentation-state.js?v=20261003-rich2" defer></script>
+<script src="/assets/presentation.js?v=20261003-rich2" defer></script>
 </body>
 </html>

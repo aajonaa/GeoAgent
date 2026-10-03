@@ -38,7 +38,10 @@ def test_counts_are_derived_and_professional_and_runtime_are_separate(assets):
     assert result["counts"]["tools"] == len(result["tools"])
     assert result["counts"]["skills"] == len(result["skills"])
     assert result["counts"]["registered_tools"] == sum(row["status"] == "registered" for row in result["tools"])
-    assert result["counts"]["runtime_tools"] == len(assets.base_tools)
+    from geological_agent.imaging import SCHEMAS as IMAGE_SCHEMAS
+    runtime_names = {row["native_name"] for row in result["tools"] if row["scope"] == "runtime"}
+    assert runtime_names == set(assets.base_tools) | set(IMAGE_SCHEMAS)
+    assert result["counts"]["runtime_tools"] == len(runtime_names)
     assert len(assets.revision) == 12
 
 

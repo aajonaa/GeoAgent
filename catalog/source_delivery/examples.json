@@ -1,0 +1,466 @@
+{
+  "GeoCheckCRSConsistency": {
+    "crs_values": [
+      "EPSG:4326",
+      "EPSG:4326"
+    ]
+  },
+  "GeoHaversineDistance": {
+    "lat1": 0,
+    "lon1": 0,
+    "lat2": 0,
+    "lon2": 90
+  },
+  "GeoMagnitudeToEnergy": {
+    "mw": 6.5
+  },
+  "GeoBearing": {
+    "lat1": 0,
+    "lon1": 0,
+    "lat2": 0,
+    "lon2": 90
+  },
+  "GeoDecimalToDMS": {
+    "value": 30.5,
+    "axis": "lat"
+  },
+  "GeoWGS84BBoxAreaKm2": {
+    "min_lon": 0,
+    "min_lat": 0,
+    "max_lon": 1,
+    "max_lat": 1
+  },
+  "地震数据清洗与分级": {
+    "source": "assets/full-examples/earthquakes.csv"
+  },
+  "MineralResourcesSearchDeposits": {
+    "dataset_path": "assets/examples/mineral-synthetic.csv",
+    "country": "Exampleland",
+    "commodity": "Copper",
+    "limit": 2
+  },
+  "MineralResourcesGetDeposit": {
+    "dataset_path": "assets/examples/mineral-synthetic.csv",
+    "dep_id": 101
+  },
+  "MineralResourcesCountrySummary": {
+    "dataset_path": "assets/examples/mineral-synthetic.csv",
+    "country": "Exampleland"
+  },
+  "MineralResourcesRankCommodityCountries": {
+    "dataset_path": "assets/examples/mineral-synthetic.csv",
+    "commodity": "Copper"
+  },
+  "ClimateCompareEpochs": {
+    "values": [
+      1,
+      2,
+      3
+    ]
+  },
+  "EnergyBBoxArea": {
+    "bbox": [
+      0,
+      0,
+      1,
+      1
+    ]
+  },
+  "OceanBBoxArea": {
+    "bbox": [
+      0,
+      0,
+      1,
+      1
+    ]
+  },
+  "DeepTimeDecimalToDMS": {
+    "value": 30.5,
+    "field": "lat"
+  },
+  "DeepTimeHaversineDistance": {
+    "lat1": 0,
+    "lon1": 0,
+    "lat2": 0,
+    "lon2": 90
+  },
+  "DeepTimeBearing": {
+    "lat1": 0,
+    "lon1": 0,
+    "lat2": 0,
+    "lon2": 90
+  },
+  "DeepTimeBBoxArea": {
+    "bbox": [
+      0,
+      0,
+      1,
+      1
+    ]
+  },
+  "DeepTimeStandardizeSpatialData": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ]
+  },
+  "DeepTimeValidateSpatialData": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ]
+  },
+  "DeepTimeNearestNeighbor": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ]
+  },
+  "DeepTimeBuffer": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ],
+    "distance_km": 1
+  },
+  "DeepTimeOverlay": {
+    "paths": [
+      "assets/full-examples/points.geojson",
+      "assets/full-examples/zones.geojson"
+    ]
+  },
+  "DeepTimeBatchVector": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ]
+  },
+  "DeepTimeZonalStatistics": {
+    "paths": [
+      "assets/full-examples/points.csv"
+    ],
+    "zone_field": "zone",
+    "value_field": "value",
+    "operation": "mean"
+  },
+  "DeepTimeRenderMap": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ],
+    "title": "Synthetic points"
+  },
+  "CCSDecimalToDMS": {
+    "value": 30.5,
+    "field": "lat"
+  },
+  "CCSHaversineDistance": {
+    "lat1": 0,
+    "lon1": 0,
+    "lat2": 0,
+    "lon2": 90
+  },
+  "CCSBearing": {
+    "lat1": 0,
+    "lon1": 0,
+    "lat2": 0,
+    "lon2": 90
+  },
+  "CCSBBoxArea": {
+    "bbox": [
+      0,
+      0,
+      1,
+      1
+    ]
+  },
+  "CCSCheckCRSConsistency": {
+    "crs_values": [
+      "EPSG:4326",
+      "EPSG:4326"
+    ]
+  },
+  "CCSStandardizeSpatialData": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ]
+  },
+  "CCSValidateSpatialData": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ]
+  },
+  "CCSNearestNeighbor": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ]
+  },
+  "CCSBuffer": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ],
+    "distance_km": 1
+  },
+  "CCSOverlay": {
+    "paths": [
+      "assets/full-examples/points.geojson",
+      "assets/full-examples/zones.geojson"
+    ]
+  },
+  "CCSBatchVector": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ]
+  },
+  "CCSZonalStatistics": {
+    "paths": [
+      "assets/full-examples/points.csv"
+    ],
+    "zone_field": "zone",
+    "value_field": "value",
+    "operation": "mean"
+  },
+  "CCSRenderMap": {
+    "paths": [
+      "assets/full-examples/points.geojson"
+    ],
+    "title": "Synthetic points"
+  },
+  "RemoteSensingListFiles": {
+    "dir_path": "assets/full-examples/"
+  },
+  "RemoteSensingBatchImageMean": {
+    "file_list": [
+      "assets/full-examples/a.tif",
+      "assets/full-examples/b.tif"
+    ]
+  },
+  "RemoteSensingBatchHotspotPercentage": {
+    "file_list": [
+      "assets/full-examples/a.tif",
+      "assets/full-examples/b.tif"
+    ],
+    "threshold": 2
+  },
+  "RemoteSensingTiffAverage": {
+    "file_list": [
+      "assets/full-examples/a.tif",
+      "assets/full-examples/b.tif"
+    ]
+  },
+  "RemoteSensingBatchNDSI": {
+    "green_file_list": [
+      "assets/full-examples/a.tif"
+    ],
+    "swir_file_list": [
+      "assets/full-examples/b.tif"
+    ]
+  },
+  "RemoteSensingNDWI": {
+    "green_band_file": "assets/full-examples/a.tif",
+    "nir_band_file": "assets/full-examples/b.tif"
+  },
+  "RemoteSensingNBR": {
+    "input_nir_path": "assets/full-examples/b.tif",
+    "input_swir_path": "assets/full-examples/a.tif"
+  },
+  "RemoteSensingBatchHotspotRaster": {
+    "file_list": [
+      "assets/full-examples/a.tif",
+      "assets/full-examples/b.tif"
+    ],
+    "threshold": 2
+  },
+  "RemoteSensingNDVI": {
+    "nir_band_file": "assets/full-examples/b.tif",
+    "red_band_file": "assets/full-examples/a.tif"
+  },
+  "RemoteSensingCountAboveThreshold": {
+    "file_path": "assets/full-examples/a.tif",
+    "threshold": 2
+  },
+  "RemoteSensingBatchImageSum": {
+    "file_list": [
+      "assets/full-examples/a.tif",
+      "assets/full-examples/b.tif"
+    ]
+  },
+  "RemoteSensingTiffDifference": {
+    "image_a_path": "assets/full-examples/b.tif",
+    "image_b_path": "assets/full-examples/a.tif"
+  },
+  "RemoteSensingExtremeSnowLossPercentage": {
+    "binary_map_path": "assets/full-examples/binary.tif"
+  },
+  "RemoteSensingSubtract": {
+    "img1_path": "assets/full-examples/b.tif",
+    "img2_path": "assets/full-examples/a.tif"
+  },
+  "RemoteSensingFireIncreaseMap": {
+    "change_image_path": "assets/full-examples/b.tif",
+    "threshold": 2
+  },
+  "RemoteSensingMean": {
+    "x": [
+      1,
+      2,
+      3
+    ]
+  },
+  "RemoteSensingPercentageChange": {
+    "a": 2,
+    "b": 3
+  },
+  "RemoteSensingDifference": {
+    "a": 8,
+    "b": 3
+  },
+  "RemoteSensingDivision": {
+    "a": 8,
+    "b": 2
+  },
+  "RemoteSensingLinearTrend": {
+    "values": [
+      1,
+      3,
+      5
+    ]
+  },
+  "RemoteSensingMaxValueAndIndex": {
+    "x": [
+      1,
+      3,
+      2
+    ]
+  },
+  "RemoteSensingKelvinToCelsius": {
+    "kelvin": 300
+  },
+  "RemoteSensingMinValueAndIndex": {
+    "x": [
+      1,
+      3,
+      2
+    ]
+  },
+  "RemoteSensingSensSlope": {
+    "x": [
+      1,
+      3,
+      5
+    ]
+  },
+  "RemoteSensingCoefficientOfVariation": {
+    "x": [
+      1,
+      2,
+      3
+    ]
+  },
+  "RemoteSensingKurtosis": {
+    "x": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "RemoteSensingArgmax": {
+    "x": [
+      1,
+      3,
+      2
+    ]
+  },
+  "NaturalHazardLoadEventTable": {
+    "source": "assets/full-examples/events.xlsx",
+    "sheet": "Events",
+    "filters": {
+      "Country": "Exampleland"
+    }
+  },
+  "NaturalHazardFilterRecords": {
+    "source": "assets/full-examples/events.xlsx",
+    "sheet": "Events",
+    "filters": {
+      "Country": "Exampleland"
+    }
+  },
+  "NaturalHazardCountRecords": {
+    "source": "assets/full-examples/events.xlsx",
+    "sheet": "Events",
+    "filters": {
+      "Country": "Exampleland"
+    }
+  },
+  "NaturalHazardSumField": {
+    "source": "assets/full-examples/events.xlsx",
+    "sheet": "Events",
+    "filters": {
+      "Country": "Exampleland"
+    },
+    "measure": "Total Deaths"
+  },
+  "NaturalHazardGroupAggregate": {
+    "source": "assets/full-examples/events.xlsx",
+    "sheet": "Events",
+    "filters": {
+      "Country": "Exampleland"
+    },
+    "group_by": "Type"
+  },
+  "NaturalHazardSelectMaxRecord": {
+    "source": "assets/full-examples/events.xlsx",
+    "sheet": "Events",
+    "filters": {
+      "Country": "Exampleland"
+    },
+    "measure": "Total Deaths"
+  },
+  "NaturalHazardBuildStartDate": {
+    "source": "assets/full-examples/events.xlsx",
+    "sheet": "Events",
+    "filters": {
+      "Country": "Exampleland"
+    }
+  },
+  "NaturalHazardSelectLatest": {
+    "source": "assets/full-examples/events.xlsx",
+    "sheet": "Events",
+    "filters": {
+      "Country": "Exampleland"
+    }
+  },
+  "GeoOrdinaryKrigingGrid": {
+    "points_path": "assets/full-examples/kriging.csv",
+    "variogram_model": "linear",
+    "value_unit": "ppm",
+    "variogram_parameters": {
+      "nugget": 0,
+      "slope": 1
+    },
+    "grid": {
+      "width": 2,
+      "height": 2,
+      "xmax": 2,
+      "ymax": 2,
+      "ymin": 0,
+      "xmin": 0
+    },
+    "crs": "EPSG:32650"
+  },
+  "GeoExactZonalStatistics": {
+    "raster_path": "assets/full-examples/projected.tif",
+    "zones_path": "assets/full-examples/zones.geojson",
+    "zones_crs": "EPSG:32650",
+    "value_unit": "ppm"
+  },
+  "RemoteSensingMannKendallTest": {
+    "sample_interval": 1,
+    "x": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "method": "original",
+    "value_unit": "ppm",
+    "time_unit": "year"
+  }
+}
