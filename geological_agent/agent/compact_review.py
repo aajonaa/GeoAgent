@@ -118,7 +118,7 @@ REFERENCE_SET_GUIDANCE = GUIDANCE.replace(
 )
 
 
-def compact_review_request(state, context, settings, *, protocol_feedback=None):
+def compact_review_request(state, context, settings, *, protocol_feedback=None, defer_compaction=False):
     base = review_request(state, context, settings, phase="answer", protocol_feedback=protocol_feedback, defer_compaction=True)
     requirements, answers, tools = indexes(state)
     reference_sets = state["metadata"].get("review_reference_sets", False)
@@ -146,7 +146,8 @@ def compact_review_request(state, context, settings, *, protocol_feedback=None):
     guidance = REFERENCE_SET_GUIDANCE if reference_sets else GUIDANCE
     messages = (replace(base.messages[0], content=base.messages[0].content + "\n" + guidance),
                 Message("user", json.dumps(evidence, ensure_ascii=False, allow_nan=False)))
-    return fit_request(replace(base, messages=messages, tools=(definition,)), state, settings, phase="review")
+    request = replace(base, messages=messages, tools=(definition,))
+    return request if defer_compaction else fit_request(request, state, settings, phase="review")
 
 
 def parse_compact_review(response, state, request):

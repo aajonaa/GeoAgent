@@ -43,8 +43,12 @@ def fingerprint(state):
     payload = {"policy": POLICY, "answer": state.get("answer", ""), **material(state)}
     return hashlib.sha256(json.dumps(payload, ensure_ascii=False, sort_keys=True, allow_nan=False).encode()).hexdigest()
 
-def semantic_request(state, settings, *, protocol_feedback=None):
+def semantic_request(state, settings, *, protocol_feedback=None, block_ids=None):
     data = material(state)
+    if block_ids is not None:
+        if not block_ids or any(key not in data["answer_blocks"] for key in block_ids):
+            raise ValueError("Semantic retry must identify actual pending answer blocks")
+        data["answer_blocks"] = {key: data["answer_blocks"][key] for key in block_ids}
     source_ids = list(data["sources"])
     text = {"type": "string"}
     evidence = object_schema({
@@ -78,6 +82,50 @@ def semantic_request(state, settings, *, protocol_feedback=None):
         raise ContextOverflow("Knowledge semantic review exceeds context allowance; exact sources and answer were not truncated")
     return request
 
+class SemanticReviewProtocolError(ModelProtocolError):
+    """A malformed review cannot approve an answer; valid corrections survive."""
+    def __init__(self, checks, issues, block_errors):
+        super().__init__("Invalid source review blocks: " + json.dumps(block_errors, ensure_ascii=False))
+        self.checks, self.issues, self.block_errors = checks, issues, block_errors
+
+
+def _check_block(key, block, check, sources):
+    quotes, translations = check["source_quotes"], check["translations"]
+    for evidence in quotes:
+        original = sources[evidence["source_id"]][evidence["field"]]
+        if not evidence["quote"].strip() or evidence["quote"] not in original:
+            raise ModelProtocolError("Quoted text is absent from the exact source field")
+    cited = _citation_ids(block, sources) & sources.keys()
+    if check["verdict"] == "not_claim" and (cited or quotes or translations):
+        raise ModelProtocolError("A cited/source-backed block cannot bypass semantic checking as not_claim")
+    if check["verdict"] == "supported":
+        if not quotes or not cited <= {q["source_id"] for q in quotes}:
+            raise ModelProtocolError("Supported block needs exact evidence for all its cited sources")
+        cross_language = bool(re.search(r"[\u3400-\u9fff]", block)) and any(
+            q["field"] == "text" and re.search(r"[A-Za-z]{3,}", q["quote"]) and q["quote"] not in block
+            for q in quotes)
+        if cross_language and not translations:
+            raise ModelProtocolError("Cross-language source claim omitted its technical-term comparison")
+    issues = []
+    for term in translations:
+        if not term["answer_term"].strip() or term["answer_term"] not in block:
+            raise ModelProtocolError("Compared term is absent from the actual answer")
+        if not term["source_term"].strip() or not any(
+                q["source_id"] == term["source_id"] and q["field"] == "text" and term["source_term"] in q["quote"]
+                for q in quotes):
+            raise ModelProtocolError("Compared term needs its exact quoted source evidence")
+        if term["verdict"] == "equivalent" and not term["target_term"].strip():
+            raise ModelProtocolError("Equivalent translation needs its source-derived target term")
+        if term["verdict"] != "equivalent":
+            issues.append("Source semantics " + key + ": " + json.dumps(term, ensure_ascii=False) +
+                          ". Correct the wording from the original, or keep the original term if uncertain.")
+    if check["verdict"] in ("revise", "uncertain"):
+        if not check["feedback"].strip():
+            raise ModelProtocolError("Rejected source block needs specific corrective feedback")
+        issues.append("Source semantics " + key + ": " + check["feedback"])
+    return issues
+
+
 def parse_semantic_review(response, request):
     if (response.finish_reason not in ("stop", "tool_calls") or len(response.tool_calls) != 1
             or not response.tool_calls[0].id or response.tool_calls[0].name != request.tools[0].name):
@@ -85,45 +133,30 @@ def parse_semantic_review(response, request):
     try:
         call = response.tool_calls[0]
         args = strict_json(call.arguments) if isinstance(call.arguments, str) else deepcopy(call.arguments)
-        Draft202012Validator(request.tools[0].input_schema).validate(args)
-    except (ValueError, TypeError, ValidationError) as exc:
-        raise ModelProtocolError("Invalid semantic review structure: " + str(exc)) from exc
+    except (ValueError, TypeError) as exc:
+        raise ModelProtocolError("Invalid semantic review JSON") from exc
+    schema = request.tools[0].input_schema["properties"]["checks"]["properties"]
+    if (not isinstance(args, dict) or set(args) != {"checks"} or not isinstance(args["checks"], dict)
+            or set(args["checks"]) - set(schema)):
+        raise ModelProtocolError("Semantic review needs only checks for the requested block IDs")
     data = strict_json(request.messages[1].content)
     sources, blocks = data["sources"], data["answer_blocks"]
-    issues = []
+    checks, issues, errors = {}, [], {}
     for key, block in blocks.items():
-        check = args["checks"][key]
-        quotes, translations = check["source_quotes"], check["translations"]
-        for evidence in quotes:
-            original = sources[evidence["source_id"]][evidence["field"]]
-            if not evidence["quote"].strip() or evidence["quote"] not in original:
-                raise ModelProtocolError("Semantic review " + key + " quoted text absent from the exact source field")
-        cited = _citation_ids(block, sources) & sources.keys()
-        if check["verdict"] == "not_claim" and (cited or quotes or translations):
-            raise ModelProtocolError("Cited/source-backed block " + key + " cannot bypass semantic checking as not_claim")
-        if check["verdict"] == "supported":
-            if not quotes or not cited <= {q["source_id"] for q in quotes}:
-                raise ModelProtocolError("Supported block " + key + " needs exact evidence for all its cited sources")
-            cross_language = bool(re.search(r"[\u3400-\u9fff]", block)) and any(
-                q["field"] == "text" and re.search(r"[A-Za-z]{3,}", q["quote"]) and q["quote"] not in block
-                for q in quotes)
-            if cross_language and not translations:
-                raise ModelProtocolError("Cross-language source claim " + key + " omitted its technical-term comparison")
-        for term in translations:
-            if not term["answer_term"].strip() or term["answer_term"] not in block:
-                raise ModelProtocolError("Semantic review " + key + " compared a term absent from the actual answer")
-            if not term["source_term"].strip() or not any(
-                    q["source_id"] == term["source_id"] and q["field"] == "text" and term["source_term"] in q["quote"]
-                    for q in quotes):
-                raise ModelProtocolError("Semantic review " + key + " omitted the exact source evidence for a compared term")
-            if term["verdict"] == "equivalent" and not term["target_term"].strip():
-                raise ModelProtocolError("Equivalent translation " + key + " needs its source-derived target term")
-            if term["verdict"] != "equivalent":
-                issues.append("Source semantics " + key + ": " + json.dumps(term, ensure_ascii=False) +
-                              ". Correct the wording from the original, or keep the original term if uncertain.")
-        if check["verdict"] in ("revise", "uncertain"):
-            if not check["feedback"].strip():
-                raise ModelProtocolError("Rejected source block " + key + " needs specific corrective feedback")
-            issues.append("Source semantics " + key + ": " + check["feedback"])
-    return {"passed": not issues, "checks": args["checks"], "issues": issues,
+        try:
+            if key not in args["checks"]:
+                raise ModelProtocolError("Missing requested block")
+            check = args["checks"][key]
+            Draft202012Validator(schema[key]).validate(check)
+            block_issues = _check_block(key, block, check, sources)
+        except ValidationError as exc:
+            errors[key] = exc.message
+        except ModelProtocolError as exc:
+            errors[key] = str(exc)
+        else:
+            checks[key] = check
+            issues.extend(block_issues)
+    if errors:
+        raise SemanticReviewProtocolError(checks, issues, errors)
+    return {"passed": not issues, "checks": checks, "issues": issues,
             "scope": "Exact quote/coverage checks plus model-assisted semantics; not scientific certification."}

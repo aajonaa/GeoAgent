@@ -4,6 +4,9 @@ set -euo pipefail
 
 root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)"
 config="${1:-${GEOTOOL_INTEGRATION_ENV_FILE:-}}"
+if [[ -z "$config" && -r "$HOME/.config/geotoolagent/integration.env" ]]; then
+    config="$HOME/.config/geotoolagent/integration.env"
+fi
 if [[ $# -gt 0 ]]; then
     shift
 fi
@@ -20,6 +23,7 @@ fi
 
 : "${GEOTOOL_TEST_POSTGRES_DSN_FILE:?Set a private DSN file for a separate acceptance database}"
 : "${GEOTOOL_ENCODER_SOCKET:?Set the real embedding and reranking service socket}"
+: "${GEOTOOL_KNOWLEDGE_DSN_FILE:?Set the live database DSN file for the production safety check}"
 python="${PYTHON:-python3}"
 report_dir="${GEOTOOL_TEST_REPORT_DIR:-$root/.asset-results/integration/$(date -u +%Y%m%dT%H%M%SZ)}"
 mkdir -p -- "$report_dir"
@@ -37,7 +41,7 @@ from geological_agent.context_store import private_dsn
 
 test_dsn = private_dsn(os.environ['GEOTOOL_TEST_POSTGRES_DSN_FILE'])
 test_info = conninfo_to_dict(test_dsn)
-production_file = os.environ.get('GEOTOOL_KNOWLEDGE_DSN_FILE')
+production_file = os.environ['GEOTOOL_KNOWLEDGE_DSN_FILE']
 if production_file:
     production_info = conninfo_to_dict(private_dsn(production_file))
     identity = lambda value: (

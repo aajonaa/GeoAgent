@@ -28,7 +28,7 @@ Keep feedback concise and cite actual successful call IDs.
 """
 
 
-def combined_review_request(state, context, settings, *, protocol_feedback=None):
+def combined_review_request(state, context, settings, *, protocol_feedback=None, defer_compaction=False):
     # Local imports avoid a cycle through completion -> context -> this module.
     from .completion import review_request
     from .compaction import fit_request
@@ -38,4 +38,5 @@ def combined_review_request(state, context, settings, *, protocol_feedback=None)
         from .delivery_contract import covered_request
         request = covered_request(request, state)
     messages = (replace(request.messages[0], content=request.messages[0].content + "\n" + COMBINED_REVIEW_GUIDANCE), *request.messages[1:])
-    return fit_request(replace(request, messages=messages), state, settings, phase="review")
+    request = replace(request, messages=messages)
+    return request if defer_compaction else fit_request(request, state, settings, phase="review")

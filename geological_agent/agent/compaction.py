@@ -4,6 +4,7 @@ Only older assistant prose may be summarized. Tool inputs/results, current user
 instructions, schemas and review evidence are never replaced by model summaries.
 """
 from collections import Counter
+from copy import deepcopy
 from dataclasses import asdict, replace
 import hashlib
 import json
@@ -317,6 +318,67 @@ def _history_view(request, state, summarize=None, target_chars=0, *, archive=Non
     return replace(request, messages=tuple(groups))
 
 
+
+def _completion_view(request, state, archive, target):
+    """Reference nonproof history only; actual successful execution stays exact."""
+    if archive is None:
+        return request
+    messages = list(request.messages)
+    for message_index, message in enumerate(messages):
+        if message.role != "user":
+            continue
+        try:
+            payload = strict_json(message.content)
+        except (ValueError, TypeError):
+            continue
+        if (not isinstance(payload, dict) or payload.get("task") != state.get("task")
+                or "source_evidence_policy" not in payload
+                or not isinstance(payload.get("observed_actions"), list)):
+            continue
+        payload = deepcopy(payload)
+        records = payload["observed_actions"]
+        latest_support = {}
+        # File reads are source inspection, not computational proof. Older
+        # bodies can be recalled exactly; keep the newest read in this view.
+        supporting = {"context_search", "context_read", "skill_find", "skill_load",
+                      "web_search", "web_fetch", "read_file"}
+        for index, row in enumerate(records):
+            result = row.get("result") or {}
+            if result.get("name") in supporting and result.get("status") == "ok":
+                latest_support[result["name"]] = index
+        eligible = []
+        for index, row in enumerate(records):
+            result = row.get("result") or {}
+            failed = result.get("status") != "ok"
+            old_support = result.get("name") in supporting and latest_support.get(result.get("name")) != index
+            data = result.get("data")
+            if (failed or old_support) and isinstance(data, dict) and len(dumps(data)) > 1024:
+                eligible.append((len(dumps(data)), index))
+        for _, index in sorted(eligible, reverse=True):
+            result = records[index]["result"]
+            data = result["data"]
+            reference = archive.put(state["run_id"], "exchange", fingerprint(data), data,
+                                    label="Completion source: " + str(result.get("name", "")))
+            receipt = {"archived_data": reference,
+                       "trust": "Original data retained, not a new execution or approval. Read it if this record is needed; absence from this view is not success."}
+            for key in ("execution_trace_path", "trace_path", "path", "url", "skill_id",
+                        "offset", "next_offset", "total_chars", "returncode", "sha256", "truncated"):
+                if key in data:
+                    receipt[key] = deepcopy(data[key])
+            result["data"] = receipt
+            payload["archived_completion_policy"] = (
+                "Only old supporting reads (including file bodies)/discovery and failed-attempt data are referenced. "
+                "All successful computational inputs/results, provenance, errors, artifacts and exact knowledge excerpts remain. "
+                "References cannot prove unseen facts or assertions. If needed, return continue requesting context_read "
+                "of the given evidence_id, or inspect execution_trace_path. Do not rerun successful computations."
+            )
+            messages[message_index] = replace(message, content=dumps(pack_data(payload)))
+            candidate = replace(request, messages=tuple(messages))
+            if request_size(candidate) <= target:
+                return candidate
+        messages[message_index] = replace(message, content=dumps(pack_data(payload)))
+    return replace(request, messages=tuple(messages))
+
 def fit_request(request, state, settings, *, phase="execution", summarize=None, archive=None):
     """Fit the FINAL assembled request, after delivery/schema enrichment."""
     before = request_size(request)
@@ -329,6 +391,11 @@ def fit_request(request, state, settings, *, phase="execution", summarize=None, 
     if request_size(candidate) < request_size(request):
         request = candidate
         strategies.append("lossless_json_interning")
+    if phase in ("review", "final_answer") and request_size(request) > limit:
+        candidate = _completion_view(original, state, archive, int(limit * .9))
+        if request_size(candidate) < request_size(request):
+            request = candidate
+            strategies.append("completion_evidence_references")
     if phase == "execution":
         # Use original history objects for identity; JSON minification must not
         # make native tool results unrecognizable as existing state messages.
@@ -396,8 +463,10 @@ def fit_request(request, state, settings, *, phase="execution", summarize=None, 
                  "allowance_chars": limit, "headroom_chars": limit - after, "strategies": strategies,
                  "source_sha256": fingerprint(asdict(original)),
                  "original_history_retained": True, "tool_evidence_preserved": True,
-                 "evidence_location": "postgresql" if "postgres_evidence_references" in strategies else "request",
-                 "retrieval_required": "postgres_evidence_references" in strategies}
+                 "evidence_location": "postgresql" if any(
+                     name in strategies for name in ("postgres_evidence_references", "completion_evidence_references")) else "request",
+                 "retrieval_required": any(
+                     name in strategies for name in ("postgres_evidence_references", "completion_evidence_references"))}
         state.setdefault("metadata", {}).setdefault("context_compactions", []).append(event)
     if after > limit:
         raise ContextOverflow(

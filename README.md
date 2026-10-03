@@ -109,6 +109,17 @@ node --check geological_agent/team/web/images.js
 Integration tests can require PostgreSQL, sandbox support, or model services.
 Skipped tests are not successful validation of those services.
 
+For an A100 release, run the real-service gate with the private operator
+configuration, not a unit-test-only command:
+
+```bash
+bash scripts/test_a100_integration.sh /path/to/private/integration.env
+```
+
+This requires a separate PostgreSQL acceptance database, the live database DSN
+for the safety comparison, and the real encoder socket. Every test must execute
+with zero failures, errors, or skips. See [integration acceptance](docs/INTEGRATION_TESTING.md).
+
 ## Repository and deployment boundaries
 
 This private repository contains application source, tool contracts, skills, and

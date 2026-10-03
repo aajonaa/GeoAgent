@@ -141,19 +141,22 @@ def test_human_reply_requirements_are_not_omitted():
     assert "assumptions" in indexes(s)[0]["r3"]
 
 
-def test_repeated_invalid_review_revises_answer_without_rerunning_tools(tmp_path, monkeypatch):
+def test_repeated_invalid_review_pauses_assessment_without_rerunning_tools(tmp_path, monkeypatch):
     monkeypatch.setenv("GEOTOOL_COMBINED_COMPLETION_REVIEW", "1")
     monkeypatch.setenv("GEOTOOL_COMPACT_REVIEW", "1")
     model = Model(call("write_file", {"path": "result.txt", "content": "42"}, "write1"),
                   ModelResponse("Created result.txt containing 42."),
-                  lambda req: completion(req, bad=True), lambda req: completion(req, bad=True),
-                  ModelResponse("result.txt contains 42."), completion)
+                  lambda req: completion(req, bad=True), lambda req: completion(req, bad=True))
     result = create_agent(model).run("Create result.txt containing 42 and report its content", workspace=tmp_path)
-    assert result.status == "completed" and result.model_turns == 6
+    assert result.status == "incomplete" and result.model_turns == 4
+    assert not result.answer
     assert len([m for m in result.state["messages"] if m.role == "tool"]) == 1
-    assert model.requests[4].tool_choice == "none"
+    assert [r.tool_choice for r in model.requests[2:]] == ["required", "required"]
     assert len(result.state["metadata"]["review_protocol_errors"]) == 2
-    assert result.state["metadata"]["completion_reviews"][0]["evidence_call_ids"] == ["write1"]
+    assert not result.state["metadata"].get("completion_reviews")
+    recovery = result.state["metadata"]["protocol_recovery"]
+    assert recovery["phase"] == "review:combined"
+    assert recovery["candidate"] == "Created result.txt containing 42."
     assert (tmp_path / "result.txt").read_text() == "42"
 
 

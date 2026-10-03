@@ -144,11 +144,13 @@ def test_invalid_review_does_not_bypass_unfinished_work(tmp_path):
     assert len(result.state["metadata"]["execution_reviews"]) == 2
 
 
-def test_review_retry_has_no_separate_hidden_attempt_limit(tmp_path):
-    model = Model(ModelResponse("Draft"), *[ModelResponse("") for _ in range(6)], review(), ModelResponse("Hello"), review())
+def test_repeated_invalid_review_pauses_instead_of_endless_retry(tmp_path):
+    model = Model(ModelResponse("Draft"), ModelResponse(""), ModelResponse(""))
     result = create_agent(model, settings=Settings(max_model_turns=None)).run("Say hello", workspace=tmp_path)
-    assert result.status == "completed" and result.model_turns == 10
-    assert len(result.state["metadata"]["review_protocol_errors"]) == 6
+    assert result.status == "incomplete" and result.model_turns == 3
+    assert not result.answer
+    assert len(result.state["metadata"]["review_protocol_errors"]) == 2
+    assert result.state["metadata"]["protocol_recovery"]["candidate"] == "Draft"
 
 
 def test_protocol_failure_from_model_client_retries_only_review(tmp_path):

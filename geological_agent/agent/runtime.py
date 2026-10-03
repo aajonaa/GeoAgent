@@ -16,6 +16,7 @@ from .skill_scope import fit_skill_scope
 from .resource_policy import resource_request, source_tools_available, missing_reference_paths, source_attempted, repair_guidance
 from ..tool_evidence import EvidenceLedger, identity, reference_gaps, reference_gap_message
 from .compaction import ContextOverflow, fit_request, request_size
+from .retrieval_progress import SEARCH_TOOLS, unchanged, redirect_request
 from .interaction_policy import human_input_issue, enrich_request
 from .human_review import human_review_request, parse_human_review
 from .intent_review import intent_request, parse_intent
@@ -229,6 +230,36 @@ class AgentRuntime:
                 "options": options,
                 "reason_type": "model_protocol", "recovery_origin": "runtime", "recovery_phase": phase})
 
+
+        def pause_review_protocol(state, phase, error):
+            if cancel.is_set():
+                return {**state, "status": "stopped", "answer": "", "last_error": "Stopped by user"}
+            if self.settings.max_model_turns is not None and state["model_turns"] >= self.settings.max_model_turns:
+                return {**state, "status": "budget_exhausted", "answer": "", "last_error":
+                        "Model-turn budget exhausted during review recovery; draft and evidence retained"}
+            metadata = {**state["metadata"], "protocol_recovery": {
+                "phase": phase, "error": error, "candidate": state["answer"],
+                "final_answer_composed": bool(state["metadata"].get("final_answer_composed")),
+                "execution_ready": bool(state["metadata"].get("execution_ready"))}}
+            updated = {**state, "metadata": metadata, "last_error": error}
+            trace.emit("completion_review_recovery", run_id=run_id, phase=phase,
+                       action="pause_assessment", error=error)
+            if checkpoint_path is None and self.context_store is None:
+                return {**updated, "status": "incomplete", "answer": ""}
+            chinese = bool(re.search(r"[\u3400-\u9fff]", state["task"]))
+            return ask_human(updated, {
+                "question": (
+                    "审核模型重复返回无效审核，已暂停审核而不是重跑工具。草稿、文件和原始证据已保留。"
+                    "可重试当前模型，或调整模型配置后继续同一审核；未通过内容不会作为结果交付。"
+                    if chinese else
+                    "The reviewer repeated an invalid assessment. Only the assessment is paused; "
+                    "the candidate, files and original evidence are retained. Retry or update the model "
+                    "to continue this assessment, without rerunning successful tools or publishing unchecked claims."),
+                "reason": error, "missing": [], "reason_type": "model_protocol",
+                "recovery_origin": "runtime", "recovery_phase": phase,
+                "options": (["重试审核", "已调整模型配置，继续审核"] if chinese else
+                            ["Retry assessment", "Model configuration updated; retry assessment"])})
+
         def retrieve_knowledge(state):
             if cancel.is_set():
                 return record({"status": "stopped", "last_error": "Stopped by user"}, state)
@@ -268,6 +299,13 @@ class AgentRuntime:
                 return commit_model({"status": "stopped", "last_error": "Stopped by user"}, state)
             if self.settings.max_model_turns is not None and state["model_turns"] >= self.settings.max_model_turns:
                 return commit_model({"status": "budget_exhausted", "last_error": "Configured model-turn budget exhausted; files are retained"}, state)
+            if state["metadata"].get("resume_review_candidate"):
+                metadata = dict(state["metadata"])
+                saved = metadata.pop("resume_review_candidate")
+                metadata["final_answer_composed"] = saved["final_answer_composed"]
+                metadata["execution_ready"] = saved["execution_ready"]
+                return commit_model({"metadata": metadata, "answer": saved["candidate"],
+                                     "pending_tool_calls": [], "last_error": None}, state)
             if state["metadata"].get("intent_review") and not state["metadata"].get("objective_checked"):
                 turn = state["model_turns"] + 1
                 state = {**state, "model_turns": turn}
@@ -336,6 +374,7 @@ class AgentRuntime:
             turns = state["model_turns"] + 1
             metadata = dict(state["metadata"])
             tool_choice = metadata.pop("next_tool_choice", "auto")
+            stalled_retrieval = metadata.pop("retrieval_route_once", [])
             pending_execution = requested_execution_issues(state, self.professional_tool_names)
             if tool_choice == "auto" and pending_execution:
                 tool_choice = "required"
@@ -354,6 +393,7 @@ class AgentRuntime:
                             "user", "Unfulfilled execution requirement: " +
                             "\n".join(issue.message for issue in pending_execution))))
                     if not answer_only and tool_choice != "none":
+                        built = redirect_request(built, stalled_retrieval)
                         return resource_request(built, self.tools, execution.workspace)
                     return built, None
 
@@ -517,7 +557,8 @@ class AgentRuntime:
                 except Exception as exc:
                     trace.emit("model_failed", run_id=run_id, turn=turn, error=str(exc), phase="vision")
                     raise
-            ctx = replace(execution, allowed_tool_names=tuple(exposed), evidence_state=evidence_state,
+            disclosed = metadata.get("execution_available_tool_names", exposed)
+            ctx = replace(execution, allowed_tool_names=tuple(disclosed), evidence_state=evidence_state,
                           vision_invoke=invoke_vision)
             last_error = None
             missing_resources = set()
@@ -558,10 +599,13 @@ class AgentRuntime:
                             continue
                         old_call = prior_calls[message.tool_call_id]
                         old_args = json.loads(old_call.arguments) if isinstance(old_call.arguments, str) else old_call.arguments
-                        if old_call.name == call.name and old_args == arguments and previous["status"] == "ok" and previous["data"] == result.data:
+                        if unchanged(call.name, arguments, result.data, old_call.name, old_args, previous["data"]):
                             count += 1
                     if count:
-                        repeated.append(f"{call.name} has now returned identical successful data for these same arguments {count + 1} times. This call added no new evidence. Reuse the observed data and choose an action that advances the unfinished task; do not repeat this inspection unless the underlying state changes.")
+                        repeated.append(f"{call.name} has returned unchanged successful evidence {count + 1} times. This call added no new evidence. Query wording, cache flags and timestamps do not establish new facts. Reuse the observations and change strategy rather than repeating successful work.")
+                        if call.name in SEARCH_TOOLS:
+                            metadata["retrieval_route_once"] = list(dict.fromkeys([
+                                *metadata.get("retrieval_route_once", []), call.name]))
                 messages.append(result.message())
                 trace.emit("tool_completed" if result.status == "ok" else "tool_failed", run_id=run_id, result=result)
                 activity("tool_result", name=call.name, status=result.status)
@@ -655,7 +699,12 @@ class AgentRuntime:
             recovery = metadata.pop("protocol_recovery", None)
             if pending.get("reason_type") == "model_protocol" and recovery:
                 # Retry the saved phase, not the invalid response's claimed actions.
-                if recovery.get("phase") == "intent":
+                if recovery.get("phase", "").startswith("review:") or recovery.get("phase") == "knowledge_semantics":
+                    metadata["resume_review_candidate"] = recovery
+                    progress = metadata.get("semantic_review_progress")
+                    if progress is not None:
+                        metadata["semantic_review_progress"] = {**progress, "failure_signatures": []}
+                elif recovery.get("phase") == "intent":
                     metadata["protocol_recovery"] = {**recovery, "failures": 0}
                     metadata.pop("objective_checked", None)
                 else:
@@ -713,61 +762,10 @@ class AgentRuntime:
                            "model_turns": state["model_turns"], "last_error": feedback}, state)
 
         def check_knowledge_semantics(state):
-            from .knowledge_semantics import fingerprint, semantic_request, parse_semantic_review
-            if not self.settings.verify_completion or not state["metadata"].get("knowledge", {}).get("references"):
-                return state, []
-            stamp = fingerprint(state)
-            previous = state["metadata"].get("knowledge_semantic_reviews", [])
-            if previous and previous[-1]["fingerprint"] == stamp:
-                cached = previous[-1]
-                return state, [CompletionIssue(message) for message in cached["issues"]]
-            state = {**state, "metadata": {**state["metadata"], "semantic_pending_draft":
-                     {"answer": state["answer"], "fingerprint": stamp, "trust": "unverified candidate, not evidence"}}}
-            feedback, attempt = None, 0
-            while True:
-                if cancel.is_set():
-                    return {**state, "status": "stopped", "answer": "", "last_error": "Stopped by user"}, []
-                if self.settings.max_model_turns is not None and state["model_turns"] >= self.settings.max_model_turns:
-                    return {**state, "status": "budget_exhausted", "answer": "",
-                            "last_error": "Model-turn budget exhausted before source semantic review; draft not published"}, []
-                request = semantic_request(state, self.settings, protocol_feedback=feedback)
-                attempt += 1
-                turn = state["model_turns"] + 1
-                state = {**state, "model_turns": turn}
-                record(state, state)
-                trace.emit("completion_review_requested", run_id=run_id, turn=turn, request=request,
-                           phase="knowledge_semantics", attempt=attempt)
-                activity("completion_review", turn=turn, phase="knowledge_semantics", attempt=attempt)
-                try:
-                    response = self.model.invoke(request)
-                    state = {**state, "metadata": {**state["metadata"],
-                             "usage": state["metadata"]["usage"] + [response.usage]}}
-                    trace.emit("completion_review_responded", run_id=run_id, turn=turn, response=response,
-                               phase="knowledge_semantics", attempt=attempt)
-                    verdict = parse_semantic_review(response, request)
-                except ModelProtocolError as exc:
-                    error = str(exc)
-                    trace.emit("completion_review_protocol_error", run_id=run_id, turn=turn,
-                               phase="knowledge_semantics", attempt=attempt, error=error)
-                    failure = {"turn": turn, "attempt": attempt, "error": error}
-                    state["metadata"]["knowledge_semantic_protocol_errors"] = (
-                        state["metadata"].get("knowledge_semantic_protocol_errors", []) + [failure])
-                    record(state, state)
-                    if feedback == error:
-                        # No malformed approval, task action or endless identical retry.
-                        return {**state, "status": "incomplete", "answer": "",
-                                "last_error": "Source semantic reviewer repeated an invalid protocol/evidence response. "
-                                              "Draft and observations retained; retry with a compatible model. " + error}, []
-                    feedback = error
-                    continue
-                audit = {**verdict, "fingerprint": stamp, "turn": turn}
-                state = {**state, "metadata": {**state["metadata"],
-                         "knowledge_semantic_reviews": previous + [audit]}}
-                if verdict["passed"]:
-                    state["metadata"].pop("semantic_pending_draft", None)
-                trace.emit("knowledge_semantic_checked", run_id=run_id, **audit)
-                record(state, state)
-                return state, [CompletionIssue(message) for message in verdict["issues"]]
+            from .semantic_recovery import review_sources
+            return review_sources(state, settings=self.settings, model=self.model, cancel=cancel,
+                                  record=record, trace=trace, activity=activity,
+                                  pause=pause_review_protocol)
 
         def publish(state, status="completed", reason=None):
             if cancel.is_set():
@@ -799,6 +797,7 @@ class AgentRuntime:
             def assess(phase):
                 nonlocal state
                 feedback, attempt = None, 0
+                failure_signatures = set()
                 while True:
                     if cancel.is_set():
                         state = {**state, "status": "stopped", "answer": "", "last_error": "Stopped by user"}
@@ -817,10 +816,10 @@ class AgentRuntime:
                              "execution_available_tool_names": [tool.name for tool in available.tools],
                              "resource_availability": availability}}
                     compact = phase == "combined" and state["metadata"].get("compact_review")
-                    request = (compact_review_request(state, self.context, self.settings, protocol_feedback=feedback)
-                               if compact else combined_review_request(state, self.context, self.settings, protocol_feedback=feedback)
+                    request = (compact_review_request(state, self.context, self.settings, protocol_feedback=feedback, defer_compaction=True)
+                               if compact else combined_review_request(state, self.context, self.settings, protocol_feedback=feedback, defer_compaction=True)
                                if phase == "combined" else
-                               review_request(state, self.context, self.settings, phase=phase, protocol_feedback=feedback))
+                               review_request(state, self.context, self.settings, phase=phase, protocol_feedback=feedback, defer_compaction=True))
                     request = prepare_request(request, state, "review")
                     attempt += 1
                     turn = state["model_turns"] + 1
@@ -829,6 +828,7 @@ class AgentRuntime:
                     trace.emit("completion_review_requested", run_id=run_id, turn=turn, request=request,
                                phase=phase, attempt=attempt)
                     activity("completion_review", turn=turn, phase=phase, attempt=attempt)
+                    response = None
                     try:
                         response = self.model.invoke(request)
                         state = {**state, "metadata": {**state["metadata"],
@@ -851,17 +851,14 @@ class AgentRuntime:
                         record(state, state)
                         trace.emit("completion_review_protocol_error", run_id=run_id, **failure)
                         activity("completion_review_retry", turn=turn, phase=phase, attempt=attempt)
-                        failures = state["metadata"]["review_protocol_errors"]
-                        if (state["metadata"].get("compact_review") and attempt >= 2 and
-                                failures[-2]["phase"] == phase and failures[-2]["error"] == feedback):
-                            trace.emit("completion_review_recovery", run_id=run_id, phase=phase,
-                                       action="revise_answer", error=feedback)
-                            update = reject_final(state, [CompletionIssue(
-                                "The reviewer repeated an invalid evidence reference or protocol response. "
-                                "Rewrite a concise answer from the actual successful observations, retaining every "
-                                "requested result, unit, format and assumption. Do not repeat successful tools. " + feedback)])
-                            state = {**state, **update}
+                        signature = identity([phase, state["answer"], feedback])
+                        if signature in failure_signatures:
+                            state = pause_review_protocol(state, "review:" + phase, feedback)
                             return None
+                        failure_signatures.add(signature)
+                        feedback = {"error": feedback,
+                                    "rejected_native_calls": [asdict(call) for call in response.tool_calls] if response is not None else [],
+                                    "instruction": "Repair this assessment against the same observed work. No workspace action or approval was accepted."}
                         continue
                     if cancel.is_set():
                         state = {**state, "status": "stopped", "answer": "", "last_error": "Stopped by user"}
@@ -961,7 +958,7 @@ class AgentRuntime:
                     if self.settings.max_model_turns is not None and state["model_turns"] >= self.settings.max_model_turns:
                         return record({"status": "budget_exhausted", "answer": "", "last_error": "Model-turn budget exhausted before final-answer composition; the draft was not published",
                                        "model_turns": state["model_turns"], "metadata": state["metadata"]}, state)
-                    request = final_answer_request(state, self.context, self.settings)
+                    request = final_answer_request(state, self.context, self.settings, defer_compaction=True)
                     request = prepare_request(request, state, "final_answer")
                     turn = state["model_turns"] + 1
                     state = {**state, "model_turns": turn}

@@ -2,8 +2,9 @@
 
 The ten previously skipped cases require a real PostgreSQL acceptance database.
 One of those cases also requires the real embedding and cross-encoder service.
-These dependencies are already running on A100; supplying a private test DSN
-enables the tests. This does not require changing the live agent's database,
+These dependencies are already running on A100; supplying both the private test
+DSN and the encoder socket enables every integration case. Supplying only the
+DSN still skips the real hybrid retrieval case. This does not require changing the live agent's database,
 model profile, tools, or scientific algorithms.
 
 ## Environment
@@ -28,7 +29,7 @@ export GEOTOOL_TEST_REPORT_DIR=/path/to/private/acceptance-reports
 ```
 
 `GEOTOOL_KNOWLEDGE_DSN_FILE` is used by the preflight to reject the production
-database as a test target. Do not point it at the acceptance DSN. The test DSN
+database as a test target and is mandatory. Do not point it at the acceptance DSN. The test DSN
 file must actually select the separate acceptance database.
 
 ## Run
@@ -36,6 +37,12 @@ file must actually select the separate acceptance database.
 ```bash
 bash scripts/test_a100_integration.sh /path/to/private/integration.env
 ```
+
+The runner also reads `$HOME/.config/geotoolagent/integration.env` when no
+configuration path or `GEOTOOL_INTEGRATION_ENV_FILE` is supplied. This private
+operator configuration must provide all three database/socket settings above.
+Use this runner, rather than an ad hoc `pytest` command, for a release gate:
+missing dependencies are errors, and any skipped case rejects acceptance.
 
 On the current A100 deployment, the operator configuration is:
 

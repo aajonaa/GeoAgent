@@ -112,6 +112,25 @@ def web_search(args, ctx):
                "auto_parameters": False}
     if args.get("include_domains"):
         payload["include_domains"] = args["include_domains"]
+    identity_data = {**payload, "query": " ".join(query.split()).casefold(),
+                     "include_domains": sorted({str(domain).casefold() for domain in payload.get("include_domains", [])})}
+    identity = hashlib.sha256((ctx.run_id + "\n" + json.dumps(identity_data, sort_keys=True)).encode("utf-8")).hexdigest()
+    path = ctx.path(".agent/web/search-" + identity + ".json")
+    ctx.check()
+    if path.is_file() and not args.get("refresh", False):
+        try:
+            snapshot = strict_json(path.read_text(encoding="utf-8"))
+            if (not isinstance(snapshot, dict) or snapshot.get("identity") != identity_data
+                    or not isinstance(snapshot.get("data"), dict)):
+                raise ValueError("Invalid saved search")
+            data = snapshot["data"]
+            if (not isinstance(data.get("query"), str) or not isinstance(data.get("results"), list)
+                    or data.get("provider") != "tavily" or not isinstance(data.get("retrieved_at"), str)):
+                raise ValueError("Invalid saved result")
+        except (OSError, ValueError, TypeError, KeyError):
+            raise ToolFailure("web_cache_invalid", "The saved search snapshot cannot be used; request refresh=true", retryable=True) from None
+        ctx.check()
+        return ToolOutput({**data, "cache_hit": True})
     response = _post("search", payload, ctx)
     if not isinstance(response.get("results"), list):
         raise ToolFailure("web_invalid_response", "Search response did not include a results list")
@@ -121,8 +140,14 @@ def web_search(args, ctx):
             raise ToolFailure("web_invalid_response", "Search result lacks a valid source URL")
         results.append({"title": str(item.get("title") or ""), "url": item["url"],
                         "snippet": str(item.get("content") or ""), "published_date": str(item.get("published_date") or "")})
-    return ToolOutput({"query": query, "results": results, "retrieved_at": datetime.now(timezone.utc).isoformat(),
-                       "provider": "tavily", "content_trust": "untrusted_external_source"})
+    data = {"query": query, "results": results, "retrieved_at": datetime.now(timezone.utc).isoformat(),
+            "provider": "tavily", "content_trust": "untrusted_external_source"}
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_suffix(".tmp")
+    temporary.write_text(json.dumps({"identity": identity_data, "data": data}, ensure_ascii=False), encoding="utf-8")
+    os.replace(temporary, path)
+    ctx.check()
+    return ToolOutput({**data, "cache_hit": False})
 
 
 def web_fetch(args, ctx):
@@ -172,10 +197,11 @@ def register_web_tools(registry):
         "query": {**text, "description": "Minimal public web search terms. This query is sent to Tavily, not to a local index."},
         "max_results": {"type": "integer", "minimum": 1, "maximum": 20, "description": "Number of search results, default 5."},
         "include_domains": {"type": "array", "items": text, "description": "Optional public source domains, such as usgs.gov. Prefer primary scientific sources."},
+        "refresh": {"type": "boolean", "description": "Acquire a new provider snapshot; otherwise identical searches reuse this task's saved result and original timestamp. Default false."},
     }, ["query"])
     row = object_schema({k: text for k in ("title", "url", "snippet", "published_date")}, ["title", "url", "snippet", "published_date"])
     search_out = object_schema({"query": text, "results": {"type": "array", "items": row}, "retrieved_at": text,
-                                "provider": text, "content_trust": text},
+                                "provider": text, "content_trust": text, "cache_hit": {"type": "boolean"}},
                                ["query", "results", "retrieved_at", "provider", "content_trust"])
     fetch_in = object_schema({
         "url": {**text, "description": "Exact public HTTP(S) source URL from the user or search result. No login, private addresses or credential-bearing URLs."},
