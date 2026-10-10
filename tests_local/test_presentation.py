@@ -59,6 +59,7 @@ def test_display_routes_are_bound_to_owner_run_and_generation(group):
     assert response.status_code == 200
     data = response.json()
     assert data['generation'] == generation
+    assert data['files'] == [{'name': 'values.csv', 'bytes': len(original), 'sha256': hashlib.sha256(original).hexdigest()}]
     assert '12.5' in json.dumps(data)
     assert hashlib.sha256(original).hexdigest() in json.dumps(data)
     page = alice.get(f'/api/runs/{rid}/table', params={'name': 'values.csv'})
@@ -87,6 +88,7 @@ def test_no_latest_file_fallback_before_run_commit(group):
         response = alice.get(f'/api/runs/{rid}/table?name=uncommitted.csv')
         assert response.status_code == 404
         assert 'uncommitted.csv' not in json.dumps(alice.get(f'/api/runs/{rid}/presentation').json())
+        assert alice.get(f'/api/runs/{rid}/presentation').json()['files'] == []
     finally:
         store.finish(rid, status='stopped')
 
@@ -99,3 +101,4 @@ def test_presentation_javascript_syntax_and_latest_request_contract():
     for name in ('presentation-state.js', 'presentation.js', 'app.js'):
         subprocess.run([node, '--check', str(root / 'geological_agent/team/web' / name)], check=True)
     subprocess.run([node, str(Path(__file__).with_name('presentation-regression.js'))], check=True)
+    subprocess.run([node, str(Path(__file__).with_name('answer-images-regression.js'))], check=True)

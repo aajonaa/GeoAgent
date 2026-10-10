@@ -12,9 +12,12 @@ from urllib.parse import urlsplit
 import httpx
 
 from ..contracts import Message, ModelRequest, strict_json
+from ..settings import Settings, DEFAULT_CONTEXT_WINDOW_TOKENS, DEFAULT_MAX_OUTPUT_TOKENS
+from ..context_budget import budget_description
 from ..llm import LocalChatClient, missing_native_tool_message
 from .store import digest
 from .model_vault import ModelVault, ModelVaultError
+from .protocol import scrub
 
 
 @dataclass(frozen=True)
@@ -27,13 +30,25 @@ class ModelProfile:
     profile_id: str = field(default="", compare=False)
     name: str = field(default="", compare=False)
     revision: int = field(default=0, compare=False)
+    context_window_tokens: int | None = DEFAULT_CONTEXT_WINDOW_TOKENS
+    max_output_tokens: int = DEFAULT_MAX_OUTPUT_TOKENS
+
+    def runtime_settings(self):
+        return {"context_model": self.model,
+                "context_window_tokens": self.context_window_tokens if self.context_window_tokens is not None else DEFAULT_CONTEXT_WINDOW_TOKENS,
+                "max_output_tokens": self.max_output_tokens}
+
+    def context_budget(self):
+        return budget_description(Settings(**self.runtime_settings()))
 
     def identity(self):
         return {"source": self.source, "base_url": self.base_url, "model": self.model}
 
     def public(self):
         return {**self.identity(), "has_token": bool(self.api_token), "storage": self.storage,
-                "profile_id": self.profile_id, "name": self.name, "revision": self.revision}
+                "profile_id": self.profile_id, "name": self.name, "revision": self.revision,
+                "context_window_tokens": self.runtime_settings()["context_window_tokens"],
+                "max_output_tokens": self.max_output_tokens, "context_budget": self.context_budget()}
 
 
 def builtin_profile():
@@ -42,6 +57,10 @@ def builtin_profile():
         os.environ.get("GEOTOOL_MODEL_URL") or os.environ.get("WORKSPACE_MODEL_URL", "http://127.0.0.1:8000/v1"),
         os.environ.get("GEOTOOL_MODEL") or os.environ.get("WORKSPACE_MODEL", "GeoGPT-Research-Project/Qwen2.5-72B-GeoGPT"),
         os.environ.get("GEOTOOL_MODEL_KEY") or os.environ.get("WORKSPACE_MODEL_KEY", ""),
+        # The existing GeoGPT service runs with a 32,768-token window.
+        # Administrators can override both limits with the deployed service values.
+        context_window_tokens=int(os.environ.get("GEOTOOL_MODEL_CONTEXT_TOKENS", "32768")),
+        max_output_tokens=int(os.environ.get("GEOTOOL_MODEL_MAX_OUTPUT_TOKENS", "4096")),
     )
 
 
@@ -155,8 +174,10 @@ class PinnedTransport(httpx.BaseTransport):
         self.inner.close()
 
 
-def parse_profile(data, builtin, previous, policy):
-    if set(data) - {"source", "base_url", "model", "api_token", "keep_token"}:
+def parse_profile(data, builtin, previous, policy, defaults=None):
+    defaults = defaults or {"context_window_tokens": DEFAULT_CONTEXT_WINDOW_TOKENS,
+                            "max_output_tokens": DEFAULT_MAX_OUTPUT_TOKENS}
+    if set(data) - {"source", "base_url", "model", "api_token", "keep_token", "context_window_tokens", "max_output_tokens"}:
         raise ValueError("Unknown model setting")
     if data.get("source") == "builtin":
         return builtin
@@ -173,7 +194,13 @@ def parse_profile(data, builtin, previous, policy):
         if token or previous.source != "custom" or previous.base_url != base_url:
             raise ValueError("An existing token can only be kept for the same API endpoint")
         token = previous.api_token
-    return ModelProfile("custom", base_url, model.strip(), token)
+    window = data.get("context_window_tokens", previous.context_window_tokens
+                      if previous.base_url == base_url and previous.model == model.strip() else None)
+    window = defaults["context_window_tokens"] if window is None else window
+    same_model = previous.base_url == base_url and previous.model == model.strip()
+    output = data.get("max_output_tokens", previous.max_output_tokens if same_model else defaults["max_output_tokens"])
+    Settings(context_window_tokens=window, max_output_tokens=output, context_model=model.strip())
+    return ModelProfile("custom", base_url, model.strip(), token, context_window_tokens=window, max_output_tokens=output)
 
 
 class SessionModels:
@@ -189,8 +216,60 @@ class SessionModels:
             raise ValueError("Connection name must contain 1 to 96 printable characters")
         return value.strip()
 
+    @staticmethod
+    def _defaults(collection):
+        values = collection.get("defaults", {
+            "context_window_tokens": DEFAULT_CONTEXT_WINDOW_TOKENS,
+            "max_output_tokens": DEFAULT_MAX_OUTPUT_TOKENS})
+        if not isinstance(values, dict) or set(values) != {"context_window_tokens", "max_output_tokens"}:
+            raise ValueError("Default settings require context window and maximum output")
+        if type(values["context_window_tokens"]) is not int or values["context_window_tokens"] < 1:
+            raise ValueError("Default context window must be a positive whole number of tokens")
+        Settings(**values)
+        return dict(values)
+
+    @classmethod
+    def _public_defaults(cls, collection):
+        values = cls._defaults(collection)
+        window, output = values["context_window_tokens"], values["max_output_tokens"]
+        safety = max(1024, (window + 19) // 20)
+        return {**values, "revision": collection.get("defaults_revision", 0),
+                "input_budget_tokens": window - output - safety,
+                "safety_reserve_tokens": safety,
+                "scope": "new_custom_connections",
+                "stored": "defaults" in collection}
+
+    def get_defaults(self, token):
+        with self.lock:
+            uid = self.store.authenticate(token)["id"]
+            return self._public_defaults(self._collection(uid, self.vault.get(uid)))
+
+    def save_defaults(self, token, data):
+        if not isinstance(data, dict) or set(data) != {"context_window_tokens", "max_output_tokens", "revision"}:
+            raise ValueError("Supply both default limits and their revision")
+        revision = data["revision"]
+        if type(revision) is not int or revision < 0:
+            raise ValueError("Invalid defaults revision")
+        values = self._defaults({"defaults": {key: data[key] for key in
+                                 ("context_window_tokens", "max_output_tokens")}})
+        selected = []
+        with self.lock:
+            uid = self.store.authenticate(token)["id"]
+            def change(raw):
+                collection = self._collection(uid, raw)
+                if revision != collection.get("defaults_revision", 0):
+                    raise ValueError("Default settings changed in another window. Reopen settings before saving.")
+                collection["defaults"] = values
+                collection["defaults_revision"] = revision + 1
+                selected.append(self._public_defaults(collection))
+                return collection
+            self.vault.mutate(uid, change)
+        return selected[0]
+
     def _record_profile(self, item):
-        profile = parse_profile({key: item[key] for key in ("source", "base_url", "model", "api_token")},
+        profile = parse_profile({**{key: item[key] for key in ("source", "base_url", "model", "api_token")},
+                                 "context_window_tokens": item.get("context_window_tokens"),
+                                 "max_output_tokens": item.get("max_output_tokens", 4096)},
                                 self.builtin, self.builtin, self.policy)
         if (profile.source != "custom" or not isinstance(item["id"], str) or
                 not item["id"] or len(item["id"]) > 64 or
@@ -210,6 +289,10 @@ class SessionModels:
                 raw = {"format": "connections-v1", "active_id": identifier, "items": [item]}
             if raw.get("format") != "connections-v1" or not isinstance(raw["items"], list):
                 raise ValueError()
+            self._defaults(raw)
+            revision = raw.get("defaults_revision", 0)
+            if type(revision) is not int or revision < 0:
+                raise ValueError("Invalid defaults revision")
             ids = []
             for item in raw["items"]:
                 ids.append(self._record_profile(item).profile_id)
@@ -255,7 +338,8 @@ class SessionModels:
             collection = self._collection(uid, self.vault.get(uid))
             return {**profile.public(), "saved_profiles": [
                 self._record_profile(item).public() for item in collection["items"]
-            ], "account_active_id": collection["active_id"]}
+            ], "account_active_id": collection["active_id"],
+                "defaults": self._public_defaults(collection)}
 
     def _details(self, data):
         clean = dict(data)
@@ -274,6 +358,7 @@ class SessionModels:
         return clean, remember, identifier, revision, name
 
     def _parse(self, token, uid, clean, identifier, revision, name, collection=None):
+        collection = collection if collection is not None else self._collection(uid, self.vault.get(uid))
         previous = self.builtin
         if identifier:
             collection = collection if collection is not None else self._collection(uid, self.vault.get(uid))
@@ -283,7 +368,7 @@ class SessionModels:
             previous = self._record_profile(item)
         elif clean.get("keep_token"):
             previous = self.get(token)
-        profile = parse_profile(clean, self.builtin, previous, self.policy)
+        profile = parse_profile(clean, self.builtin, previous, self.policy, self._defaults(collection))
         if profile.source == "builtin":
             return profile
         return replace(profile, name=name or previous.name or profile.model[:96])
@@ -320,6 +405,8 @@ class SessionModels:
                 profile = self._parse(token, uid, clean, identifier, revision, name, collection)
                 target_id = identifier or uuid.uuid4().hex
                 item = {**profile.identity(), "api_token": profile.api_token,
+                        "context_window_tokens": profile.context_window_tokens,
+                        "max_output_tokens": profile.max_output_tokens,
                         "id": target_id, "name": profile.name,
                         "revision": self._find(collection, identifier)["revision"] + 1 if identifier else 1}
                 if identifier:
@@ -346,7 +433,7 @@ class SessionModels:
                     self._find(collection, identifier)
                 collection["active_id"] = identifier
                 selected.append(self._active(collection))
-                return collection if collection["items"] else None
+                return collection if collection["items"] or "defaults" in collection else None
             self.vault.mutate(uid, change)
             self._forget_account_sessions(uid)
             return selected[0]
@@ -364,7 +451,7 @@ class SessionModels:
                 collection["items"] = [item for item in collection["items"] if item["id"] != identifier]
                 if was_active[0]:
                     collection["active_id"] = None
-                return collection if collection["items"] else None
+                return collection if collection["items"] or "defaults" in collection else None
             self.vault.mutate(uid, change)
             if was_active[0]:
                 self._forget_account_sessions(uid)
@@ -405,10 +492,43 @@ def redact(value, secrets):
     return value
 
 
+def provider_error_details(exc, secrets=()):
+    """Publish whitelisted upstream diagnostics, never headers or raw bodies."""
+    details = {"error": type(exc).__name__}
+    if isinstance(exc, httpx.HTTPStatusError):
+        details["http_status"] = exc.response.status_code
+        try:
+            payload = exc.response.json()
+        except (ValueError, UnicodeError, httpx.ResponseNotRead):
+            payload = None
+        if isinstance(payload, dict):
+            error = payload.get("error", payload)
+            if isinstance(error, str):
+                details["message"] = error
+            elif isinstance(error, dict):
+                for key in ("message", "type", "code", "param"):
+                    value = error.get(key)
+                    if isinstance(value, (str, int)) and not isinstance(value, bool):
+                        details[key] = value
+    elif not isinstance(exc, httpx.HTTPError):
+        details["message"] = str(exc)
+    return scrub(redact(details, secrets), secrets)
+
+
+def model_endpoint_error(exc, secrets=()):
+    details = provider_error_details(exc, secrets)
+    code = details.get("http_status", details["error"])
+    message = f"Model endpoint request failed ({code}); check your model settings"
+    parts = [f"{key}={details[key]}" for key in ("type", "code", "param", "message") if key in details]
+    return message + (". Provider: " + "; ".join(parts) if parts else "")
+
+
 def profile_client(profile, policy, *, probe=False):
     return LocalChatClient(profile.base_url, profile.model, profile.api_token,
                            timeout=httpx.Timeout(90 if probe else 180, connect=10),
-                           max_tokens=256 if probe else 4096,
+                           max_tokens=min(256, profile.max_output_tokens) if probe else profile.max_output_tokens,
+                           thinking_enabled=not probe,
+                           required_streaming=profile.source == "custom",
                            transport=policy.transport(profile.base_url) if profile.source == "custom" else None)
 
 
@@ -441,7 +561,7 @@ def probe_model(client):
         raise ValueError("Endpoint returned invalid native tool arguments")
     receipt = uuid.uuid4().hex
     second = client.invoke(ModelRequest((*request.messages,
-        Message("assistant", first.content, first.tool_calls),
+        Message("assistant", first.content, first.tool_calls, reasoning_content=first.reasoning_content),
         Message("tool", json.dumps({"ok": True, "receipt": receipt}), tool_call_id=call.id),
         Message("user", "Return exactly the receipt value from the tool result, with no "
                         "other text and no further calls. This verifies result consumption."),

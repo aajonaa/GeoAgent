@@ -175,7 +175,7 @@ def test_completion_archive_keeps_successful_evidence_and_original_state(phase):
     payload = completion_evidence(state, None)
     request = ModelRequest((Message("system", "Audit actual evidence."), Message("user", json.dumps(payload))), ())
     archive = Archive()
-    fitted = fit_request(request, state, Settings(max_context_chars=8000), phase=phase, archive=archive)
+    fitted = fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=8000), phase=phase, archive=archive)
     data = unpack_data(json.loads(fitted.messages[1].content))
     assert request_size(fitted) <= 8000 < request_size(request)
     assert state["messages"] == original["messages"] and state["answer"] == original["answer"]
@@ -195,7 +195,7 @@ def test_successful_execution_is_not_replaced_with_an_unseen_archive():
     archive = Archive()
     with pytest.raises(ContextOverflow):
         fit_request(ModelRequest((Message("user", json.dumps(payload)),), ()), state,
-                    Settings(max_context_chars=3000), phase="review", archive=archive)
+                    Settings(context_window_tokens=None, max_context_chars=3000), phase="review", archive=archive)
     assert not archive.rows
 
 
@@ -272,7 +272,7 @@ def test_completion_archives_old_file_reads_with_hashes_not_calculations(phase):
     request = ModelRequest((Message("system", "Audit exact source evidence."),
                             Message("user", json.dumps(payload))), ())
     archive = Archive()
-    fitted = fit_request(request, state, Settings(max_context_chars=6000), phase=phase, archive=archive)
+    fitted = fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=6000), phase=phase, archive=archive)
     records = unpack_data(json.loads(fitted.messages[1].content))["observed_actions"]
     assert request_size(fitted) <= 6000 < request_size(request)
     assert state["messages"] == original["messages"] and state["answer"] == original["answer"]
@@ -297,5 +297,5 @@ def test_completion_does_not_externalize_the_only_file_read():
     archive = Archive()
     with pytest.raises(ContextOverflow):
         fit_request(ModelRequest((Message("user", json.dumps(payload)),), ()), state,
-                    Settings(max_context_chars=3000), phase="review", archive=archive)
+                    Settings(context_window_tokens=None, max_context_chars=3000), phase="review", archive=archive)
     assert not archive.rows

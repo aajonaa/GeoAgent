@@ -232,6 +232,8 @@ class Archive:
 
 
 def test_archive_index_fits_actual_budget_without_evicting_fitting_evidence():
+    from geological_agent.context_budget import input_allowance, request_budget_size
+    settings = Settings(context_window_tokens=16000, max_output_tokens=256)
     messages = [Message("user", "Keep exact user requirements.")]
     for i in range(15):
         call = ToolCall(str(i), "lookup", {"part": i})
@@ -243,8 +245,9 @@ def test_archive_index_fits_actual_budget_without_evicting_fitting_evidence():
     def summarize(source, target):
         summaries.append((source, target))
         return "Earlier failed inspections; source still needed."
-    fitted = fit_request(request, state, Settings(max_context_chars=48000), archive=archive, summarize=summarize)
-    assert request_size(fitted) <= 48000
+    assert request_budget_size(request, settings) > input_allowance(settings)
+    fitted = fit_request(request, state, settings, archive=archive, summarize=summarize)
+    assert request_budget_size(fitted, settings) <= input_allowance(settings)
     assert fitted.messages[0] == request.messages[0] and fitted.messages[-2:] == request.messages[-2:]
     originals = {m.tool_call_id: m.content for m in messages if m.role == "tool"}
     retained = {m.tool_call_id: m.content for m in fitted.messages if m.role == "tool"}
@@ -253,7 +256,10 @@ def test_archive_index_fits_actual_budget_without_evicting_fitting_evidence():
                for identity, content in retained.items())
     assert len(archive.rows) == 14
     assert state["messages"] == messages
-    assert state["metadata"]["context_compactions"][-1]["headroom_chars"] == 48000 - request_size(fitted)
+    event = state["metadata"]["context_compactions"][-1]
+    assert event["input_budget_tokens"] == input_allowance(settings)
+    assert event["after_estimated_tokens"] == request_budget_size(fitted, settings)
+    assert event["headroom_chars"] is None and event["legacy_allowance_chars"] is None
 
 def test_reference_guidance_is_loaded_only_with_reference_tools(tmp_path):
     agent = create_agent(object(), settings=Settings(verify_completion=False))
@@ -268,6 +274,8 @@ def test_reference_guidance_is_loaded_only_with_reference_tools(tmp_path):
 
 
 def test_short_assistant_drafts_can_be_compacted_when_they_cause_overflow():
+    from geological_agent.context_budget import input_allowance, request_budget_size
+    settings = Settings(context_window_tokens=5500, max_output_tokens=256)
     call1, call2 = ToolCall("one", "inspect", {}), ToolCall("two", "inspect", {})
     messages = [Message("user", "exact task"), Message("assistant", "a" * 2975, (call1,)),
                 ToolResult("one", "inspect", "ok", {"source": "b" * 2000}).message(),
@@ -278,6 +286,7 @@ def test_short_assistant_drafts_can_be_compacted_when_they_cause_overflow():
     def summarize(source, target):
         summaries.append(target)
         return "Prior inspection, original source archived."
-    fitted = fit_request(request, state, Settings(max_context_chars=10000), archive=Archive(), summarize=summarize)
-    assert request_size(fitted) <= 10000 and summaries
+    assert request_budget_size(request, settings) > input_allowance(settings)
+    fitted = fit_request(request, state, settings, archive=Archive(), summarize=summarize)
+    assert request_budget_size(fitted, settings) <= input_allowance(settings) and summaries
     assert state["messages"] == messages

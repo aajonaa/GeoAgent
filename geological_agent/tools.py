@@ -128,7 +128,9 @@ class ToolExecutor:
         return ledger.observe(call, args, tool, inputs, result)
 
     def _execute(self, call: ToolCall, context: ToolExecutionContext) -> ToolResult:
-        ctx = replace(context, call_id=call.id, deadline=time.monotonic() + context.settings.tool_timeout_seconds)
+        timeout = context.settings.tool_timeout_seconds
+        configured_deadline = time.monotonic() + timeout if timeout > 0 else float("inf")
+        ctx = replace(context, call_id=call.id, deadline=min(context.deadline, configured_deadline))
         try:
             ctx.check()
             tool = self.registry.get(call.name)
@@ -236,6 +238,10 @@ import sys
 program, evidence, trace_path = map(Path, sys.argv[1:4])
 value_limit = int(sys.argv[4])
 workspace = Path.cwd().resolve()
+# -I still excludes ambient PYTHONPATH and user-site packages. Only the
+# administrator-configured dependency directories are passed by the broker.
+if len(sys.argv) > 5:
+    sys.path.extend(json.loads(sys.argv[5]))
 executed, sources, code_sources, frames = {}, {}, {}, {}
 sequence = 0
 trace = trace_path.open("w", encoding="utf-8")
@@ -367,6 +373,18 @@ finally:
 
 def execute_python(args, ctx):
     """Trusted local execution, NOT a security sandbox."""
+    # Optional scientific dependencies are deployment-owned, never tool arguments.
+    package_paths = []
+    for value in os.environ.get("GEOTOOL_PYTHON_PACKAGES", "").split(os.pathsep):
+        if not value:
+            continue
+        path = Path(value)
+        resolved = path.resolve()
+        work = ctx.workspace.resolve()
+        if (not path.is_absolute() or not resolved.is_dir()
+                or resolved.is_relative_to(work) or work.is_relative_to(resolved)):
+            raise ToolFailure("python_environment_config", "Configured Python dependency directory is unavailable or overlaps the task workspace")
+        package_paths.append(str(resolved))
     before = _files(ctx)
     folder = ctx.path(".agent/processes/" + uuid.uuid4().hex)
     folder.mkdir(parents=True)
@@ -377,11 +395,12 @@ def execute_python(args, ctx):
     runner.write_text(_PYTHON_RUNNER, encoding="utf-8")
     out_path, err_path = folder / "stdout.txt", folder / "stderr.txt"
     env = {k: v for k, v in os.environ.items() if not any(word in k.upper() for word in ("KEY", "TOKEN", "SECRET", "PASSWORD", "AUTHORIZATION"))}
-    env.update(PYTHONIOENCODING="utf-8", PYTHONUNBUFFERED="1")
+    env.update(PYTHONIOENCODING="utf-8", PYTHONUNBUFFERED="1",
+               MPLBACKEND="Agg", MPLCONFIGDIR=str(folder / "matplotlib"))
     stopped = None
     with out_path.open("wb") as out, err_path.open("wb") as err:
         options = {"creationflags": subprocess.CREATE_NO_WINDOW | subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == "nt" else {"start_new_session": True}
-        process = subprocess.Popen([sys.executable, "-I", str(runner), str(code), str(execution_record), str(execution_trace), str(ctx.settings.max_tool_output_chars)], cwd=ctx.workspace,
+        process = subprocess.Popen([sys.executable, "-I", str(runner), str(code), str(execution_record), str(execution_trace), str(ctx.settings.max_tool_output_chars), json.dumps(package_paths)], cwd=ctx.workspace,
                                    env=env, stdout=out, stderr=err, **options)
         try:
             while process.poll() is None:
@@ -437,7 +456,7 @@ def register_file_tools(registry):
                         "expected_sha256": {**text, "pattern": "^[a-f0-9]{64}$", "description": "Hash from read_file; required when changing an existing file."}}, ["path", "content"]),
          object_schema({"path": text, "bytes": {"type": "integer"}, "sha256": text}, ["path", "bytes", "sha256"]), write_file),
         ("execute_python", "Run Python in this workspace and return actual stdout, stderr and generated files. Trusted local use only; not a sandbox.", "Compute, inspect tabular data, run checks, or repair code.",
-         object_schema({"code": {**text, "pattern": r"^[\s\S]+$", "description": "Complete Python program. Use relative paths; avoid modifying inputs. Standard library is available."}}, ["code"]),
+         object_schema({"code": {**text, "pattern": r"^[\s\S]+$", "description": "Complete Python program. Use relative paths; avoid modifying inputs. Standard library is available; optional scientific packages are configured by the deployment. Use matplotlib's noninteractive backend for saved figures."}}, ["code"]),
          object_schema({"stdout": text, "stderr": text, "return_code": {"type": "integer"}, "stdout_path": text, "stderr_path": text, "code_path": text,
                         "executed_files": {"type": "array", "items": object_schema({"path": text, "sha256": text}, ["path", "sha256"]), "description": "Workspace source files entered in this Python process with load-time hashes. Loading alone does not prove functions or tests ran."},
                         "execution_record_complete": {"type": "boolean", "description": "The current-process trace finished with its hook active. Not proof of successful tests; child processes and other threads are not traced. Trusted local diagnostics, not tamperproof attestation."},

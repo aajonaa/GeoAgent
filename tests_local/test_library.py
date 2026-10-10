@@ -72,14 +72,22 @@ def test_registered_skill_document_matches_actual_runtime_instructions(assets):
     assert "GeoMagnitudeToEnergy" in assets.detail("skills", "earthquake_energy")["instructions"]
 
 
-def test_blocked_tools_and_skills_are_visible_but_have_no_execution_example(assets):
-    blocked = [row for row in assets.tools.values() if row["status"] == "blocked"]
+def test_blocked_tools_and_skills_are_visible_but_have_no_execution_example(assets, monkeypatch):
+    from copy import deepcopy
+    source = deepcopy(catalog())
+    source["tools"].append({"id": "fixture_blocked_tool", "name": "Test blocked", "description": "Synthetic blocked contract",
+                            "source_interface": {"status": "blocked", "reason": "Synthetic missing prerequisite"}})
+    source["skills"].append({"id": "fixture-blocked-skill", "name": "Test unavailable", "description": "Synthetic",
+                             "tool_references": ["fixture_blocked_tool"]})
+    monkeypatch.setattr(library_module, "catalog", lambda: source)
+    fixture = LibraryCatalog(human_input=True)
+    blocked = [row for row in fixture.tools.values() if row["status"] == "blocked"]
     assert blocked
     for row in blocked:
         assert row["reason"]
         assert not row["example_prompt"]
         assert row["example_arguments"] is None
-    blocked_skills = [row for row in assets.skills.values() if row["status"] == "blocked"]
+    blocked_skills = [row for row in fixture.skills.values() if row["status"] == "blocked"]
     assert blocked_skills
     assert all(row["reason"] and not row["example_prompt"] for row in blocked_skills)
 
@@ -163,3 +171,4 @@ def test_frontend_interaction_regression():
     result = subprocess.run([node, str(script), str(client)], capture_output=True, text=True, encoding="utf-8", timeout=30)
     assert result.returncode == 0, result.stdout + result.stderr
     assert "library UI checks passed" in result.stdout
+

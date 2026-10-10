@@ -212,6 +212,12 @@
   registry.set('images', (block, ctx) => {
     const files = block.props.files;
     if (!Array.isArray(files) || !files.length || files.some(file => typeof file.name !== 'string' || typeof file.sha256 !== 'string')) throw new Error('Invalid image references');
+    if (window.GeoAgentExperience) {
+      const card = frame('图片与处理结果', 'image');
+      card.append(note(files.length + ' 个图像文件，按需预览；下载保留原始科学数值与坐标。'),
+        button('查看这些图像', () => window.GeoAgentExperience.files(ctx, files[0].name)));
+      return card;
+    }
     const card = frame('图片与处理结果', 'image'), grid = make('div', undefined, 'rich-image-pair');
     const knownPair = (block.props.pairs || [])[0];
     const names = [knownPair?.before || files[0].name, knownPair?.after || files[Math.min(1,files.length-1)].name];
@@ -266,6 +272,7 @@
     for (const ui of state.runs.values()) {
       if (!ui.rich) continue;
       ui.rich.panel.hidden = !enabled;
+      if (ui.rich.compact) ui.rich.compact.hidden = !enabled;
       ui.rich.visual.setAttribute('aria-pressed', String(enabled));
       ui.rich.plain.setAttribute('aria-pressed', String(!enabled));
     }
@@ -278,7 +285,7 @@
     if (ui.rich) return;
     const root = make('section', undefined, 'rich-results'); root.setAttribute('aria-label', '任务结果展示');
     const toolbar = make('div', undefined, 'rich-toolbar'), label = make('span', 'RESULTS / EVIDENCE', 'rich-eyebrow');
-    const modes = make('div', undefined, 'rich-segments'), visual = button('结果视图', () => choose(true), 'quiet'), plain = button('纯文本', () => choose(false), 'quiet');
+    const modes = make('div', undefined, 'rich-segments'), visual = button('成果面板', () => { choose(true); window.GeoAgentExperience?.open(rid, ui); }, 'quiet'), plain = button('纯文本', () => choose(false), 'quiet');
     modes.append(visual, plain); toolbar.append(label, modes);
     const panel = make('div', undefined, 'rich-result-view'), status = note(''), blocks = make('div', undefined, 'rich-blocks');
     panel.append(status, blocks); root.append(toolbar, panel); ui.answer.after(root);
@@ -292,6 +299,8 @@
       const result = await api('/api/runs/' + encodeURIComponent(rid) + '/presentation');
       if (!current()) return;
       if (result.version !== 1 || result.run_id !== rid || result.conversation_id !== cid || !Array.isArray(result.blocks)) throw new Error('不支持的展示数据版本');
+      ui.artifactContext = result;
+      if (typeof markdown === 'function' && typeof ui.answerText === 'string') markdown(ui.answer, ui.answerText, result);
       rich.status.textContent = result.blocks.length
         ? '来自实际工具回执与该次任务的文件快照。回答审核与科学正确性不是一回事。'
         : ['running','stopping'].includes(result.status) ? '执行结果返回后将在这里显示。' : '本轮没有可展示的结构化结果。文字答复和执行记录保留在上方。';
@@ -314,6 +323,7 @@
       }
       rich.blocks.replaceChildren(...order);
       window.GeoScientificViewer?.attach(rid, ui, result);
+      window.GeoAgentExperience?.results(rid, ui, result);
     } catch (error) {
       if (!current()) return;
       rich.status.replaceChildren(document.createTextNode('结果视图加载失败：' + error.message + '。文字和文件仍可使用。 '), button('重试', () => refresh(rid,ui), 'quiet'));

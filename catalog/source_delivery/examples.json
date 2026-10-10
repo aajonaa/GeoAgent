@@ -541,5 +541,261 @@
       "scale": "linear",
       "unit": "m"
     }
+  },
+  "DeepEarthQueryLITHO1": {
+    "dataset_path": "assets/recovered-examples/nodes.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "latitude": 0,
+    "longitude": 0,
+    "layer": "CRUST3-BOTTOM"
+  },
+  "DeepEarthQuerySEMUCB": {
+    "dataset_path": "assets/recovered-examples/velocity.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "latitude": 0,
+    "longitude": 0,
+    "depth_km": 100
+  },
+  "DeepEarthGetUSGSEvent": {
+    "dataset_path": "assets/recovered-examples/events.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "event_id": "e1"
+  },
+  "DeepEarthQueryUSGSCatalog": {
+    "dataset_path": "assets/recovered-examples/events.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "operation": "count"
+  },
+  "DeepEarthSampleEventModels": {
+    "dataset_path": "assets/recovered-examples/joins.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "event_id": "e1"
+  },
+  "GeoBigDataExecuteGeoSPARQL": {
+    "dataset_path": "assets/recovered-examples/graph.ttl",
+    "dataset_version": "synthetic-acceptance-v1",
+    "format": "turtle",
+    "query": "PREFIX geo: <http://www.opengis.net/ont/geosparql#> PREFIX geof: <http://www.opengis.net/def/function/geosparql/> SELECT ?s WHERE { ?s geo:asWKT ?w . FILTER(geof:sfWithin(?w, \"POLYGON((-1 -1,1 -1,1 1,-1 1,-1 -1))\"^^geo:wktLiteral)) }"
+  },
+  "ClimateQueryDeepTime": {
+    "dataset_path": "assets/recovered-examples/paleo.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "age_kyr_bp": 9,
+    "baseline": "synthetic reference"
+  },
+  "ClimateQueryPresentMean": {
+    "dataset_path": "assets/recovered-examples/annual.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "year_start": 2020,
+    "year_end": 2022,
+    "baseline": "synthetic reference"
+  },
+  "ClimateQueryFutureSSP": {
+    "dataset_path": "assets/recovered-examples/ssp.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "scenario": "SSP2-4.5",
+    "horizon_year": 2050,
+    "baseline": "synthetic reference"
+  },
+  "EnergyFacilityDistance": {
+    "dataset_path": "assets/recovered-examples/facilities.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "first_id": "F1",
+    "second_id": "F2"
+  },
+  "EnergyMineralSiteDistance": {
+    "dataset_path": "assets/recovered-examples/minerals.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "first_id": "M1",
+    "second_id": "M2"
+  },
+  "EnergyNearestFacility": {
+    "dataset_path": "assets/recovered-examples/facilities.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "latitude": 0,
+    "longitude": 0
+  },
+  "EnergyNearestMineralSite": {
+    "dataset_path": "assets/recovered-examples/minerals.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "facilities_path": "assets/recovered-examples/facilities.csv",
+    "facility_id": "F1"
+  },
+  "EnergyCapacityValue": {
+    "dataset_path": "assets/recovered-examples/capacities.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "series": "solar",
+    "year": 2022
+  },
+  "EnergyCapacityGrowth": {
+    "dataset_path": "assets/recovered-examples/capacities.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "series": "solar",
+    "start_year": 2020,
+    "end_year": 2022
+  },
+  "EnergyCountryRenewableSummary": {
+    "dataset_path": "assets/recovered-examples/facilities.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "country": "Synthetic",
+    "renewable_types": [
+      "wind"
+    ]
+  },
+  "EnergyTransitionMetrics": {
+    "dataset_path": "assets/recovered-examples/transition.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "country": "Synthetic",
+    "year": 2022
+  },
+  "EnergyRegionalOverlaySummary": {
+    "dataset_path": "assets/recovered-examples/facilities.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "minerals_path": "assets/recovered-examples/minerals.csv",
+    "bbox": [
+      -1,
+      -1,
+      1,
+      1
+    ]
+  },
+  "OceanMonthlyGridValue": {
+    "dataset_path": "assets/recovered-examples/monthly.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "latitude": 0,
+    "longitude": 0,
+    "month": "2020-01",
+    "value_field": "carbon",
+    "value_unit": "umol/kg"
+  },
+  "OceanProfileValue": {
+    "dataset_path": "assets/recovered-examples/profiles.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "expocode": "C1",
+    "station": "S1",
+    "value_field": "carbon",
+    "value_unit": "umol/kg",
+    "depth_m": 100
+  },
+  "OceanVerticalProfileDifference": {
+    "dataset_path": "assets/recovered-examples/profiles.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "expocode": "C1",
+    "station": "S1",
+    "value_field": "carbon",
+    "value_unit": "umol/kg",
+    "surface_depth_m": 0,
+    "deep_depth_m": 100
+  },
+  "OceanCruiseQC": {
+    "dataset_path": "assets/recovered-examples/qc.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "cruise": "C1",
+    "quality_field": "flag",
+    "accepted_flags": [
+      "2"
+    ]
+  },
+  "OceanStationDistance": {
+    "dataset_path": "assets/recovered-examples/stations.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "first_station": "S1",
+    "second_station": "S2"
+  },
+  "OceanAnnualCarbonSummary": {
+    "dataset_path": "assets/recovered-examples/observations.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "year": 2020,
+    "value_field": "carbon",
+    "value_unit": "umol/kg"
+  },
+  "OceanRegionalMapSummary": {
+    "dataset_path": "assets/recovered-examples/observations.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "bbox": [
+      -1,
+      -1,
+      1,
+      1
+    ],
+    "value_field": "carbon",
+    "value_unit": "umol/kg"
+  },
+  "OceanSurfaceDeepMatch": {
+    "dataset_path": "assets/recovered-examples/surface.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "deep_path": "assets/recovered-examples/deep.csv",
+    "maximum_distance_km": 1,
+    "value_field": "carbon",
+    "value_unit": "umol/kg"
+  },
+  "OceanProfileDeduplication": {
+    "dataset_path": "assets/recovered-examples/duplicates.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "key_fields": [
+      "station",
+      "depth_m"
+    ]
+  },
+  "DeepTimeInterpolateIDW": {
+    "points_path": "assets/recovered-examples/points.csv",
+    "value_field": "value",
+    "value_unit": "ppm",
+    "bbox": [
+      0,
+      0,
+      2,
+      2
+    ],
+    "grid_size": 2,
+    "power": 2
+  },
+  "CCSInterpolateIDW": {
+    "points_path": "assets/recovered-examples/points.csv",
+    "value_field": "value",
+    "value_unit": "ppm",
+    "bbox": [
+      0,
+      0,
+      2,
+      2
+    ],
+    "grid_size": 2,
+    "power": 2
+  },
+  "DeepTimeRasterAlgebra": {
+    "raster_path": "assets/recovered-examples/red.tif",
+    "scalar": 2,
+    "operation": "multiply",
+    "output_unit": "1"
+  },
+  "CCSRasterAlgebra": {
+    "raster_path": "assets/recovered-examples/red.tif",
+    "scalar": 2,
+    "operation": "multiply",
+    "output_unit": "1"
+  },
+  "RemoteSensingCloudMask": {
+    "raster_path": "assets/recovered-examples/red.tif",
+    "qa_path": "assets/recovered-examples/qa.tif",
+    "qa_profile": "landsat_8_9_collection_2_qa_pixel",
+    "value_unit": "1"
+  },
+  "RemoteSensingNDTI": {
+    "red_path": "assets/recovered-examples/red.tif",
+    "green_path": "assets/recovered-examples/green.tif",
+    "red_date": "2020-01-01",
+    "green_date": "2020-01-01"
+  },
+  "USGS 地震数据获取": {
+    "start": "2020-01-01",
+    "end": "2020-01-03",
+    "minimum_magnitude": 4,
+    "limit": 10
+  },
+  "地震事件地图可视化": {
+    "dataset_path": "assets/recovered-examples/events.csv",
+    "dataset_version": "synthetic-acceptance-v1",
+    "title": "Synthetic <script>alert(1)</script>"
   }
 }

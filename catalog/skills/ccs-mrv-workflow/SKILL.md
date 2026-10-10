@@ -321,53 +321,7 @@ Call the original structured implementation. Do not use the retired asset_catalo
 
 ## Dependencies
 
-~~~json
-{
-  "tools": [
-    "CCSCheckCRSConsistency",
-    "CCSStandardizeSpatialData",
-    "CCSValidateSpatialData",
-    "CCSNearestNeighbor",
-    "CCSBuffer",
-    "CCSOverlay",
-    "CCSBatchVector",
-    "CCSRenderMap"
-  ],
-  "unavailable": [],
-  "tool_references": [
-    "GeoDecimalToDMS",
-    "DeepTimeDecimalToDMS",
-    "CCSDecimalToDMS",
-    "GeoCheckCRSConsistency",
-    "CCSCheckCRSConsistency",
-    "DeepTimeStandardizeSpatialData",
-    "CCSStandardizeSpatialData",
-    "DeepTimeBatchVector",
-    "CCSBatchVector",
-    "DeepTimeValidateSpatialData",
-    "CCSValidateSpatialData",
-    "EnergyNearestFacility",
-    "EnergyNearestMineralSite",
-    "DeepTimeNearestNeighbor",
-    "CCSNearestNeighbor",
-    "DeepTimeBuffer",
-    "CCSBuffer",
-    "DeepTimeOverlay",
-    "CCSOverlay",
-    "DeepTimeRenderMap",
-    "CCSRenderMap"
-  ],
-  "method_notes": [
-    "Normalize coordinate representation and validate CRS consistency.",
-    "Standardize and batch-copy vector layers into a reusable spatial representation.",
-    "Validate coordinate ranges, empty geometries, and duplicate features.",
-    "Select the nearest facility, feature, or related mineral site.",
-    "Generate point-buffer envelope features.",
-    "Perform point-in-polygon or facility-zone overlay.",
-    "Render a reproducible PNG and HTML inspection map."
-  ]
-}
-~~~
+Select from the direct tool references below. Use the current schemas and environment requirements; a list of tools is not an executable workflow.
 
 Environment: Python 3.12 with requirements-source-tools.txt. Caller supplies licensed input data.
 A tool reference is not proof that its implementation is available. Consult every referenced tool's source_interface status.
@@ -375,7 +329,7 @@ A tool reference is not proof that its implementation is available. Consult ever
 ## Success criteria
 
 Required tool calls return valid structured results; output files exist; units and reported values match those results.
-Check the requested goal, not merely process completion. No source-revision or agent end-to-end tests have run.
+Check the requested goal, not merely process completion. Consult the current acceptance report for individual tool tests; whole-Skill validation remains a separate requirement.
 
 ## Failure handling
 

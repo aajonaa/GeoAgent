@@ -24,9 +24,10 @@ from ..tracing import configured_trace
 from .isolation import Cancelled, SandboxRunner
 from .protocol import MAX_FILE, relative_name, scrub
 from .store import SESSION_SECONDS, Store
-from .model_settings import EndpointPolicy, SessionModels, builtin_profile, profile_client, probe_model, redact, trace_credentials
+from .model_settings import EndpointPolicy, SessionModels, builtin_profile, profile_client, probe_model, redact, trace_credentials, provider_error_details, model_endpoint_error
 from .trusted import TrustedLocalRunner
 from .model_vault import ModelVaultError
+from .streaming import RunProgress, consume_model_stream
 
 COOKIE = 'geotool_team_session'
 
@@ -100,6 +101,8 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     async def invalid(request, exc):
         return JSONResponse({'detail': safe(str(exc))}, status_code=400)
 
+    from ..svg_preview import SVG_CSP
+
     @app.middleware('http')
     async def boundary(request, call_next):
         origin = request.headers.get('origin')
@@ -114,7 +117,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             return JSONResponse({'detail': 'Invalid content length'}, status_code=400)
         response = await call_next(request)
         response.headers.update({'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff', 'Referrer-Policy': 'no-referrer',
-            'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'; form-action 'self'"})
+            'Content-Security-Policy': (SVG_CSP if response.headers.get('content-type', '').split(';')[0].strip() == 'image/svg+xml' else "default-src 'self'; script-src 'self'; style-src 'self'; connect-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'; form-action 'self'")})
         return response
 
     def auth(request, *, mutate=False, admin=False):
@@ -222,6 +225,16 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         response.delete_cookie(COOKIE, path='/')
         return response
 
+    @app.get('/api/settings/model-defaults')
+    def get_model_defaults(request: Request):
+        auth(request)
+        return model_settings.get_defaults(request.cookies.get(COOKIE, ''))
+
+    @app.put('/api/settings/model-defaults')
+    async def save_model_defaults(request: Request):
+        auth(request, mutate=True)
+        return model_settings.save_defaults(request.cookies.get(COOKIE, ''), await body(request))
+
     @app.get('/api/model-settings')
     def get_model_settings(request: Request):
         auth(request)
@@ -230,20 +243,20 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         except ModelVaultError as exc:
             return {**builtin.public(), 'storage': 'account_unavailable',
                     'storage_error': str(exc), 'saved_profiles': [],
-                    'builtin': builtin.identity()}
-        return {**public, 'builtin': builtin.identity()}
+                    'builtin': builtin.public()}
+        return {**public, 'builtin': builtin.public()}
 
     @app.delete('/api/model-settings')
     def delete_model_settings(request: Request):
         auth(request, mutate=True)
         profile = model_settings.delete(request.cookies.get(COOKIE, ''))
-        return {**profile.public(), 'builtin': builtin.identity()}
+        return {**profile.public(), 'builtin': builtin.public()}
 
     @app.put('/api/model-settings')
     async def save_model_settings(request: Request):
         auth(request, mutate=True)
         profile = model_settings.save(request.cookies.get(COOKIE, ''), await body(request))
-        return {**profile.public(), 'builtin': builtin.identity()}
+        return {**profile.public(), 'builtin': builtin.public()}
 
     @app.post('/api/model-settings/activate')
     async def activate_model_settings(request: Request):
@@ -252,7 +265,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         if set(data) != {'profile_id'}:
             raise ValueError('Choose one saved connection')
         profile = model_settings.activate(request.cookies.get(COOKIE, ''), data['profile_id'])
-        return {**profile.public(), 'builtin': builtin.identity()}
+        return {**profile.public(), 'builtin': builtin.public()}
 
     @app.delete('/api/model-settings/profiles/{profile_id}')
     async def delete_model_profile(profile_id: str, request: Request):
@@ -261,7 +274,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         if set(data) != {'revision'}:
             raise ValueError('Connection revision is required')
         profile = model_settings.remove(request.cookies.get(COOKIE, ''), profile_id, data['revision'])
-        return {**profile.public(), 'builtin': builtin.identity()}
+        return {**profile.public(), 'builtin': builtin.public()}
 
     @app.post('/api/model-settings/test')
     async def test_model_settings(request: Request):
@@ -284,10 +297,13 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         try:
             return await asyncio.to_thread(check)
         except Exception as exc:
-            # Never return provider response bodies, request headers or tokens.
+            # Return only credential-masked, whitelisted provider diagnostics.
             status = exc.response.status_code if isinstance(exc, httpx.HTTPStatusError) else None
+            details = provider_error_details(exc, trace_credentials(profile))
             return JSONResponse({'ok': False, 'error': type(exc).__name__, 'http_status': status,
-                'message': '连接或原生工具调用检查未通过。请核对 Endpoint、Token、Model ID，以及模型对 required/auto 工具调用的支持。'}, status_code=400)
+                'provider_error': details,
+                'message': '连接或原生工具调用检查未通过。请核对 Endpoint、Token、Model ID，以及模型对 required/auto 工具调用的支持。' +
+                           (' Provider: ' + str(details['message']) if details.get('message') else '')}, status_code=400)
         finally:
             with guard:
                 probing.discard(user['id'])
@@ -343,8 +359,9 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                        "scope": "uploaded by the authenticated caller; not independently verified"}})
         return {'ok': True, 'generation': generation}
 
-    def model_call(request, cancel, profile):
+    def model_call(request, cancel, profile, progress):
         run_secrets = (*secret_values, *trace_credentials(profile, {}))
+        call = progress.begin_model()
         while not model_slots.acquire(timeout=0.2):
             if cancel.is_set():
                 raise Cancelled('Stopped while waiting for the shared model')
@@ -357,11 +374,10 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                 # Protocol values are executable data, not a logging copy.
                 # Credentials are transport headers; traces, UI and exceptions
                 # are masked separately at their existing publication boundaries.
-                result.put((True, client.invoke(request)))
+                result.put((True, consume_model_stream(client, request, progress, call, cancel)))
             except Exception as exc:
                 if isinstance(exc, httpx.HTTPError):
-                    code = exc.response.status_code if isinstance(exc, httpx.HTTPStatusError) else type(exc).__name__
-                    exc = RuntimeError(f'Model endpoint request failed ({code}); check your model settings')
+                    exc = RuntimeError(model_endpoint_error(exc, run_secrets))
                 else:
                     exc.args = tuple(redact(arg, run_secrets) for arg in exc.args)
                 result.put((False, exc))
@@ -405,6 +421,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     def execute(uid, cid, rid, query, cancel, profile):
         run_secrets = (*secret_values, *trace_credentials(profile, {}))
         run_safe = lambda value: scrub(redact(value, run_secrets), run_secrets)
+        progress = RunProgress(lambda data: store.event(rid, data), run_secrets)
         trace_path = store.root / 'traces' / (rid + '.jsonl')
         trace_path.parent.mkdir(mode=0o700, exist_ok=True)
         inner = trace_factory(trace_path) if trace_factory else configured_trace(trace_path, secrets=run_secrets)
@@ -415,12 +432,21 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             fields = redact(fields, run_secrets)
             inner.emit(kind, **fields)
             clean = run_safe(fields)
+            progress.observe(kind, clean)
+            # Only provider-returned process text, after the existing credential
+            # redaction. Never publish prompts, rejected answers or review drafts.
+            from .timeline import process_event
+            display_fields = {**clean, 'phase': progress.model_phase} if kind == 'model_responded' else clean
+            display_event = None if kind == 'model_responded' and progress.streamed_process else process_event(kind, display_fields)
+            if display_event is not None:
+                store.event(rid, display_event)
             if kind == 'tool_requested':
                 call = clean['call']
                 store.event(rid, {'kind': 'tool_start', 'id': call['id'], 'name': call['name'], 'arguments': call['arguments']})
             elif kind in ('tool_completed', 'tool_failed'):
                 result = clean['result']
-                store.event(rid, {'kind': 'tool_result', 'id': result['call_id'], 'name': result['name'], 'result': result})
+                store.event(rid, {'kind': 'tool_result', 'id': result['call_id'], 'name': result['name'], 'result': result,
+                                  'duration_seconds': progress.tool_durations.get(result['call_id'])})
             elif kind == 'context_compacted':
                 store.event(rid, {'kind': 'context_compacted', 'before_chars': fields['before_chars'],
                                  'after_chars': fields['after_chars'], 'phase': fields['phase'],
@@ -440,22 +466,27 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             store.event(rid, {'kind': 'status', 'message': 'Starting an isolated task environment' if isolated else 'Running in the service account environment (OS isolation disabled)'})
             query_context = context_for(uid, cid, query)
             result = runner.run(rid, query_context, store.files(uid, cid), cancel,
-                                lambda request, event: model_call(request, event, profile), on_trace,
+                                lambda request, event: model_call(request, event, profile, progress), on_trace,
                                 diagnostics=store.root / 'traces' / (rid + '.stderr.log'),
+                                settings=profile.runtime_settings(),
                                 **({'input_origins': store.file_origins(uid, cid)}
                                    if getattr(runner, 'provenance_enabled', False) else {}),
                                 **({'context_scope': {'owner_id': uid, 'conversation_id': cid}}
                                    if getattr(runner, 'context_archive_enabled', False) else {}))
             if cancel.is_set():
                 raise Cancelled('Stopped before file commit; the previous files are unchanged')
+            progress.switch('publishing')
             with guard:
                 generation = store.snapshot(uid, cid, result['files'], origins=result.get('file_origins'))
+                progress.close()
                 store.finish(rid, status=result['status'], answer=run_safe(result['answer']), reason=run_safe(result.get('reason', '')),
                              generation=generation, turns=result.get('turns', 0))
         except Cancelled as exc:
+            progress.close()
             inner.emit('team_cancelled', error=run_safe(str(exc)))
             store.finish(rid, status='stopped', reason=run_safe(str(exc)))
         except Exception as exc:
+            progress.close()
             reason = run_safe(f'{type(exc).__name__}: {exc}')
             inner.emit('team_failed', error=reason)
             store.finish(rid, status='failed', reason=reason)
@@ -485,7 +516,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                 rid = store.begin(uid, cid, query.strip(), expected_input=expected_input)
             except ValueError as exc:
                 raise HTTPException(409, str(exc)) from exc
-            store.event(rid, {'kind': 'model_config', 'profile': profile.identity()})
+            store.event(rid, {'kind': 'model_config', 'profile': profile.identity(), 'context_budget': profile.context_budget()})
             cancel = Event()
             thread = Thread(target=execute, args=(uid, cid, rid, query.strip(), cancel, profile), daemon=True)
             jobs[rid] = {'uid': uid, 'cancel': cancel, 'thread': thread}
@@ -553,6 +584,10 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                 store.event(rid, {'kind': 'status', 'message': 'Stopping the task; keeping the last committed files'})
         return {'ok': True}
 
+    @app.get('/api/runs/{rid}/history')
+    def run_history(rid: str, request: Request, after: int = 0, through: int | None = None, limit: int = 60):
+        return store.history(auth(request)['id'], rid, after=after, through=through, limit=limit)
+
     @app.get('/api/runs/{rid}/events')
     async def events(rid: str, request: Request, after: int = 0):
         uid = auth(request)['id']
@@ -589,7 +624,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
 
     @app.get('/assets/{name}')
     def asset(name: str):
-        if name not in ('app.js', 'style.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js'):
+        if name not in ('app.js', 'style.css', 'defaults.js', 'defaults.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css'):
             raise HTTPException(404)
         return FileResponse(assets / name)
 

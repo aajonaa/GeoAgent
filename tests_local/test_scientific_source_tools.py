@@ -219,7 +219,7 @@ def test_zonal_hole_excludes_pixel(zone_args):
 
 def test_native_registry_and_skills_use_same_contracts():
     registry, skills, _ = build_registry()
-    for name in ("GeoOrdinaryKrigingGrid", "GeoExactZonalStatistics", "RemoteSensingMannKendallTest"):
+    for name in ("GeoOrdinaryKrigingGrid", "GeoExactZonalStatistics", "RemoteSensingMannKendallTest", "DeepTimeInterpolateIDW", "CCSInterpolateIDW"):
         spec = definition(name)
         native = registry.get(name).definition
         assert native.input_schema == spec["input_schema"] == spec["function_definition"]["function"]["parameters"]
@@ -233,8 +233,10 @@ def test_native_registry_and_skills_use_same_contracts():
     assert "RemoteSensingMannKendallTest" not in [
         row["name"] for row in skills.source_statuses["remote_sensing_trend_distribution"]["unavailable_tools"]
     ]
-    assert definition("DeepTimeInterpolateIDW")["source_interface"]["status"] == "blocked"
-    assert definition("CCSInterpolateIDW")["source_interface"]["status"] == "blocked"
+    for name, skill_id in (("DeepTimeInterpolateIDW", "deep_time_raster_zonal"), ("CCSInterpolateIDW", "ccs_raster_zonal")):
+        assert definition(name)["source_interface"]["status"] == "source_revised_unverified"
+        assert name in skills.load(skill_id).tool_names
+        assert name not in [row["name"] for row in skills.source_statuses[skill_id]["unavailable_tools"]]
 
 
 def test_runtime_chain_uses_real_kriging_artifacts(point_args, tmp_path):

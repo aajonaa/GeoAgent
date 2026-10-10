@@ -12,6 +12,8 @@ import re
 import shutil
 import uuid
 
+import yaml
+
 from legacy.ToolsAgent.ToolsFuns.source_contracts import catalog, ROOT
 from legacy.ToolsAgent.ToolsFuns.GeoEval.scientific_tools import ScientificToolError
 from ..skills import Skill, SkillSummary
@@ -23,6 +25,7 @@ ENTRY_MODULES = {
     "legacy.ToolsAgent.ToolsFuns.GeoEval.scientific_tools",
     "legacy.ToolsAgent.ToolsFuns.Geoscience.geoscience_common",
     "legacy.ToolsAgent.ToolsFuns.GeoEval.runtime",
+    "legacy.ToolsAgent.ToolsFuns.GeoEval.native_recovery",
     "legacy.ToolsAgent.ToolsFuns.Geo.geoscienceTools",
 }
 # Declarative source semantics, not a planner or a tool-name heuristic.
@@ -30,6 +33,33 @@ ENTRY_MODULES = {
 # establish facts about the external catalog. Other tools may freely compute
 # on generated inputs. Keep these declarations beside source registration.
 REFERENCE_DATA_INPUTS = {
+    "DeepEarthQueryLITHO1": ("dataset_path",),
+    "DeepEarthQuerySEMUCB": ("dataset_path",),
+    "DeepEarthGetUSGSEvent": ("dataset_path",),
+    "DeepEarthQueryUSGSCatalog": ("dataset_path",),
+    "DeepEarthSampleEventModels": ("dataset_path",),
+    "GeoBigDataExecuteGeoSPARQL": ("dataset_path",),
+    "ClimateQueryDeepTime": ("dataset_path",),
+    "ClimateQueryPresentMean": ("dataset_path",),
+    "ClimateQueryFutureSSP": ("dataset_path",),
+    "EnergyFacilityDistance": ("dataset_path",),
+    "EnergyMineralSiteDistance": ("dataset_path",),
+    "EnergyNearestFacility": ("dataset_path",),
+    "EnergyNearestMineralSite": ("dataset_path", "facilities_path"),
+    "EnergyCapacityValue": ("dataset_path",),
+    "EnergyCapacityGrowth": ("dataset_path",),
+    "EnergyCountryRenewableSummary": ("dataset_path",),
+    "EnergyTransitionMetrics": ("dataset_path",),
+    "EnergyRegionalOverlaySummary": ("dataset_path", "minerals_path"),
+    "OceanMonthlyGridValue": ("dataset_path",),
+    "OceanProfileValue": ("dataset_path",),
+    "OceanVerticalProfileDifference": ("dataset_path",),
+    "OceanCruiseQC": ("dataset_path",),
+    "OceanStationDistance": ("dataset_path",),
+    "OceanAnnualCarbonSummary": ("dataset_path",),
+    "OceanRegionalMapSummary": ("dataset_path",),
+    "OceanSurfaceDeepMatch": ("dataset_path", "deep_path"),
+    "OceanProfileDeduplication": ("dataset_path",),
     "MineralResourcesSearchDeposits": ("dataset_path",),
     "MineralResourcesGetDeposit": ("dataset_path",),
     "MineralResourcesCountrySummary": ("dataset_path",),
@@ -182,40 +212,63 @@ def register(registry):
             usage += " Limitations: " + "; ".join(map(str, limitations))
         registry.register(Tool(ToolDefinition(name, spec["description"], usage,
                                deepcopy(spec["input_schema"]), deepcopy(spec["output_schema"])),
-                               _handler(spec), pure=not spec["source_interface"].get("path_fields"),
+                               _handler(spec), pure=not spec["source_interface"].get("path_fields") and not spec["source_interface"].get("network_required", False),
                                input_paths=tuple(spec["source_interface"].get("path_fields", [])),
                                reference_paths=REFERENCE_DATA_INPUTS.get(source_id, ())))
         registered[source_id] = name
     return registered
 
 
-def load_source_skills(loader, registered):
-    """Keep existing public IDs; discover blocked assets without advertising execution."""
+def load_source_skills(loader, registered, *, runtime_registry=None):
+    """Load every skill from the canonical catalog; preserve public skill IDs."""
     tools = source_tools()
+    resolved = dict(registered)
+    if runtime_registry is not None:
+        # Basic file/image tools are dependencies, not duplicate scientific assets.
+        for name in runtime_registry.names():
+            if name not in tools:
+                resolved.setdefault(name, name)
     loader.source_statuses = {}
     loader.unavailable_skills = []
     for spec in catalog()["skills"]:
         skill_id = EXISTING_SKILLS.get(spec["id"], spec["id"].replace("-", "_"))
         references = spec.get("tool_references", [])
-        available = tuple(dict.fromkeys(registered[name] for name in references if name in registered))
-        blocked = [{"name": name, "reason": tools[name].get("source_interface", {}).get("reason", "No callable source interface")}
-                   for name in references if name not in registered]
+        available = tuple(dict.fromkeys(resolved[name] for name in references if name in resolved))
+        blocked = [{"name": name, "reason": tools.get(name, {}).get("source_interface", {}).get("reason", "No registered callable dependency")}
+                   for name in references if name not in resolved]
         loader.source_statuses[skill_id] = {"source_id": spec["id"], "unavailable_tools": blocked}
         summary = SkillSummary(skill_id, spec["name"], spec["description"], spec["description"])
         if not available:
             loader.unavailable_skills.append(asdict(summary))
             continue
-        if spec["id"] in EXISTING_SKILLS:
-            continue
-        document = ROOT / spec["skill_file"]
-        body = document.read_text(encoding="utf-8").split("---", 2)[-1].strip()
-        notice = ("\nNative tool names available in this skill: " + ", ".join(available) +
-                  ". Call them directly after disclosure. Unavailable references are not callable: " +
-                  "; ".join(item["name"] + ": " + item["reason"] for item in blocked) + ".\n")
-        loader.registry.register(Skill(summary, (), body + notice,
-            ("Choose only operations required by the task; never fabricate unavailable data or results.",
-             "Independent operations may share one response. No files or Python are needed unless the task requires them."),
-            available, ("Observed results with units, provenance and limitations",)))
+        document = (ROOT / spec["skill_file"]).resolve()
+        if not document.is_relative_to((ROOT / "catalog/skills").resolve()):
+            raise ValueError("Skill document must be in the canonical catalog")
+        parts = document.read_text(encoding="utf-8").split("---", 2)
+        if len(parts) != 3 or parts[0].strip():
+            raise ValueError("Missing skill front matter: " + spec["id"])
+        metadata = yaml.safe_load(parts[1])
+        body = parts[2].strip()
+        if not isinstance(metadata, dict) or not body:
+            raise ValueError("Invalid skill document: " + spec["id"])
+        if metadata.get("id", skill_id) != skill_id:
+            raise ValueError("Skill ID differs from catalog: " + spec["id"])
+        if "tools" in metadata:
+            declared = tuple(metadata["tools"])
+            expected = tuple(resolved.get(name, name) for name in references)
+            if declared != expected:
+                raise ValueError("Skill tool references differ from catalog: " + spec["id"])
+            summary = SkillSummary(skill_id, metadata["name"], metadata["description"],
+                                   metadata.get("when_to_use", metadata["description"]))
+            constraints = tuple(metadata.get("constraints", []))
+        else:
+            body += ("\nNative tool names available in this skill: " + ", ".join(available) +
+                     ". Call them directly after disclosure. Unavailable references are not callable: " +
+                     "; ".join(item["name"] + ": " + item["reason"] for item in blocked) + ".\n")
+            constraints = ("Choose only operations required by the task; never fabricate unavailable data or results.",
+                           "Independent operations may share one response. No files or Python are needed unless the task requires them.")
+        loader.registry.register(Skill(summary, tuple(metadata.get("required_inputs", [])), body,
+            constraints, available, tuple(metadata.get("expected_outputs", ["Observed results with units, provenance and limitations"]))))
     return loader
 
 

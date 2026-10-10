@@ -221,12 +221,15 @@ def test_duplicate_call_ids_are_rejected(tmp_path):
 
 
 def test_context_prunes_complete_groups_not_state(tmp_path):
-    agent = create_agent(Scripted(), settings=Settings(max_context_chars=9000))
+    from geological_agent.context_budget import input_allowance, request_budget_size
+    settings = Settings(context_window_tokens=4000, max_output_tokens=256)
+    agent = create_agent(Scripted(), settings=settings)
     messages = [Message("user", "Current task")]
     for i in range(5):
         messages += [Message("assistant", tool_calls=(ToolCall(str(i), "read_file", {"path": "x"}),)), Message("tool", "x" * 2500, tool_call_id=str(i))]
     state = {"task": "Current task", "selected_skill_ids": [], "exposed_tool_names": ["read_file"], "messages": messages}
     request = agent.context.build(state)
+    assert request_budget_size(request, settings) <= input_allowance(settings)
     assert len(state["messages"]) == 11
     assert len(request.messages) < len(messages)
     ids = {c.id for m in request.messages for c in m.tool_calls}
@@ -235,7 +238,8 @@ def test_context_prunes_complete_groups_not_state(tmp_path):
 
 
 def test_context_overflow_does_not_fake_completion(tmp_path):
-    result = create_agent(Scripted(), settings=Settings(max_context_chars=100)).run("A task", workspace=tmp_path)
+    # Leave one input token after the output and minimum safety reserves.
+    result = create_agent(Scripted(), settings=Settings(context_window_tokens=1153, max_output_tokens=128)).run("A task", workspace=tmp_path)
     assert result.status == "failed" and "ContextOverflow" in result.reason
 
 

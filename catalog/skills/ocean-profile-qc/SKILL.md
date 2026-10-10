@@ -1,186 +1,52 @@
 ---
 name: "ocean-profile-qc"
-description: "Apply flag and duplicate checks, compare vertical profiles, and match surface/deep observations."
+description: "Summarize existing QC flags, remove explicit-key duplicates and compare supplied profiles; no new instrument QC."
 ---
 
 # Ocean Profile QC and Matching
 
-## Goal
+## Procedure
 
-{'capability': 'ocean-profile-qc', 'description': 'Apply flag and duplicate checks, compare vertical profiles, and match surface/deep observations.', 'target_state': ['validated-ocean-profile-qc-result']}
+1. Identify the actual research question and use only the relevant operations below.
+2. Inspect supplied data and provenance. Confirm release, observation date, columns, units, CRS, masks and scientific coverage where applicable. Missing data must be requested or retrieved from an authorized source, never invented.
+3. Call the disclosed native functions with named object arguments. The current input and output schemas are authoritative; do not pass question IDs, prose or assume server-private file paths.
+4. Use observed values and generated artifacts. State method limitations and uncovered areas; label synthetic inputs as tests.
 
-## Inputs
+## OceanCruiseQC
 
-~~~json
-[
-  {
-    "id": "query_or_resource",
-    "semantic_type": "Table|Parameter",
-    "data_type": "authoritative resource locator",
-    "required": true,
-    "description": "The benchmark locator or structured task parameters."
-  }
-]
-~~~
+OceanCruiseQC on an explicitly supplied versioned dataset. cruise, <quality_field> columns required.
 
-## Outputs
 
-~~~json
-[
-  {
-    "id": "result",
-    "semantic_type": "Scalar|Table",
-    "data_type": "validated geoscience result",
-    "description": "A numeric or structured result with provenance.",
-    "expected_format": "JSON"
-  }
-]
-~~~
+Required dataset fields: cruise, <quality_field>.
 
-## Method
+## OceanProfileDeduplication
 
-Choose steps from observations and the actual goal; this is guidance, not a mandatory fixed chain.
-After loading this skill, use the exposed native tool schemas, sourced directly from catalog/registry.json. Do not try to read repository files in the user task directory.
-Call the original structured implementation. Do not use the retired asset_catalog execution route.
+OceanProfileDeduplication on an explicitly supplied versioned dataset. <key_fields> columns required.
 
-~~~json
-{
-  "type": "sequential",
-  "steps": [
-    {
-      "id": "step_1",
-      "operation": "Quality-control, deduplicate, compare, or match ocean profiles",
-      "required": true,
-      "depends_on": [],
-      "input_refs": [],
-      "output_refs": [],
-      "inputs": [
-        "Parameter|Table"
-      ],
-      "outputs": [
-        "Table",
-        "Table|Scalar",
-        "Scalar|Table"
-      ],
-      "preconditions": [],
-      "postconditions": [],
-      "tool_selection": {
-        "mode": "dynamic",
-        "candidates": [
-          "OceanCruiseQC",
-          "OceanProfileDeduplication",
-          "OceanVerticalProfileDifference",
-          "OceanSurfaceDeepMatch"
-        ],
-        "selection_criteria": [
-          "input_compatibility",
-          "tool_availability",
-          "geo_constraint_satisfaction",
-          "execution_feedback"
-        ]
-      },
-      "tool_references": [
-        "OceanCruiseQC",
-        "OceanProfileDeduplication",
-        "OceanVerticalProfileDifference",
-        "OceanSurfaceDeepMatch"
-      ],
-      "method_notes": [
-        "Quality-control, deduplicate, compare, and match ocean profiles."
-      ]
-    }
-  ]
-}
-~~~
 
-## Dependencies
+Required dataset fields: <key_fields>.
 
-~~~json
-{
-  "tools": [
-    "OceanCruiseQC",
-    "OceanProfileDeduplication",
-    "OceanVerticalProfileDifference",
-    "OceanSurfaceDeepMatch"
-  ],
-  "unavailable": [
-    "OceanCruiseQC",
-    "OceanProfileDeduplication",
-    "OceanVerticalProfileDifference",
-    "OceanSurfaceDeepMatch"
-  ],
-  "tool_references": [
-    "OceanCruiseQC",
-    "OceanProfileDeduplication",
-    "OceanVerticalProfileDifference",
-    "OceanSurfaceDeepMatch"
-  ],
-  "method_notes": [
-    "Quality-control, deduplicate, compare, and match ocean profiles."
-  ]
-}
-~~~
+## OceanVerticalProfileDifference
 
-Environment: Python 3.12 with requirements-source-tools.txt. Caller supplies licensed input data.
-A tool reference is not proof that its implementation is available. Consult every referenced tool's source_interface status.
+OceanVerticalProfileDifference on an explicitly supplied versioned dataset. expocode, station, depth_m, <value_field> columns required.
 
-## Success criteria
 
-Required tool calls return valid structured results; output files exist; units and reported values match those results.
-Check the requested goal, not merely process completion. No source-revision or agent end-to-end tests have run.
+Required dataset fields: expocode, station, depth_m, <value_field>.
 
-## Failure handling
+## OceanSurfaceDeepMatch
 
-Correct parameters or missing data from the error, then retry only after changing the cause.
-Never invent unavailable algorithms, datasets or scientific results. Ask for missing prerequisites if no supported path remains.
+OceanSurfaceDeepMatch on an explicitly supplied versioned dataset. id, latitude, longitude, <value_field> columns required.
 
-## Publication
 
-Draft only. Provider ownership, license, official schema validation and version-locked protocol repository remain unresolved.
+Required dataset fields: id, latitude, longitude, <value_field>.
 
-## Direct tool references
-
-These are suggestions, not an execution order or permission to run unavailable tools.
-
-- OceanCruiseQC
-- OceanProfileDeduplication
-- OceanVerticalProfileDifference
-- OceanSurfaceDeepMatch
-
-<!-- source-delivery:start -->
 ## Source interface and delivery
 
-This is the same skill document loaded by the project agent. Tool references are alternatives or supporting operations, not an enforced execution order.
-
-### Calling contract
-
-Inspect the selected tool's input_schema, output_schema, limitations and source_interface before calling it. Supply an object with the documented units and coordinate system. Do not replace missing data with invented values or treat a failed call as evidence.
-
-Inside the agent, call the disclosed native function names directly with schema-valid object arguments. Outside the agent, use the original callable and bound arguments recorded in source_interface.entrypoint. Both execute the same source implementation; no retired execution adapter is required.
-
-File-producing source calls require a caller-selected output directory; inputs may be absolute paths in trusted direct Python use. The agent transport instead requires workspace-relative input paths. Neither direct Python execution nor the standalone transport is an OS security sandbox.
-
-### Dependency status
-
-Source-interface candidates (consult the acceptance report, not this list, for tested availability):
-- None recorded.
-
-Unresolved or unavailable references:
-- `OceanCruiseQC`: 实现绑定特定数据快照，尚无可交付的数据路径、版本、字段和授权约定。
-- `OceanProfileDeduplication`: 实现绑定特定数据快照，尚无可交付的数据路径、版本、字段和授权约定。
-- `OceanVerticalProfileDifference`: 实现绑定特定数据快照，尚无可交付的数据路径、版本、字段和授权约定。
-- `OceanSurfaceDeepMatch`: 实现绑定特定数据快照，尚无可交付的数据路径、版本、字段和授权约定。
+The canonical catalog contains native entrypoints, named input/output schemas, units, constraints, error behavior and synthetic call examples. Input files remain unchanged. Runtime paths must be relative to the current task; direct Python callers provide their explicit output directory.
+Data-dependent queries require a supplied versioned snapshot. No data license, global model coverage or scientific certification is implied. Independent source-call validation and whole-Skill end-to-end validation are separate.
 
 ### Current availability
 
-Status: `blocked_no_source_candidates`.
+tool_candidates_available_workflow_unverified
 
-No recorded tool reference currently has an available source-interface candidate. Treat this skill as method documentation, not an executable workflow.
-
-A reference is not proof that every operation in this skill is available. Choose a supported method, request the missing input, or state the limitation; do not silently skip a scientifically necessary operation.
-
-### Result acceptance
-
-Check the actual result against the chosen tool's output contract, input provenance, units, scientific limitations and requested deliverables. Confirm that referenced output files exist. Report failed or unsupported operations explicitly. Synthetic tool checks do not constitute scientific certification or an end-to-end acceptance test of this skill.
-
-<!-- source-delivery:end -->
+All referenced tool implementations have native contracts. Runtime registration and acceptance are checked by the merge release tests; the complete Skill workflow has not been certified. Official lab registration metadata and platform validation remain pending.

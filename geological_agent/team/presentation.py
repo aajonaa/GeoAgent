@@ -23,6 +23,9 @@ def block(component, identifier, title, props):
 
 
 def events_for(store, uid, rid):
+    if hasattr(store, 'receipt_events'):
+        yield from store.receipt_events(uid, rid)
+        return
     cursor = 0
     while True:
         page = store.events(uid, rid, cursor)
@@ -141,7 +144,7 @@ def install_presentation_routes(app, auth, store):
         receipts, sources = collect_receipts(store, uid, rid)
         blocks = [item for result in receipts.values() for item in receipt_blocks(result)]
         generation = run.get("generation") or ""
-        images = []
+        images, files = [], []
         if generation:
             # Never substitute the conversation's latest generation for this run.
             with store.lock:
@@ -150,7 +153,7 @@ def install_presentation_routes(app, auth, store):
                     (run["cid"], generation))]
             for file in files:
                 suffix = PurePosixPath(file["name"]).suffix.lower()
-                if suffix in (".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff"):
+                if suffix in (".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff", ".svg"):
                     images.append(file)
                 elif suffix in (".csv", ".tsv"):
                     blocks.append(block("table", "file:" + file["name"], file["name"],
@@ -180,7 +183,7 @@ def install_presentation_routes(app, auth, store):
         if sources:
             blocks.append(block("sources", "knowledge", "Sources", {"items": sources}))
         return response({"version": 1, "run_id": rid, "conversation_id": run["cid"],
-                         "generation": generation, "status": run["status"], "blocks": blocks})
+                         "generation": generation, "status": run["status"], "files": files, "blocks": blocks})
 
     @app.get("/api/runs/{rid}/table")
     def table(rid: str, request: Request, name: str,

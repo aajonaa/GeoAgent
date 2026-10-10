@@ -6,6 +6,10 @@ def native_context(request):
     messages = []
     for msg in request.messages:
         item = {"role": msg.role, "content": msg.content}
+        if msg.reasoning_content is not None:
+            if msg.role != "assistant" or not isinstance(msg.reasoning_content, str):
+                raise ValueError("Provider reasoning must be text on an assistant message")
+            item["reasoning_content"] = msg.reasoning_content
         if msg.image_urls:
             if msg.role != "user" or any(not url.startswith(("data:image/png;base64,", "data:image/jpeg;base64,", "data:image/webp;base64,")) for url in msg.image_urls):
                 raise ValueError("Visual input must be prepared local image data in a user message")

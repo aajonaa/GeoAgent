@@ -1,0 +1,6 @@
+# Release-owned packages for execute_python (-I remains enabled).
+# Install into GEOTOOL_PYTHON_PACKAGES, not a caller workspace.
+numpy==1.26.4
+matplotlib==3.9.4
+rasterio==1.4.3
+Pillow==11.3.0

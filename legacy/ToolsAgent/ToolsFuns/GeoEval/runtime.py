@@ -1668,6 +1668,9 @@ def _output_root():
     return output
 
 def dispatch(tool_name, input_str, *, output_dir=None):
+    from .native_recovery import RECOVERED, run as native_run
+    if tool_name in RECOVERED:
+        return native_run(tool_name, input_str, output_dir=output_dir)
     if tool_name in ("RemoteSensingMannKendallTest", "GeoOrdinaryKrigingGrid", "GeoExactZonalStatistics"):
         from .scientific_tools import mann_kendall, ordinary_kriging_grid, exact_zonal_statistics
         if tool_name == "GeoOrdinaryKrigingGrid":
@@ -1687,3 +1690,4 @@ def dispatch(tool_name, input_str, *, output_dir=None):
         return source_result(tool_name, value)
     finally:
         _SOURCE_OUTPUT.reset(token)
+

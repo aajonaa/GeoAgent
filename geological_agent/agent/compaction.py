@@ -11,6 +11,7 @@ import json
 
 from ..contracts import Message, strict_json
 from ..model_context import native_context
+from ..context_budget import input_allowance, request_budget_size, budget_description
 
 
 class ContextOverflow(ValueError):
@@ -319,7 +320,7 @@ def _history_view(request, state, summarize=None, target_chars=0, *, archive=Non
 
 
 
-def _completion_view(request, state, archive, target):
+def _completion_view(request, state, archive, target, settings=None):
     """Reference nonproof history only; actual successful execution stays exact."""
     if archive is None:
         return request
@@ -374,36 +375,37 @@ def _completion_view(request, state, archive, target):
             )
             messages[message_index] = replace(message, content=dumps(pack_data(payload)))
             candidate = replace(request, messages=tuple(messages))
-            if request_size(candidate) <= target:
+            if (request_budget_size(candidate, settings) if settings is not None else request_size(candidate)) <= target:
                 return candidate
         messages[message_index] = replace(message, content=dumps(pack_data(payload)))
     return replace(request, messages=tuple(messages))
 
 def fit_request(request, state, settings, *, phase="execution", summarize=None, archive=None):
     """Fit the FINAL assembled request, after delivery/schema enrichment."""
-    before = request_size(request)
-    limit = settings.max_context_chars
+    measure = lambda value: request_budget_size(value, settings)
+    before = measure(request)
+    limit = input_allowance(settings)
     if before <= int(limit * .9):
         return request
     original = request
     strategies = []
     candidate = _json_messages(request, state)
-    if request_size(candidate) < request_size(request):
+    if measure(candidate) < measure(request):
         request = candidate
         strategies.append("lossless_json_interning")
-    if phase in ("review", "final_answer") and request_size(request) > limit:
-        candidate = _completion_view(original, state, archive, int(limit * .9))
-        if request_size(candidate) < request_size(request):
+    if phase in ("review", "final_answer") and measure(request) > limit:
+        candidate = _completion_view(original, state, archive, int(limit * .9), settings)
+        if measure(candidate) < measure(request):
             request = candidate
             strategies.append("completion_evidence_references")
     if phase == "execution":
         # Use original history objects for identity; JSON minification must not
         # make native tool results unrecognizable as existing state messages.
         candidate = _json_messages(_history_view(original, state), state)
-        if request_size(candidate) < request_size(request):
+        if measure(candidate) < measure(request):
             request = candidate
             strategies.append("exact_history_ledger")
-        if request_size(request) > limit and archive is not None:
+        if measure(request) > limit and archive is not None:
             # Budget references against the ACTUAL final serialized request,
             # including schemas and guidance. A fixed index fraction can itself
             # cause overflow. The 90% trigger is a soft compaction hint, not
@@ -417,50 +419,54 @@ def fit_request(request, state, settings, *, phase="execution", summarize=None, 
             # complete exchanges would fit, forcing needless retrievals.
             retained = 1
             low, high = 2, sum(bool(m.tool_calls) for m in original.messages)
-            if request_size(minimal) <= target:
+            if measure(minimal) <= target:
                 while low <= high:
                     trial = (low + high) // 2
                     recent = _json_messages(_history_view(original, state, archive=archive,
                         index_budget=0, retain_exchanges=trial), state)
-                    if request_size(recent) <= target:
+                    if measure(recent) <= target:
                         minimal, retained, low = recent, trial, trial + 1
                     else:
                         high = trial - 1
-            remaining = max(0, target - request_size(minimal))
+            remaining = max(0, target - measure(minimal))
             candidate = minimal
             if remaining:
                 budget = remaining
                 while budget > 0:
                     indexed = _json_messages(_history_view(original, state, archive=archive,
                                                           index_budget=budget, retain_exchanges=retained), state)
-                    excess = request_size(indexed) - target
+                    excess = measure(indexed) - target
                     if excess <= 0:
                         candidate = indexed
                         break
                     budget = max(0, budget - max(1, excess))
-            if request_size(candidate) > target and summarize is not None:
+            if measure(candidate) > target and summarize is not None:
                 # Even a short draft can be the final overflow. Compression is
                 # driven by the residual budget, not a 4,000-character cutoff.
                 summary_target = max(64, min(2000, target // 20))
                 summarized = _json_messages(_history_view(
                     original, state, summarize, summary_target,
                     archive=archive, index_budget=0), state)
-                if request_size(summarized) < request_size(candidate):
+                if measure(summarized) < measure(candidate):
                     candidate = summarized
-            if request_size(candidate) < request_size(request):
+            if measure(candidate) < measure(request):
                 request = candidate
                 strategies.append("postgres_evidence_references")
-        if request_size(request) > limit and summarize is not None and archive is None:
+        if measure(request) > limit and summarize is not None and archive is None:
             candidate = _history_view(original, state, summarize,
                                       max(256, min(2000, limit // 20)))
             candidate = _json_messages(candidate, state)
-            if request_size(candidate) < request_size(request):
+            if measure(candidate) < measure(request):
                 request = candidate
                 strategies.append("assistant_draft_summary")
-    after = request_size(request)
+    after = measure(request)
     if after < before:
-        event = {"phase": phase, "before_chars": before, "after_chars": after,
-                 "allowance_chars": limit, "headroom_chars": limit - after, "strategies": strategies,
+        event = {"phase": phase, "before_chars": request_size(original), "after_chars": request_size(request),
+                 "allowance_chars": limit if settings.context_window_tokens is None else None,
+                 "headroom_chars": limit - after if settings.context_window_tokens is None else None,
+                 "before_estimated_tokens": before if settings.context_window_tokens is not None else None,
+                 "after_estimated_tokens": after if settings.context_window_tokens is not None else None,
+                 **budget_description(settings), "strategies": strategies,
                  "source_sha256": fingerprint(asdict(original)),
                  "original_history_retained": True, "tool_evidence_preserved": True,
                  "evidence_location": "postgresql" if any(
@@ -470,7 +476,8 @@ def fit_request(request, state, settings, *, phase="execution", summarize=None, 
         state.setdefault("metadata", {}).setdefault("context_compactions", []).append(event)
     if after > limit:
         raise ContextOverflow(
-            f"Context remains {after} characters after compaction (allowance {limit}). "
+            f"Context remains {after} {'estimated tokens' if settings.context_window_tokens is not None else 'characters'} "
+            f"after compaction (allowance {limit}). "
             "Current user instructions, native schemas and exact tool/review evidence were retained; "
             "no summary was treated as execution proof. Split oversized source material or configure an appropriate model allowance.")
     return request

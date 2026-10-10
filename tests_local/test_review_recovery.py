@@ -11,6 +11,16 @@ from geological_agent.settings import Settings
 from geological_agent.tracing import JsonlTrace
 
 
+@pytest.fixture(autouse=True)
+def isolated_review_mode(monkeypatch):
+    # These scripted responses explicitly exercise the separate review stages.
+    for name in ("GEOTOOL_OPTIMIZE_ROUND_TRIPS", "GEOTOOL_COMBINED_COMPLETION_REVIEW",
+                 "GEOTOOL_REQUIREMENT_COVERAGE", "GEOTOOL_INTENT_REVIEW",
+                 "GEOTOOL_COMPACT_REVIEW", "GEOTOOL_COMPACT_DISCOVERY",
+                 "GEOTOOL_REVIEW_REFERENCE_SETS"):
+        monkeypatch.delenv(name, raising=False)
+
+
 def call(name, arguments, identity="assessment"):
     return ModelResponse(tool_calls=(ToolCall(identity, name, arguments),), finish_reason="tool_calls")
 

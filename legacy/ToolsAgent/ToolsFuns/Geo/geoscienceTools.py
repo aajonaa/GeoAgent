@@ -122,41 +122,7 @@ def _coerce_float(value):
         return None
     return result
 
-def usgs_earthquake_data_fetch(input_text: str) -> str:
-    """
-    Fetch official earthquake event data from the USGS FDSN Event API and save it as CSV.
-
-    Input examples:
-        starttime=2024-01-01,endtime=2024-01-07,minmagnitude=5,limit=200
-        {"starttime": "2024-01-01", "endtime": "2024-01-07", "minmagnitude": 5}
-    """
-    params = _parse_key_value_args(input_text)
-    if not params.get('starttime') or not params.get('endtime'):
-        end_time = datetime.now(timezone.utc)
-        start_time = end_time - timedelta(days=30)
-        params.setdefault('starttime', start_time.strftime('%Y-%m-%d'))
-        params.setdefault('endtime', end_time.strftime('%Y-%m-%d'))
-    params.setdefault('format', 'csv')
-    params.setdefault('orderby', 'time')
-    params.setdefault('minmagnitude', '4.5')
-    params.setdefault('limit', '500')
-    output_path = _ensure_geo_temp_dir() / f'usgs_earthquakes_{_timestamp()}.csv'
-    last_error = None
-    for attempt in range(3):
-        try:
-            response = requests.get(USGS_EVENT_API, params=params, timeout=30)
-            response.raise_for_status()
-            content = response.text.strip()
-            if not content or 'time,latitude,longitude' not in content.splitlines()[0]:
-                raise ValueError('USGS response is not a CSV earthquake event table.')
-            output_path.write_text(content + '\n', encoding='utf-8')
-            row_count = max(len(content.splitlines()) - 1, 0)
-            query_url = f'{USGS_EVENT_API}?{urlencode(params)}'
-            return f"## USGS Earthquake Data Fetch\n\n- **Status**: Success\n- **Events**: `{row_count}`\n- **Format**: `CSV`\n- **Query URL**: `{query_url}`\n- {_markdown_path('CSV_FILE', str(output_path))}\n"
-        except Exception as exc:
-            last_error = exc
-            time.sleep(1 + attempt)
-    return f'Tool function execution error, failed to fetch USGS earthquake data after 3 attempts: {last_error}'
+from ..GeoEval.native_recovery import usgs_earthquake_data_fetch, visualize_earthquake_event_map
 
 def _clean_with_pandas(input_path: str, output_path: str) -> tuple:
     df = pd.read_csv(input_path)
@@ -308,35 +274,18 @@ def _render_fallback_html(points: list, output_path: str) -> None:
     document = f"""<!doctype html>\n<html lang="en">\n<head>\n  <meta charset="utf-8">\n  <title>Earthquake Event Map</title>\n  <meta name="viewport" content="width=device-width, initial-scale=1">\n  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">\n  <style>\n    html, body, #map {{ height: 100%; margin: 0; }}\n    .legend {{ position: fixed; bottom: 24px; left: 24px; z-index: 9999; background: #fff;\n      padding: 12px 14px; border: 1px solid #999; box-shadow: 0 2px 8px rgba(0,0,0,.18);\n      font: 13px/1.45 Arial, sans-serif; }}\n    .legend span {{ display:inline-block; width:12px; height:12px; border-radius:50%; margin-right:6px; }}\n    .earthquake-mag-label {{\n      background: rgba(17, 24, 39, 0.88); border: 1px solid rgba(255, 255, 255, 0.85);\n      border-radius: 999px; box-shadow: 0 1px 4px rgba(0,0,0,.24); color: #fff;\n      font: 700 11px/1.1 Arial, sans-serif; min-width: 30px; padding: 3px 6px;\n      pointer-events: none; text-align: center; transform: translate(10px, -24px);\n      white-space: nowrap;\n    }}\n    .earthquake-count-panel {{\n      position: fixed; right: 24px; top: 24px; z-index: 9999; background: #fff;\n      border: 1px solid #999; box-shadow: 0 2px 8px rgba(0,0,0,.18);\n      color: #1f2933; font: 13px/1.45 Arial, sans-serif; padding: 10px 12px;\n    }}\n  </style>\n</head>\n<body>\n  <div id="map"></div>\n  {_legend_html()}\n  {_count_panel_html(len(points))}\n  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>\n  <script>\n    const points = {points_json};\n    const map = L.map('map').setView(points.length ? [points[0].latitude, points[0].longitude] : [20, 0], 2);\n    L.tileLayer('https://tile.openstreetmap.org/{{z}}/{{x}}/{{y}}.png', {{\n      maxZoom: 18,\n      attribution: '&copy; OpenStreetMap contributors'\n    }}).addTo(map);\n    const bounds = [];\n    for (const p of points) {{\n      const radius = Math.max(4, Math.min(18, p.mag * 2.2));\n      const marker = L.circleMarker([p.latitude, p.longitude], {{\n        radius,\n        color: '#2c3e50',\n        weight: 1,\n        fillColor: p.marker_color,\n        fillOpacity: 0.78\n      }}).addTo(map);\n      marker.bindPopup(`<strong>${{p.place}}</strong><br>Time: ${{p.time}}<br>Magnitude: ${{p.mag.toFixed(2)}} (${{p.magnitude_class}})<br>Depth: ${{p.depth.toFixed(1)}} km<br>ID: ${{p.id || ''}}`);\n      marker.bindTooltip(`M${{p.mag.toFixed(1)}} | ${{p.magnitude_class}} | ${{p.place}}`);\n      L.marker([p.latitude, p.longitude], {{\n        icon: L.divIcon({{\n          className: '',\n          html: `<div class="earthquake-mag-label" title="${{p.place}}">M${{p.mag.toFixed(1)}}</div>`,\n          iconSize: [48, 18],\n          iconAnchor: [0, 0]\n        }})\n      }}).addTo(map);\n      bounds.push([p.latitude, p.longitude]);\n    }}\n    if (bounds.length) map.fitBounds(bounds, {{ padding: [24, 24] }});\n  </script>\n</body>\n</html>\n"""
     Path(output_path).write_text(document, encoding='utf-8')
 
-def visualize_earthquake_event_map(input_text: str) -> str:
-    """Render an interactive earthquake event distribution map from cleaned CSV data."""
-    input_path = _extract_existing_path(input_text, '.csv') or _latest_file('cleaned_earthquakes_*.csv')
-    if not input_path:
-        return 'Tool function execution error, no cleaned earthquake CSV file path was provided or found.'
-    output_path = _ensure_geo_temp_dir() / f'earthquake_event_map_{_timestamp()}.html'
-    try:
-        points = _load_points(input_path)
-        if folium is not None:
-            _render_with_folium(points, str(output_path))
-            engine = 'folium'
-        else:
-            _render_fallback_html(points, str(output_path))
-            engine = 'leaflet fallback'
-        return f"## Earthquake Event Map Visualization\n\n- **Status**: Success\n- **Engine**: `{engine}`\n- **Events mapped**: `{len(points)}`\n- **Map style**: `CartoDB positron / OpenStreetMap fallback`\n- **Marker style**: `Circle markers sized by magnitude, colored by standardized class, with one permanent magnitude label per epicenter`\n- **Popup fields**: `place, time, magnitude, class, depth, event id`\n- {_markdown_path('HTML_FILE', str(output_path))}\n"
-    except Exception as exc:
-        return f'Tool function execution error, earthquake map visualization failed: {exc}'
-
 def main() -> int:
     parser = argparse.ArgumentParser(description='GeoToolKG earthquake analysis tools')
     parser.add_argument('tool', choices=['fetch', 'clean', 'map'])
     parser.add_argument('input', nargs='?', default='')
+    parser.add_argument('--output-dir', required=True)
     args = parser.parse_args()
     if args.tool == 'fetch':
-        print(usgs_earthquake_data_fetch(args.input))
+        print(usgs_earthquake_data_fetch(args.input, output_dir=args.output_dir))
     elif args.tool == 'clean':
-        print(clean_and_classify_earthquake_data(args.input))
+        print(clean_and_classify_earthquake_data(args.input, output_dir=args.output_dir))
     else:
-        print(visualize_earthquake_event_map(args.input))
+        print(visualize_earthquake_event_map(args.input, output_dir=args.output_dir))
     return 0
 if __name__ == '__main__':
     sys.exit(main())

@@ -44,7 +44,7 @@ def test_fitting_request_does_not_archive_evidence_just_for_soft_headroom():
     original = deepcopy(state)
     limit = request_size(request) + 1
     assert request_size(request) > int(limit * .9)
-    result = fit_request(request, state, Settings(max_context_chars=limit), archive=archive)
+    result = fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=limit), archive=archive)
     assert request_size(result) <= limit
     assert not archive.records
     assert state["messages"] == original["messages"]
@@ -60,7 +60,7 @@ def test_largest_recent_native_suffix_uses_actual_allowance_not_ninety_percent()
     assert request_size(request) > limit
     assert request_size(two) > int(limit * .9)
     archive.records.clear()
-    result = fit_request(request, state, Settings(max_context_chars=limit), archive=archive)
+    result = fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=limit), archive=archive)
     assert request_size(result) <= limit
     native = {m.tool_call_id: json.loads(m.content) for m in result.messages if m.role == "tool"}
     assert {"c1", "c2"} <= set(native)
@@ -81,5 +81,5 @@ def test_actual_allowance_does_not_relax_protected_user_constraint_limit():
     state["task"] = protected.content
     request = ModelRequest((Message("system", "Policy"), protected), ())
     with pytest.raises(ContextOverflow, match="Current user instructions"):
-        fit_request(request, state, Settings(max_context_chars=10000), archive=Archive())
+        fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=10000), archive=Archive())
     assert state["messages"] == [protected]

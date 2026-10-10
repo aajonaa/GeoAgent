@@ -1,0 +1,3 @@
+# Supplement requirements-source-tools.txt for RDF SELECT and static map rendering.
+rdflib==7.1.4
+matplotlib==3.9.4

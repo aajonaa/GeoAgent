@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>GeoAgent · 研究组</title>
-  <link rel="stylesheet" href="/assets/style.css"><link rel="stylesheet" href="/assets/library.css?v=20261003-nav-icons2"><link rel="stylesheet" href="/assets/model-profiles.css"><link rel="stylesheet" href="/assets/knowledge.css">
-  <link rel="stylesheet" href="/assets/images.css?v=20261003-images1">
+  <link rel="stylesheet" href="/assets/style.css?v=20261004-toolbar-layout1"><link rel="stylesheet" href="/assets/library.css?v=20261003-nav-icons2"><link rel="stylesheet" href="/assets/model-profiles.css?v=20261003-context1"><link rel="stylesheet" href="/assets/knowledge.css?v=20261004-pdf1">
+  <link rel="stylesheet" href="/assets/images.css?v=20261004-experience1">
   <link rel="stylesheet" href="/assets/presentation.css?v=20261003-rich1">
-  <script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261003-images1" defer></script><script src="/assets/images.js?v=20261003-images1" defer></script>
+  <script src="/assets/timeline.js?v=20261004-timeline1" defer></script>
+<script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261004-experience1" defer></script><script src="/assets/images.js?v=20261004-experience1" defer></script>
+  <script src="/assets/defaults.js?v=20261004-token-format1" defer></script>
+<link rel="stylesheet" href="/assets/timeline.css?v=20261004-timeline1">
 </head>
 <body>
 <div id="auth-screen" class="auth-screen">
@@ -24,6 +27,7 @@
       <header class="library-hero"><div><p class="library-kicker">技能与工具库</p><h1 id="library-title">找到方法，<br>开始你的研究。</h1><p class="library-intro">从专业方法到具体计算，查看输入、输出与适用边界。<br>与 Agent 共用一份注册表，不是另一个工具清单。</p></div><div id="library-stats" class="library-stats" aria-label="目录概览"></div></header>
       <div class="library-toolbar"><div class="library-tabs" role="tablist" aria-label="目录类型"><button id="library-skills-tab" type="button" role="tab" aria-selected="true" aria-controls="library-results" data-library-kind="skills">Skills <span id="library-skills-count"></span></button><button id="library-tools-tab" type="button" role="tab" aria-selected="false" aria-controls="library-results" data-library-kind="tools" tabindex="-1">Tools <span id="library-tools-count"></span></button></div><label class="library-search"><span class="visually-hidden">搜索技能与工具</span><input id="library-search" type="search" placeholder="搜索名称、用途、关键词…" autocomplete="off" maxlength="200"></label></div>
       <div class="library-filters"><label>分类<select id="library-category"><option value="">全部分类</option></select></label><label>状态<select id="library-status"><option value="">全部状态</option><option value="registered">已接入</option><option value="partial">部分受阻</option><option value="blocked">未接入</option></select></label><span id="library-match-count" role="status" aria-live="polite"></span><button id="library-reset" type="button" class="quiet">重置筛选</button></div>
+      <aside class="asset-state-guide" aria-label="工具状态说明"><strong>登记不等于验收</strong><p>已接入：运行时已注册，仍需满足数据与环境依赖。部分受阻／未接入：查看条目中的具体原因。源头验收标记不代表当前服务器已实测；未提供验收日期或环境时，按未确认处理。</p></aside>
       <div id="library-results" class="library-results" role="tabpanel" aria-labelledby="library-skills-tab" aria-busy="false"></div>
       <footer class="library-footer"><p id="library-disclaimer"></p><span id="library-revision"></span></footer>
     </section>
@@ -45,6 +49,14 @@
       <label>配置名称<input id="model-profile-name" placeholder="例如：供应商 A · 日常模型" autocomplete="off" maxlength="96"></label>
       <label>API Base URL<input id="model-base-url" type="url" placeholder="https://your-provider.example/v1" autocomplete="off" maxlength="2048"></label>
       <label>Model ID<input id="model-id" placeholder="供应商提供的准确模型名称" autocomplete="off" maxlength="256"></label>
+      <section class="model-context-settings" aria-labelledby="model-context-title">
+        <div class="model-context-heading"><span id="model-context-title">上下文预算</span><span class="model-context-source">手动设置</span></div>
+        <label for="model-context-window">上下文窗口（Tokens）</label>
+        <input id="model-context-window" name="context_window_tokens" type="text" inputmode="numeric" maxlength="21" value="1,000,000" placeholder="默认 1,000,000；请核对供应商窗口" aria-describedby="model-context-hint" autocomplete="off">
+        <label for="model-max-output">最大输出（Tokens）</label>
+        <input id="model-max-output" name="max_output_tokens" type="text" inputmode="numeric" maxlength="21" value="128,000" placeholder="默认 128,000；每次响应的输出上限" aria-describedby="model-context-hint" autocomplete="off">
+        <p id="model-context-hint" class="model-help" role="status"></p>
+      </section>
       <label>API Token<input id="model-token" type="password" autocomplete="off" spellcheck="false" maxlength="4096" placeholder="留空表示不发送 Token"></label>
       <label id="model-keep-wrap" class="model-check" hidden><input id="model-keep-token" type="checkbox">保留这份配置已保存的 Token（仅限同一 Endpoint）</label>
       <label class="model-check"><input id="model-remember" type="checkbox" checked>记住配置：按账号加密保存，重启后自动恢复</label>
@@ -65,14 +77,31 @@
   <footer class="library-drawer-footer"><p id="library-use-note"></p><button id="library-use" type="button" class="primary">将示例填入对话</button></footer>
 </dialog>
 <script src="/assets/library.js?v=20261003-nav1" defer></script>
-<dialog id="knowledge-dialog" aria-labelledby="knowledge-heading">
-<header class="knowledge-heading"><div><p class="eyebrow">YOUR RESEARCH SOURCES</p><h2 id="knowledge-heading">让答案，有据可查。</h2><span id="knowledge-count" class="muted"></span></div><button id="knowledge-close" type="button" class="quiet">关闭</button></header>
-<div class="knowledge-layout"><section class="knowledge-column"><h3>你的知识资料</h3><p class="knowledge-note">资料按账号管理。新提问自动检索，命中片段会发给你选择的模型并记录到研究组 LangSmith。请仅上传有权使用和发送的资料。</p><div id="knowledge-documents"></div>
-<form id="knowledge-form"><label for="knowledge-file">导入 UTF-8 文本 / Markdown</label><input id="knowledge-file" type="file" accept=".txt,.md,.markdown"><label for="knowledge-title">资料标题</label><input id="knowledge-title" maxlength="160" required><label for="knowledge-source">来源或版本说明</label><input id="knowledge-source" maxlength="1000" placeholder="例如：实验记录 v1 · 合成验收数据"><label for="knowledge-text">正文</label><textarea id="knowledge-text" rows="7" maxlength="120000" required placeholder="粘贴需要检索的原始内容…"></textarea><div class="knowledge-actions"><button id="knowledge-save" type="submit" class="primary">保存并建立索引</button></div><p class="knowledge-note">首版支持文本与 Markdown；不解析 PDF、图片或扫描件。每账号最多 100 份资料，每份最多 120,000 字符。相同标题与内容不会重复建索引。</p></form></section>
-<section class="knowledge-column"><h3>看看能召回什么</h3><p class="knowledge-note">向量语义 + PostgreSQL 关键词召回，经多语言 cross-encoder 重排。这里只检查检索，不调用聊天模型。</p><form id="knowledge-search-form"><label for="knowledge-query">检索问题</label><input id="knowledge-query" required maxlength="24000" placeholder="用不同的说法，问问这份资料"><div class="knowledge-actions"><button id="knowledge-search" type="submit" class="outline">测试召回</button></div></form><div id="knowledge-results" aria-live="polite"></div></section></div><p id="knowledge-status" class="knowledge-status" role="status" aria-live="polite"></p></dialog>
-<script src="/assets/knowledge.js" defer></script>
+<section id="knowledge-view" aria-labelledby="knowledge-heading" hidden>
+  <header class="k-topbar"><div class="k-topbar-title"><button id="knowledge-menu" class="k-button k-mobile-menu" type="button" aria-label="打开导航菜单"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button><span class="k-wordmark">KNOWLEDGE</span><span class="k-topbar-divider" aria-hidden="true">/</span><span>我的研究资料</span></div><button id="knowledge-close" class="k-button" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6-6 6 6 6M4 12h16"/></svg>返回对话</button></header>
+  <div class="k-content">
+    <header class="k-hero"><div><p class="k-eyebrow">READ. CONNECT. DISCOVER.</p><h1 id="knowledge-heading" tabindex="-1">让研究，回到原文。</h1><p class="k-intro">收藏资料，检查证据，再开始提问。<br>从原始内容到检索片段，每一步都有迹可循。</p><button id="knowledge-add" class="k-button k-primary" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>添加文献</button></div><dl class="k-metrics" aria-label="当前账号的知识库统计"><div><dt>资料原文</dt><dd id="knowledge-count">—</dd></div><div><dt>有索引的资料</dt><dd id="knowledge-indexed-count">—</dd></div><div><dt>索引片段</dt><dd id="knowledge-chunk-count">—</dd></div></dl></header>
+    <div class="k-connection-note"><span class="k-note-dot" aria-hidden="true"></span><p><strong id="knowledge-parser-state">正在连接私有解析服务</strong><span>上传 → GPU 解析 → 预览确认 → 分块与索引。真实状态，不模拟完成百分比。</span></p><button id="knowledge-refresh" class="k-button" type="button" aria-label="刷新知识库">刷新</button></div>
+    <nav class="k-tabs" role="tablist" aria-label="知识工作区"><button id="knowledge-tab-library" data-knowledge-tab="library" type="button" role="tab" aria-selected="true" aria-controls="knowledge-panel-library">文献库</button><button id="knowledge-tab-detail" data-knowledge-tab="detail" type="button" role="tab" aria-selected="false" aria-controls="knowledge-panel-detail" tabindex="-1">文献详情</button><button id="knowledge-tab-search" data-knowledge-tab="search" type="button" role="tab" aria-selected="false" aria-controls="knowledge-panel-search" tabindex="-1">检索试验</button></nav>
+    <p id="knowledge-status" class="k-live-status" role="status" aria-live="polite"></p>
+    <section id="knowledge-panel-library" role="tabpanel" aria-labelledby="knowledge-tab-library">
+      <details id="knowledge-pdf-queue" class="k-pdf-queue" open><summary><span>PDF 导入任务</span><span id="knowledge-pdf-count">尚未读取</span></summary><div id="knowledge-pdf-jobs"></div></details>
+      <div class="k-section-heading"><div><h2>你的文献库</h2><p>原文独立保留。有索引，不等于已经验证检索质量。</p></div><div class="k-filters"><label class="k-search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg><span class="k-sr">按标题或来源筛选资料</span><input id="knowledge-filter" type="search" placeholder="搜索标题、来源…" maxlength="200"></label><label class="k-sr" for="knowledge-filter-state">索引状态</label><select id="knowledge-filter-state"><option value="all">全部状态</option><option value="indexed">有索引</option><option value="unindexed">无索引</option></select></div></div>
+      <div class="k-list-head" aria-hidden="true"><span>文献 / 来源</span><span>索引状态</span><span>片段</span><span>添加日期</span><span></span></div><div id="knowledge-documents" class="k-document-list" aria-busy="false"></div><p id="knowledge-match-count" class="k-caption"></p>
+    </section>
+    <section id="knowledge-panel-detail" role="tabpanel" aria-labelledby="knowledge-tab-detail" hidden><div id="knowledge-detail" aria-busy="false"><div class="k-empty"><span class="k-empty-number">01</span><h2>先打开一份资料</h2><p>从文献库选择原文，或从检索结果定位证据。<br>原文与检索片段会在这里对照展示。</p><button id="knowledge-browse" class="k-button" type="button">浏览文献库</button></div></div></section>
+    <section id="knowledge-panel-search" role="tabpanel" aria-labelledby="knowledge-tab-search" hidden>
+      <div class="k-search-intro"><div><p class="k-eyebrow">RETRIEVAL LAB</p><h2>先看看，能找到什么。</h2><p>只检索你的资料，不让聊天模型代写答案。直接比较召回候选与重排结果。</p></div><ol class="k-retrieval-path" aria-label="检索流程说明"><li>问题向量</li><li>语义 + 关键词</li><li>候选融合</li><li>重排</li></ol></div>
+      <form id="knowledge-search-form" class="k-query-form"><label for="knowledge-query">你想从这些资料中找到什么？</label><textarea id="knowledge-query" rows="3" required maxlength="24000" placeholder="例如：文献如何描述热液蚀变与金矿化的关系？"></textarea><div class="k-query-footer"><span>返回真实片段、来源和相关性分数</span><button id="knowledge-search" class="k-button k-primary" type="submit">测试召回<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16m-6-6 6 6-6 6"/></svg></button></div></form>
+      <p id="knowledge-search-status" class="k-caption" role="status" aria-live="polite"></p><div id="knowledge-results"><div class="k-search-empty"><span class="k-empty-number">02</span><p>换一种说法，试试是否还能找到同一条证据。</p><span>运行后可比较重排前后的顺序，并打开原文定位。</span></div></div>
+    </section>
+    <footer class="k-footer"><span>私有资料 · 按账号管理</span><p>在 Agent 对话中使用资料时，命中片段可能发送给所选模型并记录至研究组 LangSmith。请仅上传有权使用和发送的内容。</p></footer>
+  </div>
+</section>
+<dialog id="knowledge-import" class="k-import" aria-labelledby="knowledge-import-heading"><form id="knowledge-form"><header class="k-import-heading"><div><p class="k-eyebrow">ADD A SOURCE</p><h2 id="knowledge-import-heading">把资料放进来。</h2></div><button id="knowledge-import-close" class="k-button" type="button" aria-label="关闭添加文献">关闭</button></header><div class="k-import-content"><button id="knowledge-drop" class="k-dropzone" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m-4 4 4-4 4 4M4 15v5h16v-5"/></svg><strong>选择文件，或拖到这里</strong><span id="knowledge-file-label">PDF · 最多 50 MiB / UTF-8 文本与 Markdown · 最多 240 KB</span></button><input id="knowledge-file" type="file" accept=".pdf,.txt,.md,.markdown" hidden><p class="k-caption">PDF 和扫描件会发送到研究组的 5060 Ti 私有解析服务。也可以直接添加文本或 Markdown。</p><label for="knowledge-title">资料标题</label><input id="knowledge-title" maxlength="160" required placeholder="让你下次能认出这份资料"><label for="knowledge-source">来源 / 版本说明</label><input id="knowledge-source" maxlength="1000" placeholder="论文 DOI、原始链接、作者或版本"><p id="knowledge-pdf-selection" class="k-pdf-selection" hidden>已选择 PDF：保留原文件，自动识别原生文本或扫描页。解析完成后可下载结果，并在确认后入库。</p><label for="knowledge-text">原始正文（文本资料）</label><textarea id="knowledge-text" rows="7" maxlength="120000" required placeholder="保留原始表述，不用先改写成摘要…"></textarea><div class="k-import-footnote"><span id="knowledge-text-count">0 / 120,000 字符</span><span>不调用聊天模型</span></div><p id="knowledge-import-status" role="status" aria-live="polite"></p><p class="k-caption">PDF 先解析，再由你确认入库；文本直接交给当前知识后端分块和建索引。不会自动切换模型，Rerank 在检索时运行。每个账号最多 100 份资料与 100 项 PDF 导入任务。</p></div><footer class="k-import-actions"><button id="knowledge-import-cancel" class="k-button" type="button">取消</button><button id="knowledge-save" class="k-button k-primary" type="submit">保存并建立索引</button></footer></form></dialog>
+<script src="/assets/knowledge.js?v=20261004-pdf1" defer></script>
 <script src="/assets/presentation-state.js?v=20261003-rich2" defer></script>
-<script src="/assets/presentation.js?v=20261003-rich2" defer></script>
+<script src="/assets/presentation.js?v=20261004-experience1" defer></script>
 </body>
 <link rel="stylesheet" href="/scientific-assets/scientific-viewer.css?v=1">
 <script src="/scientific-assets/scientific-viewer.js?v=1" defer></script>

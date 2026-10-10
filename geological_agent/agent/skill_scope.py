@@ -2,6 +2,7 @@
 from copy import deepcopy
 
 from .compaction import ContextOverflow, fit_request, request_size
+from ..context_budget import input_allowance, request_budget_size, budget_description
 
 
 def fit_skill_scope(state, *, build_request, base_tool_names, skills, settings, archive=None):
@@ -33,6 +34,8 @@ def fit_skill_scope(state, *, build_request, base_tool_names, skills, settings, 
         return {**state, "selected_skill_ids": list(active), "exposed_tool_names": names,
                 "metadata": {**metadata, "deferred_skill_ids": pending, "skill_scope_focus": []}}
 
+    measurements = {}
+
     def measure(active):
         trial = scoped(active)
         # Compaction may write immutable originals to the archive, but trial
@@ -41,11 +44,12 @@ def fit_skill_scope(state, *, build_request, base_tool_names, skills, settings, 
         request = build_request(probe)
         try:
             fitted = fit_request(request, probe, settings, phase="execution", archive=archive)
-            return request_size(fitted)
+            measurements[tuple(active)] = request_size(fitted)
+            return request_budget_size(fitted, settings)
         except ContextOverflow:
             return None
 
-    target = int(settings.max_context_chars * .9)
+    target = int(input_allowance(settings) * .9)
     full_size = measure(candidates)
     active = list(candidates)
     if full_size is None or full_size > target:
@@ -69,7 +73,10 @@ def fit_skill_scope(state, *, build_request, base_tool_names, skills, settings, 
     info = {"active_skill_ids": list(active), "deferred_skill_ids": deferred,
             "activated_skill_ids": [sid for sid in active if sid not in announced],
             "exposed_tool_names": result["exposed_tool_names"],
-            "request_chars": final_size, "allowance_chars": settings.max_context_chars,
+            "request_chars": measurements[tuple(active)],
+            "allowance_chars": settings.max_context_chars if settings.context_window_tokens is None else None,
+            "request_estimated_tokens": final_size if settings.context_window_tokens is not None else None,
+            **budget_description(settings),
             "source": "explicit_skill_load" if focus else metadata.get("skill_scope_source", "runtime"),
             "schemas_unchanged": True, "execution_evidence_preserved": True}
     result["metadata"].pop("skill_scope_source", None)

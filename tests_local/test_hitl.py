@@ -43,12 +43,8 @@ def test_unmatched_search_is_empty_and_empty_query_lists_registry():
     assert runtime.skills.registry.list("nonexistent_litho_operation_xyz") == ()
     from geological_agent.geology.source_registry import READY, EXISTING_SKILLS, source_tools
     from legacy.ToolsAgent.ToolsFuns.source_contracts import catalog
-    tools = source_tools()
     expected = {EXISTING_SKILLS.get(s["id"], s["id"].replace("-", "_"))
-                for s in catalog()["skills"] if any(
-                    tools[name].get("source_interface", {}).get("status") == READY
-                    for name in s.get("tool_references", []))}
-    expected.update({"geological_table_analysis", "image_workflow"})
+                for s in catalog()["skills"]}
     assert {s.id for s in runtime.skills.registry.list()} == expected
     assert {"earthquake_energy", "geodesic_coordinate_analysis", "remote_sensing_trend_distribution",
             "natural_hazard_table_analytics"} <= expected

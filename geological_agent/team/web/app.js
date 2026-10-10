@@ -17,15 +17,16 @@ async function api(path, options = {}) {
   if (!response.ok) { if (response.status === 401 && state.me) showLogin(); throw new Error(result.detail || `HTTP ${response.status}`); }
   return result;
 }
-function showLogin() { window.GeoAgentImages?.clear(); stopRunElapsedClock(); state.runs.clear(); window.GeoToolLibrary?.reset(); window.GeoToolHITL?.reset(); state.view++; state.cid = null; state.me = null; modelSettings = null; $('model-token').value = ''; $('model-dialog').close(); for (const source of state.sources.values()) source.close(); state.sources.clear(); $('app').hidden = true; $('auth-screen').hidden = false; }
+function showLogin() { window.GeoAgentDefaults?.clear(); window.GeoAgentImages?.clear(); stopRunElapsedClock(); state.runs.clear(); window.GeoToolLibrary?.reset(); window.GeoToolHITL?.reset(); state.view++; state.cid = null; state.me = null; modelSettings = null; $('model-token').value = ''; $('model-dialog').close(); for (const source of state.sources.values()) source.close(); state.sources.clear(); $('app').hidden = true; $('auth-screen').hidden = false; }
 function notice(message = '') { $('notice').textContent = message; }
-function inline(node, text) {
-  const pattern = /(`[^`]+`|\*\*[^*]+\*\*|\$\$[^\n]+?\$\$|\\\[[^\n]+?\\\]|\$[^$\n]+\$|\\\([^\n]+?\\\))/g; let index = 0;
+function inline(node, text, assets = null) {
+  const pattern = /(`[^`]+`|!?\[[^\]\n]*\]\((?:[^()\n]|\([^()\n]*\))*\)|\*\*[^*]+\*\*|\$\$[^\n]+?\$\$|\\\[[^\n]+?\\\]|\$[^$\n]+\$|\\\([^\n]+?\\\))/g; let index = 0;
   for (const match of text.matchAll(pattern)) {
     node.append(document.createTextNode(text.slice(index, match.index)));
     const token = match[0];
     if (token.startsWith('`')) node.append(element('code', token.slice(1, -1)));
     else if (token.startsWith('**')) node.append(element('strong', token.slice(2, -2)));
+    else if (token.startsWith('[') || token.startsWith('![')) node.append(window.GeoAgentArtifacts?.renderLink(token, assets) || document.createTextNode(token));
     else {
       const span = element('span');
       const display = token.startsWith('$$') || token.startsWith('\\[');
@@ -38,7 +39,8 @@ function inline(node, text) {
   }
   node.append(document.createTextNode(text.slice(index)));
 }
-function markdown(target, text) {
+function markdown(target, text, assets = null) {
+  const renderInline = (node, value) => inline(node, value, assets);
   target.replaceChildren(); const lines = String(text || '').split('\n'); let i = 0;
   while (i < lines.length) {
     const line = lines[i];
@@ -57,18 +59,18 @@ function markdown(target, text) {
         if (window.katex) window.katex.render(math.join('\n').trim(), block, {output:'mathml', displayMode:true, throwOnError:false, trust:false});
         else block.textContent = lines.slice(i, cursor + 1).join('\n');
         target.append(block);
-        if (suffix.trim()) { const p = element('p'); inline(p, suffix); target.append(p); }
+        if (suffix.trim()) { const p = element('p'); renderInline(p, suffix); target.append(p); }
         i = cursor + 1; continue;
       }
     }
     if (i + 1 < lines.length && line.includes('|') && /^\s*\|?\s*:?-+/.test(lines[i + 1]) && lines[i + 1].includes('|')) {
       const table = element('table'); const split = value => value.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map(v => v.trim());
-      const head = element('thead'), row = element('tr'); for (const value of split(line)) { const cell = element('th'); inline(cell, value); row.append(cell); } head.append(row); table.append(head); i += 2;
-      const body = element('tbody'); while (i < lines.length && lines[i].includes('|') && lines[i].trim()) { const row = element('tr'); for (const value of split(lines[i++])) { const cell = element('td'); inline(cell, value); row.append(cell); } body.append(row); } table.append(body); const scroll = element('div', undefined, 'table-scroll'); scroll.append(table); target.append(scroll); continue;
+      const head = element('thead'), row = element('tr'); for (const value of split(line)) { const cell = element('th'); renderInline(cell, value); row.append(cell); } head.append(row); table.append(head); i += 2;
+      const body = element('tbody'); while (i < lines.length && lines[i].includes('|') && lines[i].trim()) { const row = element('tr'); for (const value of split(lines[i++])) { const cell = element('td'); renderInline(cell, value); row.append(cell); } body.append(row); } table.append(body); const scroll = element('div', undefined, 'table-scroll'); scroll.append(table); target.append(scroll); continue;
     }
-    const heading = /^(#{1,3})\s+(.+)$/.exec(line); if (heading) { const h = element('h' + heading[1].length); inline(h, heading[2]); target.append(h); i++; continue; }
-    if (/^\s*(?:[-*]|\d+\.)\s+/.test(line)) { const list = element(/^\s*\d+\./.test(line) ? 'ol' : 'ul'); while (i < lines.length && /^\s*(?:[-*]|\d+\.)\s+/.test(lines[i])) { const li = element('li'); inline(li, lines[i++].replace(/^\s*(?:[-*]|\d+\.)\s+/, '')); list.append(li); } target.append(list); continue; }
-    const p = element('p'); inline(p, line); target.append(p); i++;
+    const heading = /^(#{1,3})\s+(.+)$/.exec(line); if (heading) { const h = element('h' + heading[1].length); renderInline(h, heading[2]); target.append(h); i++; continue; }
+    if (/^\s*(?:[-*]|\d+\.)\s+/.test(line)) { const list = element(/^\s*\d+\./.test(line) ? 'ol' : 'ul'); while (i < lines.length && /^\s*(?:[-*]|\d+\.)\s+/.test(lines[i])) { const li = element('li'); renderInline(li, lines[i++].replace(/^\s*(?:[-*]|\d+\.)\s+/, '')); list.append(li); } target.append(list); continue; }
+    const p = element('p'); renderInline(p, line); target.append(p); i++;
   }
 }
 async function initialize() {
@@ -98,7 +100,7 @@ async function openConversation(cid) {
   window.GeoAgentImages?.clear(); closeStreams(); state.cid = cid; const view = ++state.view; state.runs.clear(); $('messages').replaceChildren(); notice(); busy(null);
   window.GeoToolHITL?.selectConversation(cid);
   const conversation = await api(`/api/conversations/${cid}`); if (state.cid !== cid || state.view !== view) return; $('chat-title').textContent = conversation.title;
-  for (const run of conversation.runs) { renderRun(run); subscribe(run.id); if (['running','stopping'].includes(run.status)) busy(run.id); }
+  for (const run of conversation.runs) { const ui = renderRun(run); if (runIsWorking(run.status)) { subscribe(run.id); busy(run.id); } else attachRunHistory(run.id, ui); }
   $('sidebar').classList.remove('open'); await Promise.all([loadConversations(), loadFiles()]); scrollEnd();
 }
 async function ensureConversation() { if (!state.cid) { const conversation = await api('/api/conversations', {method:'POST'}); await openConversation(conversation.id); } return state.cid; }
@@ -113,6 +115,7 @@ function elapsedSeconds(ui) {
   return ui.elapsedBase + (runIsWorking(ui.status) ? Math.max(0, performance.now() - ui.elapsedAnchor) / 1000 : 0);
 }
 function paintRunElapsed(ui) {
+  window.GeoAgentTimeline?.tick(ui);
   ui.elapsed.hidden = !ui.elapsedKnown;
   if (!ui.elapsedKnown) return;
   const seconds = Math.max(0, Math.floor(elapsedSeconds(ui)));
@@ -145,40 +148,68 @@ document.addEventListener('visibilitychange', () => {
 function renderRun(run) {
   const turn = element('article', undefined, 'turn'); turn.dataset.run = run.id;
   const user = element('div', run.query, 'user-message'); const label = element('div', 'GeoAgent', 'assistant-label');
-  const activity = element('details', undefined, 'activity'); const summary = element('summary', run.status === 'running' ? '任务启动中…' : '查看执行记录'); const list = element('div', undefined, 'tool-list'); activity.append(summary, list);
+  const activity = element('details', undefined, 'activity'); const summary = element('summary', '查看执行详情'); const list = element('div', undefined, 'tool-list'); activity.append(summary, list);
   const answer = element('div', undefined, 'answer'); markdown(answer, run.answer); const reason = element('div', run.reason || '', 'run-reason');
   const elapsed = element('div', undefined, 'run-elapsed');
   elapsed.setAttribute('role', 'timer'); elapsed.setAttribute('aria-live', 'off');
   elapsed.title = 'Elapsed time for this run, including model, tool and review time. Waiting for a human reply is excluded.';
   turn.append(user, label, elapsed, activity, answer, reason); $('messages').append(turn);
-  const ui = {elapsed, elapsedBase:0, elapsedAnchor:performance.now(), elapsedKnown:runIsWorking(run.status), status:run.status, turn, activity, summary, list, answer, reason, tools:new Map(), finished:!['running','stopping'].includes(run.status)}; state.runs.set(run.id, ui); setRunElapsed(ui, run); window.GeoToolHITL?.attachCards(); window.GeoAgentPresentation?.attach(run.id, ui); return ui;
+  const ui = {elapsed, elapsedBase:0, elapsedAnchor:performance.now(), elapsedKnown:runIsWorking(run.status), status:run.status, turn, activity, summary, list, answer, answerText:run.answer || '', reason, tools:new Map(), finished:!['running','stopping'].includes(run.status)}; state.runs.set(run.id, ui); setRunElapsed(ui, run); window.GeoToolHITL?.attachCards(); window.GeoAgentExperience?.attach(run.id, ui); window.GeoAgentTimeline?.attach(run.id, ui); window.GeoAgentPresentation?.attach(run.id, ui);
+  if (run.activity?.profile) handleEvent(run.id, {kind:'model_config', profile:run.activity.profile}, null, true);
+  if (run.activity?.timing) window.GeoAgentTimeline?.event(run.id, run.activity.timing);
+  if (ui.finished && Number.isSafeInteger(run.activity?.tool_count)) { ui.summary.textContent = '执行过程 · ' + run.activity.tool_count + ' 次工具调用'; if (ui.overview) ui.overview.counts.textContent = run.activity.tool_count + ' 次工具调用 · 展开查看记录'; }
+  return ui;
 }
 const statusText = {'Model is working':'模型正在处理','Starting an isolated task environment':'正在启动独立任务环境','GeoGPT is working':'GeoGPT 正在处理','Preparing answer':'正在整理答复','Checking the result':'正在检查结果','Correcting the result':'正在修正结果','Correcting a model response':'正在修正模型响应','Retrying the completion check':'正在重新检查完成情况'};
 statusText['Running in the service account environment (OS isolation disabled)'] = '正在服务账号环境中运行（未启用系统沙箱）';
 statusText['Compacting context'] = '正在压缩历史上下文';
 const toolNames = {skill_find:'查找相关技能', skill_load:'读取技能说明', read_file:'读取文件', write_file:'写入文件', execute_python:'执行 Python', GeoMagnitudeToEnergy:'估算地震能量'};
-function handleEvent(rid, data) {
+function handleEvent(rid, data, eventId, historical = false) {
   const ui = state.runs.get(rid); if (!ui) return;
+  const sequence = typeof eventId === 'string' && /^\d+$/.test(eventId) ? Number(eventId) : null;
+  if (Number.isSafeInteger(sequence)) {
+    if (sequence <= (ui.lastEventSequence ?? -1)) return;
+    ui.lastEventSequence = sequence;
+  }
   const wasNearEnd = $('messages').scrollHeight - $('messages').scrollTop - $('messages').clientHeight < 130;
   if (data.kind === 'model_config') { ui.turn.querySelector('.assistant-label').textContent = 'GeoAgent · ' + data.profile.model; }
-  if (data.kind === 'status' && !ui.finished) ui.summary.textContent = (statusText[data.message] || data.message) + (data.turn ? ` · 第 ${data.turn} 次模型调用` : '');
-  if (data.kind === 'context_compacted') {
-    const line = element('div', `上下文已压缩：${data.before_chars.toLocaleString()} → ${data.after_chars.toLocaleString()} 字符；原始记录和工具证据保留`, 'tool-status');
-    ui.list.append(line);
-  }
-  if (data.kind === 'tool_start') {
-    let card = ui.tools.get(data.id); if (!card) { const details = element('details', undefined, 'tool-card'), summary = element('summary'), title = element('span', toolNames[data.name] || data.name), status = element('span', '执行中', 'tool-status'), input = element('pre'); summary.append(title, status); details.append(summary, input); ui.list.append(details); card = {details,status,input}; ui.tools.set(data.id,card); }
-    card.input.textContent = JSON.stringify({tool:data.name, arguments:data.arguments}, null, 2);
-  }
-  if (data.kind === 'tool_result') {
-    const card = ui.tools.get(data.id); if (card) { card.status.textContent = data.result.status === 'ok' ? '已完成' : '发生错误'; if (!card.output) { card.output = element('pre'); card.details.append(card.output); } card.output.textContent = JSON.stringify(data.result, null, 2); }
-  }
-  if (data.kind === 'finished') {
-    setRunElapsed(ui, data); ui.finished = true; markdown(ui.answer, data.answer); ui.summary.textContent = `${data.status === 'completed' ? '已完成' : data.status === 'needs_input' ? '需要补充信息' : data.status === 'stopped' ? '已停止' : '未完成'} · ${ui.tools.size} 次工具调用${data.turns ? ` · ${data.turns} 次模型调用` : ''}`; ui.reason.textContent = data.reason || '';
+  if (data.kind === 'finished' && !historical) {
+    setRunElapsed(ui, data); ui.finished = true; ui.answerText = data.answer || ''; markdown(ui.answer, ui.answerText, ui.artifactContext); ui.summary.textContent = '查看执行详情'; ui.reason.textContent = data.reason || '';
     const source = state.sources.get(rid); if (source) source.close(); state.sources.delete(rid); if (state.busy === rid) busy(null); window.GeoToolHITL?.refresh(data.status === 'needs_input'); loadFiles().catch(e => notice(e.message)); loadConversations().catch(e => notice(e.message));
   }
-  window.GeoAgentPresentation?.event(rid, data);
-  if (wasNearEnd) scrollEnd();
+  window.GeoAgentExperience?.event(rid, data, eventId);
+  if (!historical || data.kind !== 'stage_timing' || !ui.timing) window.GeoAgentTimeline?.event(rid, data, eventId);
+  if (!historical) window.GeoAgentPresentation?.event(rid, data);
+  if (wasNearEnd && !historical) scrollEnd();
+}
+function attachRunHistory(rid, ui) {
+  if (ui.history) return;
+  const pager = element('div', undefined, 'timeline-history-pager');
+  const hint = element('p', '执行详情按需加载；完整原始记录保留。', 'timeline-note');
+  const more = element('button', '加载执行详情', 'quiet');
+  more.type = 'button'; pager.append(hint, more); ui.list.after(pager);
+  const page = ui.history = {cursor:0, through:null, loading:false, done:false, pages:0};
+  const cid = state.cid, view = state.view;
+  const current = () => state.cid === cid && state.view === view && state.runs.get(rid) === ui;
+  async function loadPage() {
+    if (page.loading || page.done || !current()) return;
+    page.loading = true; more.disabled = true; hint.textContent = '正在读取保存的记录…';
+    try {
+      const suffix = page.through === null ? '' : '&through=' + page.through;
+      const result = await api('/api/runs/' + encodeURIComponent(rid) + '/history?after=' + page.cursor + '&limit=60' + suffix);
+      if (!current()) return;
+      if (result.run_id !== rid || !Array.isArray(result.events)) throw new Error('记录标识不一致');
+      for (const row of result.events) handleEvent(rid, row.data, String(row.id), true);
+      page.cursor = result.next; page.through = result.through; page.done = !result.has_more; page.pages++;
+      more.textContent = '加载更多记录'; more.hidden = page.done;
+      hint.textContent = page.done ? '执行记录已全部加载。展开每一项查看详情。' : '已加载 ' + page.pages + ' 页；其余记录未省略，点击继续加载。';
+      // Replaying a saved finish must not collapse a user-opened disclosure.
+      ui.activity.open = true;
+    } catch (error) { if (current()) { hint.textContent = '加载失败：' + error.message; more.textContent = '重试加载'; } }
+    finally { page.loading = false; more.disabled = false; }
+  }
+  more.addEventListener('click', loadPage);
+  ui.activity.addEventListener('toggle', () => { if (ui.activity.open && page.pages === 0) loadPage(); });
 }
 function subscribe(rid) {
   const cid = state.cid, source = new EventSource(`/api/runs/${rid}/events`); state.sources.set(rid,source);
@@ -190,8 +221,8 @@ function subscribe(rid) {
     if (!runIsWorking(run.status)) handleEvent(rid, {kind:'finished', ...run});
     else setRunElapsed(ui, run);
   }).catch(() => { /* The SSE reconnect path owns connection errors. */ });
-  source.onmessage = event => { if (state.cid !== cid || state.sources.get(rid) !== source) return; try { handleEvent(rid,JSON.parse(event.data)); $('connection').textContent = '已连接'; } catch { notice('事件显示失败，请重新打开这段对话。'); } };
-  source.onerror = async () => { if (state.cid !== cid || state.sources.get(rid) !== source) return; $('connection').textContent = '正在重连'; try { const run = await api(`/api/runs/${rid}`); if (state.cid !== cid || state.sources.get(rid) !== source) return; if (!['running','stopping'].includes(run.status)) { handleEvent(rid,{kind:'finished',...run}); } } catch (e) { source.close(); state.sources.delete(rid); notice(e.message); } };
+  source.onmessage = event => { if (state.cid !== cid || state.sources.get(rid) !== source) return; try { handleEvent(rid,JSON.parse(event.data),event.lastEventId); $('connection').textContent = '已连接'; } catch { notice('事件显示失败，请重新打开这段对话。'); } };
+  source.onerror = async () => { if (state.cid !== cid || state.sources.get(rid) !== source) return; $('connection').textContent = '正在重连'; window.GeoAgentExperience?.event(rid,{kind:'connection_lost'}); try { const run = await api(`/api/runs/${rid}`); if (state.cid !== cid || state.sources.get(rid) !== source) return; if (!['running','stopping'].includes(run.status)) { handleEvent(rid,{kind:'finished',...run}); } } catch (e) { source.close(); state.sources.delete(rid); window.GeoAgentExperience?.event(rid,{kind:'connection_failed'}); notice(e.message); } };
 }
 $('composer').addEventListener('submit', async event => {
   event.preventDefault(); if (state.busy || window.GeoToolHITL?.blocksComposer()) return; const query = $('prompt').value.trim(); if (!query) return; $('send').disabled = true; notice();
@@ -218,29 +249,79 @@ $('dialog-close').addEventListener('click',()=>$('account-dialog').close());
 $('password-button').addEventListener('click',()=>{dialog('修改密码');for(const [id,label] of [['old-password','当前密码'],['new-password','新密码（至少 12 个字符）']]){const wrap=element('label',label),input=element('input');input.type='password';input.id=id;input.required=true;input.minLength=12;input.maxLength=256;input.autocomplete=id==='old-password'?'current-password':'new-password';wrap.append(input);$('dialog-body').append(wrap);}dialogAction=async()=>{await api('/api/password',{method:'POST',body:{old:$('old-password').value,new:$('new-password').value}});location.reload();};});
 $('invite-button').addEventListener('click',async()=>{dialog('邀请研究组成员');$('dialog-submit').hidden=true;$('dialog-body').append(element('p','邀请 24 小时内有效，仅可使用一次。新成员自动获得普通用户权限。'));try{const result=await api('/api/admin/invites',{method:'POST'}),input=element('input');input.readOnly=true;input.value=location.origin+'/#join='+result.token;input.setAttribute('aria-label','邀请链接');input.addEventListener('click',()=>input.select());$('dialog-body').append(input);dialogAction=null;}catch(e){$('dialog-error').textContent=e.message;}});
 $('account-form').addEventListener('submit',async event=>{event.preventDefault();if(!dialogAction)return;try{await dialogAction();}catch(e){$('dialog-error').textContent=e.message;}});
+// Grouped text fields retain exact integer payloads; invalid commas are not ignored.
+function parseTokenValue(value) {
+  const text = String(value).trim();
+  if (!/^(?:\d+|[1-9]\d{0,2}(?:,\d{3})+)$/.test(text)) return NaN;
+  const number = Number(text.replaceAll(',', ''));
+  return Number.isSafeInteger(number) && number > 0 ? number : NaN;
+}
+function formatTokenValue(value) {
+  const number = parseTokenValue(value);
+  return Number.isNaN(number) ? String(value) : number.toLocaleString('en-US');
+}
+function bindTokenInput(input) {
+  input.type = 'text'; input.inputMode = 'numeric'; input.maxLength = 21;
+  input.addEventListener('blur', () => { input.value = formatTokenValue(input.value); });
+}
+for (const id of ['model-context-window', 'model-max-output']) bindTokenInput($(id));
 let modelSettings = null, modelPending = false, modelEditing = null, modelSelection = '', modelDraftBaseline = '';
+function modelDefaults() { return modelSettings?.defaults || {context_window_tokens:1000000, max_output_tokens:128000}; }
+window.addEventListener('geoagent:defaults-updated', () => {
+  if (state.me) loadModelSettings().catch(error => notice(error.message));
+});
 async function loadModelSettings() {
   modelSettings = await api('/api/model-settings');
   const label = modelSettings.source === 'builtin' ? 'GeoGPT' : modelSettings.name || modelSettings.model;
   $('model-settings-button').textContent = '模型：' + label;
   $('model-settings-button').title = modelSettings.model + '\n' + modelSettings.base_url;
+  window.GeoAgentExperience?.model(modelSettings);
   if (modelSettings.storage_error) notice('已保存的模型配置不可用，请恢复服务器密钥，或在模型配置中清除损坏的数据。');
 }
+// Keep the budget card visible for the read-only built-in service as well.
+$('custom-model-fields').after($('model-context-window').closest('.model-context-settings'));
 function modelSavedProfiles() { return modelSettings?.saved_profiles || []; }
 function modelPayload() {
   if ($('model-source').value === 'builtin') return {source:'builtin'};
   const keep = $('model-keep-token').checked && !$('model-token').value;
   const payload = {source:'custom', name:$('model-profile-name').value.trim(),
     base_url:$('model-base-url').value.trim(), model:$('model-id').value.trim(),
-    api_token:$('model-token').value, keep_token:keep, remember:$('model-remember').checked};
+    api_token:$('model-token').value, keep_token:keep, remember:$('model-remember').checked,
+    context_window_tokens:$('model-context-window').value.trim() ? parseTokenValue($('model-context-window').value) : modelDefaults().context_window_tokens,
+    max_output_tokens:$('model-max-output').value.trim() ? parseTokenValue($('model-max-output').value) : modelDefaults().max_output_tokens};
   if (modelEditing?.profile_id) { payload.profile_id = modelEditing.profile_id; payload.revision = modelEditing.revision; }
   return payload;
 }
+function modelContextHint() {
+  const input = $('model-context-window'), outputInput = $('model-max-output');
+  const windowTokens = input.value.trim() ? parseTokenValue(input.value) : modelDefaults().context_window_tokens;
+  const outputTokens = outputInput.value.trim() ? parseTokenValue(outputInput.value) : modelDefaults().max_output_tokens;
+  input.setCustomValidity(''); outputInput.setCustomValidity('');
+  if (!Number.isSafeInteger(outputTokens) || outputTokens < 1) {
+    outputInput.setCustomValidity('最大输出须为正整数 Token 数。');
+    $('model-context-hint').textContent = '请填写有效的最大输出 Token 数。';
+    return;
+  }
+  const safety = Math.max(1024, Math.ceil(windowTokens / 20));
+  const available = windowTokens - outputTokens - safety;
+  if (!Number.isSafeInteger(windowTokens) || windowTokens < 1 || available <= 0) {
+    input.setCustomValidity('上下文窗口须为正整数，并大于最大输出与安全预留之和。');
+    $('model-context-hint').textContent = '最大输出与安全预留不能占满上下文窗口，请调整两个参数。';
+    return;
+  }
+  $('model-context-hint').textContent = '可用输入约 ' + available.toLocaleString('zh-CN') +
+    ' Token；每次响应最多 ' + outputTokens.toLocaleString('zh-CN') + ' 输出 Token，另留 ' +
+    safety.toLocaleString('zh-CN') + ' 安全余量。账号默认值可在「设置」中修改，只用于新连接的初始参数；这里可单独覆盖。请核对供应商容量，BPE、协议和图片计数仍为估算。';
+}
 function modelDirty() { return modelDraftBaseline && JSON.stringify(modelPayload()) !== modelDraftBaseline; }
 function modelControls() {
+  modelContextHint();
   const custom = $('model-source').value === 'custom';
   $('custom-model-fields').hidden = !custom;
   $('custom-model-fields').disabled = !custom || modelPending;
+  $('model-context-window').disabled = !custom || modelPending;
+  $('model-max-output').disabled = !custom || modelPending;
+  document.querySelector('.model-context-source').textContent = custom ? '连接参数 · 可编辑' : '内置服务 · 只读';
   for (const id of ['model-base-url','model-id','model-profile-name']) $(id).required = custom;
   $('builtin-model-note').hidden = custom;
   $('model-clear').hidden = !modelEditing?.profile_id && !modelSettings?.storage_error;
@@ -272,10 +353,14 @@ function modelFill(selection) {
   $('model-base-url').value = profile.source === 'custom' ? profile.base_url : '';
   $('model-id').value = profile.source === 'custom' ? profile.model : '';
   $('model-token').value = '';
+  $('model-context-window').value = formatTokenValue(profile.context_window_tokens ?? modelDefaults().context_window_tokens);
+  $('model-max-output').value = formatTokenValue(profile.max_output_tokens ?? modelDefaults().max_output_tokens);
+  $('model-context-window').placeholder = '账号默认 ' + formatTokenValue(modelDefaults().context_window_tokens);
+  $('model-max-output').placeholder = '账号默认 ' + formatTokenValue(modelDefaults().max_output_tokens);
   $('model-keep-wrap').hidden = !profile.has_token;
   $('model-keep-token').checked = Boolean(profile.has_token);
   $('model-remember').checked = selection !== 'session';
-  $('builtin-model-note').textContent = modelSettings.builtin.model + ' · 使用研究组已有服务。切换到这里不会删除已保存的 API 配置。';
+  $('builtin-model-note').textContent = modelSettings.builtin.model + ' · 使用研究组已有服务；窗口与最大输出由服务配置控制。切换到这里不会删除已保存的 API 配置。';
   $('model-storage-status').textContent = modelSettings.storage_error
     ? '保存的数据无法安全解密。请恢复服务器密钥；清除全部配置仅用于无法恢复时的显式重置。'
     : selection === 'new' ? '新增会保留已有连接。选择一个容易辨认的名称，例如“供应商 A · 日常”。'
@@ -295,7 +380,7 @@ function modelChoose(selection) {
 function modelWaiting(wait) {
   modelPending = wait;
   for (const id of ['model-profile-select','model-new','model-profile-name','model-source','model-base-url','model-id',
-      'model-token','model-keep-token','model-remember','model-clear','model-test','model-save','model-close']) $(id).disabled = wait;
+      'model-token','model-context-window','model-max-output','model-keep-token','model-remember','model-clear','model-test','model-save','model-close']) $(id).disabled = wait;
   modelControls();
 }
 $('model-settings-button').addEventListener('click', async () => {
@@ -315,8 +400,8 @@ $('model-token').addEventListener('input', () => {
   if ($('model-token').value) $('model-keep-token').checked = false;
   $('model-test-result').textContent = ''; modelControls();
 });
-for (const id of ['model-id','model-profile-name','model-remember','model-keep-token']) {
-  $(id).addEventListener(id === 'model-id' || id === 'model-profile-name' ? 'input' : 'change', () => {
+for (const id of ['model-id','model-profile-name','model-context-window','model-max-output','model-remember','model-keep-token']) {
+  $(id).addEventListener(id === 'model-id' || id === 'model-profile-name' || id === 'model-context-window' || id === 'model-max-output' ? 'input' : 'change', () => {
     $('model-test-result').textContent = ''; modelControls();
   });
 }

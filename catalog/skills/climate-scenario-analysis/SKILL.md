@@ -1,218 +1,50 @@
 ---
 name: "climate-scenario-analysis"
-description: "Compare deep-time, present-day, and future scenario climate indicators with explicit temporal semantics."
+description: "Query supplied paleoclimate, annual anomaly or SSP tables with explicit time selection, baseline and provenance."
 ---
 
 # Climate Timescale and Scenario Analysis
 
-## Goal
+## Procedure
 
-{'capability': 'climate-scenario-analysis', 'description': 'Compare deep-time, present-day, and future scenario climate indicators with explicit temporal semantics.', 'target_state': ['validated-climate-scenario-analysis-result']}
+1. Identify the actual research question and use only the relevant operations below.
+2. Inspect supplied data and provenance. Confirm release, observation date, columns, units, CRS, masks and scientific coverage where applicable. Missing data must be requested or retrieved from an authorized source, never invented.
+3. Call the disclosed native functions with named object arguments. The current input and output schemas are authoritative; do not pass question IDs, prose or assume server-private file paths.
+4. Use observed values and generated artifacts. State method limitations and uncovered areas; label synthetic inputs as tests.
 
-## Inputs
+## ClimateQueryDeepTime
 
-~~~json
-[
-  {
-    "id": "query_or_resource",
-    "semantic_type": "Table|Parameter",
-    "data_type": "authoritative resource locator",
-    "required": true,
-    "description": "The benchmark locator or structured task parameters."
-  }
-]
-~~~
+ClimateQueryDeepTime on an explicitly supplied versioned dataset. age_kyr_bp, temp_anomaly_C columns required.
 
-## Outputs
 
-~~~json
-[
-  {
-    "id": "result",
-    "semantic_type": "Scalar|Table",
-    "data_type": "validated geoscience result",
-    "description": "A numeric or structured result with provenance.",
-    "expected_format": "JSON"
-  }
-]
-~~~
+Required dataset fields: age_kyr_bp, temp_anomaly_C.
 
-## Method
+## ClimateQueryPresentMean
 
-Choose steps from observations and the actual goal; this is guidance, not a mandatory fixed chain.
-After loading this skill, use the exposed native tool schemas, sourced directly from catalog/registry.json. Do not try to read repository files in the user task directory.
-Call the original structured implementation. Do not use the retired asset_catalog execution route.
+ClimateQueryPresentMean on an explicitly supplied versioned dataset. year, temp_anomaly_C columns required.
 
-~~~json
-{
-  "type": "sequential",
-  "steps": [
-    {
-      "id": "step_1",
-      "operation": "Retrieve a deep-time, present-day, or future climate value",
-      "required": true,
-      "depends_on": [],
-      "input_refs": [],
-      "output_refs": [],
-      "inputs": [
-        "Parameter"
-      ],
-      "outputs": [
-        "Table|Scalar",
-        "Scalar|Table"
-      ],
-      "preconditions": [],
-      "postconditions": [],
-      "tool_selection": {
-        "mode": "dynamic",
-        "candidates": [
-          "ClimateQueryDeepTime",
-          "ClimateQueryPresentMean",
-          "ClimateQueryFutureSSP"
-        ],
-        "selection_criteria": [
-          "input_compatibility",
-          "tool_availability",
-          "geo_constraint_satisfaction",
-          "execution_feedback"
-        ]
-      },
-      "tool_references": [
-        "ClimateQueryDeepTime",
-        "ClimateQueryPresentMean",
-        "ClimateQueryFutureSSP"
-      ],
-      "method_notes": [
-        "Retrieve climate observations or scenario estimates with explicit temporal semantics."
-      ]
-    },
-    {
-      "id": "step_2",
-      "operation": "Compare compatible climate outputs across time",
-      "required": false,
-      "depends_on": [
-        "step_1"
-      ],
-      "input_refs": [],
-      "output_refs": [],
-      "inputs": [
-        "Scalar|Table"
-      ],
-      "outputs": [
-        "Table|Scalar"
-      ],
-      "preconditions": [],
-      "postconditions": [],
-      "tool_selection": {
-        "mode": "dynamic",
-        "candidates": [
-          "ClimateCompareEpochs"
-        ],
-        "selection_criteria": [
-          "input_compatibility",
-          "tool_availability",
-          "geo_constraint_satisfaction",
-          "execution_feedback"
-        ]
-      },
-      "tool_references": [
-        "ClimateCompareEpochs"
-      ],
-      "method_notes": [
-        "Compare numeric climate outputs with explicit temporal semantics."
-      ]
-    }
-  ]
-}
-~~~
 
-## Dependencies
+Required dataset fields: year, temp_anomaly_C.
 
-~~~json
-{
-  "tools": [
-    "ClimateQueryDeepTime",
-    "ClimateQueryPresentMean",
-    "ClimateQueryFutureSSP",
-    "ClimateCompareEpochs"
-  ],
-  "unavailable": [
-    "ClimateQueryDeepTime",
-    "ClimateQueryPresentMean",
-    "ClimateQueryFutureSSP"
-  ],
-  "tool_references": [
-    "ClimateQueryDeepTime",
-    "ClimateQueryPresentMean",
-    "ClimateQueryFutureSSP",
-    "ClimateCompareEpochs"
-  ],
-  "method_notes": [
-    "Retrieve climate observations or scenario estimates with explicit temporal semantics.",
-    "Compare numeric climate outputs with explicit temporal semantics."
-  ]
-}
-~~~
+## ClimateQueryFutureSSP
 
-Environment: Python 3.12 with requirements-source-tools.txt. Caller supplies licensed input data.
-A tool reference is not proof that its implementation is available. Consult every referenced tool's source_interface status.
+ClimateQueryFutureSSP on an explicitly supplied versioned dataset. scenario, horizon_year, estimate_c, lower_c, upper_c columns required.
 
-## Success criteria
 
-Required tool calls return valid structured results; output files exist; units and reported values match those results.
-Check the requested goal, not merely process completion. No source-revision or agent end-to-end tests have run.
+Required dataset fields: scenario, horizon_year, estimate_c, lower_c, upper_c.
 
-## Failure handling
+## ClimateCompareEpochs
 
-Correct parameters or missing data from the error, then retry only after changing the cause.
-Never invent unavailable algorithms, datasets or scientific results. Ask for missing prerequisites if no supported path remains.
+Subtract the first supplied epoch value from each supplied value. No climate data lookup.
 
-## Publication
 
-Draft only. Provider ownership, license, official schema validation and version-locked protocol repository remain unresolved.
-
-## Direct tool references
-
-These are suggestions, not an execution order or permission to run unavailable tools.
-
-- ClimateQueryDeepTime
-- ClimateQueryPresentMean
-- ClimateQueryFutureSSP
-- ClimateCompareEpochs
-
-<!-- source-delivery:start -->
 ## Source interface and delivery
 
-This is the same skill document loaded by the project agent. Tool references are alternatives or supporting operations, not an enforced execution order.
-
-### Calling contract
-
-Inspect the selected tool's input_schema, output_schema, limitations and source_interface before calling it. Supply an object with the documented units and coordinate system. Do not replace missing data with invented values or treat a failed call as evidence.
-
-Inside the agent, call the disclosed native function names directly with schema-valid object arguments. Outside the agent, use the original callable and bound arguments recorded in source_interface.entrypoint. Both execute the same source implementation; no retired execution adapter is required.
-
-File-producing source calls require a caller-selected output directory; inputs may be absolute paths in trusted direct Python use. The agent transport instead requires workspace-relative input paths. Neither direct Python execution nor the standalone transport is an OS security sandbox.
-
-### Dependency status
-
-Source-interface candidates (consult the acceptance report, not this list, for tested availability):
-- `ClimateCompareEpochs`
-
-Unresolved or unavailable references:
-- `ClimateQueryDeepTime`: 实现绑定特定数据快照，尚无可交付的数据路径、版本、字段和授权约定。
-- `ClimateQueryPresentMean`: 实现绑定特定数据快照，尚无可交付的数据路径、版本、字段和授权约定。
-- `ClimateQueryFutureSSP`: 实现绑定特定数据快照，尚无可交付的数据路径、版本、字段和授权约定。
+The canonical catalog contains native entrypoints, named input/output schemas, units, constraints, error behavior and synthetic call examples. Input files remain unchanged. Runtime paths must be relative to the current task; direct Python callers provide their explicit output directory.
+Data-dependent queries require a supplied versioned snapshot. No data license, global model coverage or scientific certification is implied. Independent source-call validation and whole-Skill end-to-end validation are separate.
 
 ### Current availability
 
-Status: `partially_blocked`.
+tool_candidates_available_workflow_unverified
 
-Only part of the recorded tool set is available. A supported subset may be usable, but the full method must not be claimed executable without checking which operations are necessary.
-
-A reference is not proof that every operation in this skill is available. Choose a supported method, request the missing input, or state the limitation; do not silently skip a scientifically necessary operation.
-
-### Result acceptance
-
-Check the actual result against the chosen tool's output contract, input provenance, units, scientific limitations and requested deliverables. Confirm that referenced output files exist. Report failed or unsupported operations explicitly. Synthetic tool checks do not constitute scientific certification or an end-to-end acceptance test of this skill.
-
-<!-- source-delivery:end -->
+All referenced tool implementations have native contracts. Runtime registration and acceptance are checked by the merge release tests; the complete Skill workflow has not been certified. Official lab registration metadata and platform validation remain pending.

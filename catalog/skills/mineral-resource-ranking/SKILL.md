@@ -90,22 +90,7 @@ Call the original structured implementation. Do not use the retired asset_catalo
 
 ## Dependencies
 
-~~~json
-{
-  "tools": [
-    "MineralResourcesCountrySummary",
-    "MineralResourcesRankCommodityCountries"
-  ],
-  "unavailable": [],
-  "tool_references": [
-    "MineralResourcesCountrySummary",
-    "MineralResourcesRankCommodityCountries"
-  ],
-  "method_notes": [
-    "Aggregate and rank mineral resources by country or commodity."
-  ]
-}
-~~~
+Select from the direct tool references below. Use the current schemas and environment requirements; a list of tools is not an executable workflow.
 
 Environment: Python 3.12 with requirements-source-tools.txt. Caller supplies licensed input data.
 A tool reference is not proof that its implementation is available. Consult every referenced tool's source_interface status.
@@ -113,7 +98,7 @@ A tool reference is not proof that its implementation is available. Consult ever
 ## Success criteria
 
 Required tool calls return valid structured results; output files exist; units and reported values match those results.
-Check the requested goal, not merely process completion. No source-revision or agent end-to-end tests have run.
+Check the requested goal, not merely process completion. Consult the current acceptance report for individual tool tests; whole-Skill validation remains a separate requirement.
 
 ## Failure handling
 

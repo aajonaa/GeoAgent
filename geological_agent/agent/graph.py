@@ -9,7 +9,12 @@ def build_graph(model_turn, execute_tools, finalize, *, human_input=None, checkp
     graph.add_node("finalize", finalize)
     if human_input is not None:
         graph.add_node("human", human_input)
-        graph.add_edge("human", "knowledge" if retrieve_knowledge is not None else "model")
+        def after_human(state):
+            if state["metadata"].get("runtime_control_resume"):
+                return "model"
+            return "knowledge" if retrieve_knowledge is not None else "model"
+        graph.add_conditional_edges("human", after_human,
+            {"model": "model", **({"knowledge": "knowledge"} if retrieve_knowledge is not None else {})})
     if retrieve_knowledge is not None:
         graph.add_node("knowledge", retrieve_knowledge)
         graph.add_edge("knowledge", "model")

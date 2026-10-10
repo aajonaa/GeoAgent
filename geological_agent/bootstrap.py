@@ -6,7 +6,7 @@ from .geology.validation import validate_energy_answer
 from .knowledge import NullKnowledgeRetriever
 from .memory import NullMemoryStore
 from .settings import Settings
-from .skills import SkillLoader
+from .skills import SkillLoader, SkillRegistry
 from .tools import Tool, ToolDefinition, ToolOutput, ToolRegistry, ToolFailure, object_schema, register_file_tools
 
 
@@ -22,7 +22,7 @@ def build_registry(*, human_input=False):
     from .scientific_imaging import register_scientific_image_tools
     register_scientific_image_tools(registry)
     professional = register_professional(registry)
-    skills = load_source_skills(SkillLoader.from_directory(Path(__file__).parent / "geology" / "skills"), professional)
+    skills = load_source_skills(SkillLoader(SkillRegistry()), professional, runtime_registry=registry)
     for summary in skills.registry.list():
         for name in skills.load(summary.id).tool_names:
             registry.get(name)

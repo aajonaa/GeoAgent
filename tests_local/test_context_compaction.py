@@ -61,7 +61,7 @@ def test_deterministic_compaction_retains_state_current_task_and_native_pairs():
     state = history()
     original = deepcopy(state)
     request = execution_request(state)
-    result = fit_request(request, state, Settings(max_context_chars=10000))
+    result = fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=10000))
     assert request_size(result) <= 10000 < request_size(request)
     assert state["messages"] == original["messages"]
     assert result.tools == request.tools
@@ -80,7 +80,7 @@ def test_deterministic_compaction_retains_state_current_task_and_native_pairs():
 def test_delivery_guidance_is_included_before_final_budget_check():
     state = history(12)
     request = execution_request(state)
-    settings = Settings(max_context_chars=request_size(request) + 1)
+    settings = Settings(context_window_tokens=None, max_context_chars=request_size(request) + 1)
     result = enrich_request(request, state, settings)
     assert request_size(result) <= settings.max_context_chars
     assert "Runtime delivery reminder:" in result.messages[-1].content
@@ -93,7 +93,7 @@ def test_numeric_evidence_units_errors_and_input_arguments_survive():
     state["messages"][2] = ToolResult("c0", "echo", "error",
                                      {"value": 3.54813389233576e14, "unit": "J",
                                       "explanation": "unverified"}).message()
-    result = fit_request(execution_request(state), state, Settings(max_context_chars=10000))
+    result = fit_request(execution_request(state), state, Settings(context_window_tokens=None, max_context_chars=10000))
     data = [unpack_data(json.loads(m.content)) for m in result.messages if m.content.startswith("{")]
     first = next(p["observations"][0] for p in data if p.get("kind") == "historical_context")
     assert first["call"]["arguments"] == {"value": 0}
@@ -110,7 +110,7 @@ def test_internal_evidence_is_packed_losslessly_not_summarized(phase):
                             Message("user", json.dumps(evidence))), (definition(),))
     def forbidden(*args):
         raise AssertionError("A model summary must not replace review evidence")
-    fitted = fit_request(request, state, Settings(max_context_chars=11000),
+    fitted = fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=11000),
                          phase=phase, summarize=forbidden)
     assert request_size(fitted) <= 11000
     # Compare with the JSON wire payload: JSON arrays are lists, not Python tuples.
@@ -121,14 +121,14 @@ def test_protected_oversized_task_is_not_summarized_or_silently_cut():
     state = {"task": "protected " * 5000, "messages": [], "metadata": {}}
     request = ModelRequest((Message("system", "Policy"), Message("user", state["task"])), ())
     with pytest.raises(ContextOverflow, match="Current user instructions"):
-        fit_request(request, state, Settings(max_context_chars=5000))
+        fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=5000))
     assert request.messages[1].content == state["task"]
 
 
 def test_review_builders_pack_after_all_schema_and_guidance_enrichment():
     state = history()
     state["metadata"].update(optimize_round_trips=True, compact_review=True, review_reference_sets=True)
-    settings = Settings(max_context_chars=22000)
+    settings = Settings(context_window_tokens=None, max_context_chars=22000)
     for builder in (final_answer_request, review_request, compact_review_request):
         fitted = builder(state, None, settings)
         assert request_size(fitted) <= settings.max_context_chars
@@ -145,12 +145,12 @@ def test_older_assistant_drafts_can_be_summarized_but_not_tool_results():
     def summarize(source, target):
         sources.append(source)
         return "Prior assistant draft only; no new evidence."
-    fitted = fit_request(request, state, Settings(max_context_chars=10000), summarize=summarize)
+    fitted = fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=10000), summarize=summarize)
     assert request_size(fitted) <= 10000
     assert sources and all("Unaccepted old draft" in source for source in sources)
     assert all("source_text" not in source for source in sources)
     assert state["messages"][1].content == "Unaccepted old draft. " * 800
-    fit_request(request, state, Settings(max_context_chars=10000), summarize=summarize)
+    fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=10000), summarize=summarize)
     assert len(sources) == 1
 
 
@@ -180,7 +180,7 @@ def runtime_fixture(tmp_path, *, maximum=8, cancel=None, invalid_summary=False):
                                      "tool_calls")
             return ModelResponse("Observed 1 and 2.")
     model = Model()
-    agent = AgentRuntime(model, Settings(max_context_chars=20000, max_model_turns=maximum, verify_completion=False),
+    agent = AgentRuntime(model, Settings(context_window_tokens=None, max_context_chars=20000, max_model_turns=maximum, verify_completion=False),
                          registry, skills, NullMemoryStore(), NullKnowledgeRetriever(), ("echo",),
                          trace_factory=lambda *args: trace)
     return agent, model, events
@@ -246,14 +246,14 @@ def test_identical_exchanges_reference_only_equal_calls_and_results():
         messages += [Message("assistant", tool_calls=(ToolCall(str(index), "echo", {"value": 1}),)),
                      Message("tool", "x" * 2500, tool_call_id=str(index))]
     state = {"task": messages[0].content, "messages": messages, "metadata": {}}
-    fitted = fit_request(execution_request(state), state, Settings(max_context_chars=5000))
+    fitted = fit_request(execution_request(state), state, Settings(context_window_tokens=None, max_context_chars=5000))
     payload = next(json.loads(m.content) for m in fitted.messages if m.content.startswith("{"))
     assert payload["identical_exchanges"] == [{"call_ids": ["0", "1", "2", "3"],
                                                "same_call_and_result_as": "4"}]
     assert fitted.messages[-1] == messages[-1]
     changed = deepcopy(state)
     changed["messages"][2] = Message("tool", "DIFFERENT", tool_call_id="0")
-    fitted = fit_request(execution_request(changed), changed, Settings(max_context_chars=9000))
+    fitted = fit_request(execution_request(changed), changed, Settings(context_window_tokens=None, max_context_chars=9000))
     payload = next(unpack_data(json.loads(m.content)) for m in fitted.messages if m.content.startswith("{"))
     assert payload["observations"][0]["result"] == {"raw_content": "DIFFERENT"}
 
@@ -265,7 +265,7 @@ def test_latest_parallel_native_group_remains_whole():
                                          ToolCall("b", "echo", {"value": 200}))),
         ToolResult("a", "echo", "ok", {"value": 100}).message(),
         ToolResult("b", "echo", "ok", {"value": 200}).message()]
-    fitted = fit_request(execution_request(state), state, Settings(max_context_chars=10000))
+    fitted = fit_request(execution_request(state), state, Settings(context_window_tokens=None, max_context_chars=10000))
     blocks = ContextManager._blocks(fitted.messages)
     assert [c.id for c in blocks[-1][0].tool_calls] == ["a", "b"]
     assert [m.tool_call_id for m in blocks[-1][1:]] == ["a", "b"]
@@ -277,5 +277,5 @@ def test_unique_evidence_is_not_discarded_to_claim_compaction_succeeded():
         state["messages"][2 + 2 * index] = ToolResult("c" + str(index), "echo", "ok",
             {"unique_source": chr(65 + index) * 8000}).message()
     with pytest.raises(ContextOverflow, match="no summary was treated as execution proof"):
-        fit_request(execution_request(state), state, Settings(max_context_chars=10000))
+        fit_request(execution_request(state), state, Settings(context_window_tokens=None, max_context_chars=10000))
     assert len(state["messages"]) == 7

@@ -12,11 +12,14 @@ def install_knowledge_routes(app,auth,body):
         try: return await run_in_threadpool(fn,*args)
         except ValueError as exc: raise HTTPException(400,str(exc)) from None
         except KnowledgeError as exc: raise HTTPException(503,str(exc)) from None
+    from .pdf_imports import install_pdf_routes
+    pdfs = install_pdf_routes(app, auth, body, index)
     @app.get("/api/knowledge")
     async def listing(request: Request):
         user=auth(request)
         return {"documents":await perform(index(user).documents),
-                "formats":["text","markdown"],"max_characters":120000,
+                "formats":["text","markdown","pdf"],"max_characters":120000,
+                "pdf_service":pdfs.capabilities(),
                 "retrieval":"PostgreSQL dense + lexical / RRF / multilingual cross-encoder",
                 "privacy":"Account-scoped; selected excerpts go to your selected LLM and research-group traces."}
     @app.post("/api/knowledge")
@@ -36,4 +39,5 @@ def install_knowledge_routes(app,auth,body):
     async def delete(document_id:str,request:Request):
         user=auth(request,mutate=True)
         if not await perform(index(user).delete,document_id): raise HTTPException(404,"Document not found")
+        await perform(pdfs.unlink_document,user["id"],document_id)
         return {"deleted":True}

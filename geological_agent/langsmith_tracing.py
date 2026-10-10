@@ -1,5 +1,6 @@
 """Optional event-based LangSmith instrumentation, not a tool-call adapter."""
 from datetime import datetime, timezone
+from .run_status import issue_for_event, task_outcome
 
 
 class LangSmithTrace:
@@ -14,6 +15,7 @@ class LangSmithTrace:
         self.run_factory, self.root = run_factory, None
         self.active, self.latest_model = {}, None
         self.failed = False
+        self.last_issue = None
 
     def set_model(self, model, provider):
         self.model, self.provider = model, provider
@@ -58,6 +60,9 @@ class LangSmithTrace:
             self.local.emit("langsmith_export_failed", event_name=event, error_type=type(exc).__name__)
 
     def _export(self, event, fields):
+        issue = issue_for_event(event, fields)
+        if issue is not None:
+            self.last_issue = issue
         if event == "run_started":
             self.root = self.run_factory(name="GeoToolAgent task", run_type="chain", project_name=self.project,
                 ls_client=self.client, inputs=self._inputs({"task": fields.get("task", "")}),
@@ -117,10 +122,15 @@ class LangSmithTrace:
                 self._end(key, {}, "Run ended without a corresponding completion event")
             outputs = {"status": fields["status"], "model_turns": fields.get("model_turns"),
                        "artifact_count": len(fields.get("artifacts", []))}
+            outcome = task_outcome(fields, self.last_issue)
+            outputs["task_outcome"] = outcome
+            self.root.extra.setdefault("metadata", {}).update(outcome)
+            self.root.tags = list(self.root.tags or []) + ["task_state:" + outcome["business_state"]]
             if self.capture_content:
                 outputs.update(answer=fields.get("answer", ""), artifacts=fields.get("artifacts", []))
-            unsuccessful = fields["status"] not in ("completed", "needs_input")
-            self.root.end(outputs=outputs, error=(fields.get("error") if self.capture_content else fields["status"]) if unsuccessful else None)
+            unsuccessful = outcome["business_state"] not in ("completed", "awaiting_user", "awaiting_input")
+            failure = (fields.get("error") if self.capture_content else None) or outcome["business_state"]
+            self.root.end(outputs=outputs, error=failure if unsuccessful else None)
             self.root.patch()
             self.client.flush(timeout=5)
         else:
@@ -128,6 +138,8 @@ class LangSmithTrace:
             # where the model call succeeded but its answer did not pass checks.
             safe_metadata = {"event": event, "turn": fields.get("turn"),
                              "phase": fields.get("phase"), "attempt": fields.get("attempt")}
+            if issue is not None:
+                safe_metadata.update(issue)
             key = ("event", event, datetime.now(timezone.utc).isoformat())
             self._begin(key, event, "chain", fields, safe_metadata)
             self._end(key, fields if self.capture_content else {"event": event},

@@ -1,81 +1,53 @@
 ---
 name: "earthquake-catalog-analysis"
-description: "Clean and classify a supplied earthquake CSV; distinguish this supported operation from unavailable frozen-catalog queries."
+description: "Fetch official USGS events when requested, or clean, query and plot an explicitly supplied earthquake catalog."
 ---
 
 # Earthquake Catalog Analysis
 
-## Goal
+## Procedure
 
-Clean a caller-supplied earthquake catalog and classify magnitudes when requested.
-Do not substitute cleaning for filtering, ranking or a missing reference-data query.
+1. Identify the actual research question and use only the relevant operations below.
+2. Inspect supplied data and provenance. Confirm release, observation date, columns, units, CRS, masks and scientific coverage where applicable. Missing data must be requested or retrieved from an authorized source, never invented.
+3. Call the disclosed native functions with named object arguments. The current input and output schemas are authoritative; do not pass question IDs, prose or assume server-private file paths.
+4. Use observed values and generated artifacts. State method limitations and uncovered areas; label synthetic inputs as tests.
 
-## Inputs
+## geo_tool_00aa9bcef908cc86fc7b
 
-An existing task-relative UTF-8 CSV with time, latitude, longitude, depth and mag
-columns. Optional id, type and place columns are preserved and used by the source.
-Coordinates are decimal degrees and depth is kilometres. Confirm the magnitude
-scale; never invent earthquake observations or input paths.
+Clean a USGS-style CSV, deduplicate events, and assign magnitude classes.
 
-## Outputs
+- Required columns: time, latitude, longitude, depth, mag. Depth [-10,1000] km and magnitude [-2,10] are the legacy cleaning policy.
+- This cleans supplied records, not a live earthquake-catalog acquisition.
 
-A cleaned CSV plus input_rows, clean_rows and dropped_rows. Classification is a
-magnitude category, not an intensity, damage or hazard prediction.
+## DeepEarthQueryUSGSCatalog
 
-## Method
+DeepEarthQueryUSGSCatalog on an explicitly supplied versioned dataset. id, time, mag, depth, latitude, longitude columns required.
 
-This is guidance, not a fixed execution plan. Select only the requested action.
-After loading, use the disclosed native schemas, not repository file reads.
-The source asset `地震数据清洗与分级` has native function name
-`geo_tool_00aa9bcef908cc86fc7b`. Call it with `{"source":"events.csv"}`.
-It validates/coerces required columns, removes invalid observations and duplicates,
-and adds magnitude class fields. Inspect the actual counts and returned artifact.
-Do not run Python merely to reimplement this existing source algorithm.
+- Energy uses approximate log10(E/J)=1.5M+4.8. Reported magnitude types may not all be Mw. Frozen input catalog scope only.
 
-`DeepEarthQueryUSGSCatalog` remains unavailable: its data snapshot, version, fields
-and rights do not have a delivery contract. Cleaning does not enable that separate
-query. Ask for missing data or choose another grounded method, stating limitations.
+Required dataset fields: id, time, mag, depth, latitude, longitude.
 
-## Dependencies
+## USGSEarthquakeCatalogFetch
 
-- 地震数据清洗与分级: structured original callable with explicit output directory.
-- DeepEarthQueryUSGSCatalog: blocked data-dependent query, not exposed for execution.
-- Python professional dependency set, including pandas.
+Fetch earthquake records from the fixed official USGS FDSN endpoint and save a CSV; report retrieval time and possible result truncation.
 
-## Success criteria
+- Requires external USGS availability. limit may make results incomplete; possibly_limited=true must be disclosed.
 
-The native call succeeds, the output exists, and counts and classification claims
-agree with its actual contents. Do not claim an unperformed query was completed.
+## GeoEarthquakeEventMap
 
-## Failure handling
+Render supplied earthquake observations as a static PNG and self-contained HTML image; no external tiles, scripts or CDN.
 
-Correct inputs from actual schema, column or path errors; ask for missing data
-rather than repeating unchanged calls or inventing results.
+- Coordinate scatter, not a projected basemap. Mixed magnitude scales must not be treated as a homogeneous intensity measurement.
 
-## Direct tool references
-
-- 地震数据清洗与分级
-- DeepEarthQueryUSGSCatalog
+Required dataset fields: latitude, longitude, mag.
 
 ## Source interface and delivery
 
-### Calling contract
-
-Inside the agent, call the disclosed native function with schema-valid object
-arguments and task-relative paths. Outside, call the original
-clean_and_classify_earthquake_data function with an explicit output_dir.
-Both execute the same source algorithm; no retired execution adapter is used.
-
-### Dependency status
-
-The cleaning source is callable. Frozen USGS catalog queries remain unavailable.
+The canonical catalog contains native entrypoints, named input/output schemas, units, constraints, error behavior and synthetic call examples. Input files remain unchanged. Runtime paths must be relative to the current task; direct Python callers provide their explicit output directory.
+Data-dependent queries require a supplied versioned snapshot. No data license, global model coverage or scientific certification is implied. Independent source-call validation and whole-Skill end-to-end validation are separate.
 
 ### Current availability
 
-Status: `partially_blocked`.
+tool_candidates_available_workflow_unverified
 
-### Result acceptance
-
-Check requested files, counts, provenance and limitations. Synthetic checks do not
-establish scientific certification, full skill acceptance, data licensing or
-acceptance by the external asset platform.
+All referenced tool implementations have native contracts. Runtime registration and acceptance are checked by the merge release tests; the complete Skill workflow has not been certified. Official lab registration metadata and platform validation remain pending.

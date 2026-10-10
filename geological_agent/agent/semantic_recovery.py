@@ -1,5 +1,6 @@
 """Incremental source audits, with durable protocol-cycle recovery."""
 import json
+from dataclasses import replace
 
 from .completion import CompletionIssue
 from .knowledge_semantics import (
@@ -24,7 +25,7 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
              "semantic_pending_draft": {"answer": state["answer"], "fingerprint": stamp,
                                         "trust": "unverified candidate, not evidence"}}}
     blocks = material(state)["answer_blocks"]
-    feedback, attempt = None, 0
+    feedback, attempt, stagnant_attempts = None, 0, 0
     while True:
         if cancel.is_set():
             return {**state, "status": "stopped", "answer": "", "last_error": "Stopped by user"}, []
@@ -45,6 +46,7 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
             record(state, state)
             return state, [CompletionIssue(message) for message in verdict["issues"]]
         request = semantic_request(state, settings, protocol_feedback=feedback, block_ids=pending)
+        request = replace(request, transport=progress.get("response_transport", "auto"))
         attempt += 1
         turn = state["model_turns"] + 1
         state = {**state, "model_turns": turn}
@@ -53,6 +55,7 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
                    phase="knowledge_semantics", attempt=attempt)
         activity("completion_review", turn=turn, phase="knowledge_semantics", attempt=attempt)
         response = None
+        accepted_before = len(progress["checks"])
         try:
             response = model.invoke(request)
             state = {**state, "metadata": {**state["metadata"],
@@ -67,6 +70,10 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
                 progress["issues"].extend(exc.issues)
             pending = [key for key in blocks if key not in progress["checks"]]
             failure = {"turn": turn, "attempt": attempt, "error": error, "pending_blocks": pending}
+            diagnostic = getattr(exc, "diagnostic", {})
+            if diagnostic:
+                failure["diagnostic"] = diagnostic
+                failure["transport"] = request.transport
             state["metadata"]["knowledge_semantic_protocol_errors"] = (
                 state["metadata"].get("knowledge_semantic_protocol_errors", []) + [failure])
             state["metadata"]["semantic_review_progress"] = progress
@@ -83,10 +90,31 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
                 trace.emit("knowledge_semantic_checked", run_id=state["run_id"], **audit)
                 record(state, state)
                 return state, [CompletionIssue(message) for message in progress["issues"]]
+            transport_kind = diagnostic.get("kind")
+            if (request.transport == "auto" and transport_kind in
+                    ("stream_incomplete", "invalid_stream", "unexpected_content_type")):
+                # The NEXT existing-budget turn changes transport, never the schema,
+                # source evidence or semantic checks. No hidden HTTP retry.
+                progress["response_transport"] = "full_response"
+                trace.emit("completion_review_recovery", run_id=state["run_id"],
+                           phase="knowledge_semantics", action="retry_full_response",
+                           from_transport="auto", to_transport="full_response",
+                           error=error, diagnostic=diagnostic)
+                record(state, state)
+                continue
+            if transport_kind:
+                # Explicit provider rejection or a failed fallback needs attention,
+                # not a loop over the same invalid request.
+                return pause(state, "knowledge_semantics", error), []
             signature = identity([stamp, pending, error])
             repeated_failure = signature in progress["failure_signatures"]
             progress["failure_signatures"].append(signature)
-            if repeated_failure:
+            stagnant_attempts = 0 if len(progress["checks"]) > accepted_before else stagnant_attempts + 1
+            if repeated_failure or stagnant_attempts >= 3:
+                trace.emit("completion_review_recovery", run_id=state["run_id"],
+                           phase="knowledge_semantics", action="pause_no_progress",
+                           attempts=attempt, stagnant_attempts=stagnant_attempts,
+                           pending_blocks=pending, error=error)
                 return pause(state, "knowledge_semantics", error), []
             rejected = []
             if response is not None:
@@ -103,4 +131,5 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
             continue
         progress["checks"].update(verdict["checks"])
         progress["issues"].extend(verdict["issues"])
+        stagnant_attempts = 0
         state["metadata"]["semantic_review_progress"] = progress

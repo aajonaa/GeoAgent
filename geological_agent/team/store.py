@@ -64,6 +64,7 @@ class Store:
           status TEXT, answer TEXT DEFAULT '', reason TEXT DEFAULT '', generation TEXT DEFAULT '', created REAL, turns INTEGER DEFAULT 0);
         CREATE TABLE IF NOT EXISTS events(seq INTEGER PRIMARY KEY AUTOINCREMENT, rid TEXT REFERENCES runs(id), data TEXT);
         CREATE INDEX IF NOT EXISTS event_run ON events(rid,seq);
+        CREATE TABLE IF NOT EXISTS run_activity(rid TEXT PRIMARY KEY REFERENCES runs(id), data TEXT NOT NULL);
         CREATE INDEX IF NOT EXISTS conversation_owner ON conversations(uid,updated);
         CREATE INDEX IF NOT EXISTS run_conversation ON runs(cid,created);
         CREATE TABLE IF NOT EXISTS input_requests(id TEXT PRIMARY KEY, cid TEXT REFERENCES conversations(id),
@@ -169,13 +170,18 @@ class Store:
     @staticmethod
     def _run_view(row, now):
         result = dict(row)
+        result["activity"] = json.loads(result.get("activity") or "{}")
         end = now if result["status"] in ("running", "stopping") else result["finished_at"]
         result["elapsed_seconds"] = max(0.0, end - result["created"]) if end is not None else None
+        timing = result["activity"].get("timing")
+        if timing:
+            timing["active_seconds"] = max(0.0, now - timing.get("recorded_at", now)) if timing.get("active") and result["status"] in ("running", "stopping") else 0.0
         return result
 
     def run(self, uid, rid):
         with self.lock:
-            row = self.db.execute("SELECT runs.* FROM runs JOIN conversations ON cid=conversations.id WHERE runs.id=? AND uid=?", (rid, uid)).fetchone()
+            row = self.db.execute("SELECT runs.*,run_activity.data AS activity FROM runs JOIN conversations ON cid=conversations.id "
+                                  "LEFT JOIN run_activity ON run_activity.rid=runs.id WHERE runs.id=? AND uid=?", (rid, uid)).fetchone()
         if not row:
             raise KeyError("Run not found")
         return self._run_view(row, time.time())
@@ -184,7 +190,7 @@ class Store:
         self.conversation(uid, cid)
         with self.lock:
             now = time.time()
-            return [self._run_view(r, now) for r in self.db.execute("SELECT * FROM runs WHERE cid=? ORDER BY created", (cid,))]
+            return [self._run_view(r, now) for r in self.db.execute("SELECT runs.*,run_activity.data AS activity FROM runs LEFT JOIN run_activity ON run_activity.rid=runs.id WHERE cid=? ORDER BY created", (cid,))]
 
     def begin(self, uid, cid, query, *, expected_input=None):
         self.conversation(uid, cid)
@@ -219,11 +225,50 @@ class Store:
     def event(self, rid, data):
         with self.lock, self.db:
             self.db.execute("INSERT INTO events(rid,data) VALUES (?,?)", (rid, json.dumps(data, ensure_ascii=False)))
+            if data.get("kind") in ("stage_timing", "model_config", "tool_start"):
+                row = self.db.execute("SELECT data FROM run_activity WHERE rid=?", (rid,)).fetchone()
+                summary = json.loads(row[0]) if row else {}
+                if data["kind"] == "stage_timing":
+                    summary["timing"] = data
+                elif data["kind"] == "model_config":
+                    summary["profile"] = data.get("profile", {})
+                else:
+                    summary["tool_count"] = summary.get("tool_count", 0) + 1
+                self.db.execute("INSERT INTO run_activity VALUES (?,?) ON CONFLICT(rid) DO UPDATE SET data=excluded.data",
+                                (rid, json.dumps(summary, ensure_ascii=False)))
+
+    def history(self, uid, rid, *, after=0, through=None, limit=60):
+        self.run(uid, rid)
+        if after < 0 or limit < 1 or limit > 100 or (through is not None and through < 0):
+            raise ValueError("Invalid history page")
+        with self.lock:
+            maximum = self.db.execute("SELECT COALESCE(MAX(seq),0) FROM events WHERE rid=?", (rid,)).fetchone()[0]
+            through = min(maximum, through) if through is not None else maximum
+            rows = self.db.execute("SELECT seq,data FROM events WHERE rid=? AND seq>? AND seq<=? ORDER BY seq LIMIT ?",
+                                   (rid, after, through, limit + 1)).fetchall()
+        # Keep individual receipts intact. A large receipt occupies a page by itself.
+        page, size = [], 0
+        for row in rows[:limit]:
+            if page and size + len(row[1]) > 131072:
+                break
+            page.append({"id": row[0], "data": json.loads(row[1])})
+            size += len(row[1])
+        cursor = page[-1]["id"] if page else after
+        return {"run_id": rid, "events": page, "next": cursor, "through": through,
+                "has_more": any(row[0] > cursor for row in rows)}
+
 
     def events(self, uid, rid, after):
         self.run(uid, rid)
         with self.lock:
             return [{"id": r[0], "data": json.loads(r[1])} for r in self.db.execute("SELECT seq,data FROM events WHERE rid=? AND seq>? ORDER BY seq LIMIT 100", (rid, after))]
+
+    def receipt_events(self, uid, rid):
+        self.run(uid, rid)
+        with self.lock:
+            rows = self.db.execute("SELECT data FROM events WHERE rid=? AND json_extract(data,'$.kind') "
+                                   "IN ('tool_result','knowledge_sources') ORDER BY seq", (rid,)).fetchall()
+        return [json.loads(row[0]) for row in rows]
 
     def files(self, uid, cid, generation=None):
         conv = self.conversation(uid, cid)

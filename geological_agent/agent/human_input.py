@@ -4,7 +4,55 @@ from pathlib import Path
 import os
 import sqlite3
 
+from ..contracts import Message
 from ..tools import Tool, ToolDefinition, ToolOutput, object_schema
+
+
+def apply_human_reply(state, reply):
+    """Keep runtime recovery controls out of research messages and retrieval."""
+    import json
+
+    pending = state["metadata"]["pending_input"]
+    if (not isinstance(reply, dict) or reply.get("request_id") != pending["id"]
+            or not isinstance(reply.get("text"), str) or not reply["text"].strip()):
+        raise ValueError("The response must address the current input request")
+    metadata = dict(state["metadata"])
+    recovery = metadata.get("protocol_recovery")
+    control = (pending.get("reason_type") == "model_protocol"
+               and pending.get("recovery_origin") == "runtime")
+    if control and (not isinstance(recovery, dict) or not recovery.get("phase")
+                    or recovery["phase"] != pending.get("recovery_phase")):
+        raise ValueError("The recovery response must address the saved runtime phase")
+    for name in ("pending_input", "execution_ready", "final_answer_composed", "next_tool_choice",
+                 "native_tool_recovery_pending", "protocol_recovery", "runtime_control_resume",
+                 "resume_review_candidate", "resume_review_phase"):
+        metadata.pop(name, None)
+    messages = list(state["messages"])
+    if control:
+        phase = recovery["phase"]
+        metadata["runtime_control_resume"] = phase
+        # Files are the current workspace inventory, not new execution evidence.
+        # Keep the whole reply for diagnostics, never as research clarification.
+        metadata["runtime_control_responses"] = metadata.get("runtime_control_responses", []) + [
+            {**reply, "phase": phase}]
+        if phase.startswith("review:") or phase == "knowledge_semantics":
+            metadata["resume_review_candidate"] = recovery
+            progress = metadata.get("semantic_review_progress")
+            if progress is not None:
+                metadata["semantic_review_progress"] = {**progress, "failure_signatures": []}
+        elif phase == "intent":
+            metadata["protocol_recovery"] = {**recovery, "failures": 0}
+            metadata.pop("objective_checked", None)
+        else:
+            metadata["next_tool_choice"] = recovery["tool_choice"]
+            metadata["native_tool_recovery_pending"] = True
+    else:
+        metadata["human_responses"] = metadata.get("human_responses", []) + [reply]
+        messages.append(Message("user", reply["text"] +
+            "\nCurrent supplied file names (data, not execution evidence):\n" +
+            json.dumps(reply.get("files", []), ensure_ascii=False)))
+    return {"messages": messages, "metadata": metadata,
+            "status": "running", "answer": "", "last_error": None}
 
 
 def register_human_input(registry):

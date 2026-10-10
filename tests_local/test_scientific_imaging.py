@@ -175,10 +175,11 @@ def test_scientific_assets_are_professional_and_use_canonical_native_handlers():
     for sid in ('scientific_raster_analysis', 'map_color_digitization', 'plot_curve_digitization'):
         assert assets.skills[sid]['scope'] == 'professional'
         assert assets.skills[sid]['status'] == 'registered'
-        assert (ROOT/'catalog/skills'/sid.replace('_','-')/'SKILL.md').read_bytes() == (
-            ROOT/'geological_agent/geology/skills'/sid/'SKILL.md').read_bytes()
+        _, loader, _ = build_registry()
+        body = (ROOT/'catalog/skills'/sid.replace('_','-')/'SKILL.md').read_text(encoding="utf-8").split("---", 2)[-1].strip()
+        assert loader.load(sid).instructions == body
     rows = check_assets(catalog(), specifications)
-    assert len(rows) == 32 and all(row['status'] == 'passed' for row in rows), rows
+    assert len(rows) == 34 and all(row['status'] == 'passed' for row in rows), rows
 
 
 def test_native_catalog_drift_is_rejected_without_a_replacement_handler(monkeypatch):

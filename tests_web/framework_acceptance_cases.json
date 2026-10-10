@@ -1,0 +1,26 @@
+{
+  "purpose": "Live browser evaluation; calculation inputs are not field observations.",
+  "cases": [
+    {
+      "id": "professional-calculation",
+      "prompt": "Calculate the great-circle distance in km and initial bearing in degrees from Beijing (39.9042 N, 116.4074 E) to Shanghai (31.2304 N, 121.4737 E). Round both to two decimals. Use professional tools, do not search the web or create files.",
+      "expected_tools": ["GeoHaversineDistance", "GeoBearing"],
+      "expected_values": {"distance_km": 1067.31, "initial_bearing_degrees": 153.07},
+      "expected_state": "completed"
+    },
+    {
+      "id": "grounded-source-answer",
+      "prompt": "Using only my existing knowledge documents, explain the purpose and main processing steps of AGeoKE in two or three sentences, with source citations. Do not search the web or create files.",
+      "expected_state": "completed",
+      "requires_validated_source_bindings": true
+    },
+    {
+      "id": "missing-objective",
+      "prompt": "Beijing: latitude 39.9042, longitude 116.4074. Shanghai: latitude 31.2304, longitude 121.4737.",
+      "expected_state": "needs_input",
+      "requires_objective_clarification": true,
+      "max_professional_tool_calls": 0
+    }
+  ],
+  "metrics": ["terminal_state", "elapsed_seconds", "model_requests", "professional_tool_calls", "review_requests", "retries", "usage", "trace_id"]
+}

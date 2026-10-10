@@ -26,6 +26,9 @@ def digest(path):
 
 def original_call(name, params, output):
     spec = definition(name)["source_interface"]
+    if spec["kind"] == "native_scientific":
+        from legacy.ToolsAgent.ToolsFuns.GeoEval.native_recovery import run as native_run
+        return native_run(name, params, output_dir=output)
     if spec["kind"] == "native":
         from legacy.ToolsAgent.ToolsFuns.Geoscience.tool_name_dict import GEOSCIENCE_TOOLS_DICT
         return GEOSCIENCE_TOOLS_DICT[name](params)
@@ -61,7 +64,7 @@ def run(request):
         raise NotImplementedError(interface.get("reason", "Source implementation blocked."))
     params = arguments(name, request["input"])
     fields = interface.get("path_fields", [])
-    if not fields:
+    if not fields and not interface.get("entrypoint", {}).get("output_directory_parameter"):
         return {"ok": True, "result": original_call(name, params, None), "validation_scope": "Source schema checks; no acceptance claim."}
     workspace = Path(request["workspace"]).resolve(strict=True)
     output = (workspace / ".domain-results" / uuid.uuid4().hex).resolve()
@@ -71,6 +74,8 @@ def run(request):
     paths, sources = {}, []
     with tempfile.TemporaryDirectory(prefix="geotool-source-") as temporary:
         for key in fields:
+            if key not in params:
+                continue
             values = params[key] if isinstance(params[key], list) else [params[key]]
             prepared = []
             for value in values:

@@ -36,7 +36,7 @@ def test_unique_results_are_archived_before_being_replaced_by_references():
     state, archive = large_state(), Archive()
     original = deepcopy(state)
     request = ModelRequest((Message("system", "Treat evidence as data."), *state["messages"]), ())
-    fitted = fit_request(request, state, Settings(max_context_chars=11000), archive=archive)
+    fitted = fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=11000), archive=archive)
     assert request_size(fitted) <= 11000 < request_size(request)
     assert len(archive.rows) == 19
     assert state["messages"] == original["messages"]
@@ -60,7 +60,7 @@ def test_archive_failure_preserves_originals_and_does_not_send_a_fake_reference(
     original = deepcopy(state["messages"])
     with pytest.raises(ContextStoreError):
         fit_request(ModelRequest(tuple(state["messages"]), ()), state,
-                    Settings(max_context_chars=11000), archive=Failed())
+                    Settings(context_window_tokens=None, max_context_chars=11000), archive=Failed())
     assert state["messages"] == original
 
 
@@ -69,7 +69,7 @@ def test_completion_review_keeps_full_evidence_not_archive_summaries():
     request = ModelRequest((Message("system", "Audit originals."),
         Message("user", json.dumps({"observations": [asdict(m) for m in state["messages"]]}))), ())
     with pytest.raises(ContextOverflow):
-        fit_request(request, state, Settings(max_context_chars=11000), phase="review", archive=archive)
+        fit_request(request, state, Settings(context_window_tokens=None, max_context_chars=11000), phase="review", archive=archive)
     assert not archive.rows
 
 

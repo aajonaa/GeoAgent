@@ -40,7 +40,7 @@ def fixture_scope(count=3):
 
 def scope(state, skills, build, limit=8000):
     return fit_skill_scope(state, build_request=build, base_tool_names=(),
-                           skills=skills, settings=Settings(max_context_chars=limit))
+                           skills=skills, settings=Settings(context_window_tokens=None, max_context_chars=limit))
 
 
 def test_overloaded_scope_defers_whole_skills_not_schema_fragments():

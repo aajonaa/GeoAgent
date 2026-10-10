@@ -12,6 +12,10 @@
     return drafts.get(id);
   }
   function pendingHere() { return entries.some(item => item.state === 'pending'); }
+  function runtimeRecovery(item) {
+    return item.recovery_origin === 'runtime' || item.reason_type === 'model_protocol'
+      || Boolean(window.GeoAgentExperience?.classifyIssue(item.reason));
+  }
   function blocksComposer() { return loading || pendingHere(); }
   function syncComposer() {
     const blocked = blocksComposer(), active = Boolean(state.busy);
@@ -20,6 +24,7 @@
     $('attach').disabled = blocked || active;
     $('upload-button').disabled = blocked || active;
     $('prompt').placeholder = blocked ? '请在上方的补充信息卡片中回复；新问题请新建对话。' : ordinaryPlaceholder;
+    if (blocked && entries.some(item => item.state === 'pending' && runtimeRecovery(item))) $('prompt').placeholder = '请在上方恢复卡片中重试任务；无需重新提交研究问题。';
     hint.hidden = !blocked;
     hint.textContent = loadError ? '补充信息状态读取失败，请重新打开这段对话后回复。' : loading ? '正在读取这段对话的待回复问题…' : '当前任务已暂停。请在对应卡片中回复，不会另建任务。';
   }
@@ -40,10 +45,11 @@
   }
   function cardFor(item) {
     const history = item.state !== 'pending';
+    const recovery = runtimeRecovery(item);
     const node = element(history ? 'details' : 'section', undefined, 'hitl-card' + (history ? ' hitl-resolved' : ''));
     node.dataset.inputRequestId = item.id; node.dataset.conversationId = item.cid; node.dataset.runId = item.rid;
     const title = element(history ? 'summary' : 'h3', history ?
-      ({resuming:'已回复，任务继续中', answered:'已回复', cancelled:'已结束此任务', interrupted:'上次恢复已中断'}[item.state] || '问题已关闭') : '需要你补充信息');
+      ({resuming:'已回复，任务继续中', answered:'已回复', cancelled:'已结束此任务', interrupted:'上次恢复已中断'}[item.state] || '问题已关闭') : recovery ? '需要恢复任务' : '需要你补充信息');
     const titleId = 'hitl-title-' + item.id; title.id = titleId;
     node.setAttribute('aria-labelledby', titleId);
     const header = element('div', undefined, 'hitl-header');
@@ -69,10 +75,10 @@
       optionButtons.push([choice, value]); options.append(choice);
     }
     if (optionButtons.length) form.append(options);
-    const label = element('label', '补充说明（也可以不选选项，直接回答）');
+    const label = element('label', recovery ? '可选说明（直接选择重试即可）' : '补充说明（也可以不选选项，直接回答）');
     const input = element('textarea'); input.rows = 3; input.maxLength = 20000;
     input.id = 'hitl-text-' + item.id; label.htmlFor = input.id;
-    input.placeholder = '输入你的回答，或添加所需材料…'; input.value = draft.text;
+    input.placeholder = recovery ? '无需补充研究资料，可直接选择恢复选项…' : '输入你的回答，或添加所需材料…'; input.value = draft.text;
     input.addEventListener('input', () => { draft.text = input.value; });
     form.append(label, input);
     const files = element('div', undefined, 'hitl-files');

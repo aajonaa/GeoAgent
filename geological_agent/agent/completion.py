@@ -115,7 +115,10 @@ def completion_evidence(state, context):
                 "Tool execution success is not source authenticity. Inspect each result.evidence.input_files. "
                 "user_supplied means caller-provided, not independently verified; retrieved means an observed source "
                 "excerpt, not scientific certification. model_authored, derived_unverified and unknown inputs cannot "
-                "establish external catalog facts. A URL inside a generated file is not acquisition evidence."),
+                "establish external catalog facts. A URL inside a generated file is not acquisition evidence. "
+                "resolved_input_origins can establish exact-byte archive/copy lineage for the same file hash; "
+                "prior observations are retained unchanged. Caller-supplied bytes still do not certify science."),
+                "resolved_input_origins": state.get("metadata", {}).get("tool_evidence", {}).get("files", {}),
                 "task": state["task"],
                 "knowledge_sources": state.get("metadata", {}).get("knowledge", {"status": "disabled", "references": []}),
                 "knowledge_scope": "Source excerpts are not executed tool results. Check each claim against the exact excerpt identified by its citation, including bare K... IDs. Verify that titles, sample identifiers, numbers, units and limitations belong to that cited source, not merely another retrieved source. A known but swapped citation is revise_answer, not complete. Deterministic identity checks do not establish semantic entailment or scientific truth. Cite exact [K...] IDs when used. Empty retrieval does not establish a fact.",

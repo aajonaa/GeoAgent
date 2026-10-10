@@ -50,13 +50,9 @@ class LibraryCatalog:
             identifier = EXISTING_SKILLS.get(spec["id"], spec["id"].replace("-", "_"))
             actual = runtime.pop(identifier, None)
             self.skills[identifier] = self._skill(spec, identifier, actual, native_to_source)
-        for identifier, actual in runtime.items():
-            self.skills[identifier] = self._skill(
-                {"id": identifier, "name": actual.summary.name,
-                 "description": actual.summary.description,
-                 "metadata": {"domain": {"primary": "Runtime"}}},
-                identifier, actual, native_to_source, scope="runtime",
-            )
+        if runtime:
+            raise ValueError("Registered skills missing from canonical catalog: " + ", ".join(sorted(runtime)))
+
         for skill in self.skills.values():
             for tool in skill["tools"]:
                 if tool["id"] in self.tools:

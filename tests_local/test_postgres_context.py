@@ -92,7 +92,7 @@ def test_postgres_compaction_stores_retrievable_original_exchanges(store, tmp_pa
                      ToolResult(call.id, call.name, "ok", {"unit": "km", "text": chr(65 + i) * 7000}).message()]
     state = {"run_id": run_id, "task": messages[0].content, "messages": messages, "metadata": {}}
     store.sync_state(state)
-    fitted = fit_request(ModelRequest(tuple(messages), ()), state, Settings(max_context_chars=12000), archive=store)
+    fitted = fit_request(ModelRequest(tuple(messages), ()), state, Settings(context_window_tokens=None, max_context_chars=12000), archive=store)
     assert request_size(fitted) <= 12000
     payload = next(unpack_data(json.loads(m.content)) for m in fitted.messages if m.content.startswith("{"))
     for ref in payload["recent_evidence"]:

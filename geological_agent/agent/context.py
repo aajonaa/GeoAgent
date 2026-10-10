@@ -1,6 +1,7 @@
 from dataclasses import asdict
 import json
 from ..contracts import Message, ModelRequest
+from ..context_budget import input_allowance, text_budget_size
 from .review_policy import EXECUTION_GUIDANCE
 from .compaction import ContextOverflow, fit_request
 
@@ -84,7 +85,7 @@ class ContextManager:
                                 if s.id not in state["selected_skill_ids"]], ensure_ascii=False)
             # Summaries only, not every tool schema. If the registry outgrows
             # this context's discovery allowance, retain explicit skill_find.
-            if len(index) <= self.settings.max_context_chars // 8:
+            if text_budget_size(index, self.settings) <= input_allowance(self.settings) // 8:
                 instructions += ("\nAdditional, NOT YET loaded skill summaries: " + index +
                     "\nUse skill_load only if an additional listed skill is needed. Do not reload the skills shown below. "
                     "Their instructions and native tool schemas are already in THIS request; invoke suitable exposed tools directly. "

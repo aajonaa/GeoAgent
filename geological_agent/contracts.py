@@ -33,6 +33,8 @@ class Message:
     tool_call_id: str | None = None
     # Ephemeral visual requests only; encoded pixels are not appended to text history.
     image_urls: tuple[str, ...] = ()
+    # Provider reasoning is continuation state, never tool execution evidence.
+    reasoning_content: str | None = None
 
 
 @dataclass(frozen=True)
@@ -70,6 +72,8 @@ class ModelRequest:
     messages: tuple[Message, ...]
     tools: tuple[Any, ...]
     tool_choice: str = "auto"
+    # Internal transport preference; never a provider prompt or tool argument.
+    transport: str = "auto"
 
 
 @dataclass(frozen=True)
@@ -80,6 +84,7 @@ class ModelResponse:
     usage: dict = field(default_factory=dict)
     # Provider-reported diagnostics, never ToolResult or execution evidence.
     provider_metadata: dict = field(default_factory=dict)
+    reasoning_content: str | None = None
 
 
 @dataclass(frozen=True)

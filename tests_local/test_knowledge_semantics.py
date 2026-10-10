@@ -115,7 +115,7 @@ def test_review_fingerprint_changes_with_answer_and_exact_evidence():
 
 def test_semantic_context_is_never_silently_truncated():
     with pytest.raises(ContextOverflow):
-        semantic_request(state(GOOD),Settings(max_context_chars=64))
+        semantic_request(state(GOOD),Settings(context_window_tokens=None, max_context_chars=64))
 
 def run_mock(tmp_path,monkeypatch,*,protocol_mode="",budget=32,with_sources=True):
     for key in ("GEOTOOL_INTENT_REVIEW","GEOTOOL_COMBINED_COMPLETION_REVIEW","GEOTOOL_OPTIMIZE_ROUND_TRIPS",

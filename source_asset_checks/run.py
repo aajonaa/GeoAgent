@@ -76,6 +76,9 @@ def populate(workspace, examples, tools):
 
 
 def check_assets(c, tools):
+    from geological_agent.bootstrap import build_registry
+    registry, _, _ = build_registry()
+    callable_names = set(registry.names())
     rows = []
     for skill in c["skills"]:
         row = {"skill": skill["id"], "status": "failed", "workflow_validation": "not_run"}
@@ -86,7 +89,7 @@ def check_assets(c, tools):
             assert text.startswith("---") and re.search(r"(?m)^name:", text) and re.search(r"(?m)^description:", text)
             assert "## Source interface and delivery" in text
             assert "### Current availability" in text
-            assert all(name in tools for name in skill.get("tool_references", []))
+            assert all(name in tools or name in callable_names for name in skill.get("tool_references", []))
             assert "capabilities" not in skill
             delivery = skill["delivery"]
             expected = ("tool_candidates_available_workflow_unverified" if delivery["source_candidates"] and not delivery["unavailable_references"] else "partially_blocked" if delivery["source_candidates"] else "blocked_no_source_candidates")

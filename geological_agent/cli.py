@@ -19,7 +19,8 @@ def main(argv=None):
     parser.add_argument("--base-url", default=os.environ.get("GEOTOOL_MODEL_URL", "http://127.0.0.1:8000/v1"))
     parser.add_argument("--model", default=os.environ.get("GEOTOOL_MODEL", "GeoGPT-Research-Project/Qwen2.5-72B-GeoGPT"))
     parser.add_argument("--max-turns", type=int, default=32, help="0 disables the model-turn budget; cancellation remains available")
-    parser.add_argument("--tool-timeout", type=float, default=60)
+    parser.add_argument("--tool-timeout", type=float, default=0,
+                        help="Tool execution timeout in seconds; 0 (default) disables the deadline")
     parser.add_argument("--stream", action="store_true", help="Show live execution activity; publish final text only after completion checks")
     parser.add_argument("--result-json", type=Path, help="Optional structured acceptance/debug result, separate from the normal answer")
     args = parser.parse_args(argv)

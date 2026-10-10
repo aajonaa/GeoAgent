@@ -7,6 +7,9 @@ from copy import deepcopy
 from dataclasses import replace
 import hashlib
 import json
+from pathlib import PurePosixPath
+import stat
+import zipfile
 
 from .contracts import ErrorInfo, ToolResult, strict_json
 
@@ -37,7 +40,81 @@ class EvidenceLedger:
         self.failures = self.state.setdefault("failures", {})
         self.sources = self.state.setdefault("sources", {})
 
+
+    def reconcile(self):
+        """Recover exact-copy lineage from runtime-observed inputs, never URLs.
+
+        Archive membership proves byte identity and caller origin, not that an
+        external catalog or scientific claim has been independently verified.
+        Existing observations remain immutable; resolutions live in the ledger.
+        """
+        archives = self.state.setdefault("archive_members", {})
+        for name, record in tuple(self.files.items()):
+            if record.get("origin") not in {"user_supplied", "retrieved"}:
+                continue
+            try:
+                path = self.ctx.path(name)
+                if file_stamp(path).get("sha256") != record.get("sha256"):
+                    continue
+                self.sources.setdefault(record["sha256"], deepcopy(record))
+                if path.suffix.lower() != ".zip":
+                    continue
+                key = record["sha256"]
+                if key not in archives:
+                    members = {}
+                    with zipfile.ZipFile(path) as archive:
+                        infos = archive.infolist()
+                        names = [item.filename for item in infos]
+                        if (len(infos) > 1024 or len(names) != len(set(names))
+                                or sum(item.file_size for item in infos) > 64 * 1024 * 1024):
+                            continue
+                        safe = True
+                        for item in infos:
+                            member = PurePosixPath(item.filename)
+                            if (member.is_absolute() or not member.parts
+                                    or ".." in member.parts or "\\" in item.filename
+                                    or ":" in item.filename or "\x00" in item.filename
+                                    or stat.S_ISLNK(item.external_attr >> 16)
+                                    or item.flag_bits & 1 or item.file_size > 8 * 1024 * 1024):
+                                safe = False
+                                break
+                        if not safe:
+                            continue
+                        for item in infos:
+                            if item.is_dir():
+                                continue
+                            with archive.open(item) as stream:
+                                sha = hashlib.file_digest(stream, "sha256").hexdigest()
+                            members.setdefault(sha, {
+                                **deepcopy(record), "sha256": sha,
+                                "lineage": {"kind": "exact_archive_member",
+                                            "parent_path": name, "parent_sha256": key,
+                                            "member_path": item.filename},
+                                "scope": "Exact bytes from an observed input archive; "
+                                         "caller origin is not independent scientific certification"})
+                    # A concurrent change cannot be promoted using the old record.
+                    if file_stamp(path).get("sha256") == key:
+                        archives[key] = members
+                for sha, origin in archives.get(key, {}).items():
+                    self.sources.setdefault(sha, deepcopy(origin))
+            except (OSError, ValueError, RuntimeError, zipfile.BadZipFile):
+                # Invalid archives remain unverified; never bypass the checks.
+                continue
+        for name, old in tuple(self.files.items()):
+            if old.get("origin") in {"user_supplied", "retrieved"}:
+                continue
+            try:
+                stamp = file_stamp(self.ctx.path(name))
+            except (OSError, ValueError):
+                continue
+            source = self.sources.get(stamp.get("sha256"))
+            if source and source.get("origin") in {"user_supplied", "retrieved"}:
+                self.files[name] = {
+                    **deepcopy(source), "resolved_from": deepcopy(old),
+                    "resolution": "Runtime verified exact byte identity; prior tool evidence retained"}
+
     def inputs(self, tool, args):
+        self.reconcile()
         rows = []
         for field in tool.input_paths:
             values = args.get(field, [])
@@ -120,6 +197,7 @@ class EvidenceLedger:
                     "origin": "model_authored" if call.name == "write_file" else "derived_unverified",
                     "sha256": stamp["sha256"], "call_id": call.id,
                     "scope": "generated artifact, not an independently acquired reference dataset"}
+        self.reconcile()
         return replace(result, evidence=evidence)
 
     def pending_missing(self):
@@ -140,9 +218,16 @@ def reference_gaps(state):
         if result.get("status") == "ok" and evidence.get("operation_key"):
             latest[evidence["operation_key"]] = result
     gaps = []
+    files = state.get("metadata", {}).get("tool_evidence", {}).get("files", {})
     for result in latest.values():
         for row in result.get("evidence", {}).get("input_files", []):
-            if row.get("reference_data") and row.get("origin") not in {"user_supplied", "retrieved"}:
+            resolved = files.get(row.get("path"), {})
+            origin = row.get("origin")
+            if (resolved.get("sha256") == row.get("sha256")
+                    and resolved.get("resolution") and resolved.get("resolved_from")
+                    and resolved.get("origin") in {"user_supplied", "retrieved"}):
+                origin = resolved["origin"]
+            if row.get("reference_data") and origin not in {"user_supplied", "retrieved"}:
                 gaps.append({"call_id": result["call_id"], "tool": result["name"],
                              "path": row["path"], "sha256": row.get("sha256"),
                              "origin": row.get("origin", "unknown")})

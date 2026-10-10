@@ -203,41 +203,7 @@ Call the original structured implementation. Do not use the retired asset_catalo
 
 ## Dependencies
 
-~~~json
-{
-  "tools": [
-    "CCSDecimalToDMS",
-    "CCSHaversineDistance",
-    "CCSBearing",
-    "CCSBBoxArea"
-  ],
-  "unavailable": [],
-  "tool_references": [
-    "GeoDecimalToDMS",
-    "DeepTimeDecimalToDMS",
-    "CCSDecimalToDMS",
-    "GeoCheckCRSConsistency",
-    "CCSCheckCRSConsistency",
-    "GeoHaversineDistance",
-    "DeepTimeHaversineDistance",
-    "CCSHaversineDistance",
-    "GeoBearing",
-    "DeepTimeBearing",
-    "CCSBearing",
-    "EnergyBBoxArea",
-    "OceanBBoxArea",
-    "DeepTimeBBoxArea",
-    "CCSBBoxArea",
-    "GeoWGS84BBoxAreaKm2"
-  ],
-  "method_notes": [
-    "Normalize coordinate representation and validate CRS consistency.",
-    "Calculate WGS84 great-circle distance.",
-    "Calculate initial bearing between two coordinates.",
-    "Calculate spherical area of a WGS84 bounding box."
-  ]
-}
-~~~
+Select from the direct tool references below. Use the current schemas and environment requirements; a list of tools is not an executable workflow.
 
 Environment: Python 3.12 with requirements-source-tools.txt. Caller supplies licensed input data.
 A tool reference is not proof that its implementation is available. Consult every referenced tool's source_interface status.
@@ -245,7 +211,7 @@ A tool reference is not proof that its implementation is available. Consult ever
 ## Success criteria
 
 Required tool calls return valid structured results; output files exist; units and reported values match those results.
-Check the requested goal, not merely process completion. No source-revision or agent end-to-end tests have run.
+Check the requested goal, not merely process completion. Consult the current acceptance report for individual tool tests; whole-Skill validation remains a separate requirement.
 
 ## Failure handling
 

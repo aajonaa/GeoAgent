@@ -41,6 +41,10 @@ def geodesic_calls():
 
 @pytest.fixture(autouse=True)
 def optimized(monkeypatch):
+    for name in ("GEOTOOL_REQUIREMENT_COVERAGE", "GEOTOOL_INTENT_REVIEW",
+                 "GEOTOOL_COMPACT_REVIEW", "GEOTOOL_COMPACT_DISCOVERY",
+                 "GEOTOOL_REVIEW_REFERENCE_SETS"):
+        monkeypatch.delenv(name, raising=False)
     monkeypatch.setenv("GEOTOOL_OPTIMIZE_ROUND_TRIPS", "1")
     monkeypatch.setenv("GEOTOOL_COMBINED_COMPLETION_REVIEW", "1")
 
@@ -124,9 +128,11 @@ def test_review_and_composition_do_not_load_execution_schemas_or_drop_evidence()
 
 def test_combined_review_still_enforces_its_actual_context_budget():
     state, context = evidence_state()
-    state["answer"] = "x" * 5000
+    state["answer"] = " ".join(f"unverified_value_{i:08d}" for i in range(5000))
+    original = state["answer"]
     with pytest.raises(ContextOverflow):
-        combined_review_request(state, context, Settings(max_context_chars=4096))
+        combined_review_request(state, context, Settings(context_window_tokens=4096, max_output_tokens=512))
+    assert state["answer"] == original
 
 
 def test_combined_review_does_not_bypass_model_turn_budget(tmp_path):

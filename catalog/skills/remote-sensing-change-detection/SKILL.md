@@ -170,38 +170,7 @@ Call the original structured implementation. Do not use the retired asset_catalo
 
 ## Dependencies
 
-~~~json
-{
-  "tools": [
-    "RemoteSensingPercentageChange",
-    "RemoteSensingBatchHotspotPercentage",
-    "RemoteSensingBatchHotspotRaster",
-    "RemoteSensingExtremeSnowLossPercentage",
-    "RemoteSensingFireIncreaseMap",
-    "RemoteSensingCountAboveThreshold",
-    "RemoteSensingMaxValueAndIndex",
-    "RemoteSensingMinValueAndIndex",
-    "RemoteSensingArgmax"
-  ],
-  "unavailable": [],
-  "tool_references": [
-    "RemoteSensingPercentageChange",
-    "RemoteSensingExtremeSnowLossPercentage",
-    "RemoteSensingBatchHotspotPercentage",
-    "RemoteSensingCountAboveThreshold",
-    "RemoteSensingBatchHotspotRaster",
-    "RemoteSensingFireIncreaseMap",
-    "RemoteSensingMaxValueAndIndex",
-    "RemoteSensingMinValueAndIndex",
-    "RemoteSensingArgmax"
-  ],
-  "method_notes": [
-    "Estimate change and percentage-loss metrics from aligned observations.",
-    "Summarize threshold exceedance or create a binary hotspot/change map.",
-    "Return the maximum/minimum value and its index."
-  ]
-}
-~~~
+Select from the direct tool references below. Use the current schemas and environment requirements; a list of tools is not an executable workflow.
 
 Environment: Python 3.12 with requirements-source-tools.txt. Caller supplies licensed input data.
 A tool reference is not proof that its implementation is available. Consult every referenced tool's source_interface status.
@@ -209,7 +178,7 @@ A tool reference is not proof that its implementation is available. Consult ever
 ## Success criteria
 
 Required tool calls return valid structured results; output files exist; units and reported values match those results.
-Check the requested goal, not merely process completion. No source-revision or agent end-to-end tests have run.
+Check the requested goal, not merely process completion. Consult the current acceptance report for individual tool tests; whole-Skill validation remains a separate requirement.
 
 ## Failure handling
 

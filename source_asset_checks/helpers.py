@@ -58,6 +58,8 @@ def create(workspace):
         if column != 20:
             drawing.point((column, 49-column), fill=(0, 80, 180))
     picture.save(root / 'scientific-curve.png')
+    from .recovered_cases import create as create_recovered
+    create_recovered(workspace)
     return root
 
 def close(actual, expected, rel=1e-06, absolute=1e-09):
@@ -65,6 +67,11 @@ def close(actual, expected, rel=1e-06, absolute=1e-09):
         raise AssertionError(f'Expected {expected}, obtained {actual}')
 
 def oracle(name, response, workspace):
+    from legacy.ToolsAgent.ToolsFuns.GeoEval.native_recovery import RECOVERED
+    if name in RECOVERED:
+        from .recovered_cases import oracle as recovered_oracle
+        recovered_oracle(name, response, workspace)
+        return
     value = response['result']
     if name in ('GeoRasterIndexAnalysis', 'GeoRasterChangeAnalysis', 'GeoMapColorExtract', 'GeoPlotDigitize'):
         assert response['artifacts'], 'Scientific file-producing tool returned no artifacts.'

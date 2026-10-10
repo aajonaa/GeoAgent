@@ -81,25 +81,7 @@ selecting a dependent action. These routes are guidance, not a fixed execution p
 
 ## Dependencies
 
-~~~json
-{
-  "tools": [
-    "MineralResourcesSearchDeposits",
-    "MineralResourcesGetDeposit"
-  ],
-  "unavailable": [],
-  "tool_references": [
-    "MineralResourcesSearchDeposits",
-    "MineralResourcesGetDeposit"
-  ],
-  "method_notes": [
-    "country or commodity predicate is available",
-    "Filter mineral deposit records by country, commodity, or spatial predicate.",
-    "dep_id is available",
-    "Retrieve one mineral deposit record by its identifier."
-  ]
-}
-~~~
+Select from the direct tool references below. Use the current schemas and environment requirements; a list of tools is not an executable workflow.
 
 Environment: Python 3.12 with requirements-source-tools.txt. Caller supplies licensed input data.
 A tool reference is not proof that its implementation is available. Consult every referenced tool's source_interface status.

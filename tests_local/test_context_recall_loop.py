@@ -53,7 +53,7 @@ def test_compaction_keeps_recent_observations_when_they_fit():
     before = deepcopy(messages)
     archive = Archive()
     fitted = fit_request(ModelRequest(tuple(messages), ()), state,
-                         Settings(max_context_chars=12000), archive=archive)
+                         Settings(context_window_tokens=None, max_context_chars=12000), archive=archive)
     assert request_size(fitted) <= 12000
     ContextManager._blocks(fitted.messages)
     assert sum(m.role == "tool" for m in fitted.messages) >= 2

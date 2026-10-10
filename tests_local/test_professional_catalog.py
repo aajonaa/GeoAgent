@@ -59,11 +59,11 @@ def test_every_ready_source_executes_through_native_runtime(agent, examples, ass
 
 
 def test_all_registered_source_tools_are_discoverable(agent):
-    assert len(SPECS) == 178 and len(READY_SPECS) == 81
+    assert len(SPECS) == 116 and len(READY_SPECS) == 116
     reachable = {name for summary in agent.skills.registry.list() for name in agent.skills.load(summary.id).tool_names}
     assert {native_name(spec) for spec in READY_SPECS.values()} <= reachable
-    assert len(agent.skills.source_statuses) == len(catalog()["skills"]) == 32
-    assert len(agent.skills.unavailable_skills) == 6
+    assert len(agent.skills.source_statuses) == len(catalog()["skills"]) == 34
+    assert len(agent.skills.unavailable_skills) == 0
     from geological_agent.imaging import SCHEMAS as IMAGE_SCHEMAS
     assert set(agent.tools._tools) - set(agent.base_tools) == {native_name(spec) for spec in READY_SPECS.values()} | set(IMAGE_SCHEMAS)
     for spec in SPECS.values():
@@ -86,8 +86,10 @@ def test_source_file_tools_reject_external_paths(agent, tmp_path, path):
     assert result.status == "error" and result.error.code == "invalid_path"
 
 
-def test_unavailable_skill_reports_exact_gap_without_exposure(agent, tmp_path):
-    item = agent.skills.unavailable_skills[0]
+def test_unavailable_skill_reports_exact_gap_without_exposure(agent, tmp_path, monkeypatch):
+    item = {"id": "test_missing_data", "name": "Synthetic blocked skill", "description": "Test", "when_to_use": "Test"}
+    monkeypatch.setattr(agent.skills, "unavailable_skills", [item])
+    monkeypatch.setitem(agent.skills.source_statuses, item["id"], {"unavailable_tools": [{"name": "test_missing", "reason": "Synthetic missing prerequisite"}]})
     context = ToolExecutionContext("blocked", tmp_path, ("skill_load",), agent.settings, Event())
     result = agent.executor.execute(ToolCall("blocked", "skill_load", {"skill_id": item["id"]}), context)
     assert result.error.code == "skill_unavailable"
@@ -103,3 +105,10 @@ def test_changed_input_does_not_hit_numeric_pure_cache(agent, assets):
     path.write_text("value\n1\n2\n", encoding="utf-8")
     second = agent.executor.execute(ToolCall("second", name, {"source": "mutable.csv"}), context)
     assert first.data["count"] == 1 and second.data["count"] == 2 and not second.cached
+
+
+@pytest.fixture(autouse=True)
+def synthetic_usgs_transport(monkeypatch):
+    from legacy.ToolsAgent.ToolsFuns.GeoEval import native_recovery
+    from source_asset_checks.recovered_cases import usgs_fixture
+    monkeypatch.setattr(native_recovery, "_usgs_response", usgs_fixture)
