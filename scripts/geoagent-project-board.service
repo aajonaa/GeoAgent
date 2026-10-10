@@ -1,0 +1,18 @@
+[Unit]
+Description=GeoAgent project board (Backlog.md)
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=@PROJECT_DIR@
+Environment="PATH=@NODE_BIN_DIR@:/usr/local/bin:/usr/bin:/bin"
+Environment="GEOAGENT_BACKLOG_HOME=@TOOL_HOME@"
+Environment="GEOAGENT_BOARD_PORT=6420"
+ExecStart=/bin/bash @PROJECT_DIR@/scripts/project-board.sh
+Restart=on-failure
+RestartSec=5
+KillMode=control-group
+UMask=0077
+
+[Install]
+WantedBy=default.target
