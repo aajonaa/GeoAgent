@@ -5,6 +5,7 @@
 # Scientific source/provenance SHA-256 values bind original bytes, including CRLF.
 /catalog/** -text
 /legacy/** -text
+/geotool/** -text
 /geological_agent/geology/** -text
 /geological_agent/bootstrap.py -text
 /geological_agent/skills.py -text

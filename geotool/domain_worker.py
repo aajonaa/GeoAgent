@@ -40,6 +40,25 @@ def original_call(name, params, output):
         if module != "legacy.ToolsAgent.ToolsFuns.Geo.geoscienceTools":
             raise ValueError("Unexpected original implementation module.")
         return getattr(importlib.import_module(module), function)(params, output_dir=output)
+    if spec["kind"] == "github_first_batch":
+        # First-batch adapters expose a JSON-shaped argument object through
+        # the catalog entrypoint.  Resolve the callable from the catalog so
+        # the worker follows the same registration path as source checks and
+        # does not maintain a second hard-coded dispatch table.
+        entry = spec.get("entrypoint", {})
+        callable_name = entry.get("callable")
+        if not callable_name or ":" not in callable_name:
+            raise ValueError("Invalid GitHub first-batch entrypoint.")
+        module, function = callable_name.split(":", 1)
+        if module != "geological_agent.geology.github_first_batch":
+            raise ValueError("Unexpected GitHub first-batch implementation module.")
+        kwargs = dict(entry.get("bound_arguments", {}))
+        argument_parameter = entry.get("argument_parameter", "args")
+        kwargs[argument_parameter] = params
+        output_parameter = entry.get("output_directory_parameter")
+        if output_parameter:
+            kwargs[output_parameter] = output
+        return getattr(importlib.import_module(module), function)(**kwargs)
     raise NotImplementedError("No original implementation registered.")
 
 

@@ -1,5 +1,5 @@
 {
-  "archive_sha256": "a669bd407bad846da564adc036b93de228a64a0f6566303ab096457958448cbf",
+  "archive_sha256": "3582a0e23d732266637d0283d923e1162a0b9e11bc79ef6845354dacbe1e064d",
   "files": {
     "assets/earth-collection/approved-functional-replacements/synthetic-examples.json": "401f344cb4b876b3a5c45240dfe07ea665b8de005edd86a4f392e779f0865024",
     "assets/earth-collection/groundwater_other/SYNTHETIC.txt": "89e07e74c1cc3be131efa7364f33d4c1b5011474da84cfa724e561778973761e",
@@ -660,6 +660,8 @@
     "geological_agent/geology/validation.py": "60cbf8eb69f96a2c1ddb0e4f285fdda71b73b7e7366b2e0d2e1581f316a0c910",
     "geological_agent/skills.py": "a54e266d37f1dc994efc8ad58dbd5fd829bdf3dcbd64a1dddb3ff95d50ae7959",
     "geological_agent/tools.py": "3f9aa6861f5ff01f31e04d342b8549c277e8fd8ccf1e68b1a35226aff445b6ae",
+    "geotool/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "geotool/domain_worker.py": "f279f38864fe6b367e23e33320537b074ff809d0de537fcab7a5a37d9fe1e69f",
     "legacy/ToolsAgent/ToolsFuns/CCS/__init__.py": "b59d02d0b7aaa477cb0f8e9bb4957f842bd6d0c2ec7bfe201803b3237e9bf224",
     "legacy/ToolsAgent/ToolsFuns/CCS/tool_name_dict.py": "88453e970c6ce24854994b5cb49807db9aa0d3125671a914154f288c688a9b55",
     "legacy/ToolsAgent/ToolsFuns/ClimateChange/__init__.py": "b38a940ed6e7ee1b5b4bae0029108144954298917f7c246622bff60826968af2",

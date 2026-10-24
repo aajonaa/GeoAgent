@@ -1,11 +1,11 @@
 {
   "scope": "Tool-only independent publication; not an AI Lab submission",
-  "source_files_verified": 866,
+  "source_files_verified": 868,
   "working_copy_sha256_verified": true,
   "git_index_blob_sha256_verified": true,
   "credential_pattern_findings": 0,
   "nested_frozen_archives_scanned": true,
-  "source_archive_sha256": "a669bd407bad846da564adc036b93de228a64a0f6566303ab096457958448cbf",
+  "source_archive_sha256": "3582a0e23d732266637d0283d923e1162a0b9e11bc79ef6845354dacbe1e064d",
   "unrelated_MemoraX_or_memory_changes_staged": false,
   "model_workflow_validation": "not_run",
   "receiving_lab_approval": "pending"
