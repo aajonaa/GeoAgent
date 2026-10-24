@@ -1,0 +1,18 @@
+{
+  "measurement_ids": [
+    "SYNTHETIC_P1",
+    "SYNTHETIC_P2",
+    "SYNTHETIC_P3"
+  ],
+  "strike_degrees": [
+    0,
+    0,
+    0
+  ],
+  "dip_degrees": [
+    45,
+    45,
+    45
+  ],
+  "convention": "right_hand_rule"
+}

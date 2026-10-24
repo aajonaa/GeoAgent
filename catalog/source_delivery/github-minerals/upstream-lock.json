@@ -1,0 +1,392 @@
+{
+  "repositories": {
+    "spectral": {
+      "version": "0.25",
+      "repository": "spectralpython/spectral",
+      "commit": "bd91dc47377028683ef5c97bc7c1cc2dff14012c"
+    },
+    "pyrolite": {
+      "version": "0.3.7",
+      "repository": "morganjwilliams/pyrolite",
+      "commit": "ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca"
+    },
+    "mplstereonet": {
+      "version": "0.6.3",
+      "repository": "joferkington/mplstereonet",
+      "commit": "fb7ef203c57baf8a583c5027c1198df2e6c10819"
+    }
+  },
+  "distributions": [
+    {
+      "package": "spectral",
+      "version": "0.25",
+      "file": "spectral-0.25.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/f5/07/47f8fd1afdf65e85e3dddf405f4c55390ca5774321c08e3f9511491bd27c/spectral-0.25.tar.gz",
+      "sha256": "8e5779ed1d4e4529abd1fdf14f0ff793c17487928360550997c7c6a684f450ae",
+      "requires": [
+        "numpy"
+      ]
+    },
+    {
+      "package": "mplstereonet",
+      "version": "0.6.3",
+      "file": "mplstereonet-0.6.3.tar.gz",
+      "url": "https://files.pythonhosted.org/packages/ae/41/52c87d0c1b0799f5948f31bf63bc56350db9da9d1e8b6f56fa7ebe315069/mplstereonet-0.6.3.tar.gz",
+      "sha256": "2ce630b14973a0b2f7d65cabb8d03fada2a8fda8b9b922d4cf335ecfcb442372",
+      "requires": null
+    },
+    {
+      "package": "periodictable",
+      "version": "2.1.0",
+      "file": "periodictable-2.1.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/44/0d/f494a2ec62ab56ffd44da4f236db374421fe0cd1e39d9ebc9785751eb432/periodictable-2.1.0-py3-none-any.whl",
+      "sha256": "e9155d2bf5ac10050abeff2f99096d4f04312c0c8a6bb432e28744367c5064b3",
+      "requires": [
+        "pyparsing>=3.0.0",
+        "numpy"
+      ]
+    },
+    {
+      "package": "mpltern",
+      "version": "1.0.5",
+      "file": "mpltern-1.0.5-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/47/34/2fd8494bc838cf4aee9883d18231b20e9821edc943f0634475964d460107/mpltern-1.0.5-py3-none-any.whl",
+      "sha256": "120ab48aed0c1913205d1424714b98e705037527075ef06073f90a7afbabeb29",
+      "requires": [
+        "matplotlib>=3.4.0"
+      ]
+    },
+    {
+      "package": "sympy",
+      "version": "1.14.0",
+      "file": "sympy-1.14.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/a2/09/77d55d46fd61b4a135c444fc97158ef34a095e5681d0a6c10b75bf356191/sympy-1.14.0-py3-none-any.whl",
+      "sha256": "e091cc3e99d2141a0ba2847328f5479b05d94a6635cb96148ccb3f34671bd8f5",
+      "requires": [
+        "mpmath<1.4,>=1.1.0",
+        "pytest>=7.1.0; extra == \"dev\"",
+        "hypothesis>=6.70.0; extra == \"dev\""
+      ]
+    },
+    {
+      "package": "mpmath",
+      "version": "1.3.0",
+      "file": "mpmath-1.3.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/43/e3/7d92a15f894aa0c9c4b49b8ee9ac9850d6e63b03c9c32c0367a13ae62209/mpmath-1.3.0-py3-none-any.whl",
+      "sha256": "a0b2b9fe80bbcd81a6647ff13108738cfb482d481d826cc0e02f5b35e5c88d2c",
+      "requires": [
+        "pytest (>=4.6) ; extra == 'develop'",
+        "pycodestyle ; extra == 'develop'",
+        "pytest-cov ; extra == 'develop'",
+        "codecov ; extra == 'develop'",
+        "wheel ; extra == 'develop'",
+        "sphinx ; extra == 'docs'",
+        "gmpy2 (>=2.1.0a4) ; (platform_python_implementation != \"PyPy\") and extra == 'gmpy'",
+        "pytest (>=4.6) ; extra == 'tests'"
+      ]
+    },
+    {
+      "package": "pyrolite",
+      "version": "0.3.7",
+      "file": "pyrolite-0.3.7-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/95/81/3dfbdcaab33fd9e33ce3876898313c1d036b9e5b125d6f1d16eeebd29d21/pyrolite-0.3.7-py3-none-any.whl",
+      "sha256": "1bf1aed4b6f58947c36bd3ceb117595abd70109538e48e09364baaf15111cf62",
+      "requires": [
+        "numpy",
+        "numpydoc",
+        "tinydb>4.1",
+        "periodictable",
+        "matplotlib>=3.9",
+        "mpltern>=0.4.0",
+        "scipy>=1.2",
+        "sympy>=1.7",
+        "pandas>=1.0",
+        "requests",
+        "sphinx_rtd_theme; extra == \"docs\"",
+        "sphinx>=4; extra == \"docs\"",
+        "sphinx-autodoc-annotation; extra == \"docs\"",
+        "sphinx_gallery>=0.6.0; extra == \"docs\"",
+        "recommonmark; extra == \"docs\"",
+        "pyodbc; extra == \"db\"",
+        "psycopg2; extra == \"db\"",
+        "pytest; extra == \"test\"",
+        "pytest-runner; extra == \"test\"",
+        "pytest-cov; extra == \"test\"",
+        "coverage; extra == \"test\"",
+        "coveralls; extra == \"test\"",
+        "ipykernel; extra == \"notebook\"",
+        "ipywidgets; extra == \"notebook\"",
+        "scikit-learn; extra == \"skl\"",
+        "joblib; extra == \"skl\"",
+        "owslib; extra == \"spatial\"",
+        "geojson; extra == \"spatial\"",
+        "psutil; extra == \"spatial\"",
+        "statsmodels; extra == \"stats\"",
+        "scikit-learn; extra == \"stats\"",
+        "xlrd; extra == \"excel\"",
+        "openpyxl; extra == \"excel\"",
+        "pytest; extra == \"dev\"",
+        "ruff; extra == \"dev\"",
+        "twine; extra == \"dev\"",
+        "pyrolite[docs,notebook,skl,test]; extra == \"dev\"",
+        "build; extra == \"dev\""
+      ]
+    },
+    {
+      "package": "numpydoc",
+      "version": "1.9.0",
+      "file": "numpydoc-1.9.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/26/62/5783d8924fca72529defb2c7dbe2070d49224d2dba03a85b20b37adb24d8/numpydoc-1.9.0-py3-none-any.whl",
+      "sha256": "8a2983b2d62bfd0a8c470c7caa25e7e0c3d163875cdec12a8a1034020a9d1135",
+      "requires": [
+        "sphinx>=6",
+        "tomli>=1.1.0; python_version < \"3.11\""
+      ]
+    },
+    {
+      "package": "tinydb",
+      "version": "4.8.2",
+      "file": "tinydb-4.8.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/78/17/853354204e1ca022d6b7d011ca7f3206c4f8faa3cc743e92609b49c1d83f/tinydb-4.8.2-py3-none-any.whl",
+      "sha256": "f97030ee5cbc91eeadd1d7af07ab0e48ceb04aa63d4a983adbaca4cba16e86c3",
+      "requires": []
+    },
+    {
+      "package": "sphinx",
+      "version": "8.2.3",
+      "file": "sphinx-8.2.3-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/31/53/136e9eca6e0b9dc0e1962e2c908fbea2e5ac000c2a2fbd9a35797958c48b/sphinx-8.2.3-py3-none-any.whl",
+      "sha256": "4405915165f13521d875a8c29c8970800a0141c14cc5416a38feca4ea5d9b9c3",
+      "requires": [
+        "sphinxcontrib-applehelp>=1.0.7",
+        "sphinxcontrib-devhelp>=1.0.6",
+        "sphinxcontrib-htmlhelp>=2.0.6",
+        "sphinxcontrib-jsmath>=1.0.1",
+        "sphinxcontrib-qthelp>=1.0.6",
+        "sphinxcontrib-serializinghtml>=1.1.9",
+        "Jinja2>=3.1",
+        "Pygments>=2.17",
+        "docutils<0.22,>=0.20",
+        "snowballstemmer>=2.2",
+        "babel>=2.13",
+        "alabaster>=0.7.14",
+        "imagesize>=1.3",
+        "requests>=2.30.0",
+        "roman-numerals-py>=1.0.0",
+        "packaging>=23.0",
+        "colorama>=0.4.6; sys_platform == \"win32\"",
+        "sphinxcontrib-websupport; extra == \"docs\"",
+        "ruff==0.9.9; extra == \"lint\"",
+        "mypy==1.15.0; extra == \"lint\"",
+        "sphinx-lint>=0.9; extra == \"lint\"",
+        "types-colorama==0.4.15.20240311; extra == \"lint\"",
+        "types-defusedxml==0.7.0.20240218; extra == \"lint\"",
+        "types-docutils==0.21.0.20241128; extra == \"lint\"",
+        "types-Pillow==10.2.0.20240822; extra == \"lint\"",
+        "types-Pygments==2.19.0.20250219; extra == \"lint\"",
+        "types-requests==2.32.0.20241016; extra == \"lint\"",
+        "types-urllib3==1.26.25.14; extra == \"lint\"",
+        "pyright==1.1.395; extra == \"lint\"",
+        "pytest>=8.0; extra == \"lint\"",
+        "pypi-attestations==0.0.21; extra == \"lint\"",
+        "betterproto==2.0.0b6; extra == \"lint\"",
+        "pytest>=8.0; extra == \"test\"",
+        "pytest-xdist[psutil]>=3.4; extra == \"test\"",
+        "defusedxml>=0.7.1; extra == \"test\"",
+        "cython>=3.0; extra == \"test\"",
+        "setuptools>=70.0; extra == \"test\"",
+        "typing_extensions>=4.9; extra == \"test\""
+      ]
+    },
+    {
+      "package": "docutils",
+      "version": "0.21.2",
+      "file": "docutils-0.21.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/8f/d7/9322c609343d929e75e7e5e6255e614fcc67572cfd083959cdef3b7aad79/docutils-0.21.2-py3-none-any.whl",
+      "sha256": "dafca5b9e384f0e419294eb4d2ff9fa826435bf15f15b7bd45723e8ad76811b2",
+      "requires": []
+    },
+    {
+      "package": "sphinxcontrib-applehelp",
+      "version": "2.0.0",
+      "file": "sphinxcontrib_applehelp-2.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/5d/85/9ebeae2f76e9e77b952f4b274c27238156eae7979c5421fba91a28f4970d/sphinxcontrib_applehelp-2.0.0-py3-none-any.whl",
+      "sha256": "4cd3f0ec4ac5dd9c17ec65e9ab272c9b867ea77425228e68ecf08d6b28ddbdb5",
+      "requires": [
+        "ruff==0.5.5; extra == \"lint\"",
+        "mypy; extra == \"lint\"",
+        "types-docutils; extra == \"lint\"",
+        "Sphinx>=5; extra == \"standalone\"",
+        "pytest; extra == \"test\""
+      ]
+    },
+    {
+      "package": "sphinxcontrib-devhelp",
+      "version": "2.0.0",
+      "file": "sphinxcontrib_devhelp-2.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/35/7a/987e583882f985fe4d7323774889ec58049171828b58c2217e7f79cdf44e/sphinxcontrib_devhelp-2.0.0-py3-none-any.whl",
+      "sha256": "aefb8b83854e4b0998877524d1029fd3e6879210422ee3780459e28a1f03a8a2",
+      "requires": [
+        "ruff==0.5.5; extra == \"lint\"",
+        "mypy; extra == \"lint\"",
+        "types-docutils; extra == \"lint\"",
+        "Sphinx>=5; extra == \"standalone\"",
+        "pytest; extra == \"test\""
+      ]
+    },
+    {
+      "package": "sphinxcontrib-htmlhelp",
+      "version": "2.1.0",
+      "file": "sphinxcontrib_htmlhelp-2.1.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/0a/7b/18a8c0bcec9182c05a0b3ec2a776bba4ead82750a55ff798e8d406dae604/sphinxcontrib_htmlhelp-2.1.0-py3-none-any.whl",
+      "sha256": "166759820b47002d22914d64a075ce08f4c46818e17cfc9470a9786b759b19f8",
+      "requires": [
+        "ruff==0.5.5; extra == \"lint\"",
+        "mypy; extra == \"lint\"",
+        "types-docutils; extra == \"lint\"",
+        "Sphinx>=5; extra == \"standalone\"",
+        "pytest; extra == \"test\"",
+        "html5lib; extra == \"test\""
+      ]
+    },
+    {
+      "package": "sphinxcontrib-jsmath",
+      "version": "2.0.0",
+      "file": "sphinxcontrib_jsmath-2.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/da/c2/2965c35b39587d4b7a397f65a9c7d4b942b031061e7ac1ce91782f394a0d/sphinxcontrib_jsmath-2.0.0-py3-none-any.whl",
+      "sha256": "15ca92fe0eec82f0baf91a7efcc51ffacdb605924be6327683a52ebdacb6744c",
+      "requires": [
+        "ruff==0.5.5; extra == \"lint\"",
+        "mypy; extra == \"lint\"",
+        "types-docutils; extra == \"lint\"",
+        "Sphinx>=5; extra == \"standalone\"",
+        "pytest; extra == \"test\""
+      ]
+    },
+    {
+      "package": "sphinxcontrib-qthelp",
+      "version": "2.0.0",
+      "file": "sphinxcontrib_qthelp-2.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/27/83/859ecdd180cacc13b1f7e857abf8582a64552ea7a061057a6c716e790fce/sphinxcontrib_qthelp-2.0.0-py3-none-any.whl",
+      "sha256": "b18a828cdba941ccd6ee8445dbe72ffa3ef8cbe7505d8cd1fa0d42d3f2d5f3eb",
+      "requires": [
+        "ruff==0.5.5; extra == \"lint\"",
+        "mypy; extra == \"lint\"",
+        "types-docutils; extra == \"lint\"",
+        "Sphinx>=5; extra == \"standalone\"",
+        "pytest; extra == \"test\"",
+        "defusedxml>=0.7.1; extra == \"test\""
+      ]
+    },
+    {
+      "package": "sphinxcontrib-serializinghtml",
+      "version": "2.0.0",
+      "file": "sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/52/a7/d2782e4e3f77c8450f727ba74a8f12756d5ba823d81b941f1b04da9d033a/sphinxcontrib_serializinghtml-2.0.0-py3-none-any.whl",
+      "sha256": "6e2cb0eef194e10c27ec0023bfeb25badbbb5868244cf5bc5bdc04e4464bf331",
+      "requires": [
+        "ruff==0.5.5; extra == \"lint\"",
+        "mypy; extra == \"lint\"",
+        "types-docutils; extra == \"lint\"",
+        "Sphinx>=5; extra == \"standalone\"",
+        "pytest; extra == \"test\""
+      ]
+    },
+    {
+      "package": "snowballstemmer",
+      "version": "3.1.1",
+      "file": "snowballstemmer-3.1.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/4c/07/2ebca9b11fb9be7340a818d8d6f63feaebb146be2c4afbd6061701d6df6e/snowballstemmer-3.1.1-py3-none-any.whl",
+      "sha256": "7e207fa178741da09cdee59d3ecec3827ad5f92b1fc5c9ff3755b639f71f5752",
+      "requires": []
+    },
+    {
+      "package": "babel",
+      "version": "2.18.0",
+      "file": "babel-2.18.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/77/f5/21d2de20e8b8b0408f0681956ca2c69f1320a3848ac50e6e7f39c6159675/babel-2.18.0-py3-none-any.whl",
+      "sha256": "e2b422b277c2b9a9630c1d7903c2a00d0830c409c59ac8cae9081c92f1aeba35",
+      "requires": [
+        "pytz>=2015.7; python_version < \"3.9\"",
+        "tzdata; sys_platform == \"win32\" and extra == \"dev\"",
+        "backports.zoneinfo; python_version < \"3.9\" and extra == \"dev\"",
+        "freezegun~=1.0; extra == \"dev\"",
+        "jinja2>=3.0; extra == \"dev\"",
+        "pytest-cov; extra == \"dev\"",
+        "pytest>=6.0; extra == \"dev\"",
+        "pytz; extra == \"dev\"",
+        "setuptools; extra == \"dev\""
+      ]
+    },
+    {
+      "package": "alabaster",
+      "version": "1.0.0",
+      "file": "alabaster-1.0.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/7e/b3/6b4067be973ae96ba0d615946e314c5ae35f9f993eca561b356540bb0c2b/alabaster-1.0.0-py3-none-any.whl",
+      "sha256": "fc6786402dc3fcb2de3cabd5fe455a2db534b371124f1f21de8731783dec828b",
+      "requires": []
+    },
+    {
+      "package": "imagesize",
+      "version": "2.0.1",
+      "file": "imagesize-2.0.1-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/01/f9/575c8d760eae1fc99651b7cc5efd96ad5379ca4d6b53750b0fb4fe983f34/imagesize-2.0.1-py3-none-any.whl",
+      "sha256": "ea0c9a0384df69ed86a943a15cde37d0360b82491b3910dc2215e202e62b5b02",
+      "requires": []
+    },
+    {
+      "package": "roman-numerals-py",
+      "version": "4.1.0",
+      "file": "roman_numerals_py-4.1.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/27/2c/daca29684cbe9fd4bc711f8246da3c10adca1ccc4d24436b17572eb2590e/roman_numerals_py-4.1.0-py3-none-any.whl",
+      "sha256": "553114c1167141c1283a51743759723ecd05604a1b6b507225e91dc1a6df0780",
+      "requires": [
+        "roman-numerals==4.1.0"
+      ]
+    },
+    {
+      "package": "roman-numerals",
+      "version": "4.1.0",
+      "file": "roman_numerals-4.1.0-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/04/54/6f679c435d28e0a568d8e8a7c0a93a09010818634c3c3907fc98d8983770/roman_numerals-4.1.0-py3-none-any.whl",
+      "sha256": "647ba99caddc2cc1e55a51e4360689115551bf4476d90e8162cf8c345fe233c7",
+      "requires": []
+    }
+  ],
+  "scientific_dependencies": [
+    "numpy==2.1.3",
+    "scipy==1.15.3",
+    "pandas==2.3.0",
+    "matplotlib==3.10.7",
+    "rasterio==1.4.3",
+    "spectral==0.25",
+    "mplstereonet==0.6.3",
+    "periodictable==2.1.0",
+    "mpltern==1.0.5",
+    "sympy==1.14.0",
+    "mpmath==1.3.0",
+    "pyrolite==0.3.7",
+    "numpydoc==1.9.0",
+    "tinydb==4.8.2",
+    "sphinx==8.2.3",
+    "docutils==0.21.2",
+    "sphinxcontrib-applehelp==2.0.0",
+    "sphinxcontrib-devhelp==2.0.0",
+    "sphinxcontrib-htmlhelp==2.1.0",
+    "sphinxcontrib-jsmath==2.0.0",
+    "sphinxcontrib-qthelp==2.0.0",
+    "sphinxcontrib-serializinghtml==2.0.0",
+    "snowballstemmer==3.1.1",
+    "babel==2.18.0",
+    "alabaster==1.0.0",
+    "imagesize==2.0.1",
+    "roman-numerals-py==4.1.0",
+    "roman-numerals==4.1.0"
+  ],
+  "rejected_release": {
+    "package": "pyrolite",
+    "version": "0.3.8.post1",
+    "reason": "Import references nonexistent matplotlib.colors.Norm",
+    "evidence": "/data/wangjian/github-minerals-20261025-r1/import.log"
+  }
+}

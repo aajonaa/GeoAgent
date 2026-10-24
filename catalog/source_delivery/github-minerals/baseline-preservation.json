@@ -1,0 +1,20 @@
+{
+  "professional_tools_before": 220,
+  "professional_tools_after": 229,
+  "skills_before": 47,
+  "skills_after": 50,
+  "old_tools_canonical_sha256": "edeaf12d9125241ce85effbcbb18e420c8efc205067d6b8ca0a8b669677c400c",
+  "old_skills_canonical_sha256": "b3d7bf3d20fbfd6030c1144cf51dc600f2dd1819bd306a8015853023f13c2da6",
+  "old_examples_canonical_sha256": "d86bf7ad1346437dac5c8d42c964313ed3d06e5b3487e1248e7122b903810daf",
+  "added_tool_ids": [
+    "GeoSpectralAngleMatch",
+    "GeoSpectralContinuumRemoval",
+    "GeoSpectralLinearUnmix",
+    "GeoSpectralAngleMap",
+    "GeoGeochemCLR",
+    "GeoGeochemOxideMoles",
+    "GeoGeochemREEPattern",
+    "GeoStereonetAnalysis",
+    "GeoStructuralPlaneIntersection"
+  ]
+}

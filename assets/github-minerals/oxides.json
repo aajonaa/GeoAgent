@@ -1,0 +1,16 @@
+{
+  "sample_ids": [
+    "SYNTHETIC_OXIDES"
+  ],
+  "components": [
+    "SiO2",
+    "MgO"
+  ],
+  "values": [
+    [
+      60.083,
+      40.304
+    ]
+  ],
+  "unit": "wt_percent"
+}

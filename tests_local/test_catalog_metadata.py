@@ -11,7 +11,7 @@ from legacy.ToolsAgent.ToolsFuns.source_contracts import catalog, validate_regis
 def test_all_catalog_tools_have_the_additive_metadata_envelope():
     current = catalog()
     assert current["asset_metadata_version"] == "1.0.0"
-    assert len(current["tools"]) == 220
+    assert len(current["tools"]) == 229
     for spec in current["tools"]:
         validate_registration_metadata(spec)
         assert spec["registration_metadata"]["official_protocol"]["applicability"] in {

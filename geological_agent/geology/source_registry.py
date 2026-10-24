@@ -22,6 +22,7 @@ from ..tools import Tool, ToolDefinition, ToolFailure, ToolOutput, artifact
 
 READY = "source_revised_unverified"
 ENTRY_MODULES = {
+    "geological_agent.geology.github_minerals",
     'geological_agent.geology.collection_hydro_cpu.adapters',
     "geological_agent.geology.native_cpu_kernels",
     "geological_agent.geology.collection_wflow43",

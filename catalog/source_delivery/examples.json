@@ -30,7 +30,7 @@
     "max_lon": 1,
     "max_lat": 1
   },
-  "\u5730\u9707\u6570\u636e\u6e05\u6d17\u4e0e\u5206\u7ea7": {
+  "地震数据清洗与分级": {
     "source": "assets/full-examples/earthquakes.csv"
   },
   "MineralResourcesSearchDeposits": {
@@ -787,13 +787,13 @@
     "red_date": "2020-01-01",
     "green_date": "2020-01-01"
   },
-  "USGS \u5730\u9707\u6570\u636e\u83b7\u53d6": {
+  "USGS 地震数据获取": {
     "start": "2020-01-01",
     "end": "2020-01-03",
     "minimum_magnitude": 4,
     "limit": 10
   },
-  "\u5730\u9707\u4e8b\u4ef6\u5730\u56fe\u53ef\u89c6\u5316": {
+  "地震事件地图可视化": {
     "dataset_path": "assets/recovered-examples/events.csv",
     "dataset_version": "synthetic-acceptance-v1",
     "title": "Synthetic <script>alert(1)</script>"
@@ -5338,5 +5338,46 @@
     "data_path": "assets/earth-collection/hydro_cpu_profiles/pydem_terrain_derivatives.json",
     "east_spacing_m": 2,
     "north_spacing_m": 3
+  },
+  "GeoSpectralAngleMatch": {
+    "data_path": "assets/github-minerals/spectra.json",
+    "max_angle_degrees": 10
+  },
+  "GeoSpectralContinuumRemoval": {
+    "data_path": "assets/github-minerals/continuum.json"
+  },
+  "GeoSpectralLinearUnmix": {
+    "data_path": "assets/github-minerals/spectra.json"
+  },
+  "GeoSpectralAngleMap": {
+    "raster_path": "assets/github-minerals/synthetic-spectra.tif",
+    "library_path": "assets/github-minerals/library.json",
+    "quality_mask_path": "assets/github-minerals/synthetic-mask.tif",
+    "raster_wavelength_nm": [
+      1000,
+      1500,
+      2000
+    ],
+    "reflectance_scale": 1,
+    "reflectance_offset": 0,
+    "max_angle_degrees": 10
+  },
+  "GeoGeochemCLR": {
+    "data_path": "assets/github-minerals/clr.json"
+  },
+  "GeoGeochemOxideMoles": {
+    "data_path": "assets/github-minerals/oxides.json"
+  },
+  "GeoGeochemREEPattern": {
+    "data_path": "assets/github-minerals/ree.json"
+  },
+  "GeoStereonetAnalysis": {
+    "data_path": "assets/github-minerals/structures.json"
+  },
+  "GeoStructuralPlaneIntersection": {
+    "strike1_degrees": 0,
+    "dip1_degrees": 90,
+    "strike2_degrees": 90,
+    "dip2_degrees": 90
   }
 }
