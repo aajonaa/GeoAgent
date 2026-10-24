@@ -4,7 +4,7 @@ title: 建立专业工具可用性与交接清单
 status: In Progress
 assignee: []
 created_date: '2026-10-10 06:14'
-updated_date: '2026-10-24 16:15'
+updated_date: '2026-10-24 16:16'
 labels:
   - proposed
   - tools
@@ -40,4 +40,6 @@ ordinal: 5000
 2026-10-25: Added nine GitHub scientific operations from Spectral Python, pyrolite and mplstereonet, plus three Skills. Candidate catalog 229 professional / 50 Skills. Original 220 definitions and examples retained with canonical hash checks. Isolated A100 r1 failed before numerical tests due upstream pyrolite 0.3.8.post1 importing nonexistent Matplotlib Norm; preparing compatible 0.3.7 with exact dependencies. No service switch or GPU use.
 
 GitHub mineral intake: latest literature-fix baseline CPU regression 292 passed, 0 failed, 0 skipped; 229 professional native operations, 50 Skills. Nine additions from Spectral Python, pyrolite and mplstereonet. GPU and model calls disabled. Deployment pending; browser origin permission still blocked.
+
+Deployed github-minerals-20261025-r3 on A100: 229 professional tools + 12 runtime tools = 241 registered tools, 50 Skills, none unavailable. Preserved latest literature/MemoraX baseline, accounts, model profiles and paused tasks; other services unchanged. Fresh CPU tests: 292 passed. Source commit dbf9f0b. Browser acceptance pending saved origin permission; not claimed as passed.
 <!-- SECTION:NOTES:END -->
