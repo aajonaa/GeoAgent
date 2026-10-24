@@ -1,0 +1,30 @@
+# Adaptation: isolated upstream function bodies with import/class glue added.
+# Copyright 2012-2018 University of Michigan-Ann Arbor, Michigan Technological University, University of Colorado-Boulder
+# Original algorithms unchanged; full upstream license in licenses/.
+import numpy as np
+class HeatIndexKernel:
+
+    def calculate(self, tas=None, rhs=None):
+        c1 = -42.379
+        c2 = 2.04901523
+        c3 = 10.14333127
+        c4 = -0.22475541
+        c5 = -6.83783e-3
+        c6 = -5.481717e-2
+        c7 = 1.22874e-3
+        c8 = 8.5282e-4
+        c9 = -1.99e-6
+
+        idx = tas < 80
+        tas.mask = np.logical_or(idx, tas.mask)
+        idx = rhs < 40
+        rhs.mask = np.logical_or(idx, rhs.mask)
+
+        tas_sq = np.square(tas)
+        rhs_sq = np.square(rhs)
+
+        hi = c1 + c2 * tas + c3 * rhs + c4 * tas * rhs + c5 * tas_sq + c6 * rhs_sq + c7 * tas_sq * rhs + c8 * tas * rhs_sq + c9 * tas_sq * rhs_sq
+
+        return hi
+
+

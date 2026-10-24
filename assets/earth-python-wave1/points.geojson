@@ -1,0 +1,1 @@
+{"type": "FeatureCollection", "features": [{"type": "Feature", "properties": {"label": "SYNTHETIC CONTRACT FIXTURE"}, "geometry": {"type": "Point", "coordinates": [0, 0]}}, {"type": "Feature", "properties": {"label": "SYNTHETIC CONTRACT FIXTURE"}, "geometry": {"type": "Point", "coordinates": [1, 1]}}]}

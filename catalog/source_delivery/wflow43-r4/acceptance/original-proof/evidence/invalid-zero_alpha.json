@@ -1,0 +1,19 @@
+{
+  "call_id": "invalid-zero_alpha",
+  "name": "EarthWflowKinematicWaveReachStep",
+  "status": "error",
+  "data": {},
+  "artifacts": [],
+  "error": {
+    "code": "invalid_arguments",
+    "message": "0 is less than the minimum of 1e-08\n\nFailed validating 'minimum' in schema['properties']['alpha']:\n    {'type': 'number', 'minimum': 1e-08, 'maximum': 100000.0}\n\nOn instance['alpha']:\n    0",
+    "retryable": true,
+    "outcome_unknown": false
+  },
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "77924b33149207931ebbfb69e5a2ec91f98325f8a22f15d8c7ed1e74e3e77f53"
+  }
+}

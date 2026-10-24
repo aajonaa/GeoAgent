@@ -1,0 +1,19 @@
+{
+  "daylength_s": [
+    43200,
+    0,
+    43200
+  ],
+  "fixture_id": "synthetic_metsim",
+  "shortwave_w_m2": [
+    0,
+    200,
+    200
+  ],
+  "synthetic": true,
+  "temperature_degC": [
+    20,
+    20,
+    20
+  ]
+}

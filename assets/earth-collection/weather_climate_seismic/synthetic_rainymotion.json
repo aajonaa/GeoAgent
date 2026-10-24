@@ -1,0 +1,16 @@
+{
+  "fixture_id": "synthetic_rainymotion",
+  "forecast_mm_h": [
+    0,
+    1,
+    0,
+    4
+  ],
+  "observed_mm_h": [
+    0,
+    2,
+    3,
+    0
+  ],
+  "synthetic": true
+}

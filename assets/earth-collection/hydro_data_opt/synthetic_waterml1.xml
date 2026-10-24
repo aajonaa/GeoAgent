@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SYNTHETIC: fabricated discharge, not observations -->
+<timeSeriesResponse xmlns="http://www.cuahsi.org/waterML/1.1/">
+<timeSeries><sourceInfo><siteName>SYNTHETIC station</siteName><siteCode network="SYNTHETIC">SYN001</siteCode></sourceInfo>
+<variable><variableCode>00060</variableCode><variableName>SYNTHETIC discharge</variableName>
+<unit><unitAbbreviation>m3/s</unitAbbreviation></unit><noDataValue>-9999</noDataValue></variable>
+<values><value dateTime="2020-01-01T00:00:00Z" qualifiers="SYNTHETIC">1.5</value>
+<value dateTime="2020-01-02T00:00:00Z" qualifiers="SYNTHETIC">-9999</value>
+<value dateTime="2020-01-03T00:00:00Z" qualifiers="SYNTHETIC">3.5</value></values></timeSeries>
+</timeSeriesResponse>

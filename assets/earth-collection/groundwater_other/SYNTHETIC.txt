@@ -1,0 +1,1 @@
+All arrays, coordinates, temperatures, flows, pumping rates, CPT samples and HYDRUS outputs in these fixtures are invented acceptance data. No field observations, external services or scientific engines were run to create them.

@@ -1,0 +1,19 @@
+{
+  "call_id": "shared-invalid-dry_positive_lateral",
+  "name": "EarthWflowKinematicWaveReachStep",
+  "status": "error",
+  "data": {},
+  "artifacts": [],
+  "error": {
+    "code": "invalid_arguments",
+    "message": "Arguments do not satisfy the input schema and declared operation constraints",
+    "retryable": false,
+    "outcome_unknown": false
+  },
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "b248689e52b4c47203ce99cb84d3aa6c49e752d5d224dad47935cae8b81bf7e2"
+  }
+}

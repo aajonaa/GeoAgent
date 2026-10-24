@@ -1,0 +1,19 @@
+{
+  "call_id": "invalid-negative_previous",
+  "name": "EarthWflowKinematicWaveReachStep",
+  "status": "error",
+  "data": {},
+  "artifacts": [],
+  "error": {
+    "code": "invalid_arguments",
+    "message": "-1 is less than the minimum of 0\n\nFailed validating 'minimum' in schema['properties']['previous_outflow_m3_s']:\n    {'type': 'number', 'minimum': 0, 'maximum': 1000000.0}\n\nOn instance['previous_outflow_m3_s']:\n    -1",
+    "retryable": true,
+    "outcome_unknown": false
+  },
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "cf600388cc0cce32f1062282897743d2110021d506af107bb2ae8afe33e84bd6"
+  }
+}

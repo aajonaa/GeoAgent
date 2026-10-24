@@ -1,0 +1,72 @@
+[
+  {
+    "id": "wflow-kinematic-reach",
+    "name": "Original Wflow single-reach routing",
+    "description": "One implicit reach step from the archived original Wflow kernel; explicit SI inputs, continuity and strict limitations.",
+    "tool_references": [
+      "EarthWflowKinematicWaveReachStep"
+    ],
+    "skill_file": "catalog/skills/wflow-kinematic-reach/SKILL.md",
+    "applicability": {
+      "keywords": [
+        "wflow",
+        "kinematic wave",
+        "river reach",
+        "routing",
+        "continuity"
+      ]
+    },
+    "metadata": {
+      "domain": {
+        "primary": "Hydrology"
+      },
+      "workflow": {
+        "steps": [
+          {
+            "inputs": [
+              "upstream_inflow_m3_s",
+              "previous_outflow_m3_s",
+              "lateral_inflow_m2_s",
+              "alpha",
+              "beta",
+              "timestep_seconds",
+              "reach_length_m"
+            ],
+            "outputs": [
+              "outflow_m3_s",
+              "continuity_residual_m3"
+            ]
+          }
+        ]
+      }
+    },
+    "examples": [
+      {
+        "prompt": "Route a supplied single-reach SI timestep with the archived Wflow kernel, reporting continuity and limitations; do not invent parameters."
+      }
+    ],
+    "delivery": {
+      "source_candidates": [
+        "EarthWflowKinematicWaveReachStep"
+      ],
+      "unavailable_references": [],
+      "availability_status": "independent_candidate_only",
+      "workflow_validation": "not_run"
+    },
+    "source_interface": {
+      "status": "source_revised_unverified",
+      "unavailable_tools": [],
+      "agent_end_to_end": "not_tested"
+    },
+    "registration_metadata": {
+      "asset_version": "1.0.0",
+      "provider": "GeoAgent bounded original-source interface",
+      "license": "upstream GPL-3.0-or-later; redistribution review pending",
+      "pending_fields": [
+        "parent_union",
+        "receiving_lab_approval"
+      ],
+      "platform_validation": "not_run"
+    }
+  }
+]

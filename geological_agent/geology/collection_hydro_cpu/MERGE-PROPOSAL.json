@@ -1,0 +1,2210 @@
+{
+  "kind": "six_operation_merge_proposal_not_global_catalog_replacement",
+  "baseline_for_this_proposal": {
+    "tools": 208,
+    "skills": 43,
+    "actual_nodeids": 663
+  },
+  "latest_known_parent": {
+    "tools": 210,
+    "skills": 44,
+    "actual_nodeids": 735,
+    "preservation_required": true,
+    "modified": false
+  },
+  "instructions": [
+    "Merge only these six new tool definitions and one Skill; preserve every definition and nodeid in the latest parent union.",
+    "Merge six global examples, six existing unique project-row updates and source-operation acceptance entries by identity.",
+    "Apply the three narrow approved host-boundary changes only after comparing current source bytes.",
+    "Do not overwrite the parent catalog, collection manifests or dependency environment with the 208-based snapshots."
+  ],
+  "new_tools": [
+    {
+      "id": "HydroModelsPyFloCurveNumberRunoff",
+      "name": "HydroModelsPyFloCurveNumberRunoff",
+      "description": "SCS curve-number event runoff depth and volume for explicit rainfall depths, curve number and catchment area.",
+      "category": "earth_collection",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+          },
+          "curve_number": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "area_acres": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 1000000
+          }
+        },
+        "required": [
+          "data_path",
+          "curve_number",
+          "area_acres"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "runoff_inches": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          },
+          "runoff_volume_ft3": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "runoff_inches": {
+                "type": "string",
+                "const": "inch"
+              },
+              "runoff_volume_ft3": {
+                "type": "string",
+                "const": "ft3"
+              }
+            },
+            "required": [
+              "runoff_inches",
+              "runoff_volume_ft3"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64
+          },
+          "provenance": {
+            "type": "object",
+            "description": "Actual installed versions or vendored hashes, input content hashes and real artifact hashes."
+          }
+        },
+        "required": [
+          "artifacts",
+          "provenance",
+          "runoff_inches",
+          "runoff_volume_ft3",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsPyFloCurveNumberRunoff",
+          "description": "SCS curve-number event runoff depth and volume for explicit rainfall depths, curve number and catchment area.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              },
+              "curve_number": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 100
+              },
+              "area_acres": {
+                "type": "number",
+                "minimum": 0.001,
+                "maximum": 1000000
+              }
+            },
+            "required": [
+              "data_path",
+              "curve_number",
+              "area_acres"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsPyFloCurveNumberRunoff",
+          "description": "SCS curve-number event runoff depth and volume for explicit rainfall depths, curve number and catchment area.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              },
+              "curve_number": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 100
+              },
+              "area_acres": {
+                "type": "number",
+                "minimum": 0.001,
+                "maximum": 1000000
+              }
+            },
+            "required": [
+              "data_path",
+              "curve_number",
+              "area_acres"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "version": "1.0.0",
+      "example_arguments": {
+        "data_path": "assets/earth-collection/hydro_cpu_profiles/pyflo_curve_number_runoff.json",
+        "curve_number": 80,
+        "area_acres": 1
+      },
+      "constraints": {
+        "finite_numbers_only": true,
+        "max_argument_json_bytes": 4000000,
+        "max_file_bytes": 67108864,
+        "no_automatic_dependency_install": true,
+        "max_input_bytes": 2097152,
+        "cpu_only": true,
+        "offline_only": true,
+        "immutable_inputs": true,
+        "unknown_fields": "reject",
+        "nonfinite_values": "reject",
+        "max_events": 1000,
+        "hydrograph_and_expression_apis_exposed": false
+      },
+      "metadata": {
+        "category": "earth_collection",
+        "input_format": "Schema-validated JSON object or JSON-object string; args= is supported.",
+        "output_format": "Observed JSON values with units/provenance and real registered artifacts.",
+        "source": "https://github.com/benjiyamin/pyflo",
+        "upstream": {
+          "package": "pyflo",
+          "version": "0.3.3",
+          "url": "https://github.com/benjiyamin/pyflo",
+          "license": "SEE_UPSTREAM_LICENSE",
+          "source_mode": "package_release",
+          "requirements": [
+            "pyflo==0.3.3",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "matplotlib==3.10.7",
+            "simpleeval==0.9.13"
+          ],
+          "vendor_files": []
+        },
+        "reviewed_archive_commit": "5ab86837a8d6069b610df9cec8f2758109a00dfb",
+        "source_project_id": 61,
+        "source_directory": "03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/pyflo",
+        "contract_validation": "not_run",
+        "scientific_contract": {
+          "implementation_kind": "package_release",
+          "review_status": "not_run",
+          "formal_eligible": false
+        },
+        "cpu_execution": {
+          "mode": "fixed_cpu_dependency_profile",
+          "requirements_scope": "worker",
+          "host_additional_requirements": [],
+          "worker_requirements": [
+            "pyflo==0.3.3",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "matplotlib==3.10.7",
+            "simpleeval==0.9.13"
+          ],
+          "profile_key": "HydroModelsPyFloCurveNumberRunoff"
+        }
+      },
+      "limitations": [
+        "Rainfall is inches and area is acres; returned volume is cubic feet. This upstream API uses US customary units.",
+        "Uses the original Basin.runoff_depth and runoff_volume, with fixed unused hydrograph-construction parameters. No user-supplied distribution, equation, simpleeval expression or script is exposed.",
+        "Curve number is 1..100, area is 0.001..1000000 acres and there are at most 1000 independent event depths.",
+        "Archive setup.py strips historical == pins from requirements/production.txt. Common NumPy/SciPy/matplotlib pins are retained, rather than adopting that old reference requirements file. Archive/release byte identity is not asserted.",
+        "Independent acceptance does not establish model-workflow, receiving-platform, or formal AI Lab approval."
+      ],
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "earth_collection",
+        "path_fields": [
+          "data_path"
+        ],
+        "pure": false,
+        "network_required": false,
+        "validation": "not_run",
+        "entrypoint": {
+          "callable": "geological_agent.geology.collection_hydro_cpu.adapters:pyflo_curve_number_runoff",
+          "argument_parameter": "args",
+          "bound_arguments": {}
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ScientificToolError (ValueError subclass)",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "codes": [
+          "invalid_arguments",
+          "invalid_input",
+          "invalid_path",
+          "missing_input",
+          "missing_dependency",
+          "incompatible_dependency",
+          "resource_limit",
+          "output_conflict",
+          "invalid_result",
+          "upstream_failure"
+        ],
+        "retry_policy": "Fix the reported prerequisite or argument; do not blindly retry deterministic failures."
+      },
+      "tags": [
+        "earth-collection",
+        "hydro_models",
+        "hydrology",
+        "cpu",
+        "offline",
+        "bounded",
+        "earth-collection"
+      ],
+      "registration_metadata": {
+        "asset_version": "0.3.3",
+        "provider": "https://github.com/benjiyamin/pyflo",
+        "license": null,
+        "upstream_license": null,
+        "official_protocol_version": null,
+        "official_protocol": {
+          "applicability": "not_applicable",
+          "name": null,
+          "version": null
+        },
+        "source_commit": null,
+        "runtime": {
+          "python": ">=3.12",
+          "dependency_lock": [
+            "pyflo==0.3.3",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "matplotlib==3.10.7",
+            "simpleeval==0.9.13"
+          ],
+          "environment_version": "geoagent-earth-collection-20261022",
+          "dependency_scope": "fixed_cpu_worker",
+          "host_professional_install_claimed": false
+        },
+        "metadata_profile": "scientific",
+        "lifecycle": {
+          "registration": "registered_in_independent_candidate",
+          "contract_validation": "not_run",
+          "unit_validation": "not_run",
+          "workflow_validation": "not_run",
+          "platform_validation": "not_run",
+          "release_status": "draft"
+        },
+        "pending_fields": [
+          "receiving_lab_approval",
+          "adapter_license",
+          "dependency_transitive_lock",
+          "upstream_archive_release_correspondence",
+          "redistribution_review",
+          "source_commit",
+          "license",
+          "upstream_license"
+        ],
+        "platform_validation": "not_run",
+        "source_url": "https://github.com/benjiyamin/pyflo"
+      }
+    },
+    {
+      "id": "HydroModelsPySTEPSPrecipitationAdvection",
+      "name": "HydroModelsPySTEPSPrecipitationAdvection",
+      "description": "Semi-Lagrangian deterministic precipitation advection of a bounded local rain grid with supplied velocity.",
+      "category": "earth_collection",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+          },
+          "lead_steps": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 8
+          }
+        },
+        "required": [
+          "data_path",
+          "lead_steps"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "forecast_mm_hour": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "minItems": 2,
+                "maxItems": 128
+              },
+              "minItems": 2,
+              "maxItems": 128
+            },
+            "minItems": 1,
+            "maxItems": 8
+          },
+          "lead_steps": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 8
+            },
+            "minItems": 1,
+            "maxItems": 8
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "forecast_mm_hour": {
+                "type": "string",
+                "const": "mm/hour"
+              },
+              "lead_steps": {
+                "type": "string",
+                "const": "input velocity time steps"
+              }
+            },
+            "required": [
+              "forecast_mm_hour",
+              "lead_steps"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64
+          },
+          "provenance": {
+            "type": "object",
+            "description": "Actual installed versions or vendored hashes, input content hashes and real artifact hashes."
+          }
+        },
+        "required": [
+          "artifacts",
+          "forecast_mm_hour",
+          "lead_steps",
+          "provenance",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsPySTEPSPrecipitationAdvection",
+          "description": "Semi-Lagrangian deterministic precipitation advection of a bounded local rain grid with supplied velocity.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              },
+              "lead_steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 8
+              }
+            },
+            "required": [
+              "data_path",
+              "lead_steps"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsPySTEPSPrecipitationAdvection",
+          "description": "Semi-Lagrangian deterministic precipitation advection of a bounded local rain grid with supplied velocity.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              },
+              "lead_steps": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 8
+              }
+            },
+            "required": [
+              "data_path",
+              "lead_steps"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "version": "1.0.0",
+      "example_arguments": {
+        "data_path": "assets/earth-collection/hydro_cpu_profiles/pysteps_precipitation_advection.json",
+        "lead_steps": 2
+      },
+      "constraints": {
+        "finite_numbers_only": true,
+        "max_argument_json_bytes": 4000000,
+        "max_file_bytes": 67108864,
+        "no_automatic_dependency_install": true,
+        "max_input_bytes": 2097152,
+        "cpu_only": true,
+        "offline_only": true,
+        "immutable_inputs": true,
+        "unknown_fields": "reject",
+        "nonfinite_values": "reject",
+        "same_grid_shape": true,
+        "max_rows": 128,
+        "max_columns": 128,
+        "max_forecast_cells": 131072
+      },
+      "metadata": {
+        "category": "earth_collection",
+        "input_format": "Schema-validated JSON object or JSON-object string; args= is supported.",
+        "output_format": "Observed JSON values with units/provenance and real registered artifacts.",
+        "source": "https://github.com/pySTEPS/pysteps",
+        "upstream": {
+          "package": "pysteps",
+          "version": "1.21.5",
+          "url": "https://github.com/pySTEPS/pysteps",
+          "license": "SEE_UPSTREAM_LICENSE",
+          "source_mode": "package_release",
+          "requirements": [
+            "pysteps==1.21.5",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "matplotlib==3.10.7",
+            "jsmin==3.0.1",
+            "jsonschema==4.23.0"
+          ],
+          "vendor_files": []
+        },
+        "reviewed_archive_commit": "f4ebd1d069f199941d448e5a7969bd769009e166",
+        "source_project_id": 46,
+        "source_directory": "03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/pysteps",
+        "contract_validation": "not_run",
+        "scientific_contract": {
+          "implementation_kind": "package_release",
+          "review_status": "not_run",
+          "formal_eligible": false
+        },
+        "cpu_execution": {
+          "mode": "fixed_cpu_dependency_profile",
+          "requirements_scope": "worker",
+          "host_additional_requirements": [],
+          "worker_requirements": [
+            "pysteps==1.21.5",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "matplotlib==3.10.7",
+            "jsmin==3.0.1",
+            "jsonschema==4.23.0"
+          ],
+          "profile_key": "HydroModelsPySTEPSPrecipitationAdvection"
+        }
+      },
+      "limitations": [
+        "All three grids share a 2..128 by 2..128 shape; no optical-flow estimation, stochastic ensemble, model weights, radar downloads or external forecast.",
+        "Velocity components are east and south pixels per input step. Lead times are integer multiples of that same step.",
+        "Uses one integration iteration, linear spatial interpolation and zero outside the domain. Loss at boundaries is expected.",
+        "The reference check uses uniform velocity fixtures with an independent exact transport solution.",
+        "Independent acceptance does not establish model-workflow, receiving-platform, or formal AI Lab approval."
+      ],
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "earth_collection",
+        "path_fields": [
+          "data_path"
+        ],
+        "pure": false,
+        "network_required": false,
+        "validation": "not_run",
+        "entrypoint": {
+          "callable": "geological_agent.geology.collection_hydro_cpu.adapters:pysteps_precipitation_advection",
+          "argument_parameter": "args",
+          "bound_arguments": {}
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ScientificToolError (ValueError subclass)",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "codes": [
+          "invalid_arguments",
+          "invalid_input",
+          "invalid_path",
+          "missing_input",
+          "missing_dependency",
+          "incompatible_dependency",
+          "resource_limit",
+          "output_conflict",
+          "invalid_result",
+          "upstream_failure"
+        ],
+        "retry_policy": "Fix the reported prerequisite or argument; do not blindly retry deterministic failures."
+      },
+      "tags": [
+        "earth-collection",
+        "hydro_models",
+        "hydrology",
+        "cpu",
+        "offline",
+        "bounded",
+        "earth-collection"
+      ],
+      "registration_metadata": {
+        "asset_version": "1.21.5",
+        "provider": "https://github.com/pySTEPS/pysteps",
+        "license": null,
+        "upstream_license": null,
+        "official_protocol_version": null,
+        "official_protocol": {
+          "applicability": "not_applicable",
+          "name": null,
+          "version": null
+        },
+        "source_commit": null,
+        "runtime": {
+          "python": ">=3.12",
+          "dependency_lock": [
+            "pysteps==1.21.5",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "matplotlib==3.10.7",
+            "jsmin==3.0.1",
+            "jsonschema==4.23.0"
+          ],
+          "environment_version": "geoagent-earth-collection-20261022",
+          "dependency_scope": "fixed_cpu_worker",
+          "host_professional_install_claimed": false
+        },
+        "metadata_profile": "scientific",
+        "lifecycle": {
+          "registration": "registered_in_independent_candidate",
+          "contract_validation": "not_run",
+          "unit_validation": "not_run",
+          "workflow_validation": "not_run",
+          "platform_validation": "not_run",
+          "release_status": "draft"
+        },
+        "pending_fields": [
+          "receiving_lab_approval",
+          "adapter_license",
+          "dependency_transitive_lock",
+          "upstream_archive_release_correspondence",
+          "redistribution_review",
+          "source_commit",
+          "license",
+          "upstream_license"
+        ],
+        "platform_validation": "not_run",
+        "source_url": "https://github.com/pySTEPS/pysteps"
+      }
+    },
+    {
+      "id": "EarthCatchmodLinearStoreStep",
+      "name": "EarthCatchmodLinearStoreStep",
+      "description": "Route parallel scenarios for one daily step through the original archived CATCHMOD linear reservoir, returning mean flow, end flow, storage and water-balance residuals.",
+      "category": "earth_collection",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "description": "Task-relative immutable UTF-8 JSON input. Maximum 2,097,152 bytes."
+          },
+          "linear_storage_days": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 365,
+            "description": "Linear storage constant in days. The native step duration is fixed at one day."
+          }
+        },
+        "required": [
+          "data_path",
+          "linear_storage_days"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "mean_outflow_mm_day": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          },
+          "end_outflow_mm_day": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          },
+          "initial_storage_mm": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          },
+          "final_storage_mm": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          },
+          "mass_balance_residual_mm": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            },
+            "minItems": 1,
+            "maxItems": 1000
+          },
+          "scenario_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 1000
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "mean_outflow_mm_day": {
+                "type": "string",
+                "const": "mm/day"
+              },
+              "end_outflow_mm_day": {
+                "type": "string",
+                "const": "mm/day"
+              },
+              "initial_storage_mm": {
+                "type": "string",
+                "const": "mm"
+              },
+              "final_storage_mm": {
+                "type": "string",
+                "const": "mm"
+              },
+              "mass_balance_residual_mm": {
+                "type": "string",
+                "const": "mm"
+              },
+              "scenario_count": {
+                "type": "string",
+                "const": "scenarios"
+              }
+            },
+            "required": [
+              "mean_outflow_mm_day",
+              "end_outflow_mm_day",
+              "initial_storage_mm",
+              "final_storage_mm",
+              "mass_balance_residual_mm",
+              "scenario_count"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64
+          },
+          "provenance": {
+            "type": "object",
+            "description": "Actual installed versions or vendored hashes, input content hashes and real artifact hashes."
+          }
+        },
+        "required": [
+          "mean_outflow_mm_day",
+          "end_outflow_mm_day",
+          "initial_storage_mm",
+          "final_storage_mm",
+          "mass_balance_residual_mm",
+          "scenario_count",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "EarthCatchmodLinearStoreStep",
+          "description": "Route parallel scenarios for one daily step through the original archived CATCHMOD linear reservoir, returning mean flow, end flow, storage and water-balance residuals.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative immutable UTF-8 JSON input. Maximum 2,097,152 bytes."
+              },
+              "linear_storage_days": {
+                "type": "number",
+                "minimum": 0.1,
+                "maximum": 365,
+                "description": "Linear storage constant in days. The native step duration is fixed at one day."
+              }
+            },
+            "required": [
+              "data_path",
+              "linear_storage_days"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "EarthCatchmodLinearStoreStep",
+          "description": "Route parallel scenarios for one daily step through the original archived CATCHMOD linear reservoir, returning mean flow, end flow, storage and water-balance residuals.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative immutable UTF-8 JSON input. Maximum 2,097,152 bytes."
+              },
+              "linear_storage_days": {
+                "type": "number",
+                "minimum": 0.1,
+                "maximum": 365,
+                "description": "Linear storage constant in days. The native step duration is fixed at one day."
+              }
+            },
+            "required": [
+              "data_path",
+              "linear_storage_days"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "version": "1.0.0",
+      "example_arguments": {
+        "data_path": "assets/earth-collection/hydro_cpu_profiles/catchmod_linear_store_step.json",
+        "linear_storage_days": 0.5
+      },
+      "constraints": {
+        "cpu_only": true,
+        "offline_only": true,
+        "immutable_inputs": true,
+        "max_input_bytes": 2097152,
+        "max_scenarios": 1000,
+        "same_length": true,
+        "unknown_fields": "reject",
+        "nonfinite_values": "reject",
+        "time_step_days": 1
+      },
+      "metadata": {
+        "category": "earth_collection",
+        "input_format": "Schema-validated JSON object or JSON-object string; args= is supported.",
+        "output_format": "Observed JSON values with units/provenance and real registered artifacts.",
+        "source": "https://github.com/hydpy-dev/hydpy",
+        "upstream": {
+          "package": "pycatchmod",
+          "version": "1.1.0+archive.d083d62",
+          "url": "https://github.com/pywr/pycatchmod",
+          "license": "GPL-3.0",
+          "source_mode": "archived_original_source_local_build",
+          "requirements": [
+            "pycatchmod==1.1.0+archive.d083d62",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "pandas==2.3.0",
+            "setuptools==80.9.0",
+            "Cython==3.0.12"
+          ],
+          "vendor_files": [],
+          "source_revision_git_head": "d083d62d9c83c5927f4d900879ae261967920ba9",
+          "evidence": [
+            {
+              "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/pycatchmod/pycatchmod/_catchmod.pyx",
+              "symbol": "LinearStore.step",
+              "source_sha256": "b79612f0655f2ecec5a0d4e3fb6ba59678c56484bffe7e3a89dcc5312c930fef",
+              "observation": "Calls the original compiled daily linear-reservoir algorithm and preserves original source bytes."
+            }
+          ],
+          "license_records": [
+            {
+              "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/pycatchmod/LICENCE",
+              "relative_path": "pycatchmod-archive/LICENCE",
+              "source_sha256": "bbd1ecbfce4cd3e3d6bd6904eca53716202d72a4f4540934fb3547502644b2f0",
+              "license": "GPL-3.0"
+            }
+          ],
+          "release_source_equivalence": "Worker-owned local build of the exact archived source revision. Local version is a reproducibility label, not an upstream PyPI release. Original mathematical source files must remain byte-identical."
+        },
+        "reviewed_archive_commit": "5cab70edbda7e83a984c30e8e1f24acaf7218e82",
+        "source_project_id": 41,
+        "source_directory": "03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/hydpy",
+        "contract_validation": "not_run",
+        "scientific_contract": {
+          "implementation_kind": "package_release",
+          "review_status": "not_run",
+          "formal_eligible": false
+        },
+        "cpu_execution": {
+          "mode": "fixed_cpu_dependency_profile",
+          "requirements_scope": "worker",
+          "host_additional_requirements": [],
+          "worker_requirements": [
+            "pycatchmod==1.1.0+archive.d083d62",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "pandas==2.3.0",
+            "setuptools==80.9.0",
+            "Cython==3.0.12"
+          ],
+          "profile_key": "EarthCatchmodLinearStoreStep"
+        }
+      },
+      "limitations": [
+        "One fixed daily timestep over independent scenarios, not a calibrated catchment forecast.",
+        "Initial flow is at least 0.000001 mm/day, explicitly excluding the upstream very-small-flow clamp branch; zero-initial-flow simulation is not claimed.",
+        "Water depths and flows are normalized per catchment area; no area or discharge-unit conversion is performed.",
+        "Never downloads, builds, installs or loads executable user configuration at tool execution time."
+      ],
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "earth_collection",
+        "path_fields": [
+          "data_path"
+        ],
+        "pure": false,
+        "network_required": false,
+        "validation": "not_run",
+        "entrypoint": {
+          "callable": "geological_agent.geology.collection_hydro_cpu.adapters:catchmod_linear_store_step",
+          "argument_parameter": "args",
+          "bound_arguments": {}
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ScientificToolError (ValueError subclass)",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "codes": [
+          "invalid_arguments",
+          "invalid_input",
+          "invalid_path",
+          "missing_input",
+          "missing_dependency",
+          "incompatible_dependency",
+          "resource_limit",
+          "output_conflict",
+          "invalid_result",
+          "upstream_failure"
+        ],
+        "retry_policy": "Fix the reported prerequisite or argument; do not blindly retry deterministic failures."
+      },
+      "tags": [
+        "hydrology",
+        "routing",
+        "reservoir",
+        "water-balance",
+        "cpu",
+        "offline",
+        "bounded",
+        "earth-collection"
+      ],
+      "registration_metadata": {
+        "asset_version": "1.1.0+archive.d083d62",
+        "provider": "https://github.com/pywr/pycatchmod",
+        "license": null,
+        "upstream_license": "GPL-3.0",
+        "official_protocol_version": null,
+        "official_protocol": {
+          "applicability": "not_applicable",
+          "name": null,
+          "version": null
+        },
+        "source_commit": "d083d62d9c83c5927f4d900879ae261967920ba9",
+        "runtime": {
+          "python": ">=3.12",
+          "dependency_lock": [
+            "pycatchmod==1.1.0+archive.d083d62",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "pandas==2.3.0",
+            "setuptools==80.9.0",
+            "Cython==3.0.12"
+          ],
+          "environment_version": "geoagent-earth-collection-20261022",
+          "dependency_scope": "fixed_cpu_worker",
+          "host_professional_install_claimed": false
+        },
+        "metadata_profile": "scientific",
+        "lifecycle": {
+          "registration": "registered_in_independent_candidate",
+          "contract_validation": "not_run",
+          "unit_validation": "not_run",
+          "workflow_validation": "not_run",
+          "platform_validation": "not_run",
+          "release_status": "draft"
+        },
+        "pending_fields": [
+          "receiving_lab_approval",
+          "adapter_license",
+          "dependency_transitive_lock",
+          "upstream_archive_release_correspondence",
+          "redistribution_review",
+          "license"
+        ],
+        "platform_validation": "not_run",
+        "source_url": "https://github.com/pywr/pycatchmod"
+      }
+    },
+    {
+      "id": "HydroModelsSuperflexUnitHydrograph",
+      "name": "HydroModelsSuperflexUnitHydrograph",
+      "description": "Mass-preserving GR4J UnitHydrograph1 routing of effective rainfall using the actual SuperflexPy LagElement.",
+      "category": "earth_collection",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+          },
+          "lag_steps": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 30
+          }
+        },
+        "required": [
+          "data_path",
+          "lag_steps"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "routed_mm_step": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0
+            },
+            "minItems": 3,
+            "maxItems": 3691
+          },
+          "tail_padding_steps": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 31
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "routed_mm_step": {
+                "type": "string",
+                "const": "mm/step"
+              },
+              "tail_padding_steps": {
+                "type": "string",
+                "const": "steps"
+              }
+            },
+            "required": [
+              "routed_mm_step",
+              "tail_padding_steps"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64
+          },
+          "provenance": {
+            "type": "object",
+            "description": "Actual installed versions or vendored hashes, input content hashes and real artifact hashes."
+          }
+        },
+        "required": [
+          "artifacts",
+          "provenance",
+          "routed_mm_step",
+          "tail_padding_steps",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsSuperflexUnitHydrograph",
+          "description": "Mass-preserving GR4J UnitHydrograph1 routing of effective rainfall using the actual SuperflexPy LagElement.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              },
+              "lag_steps": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 30
+              }
+            },
+            "required": [
+              "data_path",
+              "lag_steps"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsSuperflexUnitHydrograph",
+          "description": "Mass-preserving GR4J UnitHydrograph1 routing of effective rainfall using the actual SuperflexPy LagElement.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              },
+              "lag_steps": {
+                "type": "number",
+                "minimum": 1,
+                "maximum": 30
+              }
+            },
+            "required": [
+              "data_path",
+              "lag_steps"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "version": "1.0.0",
+      "example_arguments": {
+        "data_path": "assets/earth-collection/hydro_cpu_profiles/superflex_unit_hydrograph.json",
+        "lag_steps": 2
+      },
+      "constraints": {
+        "finite_numbers_only": true,
+        "max_argument_json_bytes": 4000000,
+        "max_file_bytes": 67108864,
+        "no_automatic_dependency_install": true,
+        "max_input_bytes": 2097152,
+        "cpu_only": true,
+        "offline_only": true,
+        "immutable_inputs": true,
+        "unknown_fields": "reject",
+        "nonfinite_values": "reject",
+        "max_forcing_steps": 3660,
+        "max_lag_steps": 30,
+        "flush_tail": true
+      },
+      "metadata": {
+        "category": "earth_collection",
+        "input_format": "Schema-validated JSON object or JSON-object string; args= is supported.",
+        "output_format": "Observed JSON values with units/provenance and real registered artifacts.",
+        "source": "https://github.com/dalmo1991/superflexPy",
+        "upstream": {
+          "package": "superflexpy",
+          "version": "1.3.3",
+          "url": "https://github.com/dalmo1991/superflexPy",
+          "license": "SEE_UPSTREAM_LICENSE",
+          "source_mode": "package_release",
+          "requirements": [
+            "superflexpy==1.3.3",
+            "numpy==2.1.3",
+            "numba==0.68.0"
+          ],
+          "vendor_files": []
+        },
+        "reviewed_archive_commit": "6da8e79d93fab0b84be93205c1ecf4c4e3119c56",
+        "source_project_id": 58,
+        "source_directory": "03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/superflexPy",
+        "contract_validation": "not_run",
+        "scientific_contract": {
+          "implementation_kind": "package_release",
+          "review_status": "not_run",
+          "formal_eligible": false
+        },
+        "cpu_execution": {
+          "mode": "fixed_cpu_dependency_profile",
+          "requirements_scope": "worker",
+          "host_additional_requirements": [],
+          "worker_requirements": [
+            "superflexpy==1.3.3",
+            "numpy==2.1.3",
+            "numba==0.68.0"
+          ],
+          "profile_key": "HydroModelsSuperflexUnitHydrograph"
+        }
+      },
+      "limitations": [
+        "UnitHydrograph1 uses its upstream 2.5-power cumulative S-curve; lag is 1..30 input time steps.",
+        "Adds ceil(lag)+1 zero-forcing tail steps so the complete response is reported and terminal state shifting cannot erase a nonzero last output.",
+        "Outputs remain mm/step, not volumetric river discharge. No arbitrary framework topology, code, state pickle or model configuration is accepted.",
+        "Numba uses the confirmed common version 0.68.0; it is not downgraded to the historical minimum in package metadata.",
+        "Independent acceptance does not establish model-workflow, receiving-platform, or formal AI Lab approval."
+      ],
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "earth_collection",
+        "path_fields": [
+          "data_path"
+        ],
+        "pure": false,
+        "network_required": false,
+        "validation": "not_run",
+        "entrypoint": {
+          "callable": "geological_agent.geology.collection_hydro_cpu.adapters:superflex_unit_hydrograph",
+          "argument_parameter": "args",
+          "bound_arguments": {}
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ScientificToolError (ValueError subclass)",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "codes": [
+          "invalid_arguments",
+          "invalid_input",
+          "invalid_path",
+          "missing_input",
+          "missing_dependency",
+          "incompatible_dependency",
+          "resource_limit",
+          "output_conflict",
+          "invalid_result",
+          "upstream_failure"
+        ],
+        "retry_policy": "Fix the reported prerequisite or argument; do not blindly retry deterministic failures."
+      },
+      "tags": [
+        "earth-collection",
+        "hydro_models",
+        "hydrology",
+        "cpu",
+        "offline",
+        "bounded",
+        "earth-collection"
+      ],
+      "registration_metadata": {
+        "asset_version": "1.3.3",
+        "provider": "https://github.com/dalmo1991/superflexPy",
+        "license": null,
+        "upstream_license": null,
+        "official_protocol_version": null,
+        "official_protocol": {
+          "applicability": "not_applicable",
+          "name": null,
+          "version": null
+        },
+        "source_commit": null,
+        "runtime": {
+          "python": ">=3.12",
+          "dependency_lock": [
+            "superflexpy==1.3.3",
+            "numpy==2.1.3",
+            "numba==0.68.0"
+          ],
+          "environment_version": "geoagent-earth-collection-20261022",
+          "dependency_scope": "fixed_cpu_worker",
+          "host_professional_install_claimed": false
+        },
+        "metadata_profile": "scientific",
+        "lifecycle": {
+          "registration": "registered_in_independent_candidate",
+          "contract_validation": "not_run",
+          "unit_validation": "not_run",
+          "workflow_validation": "not_run",
+          "platform_validation": "not_run",
+          "release_status": "draft"
+        },
+        "pending_fields": [
+          "receiving_lab_approval",
+          "adapter_license",
+          "dependency_transitive_lock",
+          "upstream_archive_release_correspondence",
+          "redistribution_review",
+          "source_commit",
+          "license",
+          "upstream_license"
+        ],
+        "platform_validation": "not_run",
+        "source_url": "https://github.com/dalmo1991/superflexPy"
+      }
+    },
+    {
+      "id": "HydroModelsHydPyFlowScores",
+      "name": "HydroModelsHydPyFlowScores",
+      "description": "Modified Kling-Gupta efficiency, Nash-Sutcliffe efficiency and RMSE of paired discharge series.",
+      "category": "earth_collection",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+          }
+        },
+        "required": [
+          "data_path"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "modified_kge": {
+            "type": "number"
+          },
+          "nse": {
+            "type": "number"
+          },
+          "rmse_m3_s": {
+            "type": "number",
+            "minimum": 0
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 10000
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "modified_kge": {
+                "type": "string",
+                "const": "1"
+              },
+              "nse": {
+                "type": "string",
+                "const": "1"
+              },
+              "rmse_m3_s": {
+                "type": "string",
+                "const": "m3/s"
+              },
+              "count": {
+                "type": "string",
+                "const": "samples"
+              }
+            },
+            "required": [
+              "modified_kge",
+              "nse",
+              "rmse_m3_s",
+              "count"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64
+          },
+          "provenance": {
+            "type": "object",
+            "description": "Actual installed versions or vendored hashes, input content hashes and real artifact hashes."
+          }
+        },
+        "required": [
+          "artifacts",
+          "count",
+          "modified_kge",
+          "nse",
+          "provenance",
+          "rmse_m3_s",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsHydPyFlowScores",
+          "description": "Modified Kling-Gupta efficiency, Nash-Sutcliffe efficiency and RMSE of paired discharge series.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              }
+            },
+            "required": [
+              "data_path"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsHydPyFlowScores",
+          "description": "Modified Kling-Gupta efficiency, Nash-Sutcliffe efficiency and RMSE of paired discharge series.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              }
+            },
+            "required": [
+              "data_path"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "version": "1.0.0",
+      "example_arguments": {
+        "data_path": "assets/earth-collection/hydro_cpu_profiles/hydpy_flow_scores.json"
+      },
+      "constraints": {
+        "finite_numbers_only": true,
+        "max_argument_json_bytes": 4000000,
+        "max_file_bytes": 67108864,
+        "no_automatic_dependency_install": true,
+        "max_input_bytes": 2097152,
+        "cpu_only": true,
+        "offline_only": true,
+        "immutable_inputs": true,
+        "unknown_fields": "reject",
+        "nonfinite_values": "reject",
+        "same_length": true,
+        "nonconstant_series": true,
+        "positive_means": true
+      },
+      "metadata": {
+        "category": "earth_collection",
+        "input_format": "Schema-validated JSON object or JSON-object string; args= is supported.",
+        "output_format": "Observed JSON values with units/provenance and real registered artifacts.",
+        "source": "https://github.com/hydpy-dev/hydpy",
+        "upstream": {
+          "package": "HydPy",
+          "version": "6.4.0",
+          "url": "https://github.com/hydpy-dev/hydpy",
+          "license": "SEE_UPSTREAM_LICENSE",
+          "source_mode": "package_release",
+          "requirements": [
+            "HydPy==6.4.0",
+            "numpy==2.1.3",
+            "pandas==2.3.0",
+            "scipy==1.15.3",
+            "matplotlib==3.10.7",
+            "setuptools==80.9.0",
+            "black==25.1.0",
+            "click==8.1.8",
+            "Cython==3.0.12",
+            "inflect==7.5.0",
+            "mypy==1.15.0",
+            "netCDF4==1.7.2",
+            "networkx==3.4.2",
+            "packaging==24.2",
+            "plotly==6.0.1",
+            "typing_extensions==4.13.2",
+            "wrapt==1.17.2",
+            "xmlschema==3.4.5",
+            "mypy-extensions==1.1.0",
+            "pathspec==0.12.1",
+            "more-itertools==10.6.0",
+            "typeguard==4.4.2",
+            "elementpath==4.8.0"
+          ],
+          "vendor_files": []
+        },
+        "reviewed_archive_commit": "5cab70edbda7e83a984c30e8e1f24acaf7218e82",
+        "source_project_id": 41,
+        "source_directory": "03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/hydpy",
+        "contract_validation": "not_run",
+        "scientific_contract": {
+          "implementation_kind": "package_release",
+          "review_status": "not_run",
+          "formal_eligible": false
+        },
+        "cpu_execution": {
+          "mode": "fixed_cpu_dependency_profile",
+          "requirements_scope": "worker",
+          "host_additional_requirements": [],
+          "worker_requirements": [
+            "HydPy==6.4.0",
+            "numpy==2.1.3",
+            "pandas==2.3.0",
+            "scipy==1.15.3",
+            "matplotlib==3.10.7",
+            "setuptools==80.9.0",
+            "black==25.1.0",
+            "click==8.1.8",
+            "Cython==3.0.12",
+            "inflect==7.5.0",
+            "mypy==1.15.0",
+            "netCDF4==1.7.2",
+            "networkx==3.4.2",
+            "packaging==24.2",
+            "plotly==6.0.1",
+            "typing_extensions==4.13.2",
+            "wrapt==1.17.2",
+            "xmlschema==3.4.5",
+            "mypy-extensions==1.1.0",
+            "pathspec==0.12.1",
+            "more-itertools==10.6.0",
+            "typeguard==4.4.2",
+            "elementpath==4.8.0"
+          ],
+          "profile_key": "HydroModelsHydPyFlowScores"
+        }
+      },
+      "limitations": [
+        "Both nonconstant series have positive means, finite nonnegative discharge in m3/s, and the same 2..10000 sample count.",
+        "HydPy KGE uses the coefficient-of-variation ratio (modified KGE); it differs from NeuralHydrology KGE.",
+        "Pinned installed release is 6.4.0; the archive is 7.0dev0 at the recorded commit. No archive HEAD execution is claimed.",
+        "Independent acceptance does not establish model-workflow, receiving-platform, or formal AI Lab approval."
+      ],
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "earth_collection",
+        "path_fields": [
+          "data_path"
+        ],
+        "pure": false,
+        "network_required": false,
+        "validation": "not_run",
+        "entrypoint": {
+          "callable": "geological_agent.geology.collection_hydro_cpu.adapters:hydpy_flow_scores",
+          "argument_parameter": "args",
+          "bound_arguments": {}
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ScientificToolError (ValueError subclass)",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "codes": [
+          "invalid_arguments",
+          "invalid_input",
+          "invalid_path",
+          "missing_input",
+          "missing_dependency",
+          "incompatible_dependency",
+          "resource_limit",
+          "output_conflict",
+          "invalid_result",
+          "upstream_failure"
+        ],
+        "retry_policy": "Fix the reported prerequisite or argument; do not blindly retry deterministic failures."
+      },
+      "tags": [
+        "earth-collection",
+        "hydro_models",
+        "hydrology",
+        "cpu",
+        "offline",
+        "bounded",
+        "earth-collection"
+      ],
+      "registration_metadata": {
+        "asset_version": "6.4.0",
+        "provider": "https://github.com/hydpy-dev/hydpy",
+        "license": null,
+        "upstream_license": null,
+        "official_protocol_version": null,
+        "official_protocol": {
+          "applicability": "not_applicable",
+          "name": null,
+          "version": null
+        },
+        "source_commit": null,
+        "runtime": {
+          "python": ">=3.12",
+          "dependency_lock": [
+            "HydPy==6.4.0",
+            "numpy==2.1.3",
+            "pandas==2.3.0",
+            "scipy==1.15.3",
+            "matplotlib==3.10.7",
+            "setuptools==80.9.0",
+            "black==25.1.0",
+            "click==8.1.8",
+            "Cython==3.0.12",
+            "inflect==7.5.0",
+            "mypy==1.15.0",
+            "netCDF4==1.7.2",
+            "networkx==3.4.2",
+            "packaging==24.2",
+            "plotly==6.0.1",
+            "typing_extensions==4.13.2",
+            "wrapt==1.17.2",
+            "xmlschema==3.4.5",
+            "mypy-extensions==1.1.0",
+            "pathspec==0.12.1",
+            "more-itertools==10.6.0",
+            "typeguard==4.4.2",
+            "elementpath==4.8.0"
+          ],
+          "environment_version": "geoagent-earth-collection-20261022",
+          "dependency_scope": "fixed_cpu_worker",
+          "host_professional_install_claimed": false
+        },
+        "metadata_profile": "scientific",
+        "lifecycle": {
+          "registration": "registered_in_independent_candidate",
+          "contract_validation": "not_run",
+          "unit_validation": "not_run",
+          "workflow_validation": "not_run",
+          "platform_validation": "not_run",
+          "release_status": "draft"
+        },
+        "pending_fields": [
+          "receiving_lab_approval",
+          "adapter_license",
+          "dependency_transitive_lock",
+          "upstream_archive_release_correspondence",
+          "redistribution_review",
+          "source_commit",
+          "license",
+          "upstream_license"
+        ],
+        "platform_validation": "not_run",
+        "source_url": "https://github.com/hydpy-dev/hydpy"
+      }
+    },
+    {
+      "id": "HydroModelsPyDEMTerrainDerivatives",
+      "name": "HydroModelsPyDEMTerrainDerivatives",
+      "description": "Tarboton D-infinity slope magnitude and downslope direction from a small elevation grid with explicit metric spacing.",
+      "category": "earth_collection",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+          },
+          "east_spacing_m": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 100000
+          },
+          "north_spacing_m": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 100000
+          }
+        },
+        "required": [
+          "data_path",
+          "east_spacing_m",
+          "north_spacing_m"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "slope_m_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 126
+            },
+            "minItems": 1,
+            "maxItems": 126
+          },
+          "downslope_direction_radians": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 126
+            },
+            "minItems": 1,
+            "maxItems": 126
+          },
+          "undefined_cells": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 15876
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "slope_m_m": {
+                "type": "string",
+                "const": "m/m"
+              },
+              "downslope_direction_radians": {
+                "type": "string",
+                "const": "radian counterclockwise from east"
+              },
+              "undefined_cells": {
+                "type": "string",
+                "const": "cells"
+              }
+            },
+            "required": [
+              "slope_m_m",
+              "downslope_direction_radians",
+              "undefined_cells"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 64
+          },
+          "provenance": {
+            "type": "object",
+            "description": "Actual installed versions or vendored hashes, input content hashes and real artifact hashes."
+          }
+        },
+        "required": [
+          "artifacts",
+          "downslope_direction_radians",
+          "provenance",
+          "slope_m_m",
+          "undefined_cells",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "function": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsPyDEMTerrainDerivatives",
+          "description": "Tarboton D-infinity slope magnitude and downslope direction from a small elevation grid with explicit metric spacing.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              },
+              "east_spacing_m": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 100000
+              },
+              "north_spacing_m": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 100000
+              }
+            },
+            "required": [
+              "data_path",
+              "east_spacing_m",
+              "north_spacing_m"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "function_definition": {
+        "type": "function",
+        "function": {
+          "name": "HydroModelsPyDEMTerrainDerivatives",
+          "description": "Tarboton D-infinity slope magnitude and downslope direction from a small elevation grid with explicit metric spacing.",
+          "parameters": {
+            "type": "object",
+            "properties": {
+              "data_path": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 4096,
+                "description": "Task-relative UTF-8 JSON file; native runtime supplies an immutable private snapshot. Maximum 2097152 bytes."
+              },
+              "east_spacing_m": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 100000
+              },
+              "north_spacing_m": {
+                "type": "number",
+                "minimum": 0.01,
+                "maximum": 100000
+              }
+            },
+            "required": [
+              "data_path",
+              "east_spacing_m",
+              "north_spacing_m"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "version": "1.0.0",
+      "example_arguments": {
+        "data_path": "assets/earth-collection/hydro_cpu_profiles/pydem_terrain_derivatives.json",
+        "east_spacing_m": 2,
+        "north_spacing_m": 3
+      },
+      "constraints": {
+        "finite_numbers_only": true,
+        "max_argument_json_bytes": 4000000,
+        "max_file_bytes": 67108864,
+        "no_automatic_dependency_install": true,
+        "max_input_bytes": 2097152,
+        "cpu_only": true,
+        "offline_only": true,
+        "immutable_inputs": true,
+        "unknown_fields": "reject",
+        "nonfinite_values": "reject",
+        "max_rows": 128,
+        "max_columns": 128,
+        "boundary_crop_cells": 1,
+        "conditioning": false
+      },
+      "metadata": {
+        "category": "earth_collection",
+        "input_format": "Schema-validated JSON object or JSON-object string; args= is supported.",
+        "output_format": "Observed JSON values with units/provenance and real registered artifacts.",
+        "source": "https://github.com/creare-com/pydem",
+        "upstream": {
+          "package": "pyDEM",
+          "version": "1.2.1",
+          "url": "https://github.com/creare-com/pydem",
+          "license": "Apache-2.0",
+          "source_mode": "package_release",
+          "requirements": [
+            "pyDEM==1.2.1",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "rasterio==1.4.3",
+            "geopy==2.4.1",
+            "traitlets==5.14.3",
+            "traittypes==0.2.1",
+            "zarr==2.18.7",
+            "numcodecs==0.15.1",
+            "Cython==3.0.12",
+            "setuptools==80.9.0",
+            "geographiclib==2.1",
+            "asciitree==0.3.3",
+            "fasteners==0.20",
+            "Deprecated==1.2.18",
+            "wrapt==1.17.2"
+          ],
+          "vendor_files": []
+        },
+        "reviewed_archive_commit": "755fea6caaf0af5ab82cf7542206d34ecb5d9c4d",
+        "source_project_id": 50,
+        "source_directory": "03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/pydem",
+        "contract_validation": "not_run",
+        "scientific_contract": {
+          "implementation_kind": "package_release",
+          "review_status": "not_run",
+          "formal_eligible": false
+        },
+        "cpu_execution": {
+          "mode": "fixed_cpu_dependency_profile",
+          "requirements_scope": "worker",
+          "host_additional_requirements": [],
+          "worker_requirements": [
+            "pyDEM==1.2.1",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "rasterio==1.4.3",
+            "geopy==2.4.1",
+            "traitlets==5.14.3",
+            "traittypes==0.2.1",
+            "zarr==2.18.7",
+            "numcodecs==0.15.1",
+            "Cython==3.0.12",
+            "setuptools==80.9.0",
+            "geographiclib==2.1",
+            "asciitree==0.3.3",
+            "fasteners==0.20",
+            "Deprecated==1.2.18",
+            "wrapt==1.17.2"
+          ],
+          "profile_key": "HydroModelsPyDEMTerrainDerivatives"
+        }
+      },
+      "limitations": [
+        "Requires a rectangular 3..128 by 3..128 local metric grid. Horizontal spacings and elevation are metres; no CRS is guessed.",
+        "Disables flat filling, pit drainage and path construction. Only the interior (without the one-cell boundary) is returned.",
+        "Undefined/flat/pit cells use paired JSON nulls, not an invented flow direction. No contributing area, TWI, GDAL subprocess or external TauDEM engine is called.",
+        "The published binary targets CPython 3.11 and glibc 2.41; the common CPython 3.12 profile needs a separately accepted source build. No binary compatibility is assumed.",
+        "Independent acceptance does not establish model-workflow, receiving-platform, or formal AI Lab approval."
+      ],
+      "source_interface": {
+        "status": "source_revised_unverified",
+        "kind": "earth_collection",
+        "path_fields": [
+          "data_path"
+        ],
+        "pure": false,
+        "network_required": false,
+        "validation": "not_run",
+        "entrypoint": {
+          "callable": "geological_agent.geology.collection_hydro_cpu.adapters:pydem_terrain_derivatives",
+          "argument_parameter": "args",
+          "bound_arguments": {}
+        }
+      },
+      "error_contract": {
+        "direct_exception": "ScientificToolError (ValueError subclass)",
+        "fields": [
+          "code",
+          "message",
+          "retryable"
+        ],
+        "codes": [
+          "invalid_arguments",
+          "invalid_input",
+          "invalid_path",
+          "missing_input",
+          "missing_dependency",
+          "incompatible_dependency",
+          "resource_limit",
+          "output_conflict",
+          "invalid_result",
+          "upstream_failure"
+        ],
+        "retry_policy": "Fix the reported prerequisite or argument; do not blindly retry deterministic failures."
+      },
+      "tags": [
+        "earth-collection",
+        "hydro_models",
+        "hydrology",
+        "cpu",
+        "offline",
+        "bounded",
+        "earth-collection"
+      ],
+      "registration_metadata": {
+        "asset_version": "1.2.1",
+        "provider": "https://github.com/creare-com/pydem",
+        "license": null,
+        "upstream_license": "Apache-2.0",
+        "official_protocol_version": null,
+        "official_protocol": {
+          "applicability": "not_applicable",
+          "name": null,
+          "version": null
+        },
+        "source_commit": null,
+        "runtime": {
+          "python": ">=3.12",
+          "dependency_lock": [
+            "pyDEM==1.2.1",
+            "numpy==2.1.3",
+            "scipy==1.15.3",
+            "rasterio==1.4.3",
+            "geopy==2.4.1",
+            "traitlets==5.14.3",
+            "traittypes==0.2.1",
+            "zarr==2.18.7",
+            "numcodecs==0.15.1",
+            "Cython==3.0.12",
+            "setuptools==80.9.0",
+            "geographiclib==2.1",
+            "asciitree==0.3.3",
+            "fasteners==0.20",
+            "Deprecated==1.2.18",
+            "wrapt==1.17.2"
+          ],
+          "environment_version": "geoagent-earth-collection-20261022",
+          "dependency_scope": "fixed_cpu_worker",
+          "host_professional_install_claimed": false
+        },
+        "metadata_profile": "scientific",
+        "lifecycle": {
+          "registration": "registered_in_independent_candidate",
+          "contract_validation": "not_run",
+          "unit_validation": "not_run",
+          "workflow_validation": "not_run",
+          "platform_validation": "not_run",
+          "release_status": "draft"
+        },
+        "pending_fields": [
+          "receiving_lab_approval",
+          "adapter_license",
+          "dependency_transitive_lock",
+          "upstream_archive_release_correspondence",
+          "redistribution_review",
+          "source_commit",
+          "license"
+        ],
+        "platform_validation": "not_run",
+        "source_url": "https://github.com/creare-com/pydem"
+      }
+    }
+  ],
+  "new_skill": {
+    "id": "earth-collection-hydro-cpu-profiles",
+    "name": "Fixed CPU hydrology and terrain analysis",
+    "description": "Six bounded original hydrology operations using separately pinned CPU dependency profiles.",
+    "tool_references": [
+      "HydroModelsPyFloCurveNumberRunoff",
+      "HydroModelsPySTEPSPrecipitationAdvection",
+      "EarthCatchmodLinearStoreStep",
+      "HydroModelsSuperflexUnitHydrograph",
+      "HydroModelsHydPyFlowScores",
+      "HydroModelsPyDEMTerrainDerivatives"
+    ],
+    "skill_file": "catalog/skills/earth-collection-hydro-cpu-profiles/SKILL.md",
+    "metadata": {
+      "canonical_skill_file": "catalog/skills/earth-collection-hydro-cpu-profiles/SKILL.md",
+      "validation": "not_run"
+    },
+    "delivery": {
+      "source_candidates": [
+        "HydroModelsPyFloCurveNumberRunoff",
+        "HydroModelsPySTEPSPrecipitationAdvection",
+        "EarthCatchmodLinearStoreStep",
+        "HydroModelsSuperflexUnitHydrograph",
+        "HydroModelsHydPyFlowScores",
+        "HydroModelsPyDEMTerrainDerivatives"
+      ],
+      "unavailable_references": [],
+      "availability_status": "tool_candidates_available_workflow_unverified",
+      "workflow_validation": "not_run",
+      "deployment_status": "not_deployed",
+      "submission_status": "not_submitted",
+      "model_workflow_validation": "not_run",
+      "license_status": "pending_confirmation",
+      "receiving_lab_approval": "pending"
+    },
+    "registration_metadata": {
+      "asset_version": "1.0.0",
+      "provider": "GeoAgent",
+      "license": null,
+      "official_protocol_version": null,
+      "pending_fields": [
+        "license",
+        "official_protocol_version",
+        "receiving_lab_approval",
+        "source_commit",
+        "source_url"
+      ],
+      "platform_validation": "not_run",
+      "registration_status": "candidate_pending_acceptance",
+      "deployment_status": "not_deployed",
+      "submission_status": "not_submitted",
+      "receiving_lab_approval": "pending",
+      "source_commit": null,
+      "source_url": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "runtime": {
+        "python": "/data/wangjian/earth-python-coverage101-imports-20261022/venv/bin/python",
+        "dependency_lock": [
+          "pydantic==2.13.5",
+          "langgraph==1.2.12",
+          "jsonschema==4.25.1",
+          "PyYAML==6.0.3"
+        ],
+        "environment_version": "fixed-private-host-and-six-individually-pinned-CPU-workers",
+        "worker_profiles": "geological_agent/geology/native-cpu-profiles.json"
+      },
+      "lifecycle": {
+        "registration": "candidate_pending_acceptance",
+        "contract_validation": "not_run",
+        "unit_validation": "not_run",
+        "workflow_validation": "not_run",
+        "platform_validation": "not_run",
+        "release_status": "draft"
+      }
+    }
+  },
+  "examples": {
+    "HydroModelsPyFloCurveNumberRunoff": {
+      "data_path": "assets/earth-collection/hydro_cpu_profiles/pyflo_curve_number_runoff.json",
+      "curve_number": 80,
+      "area_acres": 1
+    },
+    "HydroModelsPySTEPSPrecipitationAdvection": {
+      "data_path": "assets/earth-collection/hydro_cpu_profiles/pysteps_precipitation_advection.json",
+      "lead_steps": 2
+    },
+    "EarthCatchmodLinearStoreStep": {
+      "data_path": "assets/earth-collection/hydro_cpu_profiles/catchmod_linear_store_step.json",
+      "linear_storage_days": 0.5
+    },
+    "HydroModelsSuperflexUnitHydrograph": {
+      "data_path": "assets/earth-collection/hydro_cpu_profiles/superflex_unit_hydrograph.json",
+      "lag_steps": 2
+    },
+    "HydroModelsHydPyFlowScores": {
+      "data_path": "assets/earth-collection/hydro_cpu_profiles/hydpy_flow_scores.json"
+    },
+    "HydroModelsPyDEMTerrainDerivatives": {
+      "data_path": "assets/earth-collection/hydro_cpu_profiles/pydem_terrain_derivatives.json",
+      "east_spacing_m": 2,
+      "north_spacing_m": 3
+    }
+  },
+  "host_boundary_patch": {
+    "file": "geological_agent/tools.py",
+    "before_sha256": "c20b22a0999961017ed7d1c1b14d77455be0464b4600ce45f6822ddaed61a51f",
+    "after_sha256": "3f9aa6861f5ff01f31e04d342b8549c277e8fd8ccf1e68b1a35226aff445b6ae",
+    "changes": [
+      {
+        "before": "raise ToolFailure(\"invalid_path\", \"Use a workspace-relative path with forward slashes\", retryable=True)",
+        "after": "raise ToolFailure(\"invalid_path\", \"Use a workspace-relative path with forward slashes\", retryable=False)"
+      },
+      {
+        "before": "raise ToolFailure(\"invalid_path\", \"Path escapes the workspace\", retryable=True)",
+        "after": "raise ToolFailure(\"invalid_path\", \"Path escapes the workspace\", retryable=False)"
+      },
+      {
+        "before": "raise ToolFailure(\"invalid_arguments\", str(exc)[:1800], retryable=True) from exc",
+        "after": "raise ToolFailure(\"invalid_arguments\", str(exc)[:1800], retryable=False) from exc"
+      }
+    ],
+    "scope": "Three deterministic argument/path rejection flags only; no other error class remapped."
+  },
+  "runtime_profiles": "geological_agent/geology/native-cpu-profiles.json",
+  "model_workflow": "not_run",
+  "platform_validation": "not_run",
+  "lab_submission": "not_submitted",
+  "deployed": false
+}

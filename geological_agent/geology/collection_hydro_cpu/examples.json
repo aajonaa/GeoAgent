@@ -1,0 +1,27 @@
+{
+  "HydroModelsPyFloCurveNumberRunoff": {
+    "data_path": "assets/earth-collection/hydro_cpu_profiles/pyflo_curve_number_runoff.json",
+    "curve_number": 80,
+    "area_acres": 1
+  },
+  "HydroModelsPySTEPSPrecipitationAdvection": {
+    "data_path": "assets/earth-collection/hydro_cpu_profiles/pysteps_precipitation_advection.json",
+    "lead_steps": 2
+  },
+  "EarthCatchmodLinearStoreStep": {
+    "data_path": "assets/earth-collection/hydro_cpu_profiles/catchmod_linear_store_step.json",
+    "linear_storage_days": 0.5
+  },
+  "HydroModelsSuperflexUnitHydrograph": {
+    "data_path": "assets/earth-collection/hydro_cpu_profiles/superflex_unit_hydrograph.json",
+    "lag_steps": 2
+  },
+  "HydroModelsHydPyFlowScores": {
+    "data_path": "assets/earth-collection/hydro_cpu_profiles/hydpy_flow_scores.json"
+  },
+  "HydroModelsPyDEMTerrainDerivatives": {
+    "data_path": "assets/earth-collection/hydro_cpu_profiles/pydem_terrain_derivatives.json",
+    "east_spacing_m": 2,
+    "north_spacing_m": 3
+  }
+}

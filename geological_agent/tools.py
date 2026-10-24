@@ -70,10 +70,10 @@ class ToolExecutionContext:
     def path(self, relative: str) -> Path:
         candidate = Path(relative)
         if candidate.is_absolute() or not relative or "\\" in relative or ":" in relative:
-            raise ToolFailure("invalid_path", "Use a workspace-relative path with forward slashes", retryable=True)
+            raise ToolFailure("invalid_path", "Use a workspace-relative path with forward slashes", retryable=False)
         target = (self.workspace / candidate).resolve()
         if not target.is_relative_to(self.workspace.resolve()):
-            raise ToolFailure("invalid_path", "Path escapes the workspace", retryable=True)
+            raise ToolFailure("invalid_path", "Path escapes the workspace", retryable=False)
         return target
 
 
@@ -141,7 +141,7 @@ class ToolExecutor:
                 json.dumps(args, allow_nan=False)
                 Draft202012Validator(tool.definition.input_schema).validate(args)
             except (ValueError, TypeError, ValidationError) as exc:
-                raise ToolFailure("invalid_arguments", str(exc)[:1800], retryable=True) from exc
+                raise ToolFailure("invalid_arguments", str(exc)[:1800], retryable=False) from exc
             key = json.dumps([call.name, args], sort_keys=True, allow_nan=False)
             if tool.pure and key in ctx.pure_cache:
                 return replace(ctx.pure_cache[key], call_id=call.id, cached=True)

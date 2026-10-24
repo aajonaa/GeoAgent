@@ -1,0 +1,9 @@
+{
+  "fixture_id": "synthetic_climlab",
+  "synthetic": true,
+  "thickness": [
+    1,
+    10,
+    100
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "call_id": "invalid-unknown_argument",
+  "name": "EarthWflowKinematicWaveReachStep",
+  "status": "error",
+  "data": {},
+  "artifacts": [],
+  "error": {
+    "code": "invalid_arguments",
+    "message": "Additional properties are not allowed ('code' was unexpected)\n\nFailed validating 'additionalProperties' in schema:\n    {'type': 'object',\n     'properties': {'upstream_inflow_m3_s': {'type': 'number',\n                                             'minimum': 0,\n                                             'maximum': 1000000.0},\n                    'previous_outflow_m3_s': {'type': 'number',\n                                              'minimum': 0,\n                                              'maximum': 1000000.0},\n                    'lateral_inflow_m2_s': {'type': 'number',\n                                            'minimum': 0,\n                                            'maximum': 1000.0},\n                    'alpha': {'type': 'number',\n                              'minimum': 1e-08,\n                              'maximum': 100000.0},\n                    'beta': {'type': 'number',\n                             'minimum': 0.2,\n                             'maximum': 1},\n                    'timestep_seconds': {'type': 'number',\n                                         'minimum': 0.001,\n                                         'maximum': 86400},\n                    'reach_length_m': {'type': 'number',\n                                       'minimum': 0.001,\n                                       'maximum': 10000000.0}},\n     'required': ['upstream_inflow_m3_s',\n                  'previous_outflow_m3_s',\n                  'lateral_inflow_m2_s',\n                  'alpha',\n                  'beta',\n                  'timestep_seconds',\n                  'reach_length_m'],\n     'additionalProperties': False}\n\nOn instance:\n    {'upstream_inflow_m3_s': 3,\n     'previous_outflow_m3_s': 3,\n     'lateral_inflow_m2_s': 0,\n     'alpha': 1.5,\n     'beta': 0.6,\n     'timestep_sec",
+    "retryable": true,
+    "outcome_unknown": false
+  },
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "e5d37e09306f87f45ba5c47060c801e4ad3abb6b9029408223c9c8fc1b20b7eb"
+  }
+}

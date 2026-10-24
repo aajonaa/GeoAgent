@@ -1,0 +1,12 @@
+{
+  "fixture_id": "synthetic_oocgcm",
+  "potential_temperature_degC": [
+    0,
+    15
+  ],
+  "salinity_psu": [
+    35,
+    33
+  ],
+  "synthetic": true
+}

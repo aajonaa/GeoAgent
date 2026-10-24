@@ -1,0 +1,8 @@
+{
+  "daily_precipitation_mm": [
+    24,
+    48
+  ],
+  "fixture_id": "synthetic_melodist",
+  "synthetic": true
+}

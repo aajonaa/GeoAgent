@@ -1,0 +1,19 @@
+{
+  "call_id": "invalid-boolean_flow",
+  "name": "EarthWflowKinematicWaveReachStep",
+  "status": "error",
+  "data": {},
+  "artifacts": [],
+  "error": {
+    "code": "invalid_arguments",
+    "message": "True is not of type 'number'\n\nFailed validating 'type' in schema['properties']['upstream_inflow_m3_s']:\n    {'type': 'number', 'minimum': 0, 'maximum': 1000000.0}\n\nOn instance['upstream_inflow_m3_s']:\n    True",
+    "retryable": true,
+    "outcome_unknown": false
+  },
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "1b12a1ba03cf4730a88b8ddfcdd44537a3c8cb9ed2ae3e37624dbabc842755c5"
+  }
+}

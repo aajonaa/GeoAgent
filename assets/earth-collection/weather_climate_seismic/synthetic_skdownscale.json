@@ -1,0 +1,25 @@
+{
+  "fixture_id": "synthetic_skdownscale",
+  "future_model": [
+    -1,
+    0,
+    1.5,
+    4,
+    6
+  ],
+  "historical_model": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "historical_observed": [
+    10,
+    12,
+    14,
+    16,
+    18
+  ],
+  "synthetic": true
+}

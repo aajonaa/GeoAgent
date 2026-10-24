@@ -17,22 +17,25 @@ def skill_id(spec):
     return source_registry.EXISTING_SKILLS.get(spec["id"], spec["id"].replace("-", "_"))
 
 
-def test_all_skills_are_catalogued_without_runtime_extras():
+@pytest.mark.parametrize("web_enabled", ["0", "1"])
+def test_all_skills_are_catalogued_without_runtime_extras(monkeypatch, web_enabled):
+    monkeypatch.setenv("GEOTOOL_WEB_ENABLED", web_enabled)
     registry, loader, _ = build_registry(human_input=True)
     expected = {skill_id(spec) for spec in catalog()["skills"]}
-    assert len(expected) == 34
+    assert len(expected) == 47
     assert {s.id for s in loader.registry.list()} == expected
     assert set(loader.source_statuses) == expected
     library = LibraryCatalog(human_input=True)
     counts = library.summary()["counts"]
-    assert counts["skills"] == counts["catalog_skills"] == 34
-    assert counts["tools"] == counts["registered_tools"] == len(registry.names()) == 128
-    assert counts["professional_tools"] == 116 and counts["runtime_tools"] == 12
+    assert counts["skills"] == counts["catalog_skills"] == 47
+    runtime_count = 10 + (2 if web_enabled == "1" else 0)
+    assert counts["tools"] == counts["registered_tools"] == len(registry.names()) == 220 + runtime_count
+    assert counts["professional_tools"] == 220 and counts["runtime_tools"] == runtime_count
     assert all(row["scope"] != "runtime" for row in library.skills.values())
 
 
 @pytest.mark.parametrize("identifier,tools", [
-    ("geological_table_analysis", ("read_file", "write_file", "execute_python")),
+    ("geological_table_analysis", ("read_file", "write_file", "execute_python", "HydroErrorMetrics", "ScientificCurveFit", "SpatialMoranI")),
     ("image_workflow", ("GeoImageInspect", "GeoImageTransform", "GeoRasterPreview", "GeoImageAnalyze", "read_file")),
 ])
 def test_former_local_skill_metadata_and_tool_links(identifier, tools):
@@ -62,7 +65,7 @@ def test_old_folder_is_not_a_registration_source(monkeypatch):
         raise AssertionError("Runtime must not scan the old skill directory")
     monkeypatch.setattr(SkillLoader, "from_directory", forbidden)
     _, loader, _ = build_registry()
-    assert len(loader.registry.list()) == 34
+    assert len(loader.registry.list()) == 47
 
 
 def test_removed_catalog_entry_is_not_silently_added_back(monkeypatch):
@@ -75,7 +78,7 @@ def test_removed_catalog_entry_is_not_silently_added_back(monkeypatch):
 
 def test_catalog_document_and_dependency_contracts():
     rows = check_assets(catalog(), source_registry.source_tools())
-    assert len(rows) == 34 and all(row["status"] == "passed" for row in rows), rows
+    assert len(rows) == 47 and all(row["status"] == "passed" for row in rows), rows
     root = Path(__file__).resolve().parents[1]
     assert not list((root / "geological_agent/geology/skills").glob("*/SKILL.md"))
 

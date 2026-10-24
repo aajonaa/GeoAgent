@@ -1,0 +1,18 @@
+{
+  "fixture_id": "synthetic_aospy",
+  "pressure_a_pa": [
+    0,
+    0,
+    0
+  ],
+  "sigma_b": [
+    0,
+    0.5,
+    1
+  ],
+  "surface_pressure_pa": [
+    100000,
+    90000
+  ],
+  "synthetic": true
+}

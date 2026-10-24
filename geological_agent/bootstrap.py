@@ -43,7 +43,7 @@ def build_registry(*, human_input=False):
     summary_schema = object_schema({k: text for k in ("id", "name", "description", "when_to_use")}, ["id", "name", "description", "when_to_use"])
     registry.register(Tool(ToolDefinition("skill_find", "Discover concise skill summaries; does not load all instructions or tools.",
         "Find procedures relevant to a geological task; an empty query lists the small local registry.",
-        object_schema({"query": {**text, "description": "Optional keywords for literal matching. No match returns an empty skills array, not unrelated entries. An empty query lists the registry; these entries are not relevance-ranked."}}),
+        object_schema({"query": {**text, "description": "Optional keywords for lexical relevance ranking, English suffix folding and Chinese bigram matching. No match returns an empty skills array, not unrelated entries. An empty query lists the registry; these entries are not relevance-ranked."}}),
         object_schema({"skills": {"type": "array", "items": summary_schema},
                        "unavailable_skills": {"type": "array", "items": summary_schema}}, ["skills", "unavailable_skills"])), find))
     registry.register(Tool(ToolDefinition("skill_load", "Load one skill's instructions and disclose its registered tools on the NEXT model turn.",

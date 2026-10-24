@@ -1,0 +1,1 @@
+{"type": "CPUDispatcher", "nopython_signatures": ["(float64, float64, float64, float64, float64, float64, float64) -> float64"], "original_bytes_SHA_and_AST_including_decorator_retained": true}

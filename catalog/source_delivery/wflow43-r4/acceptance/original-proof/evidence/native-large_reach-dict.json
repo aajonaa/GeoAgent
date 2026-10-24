@@ -1,0 +1,47 @@
+{
+  "call_id": "native-large_reach-dict",
+  "name": "EarthWflowKinematicWaveReachStep",
+  "status": "ok",
+  "data": {
+    "outflow_m3_s": 717.4875131819447,
+    "previous_area_m2": 153.19435314002024,
+    "new_area_m2": 258.49884839452,
+    "previous_storage_m3": 1531943.5314002023,
+    "new_storage_m3": 2584988.4839451998,
+    "upstream_volume_m3": 3600000.0,
+    "lateral_volume_m3": 36000.0,
+    "outflow_volume_m3": 2582955.0474550007,
+    "continuity_residual_m3": -2.3283064365386963e-09,
+    "continuity_tolerance_m3": 0.0005167943531400202,
+    "alpha_units": "m^(2-3*beta) s^beta",
+    "beta_units": "1",
+    "backend": "original Wflow kinematic_wave; original numba nopython CPU JIT retained",
+    "artifacts": [],
+    "provenance": {
+      "upstream_url": "https://github.com/openstreams/wflow",
+      "source_mode": "vendored_source",
+      "installed_versions": {
+        "numba": "0.68.0",
+        "numpy": "2.1.3"
+      },
+      "input_sha256": "b3913fc8280eada22b9a7483c1ea94ef7b4ba905725f39999769fb30f4b4248f",
+      "output_sha256": {},
+      "original_files_sha256": {
+        "vendor/wflow_funcs.py": "48f68878f76e8eefe2249f8e9c0256d39652439a57c9e6703e5795483a994759",
+        "vendor/original_kinematic_wave.py": "8338b81b772b9bd36ec3bcb4c1715006e3afb22ebfcfd9c85019191843336b27",
+        "vendor/LICENSE": "e865c38c80a9f9e66a816f2df0ee0280970ad420fed2346ea3950adcb873c6b2"
+      },
+      "adapter_sha256": "11d5ccca4dabef789d12012d93fd1d52ca6e2d32250ca83eb0a270c805202116",
+      "collection_catalog_binding_accepted": false,
+      "full_legacy_engine_installed": false
+    }
+  },
+  "artifacts": [],
+  "error": null,
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "bd9c58d13a7abcbc0ad4e8f8922bef909a2862bcca563dc0a3efaccbc28890c0"
+  }
+}

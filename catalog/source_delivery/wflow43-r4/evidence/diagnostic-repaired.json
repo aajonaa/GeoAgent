@@ -1,0 +1,8 @@
+{
+  "shared_collection_interface": "/data/wangjian/earth-python-approved-replacements-20261022/wflow43-collection-native-r4/candidate/geological_agent/geology/collection_contracts.py",
+  "real_catalog_interface": "/data/wangjian/earth-python-approved-replacements-20261022/wflow43-collection-native-r4/candidate/legacy/ToolsAgent/ToolsFuns/source_contracts.py",
+  "registry": "/data/wangjian/earth-python-approved-replacements-20261022/wflow43-collection-native-r4/candidate/geological_agent/geology/source_registry.py",
+  "fixed_only_module_location": true,
+  "previous_failure_preserved": true,
+  "current_module_lookup_succeeded": true
+}

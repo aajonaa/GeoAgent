@@ -1,0 +1,487 @@
+{
+  "tools": [
+    {
+      "name": "HydroVICPrecipitationPhase",
+      "project_id": 39,
+      "project": "VIC",
+      "description": "Partition precipitation into liquid rain and snow using the original VIC air-temperature phase kernel. Not a full VIC simulation.",
+      "entrypoint": "adapters.HydroVICPrecipitationPhase",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "air_temperature_c",
+          "precipitation_mm"
+        ],
+        "properties": {
+          "air_temperature_c": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4096,
+            "items": {
+              "type": "number",
+              "minimum": -100,
+              "maximum": 100
+            }
+          },
+          "precipitation_mm": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 4096,
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100000
+            }
+          },
+          "max_snow_temperature_c": {
+            "type": "number",
+            "minimum": -100,
+            "maximum": 100,
+            "default": 1.0
+          },
+          "min_rain_temperature_c": {
+            "type": "number",
+            "minimum": -100,
+            "maximum": 100,
+            "default": -1.0
+          }
+        }
+      },
+      "constraints": [
+        "Arrays must have equal lengths.",
+        "max_snow_temperature_c > min_rain_temperature_c.",
+        "Precipitation is a depth per supplied time step; no rate or temperature conversion."
+      ],
+      "example_arguments": {
+        "air_temperature_c": [
+          -2,
+          -1,
+          0,
+          1,
+          2
+        ],
+        "precipitation_mm": [
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      },
+      "output_fields": {
+        "rain_mm": "array[number]",
+        "snow_mm": "array[number]",
+        "sample_count": "integer"
+      },
+      "units": {
+        "rain_mm": "mm/time_step",
+        "snow_mm": "mm/time_step",
+        "air_temperature_c": "degree_Celsius"
+      },
+      "library": "libvic_phase.so",
+      "symbol": "geo_vic_partition",
+      "precision": "upstream double",
+      "license": "MIT",
+      "generates_artifacts": false,
+      "source_mode": "original_native_kernel",
+      "runtime_install": false,
+      "runtime_compile": false,
+      "network_required": false,
+      "gpu_required": false,
+      "errors": {
+        "invalid_arguments": "Invalid schema, nonfinite values or domain constraints.",
+        "missing_dependency": "Prepared fixed native library is absent.",
+        "integrity_error": "Source, bridge or prepared binary no longer matches the build receipt.",
+        "execution_error": "Native allocation or execution failed."
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "rain_mm",
+          "snow_mm",
+          "sample_count",
+          "units",
+          "provenance"
+        ],
+        "properties": {
+          "rain_mm": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "snow_mm": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "sample_count": {
+            "type": "integer"
+          },
+          "units": {
+            "type": "object"
+          },
+          "provenance": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "name": "SeismicMadagascarFFT",
+      "project_id": 131,
+      "project": "Madagascar",
+      "description": "Analyze a real seismic trace with the unchanged archived Madagascar Kiss FFT C kernel. Full unscaled forward DFT, no padding/window/detrending. Not the whole Madagascar suite.",
+      "entrypoint": "adapters.SeismicMadagascarFFT",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "samples",
+          "sampling_interval_s"
+        ],
+        "properties": {
+          "samples": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 4096,
+            "items": {
+              "type": "number",
+              "minimum": -1000000000000.0,
+              "maximum": 1000000000000.0
+            }
+          },
+          "sampling_interval_s": {
+            "type": "number",
+            "exclusiveMinimum": 1e-09,
+            "maximum": 86400
+          },
+          "amplitude_unit": {
+            "type": "string",
+            "enum": [
+              "arbitrary",
+              "m",
+              "m/s",
+              "Pa"
+            ],
+            "default": "arbitrary"
+          }
+        }
+      },
+      "constraints": [
+        "2 to 4096 finite real samples.",
+        "Original float32 arithmetic is retained; conversion to JSON numbers does not create double-precision results.",
+        "Full signed frequency axis; the even-N Nyquist bin is negative."
+      ],
+      "example_arguments": {
+        "samples": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "sampling_interval_s": 0.01,
+        "amplitude_unit": "m/s"
+      },
+      "output_fields": {
+        "frequency_hz": "array[number]",
+        "real": "array[number]",
+        "imaginary": "array[number]",
+        "amplitude_two_sided": "array[number]",
+        "sample_count": "integer",
+        "normalization": "string"
+      },
+      "units": {
+        "frequency_hz": "Hz",
+        "real": "amplitude_unit",
+        "imaginary": "amplitude_unit",
+        "amplitude_two_sided": "amplitude_unit"
+      },
+      "library": "libmadagascar_fft.so",
+      "symbol": "geo_madagascar_fft",
+      "precision": "upstream default float32",
+      "license": "BSD-3-Clause notices in selected Kiss FFT sources; upstream project COPYING.txt also retained",
+      "generates_artifacts": false,
+      "source_mode": "original_native_kernel",
+      "runtime_install": false,
+      "runtime_compile": false,
+      "network_required": false,
+      "gpu_required": false,
+      "errors": {
+        "invalid_arguments": "Invalid schema, nonfinite values or domain constraints.",
+        "missing_dependency": "Prepared fixed native library is absent.",
+        "integrity_error": "Source, bridge or prepared binary no longer matches the build receipt.",
+        "execution_error": "Native allocation or execution failed."
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "frequency_hz",
+          "real",
+          "imaginary",
+          "amplitude_two_sided",
+          "sample_count",
+          "normalization",
+          "units",
+          "provenance"
+        ],
+        "properties": {
+          "frequency_hz": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "real": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "imaginary": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "amplitude_two_sided": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "sample_count": {
+            "type": "integer"
+          },
+          "normalization": {
+            "type": "string"
+          },
+          "units": {
+            "type": "object"
+          },
+          "provenance": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    {
+      "name": "GeoHPGLDirectionalSemivariogram",
+      "project_id": 86,
+      "project": "HPGL",
+      "description": "Calculate a directional experimental semivariogram from projected 3D samples with original HPGL C++ point-set code. Axis-aligned positive-direction cylinder; not kriging or full HPGL.",
+      "entrypoint": "adapters.GeoHPGLDirectionalSemivariogram",
+      "input_schema": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "x_m",
+          "y_m",
+          "z_m",
+          "values",
+          "lag_separation_m",
+          "lag_width_m",
+          "first_lag_m",
+          "lag_count",
+          "bandwidth_m"
+        ],
+        "properties": {
+          "x_m": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 512,
+            "items": {
+              "type": "number",
+              "minimum": -10000000.0,
+              "maximum": 10000000.0
+            }
+          },
+          "y_m": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 512,
+            "items": {
+              "type": "number",
+              "minimum": -10000000.0,
+              "maximum": 10000000.0
+            }
+          },
+          "z_m": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 512,
+            "items": {
+              "type": "number",
+              "minimum": -10000000.0,
+              "maximum": 10000000.0
+            }
+          },
+          "values": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 512,
+            "items": {
+              "type": "number",
+              "minimum": -1000000000000.0,
+              "maximum": 1000000000000.0
+            }
+          },
+          "axis": {
+            "type": "string",
+            "enum": [
+              "x",
+              "y",
+              "z"
+            ],
+            "default": "x"
+          },
+          "lag_separation_m": {
+            "type": "number",
+            "minimum": 1e-06,
+            "maximum": 10000000.0
+          },
+          "lag_width_m": {
+            "type": "number",
+            "minimum": 1e-06,
+            "maximum": 10000000.0
+          },
+          "first_lag_m": {
+            "type": "number",
+            "minimum": 1e-06,
+            "maximum": 10000000.0
+          },
+          "lag_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64
+          },
+          "bandwidth_m": {
+            "type": "number",
+            "minimum": 1e-06,
+            "maximum": 10000000.0
+          },
+          "value_unit": {
+            "type": "string",
+            "enum": [
+              "arbitrary",
+              "g/t",
+              "ppm",
+              "m"
+            ],
+            "default": "arbitrary"
+          }
+        }
+      },
+      "constraints": [
+        "Coordinates must already be projected metres, not longitude/latitude. No automatic CRS conversion.",
+        "All four input arrays must have equal lengths.",
+        "lag_width_m <= lag_separation_m and first_lag_m > lag_width_m/2.",
+        "Upstream float32 samples/output retained.",
+        "Upstream returns zero both for empty bins and equal-valued sample pairs; zero is not proof that a bin contains observations."
+      ],
+      "example_arguments": {
+        "x_m": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "y_m": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "z_m": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "lag_separation_m": 1,
+        "lag_width_m": 0.5,
+        "first_lag_m": 1,
+        "lag_count": 3,
+        "bandwidth_m": 0.1,
+        "value_unit": "g/t"
+      },
+      "output_fields": {
+        "lag_center_m": "array[number]",
+        "semivariance": "array[number]",
+        "sample_count": "integer",
+        "empty_bin_policy": "string"
+      },
+      "units": {
+        "lag_center_m": "m",
+        "semivariance": "value_unit squared"
+      },
+      "library": "libhpgl_variogram.so",
+      "symbol": "geo_hpgl_variogram",
+      "precision": "upstream float32 samples/output, double accumulation",
+      "license": "HPGL license.txt BSD terms; README separately limits use wording: distribution review required",
+      "distribution_license_review_required": true,
+      "generates_artifacts": false,
+      "source_mode": "original_native_kernel",
+      "runtime_install": false,
+      "runtime_compile": false,
+      "network_required": false,
+      "gpu_required": false,
+      "errors": {
+        "invalid_arguments": "Invalid schema, nonfinite values or domain constraints.",
+        "missing_dependency": "Prepared fixed native library is absent.",
+        "integrity_error": "Source, bridge or prepared binary no longer matches the build receipt.",
+        "execution_error": "Native allocation or execution failed."
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "lag_center_m",
+          "semivariance",
+          "sample_count",
+          "empty_bin_policy",
+          "units",
+          "provenance"
+        ],
+        "properties": {
+          "lag_center_m": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "semivariance": {
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          },
+          "sample_count": {
+            "type": "integer"
+          },
+          "empty_bin_policy": {
+            "type": "string"
+          },
+          "units": {
+            "type": "object"
+          },
+          "provenance": {
+            "type": "object"
+          }
+        }
+      }
+    }
+  ],
+  "scope": "independent candidate; no parent registration changes"
+}

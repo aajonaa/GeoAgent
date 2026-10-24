@@ -1,0 +1,193 @@
+{
+  "complete": true,
+  "scope": "independent_C3_minimal_runtime_specialist_acceptance_only",
+  "status": "29_of_29_passed_frozen",
+  "newly_executed_tests": {
+    "total": 29,
+    "passed": 29,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "unchanged_original_ToolExecutor": 21,
+    "new_error_policy_regressions": 8
+  },
+  "reused87": {
+    "status": "previously_passed_SHA_bound_reused_not_rerun_not_recounted",
+    "scientific": 80,
+    "compiler_exit": 4,
+    "logging": 3
+  },
+  "actual_tool_executor_receipt_calls": 3,
+  "tool_names": [
+    "HydroVICPrecipitationPhase",
+    "SeismicMadagascarFFT",
+    "GeoHPGLDirectionalSemivariogram"
+  ],
+  "runtime_change": {
+    "file": "geological_agent/tools.py",
+    "only_change": "invalid_arguments retryable=True to retryable=False",
+    "before_sha256": "c20b22a0999961017ed7d1c1b14d77455be0464b4600ce45f6822ddaed61a51f",
+    "after_sha256": "14ababddec35a640f6eb54f27b90536c47f5d4e9dc3cb045957634efad5acc33",
+    "patch_sha256": "5a8db6003c2424a9722ccbeec7d8f1703817fb4da524b184bf8c9bc67f8000ed",
+    "transient_error_classifications_unchanged": true
+  },
+  "approved_followup_fixes": [
+    "supplementary pure-JSON check output_dir=None",
+    "receipt pure-JSON check output_dir=None",
+    "collect exact fresh integration-r12-flow.jsonl"
+  ],
+  "assertions_and_science": {
+    "original21_byte_identical": true,
+    "new8_assertion_AST_identical": true,
+    "checker_byte_identical": true,
+    "original_native_sources_and_binaries_unchanged": true,
+    "scientific_algorithms_unit_source_hash_and_exit_code_assertions_unchanged": true
+  },
+  "parent_baseline": {
+    "tools": 208,
+    "skills": 43,
+    "original_projects": 74,
+    "full_regressions": 663,
+    "basis": "last_human_accepted_union_not_rerun_here",
+    "unchanged": true,
+    "do_not_add_specialist_test_counts_to_parent663": true
+  },
+  "specialist_inventory": {
+    "tools": 204,
+    "skills": 43,
+    "base201_definitions_and42_skills_preserved": true,
+    "not_a_parent_inventory_update": true
+  },
+  "merge": {
+    "owner": "Schrodinger_parent_union_only",
+    "globally_registered": false,
+    "parent208_union_full_regression": "pending_owner",
+    "copy_only_contribution_modules_skill_fragments_allowlist_and_minimal_runtime_patch": true,
+    "do_not_replace_parent_manifests_or_entire_specialist_candidate": true,
+    "runtime_patch_precondition": "One matching invalid_arguments ToolFailure raise retryable=True; stop and review if parent differs.",
+    "catalog_tools": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\contribution\\fragments\\catalog-tools-C3.json",
+    "examples": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\contribution\\fragments\\examples-C3.json",
+    "project_operation_allowlist_delta": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\contribution\\fragments\\project-operation-delta.json",
+    "source_root": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\contribution"
+  },
+  "remote_private_scope": "/data/wangjian/earth-python-coverage101-native-c-kernels-20261022/tool-executor-r12-20261023",
+  "known_r8_r9_SSH255_outer1_launcher_gap": "unmodified_pending_separate_human_approval",
+  "HPGL_formal_redistribution": "pending_license_review_internal_merge_only",
+  "weather110_114": "not_started_this_handoff_C3_priority",
+  "GPU_models_production_deploy_Git_push_used": false,
+  "artifacts": {
+    "source_archive": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\C3-minimal-runtime-source-r12.tar.gz",
+      "sha256": "c9818553030ea76a61b7ba9085ef58ee35ed31276e46f0064579650fea4dc113"
+    },
+    "source_receipt": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\SOURCE-RECEIPT-r12.json",
+      "sha256": "db9f1e1a2f7bcac72c2310e5a22d66d79fabc209d40c0d0c34255aa805bed72a"
+    },
+    "contribution_manifest": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\contribution-files-sha256.json",
+      "sha256": "1ef9e4991ea7014deeb4090522e9360a27b48c312742464f4b311c86c2171ee0"
+    },
+    "minimal_runtime_patch": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\contribution\\invalid-arguments-nonretryable.patch",
+      "sha256": "5a8db6003c2424a9722ccbeec7d8f1703817fb4da524b184bf8c9bc67f8000ed"
+    },
+    "reused_build_receipt": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\contribution\\native-c-kernels\\build\\build-receipt.json",
+      "sha256": "6e22c8ceb6efadc9729b7883ceab4822db838ea8b8bca0cd832718acd94b5da5"
+    },
+    "reused87_freeze": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\freeze-r5.json",
+      "sha256": "ca3dd57d2fd8643cc51852fb17ade2aa9e50eb0977f0972e5844102e5f22dd9d"
+    },
+    "reused87_xml": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\freeze-evidence-r5\\acceptance-r5.xml",
+      "sha256": "6ad00d6e29d21728c57c54e45a053720208f5f6c65eda8fe1cdd393b7112b283"
+    },
+    "current29_xml": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\tool-executor-evidence-r12\\integration.xml",
+      "sha256": "0f931c9661f1a91e39b9d127edad9d84d09d11bbd8ceed0d76fac72e2c8076f3"
+    },
+    "current29_log": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\tool-executor-evidence-r12\\integration.log",
+      "sha256": "ddbd022e86a04bd062cfe7cdf66d598f6ebf5d2de1f2c19b38f2897084f19e4f"
+    },
+    "current_flow_journal": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\tool-executor-evidence-r12\\integration-r12-flow.jsonl",
+      "sha256": "de20b626fa37281951fbbeb689cf76478278af41dfe68b92bfa7c931641d005d"
+    },
+    "current_execution_results": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\tool-executor-evidence-r12\\operation-results.json",
+      "sha256": "d290fad4374fcc236995c1448d534597337fcfa02bfc4e3e50dbf79080bb383c"
+    },
+    "current_worker_result": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\tool-executor-evidence-r12\\integration-result.json",
+      "sha256": "1f369470c305c14fdd24675840fbe5a153a6ee6dfd60e4d3613d55ffbbd8b1aa"
+    },
+    "current_worker": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\cpu_accept_worker_r12.py",
+      "sha256": "9c08d1f627051b41746cb5eb4cf26f3e9dd85a9e2ef65d64e85163925617dd9d"
+    },
+    "current_launch_log": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\launch-r12.log",
+      "sha256": "ab31f9040ec1687f8be334614917c711f416d75be7a2a274c800ed1d36af2b2c"
+    },
+    "old_r11_25_of_29_xml": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r11-20261023\\tool-executor-evidence-r11\\integration.xml",
+      "sha256": "2c18b48f1f37a4b15cdab6f4443911a2439c26c4a79b71ee06386045a677e2bc"
+    },
+    "old_r11_25_of_29_log": {
+      "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r11-20261023\\tool-executor-evidence-r11\\integration.log",
+      "sha256": "61b480a995047f688af678ae999d97fbad4a9e5cd77717c3d910df9499969452"
+    }
+  },
+  "contribution_files_sha256": {
+    "caller-path-review.json": "8fc08c4743083d4f8b684b84135fd8ab8837ce4aabe5aed329c0ccd4729b9b1c",
+    "invalid-arguments-nonretryable.patch": "5a8db6003c2424a9722ccbeec7d8f1703817fb4da524b184bf8c9bc67f8000ed",
+    "merge-instructions.json": "f948e63db3e86ceac4193c725fb53e103ffd834eb7e978666087dc5bceee519c",
+    "acceptance/cpu_accept_worker_r12.py": "9c08d1f627051b41746cb5eb4cf26f3e9dd85a9e2ef65d64e85163925617dd9d",
+    "collection_acceptance/native_cpu_checks.py": "a9a96b9c94b7bc2e97ef9a4efbd59503194a624fb96d7e45a91f2608eaabd64d",
+    "collection_acceptance/native_cpu_fixtures.py": "1b1de1f411996c0865995c2bda2fddadf3c89bfb7c9ceca4f05684040f7aa9bb",
+    "fragments/catalog-tools-C3.json": "866ae0e821435ec1ec1afb782824c533cefa4952609b75c9e86ec33864d3aef9",
+    "fragments/examples-C3.json": "1cf2c03e74d16217c57bb71fae77a6baabb0284d8ba174b4eea39c00bdde6c8e",
+    "fragments/project-operation-delta.json": "56506524fb9550126ad27ef842b86a57bf902eff27f831d7ee86af3ebbf6337c",
+    "native-c-kernels/adapters.py": "2920306008082ef769bfda6d290fd7e81597cc5767bbbcdff5d33fae87b65a64",
+    "native-c-kernels/build_accept.py": "a14e7e21caa3f735b160f56df3e79ac0e40d2e12376916324d48aa764c818d92",
+    "native-c-kernels/checks.py": "7800b07a36db71e433fdfa0ca6e86df8cbe4adf5d451479b101c0732387982dd",
+    "native-c-kernels/fixtures.py": "c3014c90871889c57f79d5e86fe5ce3a681afcc199cb673fb9d532b54de303f9",
+    "native-c-kernels/freeze_r5.py": "34fd900d103dcdef689dddcb2703f2096ddfe154f9c465b19fe62a0626f07c16",
+    "native-c-kernels/runner.py": "d941cec37f9cc076094215e7f5d75dc83823d14b5990400f23f3075e4dda1608",
+    "native-c-kernels/source-lock.json": "3c9b5985b75583d6319337af7fbd8a3a30f6568eee892ba6bf61f664e7676818",
+    "native-c-kernels/specs.json": "ae8cbfe3cc02d35538ee923a337bf4eaad5bd1ab80ad7ac2b97724bed12cc949",
+    "native-c-kernels/specs.py": "e1b365e5a899a621377f02bd7c3023d8200ffad31f1d85515c20f9108fdf6e11",
+    "native-c-kernels/test_failure_exit.py": "9bfa43d875403874af3c5428b9d83932c8c18600b90d7659eab6fca381891972",
+    "native-c-kernels/test_native.py": "4ef329a95290c5e3e3c9a7849638fc689b716ce4ad1af24ae6a70723676d7385",
+    "reused-evidence/acceptance-r5.xml": "6ad00d6e29d21728c57c54e45a053720208f5f6c65eda8fe1cdd393b7112b283",
+    "reused-evidence/build-receipt-origin.json": "4428b2ef75556e03f93767cba923295347ce802936b4cb8aa0fa62d7e4e17f00",
+    "reused-evidence/freeze-r5.json": "ca3dd57d2fd8643cc51852fb17ade2aa9e50eb0977f0972e5844102e5f22dd9d",
+    "reused-evidence/HANDOFF-r5.json": "ee05145067f817abbd207b84719defb7c67f2456c49424e9b7b2be105abc72ac",
+    "tests_local/test_native_cpu_error_policy.py": "3e987f6e33c7659db080f22ae841986b1b3a4262fcff144db57f60bc714ded20",
+    "tests_local/test_native_cpu_integration.py": "8a4d9b58de83dd937276413ed13d9db1abaa2b98b83f4473adb997756b20a578",
+    "catalog/skills/native-cpu-scientific-kernels/SKILL.md": "4ca1adb134dd5e5a58617ec22797658f3fa91700ae21d6b88697f0c8398aeb08",
+    "geological_agent/geology/native-cpu-profiles.json": "0ca667440b96475158dfefd749bb1c5bc50a6c550d1d68d1ce5464d516df8046",
+    "geological_agent/geology/native_cpu_bridge.py": "73a9179ac51edc50c41e20fd29f6537d53049302ea7a4db1202196e24fabe115",
+    "geological_agent/geology/native_cpu_kernels.py": "1352936ff833e973add486fe9709de372f62aacc2c18d00c31c93acb671b76ae",
+    "native-c-kernels/build/build-receipt.json": "6e22c8ceb6efadc9729b7883ceab4822db838ea8b8bca0cd832718acd94b5da5",
+    "native-c-kernels/native/hpgl_bridge.cpp": "36829515270663e3edb8d3d9163ad7d60880d6916d335fcf8b509d9f1f065839",
+    "native-c-kernels/native/madagascar_bridge.c": "2081e9b44cad2bdbb5d78cfa569444e5531eff6dcab525534013b922a0a004de",
+    "native-c-kernels/native/vic_bridge.c": "d816b17539f3a8106e2219db973a1975e84ab74d3b8f70a22810a7c66f00ba17",
+    "native-c-kernels/native/vic_run.h": "9b2e4efa122a3806d614fd7ceffe913423c71a7116dd86baa2da449fc33bf825",
+    "native-c-kernels/orchestration/flowing.py": "a732c519278d411c952d7996f49eae656e51e2ed87e81bb1d3cd803652bad244",
+    "native-c-kernels/licenses/HPGL/license.txt": "e13ae61052fbd3cb1e5d6399f18d083a11ccbccb28ef6582f70125286d48eaad",
+    "native-c-kernels/licenses/HPGL/upstream-readme.md": "1f08d63c01555516e5918385d01d1ddf9242a4661c353de2f7e36efb1f0ab1b8",
+    "native-c-kernels/licenses/Madagascar/COPYING.txt": "e5b95564d1fc67c0e95194ab86b827236c50ee69c3b555296e3a3162596ab243",
+    "native-c-kernels/licenses/VIC/LICENSE.txt": "e2665fc8d67a4ee3d9b617e2b7e25919f38f465b44438fbf579681d1e838ad5e",
+    "native-c-kernels/vendor/hpgl/api.h": "02a38dafb6c29add52152cc9c7c87e57c6422f58e272416776b6be53e705b9fb",
+    "native-c-kernels/vendor/hpgl/variograms.cpp": "06e207c4ec83ed0680bc83c5e2cc92b6b157796781a81995eb5e570c910e4c40",
+    "native-c-kernels/vendor/madagascar/kiss_fft.c": "c732c6c0775f26e0b0b90f94e657e362ce8137b82a56253da45d8e5f585b9491",
+    "native-c-kernels/vendor/madagascar/kiss_fft.h": "4476caf3b2758aeddf1de4a4428ea3e8cc73115f57a7dc26d8d9bfc832857a0e",
+    "native-c-kernels/vendor/madagascar/README.kiss_fft": "f5985b192dcd9c5a1da442e92b97744566941270f6e593f019f42a0b96f650b7",
+    "native-c-kernels/vendor/madagascar/_kiss_fft_guts.h": "640ebb7d17be629fdc7c100c8fd429dccb7704631e2059f62fb836fec936f262",
+    "native-c-kernels/vendor/vic/calc_rainonly.c": "661a2ed6e1825af100cdf999a99f9a6108f6c27b5c48086f7243e480ee069728"
+  }
+}

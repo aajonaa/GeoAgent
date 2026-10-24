@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SYNTHETIC: fabricated BOM SOS / WaterML 2.0 observations -->
+<sos:GetObservationResponse xmlns:sos="http://www.opengis.net/sos/2.0" xmlns:w="http://www.opengis.net/waterml/2.0"
+ xmlns:om="http://www.opengis.net/om/2.0" xmlns:xlink="http://www.w3.org/1999/xlink">
+<w:generationDate>2020-01-04T00:00:00Z</w:generationDate><sos:observationData><om:OM_Observation>
+<om:procedure xlink:href="urn:synthetic:procedure" xlink:title="SYNTHETIC procedure"/>
+<om:observedProperty xlink:href="urn:synthetic:discharge" xlink:title="SYNTHETIC discharge"/>
+<om:featureOfInterest xlink:href="urn:synthetic:SYN001" xlink:title="SYNTHETIC station"/>
+<om:result><w:MeasurementTimeseries><w:defaultPointMetadata><w:DefaultTVPMeasurementMetadata>
+<w:uom code="m3/s"/></w:DefaultTVPMeasurementMetadata></w:defaultPointMetadata>
+<w:point><w:MeasurementTVP><w:time>2020-01-01T00:00:00Z</w:time><w:value>4</w:value></w:MeasurementTVP></w:point>
+<w:point><w:MeasurementTVP><w:time>2020-01-02T00:00:00Z</w:time><w:value>8</w:value></w:MeasurementTVP></w:point>
+</w:MeasurementTimeseries></om:result></om:OM_Observation></sos:observationData></sos:GetObservationResponse>

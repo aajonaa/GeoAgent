@@ -1,0 +1,7 @@
+{
+  "pending_receipt_sha256": "2d46baec782262c198480ea51ccea83acf8c4618c53f8203cc6999b84a1a4552",
+  "all_recorded_input_SHA_match": true,
+  "preparation_rerun": false,
+  "paths_or_science_or_pins_rewritten": false,
+  "previous_transport_failures_preserved": true
+}

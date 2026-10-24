@@ -1,0 +1,14 @@
+{
+  "source_record": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\c101-replacements-profile-r1\\profile.json",
+  "source_sha256": "c6bbe9bd745c794917791a94e9fc80d6793146359ab5e1f8202eb0bfb4e1e73e",
+  "interpreter": "/data/wangjian/earth-python-coverage101-imports-20261022/venv/bin/python",
+  "applies_to": [
+    "ScipyGroundwaterFrequencyResponse",
+    "StatsmodelsSeasonalFlowForecast"
+  ],
+  "dependency_gate_only": true,
+  "58_tests_rerun_in_parent_latest": false,
+  "parent_union_accepted": false,
+  "Wflow_NumBa_profile_in_parent_latest_asserted": false,
+  "prior_frozen_replacements_modified": false
+}

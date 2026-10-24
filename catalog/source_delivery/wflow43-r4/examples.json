@@ -1,0 +1,14 @@
+{
+  "EarthWflowKinematicWaveReachStep": {
+    "data_kind": "explicit_synthetic_SI_analytic_test_case_not_observed_catchment_data",
+    "arguments": {
+      "upstream_inflow_m3_s": 2,
+      "previous_outflow_m3_s": 1,
+      "lateral_inflow_m2_s": 0.0005,
+      "alpha": 0.02,
+      "beta": 1,
+      "timestep_seconds": 60,
+      "reach_length_m": 100
+    }
+  }
+}

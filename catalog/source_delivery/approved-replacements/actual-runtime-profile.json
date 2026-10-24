@@ -1,0 +1,83 @@
+{
+  "interpreter": "/data/wangjian/earth-python-coverage101-imports-20261022/venv/bin/python",
+  "packages": {
+    "numpy": {
+      "version": "2.1.3",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "metadata_sha256": "7c07741da49dc3af378a7d22b554a7c3815a0784e6e4adccf6b715a2ece644de"
+    },
+    "scipy": {
+      "version": "1.15.3",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "metadata_sha256": "c75caf32b67a13a9fc16aacf993a8bb883b7a69744ffe77cbbd4f3bfbad28f3d"
+    },
+    "pandas": {
+      "version": "2.3.0",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "metadata_sha256": "17ffe341c4a2d4ba7274c9098e4325d5867b6a2ad1db53f4e30b010ca1134b22"
+    },
+    "statsmodels": {
+      "version": "0.14.5",
+      "root": "/data/wangjian/earth-python-all-20261022-r4/venv/lib/python3.12/site-packages",
+      "metadata_sha256": "5c6abccce59bd06bdf776849502a973a2d44cb435b669af4ca2155f2b862da99"
+    },
+    "patsy": {
+      "version": "1.0.3",
+      "root": "/data/wangjian/tools-intake-20261021-r2/verification-venv/lib/python3.12/site-packages",
+      "metadata_sha256": "c9d8d1a6ebfdadd02c21b9f4d15b1c26716f181c4bb6bcccb1006c9d892da31f"
+    },
+    "packaging": {
+      "version": "26.3",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "metadata_sha256": "70fdb89fc4d4a9a043bf7372b8972bcc883fddff34ab55e9cf80d73875384763"
+    },
+    "typing-extensions": {
+      "version": "4.16.0",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "metadata_sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46"
+    },
+    "pydantic": {
+      "version": "2.13.5",
+      "root": "/data/wangjian/geotoolagent-team-20260930-r1/.venv/lib/python3.12/site-packages",
+      "metadata_sha256": "0685830d13647bd6f3f05526043d32a8b2a221d86b53773053d6c52bb17a9c07"
+    },
+    "langgraph": {
+      "version": "1.2.12",
+      "root": "/data/wangjian/geotoolagent-team-20260930-r1/.venv/lib/python3.12/site-packages",
+      "metadata_sha256": "7e38f76282e75a79000572abf9ed3a4a8c87599788bc65d63d74dc42a6288686"
+    }
+  },
+  "imports": {
+    "scipy.signal": {
+      "path": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages/scipy/signal/__init__.py",
+      "sha256": "b5c605f26dfd4b1561fc950845587c05dba91ccdc6cfc57a689fd8d57a2ba6d8"
+    },
+    "statsmodels.regression.linear_model": {
+      "path": "/data/wangjian/earth-python-all-20261022-r4/venv/lib/python3.12/site-packages/statsmodels/regression/linear_model.py",
+      "sha256": "9d7994924b8e12928c95eaf51cadbf1681f6f17e8f1903f1cfd43bfc3464e6c0"
+    }
+  },
+  "source_files": [
+    {
+      "package": "scipy",
+      "relative": "scipy/signal/_spectral_py.py",
+      "path": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages/scipy/signal/_spectral_py.py",
+      "sha256": "8740482e9f268f84f1ae3eda342dc658dbe247ca0aa714cd04777ebe0a060aa3"
+    },
+    {
+      "package": "statsmodels",
+      "relative": "statsmodels/regression/linear_model.py",
+      "path": "/data/wangjian/earth-python-all-20261022-r4/venv/lib/python3.12/site-packages/statsmodels/regression/linear_model.py",
+      "sha256": "9d7994924b8e12928c95eaf51cadbf1681f6f17e8f1903f1cfd43bfc3464e6c0"
+    },
+    {
+      "package": "statsmodels",
+      "relative": "statsmodels/regression/_prediction.py",
+      "path": "/data/wangjian/earth-python-all-20261022-r4/venv/lib/python3.12/site-packages/statsmodels/regression/_prediction.py",
+      "sha256": "416ec4fead51036cc6319f764dd0aa2d7bbf4f300cd892845268ff51e798e114"
+    }
+  ],
+  "worker_bridge_used": false,
+  "runtime_installs": false,
+  "parent_profile_gate_sha256": "c6bbe9bd745c794917791a94e9fc80d6793146359ab5e1f8202eb0bfb4e1e73e"
+}

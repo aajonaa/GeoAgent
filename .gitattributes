@@ -1,3 +1,26 @@
 .gitattributes text eol=lf
 /scripts/project-board.sh text eol=lf
 /scripts/geoagent-project-board.service text eol=lf
+
+# Scientific source/provenance SHA-256 values bind original bytes, including CRLF.
+/catalog/** -text
+/legacy/** -text
+/geological_agent/geology/** -text
+/geological_agent/bootstrap.py -text
+/geological_agent/skills.py -text
+/geological_agent/tools.py -text
+/native-c-kernels/** -text
+/collection_acceptance/** -text
+/source_asset_checks/** -text
+/tests_local/** -text
+/assets/** -text
+/docs/** -text
+/requirements-*.txt -text
+/collection-*.json -text
+/cw-*.json -text
+/hydro-union.json -text
+/native-cpu-integration-baseline.json -text
+/offline-originals-integration.json -text
+/replacement-union.json -text
+/probe_collection.py -text
+/earth_wave1_fixture_plugin.py -text

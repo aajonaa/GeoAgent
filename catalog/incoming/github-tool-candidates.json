@@ -1,0 +1,2700 @@
+{
+  "inventory_version": "1.0.0",
+  "source_file": "地学Python工具清单.md",
+  "source_note": "候选清单，不代表已审查、已注册或已验收。",
+  "counts": {
+    "candidates": 133
+  },
+  "candidates": [
+    {
+      "source_name": "Geopandas",
+      "source_description": "在 pandas 上扩展几何类型，矢量空间操作表格化",
+      "source_url": "https://github.com/geopandas/geopandas",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Shapely",
+      "source_description": "基于 GEOS/JTS 的平面几何对象操作与分析库",
+      "source_url": "https://github.com/shapely/shapely",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Fiona",
+      "source_description": "读写各类地理数据文件",
+      "source_url": "https://github.com/Toblerity/Fiona",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Rasterio",
+      "source_description": "基于 GDAL/NumPy 的栅格数据库",
+      "source_url": "https://github.com/rasterio/rasterio",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Georasters",
+      "source_description": "提供 GeoRaster 类，栅格处理更直观",
+      "source_url": "https://github.com/ozak/georasters",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "whitebox",
+      "source_description": "WhiteboxTools 的 Python 包，成本距离/重分类等",
+      "source_url": "https://github.com/opengeos/whitebox-python",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PySal",
+      "source_description": "开源跨平台空间分析库",
+      "source_url": "https://github.com/pysal/pysal",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "dd203af4db638ba6e7d0c0449b86ad03c8f0e0a5",
+      "provider": "pysal",
+      "license": "BSD-3-Clause",
+      "asset_version": "26.7",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "SpatialMoranI"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "SpatialMoranI"
+    },
+    {
+      "source_name": "geemap",
+      "source_description": "基于 GEE/ipyleaflet/ipywidgets 的交互式制图",
+      "source_url": "https://github.com/gee-community/geemap",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Awesome Earth Engine",
+      "source_description": "Google Earth Engine 资源清单",
+      "source_url": "https://github.com/opengeos/Awesome-GEE",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "resource_index",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "geonotebook",
+      "source_description": "NASA 开发的 Jupyter 地理空间可视化扩展（已归档）",
+      "source_url": "https://github.com/kitware-data-solutions/geonotebook",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "archived_project",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Verde",
+      "source_description": "空间数据插值到规则网格（gridding）",
+      "source_url": "https://github.com/fatiando/verde",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "d08c03bbe8b72e62ddb5bf950fb3f4f15ce1e2ef",
+      "provider": "fatiando",
+      "license": "BSD-3-Clause",
+      "asset_version": "1.9.0",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "GeoVerdeGrid"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "GeoVerdeGrid"
+    },
+    {
+      "source_name": "PcRaster",
+      "source_description": "时空环境模型开发与部署软件集合",
+      "source_url": "https://github.com/pcraster/pcraster",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyGeoprocessing",
+      "source_description": "常用栅格/矢量/水文 GIS 处理操作",
+      "source_url": "https://github.com/natcap/pygeoprocessing",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Pysheds",
+      "source_description": "简单快速的流域划分工具",
+      "source_url": "https://github.com/pysheds/pysheds",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Lidar",
+      "source_description": "基于 LiDAR 衍生 DEM 的地形与水文分析",
+      "source_url": "https://github.com/opengeos/lidar",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PYWR",
+      "source_description": "空间/网络资源分配模型工具",
+      "source_url": "https://github.com/pywr/pywr",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "salem",
+      "source_description": "为 xarray 增加地理裁剪、掩膜与绘图",
+      "source_url": "https://github.com/fmaussion/salem",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Regionmask",
+      "source_description": "创建空间区域掩膜并绘图",
+      "source_url": "https://github.com/regionmask/regionmask",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "b3ecd6616c03f2b580cf349caf7273dd35f6967e",
+      "provider": "regionmask",
+      "license": "BSD-3-Clause",
+      "asset_version": "0.13.0",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "GeoRegionMask"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "GeoRegionMask"
+    },
+    {
+      "source_name": "xshape",
+      "source_description": "在 xarray 中处理 shapefile/地形/多边形",
+      "source_url": null,
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Collocate",
+      "source_description": "在任意物理维度上对 xarray 轨迹数据配准",
+      "source_url": "https://github.com/cistools/collocate",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "HoloViews",
+      "source_description": "数据分析与可视化无缝衔接",
+      "source_url": "https://github.com/holoviz/holoviews",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "GeoViews",
+      "source_description": "地理/气象/海洋数据集探索可视化",
+      "source_url": "https://github.com/holoviz/geoviews",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Datashader",
+      "source_description": "面向大数据集的图形渲染管线",
+      "source_url": "https://github.com/holoviz/datashader",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Panel",
+      "source_description": "构建交互式 Web 应用与仪表板",
+      "source_url": "https://github.com/holoviz/panel",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "hvPlot",
+      "source_description": "建立在 HoloViews 之上的高层绘图 API",
+      "source_url": "https://github.com/holoviz/hvplot",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "EarthSim",
+      "source_description": "环境模拟处理与可视化（已归档）",
+      "source_url": "https://github.com/holoviz-topics/EarthSim",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "archived_project",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Cartopy",
+      "source_description": "与 Matplotlib 配合的地图数据可视化库",
+      "source_url": "https://github.com/SciTools/cartopy",
+      "source_category": "一、空间分析与制图（Geospatial Analysis and Mapping）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "HyRiver",
+      "source_description": "六个 Python 库组成的流域分析 Web 服务栈（美国）",
+      "source_url": "https://github.com/hyriver/hyriver.github.io",
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Wetterdienst",
+      "source_description": "访问德国气象局（DWD）天气数据",
+      "source_url": "https://github.com/earthobservations/wetterdienst",
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Ulmo",
+      "source_description": "干净简单快速获取公开水文与气候数据",
+      "source_url": "https://github.com/ulmo-dev/ulmo",
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "ERA5-tools",
+      "source_description": "下载查看 ERA5 气候数据、提取时间序列",
+      "source_url": "https://github.com/loicduffar/ERA5-tools",
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "HKVFEWSPY",
+      "source_description": "连接 Delft-FEWS 服务器的 Python 封装",
+      "source_url": "https://github.com/HKV-products-services/hkvfewspy",
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Openradar",
+      "source_description": "荷德比降水雷达校正合成产品（已归档）",
+      "source_url": "https://github.com/nens/openradar",
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "archived_project",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Ecohydrolib",
+      "source_description": "生态水文数据准备流程的库与命令行脚本",
+      "source_url": "https://github.com/selimnairb/EcohydroLib",
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyHIS",
+      "source_description": "查询 CUAHSI-HIS Web 服务",
+      "source_url": null,
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "service_client",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "CAMELS-AUS",
+      "source_description": "便捷加载 CAMELS-AUS 数据集",
+      "source_url": "https://github.com/csiro-hydroinformatics/camels-aus-py",
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "BoM Water",
+      "source_description": "访问澳大利亚气象局 BoM Water SOS 服务",
+      "source_url": "https://github.com/csiro-hydroinformatics/pybomwater",
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Eco-Data Manage Toolkit",
+      "source_description": "水文/湖沼学数据管理工具包",
+      "source_url": null,
+      "source_category": "二、水文：数据获取（Hydrology · Data Collection）",
+      "candidate_type": "python_library",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "VIC",
+      "source_description": "可变下渗能力（VIC）大尺度水文模型",
+      "source_url": "https://github.com/UW-Hydro/VIC",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Xanthos",
+      "source_description": "量化全球水资源可用量的开源水文模型",
+      "source_url": "https://github.com/JGCRI/xanthos",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "HydPy",
+      "source_description": "基于 Python 开发和应用水文模型的框架",
+      "source_url": "https://github.com/hydpy-dev/hydpy",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "RRMPG",
+      "source_description": "降雨径流模型\"试验场\"",
+      "source_url": "https://github.com/kratzert/RRMPG",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "wflow",
+      "source_description": "基于 PCRaster Python 的水文模拟程序（已归档）",
+      "source_url": "https://github.com/openstreams/wflow",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "archived_project",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "NeuralHydrology",
+      "source_description": "面向水文应用的神经网络训练库",
+      "source_url": "https://github.com/neuralhydrology/neuralhydrology",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "HydroFunctions",
+      "source_description": "交互式水文数据处理便捷函数集合",
+      "source_url": "https://github.com/mroberge/hydrofunctions",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "pySTEPS",
+      "source_description": "概率性降水临近预报（短期集合预报）库",
+      "source_url": "https://github.com/pySTEPS/pysteps",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "CMF",
+      "source_description": "Catchment Modelling Framework 水文建模工具箱",
+      "source_url": "https://github.com/philippkraft/cmf",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "TopoFlow",
+      "source_description": "空间水文模型（基于 D8，兼容 BMI；仓库自述过时）",
+      "source_url": "https://github.com/peckhams/topoflow_old",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "WRF-Hydro",
+      "source_description": "WRF-Hydro 建模系统的 Python API",
+      "source_url": "https://github.com/NCAR/wrf_hydro_py",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "pyDEM",
+      "source_description": "地形分析包（坡度/坡向/上游面积/TWI 等）",
+      "source_url": "https://github.com/creare-com/pydem",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "EXP-HYDRO",
+      "source_description": "日尺度流域水文模型（日降水/气温/PET→日径流）",
+      "source_url": "https://github.com/sopanpatil/exp-hydro",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "LHMP",
+      "source_description": "集总式水文模型试验场",
+      "source_url": null,
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "SMARTPy",
+      "source_description": "降雨径流模型 SMART 的 Python 实现",
+      "source_url": null,
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyStream",
+      "source_description": "STREAM 水文降雨径流模型的 Python 实现",
+      "source_url": null,
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Catchmod",
+      "source_description": "英国降雨径流模型 CATCHMOD",
+      "source_url": "https://github.com/pywr/pycatchmod",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyTOPKAPI",
+      "source_description": "TOPKAPI 水文模型的 BSD 许可 Python 库",
+      "source_url": "https://github.com/sahg/PyTOPKAPI",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "mhmpy",
+      "source_description": "中尺度水文模型 mHM 的 Python API",
+      "source_url": "https://github.com/MuellerSeb/mhmpy",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "SuperflexPy",
+      "source_description": "构建概念性水文模型的开源框架",
+      "source_url": "https://github.com/dalmo1991/superflexPy",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "StreamStats",
+      "source_description": "对接 USGS StreamStats API",
+      "source_url": "https://github.com/earthlab/streamstats",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "hidrocomp",
+      "source_description": "水文数据分析 Python 库",
+      "source_url": "https://github.com/clebsonpy/HidroComp",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyFlo",
+      "source_description": "雨水水文水力分析库（管网水力坡降/洪水演算）",
+      "source_url": "https://github.com/benjiyamin/pyflo",
+      "source_category": "三、水文：水文模型（Hydrological Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Flopy",
+      "source_description": "MODFLOW 的 Python 接口",
+      "source_url": "https://github.com/modflowpy/flopy",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "TIMML",
+      "source_description": "多层稳态解析单元模型",
+      "source_url": "https://github.com/mbakker7/timml",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "TTim",
+      "source_description": "多层瞬态解析单元模型",
+      "source_url": "https://github.com/mbakker7/ttim",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Anaflow",
+      "source_description": "地下水流方程解析解",
+      "source_url": "https://github.com/GeoStat-Framework/AnaFlow",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyHELP",
+      "source_description": "用 HELP 模型评估空间分布式地下水补给",
+      "source_url": "https://github.com/cgq-qgc/pyhelp",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "imod-python",
+      "source_description": "面向大规模 MODFLOW 模型构建",
+      "source_url": "https://github.com/Deltares/imod-python",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Idfpy",
+      "source_description": "读写 iMOD IDF 二进制文件",
+      "source_url": "https://github.com/tomvansteijn/idfpy",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "WellApplication",
+      "source_description": "地下水位与水化学分析工具集",
+      "source_url": "https://github.com/inkenbrandt/WellApplication",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyRecharge",
+      "source_description": "空间分布式地下水补给与耗竭建模框架",
+      "source_url": null,
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "WellTestPy",
+      "source_description": "基于井的野外试验处理包",
+      "source_url": "https://github.com/GeoStat-Framework/welltestpy",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "HydroGeoSines",
+      "source_description": "水文地质数据集\"噪声中找信号\"探索软件",
+      "source_url": "https://github.com/HydroGeoSines/HydroGeoSines",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Pytesmo",
+      "source_description": "土壤水分观测评估工具箱",
+      "source_url": "https://github.com/TUW-GEO/pytesmo",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Phydrus",
+      "source_description": "HYDRUS-1D 非饱和带模型的 Python 实现",
+      "source_url": "https://github.com/phydrus/phydrus",
+      "source_category": "四、水文：地下水模拟（Groundwater Modelling）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Pastas",
+      "source_description": "用时间序列模型分析水文时间序列（尤其地下水位）",
+      "source_url": "https://github.com/pastas/pastas",
+      "source_category": "五、水文：时间序列分析（Time Series Analysis）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Hydropy",
+      "source_description": "水文时间序列分析工具（已归档）",
+      "source_url": "https://github.com/stijnvanhoey/hydropy",
+      "source_category": "五、水文：时间序列分析（Time Series Analysis）",
+      "candidate_type": "archived_project",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Hydrostats",
+      "source_description": "水文对比研究工具集",
+      "source_url": "https://github.com/BYU-Hydroinformatics/Hydrostats",
+      "source_category": "五、水文：时间序列分析（Time Series Analysis）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "htimeseries",
+      "source_description": "pandas 之上的 HTimeseries 类",
+      "source_url": "https://github.com/openmeteo/htimeseries",
+      "source_category": "五、水文：时间序列分析（Time Series Analysis）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "efts-python",
+      "source_description": "读写 netCDF 格式集合预报时间序列（EFTS）",
+      "source_url": "https://github.com/csiro-hydroinformatics/efts-python",
+      "source_category": "五、水文：时间序列分析（Time Series Analysis）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "SPOTpy",
+      "source_description": "统计参数优化工具",
+      "source_url": "https://github.com/thouska/spotpy",
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Climate-indices",
+      "source_description": "面向干旱监测的气候指数社区参考实现",
+      "source_url": "https://github.com/monocongo/climate_indices",
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyForecast",
+      "source_description": "统计预测月/季入流与径流",
+      "source_url": "https://github.com/DOI-BOR/PyForecast",
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "LMFIT",
+      "source_description": "基于 scipy.optimize.leastsq 的非线性最小二乘曲线拟合",
+      "source_url": "https://github.com/lmfit/lmfit-py",
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "e270500e3efb4ff9cce91416b3f55678d6271811",
+      "provider": "lmfit",
+      "license": "BSD-3-Clause",
+      "asset_version": "1.3.4",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "ScientificCurveFit"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "ScientificCurveFit"
+    },
+    {
+      "source_name": "PyGLUE",
+      "source_description": "广义似然不确定性估计（GLUE）框架",
+      "source_url": "https://github.com/julienmalard/pyGLUE",
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Pyemu",
+      "source_description": "与模型无关的不确定性分析，对接 PEST(++)",
+      "source_url": "https://github.com/pypest/pyemu",
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "HPGL",
+      "source_description": "高性能地质统计库",
+      "source_url": "https://github.com/hpgl/hpgl",
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "HydroErr",
+      "source_description": "水文对比研究拟合优度指标",
+      "source_url": "https://github.com/BYU-Hydroinformatics/HydroErr",
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "dc4168dbf44e0dadd048591d9c5f45676cc5c9f4",
+      "provider": "BYU-Hydroinformatics",
+      "license": "MIT",
+      "asset_version": "2.0.0",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "HydroErrorMetrics"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "HydroErrorMetrics"
+    },
+    {
+      "source_name": "HydroLM",
+      "source_description": "水文工作者自动化 OLS 线性回归",
+      "source_url": "https://github.com/mullenkamp/HydroLM",
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PySDI",
+      "source_description": "基于栅格计算非参数标准化干旱指数（SDI）",
+      "source_url": null,
+      "source_category": "六、水文：优化、不确定性与统计（Optimization, Uncertainty, Statistics）",
+      "candidate_type": "python_library",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Landlab",
+      "source_description": "搭建数值地貌模型的环境",
+      "source_url": "https://github.com/landlab/landlab",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "IRIS",
+      "source_description": "格式无关、社区驱动的地球科学数据分析与可视化库",
+      "source_url": "https://github.com/SciTools/iris",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyMT",
+      "source_description": "为耦合 BMI 模型提供工具",
+      "source_url": "https://github.com/csdms/pymt",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "ESMPy",
+      "source_description": "地球系统建模框架（ESMF）的 Python 接口",
+      "source_url": "https://github.com/esmf-org/esmf",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyHSPF",
+      "source_description": "Fortran 水文模拟程序 HSPF 的 Python 扩展",
+      "source_url": "https://github.com/djlampert/PyHSPF",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "SPHY",
+      "source_description": "Spatial Processes in HYdrology 模型",
+      "source_url": "https://github.com/FutureWater/SPHY",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "xsboringen",
+      "source_description": "处理并绘制钻孔与 CPT 数据（荷兰开放数据格式）",
+      "source_url": "https://github.com/tomvansteijn/xsboringen",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "EFlowCalc",
+      "source_description": "开源生态径流特征计算器",
+      "source_url": "https://github.com/ThibHlln/eflowcalc",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Hydrointerp",
+      "source_description": "水文数据插值包",
+      "source_url": "https://github.com/mullenkamp/hydrointerp",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "654dd5a38233dec1c13b1c12e088373026807e1d",
+      "provider": "mullenkamp",
+      "license": "MIT",
+      "asset_version": "1.2.13",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "HydroInterpolationGrid"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "HydroInterpolationGrid"
+    },
+    {
+      "source_name": "Shyft",
+      "source_description": "Statkraft 支持的能源市场领域开源工具箱",
+      "source_url": "https://github.com/statkraft/shyft",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Hydroshare",
+      "source_description": "水文科学数据与模型协作平台",
+      "source_url": "https://github.com/hydroshare/hydroshare",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Hydrobox",
+      "source_description": "基于 pandas/numpy 的水文预处理与分析工具箱（已归档）",
+      "source_url": "https://github.com/VForWaTer/hydrobox",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "archived_project",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Wetland",
+      "source_description": "GEE 中高分辨率航空影像绘制地表水与湿地水文动态",
+      "source_url": "https://github.com/giswqs/wetland",
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "iRONS",
+      "source_description": "水库系统模拟、预报与优化",
+      "source_url": null,
+      "source_category": "七、水文：其他（Miscellaneous）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "MetPy",
+      "source_description": "读取、可视化并计算气象数据",
+      "source_url": "https://github.com/Unidata/MetPy",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "7910b5ceb506551606acb6e3c00a5c3f3a4c5a2b",
+      "provider": "Unidata",
+      "license": "BSD-3-Clause",
+      "asset_version": "1.7.1",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "MetPyWindComponents"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "MetPyWindComponents"
+    },
+    {
+      "source_name": "wrf-python",
+      "source_description": "WRF-ARW 模式输出的诊断与插值例程",
+      "source_url": "https://github.com/NCAR/wrf-python",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "rainymotion",
+      "source_description": "基于光流技术的雷达降水临近预报",
+      "source_url": "https://github.com/hydrogo/rainymotion",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "MetSim",
+      "source_description": "气象模拟器与强迫场时间降尺度工具",
+      "source_url": "https://github.com/UW-Hydro/MetSim",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "MELODIST",
+      "source_description": "日尺度气象时间序列分解到小时尺度",
+      "source_url": "https://github.com/kristianfoerster/melodist",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "IMPROVER",
+      "source_description": "气象后处理与检验算法库",
+      "source_url": "https://github.com/metoppv/improver",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "windspharm",
+      "source_description": "基于球谐函数的风场分析库",
+      "source_url": "https://github.com/ajdawson/windspharm",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "scikit-downscale",
+      "source_description": "气候与天气模式统计降尺度与后处理",
+      "source_url": "https://github.com/pangeo-data/scikit-downscale",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PySteps",
+      "source_description": "短期集合预报开源框架（与 pySTEPS 同一项目）",
+      "source_url": "https://github.com/pySTEPS/pysteps",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyEto",
+      "source_description": "计算参考作物蒸散发（ETo/PET）",
+      "source_url": "https://github.com/woodcrafty/PyETo",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "79ddd88d727c7ebdad0ce26e220528d2921b66ea",
+      "provider": "woodcrafty",
+      "license": "MIT",
+      "asset_version": "0.2.0",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "HydroReferenceET0"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "HydroReferenceET0"
+    },
+    {
+      "source_name": "Metview",
+      "source_description": "Metview 气象工作站的 Python 接口",
+      "source_url": "https://github.com/ecmwf/metview-python",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "PyCat",
+      "source_description": "Python 编写的气候分析工具",
+      "source_url": null,
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Evaporation",
+      "source_description": "蒸发与蒸腾计算工具",
+      "source_url": null,
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "no_repository_url",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "JAMS",
+      "source_description": "通用 Python 包（文件读取/儒略日/气象函数等）",
+      "source_url": "https://github.com/mcuntz/jams_python",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Awesome-EarthObservation-Code",
+      "source_description": "对地观测与地理空间工具/教程/代码精选清单",
+      "source_url": "https://github.com/acgeospatial/awesome-earthobservation-code",
+      "source_category": "八、气象（Meteorology）",
+      "candidate_type": "resource_index",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "xgcm",
+      "source_description": "扩展 xarray 理解有限体积网格单元（GCM）",
+      "source_url": "https://github.com/xgcm/xgcm",
+      "source_category": "九、气候（Climatology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "climpred",
+      "source_description": "基于 xarray 的气候预测集合预报模型分析",
+      "source_url": "https://github.com/pangeo-data/climpred",
+      "source_category": "九、气候（Climatology）",
+      "candidate_type": "model_or_framework",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "climlab",
+      "source_description": "面向过程的气候建模 Python 包",
+      "source_url": "https://github.com/climlab/climlab",
+      "source_category": "九、气候（Climatology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "aospy",
+      "source_description": "格点气候数据自动化分析与管理",
+      "source_url": "https://github.com/spencerahill/aospy",
+      "source_category": "九、气候（Climatology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Oocgcm",
+      "source_description": "大型格点地球物理数据集分析库",
+      "source_url": "https://github.com/lesommer/oocgcm",
+      "source_category": "九、气候（Climatology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Pangaea",
+      "source_description": "面向格点陆面与天气模式输出的 xarray 扩展",
+      "source_url": "https://github.com/erdc/pangaea",
+      "source_category": "九、气候（Climatology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "OpenClimateGIS",
+      "source_description": "时空气候数据地理空间处理/子集/计算/转换",
+      "source_url": "https://github.com/NCPP/ocgis",
+      "source_category": "九、气候（Climatology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "pyOWM",
+      "source_description": "OpenWeatherMap Web API 的 Python 客户端",
+      "source_url": "https://github.com/csparpa/pyowm",
+      "source_category": "九、气候（Climatology）",
+      "candidate_type": "service_client",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "ObsPy",
+      "source_description": "读取、写入和处理地震与地震学数据框架",
+      "source_url": "https://github.com/obspy/obspy",
+      "source_category": "十、地震学（Seismology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Pyrocko",
+      "source_description": "地震学工具包（震源机制球/射线追踪等）",
+      "source_url": "https://github.com/pyrocko/pyrocko",
+      "source_category": "十、地震学（Seismology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "rsudp",
+      "source_description": "基于 ObsPy 的 Raspberry Shake 数据连续可视化与回放",
+      "source_url": "https://github.com/raspishake/rsudp",
+      "source_category": "十、地震学（Seismology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Bruges",
+      "source_description": "各种地球物理公式与工具",
+      "source_url": "https://github.com/agilescientific/bruges",
+      "source_category": "十、地震学（Seismology）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "905fe4fee2bd03f4852ecaacd9a004d84ed8441f",
+      "provider": "agilescientific",
+      "license": "Apache-2.0",
+      "asset_version": "0.5.4",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "SeismicReflectivity"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "SeismicReflectivity"
+    },
+    {
+      "source_name": "Madagascar",
+      "source_description": "多维数据处理套件",
+      "source_url": "https://github.com/ahay/src",
+      "source_category": "十、地震学（Seismology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    },
+    {
+      "source_name": "Segyio",
+      "source_description": "处理 SEGY 地震文件的快速库",
+      "source_url": "https://github.com/equinor/segyio",
+      "source_category": "十、地震学（Seismology）",
+      "candidate_type": "python_library",
+      "intake_status": "registered_pending_independent_acceptance",
+      "repository_commit": "ce7bf86e4bee75f3296a5a756fa123e981a04fea",
+      "provider": "equinor",
+      "license": "LGPL-3.0",
+      "asset_version": "1.9.14",
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [
+        "SeismicSegySummary"
+      ],
+      "decision": "direct_intake_first_batch",
+      "registered_tool_id": "SeismicSegySummary"
+    },
+    {
+      "source_name": "SeismicZFP",
+      "source_description": "SEG-Y/ZGY 转换为压缩 SGZ 并快速读取子体",
+      "source_url": "https://github.com/equinor/seismic-zfp",
+      "source_category": "十、地震学（Seismology）",
+      "candidate_type": "python_library",
+      "intake_status": "candidate",
+      "repository_commit": null,
+      "provider": null,
+      "license": null,
+      "asset_version": null,
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      },
+      "existing_skill_candidates": [],
+      "existing_tool_overlap": [],
+      "decision": "pending_review"
+    }
+  ]
+}

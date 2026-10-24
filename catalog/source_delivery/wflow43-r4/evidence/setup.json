@@ -1,0 +1,12 @@
+{
+  "interpreter": "/data/wangjian/earth-python-all-20261022-r4/venv/bin/python",
+  "candidate": "/data/wangjian/earth-python-approved-replacements-20261022/wflow43-collection-native-r4/candidate",
+  "baseline": "/data/wangjian/earth-python-all-20261022-r4/candidate",
+  "fixed_entry": "/data/wangjian/earth-python-approved-replacements-20261022/wflow43-collection-native-r4/fixed_entry_collection.py",
+  "record": "EarthWflowKinematicWaveReachStep",
+  "registration": "real_catalog_and_shared_decorator_and_source_registry",
+  "shared_contracts_modified": false,
+  "parent_latest_or_7op_touched": false,
+  "runtime_installs": false,
+  "all_child_exit_codes_propagated": true
+}

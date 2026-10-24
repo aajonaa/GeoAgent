@@ -1,0 +1,19 @@
+{
+  "call_id": "shared-invalid-zero_dx",
+  "name": "EarthWflowKinematicWaveReachStep",
+  "status": "error",
+  "data": {},
+  "artifacts": [],
+  "error": {
+    "code": "invalid_arguments",
+    "message": "0 is less than the minimum of 0.001\n\nFailed validating 'minimum' in schema['properties']['reach_length_m']:\n    {'type': 'number', 'minimum': 0.001, 'maximum': 10000000.0}\n\nOn instance['reach_length_m']:\n    0",
+    "retryable": true,
+    "outcome_unknown": false
+  },
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "dd6b5aae2a8b4347ba5a32e20480be598ff4a34a30def03257469c9120b07a5a"
+  }
+}

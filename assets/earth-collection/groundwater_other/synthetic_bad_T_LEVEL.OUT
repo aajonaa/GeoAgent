@@ -1,0 +1,6 @@
+SYNTHETIC deliberately invalid HYDRUS fixture
+Time rTop vTop vBot hTop hBot
+[d] [mm/d] [mm/d] [mm/d] [cm] [cm]
+0 1 2 3 4 5
+
+end

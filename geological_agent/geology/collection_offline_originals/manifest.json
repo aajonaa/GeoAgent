@@ -1,0 +1,1253 @@
+{
+  "scope": "Exclusive offline original-source sidecar; no existing source/catalog/service modifications",
+  "complete": false,
+  "projects_reviewed": 7,
+  "proposed_operations": 6,
+  "activated_tools": 0,
+  "operations": [
+    {
+      "project_id": 126,
+      "project_directory_name": "pyowm",
+      "name": "EarthPyOWMBeaufortWind",
+      "function": "pyowm_beaufort_wind",
+      "description": "Classify measured wind speeds using the original PyOWM Beaufort thresholds, offline.",
+      "source_mode": "vendored_source",
+      "package": null,
+      "version": null,
+      "requirements": [],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "wind_speed_m_s": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10000,
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 200,
+              "description": "Measured wind speed, m/s"
+            }
+          }
+        },
+        "required": [
+          "wind_speed_m_s"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "beaufort": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10000,
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 12
+            }
+          },
+          "wind_speed_m_s": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10000,
+            "items": {
+              "type": "number"
+            }
+          },
+          "units": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "beaufort",
+          "wind_speed_m_s",
+          "units"
+        ],
+        "additionalProperties": true
+      },
+      "example_arguments": {
+        "wind_speed_m_s": [
+          0,
+          0.2,
+          0.21,
+          1.5,
+          1.51,
+          5.4,
+          5.41,
+          32.6,
+          32.61
+        ]
+      },
+      "path_fields": [],
+      "produces_files": false,
+      "network_required": false,
+      "validation": "not_run",
+      "activation": "parent_integration_and_contract_acceptance_pending",
+      "tags": [
+        "earth-collection",
+        "offline-originals"
+      ],
+      "limitations": [
+        "Bounded original-source operation, not full upstream application compatibility."
+      ],
+      "upstream_url": "https://github.com/csparpa/pyowm",
+      "source_commit": "01efe4418edbd0a1a62f906037d10780b03712bb",
+      "vendor_files": [
+        {
+          "project_id": 126,
+          "file": "vendor/pyowm_kernel.py",
+          "sha256": "5b4568b703c4ddac71a1cc933837f0685653720eb8700361fc67ae63da5366a2",
+          "excerpts": [
+            {
+              "name": "metric_wind_dict_to_beaufort",
+              "line_start": 147,
+              "line_end": 192,
+              "normalized_source_sha256": "78db02218f7213f7ccd417b02dd860d10156f062e048aed0393bef464fa49658"
+            }
+          ]
+        }
+      ],
+      "license_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/pyowm/LICENSE",
+          "file": "originals/126/LICENSE-0.txt",
+          "sha256": "1d8d48ae726f9ec3284b8703688c6960b49c69484ce221a05c7d49f2222850fa"
+        }
+      ],
+      "original_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/pyowm/pyowm/utils/measurables.py",
+          "file": "originals/126/measurables.py",
+          "sha256": "c001fcc5d4aa301e47e1a7489417f517538ec88e69ae51c5c41d54246c24cdad"
+        }
+      ]
+    },
+    {
+      "project_id": 26,
+      "project_directory_name": "EarthSim",
+      "name": "EarthSimRasterCrossSection",
+      "function": "earthsim_raster_cross_section",
+      "description": "Extract an offline projected-raster profile along a line using EarthSim's original path-interpolation kernel.",
+      "source_mode": "vendored_source",
+      "package": null,
+      "version": null,
+      "requirements": [
+        "numpy==2.1.3",
+        "rasterio==1.4.3",
+        "shapely==2.1.2"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "raster_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "description": "Local single-band metre-projected GeoTIFF"
+          },
+          "line_coordinates_m": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 4096,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number",
+                "minimum": -1000000000000.0,
+                "maximum": 1000000000000.0,
+                "description": "Coordinate in declared CRS units"
+              }
+            }
+          },
+          "resolution_m": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 100000000.0,
+            "description": "Upstream sample-count resolution in metres"
+          },
+          "value_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "description": "Native raster measurement unit"
+          }
+        },
+        "required": [
+          "raster_path",
+          "line_coordinates_m",
+          "resolution_m",
+          "value_unit"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "x": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10000,
+            "items": {
+              "type": "number"
+            }
+          },
+          "y": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10000,
+            "items": {
+              "type": "number"
+            }
+          },
+          "distance": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10000,
+            "items": {
+              "type": "number"
+            }
+          },
+          "values": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10000,
+            "items": {
+              "type": "number"
+            }
+          },
+          "units": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "x",
+          "y",
+          "distance",
+          "values",
+          "units"
+        ],
+        "additionalProperties": true
+      },
+      "example_arguments": {
+        "raster_path": "assets/offline-originals/projected.tif",
+        "line_coordinates_m": [
+          [
+            0.5,
+            4.5
+          ],
+          [
+            4.5,
+            0.5
+          ]
+        ],
+        "resolution_m": 1.4,
+        "value_unit": "m"
+      },
+      "path_fields": [
+        "raster_path"
+      ],
+      "produces_files": false,
+      "network_required": false,
+      "validation": "not_run",
+      "activation": "parent_integration_and_contract_acceptance_pending",
+      "tags": [
+        "earth-collection",
+        "offline-originals"
+      ],
+      "limitations": [
+        "Bounded original-source operation, not full upstream application compatibility.",
+        "Uses original inclusive endpoint linspace and int(length/resolution) sample count, not a promised constant step."
+      ],
+      "upstream_url": "https://github.com/holoviz-topics/EarthSim",
+      "source_commit": "4920eee03e57e215cf102afbe185bb9a8438cfb8",
+      "vendor_files": [
+        {
+          "project_id": 26,
+          "file": "vendor/earthsim_kernel.py",
+          "sha256": "21065ad095c0a934092c077efd12de628cd472f18d8de6df27b1788fde467938",
+          "excerpts": [
+            {
+              "name": "_gen_samples",
+              "line_start": 53,
+              "line_end": 66,
+              "normalized_source_sha256": "57fc0952d98e8bb1326f5382fc2a8ae1c444998d488a9fe99ce8543f38ffaf55"
+            }
+          ]
+        }
+      ],
+      "license_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/EarthSim/LICENSE",
+          "file": "originals/26/LICENSE-0.txt",
+          "sha256": "f05e2f45020b6bc04edc8549966479ec0c84c3dc8bb24432b8e46b965aa4bf4b"
+        }
+      ],
+      "original_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/EarthSim/earthsim/analysis.py",
+          "file": "originals/26/analysis.py",
+          "sha256": "089e2790ada3ad9e1d2fa846963ed0275ffe387f198b597edf5fb24173744ba2"
+        }
+      ]
+    },
+    {
+      "project_id": 31,
+      "project_directory_name": "ERA5-tools",
+      "name": "EarthERA5LocalMonthlyClimate",
+      "function": "era5_local_monthly_climate",
+      "description": "Compute original ERA5-tools monthly climatological means and nearest-node time series from a local NetCDF3 source.",
+      "source_mode": "vendored_source",
+      "package": null,
+      "version": null,
+      "requirements": [
+        "numpy==2.1.3",
+        "xarray==2026.9.0",
+        "pandas==2.3.0",
+        "scipy==1.15.3"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "netcdf_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "description": "Local bounded monthly NetCDF3 file"
+          },
+          "variable": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "description": "Native monthly variable name"
+          },
+          "longitude": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 360,
+            "description": "Requested longitude, degrees_east"
+          },
+          "latitude": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90,
+            "description": "Requested latitude, degrees_north"
+          },
+          "value_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "description": "Exact native NetCDF variable unit"
+          }
+        },
+        "required": [
+          "netcdf_path",
+          "variable",
+          "longitude",
+          "latitude",
+          "value_unit"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "months": {
+            "type": "array",
+            "minItems": 12,
+            "maxItems": 12,
+            "items": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 12
+            }
+          },
+          "monthly_mean": {
+            "type": "array"
+          },
+          "point_series": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 10000,
+            "items": {
+              "type": "number"
+            }
+          },
+          "units": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "months",
+          "monthly_mean",
+          "point_series",
+          "units"
+        ],
+        "additionalProperties": true
+      },
+      "example_arguments": {
+        "netcdf_path": "assets/offline-originals/monthly.nc",
+        "variable": "t2m",
+        "longitude": 116.4,
+        "latitude": 39.9,
+        "value_unit": "K"
+      },
+      "path_fields": [
+        "netcdf_path"
+      ],
+      "produces_files": false,
+      "network_required": false,
+      "validation": "not_run",
+      "activation": "parent_integration_and_contract_acceptance_pending",
+      "tags": [
+        "earth-collection",
+        "offline-originals"
+      ],
+      "limitations": [
+        "Bounded original-source operation, not full upstream application compatibility.",
+        "Preserves original nearest-node tolerance 0.051 degrees; inputs must already be monthly values with native units.",
+        "Does not invoke CDS, download data, convert accumulated fluxes, annualize values or claim full notebook execution."
+      ],
+      "upstream_url": "https://github.com/loicduffar/ERA5-tools",
+      "source_commit": "6694fcbb291ff5aac4fa139bed8932cc4cd3bb8a",
+      "vendor_files": [
+        {
+          "project_id": 31,
+          "file": "vendor/era5_kernel.py",
+          "sha256": "4ccfb69041ce2eb3304647957b569c3ec77eadeb576039d1bd862ca54a44bca2",
+          "excerpts": [
+            {
+              "name": "ds_by_month =",
+              "cell": 8,
+              "line_start": 67,
+              "line_end": 67,
+              "normalized_source_sha256": "0f06bd9e3e461be25a33d96169aecd44041a2a9cc06fadafaaaf1816ba2aceff"
+            },
+            {
+              "name": "time_serie =",
+              "cell": 10,
+              "line_start": 18,
+              "line_end": 18,
+              "normalized_source_sha256": "83a996e7cbcca41379c9f8e371360e8c691d814f00037bb07361feabecc80b40"
+            }
+          ]
+        }
+      ],
+      "license_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/02_\u6c34\u6587-\u6570\u636e\u83b7\u53d6/ERA5-tools/LICENSE",
+          "file": "originals/31/LICENSE-0.txt",
+          "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+        }
+      ],
+      "original_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/02_\u6c34\u6587-\u6570\u636e\u83b7\u53d6/ERA5-tools/ERA5-Land MONTHLY - Download, Mapping and Time serie extraction.ipynb",
+          "file": "originals/31/ERA5-Land MONTHLY - Download, Mapping and Time serie extraction.ipynb",
+          "sha256": "3b89178c1e217a9a601ef8fe88f2025c6fd3dbdc7d42f5b6c968a300985d374b"
+        }
+      ]
+    },
+    {
+      "project_id": 124,
+      "project_directory_name": "pangaea",
+      "name": "EarthPangaeaGeographicGrid",
+      "function": "pangaea_geographic_grid",
+      "description": "Normalize geographic land-model array row alignment and longitude using the original Pangaea grid accessor kernels.",
+      "source_mode": "vendored_source",
+      "package": null,
+      "version": null,
+      "requirements": [
+        "numpy==2.1.3",
+        "xarray==2026.9.0",
+        "pandas==2.3.0",
+        "scipy==1.15.3"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "netcdf_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "description": "Local NetCDF3 file with lat(y),lon(x) and a two-dimensional y,x variable"
+          },
+          "variable": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 64,
+            "description": "Original y,x data variable"
+          },
+          "wrap_longitude": {
+            "type": "boolean",
+            "description": "Apply original longitude conversion to [-180,180)"
+          },
+          "value_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "description": "Exact native variable unit"
+          }
+        },
+        "required": [
+          "netcdf_path",
+          "variable",
+          "wrap_longitude",
+          "value_unit"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "longitude": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "rows_reversed": {
+            "type": "boolean"
+          },
+          "units": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "latitude",
+          "longitude",
+          "values",
+          "rows_reversed",
+          "units"
+        ],
+        "additionalProperties": true
+      },
+      "example_arguments": {
+        "netcdf_path": "assets/offline-originals/land-grid.nc",
+        "variable": "height",
+        "wrap_longitude": true,
+        "value_unit": "m"
+      },
+      "path_fields": [
+        "netcdf_path"
+      ],
+      "produces_files": false,
+      "network_required": false,
+      "validation": "not_run",
+      "activation": "parent_integration_and_contract_acceptance_pending",
+      "tags": [
+        "earth-collection",
+        "offline-originals"
+      ],
+      "limitations": [
+        "Bounded original-source operation, not full upstream application compatibility.",
+        "Two-dimensional geographic grids only; no WRF, GDAL, reprojection or 4D accessor compatibility is claimed."
+      ],
+      "upstream_url": "https://github.com/erdc/pangaea",
+      "source_commit": "a304e9a489cfc0bc1c74e7cb50c3335a4f3d596f",
+      "vendor_files": [
+        {
+          "project_id": 124,
+          "file": "vendor/pangaea_kernel.py",
+          "sha256": "96d297045313929812501b2575d6ef983b8acf8f126f9abd25a6fa67df930296",
+          "excerpts": [
+            {
+              "name": "__init__",
+              "line_start": 49,
+              "line_end": 69,
+              "normalized_source_sha256": "b791006fa612fea0aaf12817f1028c5e92b5be5806a4fb3e7af094ab9ff02079"
+            },
+            {
+              "name": "y_inverted",
+              "line_start": 91,
+              "line_end": 102,
+              "normalized_source_sha256": "5252d1ba3727e0fb11727822f42aa4b31c78ce445aeeff7976923af9de22f587"
+            },
+            {
+              "name": "_raw_coords",
+              "line_start": 251,
+              "line_end": 270,
+              "normalized_source_sha256": "d0c144b419f3b87ac427835abfbfa8e3d53fd72dc2c8ed20ca9ebffa431a5c34"
+            },
+            {
+              "name": "latlon",
+              "line_start": 272,
+              "line_end": 300,
+              "normalized_source_sha256": "1998396cb2737848db00906928aa3cf3a7b8ab47891c99889f9d4f5a3d9953eb"
+            },
+            {
+              "name": "center",
+              "line_start": 319,
+              "line_end": 327,
+              "normalized_source_sha256": "890cd8324b0a0395483d57fed6b4ce1697c1cc65202f8ead36e5efaa6bbc850b"
+            },
+            {
+              "name": "_getvar",
+              "line_start": 380,
+              "line_end": 409,
+              "normalized_source_sha256": "582283ce519c0c13a9d92956a7b6328b7d7054dc8d3356db5c49e343b2232741"
+            }
+          ]
+        }
+      ],
+      "license_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/pangaea/LICENSE",
+          "file": "originals/124/LICENSE-0.txt",
+          "sha256": "0e741bd41cc3e003fcc72681a9e448026ae7bb7ccdc199a35297b16869805c0c"
+        }
+      ],
+      "original_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/pangaea/pangaea/xlsm.py",
+          "file": "originals/124/xlsm.py",
+          "sha256": "8e2eddbd4b0746f46c81a7e14ff6b629df3f67e3f4a2b1a53bc0cd2f5ced6f26"
+        }
+      ]
+    },
+    {
+      "project_id": 10,
+      "project_directory_name": "geonotebook",
+      "name": "EarthGeoNotebookPolygonSubset",
+      "function": "geonotebook_polygon_subset",
+      "description": "Apply GeoNotebook's original all-touched polygon raster mask to a bounded WGS84 single-band raster.",
+      "source_mode": "vendored_source",
+      "package": null,
+      "version": null,
+      "requirements": [
+        "numpy==2.1.3",
+        "rasterio==1.4.3",
+        "shapely==2.1.2"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "raster_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "description": "Local unrotated north-up single-band WGS84 GeoTIFF with explicit nodata"
+          },
+          "polygon_ring": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4096,
+            "items": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "number",
+                "minimum": -1000000000000.0,
+                "maximum": 1000000000000.0,
+                "description": "Coordinate in declared CRS units"
+              }
+            }
+          },
+          "value_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "description": "Native measurement unit"
+          }
+        },
+        "required": [
+          "raster_path",
+          "polygon_ring",
+          "value_unit"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "number",
+                  "null"
+                ]
+              }
+            }
+          },
+          "valid_cells": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "mean": {
+            "type": "number"
+          },
+          "minimum": {
+            "type": "number"
+          },
+          "maximum": {
+            "type": "number"
+          },
+          "units": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "values",
+          "valid_cells",
+          "mean",
+          "minimum",
+          "maximum",
+          "units"
+        ],
+        "additionalProperties": true
+      },
+      "example_arguments": {
+        "raster_path": "assets/offline-originals/geographic.tif",
+        "polygon_ring": [
+          [
+            1,
+            4
+          ],
+          [
+            4,
+            4
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            4
+          ]
+        ],
+        "value_unit": "m"
+      },
+      "path_fields": [
+        "raster_path"
+      ],
+      "produces_files": false,
+      "network_required": false,
+      "validation": "not_run",
+      "activation": "parent_integration_and_contract_acceptance_pending",
+      "tags": [
+        "earth-collection",
+        "offline-originals"
+      ],
+      "limitations": [
+        "Bounded original-source operation, not full upstream application compatibility.",
+        "One fully contained exterior ring, no holes, multiband or out-of-bounds behavior; no Jupyter/server stack is imported."
+      ],
+      "upstream_url": "https://github.com/kitware-data-solutions/geonotebook",
+      "source_commit": "a20a86909677ab02dc3e59c302f056ecb906b0e4",
+      "vendor_files": [
+        {
+          "project_id": 10,
+          "file": "vendor/geonotebook_kernel.py",
+          "sha256": "1c7e951c08f0910c123622e6e5d19598488957742d623b35294a6e4277f18cc3",
+          "excerpts": [
+            {
+              "name": "transform_coordinates",
+              "line_start": 18,
+              "line_end": 19,
+              "normalized_source_sha256": "a2fd4f0b143608b086d6b9aadc75c01ea0d1e5c57321a5f10857f76ca4a814f5"
+            },
+            {
+              "name": "get_data_window",
+              "line_start": 51,
+              "line_end": 58,
+              "normalized_source_sha256": "19d2a5f6e112766abf40dd06a2d08dd1f132366c45210061069575a427aa7f09"
+            },
+            {
+              "name": "subset",
+              "line_start": 94,
+              "line_end": 159,
+              "normalized_source_sha256": "0e509f2808e5e32a184d742b6ce1adf4c39e6b301ceeb153a059f99e192b801f"
+            }
+          ]
+        }
+      ],
+      "license_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/geonotebook/LICENSE",
+          "file": "originals/10/LICENSE-0.txt",
+          "sha256": "eb3d7b5485466acbd81f2b496f595ab637d2792e268206b27d99e793bdb67549"
+        }
+      ],
+      "original_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/geonotebook/geonotebook/annotations.py",
+          "file": "originals/10/annotations.py",
+          "sha256": "a8e3f1eed8391ef9ab5122e5166e389063978c7e9f9d780e3ebd4a7989058f54"
+        },
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/geonotebook/geonotebook/utils.py",
+          "file": "originals/10/utils.py",
+          "sha256": "4f964d814009784fca5ebb8a0620b50ba0a24dcc89dbf7b5fa14fcf728dd9f0d"
+        }
+      ]
+    },
+    {
+      "project_id": 100,
+      "project_directory_name": "hydroshare",
+      "name": "EarthHydroShareRasterBandRanges",
+      "function": "hydroshare_raster_band_ranges",
+      "description": "Compute native raster-band min/max using HydroShare's original statistics extractor in an isolated CPU subprocess.",
+      "source_mode": "vendored_source",
+      "package": null,
+      "version": null,
+      "requirements": [
+        "numpy==2.1.3",
+        "rasterio==1.4.3"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "raster_path": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256,
+            "description": "Local GeoTIFF with native band units"
+          },
+          "value_unit": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 32,
+            "description": "Exact native band unit"
+          }
+        },
+        "required": [
+          "raster_path",
+          "value_unit"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "bands": {
+            "type": "object",
+            "minProperties": 1
+          },
+          "units": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "bands",
+          "units"
+        ],
+        "additionalProperties": true
+      },
+      "example_arguments": {
+        "raster_path": "assets/offline-originals/projected.tif",
+        "value_unit": "m"
+      },
+      "path_fields": [
+        "raster_path"
+      ],
+      "produces_files": false,
+      "network_required": false,
+      "validation": "not_run",
+      "activation": "pending_exact_native_GDAL_profile_and_parent_acceptance",
+      "tags": [
+        "earth-collection",
+        "offline-originals"
+      ],
+      "limitations": [
+        "Bounded original-source operation, not full upstream application compatibility.",
+        "Activation blocked until parent pins and validates an exact native GDAL profile; no full Django/HydroShare deployment is claimed.",
+        "Upstream changes cwd and can request GDAL statistics, so it runs only in a subprocess on a temporary input copy."
+      ],
+      "upstream_url": "https://github.com/hydroshare/hydroshare",
+      "source_commit": "bfec0e08ccb74561c813353f585c485d9e1f6a5d",
+      "vendor_files": [
+        {
+          "project_id": 100,
+          "file": "vendor/hydroshare_kernel.py",
+          "sha256": "274521a5748c3b00fb9e6a5cbf9876281913775bd9d02bca7ac61427d045ec40",
+          "excerpts": [
+            {
+              "name": "get_band_info",
+              "line_start": 280,
+              "line_end": 332,
+              "normalized_source_sha256": "e3118d027bc30ab7f9fa636c35b29b4ed94673dcd718d5eab252eea86ff717fd"
+            }
+          ]
+        }
+      ],
+      "license_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/07_\u6c34\u6587-\u5176\u4ed6/hydroshare/LICENSE.txt",
+          "file": "originals/100/LICENSE-0.txt",
+          "sha256": "004a0f0da9da3e5e937a87b8fb5711362d99d21a4485086e1d991d1cfa1d613d"
+        }
+      ],
+      "original_files": [
+        {
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/07_\u6c34\u6587-\u5176\u4ed6/hydroshare/hs_file_types/raster_meta_extract.py",
+          "file": "originals/100/raster_meta_extract.py",
+          "sha256": "991f6d7a1a126e12903faf1c31d8ac862a943faf7b8b8d085b357292e30fe112"
+        }
+      ]
+    }
+  ],
+  "blocked": [
+    {
+      "project_id": 84,
+      "name": "pyGLUE",
+      "status": "original_framework_only_not_registered",
+      "new_tool_count": 0,
+      "source": {
+        "project_id": 84,
+        "name": "PyGLUE",
+        "upstream_url": "https://github.com/julienmalard/pyGLUE",
+        "source_commit": "32a64c4a960c35e868f3f520bcbd4a7c7b7d36eb",
+        "sources": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/pyGLUE/pyGLUE/GLUEmp.py",
+            "file": "originals/84/GLUEmp.py",
+            "sha256": "41def1c8c933faeb60147a1c9e4637245e0fa70ebb6512bd49d11d10788b1c4c"
+          }
+        ],
+        "licenses": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/pyGLUE/LICENSE",
+            "file": "originals/84/LICENSE-0.txt",
+            "sha256": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad"
+          }
+        ]
+      },
+      "evidence": {
+        "file": "pyGLUE/GLUEmp.py",
+        "symbols": [
+          "GLUEEvaluator.evaluate",
+          "GLUEEvaluator.run_and_evaluate",
+          "GLUEFramework.run_GLUE"
+        ],
+        "reason": "Original source provides arbitrary external model/rule callbacks and Python-2 iteritems/pickling framework, not a self-contained domain objective or likelihood. Exposing callbacks, pickles, metadata, or a newly invented likelihood would not be a bounded original scientific operation."
+      },
+      "next_action": "Requires separately authorized and evidenced model/likelihood integration or maintained alternative; no substitute is silently counted as pyGLUE."
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "project_id": 10,
+        "name": "geonotebook",
+        "upstream_url": "https://github.com/kitware-data-solutions/geonotebook",
+        "source_commit": "a20a86909677ab02dc3e59c302f056ecb906b0e4",
+        "sources": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/geonotebook/geonotebook/annotations.py",
+            "file": "originals/10/annotations.py",
+            "sha256": "a8e3f1eed8391ef9ab5122e5166e389063978c7e9f9d780e3ebd4a7989058f54"
+          },
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/geonotebook/geonotebook/utils.py",
+            "file": "originals/10/utils.py",
+            "sha256": "4f964d814009784fca5ebb8a0620b50ba0a24dcc89dbf7b5fa14fcf728dd9f0d"
+          }
+        ],
+        "licenses": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/geonotebook/LICENSE",
+            "file": "originals/10/LICENSE-0.txt",
+            "sha256": "eb3d7b5485466acbd81f2b496f595ab637d2792e268206b27d99e793bdb67549"
+          }
+        ]
+      },
+      {
+        "project_id": 26,
+        "name": "EarthSim",
+        "upstream_url": "https://github.com/holoviz-topics/EarthSim",
+        "source_commit": "4920eee03e57e215cf102afbe185bb9a8438cfb8",
+        "sources": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/EarthSim/earthsim/analysis.py",
+            "file": "originals/26/analysis.py",
+            "sha256": "089e2790ada3ad9e1d2fa846963ed0275ffe387f198b597edf5fb24173744ba2"
+          }
+        ],
+        "licenses": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/01_\u7a7a\u95f4\u5206\u6790\u4e0e\u5236\u56fe/EarthSim/LICENSE",
+            "file": "originals/26/LICENSE-0.txt",
+            "sha256": "f05e2f45020b6bc04edc8549966479ec0c84c3dc8bb24432b8e46b965aa4bf4b"
+          }
+        ]
+      },
+      {
+        "project_id": 31,
+        "name": "ERA5-tools",
+        "upstream_url": "https://github.com/loicduffar/ERA5-tools",
+        "source_commit": "6694fcbb291ff5aac4fa139bed8932cc4cd3bb8a",
+        "sources": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/02_\u6c34\u6587-\u6570\u636e\u83b7\u53d6/ERA5-tools/ERA5-Land MONTHLY - Download, Mapping and Time serie extraction.ipynb",
+            "file": "originals/31/ERA5-Land MONTHLY - Download, Mapping and Time serie extraction.ipynb",
+            "sha256": "3b89178c1e217a9a601ef8fe88f2025c6fd3dbdc7d42f5b6c968a300985d374b"
+          }
+        ],
+        "licenses": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/02_\u6c34\u6587-\u6570\u636e\u83b7\u53d6/ERA5-tools/LICENSE",
+            "file": "originals/31/LICENSE-0.txt",
+            "sha256": "230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809"
+          }
+        ]
+      },
+      {
+        "project_id": 84,
+        "name": "PyGLUE",
+        "upstream_url": "https://github.com/julienmalard/pyGLUE",
+        "source_commit": "32a64c4a960c35e868f3f520bcbd4a7c7b7d36eb",
+        "sources": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/pyGLUE/pyGLUE/GLUEmp.py",
+            "file": "originals/84/GLUEmp.py",
+            "sha256": "41def1c8c933faeb60147a1c9e4637245e0fa70ebb6512bd49d11d10788b1c4c"
+          }
+        ],
+        "licenses": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/pyGLUE/LICENSE",
+            "file": "originals/84/LICENSE-0.txt",
+            "sha256": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad"
+          }
+        ]
+      },
+      {
+        "project_id": 100,
+        "name": "Hydroshare",
+        "upstream_url": "https://github.com/hydroshare/hydroshare",
+        "source_commit": "bfec0e08ccb74561c813353f585c485d9e1f6a5d",
+        "sources": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/07_\u6c34\u6587-\u5176\u4ed6/hydroshare/hs_file_types/raster_meta_extract.py",
+            "file": "originals/100/raster_meta_extract.py",
+            "sha256": "991f6d7a1a126e12903faf1c31d8ac862a943faf7b8b8d085b357292e30fe112"
+          }
+        ],
+        "licenses": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/07_\u6c34\u6587-\u5176\u4ed6/hydroshare/LICENSE.txt",
+            "file": "originals/100/LICENSE-0.txt",
+            "sha256": "004a0f0da9da3e5e937a87b8fb5711362d99d21a4485086e1d991d1cfa1d613d"
+          }
+        ]
+      },
+      {
+        "project_id": 124,
+        "name": "Pangaea",
+        "upstream_url": "https://github.com/erdc/pangaea",
+        "source_commit": "a304e9a489cfc0bc1c74e7cb50c3335a4f3d596f",
+        "sources": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/pangaea/pangaea/xlsm.py",
+            "file": "originals/124/xlsm.py",
+            "sha256": "8e2eddbd4b0746f46c81a7e14ff6b629df3f67e3f4a2b1a53bc0cd2f5ced6f26"
+          }
+        ],
+        "licenses": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/pangaea/LICENSE",
+            "file": "originals/124/LICENSE-0.txt",
+            "sha256": "0e741bd41cc3e003fcc72681a9e448026ae7bb7ccdc199a35297b16869805c0c"
+          }
+        ]
+      },
+      {
+        "project_id": 126,
+        "name": "pyOWM",
+        "upstream_url": "https://github.com/csparpa/pyowm",
+        "source_commit": "01efe4418edbd0a1a62f906037d10780b03712bb",
+        "sources": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/pyowm/pyowm/utils/measurables.py",
+            "file": "originals/126/measurables.py",
+            "sha256": "c001fcc5d4aa301e47e1a7489417f517538ec88e69ae51c5c41d54246c24cdad"
+          }
+        ],
+        "licenses": [
+          {
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/pyowm/LICENSE",
+            "file": "originals/126/LICENSE-0.txt",
+            "sha256": "1d8d48ae726f9ec3284b8703688c6960b49c69484ce221a05c7d49f2222850fa"
+          }
+        ]
+      }
+    ],
+    "kernels": [
+      {
+        "project_id": 126,
+        "file": "vendor/pyowm_kernel.py",
+        "sha256": "5b4568b703c4ddac71a1cc933837f0685653720eb8700361fc67ae63da5366a2",
+        "excerpts": [
+          {
+            "name": "metric_wind_dict_to_beaufort",
+            "line_start": 147,
+            "line_end": 192,
+            "normalized_source_sha256": "78db02218f7213f7ccd417b02dd860d10156f062e048aed0393bef464fa49658"
+          }
+        ]
+      },
+      {
+        "project_id": 26,
+        "file": "vendor/earthsim_kernel.py",
+        "sha256": "21065ad095c0a934092c077efd12de628cd472f18d8de6df27b1788fde467938",
+        "excerpts": [
+          {
+            "name": "_gen_samples",
+            "line_start": 53,
+            "line_end": 66,
+            "normalized_source_sha256": "57fc0952d98e8bb1326f5382fc2a8ae1c444998d488a9fe99ce8543f38ffaf55"
+          }
+        ]
+      },
+      {
+        "project_id": 124,
+        "file": "vendor/pangaea_kernel.py",
+        "sha256": "96d297045313929812501b2575d6ef983b8acf8f126f9abd25a6fa67df930296",
+        "excerpts": [
+          {
+            "name": "__init__",
+            "line_start": 49,
+            "line_end": 69,
+            "normalized_source_sha256": "b791006fa612fea0aaf12817f1028c5e92b5be5806a4fb3e7af094ab9ff02079"
+          },
+          {
+            "name": "y_inverted",
+            "line_start": 91,
+            "line_end": 102,
+            "normalized_source_sha256": "5252d1ba3727e0fb11727822f42aa4b31c78ce445aeeff7976923af9de22f587"
+          },
+          {
+            "name": "_raw_coords",
+            "line_start": 251,
+            "line_end": 270,
+            "normalized_source_sha256": "d0c144b419f3b87ac427835abfbfa8e3d53fd72dc2c8ed20ca9ebffa431a5c34"
+          },
+          {
+            "name": "latlon",
+            "line_start": 272,
+            "line_end": 300,
+            "normalized_source_sha256": "1998396cb2737848db00906928aa3cf3a7b8ab47891c99889f9d4f5a3d9953eb"
+          },
+          {
+            "name": "center",
+            "line_start": 319,
+            "line_end": 327,
+            "normalized_source_sha256": "890cd8324b0a0395483d57fed6b4ce1697c1cc65202f8ead36e5efaa6bbc850b"
+          },
+          {
+            "name": "_getvar",
+            "line_start": 380,
+            "line_end": 409,
+            "normalized_source_sha256": "582283ce519c0c13a9d92956a7b6328b7d7054dc8d3356db5c49e343b2232741"
+          }
+        ]
+      },
+      {
+        "project_id": 10,
+        "file": "vendor/geonotebook_kernel.py",
+        "sha256": "1c7e951c08f0910c123622e6e5d19598488957742d623b35294a6e4277f18cc3",
+        "excerpts": [
+          {
+            "name": "transform_coordinates",
+            "line_start": 18,
+            "line_end": 19,
+            "normalized_source_sha256": "a2fd4f0b143608b086d6b9aadc75c01ea0d1e5c57321a5f10857f76ca4a814f5"
+          },
+          {
+            "name": "get_data_window",
+            "line_start": 51,
+            "line_end": 58,
+            "normalized_source_sha256": "19d2a5f6e112766abf40dd06a2d08dd1f132366c45210061069575a427aa7f09"
+          },
+          {
+            "name": "subset",
+            "line_start": 94,
+            "line_end": 159,
+            "normalized_source_sha256": "0e509f2808e5e32a184d742b6ce1adf4c39e6b301ceeb153a059f99e192b801f"
+          }
+        ]
+      },
+      {
+        "project_id": 31,
+        "file": "vendor/era5_kernel.py",
+        "sha256": "4ccfb69041ce2eb3304647957b569c3ec77eadeb576039d1bd862ca54a44bca2",
+        "excerpts": [
+          {
+            "name": "ds_by_month =",
+            "cell": 8,
+            "line_start": 67,
+            "line_end": 67,
+            "normalized_source_sha256": "0f06bd9e3e461be25a33d96169aecd44041a2a9cc06fadafaaaf1816ba2aceff"
+          },
+          {
+            "name": "time_serie =",
+            "cell": 10,
+            "line_start": 18,
+            "line_end": 18,
+            "normalized_source_sha256": "83a996e7cbcca41379c9f8e371360e8c691d814f00037bb07361feabecc80b40"
+          }
+        ]
+      },
+      {
+        "project_id": 100,
+        "file": "vendor/hydroshare_kernel.py",
+        "sha256": "274521a5748c3b00fb9e6a5cbf9876281913775bd9d02bca7ac61427d045ec40",
+        "excerpts": [
+          {
+            "name": "get_band_info",
+            "line_start": 280,
+            "line_end": 332,
+            "normalized_source_sha256": "e3118d027bc30ab7f9fa636c35b29b4ed94673dcd718d5eab252eea86ff717fd"
+          }
+        ]
+      }
+    ]
+  },
+  "parent_integration": "not_run",
+  "registered_runtime_acceptance": "not_run",
+  "deployed": false,
+  "pushed": false,
+  "gpu_used": false
+}
