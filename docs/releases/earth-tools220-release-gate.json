@@ -1,0 +1,17 @@
+{
+  "actual_native_tool_cases": 220,
+  "actual_unique_passed": 285,
+  "browser_validation": "blocked_by_saved_origin_permission",
+  "clean_pythonpath": "/data/wangjian/geoagent-earth-tools220-20261024-r2/app:/data/wangjian/geoagent-earth-tools220-20261024-r2/acceptance-r2:/data/wangjian/geoagent-earth-tools220-20261024-r2/acceptance-r2/trusted:/data/wangjian/geotoolagent-context-postgres/python",
+  "failed": 0,
+  "gpu_used": false,
+  "models_called": false,
+  "old_failure_record": "../release.xml",
+  "runtime_python": "/data/wangjian/earth-python-coverage101-imports-20261022/venv/bin/python",
+  "setup_counted_as_passed": false,
+  "skipped": 0,
+  "source_archive_sha256": "3582a0e23d732266637d0283d923e1162a0b9e11bc79ef6845354dacbe1e064d",
+  "source_files_unchanged": true,
+  "status": "passed_not_deployed",
+  "unrelated_live_files_preserved": true
+}

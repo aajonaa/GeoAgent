@@ -31,3 +31,15 @@
 - Browser acceptance: blocked by a saved origin permission for http://127.0.0.1:18015/; not reported as passed.
 - GitHub publication: pending the explicit push step.
 
+
+## Production deployment (2026-10-24, Asia/Shanghai)
+
+- Tool source commit: `5843d38cd848931c1d93be00fe15f88ad407c099`.
+- Deployed application snapshot: `/data/wangjian/geoagent-earth-tools220-20261024-r2/app`.
+- Source commit identifies the tool delta only. The latest automatic-memory application snapshot was preserved separately, including all five unrelated changed files.
+- Live backend: 220 professional tools + 12 runtime tools = 232 registered tools; 47 Skills; zero unavailable Skills.
+- Fresh tests against this merged snapshot: 285 actual call-phase passes, including all 220 professional ToolExecutor cases; zero failures/skips.
+- Saved users, model profiles and paused tasks were unchanged. Model, retrieval, encoder, AcaAgent and board services were not restarted. No GPU was allocated by this work.
+- Browser validation is still permission-blocked, not passed. Native runtime/service acceptance is not a substitute for UI acceptance.
+- The deployment receipt's `pending_push` records its state at creation; the publication commit and upstream branch contain the subsequent Git delivery.
+

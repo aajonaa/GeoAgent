@@ -1,0 +1,36 @@
+{
+  "acceptance_models_called": false,
+  "actual_native_tools_tested": 220,
+  "app": "/data/wangjian/geoagent-earth-tools220-20261024-r2/app",
+  "browser_url": "http://127.0.0.1:18015/",
+  "browser_validation": "blocked_by_saved_origin_permission",
+  "fresh_release_tests_passed": 285,
+  "github_publication": "pending_push",
+  "gpu_used": false,
+  "other_services_unchanged": true,
+  "pid": 141354,
+  "public_api_binding": "unchanged localhost forwarding",
+  "release": "earth-tools220-20261024-r1",
+  "rollback": "Remove only /data/wangjian/.config/systemd/user/geotoolagent-hitl-candidate.service.d/40-earth-tools220.conf; daemon-reload and restart geotoolagent-hitl-candidate.service",
+  "runtime": {
+    "catalog_root": "/data/wangjian/geoagent-earth-tools220-20261024-r2/app",
+    "counts": {
+      "catalog_skills": 47,
+      "professional_tools": 220,
+      "registered_tools": 232,
+      "runtime_tools": 12,
+      "skills": 47,
+      "tools": 232
+    },
+    "registered_tools_total": 232,
+    "server_source": "/data/wangjian/geoagent-earth-tools220-20261024-r2/app/geological_agent/team/server.py",
+    "unavailable_skills": 0
+  },
+  "source_archive_sha256": "3582a0e23d732266637d0283d923e1162a0b9e11bc79ef6845354dacbe1e064d",
+  "source_commit": "5843d38cd848931c1d93be00fe15f88ad407c099",
+  "source_commit_scope": "tool-only delta; current automatic-memory snapshot preserved",
+  "status": "deployed_backend_accepted_browser_pending",
+  "unit": "geotoolagent-hitl-candidate.service",
+  "unrelated_MemoraX_preserved": true,
+  "users_model_profiles_paused_runs_unchanged": true
+}
