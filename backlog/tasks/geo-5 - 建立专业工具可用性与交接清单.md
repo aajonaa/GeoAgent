@@ -4,7 +4,7 @@ title: 建立专业工具可用性与交接清单
 status: In Progress
 assignee: []
 created_date: '2026-10-10 06:14'
-updated_date: '2026-10-25 15:34'
+updated_date: '2026-10-25 15:39'
 labels:
   - proposed
   - tools
@@ -58,4 +58,6 @@ Deployed github-minerals-20261025-r3 on A100: 229 professional tools + 12 runtim
 2026-10-25 r3 CPU acceptance complete: exact blocked StressAnisotropy node reported separately as 1 expected failure, NOT a pass/tool; original diagnostic and assertions unchanged. README prose corrected to match 1/Gwet >= 1/Ghigh > 0. Formal 751 passed, zero failures/errors/skips, plus 692 passed scientific subtests; 9 reporting gate controls passed locally and on A100. New117 native operations and original229+metadata all passed. Candidate346 professional tools/70Skills. Old r1/r2 evidence preserved. No algorithms changed this step, no deployment/push/GPU. Final summary: catalog/source_delivery/github-expansion-20261025/round3-acceptance.json.
 
 2026-10-25: The accepted 117-operation expansion was merged without replacing unrelated work. Exact accepted hashes for 289 changed files match the Git index. Full CPU regression repeated at the production release path: 751 formal cases passed, zero failed/errors/skipped; the known StressAnisotropy diagnostic remains separate and not counted. Candidate: 346 professional tools, 70 Skills, 12 runtime tools. Deployment and push pending the final switch guard. No GPU or model calls.
+
+2026-10-25 released/deployed: source7466cfa pushed to codex/earth-tools220-20261024. New A100 switched to github-expansion346-20261025-r1 after zero-active-run and exact old/new-source guards. Backend confirms346 professional operations,70Skills,12runtime tools,358registered,0unavailable Skills,PostgreSQL connected. Saved accounts/model settings/conversation-file counts preserved and other services unchanged; noGPU. Browser acceptance remains pending saved site denial; receiving-lab delivery approval is not claimed. Four separate research inventories target additional distinct operations toward500+; research is not counted as available.
 <!-- SECTION:NOTES:END -->

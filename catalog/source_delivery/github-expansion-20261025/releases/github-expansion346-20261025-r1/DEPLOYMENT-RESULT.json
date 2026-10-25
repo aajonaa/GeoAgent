@@ -1,0 +1,28 @@
+{
+  "state": "deployed_backend_accepted",
+  "source_commit": "7466cfa5f321cc7b15f9609e8e160791fa7b23fd",
+  "root": "/data/wangjian/github-expansion346-20261025-r1",
+  "pid": 266328,
+  "runtime": {
+    "counts": {
+      "skills": 70,
+      "tools": 358,
+      "professional_tools": 346,
+      "catalog_skills": 70,
+      "registered_tools": 358,
+      "runtime_tools": 12
+    },
+    "server_source": "/data/wangjian/github-expansion346-20261025-r1/app/geological_agent/team/server.py",
+    "registered_total": 358,
+    "unavailable_skills": 0,
+    "postgres_select_1": true
+  },
+  "formal_passed": 751,
+  "formal_failed": 0,
+  "formal_skipped": 0,
+  "gpu_used": false,
+  "saved_state_preserved": true,
+  "other_services_unchanged": true,
+  "browser_acceptance": "pending_saved_permission_denial",
+  "receiving_lab_delivery_approved": false
+}
