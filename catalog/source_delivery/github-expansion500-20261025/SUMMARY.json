@@ -1,0 +1,559 @@
+{
+  "date": "2026-10-25",
+  "state": "research_inventory_not_integrated",
+  "deployed_source_commit": "7466cfa5f321cc7b15f9609e8e160791fa7b23fd",
+  "active_professional_operations": 346,
+  "active_skills": 70,
+  "research_candidates": 102,
+  "additional_integrated_from_research": 0,
+  "additional_accepted_from_research": 0,
+  "target_minimum_professional_operations": 501,
+  "accepted_additions_still_required": 155,
+  "hypothetical_total_if_every_candidate_passes": 448,
+  "further_candidates_required_even_if_all_pass": 53,
+  "hypothetical_total_is_not_a_release_count": true,
+  "groups": {
+    "geophysics": {
+      "candidates": 30,
+      "inventory": "groups/geophysics/research-inventory.json",
+      "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+    },
+    "geology": {
+      "candidates": 22,
+      "inventory": "groups/geology/candidate-inventory.json",
+      "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+    },
+    "remote": {
+      "candidates": 20,
+      "inventory": "groups/remote/inventory.json",
+      "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+    },
+    "spatial": {
+      "candidates": 30,
+      "inventory": "groups/spatial/research-inventory.json",
+      "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+    }
+  },
+  "entries": [
+    {
+      "id": "GeoSeismicInstrumentDeconvolution",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoEMLayeredBipoleResponse",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoGravityTesseroid",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoPotentialEulerSourceLocation",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSurfaceWaveDispersion",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoPotentialEquivalentSources",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoPotentialUpwardContinuation",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoMagneticReductionToPole",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoDCFourElectrodeResponse",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoGravityNormalEllipsoid",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicArrayBeamforming",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicSTALTADetection",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicTemplateDetection",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicPolarization",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicTauPRays",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicNMO",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicComplexAttributes",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicWindowCoherence",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoPotentialEdgeAttributes",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicArrayStrainRotation",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoGravityBouguerSlab",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoCrustAiryMoho",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoEMConductiveSphere",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoMagneticWirePath",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicARPhasePick",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicProbabilisticNoise",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicWaveformTFMisfit",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSeismicRadiationPattern",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSurfaceWaveEigenfunctions",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSurfaceWaveSensitivity",
+      "group": "geophysics",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500CrystalSpaceGroupAudit",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500PowderXRDPattern",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500MineralOxygenBasisFormula",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500MineralReactionBalance",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500MineralPhaseHull",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500CrystalCoordination",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500BondValenceOxidation",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500CrystalStructureEquivalence",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500WulffCrystalHabit",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500PeriodicIonicLatticeEnergy",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500CoherentMineralInterfaceMatch",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500MineralSurfaceTerminations",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500IrreducibleReciprocalMesh",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500REEOrthogonalShape",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500VolcanicTASClass",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500MineralNeutronContrast",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500PoreChordDistribution",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500PoreBodyRadiusDistribution",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500QuasistaticCapillaryDrainage",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500MineralEhPHStability",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500SpatialCellDeclustering",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "Geo500PoreDiffusionTortuosity",
+      "group": "geology",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemotePhaseUnwrap",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteBrightnessTemperature",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSARCoherentChange",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteGaussianClassify",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteEndmemberDiscovery",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteClassSeparability",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteDenseOpticalFlow",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteProjectiveTiePoints",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteTemplateLocate",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteScaleSpaceBlobs",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteHoughLineEvidence",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteWaveletPyramid",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSARDopplerDeskew",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSARSubaperture",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSARSigma0Calibration",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteTOAReflectance",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemotePansharpenFusion",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoRemoteMADChange",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSARPolarimetricHAlpha",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSARPolarizationSynthesis",
+      "group": "remote",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialFlowNetworkUpscaleIHU",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialFloodplainStageStorage",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialCoverageSimplification",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialConservativeArealTransfer",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialGroundwaterZoneBudget",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialDarcySpecificDischarge",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialRPCGeolocation",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialGCPGeoreferencing",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialLocalHeteroscedasticity",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialContiguousRegionalization",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialKnoxSpaceTimeInteraction",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialDemandWeightedFacilitySiting",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialMinimumCoverageFacilitySet",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialHillslopeDiffusionStep",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialStreamPowerErosionStep",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialChannelChiCoordinate",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialPointCloudGroundClassification",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialPointCloudHeightAboveGround",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialRigidPointCloudRegistration",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialTerrainViewshed",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialRipleyKObservedWindow",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialRegionBoundarySilhouette",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialUnconfinedGroundwaterStep",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialOverlandFlowStep",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialLineworkPolygonTopology",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialScreenedTransmissivity",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialChannelFrechetDeviation",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialEventKernelDensity",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialDensityConnectedSiteClusters",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "id": "GeoSpatialTerrainSolarIrradiance",
+      "group": "spatial",
+      "status": "research_only_not_integrated_not_counted"
+    }
+  ],
+  "repeated_exact_callables_for_manual_review": {},
+  "validation_scope": "Unique proposed IDs, no ID collision with deployed registry, research-only status, and source-inventory hashes. Not semantic or numerical acceptance.",
+  "remaining_gates": [
+    "Cross-group scientific distinctness and source/license review",
+    "Pinned private CPU dependencies and bounded AI-lab schemas",
+    "Named adapters, independent numerical oracles and negative tests",
+    "Native ToolExecutor and model-workflow acceptance before release"
+  ],
+  "gpu_used": false,
+  "production_changed_by_research": false
+}

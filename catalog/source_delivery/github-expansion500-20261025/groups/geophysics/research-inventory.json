@@ -1,0 +1,3474 @@
+{
+  "group": "geophysics",
+  "status": "research_only_not_integrated_not_counted",
+  "as_of": "2026-10-25",
+  "research_candidate_count": 30,
+  "priority_candidate_count": 20,
+  "maximum_requested": 45,
+  "unfilled_to_maximum": 15,
+  "new_integrated_operations": 0,
+  "new_accepted_operations": 0,
+  "new_registered_skills": 0,
+  "scope": "Primary-source research for a future500+ roadmap, not implementation, acceptance, integration or release.",
+  "parent_reported_release_context": {
+    "professional_tools": 346,
+    "skills": 70,
+    "regression_tests_passed": 751,
+    "pushed_commits": [
+      "7466cfa",
+      "241c5d8"
+    ],
+    "deployment": "completed according to parent",
+    "independently_verified_here": false
+  },
+  "deduplication": {
+    "method": "Read baseline catalog plus all four additions once, compare scientific tasks/inputs, and retain nearest-existing-tool explanations per candidate. Baseline is229; additions28+29+30+30=117. This is semantic research review, not executable acceptance or final parent approval.",
+    "observed_total": 346,
+    "catalog_snapshot": [
+      {
+        "path": "catalog/registry.json",
+        "observed_tool_count": 229,
+        "tool_ids": [
+          "GeoOrdinaryKrigingGrid",
+          "GeoExactZonalStatistics",
+          "GeoCheckCRSConsistency",
+          "GeoHaversineDistance",
+          "GeoMagnitudeToEnergy",
+          "GeoBearing",
+          "GeoDecimalToDMS",
+          "GeoWGS84BBoxAreaKm2",
+          "USGS 地震数据获取",
+          "地震数据清洗与分级",
+          "地震事件地图可视化",
+          "DeepEarthQueryLITHO1",
+          "DeepEarthQuerySEMUCB",
+          "DeepEarthQueryUSGSCatalog",
+          "DeepEarthGetUSGSEvent",
+          "DeepEarthSampleEventModels",
+          "GeoBigDataExecuteGeoSPARQL",
+          "MineralResourcesSearchDeposits",
+          "MineralResourcesGetDeposit",
+          "MineralResourcesCountrySummary",
+          "MineralResourcesRankCommodityCountries",
+          "ClimateQueryDeepTime",
+          "ClimateQueryPresentMean",
+          "ClimateQueryFutureSSP",
+          "ClimateCompareEpochs",
+          "EnergyFacilityDistance",
+          "EnergyMineralSiteDistance",
+          "EnergyBBoxArea",
+          "EnergyNearestFacility",
+          "EnergyCapacityValue",
+          "EnergyNearestMineralSite",
+          "EnergyCountryRenewableSummary",
+          "EnergyCapacityGrowth",
+          "EnergyTransitionMetrics",
+          "EnergyRegionalOverlaySummary",
+          "OceanMonthlyGridValue",
+          "OceanProfileValue",
+          "OceanCruiseQC",
+          "OceanStationDistance",
+          "OceanBBoxArea",
+          "OceanAnnualCarbonSummary",
+          "OceanVerticalProfileDifference",
+          "OceanRegionalMapSummary",
+          "OceanSurfaceDeepMatch",
+          "OceanProfileDeduplication",
+          "DeepTimeDecimalToDMS",
+          "DeepTimeHaversineDistance",
+          "DeepTimeBearing",
+          "DeepTimeBBoxArea",
+          "DeepTimeStandardizeSpatialData",
+          "DeepTimeValidateSpatialData",
+          "DeepTimeNearestNeighbor",
+          "DeepTimeBuffer",
+          "DeepTimeOverlay",
+          "DeepTimeBatchVector",
+          "DeepTimeInterpolateIDW",
+          "DeepTimeRasterAlgebra",
+          "DeepTimeZonalStatistics",
+          "DeepTimeRenderMap",
+          "CCSDecimalToDMS",
+          "CCSHaversineDistance",
+          "CCSBearing",
+          "CCSBBoxArea",
+          "CCSCheckCRSConsistency",
+          "CCSStandardizeSpatialData",
+          "CCSValidateSpatialData",
+          "CCSNearestNeighbor",
+          "CCSBuffer",
+          "CCSOverlay",
+          "CCSBatchVector",
+          "CCSInterpolateIDW",
+          "CCSRasterAlgebra",
+          "CCSZonalStatistics",
+          "CCSRenderMap",
+          "RemoteSensingListFiles",
+          "RemoteSensingBatchImageMean",
+          "RemoteSensingBatchHotspotPercentage",
+          "RemoteSensingTiffAverage",
+          "RemoteSensingBatchNDSI",
+          "RemoteSensingNDWI",
+          "RemoteSensingNBR",
+          "RemoteSensingCloudMask",
+          "RemoteSensingBatchHotspotRaster",
+          "RemoteSensingNDVI",
+          "RemoteSensingNDTI",
+          "RemoteSensingCountAboveThreshold",
+          "RemoteSensingBatchImageSum",
+          "RemoteSensingTiffDifference",
+          "RemoteSensingExtremeSnowLossPercentage",
+          "RemoteSensingSubtract",
+          "RemoteSensingFireIncreaseMap",
+          "RemoteSensingMean",
+          "RemoteSensingPercentageChange",
+          "RemoteSensingDifference",
+          "RemoteSensingDivision",
+          "RemoteSensingLinearTrend",
+          "RemoteSensingMaxValueAndIndex",
+          "RemoteSensingKelvinToCelsius",
+          "RemoteSensingMinValueAndIndex",
+          "RemoteSensingSensSlope",
+          "RemoteSensingCoefficientOfVariation",
+          "RemoteSensingKurtosis",
+          "RemoteSensingMannKendallTest",
+          "RemoteSensingArgmax",
+          "NaturalHazardLoadEventTable",
+          "NaturalHazardFilterRecords",
+          "NaturalHazardCountRecords",
+          "NaturalHazardSumField",
+          "NaturalHazardGroupAggregate",
+          "NaturalHazardSelectMaxRecord",
+          "NaturalHazardBuildStartDate",
+          "NaturalHazardSelectLatest",
+          "GeoRasterIndexAnalysis",
+          "GeoRasterChangeAnalysis",
+          "GeoMapColorExtract",
+          "GeoPlotDigitize",
+          "GeoVerdeGrid",
+          "GeoRegionMask",
+          "HydroErrorMetrics",
+          "ScientificCurveFit",
+          "HydroInterpolationGrid",
+          "MetPyWindComponents",
+          "SeismicReflectivity",
+          "SeismicSegySummary",
+          "HydroReferenceET0",
+          "SpatialMoranI",
+          "GeoShapelyGeometry",
+          "GeoPandasSpatialJoin",
+          "GeoFionaDatasetInfo",
+          "GeoRasterioWindow",
+          "GeoCartopyPointMap",
+          "GeoDatashaderDensity",
+          "HydroAnaFlowTheis",
+          "SeismicObsPyBandpass",
+          "GeoPyshedsFlowAccumulation",
+          "GeoPywrWaterAllocation",
+          "GeoHoloViewsLineProfile",
+          "GeoGeoViewsPolygonMap",
+          "GeoHVPlotHexbin",
+          "GeoPanelDataReport",
+          "GeoGeemapBoundingPolygon",
+          "GeoCollocatePressureMatch",
+          "GeoSalemProjectCoordinates",
+          "EarthHydroHyRiverFlowExceedance",
+          "EarthHydroWetterdienstElevationAdjustment",
+          "EarthHydroUlmoWaterMLValues",
+          "EarthHydroFewsPiTimeSeries",
+          "EarthHydroOpenradarRainRate",
+          "EarthHydroCamelsStationSeries",
+          "EarthHydroBomWaterMLObservations",
+          "EarthHydroPastasExponentialImpulse",
+          "EarthHydroHydropyChapmanBaseflow",
+          "EarthHydroHydrostatsDailyClimatology",
+          "EarthHydroHtimeseriesReadRecords",
+          "EarthHydroEftsForecastEnsemble",
+          "EarthHydroSpotpyNashSutcliffe",
+          "EarthHydroClimateAccumulation",
+          "EarthHydroPyemuExponentialCovariance",
+          "EarthHydroHydrolmRegularizeDaily",
+          "HydroModelsXanthosMonthlyPET",
+          "HydroModelsRRMPGABCRunoff",
+          "HydroModelsNeuralHydrologyFlowScores",
+          "HydroModelsHydroFunctionsFlowDuration",
+          "HydroModelsCMFSoilConductivity",
+          "HydroModelsTopoFlowSolarFlux",
+          "HydroModelsEXPHydroBucketWaterBalance",
+          "HydroModelsPyTOPKAPIGreenAmpt",
+          "HydroModelsHidroCompEnsembleRMSE",
+          "EarthFlopyWaterTable",
+          "EarthTimmlSteadyWellHeads",
+          "EarthTtimTransientWellDrawdown",
+          "EarthPyhelpStationDistances",
+          "EarthImodFreshwaterHead",
+          "EarthIdfMaskedRasterAggregate",
+          "EarthWellapplicationBaseflow",
+          "EarthWelltestBourdetDerivative",
+          "EarthPytesmoMeanStdScale",
+          "EarthPhydrusReadTlevel",
+          "EarthLandlabFlowDirections",
+          "EarthIrisCubeCorrelation",
+          "EarthPyhspfReachTable",
+          "EarthSphyCropEvapotranspiration",
+          "EarthXsboringenLithology",
+          "EarthEflowMagnitudeIndices",
+          "EarthHydroboxFlashiness",
+          "WrfDestaggerGrid",
+          "RainymotionPrecipitationScores",
+          "MetSimPotentialEvapotranspiration",
+          "MelodistDailyPrecipitationToHourly",
+          "ImproverRescaleForecastField",
+          "SkdownscaleQuantileBiasCorrection",
+          "JamsDewPoint",
+          "XgcmStaggeredGridDiagnostics",
+          "ClimpredEnsembleCrps",
+          "ClimlabLayerHeatCapacity",
+          "AospyHybridPressure",
+          "OocgcmSurfaceSpiciness",
+          "OcgisHeatIndex",
+          "PyrockoDoubleCoupleTensor",
+          "RsudpWindowAmplitude",
+          "SeismicZfpCompressCube",
+          "EarthPyOWMBeaufortWind",
+          "EarthSimRasterCrossSection",
+          "EarthERA5LocalMonthlyClimate",
+          "EarthPangaeaGeographicGrid",
+          "EarthGeoNotebookPolygonSubset",
+          "EarthHydroShareRasterBandRanges",
+          "EarthPyGLUEABCEnsemble",
+          "ScipyGroundwaterFrequencyResponse",
+          "StatsmodelsSeasonalFlowForecast",
+          "HydroVICPrecipitationPhase",
+          "SeismicMadagascarFFT",
+          "GeoHPGLDirectionalSemivariogram",
+          "EarthWflowKinematicWaveReachStep",
+          "HydroModelsPyFloCurveNumberRunoff",
+          "HydroModelsPySTEPSPrecipitationAdvection",
+          "EarthCatchmodLinearStoreStep",
+          "HydroModelsSuperflexUnitHydrograph",
+          "HydroModelsHydPyFlowScores",
+          "HydroModelsPyDEMTerrainDerivatives",
+          "GeoSpectralAngleMatch",
+          "GeoSpectralContinuumRemoval",
+          "GeoSpectralLinearUnmix",
+          "GeoSpectralAngleMap",
+          "GeoGeochemCLR",
+          "GeoGeochemOxideMoles",
+          "GeoGeochemREEPattern",
+          "GeoStereonetAnalysis",
+          "GeoStructuralPlaneIntersection"
+        ]
+      },
+      {
+        "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/catalog-additions.json",
+        "observed_tool_count": 28,
+        "tool_ids": [
+          "GeoAPSGPairFabricTensor",
+          "GeoAPSGFoldAxis",
+          "GeoAPSGFisherDirectionalConfidence",
+          "GeoAPSGMarkerStrainEstimate",
+          "GeoAPSGFaultKinematicAxes",
+          "GeoAPSGFiniteStrainEllipsoid",
+          "GeoAPSGDeformationPolarSplit",
+          "GeoAPSGVelocityGradientEvolution",
+          "GeoAPSGKinematicVorticity",
+          "GeoAPSGFractureTraction",
+          "GeoAPSGFaultReactivation",
+          "GeoPyroliteALR",
+          "GeoPyroliteILR",
+          "GeoPyroliteCompositionalCenter",
+          "GeoPyroliteSphericalComposition",
+          "GeoPyroliteMineralEndmemberUnmix",
+          "GeoSKGstatRobustVariogram",
+          "GeoSKGstatSpaceTimeVariogram",
+          "GeoGSToolsVariogramFit",
+          "GeoGSToolsBlockSupportCovariance",
+          "GeoSKGstatKrigingLOO",
+          "GeoGeochemBackgroundDistance",
+          "GeoLasioLogAudit",
+          "GeoWellyMinimumCurvature",
+          "GeoWellyLogResample",
+          "GeoWellyLogDespike",
+          "GeoWellyLogFaciesBlock",
+          "GeoStriplogIntervalIntersection"
+        ]
+      },
+      {
+        "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/catalog-additions.json",
+        "observed_tool_count": 29,
+        "tool_ids": [
+          "GeoPointMassGravity",
+          "GeoPrismGravity",
+          "GeoDipoleMagnetic",
+          "GeoPrismMagnetic",
+          "GeoRockVRHBounds",
+          "GeoRockHashinShtrikman",
+          "GeoRockCriticalPorosity",
+          "GeoRockSphericalPores",
+          "GeoRockSelfConsistent",
+          "GeoRockRandomCracks",
+          "GeoRockMoriTanaka",
+          "GeoRockHudsonCracks",
+          "GeoRockHertzMindlin",
+          "GeoRockContactCement",
+          "GeoRockDigbyContacts",
+          "GeoRockSandShalePorosity",
+          "GeoRockGassmannSubstitution",
+          "GeoRockBrownKorringa",
+          "GeoRockBiotDispersion",
+          "GeoRockSquirtFlow",
+          "GeoRockPatchySaturation",
+          "GeoRockBrieMixing",
+          "GeoRockFluidPVT",
+          "GeoSeismicBackus",
+          "GeoSeismicVTIPhase",
+          "GeoSeismicOrthorhombicParameters",
+          "GeoSeismicHTIReflectivity",
+          "GeoSeismicZoeppritzScattering",
+          "GeoSeismicElasticImpedance"
+        ]
+      },
+      {
+        "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/catalog-additions.json",
+        "observed_tool_count": 30,
+        "tool_ids": [
+          "GeoRemotePCA",
+          "GeoRemoteNoiseCovariance",
+          "GeoRemoteMNF",
+          "GeoRemoteRX",
+          "GeoRemoteMatchedFilter",
+          "GeoRemoteACE",
+          "GeoRemoteWhiteTophat",
+          "GeoRemoteSeedReconstruction",
+          "GeoRemoteSkeleton",
+          "GeoRemoteRemoveSmallObjects",
+          "GeoRemoteFillSmallHoles",
+          "GeoRemoteHMaxima",
+          "GeoRemoteGLCM",
+          "GeoRemoteLocalEntropy",
+          "GeoRemoteLBP",
+          "GeoRemoteStructureTensor",
+          "GeoRemoteGabor",
+          "GeoRemoteCanny",
+          "GeoRemoteOtsu",
+          "GeoRemoteWatershed",
+          "GeoRemoteSLIC",
+          "GeoRemoteFelzenszwalb",
+          "GeoRemoteRandomWalker",
+          "GeoRemoteRegionProperties",
+          "GeoRemotePhaseRegistration",
+          "GeoRemoteSSIMChange",
+          "GeoRemoteSensorBandResample",
+          "GeoRemoteTVDenoise",
+          "GeoRemoteRichardsonLucy",
+          "GeoRemoteRollingBall"
+        ]
+      },
+      {
+        "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/catalog-additions.json",
+        "observed_tool_count": 30,
+        "tool_ids": [
+          "GeoSpatialRasterReproject",
+          "GeoSpatialPolygonRasterize",
+          "GeoSpatialRasterPolygonize",
+          "GeoSpatialPolygonIntersection",
+          "GeoSpatialCoverageUnion",
+          "GeoSpatialConstrainedTriangulation",
+          "GeoSpatialDepressionFill",
+          "GeoSpatialHeightAboveDrainage",
+          "GeoSpatialDistanceToOutlet",
+          "GeoSpatialDistanceToRidge",
+          "GeoSpatialStrahlerOrder",
+          "GeoSpatialTerrainContours",
+          "GeoSpatialLocalMoran",
+          "GeoSpatialBivariateLocalMoran",
+          "GeoSpatialLocalGetisOrd",
+          "GeoSpatialGlobalGeary",
+          "GeoSpatialBinaryJoinCounts",
+          "GeoSpatialLocalGeary",
+          "GeoSpatialLeastCostPath",
+          "GeoSpatialCostAllocation",
+          "GeoSpatialEuclideanProximity",
+          "GeoSpatialResistanceDistance",
+          "GeoSpatialCostCorridor",
+          "GeoSpatialCapacityMaxFlow",
+          "GeoSpatialEllipsoidalPolygonArea",
+          "GeoSpatialGeodesicTransect",
+          "GeoSpatialProjectionDistortion",
+          "GeoSpatialMaximumInscribedCircle",
+          "GeoSpatialSiteVoronoi",
+          "GeoSpatialSiteParcelSplit"
+        ]
+      }
+    ],
+    "future_parallel_research_inventories": "Not reviewed; parent must deduplicate across future500 research groups.",
+    "blocked_operations_not_reintroduced": true
+  },
+  "execution_record": {
+    "local_catalog_reads": true,
+    "official_github_docs_read_only": true,
+    "adapters_authored": false,
+    "tests_run": false,
+    "packages_installed": false,
+    "remote_commands": false,
+    "gpu_used": false,
+    "git_used": false,
+    "deployments_performed": false,
+    "accepted117_modified": false,
+    "shared_files_modified": false
+  },
+  "dependency_policy": {
+    "baseline_python": "3.12",
+    "retained_known_pins": [
+      "numpy==2.1.3",
+      "scipy==1.15.3",
+      "pandas==2.3.0",
+      "matplotlib==3.10.7",
+      "numba==0.68.0",
+      "xarray==2026.9.0",
+      "scikit-learn==1.7.2",
+      "SQLAlchemy==1.4.54",
+      "typing-extensions==4.16.0",
+      "pydantic==2.13.5",
+      "langgraph==1.2.12"
+    ],
+    "new_direct_research_pins": [
+      "harmonica==0.7.0",
+      "empymod==2.6.0",
+      "geoana==0.9.0",
+      "boule==0.6.0",
+      "disba==0.7.0"
+    ],
+    "reused_parent_reported_pins": [
+      "obspy==1.4.2",
+      "bruges==0.5.4",
+      "choclo==0.3.2"
+    ],
+    "transitive_lock_status": "Not resolved/installed. Declared upstream constraints are evidence, not an exact transitive lock. Parent private environment only; never downgrade baseline to satisfy a candidate."
+  },
+  "sources": {
+    "harmonica": {
+      "repository": "fatiando/harmonica",
+      "pin": "harmonica==0.7.0",
+      "version": "0.7.0",
+      "commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/fatiando/harmonica",
+      "release_url": "https://github.com/fatiando/harmonica/tree/b9f9c00b0999f470dcae971b19add28b055633c9",
+      "license_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/LICENSE.txt",
+      "dependency_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/pyproject.toml",
+      "declared_runtime_dependencies": [
+        "numpy>=1.23",
+        "pandas>=1.4",
+        "scipy>=1.9",
+        "scikit-learn>=1.0",
+        "numba>=0.53",
+        "xarray>=2022.03",
+        "verde>=1.8.1",
+        "xrft>=1.0",
+        "choclo>=0.1"
+      ],
+      "availability": "New private CPU dependency; Choclo0.3.2 already in prior accepted profile.",
+      "compatibility_risk": "Metadata admits retained baseline, but xrft/Verde against xarray2026.9.0 needs private acceptance. No downgrade authorized.",
+      "source_read_only": true,
+      "installed_or_tested_by_this_task": false
+    },
+    "empymod": {
+      "repository": "emsig/empymod",
+      "pin": "empymod==2.6.0",
+      "version": "2.6.0",
+      "commit": "7a7c221da5940a8e0d8f60478b929e2690806521",
+      "license": "Apache-2.0",
+      "repository_url": "https://github.com/emsig/empymod",
+      "release_url": "https://github.com/emsig/empymod/tree/7a7c221da5940a8e0d8f60478b929e2690806521",
+      "license_evidence_url": "https://github.com/emsig/empymod/blob/7a7c221da5940a8e0d8f60478b929e2690806521/LICENSE",
+      "dependency_evidence_url": "https://github.com/emsig/empymod/blob/7a7c221da5940a8e0d8f60478b929e2690806521/pyproject.toml",
+      "declared_runtime_dependencies": [
+        "numpy>=2.0.0",
+        "scipy",
+        "numba",
+        "libdlf",
+        "scooby"
+      ],
+      "availability": "New private CPU dependency.",
+      "compatibility_risk": "Python>=3.11 and NumPy>=2 fit baseline. libdlf/scooby transitive pins unresolved; transforms require convergence checks, not merely finite outputs.",
+      "source_read_only": true,
+      "installed_or_tested_by_this_task": false
+    },
+    "geoana": {
+      "repository": "simpeg/geoana",
+      "pin": "geoana==0.9.0",
+      "version": "0.9.0",
+      "commit": "7c47ec2e1253e698c26c95d6dd0c7e493a1c8630",
+      "license": "MIT",
+      "repository_url": "https://github.com/simpeg/geoana",
+      "release_url": "https://github.com/simpeg/geoana/tree/7c47ec2e1253e698c26c95d6dd0c7e493a1c8630",
+      "license_evidence_url": "https://github.com/simpeg/geoana/blob/7c47ec2e1253e698c26c95d6dd0c7e493a1c8630/LICENSE",
+      "dependency_evidence_url": "https://github.com/simpeg/geoana/blob/7c47ec2e1253e698c26c95d6dd0c7e493a1c8630/pyproject.toml",
+      "declared_runtime_dependencies": [
+        "numpy>=1.26.0",
+        "scipy>=1.11.2",
+        "libdlf"
+      ],
+      "availability": "New private CPU dependency.",
+      "compatibility_risk": "Requires Python>=3.12; metadata describes cp312 ABI3 wheels. ABI/import not tested here. No compiler installation or NumPy replacement authorized.",
+      "source_read_only": true,
+      "installed_or_tested_by_this_task": false
+    },
+    "obspy": {
+      "repository": "obspy/obspy",
+      "pin": "obspy==1.4.2",
+      "version": "1.4.2",
+      "commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "license": "LGPL-3.0",
+      "repository_url": "https://github.com/obspy/obspy",
+      "release_url": "https://github.com/obspy/obspy/tree/a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "dependency_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/setup.py",
+      "declared_runtime_dependencies": [
+        "numpy>=1.20",
+        "scipy>=1.7",
+        "matplotlib>=3.3",
+        "lxml",
+        "setuptools",
+        "sqlalchemy<2",
+        "decorator",
+        "requests"
+      ],
+      "availability": "Parent-reported installed/private-importable pin; baseline already has ObsPy bandpass.",
+      "compatibility_risk": "Retain SQLAlchemy1.4.54. New routines/C extensions and NumPy2 behavior still need acceptance; existing bandpass success does not verify these operations.",
+      "source_read_only": true,
+      "installed_or_tested_by_this_task": false,
+      "tag_evidence": {
+        "tag": "1.4.2",
+        "annotated_tag_sha": "78ce93eed2d6c3f9032487999a292e0252051e22",
+        "peeled_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63"
+      }
+    },
+    "bruges": {
+      "repository": "agilescientific/bruges",
+      "pin": "bruges==0.5.4",
+      "version": "0.5.4",
+      "commit": "24e2e7912f49089465dd622363fd2788029266b1",
+      "license": "Apache-2.0; NMO file carries BSD-3-Clause attribution",
+      "repository_url": "https://github.com/agilescientific/bruges",
+      "release_url": "https://github.com/agilescientific/bruges/tree/24e2e7912f49089465dd622363fd2788029266b1",
+      "license_evidence_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/LICENSE.txt",
+      "dependency_evidence_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/bruges/transform/nmo.py",
+      "declared_runtime_dependencies": [
+        "numpy (selected kernels)",
+        "scipy (selected kernels)"
+      ],
+      "availability": "Parent-reported installed pin; existing reflectivity/scattering uses this package.",
+      "compatibility_risk": "Kernel-level source inspected, not the full package resolver. NMO's BSD-3-Clause source attribution must accompany the root Apache license. Several other Bruges functions explicitly excluded below.",
+      "source_read_only": true,
+      "installed_or_tested_by_this_task": false
+    },
+    "boule": {
+      "repository": "fatiando/boule",
+      "pin": "boule==0.6.0",
+      "version": "0.6.0",
+      "commit": "8666d0823c667c543bfce503cc3759b9c3047287",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/fatiando/boule",
+      "release_url": "https://github.com/fatiando/boule/tree/8666d0823c667c543bfce503cc3759b9c3047287",
+      "license_evidence_url": "https://github.com/fatiando/boule/blob/8666d0823c667c543bfce503cc3759b9c3047287/LICENSE.txt",
+      "dependency_evidence_url": "https://github.com/fatiando/boule/blob/8666d0823c667c543bfce503cc3759b9c3047287/pyproject.toml",
+      "declared_runtime_dependencies": [
+        "numpy>=1.23",
+        "attrs>=19.3.0",
+        "scipy>=1.8.0"
+      ],
+      "availability": "New small private CPU dependency.",
+      "compatibility_risk": "Use 0.6.0 tuple-coordinate API, NOT the old 0.5 latitude/height signature. attrs transitive exact pin unresolved.",
+      "source_read_only": true,
+      "installed_or_tested_by_this_task": false
+    },
+    "disba": {
+      "repository": "keurfonluu/disba",
+      "pin": "disba==0.7.0",
+      "version": "0.7.0",
+      "commit": "18b7d023288f2bf22d2f128e8ca6a10d15b5913a",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/keurfonluu/disba",
+      "release_url": "https://github.com/keurfonluu/disba/tree/18b7d023288f2bf22d2f128e8ca6a10d15b5913a",
+      "license_evidence_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/LICENSE",
+      "dependency_evidence_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/setup.cfg",
+      "declared_runtime_dependencies": [
+        "importlib_metadata",
+        "matplotlib",
+        "numpy",
+        "numba"
+      ],
+      "availability": "New Numba CPU dependency; no Fortran compiler required by these Python kernels.",
+      "compatibility_risk": "Declared Python minimum is old, classifiers include3.12. NumPy2.1.3/Numba0.68.0 acceptance still required. CPS-derived algorithm attribution retained; importlib_metadata exact pin unresolved.",
+      "source_read_only": true,
+      "installed_or_tested_by_this_task": false,
+      "public_low_level_evidence": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/disba/__init__.py"
+    }
+  },
+  "top_five": [
+    {
+      "proposed_tool_id": "GeoSeismicInstrumentDeconvolution",
+      "scientific_task": "Recover physical ground motion from instrument counts using explicit, epoch-matched response metadata.",
+      "package_pin": "obspy==1.4.2",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/core/trace.py"
+    },
+    {
+      "proposed_tool_id": "GeoEMLayeredBipoleResponse",
+      "scientific_task": "Compute frequency/time-domain controlled-source electromagnetic responses in horizontally layered VTI media, including finite source integration.",
+      "package_pin": "empymod==2.6.0",
+      "authoritative_source_url": "https://github.com/emsig/empymod/blob/7a7c221da5940a8e0d8f60478b929e2690806521/empymod/model.py"
+    },
+    {
+      "proposed_tool_id": "GeoGravityTesseroid",
+      "scientific_task": "Forward-model potential and radial gravity of finite spherical tesseroids for regional/global density-contrast bodies.",
+      "package_pin": "harmonica==0.7.0",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_forward/tesseroid.py"
+    },
+    {
+      "proposed_tool_id": "GeoPotentialEulerSourceLocation",
+      "scientific_task": "Estimate one ideal potential-field source location and regional base level from field observations and all three measured derivatives.",
+      "package_pin": "harmonica==0.7.0",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_euler_deconvolution.py"
+    },
+    {
+      "proposed_tool_id": "GeoSurfaceWaveDispersion",
+      "scientific_task": "Compute Rayleigh/Love phase and group dispersion curves for a layered elastic halfspace as one modal-dispersion operation.",
+      "package_pin": "disba==0.7.0",
+      "authoritative_source_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/disba/_dispersion.py"
+    }
+  ],
+  "operations": [
+    {
+      "rank": 1,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicInstrumentDeconvolution",
+      "capability_key": "geophysics:seismic-instrument-deconvolution",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Recover physical ground motion from instrument counts using explicit, epoch-matched response metadata.",
+      "upstream_callable": "obspy.core.trace.Trace.remove_response",
+      "supporting_callables": [],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/core/trace.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "waveform": "counts",
+        "sample_interval": "s",
+        "response": "local StationXML response with declared sensitivity and physical input unit",
+        "prefilter": "Hz"
+      },
+      "outputs_units": {
+        "ground_motion": "m/s (fixed initial proposed profile)",
+        "time": "s"
+      },
+      "constraints": [
+        "Finite gap-free regular waveform; response channel and epoch must match.",
+        "Explicit four-corner prefilter within Nyquist; no automatic response lookup.",
+        "water_level=None initially, to avoid suppressing non-native output quantities; bounded FFT and end-effect exclusion."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "A synthetic velocity cosine of amplitude1m/s at10Hz passed through a supplied flat2 counts/(m/s) response has count amplitude2; inverse physical calibration must recover1 away from explicitly excluded edges. Also use a known first-order pole with analytic complex transfer, not another ObsPy forward call.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "recovered velocity amplitude",
+            "value": 1,
+            "unit": "m/s",
+            "proposed_tolerance": "relative1e-6 in flat-response periodic fixture"
+          }
+        ],
+        "negative_cases": [
+          "Missing/wrong channel response",
+          "Response epoch mismatch",
+          "Prefilter reaching Nyquist",
+          "Gaps/nonfinite counts"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "SeismicObsPyBandpass",
+          "RsudpWindowAmplitude"
+        ],
+        "distinct_from_existing": "Existing bandpass changes spectral content but preserves declared amplitude units; RSAM summarizes amplitudes. Neither deconvolves calibrated instrument response.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Response metadata correctness is user responsibility; unstable inverse bands must reject or be explicitly excluded.",
+        "LGPL dependency; no claim of calibrated accuracy from synthetic tests."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 2,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoEMLayeredBipoleResponse",
+      "capability_key": "geophysics:emlayered-bipole-response",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Compute frequency/time-domain controlled-source electromagnetic responses in horizontally layered VTI media, including finite source integration.",
+      "upstream_callable": "empymod.model.bipole",
+      "supporting_callables": [],
+      "package_pin": "empymod==2.6.0",
+      "source_commit": "7a7c221da5940a8e0d8f60478b929e2690806521",
+      "authoritative_source_url": "https://github.com/emsig/empymod/blob/7a7c221da5940a8e0d8f60478b929e2690806521/empymod/model.py",
+      "license": "Apache-2.0",
+      "license_evidence_url": "https://github.com/emsig/empymod/blob/7a7c221da5940a8e0d8f60478b929e2690806521/LICENSE",
+      "inputs_units": {
+        "coordinates": "m; explicit East-North-Depth convention",
+        "layer_interfaces": "m",
+        "resistivity": "ohm*m",
+        "frequency": "Hz",
+        "time": "s",
+        "source_current": "A",
+        "aniso": "sqrt(rho_v/rho_h), dimensionless"
+      },
+      "outputs_units": {
+        "electric_response": "V/m for fixed electric point-receiver profile",
+        "complex_components": "real/imag in V/m"
+      },
+      "constraints": [
+        "Positive finite resistivity, frequency/time and monotone interfaces; layer arrays aligned.",
+        "Fixed explicit physical source/receiver profiles; no user res dictionary hooks, transform functions or arbitrary **kwargs.",
+        "srcpts>=3 for finite-length sources, positive explicit strength; do not silently use normalized unit-length defaults.",
+        "Frequency/time and orientation choices remain one operation, not separately counted; initial delivery may expose frequency domain only."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "In a100ohm*m fullspace, a1A finite x-directed electrode pair at x=+/-0.5m produces axial quasi-static Ex=100/(4*pi)*(1/9.5^2-1/10.5^2) at x=10m. Evaluate at sufficiently low positive frequency with declared asymptotic tolerance. Before layered acceptance add a two-layer DC image-series/Maxwell-interface oracle evaluated independently of empymod.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "quasi-static finite-bipole axial field",
+            "value": 0.01599537119409002,
+            "unit": "V/m",
+            "proposed_tolerance": "relative1e-3 after independent frequency-limit error bound"
+          }
+        ],
+        "negative_cases": [
+          "Nonpositive resistivity",
+          "Unsorted boundaries",
+          "Receiver coincident with source",
+          "Unconverged Hankel/Fourier transform"
+        ],
+        "remaining_oracle_work": "Independent heterogeneous layered numeric fixture still to be authored; fullspace check alone is insufficient."
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoDipoleMagnetic",
+          "GeoPrismMagnetic",
+          "GeoRockBiotDispersion"
+        ],
+        "distinct_from_existing": "Existing magnetic tools are static prescribed magnetization sources; Biot is mechanical pore-fluid wave dispersion. This solves conductive/displacement-current EM propagation across interfaces.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "empymod",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "empymod==2.6.0",
+        "declared_runtime_dependencies": [
+          "numpy>=2.0.0",
+          "scipy",
+          "numba",
+          "libdlf",
+          "scooby"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Medium priority for implementation despite high scientific value: transform convergence, field normalization and layered oracle must be resolved.",
+        "libdlf/scooby transitive lock pending; no package callbacks accepted."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 3,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoGravityTesseroid",
+      "capability_key": "geophysics:gravity-tesseroid",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Forward-model potential and radial gravity of finite spherical tesseroids for regional/global density-contrast bodies.",
+      "upstream_callable": "harmonica.tesseroid_gravity",
+      "supporting_callables": [],
+      "package_pin": "harmonica==0.7.0",
+      "source_commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_forward/tesseroid.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/LICENSE.txt",
+      "inputs_units": {
+        "longitude_latitude": "geocentric degrees",
+        "radius_bounds": "m",
+        "density_contrast": "kg/m^3"
+      },
+      "outputs_units": {
+        "potential": "J/kg",
+        "downward_gravity": "m/s^2 after explicit mGal*1e-5 conversion"
+      },
+      "constraints": [
+        "Constant density arrays only; no supplied density functions.",
+        "Nonwrapping valid angular bounds, positive ordered radii, external observation points.",
+        "Bundle potential and downward acceleration; no component variants counted.",
+        "Bound adaptive quadrature work and reject nonconvergence."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Partition a complete uniform spherical shell with inner radius1m, outer2m, density3kg/m3. By the shell theorem total mass=28*pi kg. At r=4m, potential=G*7*pi and inward gravity=G*7*pi/4. Use an independent angular/radial mass sum and convergence tolerance, not a point-source software oracle.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "potential at radius4m",
+            "value": 1.4677552293498046e-9,
+            "unit": "J/kg",
+            "proposed_tolerance": "relative5e-4 quadrature"
+          },
+          {
+            "quantity": "inward gravity at radius4m",
+            "value": 3.6693880733745114e-10,
+            "unit": "m/s^2",
+            "proposed_tolerance": "relative5e-4 quadrature"
+          }
+        ],
+        "negative_cases": [
+          "Observation inside source volume",
+          "Negative radius",
+          "Inverted longitude bounds",
+          "Function-valued density"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoPrismGravity",
+          "GeoPointMassGravity"
+        ],
+        "distinct_from_existing": "Finite curved spherical volumes and local radial response are not Cartesian prisms or point-mass approximations; appropriate for regional curvature.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "harmonica",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "harmonica==0.7.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.23",
+          "pandas>=1.4",
+          "scipy>=1.9",
+          "scikit-learn>=1.0",
+          "numba>=0.53",
+          "xarray>=2022.03",
+          "verde>=1.8.1",
+          "xrft>=1.0",
+          "choclo>=0.1"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Upstream doc formatting labels mGal ambiguously; source/API must be honored as mGal, then converted.",
+        "Large near-field tesseroids may require costly subdivisions."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 4,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoPotentialEulerSourceLocation",
+      "capability_key": "geophysics:potential-euler-source-location",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Estimate one ideal potential-field source location and regional base level from field observations and all three measured derivatives.",
+      "upstream_callable": "harmonica.EulerDeconvolution.fit",
+      "supporting_callables": [],
+      "package_pin": "harmonica==0.7.0",
+      "source_commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_euler_deconvolution.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/LICENSE.txt",
+      "inputs_units": {
+        "coordinates": "ENU m",
+        "field": "one explicit consistent potential-field unit",
+        "derivatives": "field_unit/m",
+        "structural_index": "dimensionless integer"
+      },
+      "outputs_units": {
+        "source_location": "ENU m",
+        "base_level": "field_unit",
+        "covariance": "mixed parameter units, explicitly labeled"
+      },
+      "constraints": [
+        "One declared window; full-rank design with more than4 observations.",
+        "Structural index>0, physically justified; upstream does not support0.",
+        "Derivatives must be co-located and in compatible units; no automatic geology/ore interpretation."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Generate f=1000/r+2 and its analytic Cartesian derivatives around source(25,-40,-100)m on a nondegenerate observation cloud. Euler homogeneity with index1 yields location exactly(25,-40,-100) and base2; solve the hand-written linear identity independently.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "source easting",
+            "value": 25,
+            "unit": "m",
+            "proposed_tolerance": "absolute1e-5"
+          },
+          {
+            "quantity": "source upward",
+            "value": -100,
+            "unit": "m",
+            "proposed_tolerance": "absolute1e-5"
+          },
+          {
+            "quantity": "base level",
+            "value": 2,
+            "unit": "field_unit",
+            "proposed_tolerance": "absolute1e-7"
+          }
+        ],
+        "negative_cases": [
+          "Rank-deficient sample geometry",
+          "Index0",
+          "Mismatched derivative units",
+          "Insufficient observations"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoPointMassGravity",
+          "GeoPrismGravity",
+          "GeoOrdinaryKrigingGrid"
+        ],
+        "distinct_from_existing": "This estimates ideal-source position from homogeneity, rather than evaluating a specified source or interpolating field values.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "harmonica",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "harmonica==0.7.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.23",
+          "pandas>=1.4",
+          "scipy>=1.9",
+          "scikit-learn>=1.0",
+          "numba>=0.53",
+          "xarray>=2022.03",
+          "verde>=1.8.1",
+          "xrft>=1.0",
+          "choclo>=0.1"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Index-depth tradeoff is strong; covariance is not calibrated location uncertainty.",
+        "Multi-source windows can give misleading depths even with low residual."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 5,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSurfaceWaveDispersion",
+      "capability_key": "geophysics:surface-wave-dispersion",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Compute Rayleigh/Love phase and group dispersion curves for a layered elastic halfspace as one modal-dispersion operation.",
+      "upstream_callable": "disba.PhaseDispersion.__call__",
+      "supporting_callables": [
+        "disba.GroupDispersion.__call__"
+      ],
+      "package_pin": "disba==0.7.0",
+      "source_commit": "18b7d023288f2bf22d2f128e8ca6a10d15b5913a",
+      "authoritative_source_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/disba/_dispersion.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/LICENSE",
+      "inputs_units": {
+        "layer_thickness": "km",
+        "vp_vs": "km/s",
+        "density": "g/cm^3",
+        "periods": "s"
+      },
+      "outputs_units": {
+        "phase_velocity": "km/s",
+        "group_velocity": "km/s",
+        "period": "s"
+      },
+      "constraints": [
+        "Positive stable solid-layer moduli; initially no fluid layers; last layer is halfspace.",
+        "Sorted positive periods; bounded layer and mode counts.",
+        "Rayleigh/Love, phase/group, modes and solver choices are bundled, not separate tools.",
+        "Return absent modes as explicit failure/missing-domain evidence, not silently shortened arrays."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Homogeneous halfspace Vp=sqrt(3)*3,Vs=3km/s has Rayleigh c=U=2.7582050603km/s, where x=(c/Vs)^2 solves x^3-8x^2+(56/3)x-32/3=0. A genuinely layered Love case uses Vs1=2,Vs2=4km/s, equal densities,T=10s and h=atan(2*sqrt(7/5))/[(2*pi/10)*sqrt(5)/6]; independent traction continuity gives fundamental c=3km/s.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "homogeneous Rayleigh phase/group speed",
+            "value": 2.7582050603,
+            "unit": "km/s",
+            "proposed_tolerance": "absolute1e-4 with suitably tight root increment"
+          },
+          {
+            "quantity": "layered Love phase speed at10s",
+            "value": 3,
+            "unit": "km/s",
+            "proposed_tolerance": "absolute1e-4"
+          }
+        ],
+        "negative_cases": [
+          "Nonpositive thickness before halfspace",
+          "Unsorted/nonpositive periods",
+          "Unstable Vp/Vs",
+          "Requested nonexistent mode"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoSeismicVTIPhase",
+          "GeoSeismicBackus",
+          "GeoSeismicZoeppritzScattering"
+        ],
+        "distinct_from_existing": "Layer-supported surface-wave modes and frequency dispersion are distinct from bulk phase speed in one anisotropic solid, homogenization, and interface scattering.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "disba",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "disba==0.7.0",
+        "declared_runtime_dependencies": [
+          "importlib_metadata",
+          "matplotlib",
+          "numpy",
+          "numba"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Root/mode tracking and Numba compatibility need acceptance; no inversion is implied.",
+        "Group velocities require an independent derivative/convergence check, not only phase agreement."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 6,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoPotentialEquivalentSources",
+      "capability_key": "geophysics:potential-equivalent-sources",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Fit damped equivalent sources to irregular-altitude potential-field observations and predict a supplied survey-level grid.",
+      "upstream_callable": "harmonica.EquivalentSources.fit",
+      "supporting_callables": [],
+      "package_pin": "harmonica==0.7.0",
+      "source_commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_equivalent_sources/cartesian.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/LICENSE.txt",
+      "inputs_units": {
+        "observations_targets": "ENU m",
+        "field_values": "explicit consistent field unit",
+        "source_positions": "ENU m",
+        "damping": "explicit regularization parameter"
+      },
+      "outputs_units": {
+        "predictions": "same field unit",
+        "residuals": "same field unit",
+        "coefficients": "field_unit*m for1/r kernel"
+      },
+      "constraints": [
+        "Bound dense fit matrix; supplied source positions must remain separated from observations.",
+        "Fixed numeric source depth/positions and damping, no callable Green kernels.",
+        "No joint data-type inversion, magnetic reduction-to-pole or claim of physical source masses.",
+        "Keep gridding/continuation through this fitted model in one operation."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Choose two fixed fictitious source points and independently generate observations with coefficients10000 and-2000 using1/r. Recover coefficients with zero damping/full rank and compare held-out fields to the hand sum. A single-source check at depth10m has field1000 at surface and500 at altitude10m.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "single-source held-out field",
+            "value": 500,
+            "unit": "field_unit",
+            "proposed_tolerance": "relative1e-7"
+          },
+          {
+            "quantity": "first coefficient in full-rank two-source construction",
+            "value": 10000,
+            "unit": "field_unit*m",
+            "proposed_tolerance": "relative1e-6"
+          }
+        ],
+        "negative_cases": [
+          "Coincident target/source",
+          "Rank-deficient undamped fit",
+          "Excessive dense system",
+          "Mixed physical data types"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoOrdinaryKrigingGrid",
+          "DeepTimeInterpolateIDW",
+          "GeoPointMassGravity"
+        ],
+        "distinct_from_existing": "Fits harmonic Green-function coefficients across variable altitude; kriging/IDW do not enforce that physics and point-gravity only evaluates known masses. Distinct from proposed FFT continuation, which takes a complete regular plane.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "harmonica",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "harmonica==0.7.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.23",
+          "pandas>=1.4",
+          "scipy>=1.9",
+          "scikit-learn>=1.0",
+          "numba>=0.53",
+          "xarray>=2022.03",
+          "verde>=1.8.1",
+          "xrft>=1.0",
+          "choclo>=0.1"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Equivalent sources are not unique geological bodies.",
+        "Interpolation outside survey footprint can be unstable; report geometry/damping."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 7,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoPotentialUpwardContinuation",
+      "capability_key": "geophysics:potential-upward-continuation",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Continue a complete planar potential-field grid to a higher observation plane using the harmonic spectral transfer.",
+      "upstream_callable": "harmonica.upward_continuation",
+      "supporting_callables": [],
+      "package_pin": "harmonica==0.7.0",
+      "source_commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_transformations.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/LICENSE.txt",
+      "inputs_units": {
+        "grid": "explicit gravity/magnetic unit",
+        "easting_northing_spacing": "m",
+        "height_displacement": "m"
+      },
+      "outputs_units": {
+        "continued_field": "same grid unit"
+      },
+      "constraints": [
+        "Uniform complete northing/easting grid; no NoData imputation.",
+        "Strictly positive displacement; downward continuation excluded as ill posed.",
+        "Explicit edge treatment and retained coordinate grid; CPU FFT size capped."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "For f=10*cos(0.1*x), the harmonic mode decays by exp(-|k|h). At h=10m expected amplitude=10/e=3.6787944117 in the original unit. Use an integer-cycle periodic synthetic grid, independently calculated samples and nonzero continuation height.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "continued harmonic amplitude",
+            "value": 3.6787944117144233,
+            "unit": "input_field_unit",
+            "proposed_tolerance": "relative1e-7"
+          }
+        ],
+        "negative_cases": [
+          "Nonuniform spacing",
+          "Missing cells",
+          "Negative height",
+          "Mixed coordinate units"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoPointMassGravity",
+          "GeoPrismGravity",
+          "SeismicMadagascarFFT"
+        ],
+        "distinct_from_existing": "Transforms a measured potential field between observation levels using Laplace's equation; neither source forward modeling nor a generic seismic FFT does this.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "harmonica",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "harmonica==0.7.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.23",
+          "pandas>=1.4",
+          "scipy>=1.9",
+          "scikit-learn>=1.0",
+          "numba>=0.53",
+          "xarray>=2022.03",
+          "verde>=1.8.1",
+          "xrft>=1.0",
+          "choclo>=0.1"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Periodic-edge artifacts matter for real surveys; padding is not new geological evidence."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 8,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoMagneticReductionToPole",
+      "capability_key": "geophysics:magnetic-reduction-to-pole",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Rephase a planar total-field magnetic anomaly to pole-equivalent field and magnetization directions.",
+      "upstream_callable": "harmonica.reduction_to_pole",
+      "supporting_callables": [],
+      "package_pin": "harmonica==0.7.0",
+      "source_commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_transformations.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/LICENSE.txt",
+      "inputs_units": {
+        "anomaly_grid": "nT",
+        "spacing": "m",
+        "field_and_magnetization_directions": "degrees"
+      },
+      "outputs_units": {
+        "pole_reduced_anomaly": "nT"
+      },
+      "constraints": [
+        "Regular complete grid; explicit inducing and magnetization directions.",
+        "Disclose constant-direction regional approximation; reject near-singular directional transfer.",
+        "Low-inclination instability requires a justified condition-number gate, not arbitrary output clipping."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Take a zero-mean sinusoidal anomaly3*cos(k*x), x=easting, with both field and magnetization inclination60deg and declination0deg (north). Horizontal directions are perpendicular to the wavevector; independent dipole-projection transfer is1/sin(60)^2=4/3, giving output amplitude4nT. Also test pole identity separately.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "nonpolar sinusoidal output amplitude",
+            "value": 4,
+            "unit": "nT",
+            "proposed_tolerance": "relative1e-6"
+          }
+        ],
+        "negative_cases": [
+          "Near-equatorial singular direction",
+          "Unspecified magnetization direction",
+          "Grid gaps",
+          "Irregular coordinate axes"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoDipoleMagnetic",
+          "GeoPrismMagnetic"
+        ],
+        "distinct_from_existing": "Direction-corrects measured total-field anomalies, not forward induction from specified dipoles/prisms. Not interchangeable with proposed harmonic continuation.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "harmonica",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "harmonica==0.7.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.23",
+          "pandas>=1.4",
+          "scipy>=1.9",
+          "scikit-learn>=1.0",
+          "numba>=0.53",
+          "xarray>=2022.03",
+          "verde>=1.8.1",
+          "xrft>=1.0",
+          "choclo>=0.1"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Remanence may invalidate assumed magnetization; no mineral identification inference."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 9,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoDCFourElectrodeResponse",
+      "capability_key": "geophysics:dcfour-electrode-response",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Compute four-electrode voltage responses in a homogeneous resistive halfspace with explicit source/sink and potential electrodes.",
+      "upstream_callable": "geoana.em.static.DipoleHalfSpace.potential",
+      "supporting_callables": [],
+      "package_pin": "geoana==0.9.0",
+      "source_commit": "7c47ec2e1253e698c26c95d6dd0c7e493a1c8630",
+      "authoritative_source_url": "https://github.com/simpeg/geoana/blob/7c47ec2e1253e698c26c95d6dd0c7e493a1c8630/geoana/em/static/halfspace.py",
+      "license": "MIT",
+      "license_evidence_url": "https://github.com/simpeg/geoana/blob/7c47ec2e1253e698c26c95d6dd0c7e493a1c8630/LICENSE",
+      "inputs_units": {
+        "electrode_coordinates": "m, surface z=0 or subsurface z<=0",
+        "resistivity": "ohm*m",
+        "current": "A"
+      },
+      "outputs_units": {
+        "potential_difference": "V",
+        "transfer_resistance": "ohm"
+      },
+      "constraints": [
+        "Positive resistivity; nonzero current for transfer resistance.",
+        "Distinct current/potential electrodes; reject singular coincidences and degenerate geometry.",
+        "Do not label apparent resistivity as an inverted heterogeneous earth model."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Wenner array A=0,M=10,N=20,B=30m, rho100ohm*m,I1A has independent image-source result dV=rho*I/(2*pi*a)=1.5915494309V and transfer resistance1.5915494309ohm.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "Wenner voltage",
+            "value": 1.5915494309189535,
+            "unit": "V",
+            "proposed_tolerance": "relative1e-9"
+          }
+        ],
+        "negative_cases": [
+          "Electrode coincidence",
+          "Electrode above surface",
+          "Nonpositive resistivity",
+          "Zero current when normalizing"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoSpatialResistanceDistance",
+          "GeoDipoleMagnetic"
+        ],
+        "distinct_from_existing": "The spatial resistance tool is a planning graph metric, explicitly not geophysical resistivity. This solves electric potential/current injection and is not magnetostatics.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "geoana",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "geoana==0.9.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.26.0",
+          "scipy>=1.11.2",
+          "libdlf"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Homogeneous halfspace only; contact impedance/topography/heterogeneity not represented."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 10,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoGravityNormalEllipsoid",
+      "capability_key": "geophysics:gravity-normal-ellipsoid",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Evaluate reference-ellipsoid normal gravity at measured geodetic heights for gravity-disturbance reduction.",
+      "upstream_callable": "boule.Ellipsoid.normal_gravity",
+      "supporting_callables": [],
+      "package_pin": "boule==0.6.0",
+      "source_commit": "8666d0823c667c543bfce503cc3759b9c3047287",
+      "authoritative_source_url": "https://github.com/fatiando/boule/blob/8666d0823c667c543bfce503cc3759b9c3047287/src/boule/_ellipsoid.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/fatiando/boule/blob/8666d0823c667c543bfce503cc3759b9c3047287/LICENSE.txt",
+      "inputs_units": {
+        "coordinates": "(longitude_deg,geodetic_latitude_deg,ellipsoidal_height_m)",
+        "reference_ellipsoid": "fixed WGS84 initially"
+      },
+      "outputs_units": {
+        "normal_gravity": "m/s^2 with si_units=True"
+      },
+      "constraints": [
+        "Boule0.6 tuple-coordinate signature; fixed geodetic coordinates, no automatic geoid lookup.",
+        "Height>=0; distinguish ellipsoidal from orthometric height.",
+        "Report normal gravity, not local geological anomaly or free-air-corrected observation."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Use published USGS WGS84 equatorial and polar normal gravity constants, independent of Boule calculations. At h=0, latitude0 gives9.7803253359 and latitude90 gives9.8321849378m/s2; include45deg Somigliana check and height monotonicity.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "equatorial gravity",
+            "value": 9.7803253359,
+            "unit": "m/s^2",
+            "proposed_tolerance": "absolute2e-9"
+          },
+          {
+            "quantity": "polar gravity",
+            "value": 9.8321849378,
+            "unit": "m/s^2",
+            "proposed_tolerance": "absolute2e-9"
+          }
+        ],
+        "negative_cases": [
+          "Negative height",
+          "Orthometric height passed without conversion/provenance",
+          "Invalid latitude"
+        ],
+        "independent_reference_url": "https://pubs.usgs.gov/of/2006/1204/Gravity/computations.pdf"
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoPrismGravity",
+          "GeoSpatialProjectionDistortion"
+        ],
+        "distinct_from_existing": "Reference rotational ellipsoid gravity is neither local density-contrast gravity nor projection distortion. Distinct from the proposed Bouguer terrain slab term.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "boule",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "boule==0.6.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.23",
+          "attrs>=19.3.0",
+          "scipy>=1.8.0"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Reference frame/height datum errors dominate survey reductions; no geoid model is fetched."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 11,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicArrayBeamforming",
+      "capability_key": "geophysics:seismic-array-beamforming",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Estimate seismic wavefront backazimuth, horizontal slowness and coherence from a synchronized station array.",
+      "upstream_callable": "obspy.signal.array_analysis.array_processing",
+      "supporting_callables": [],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/signal/array_analysis.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "waveforms": "one common calibrated amplitude unit",
+        "sampling": "Hz",
+        "station_coordinates": "local x,y,elevation km upstream",
+        "slowness_grid": "s/km",
+        "time_windows": "s"
+      },
+      "outputs_units": {
+        "backazimuth": "degrees",
+        "horizontal_slowness": "s/km",
+        "relative_power": "1",
+        "absolute_power": "declared algorithm-normalized amplitude power"
+      },
+      "constraints": [
+        "Synchronized gap-free equal-rate traces; noncollinear surveyed station geometry.",
+        "Fixed conventional beamformer method0, no user store callback.",
+        "Explicit band below Nyquist and bounded slowness grid/windows; report spatial-alias limits."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Construct delayed band-limited waveforms analytically with horizontal slowness(px,py)=(0.06,0.08)s/km on an irregular array. Expected magnitude0.1s/km and grid-aligned maximum; ideal normalized coherence1. Independent delays are x*px+y*py, not output from array_processing.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "slowness magnitude",
+            "value": 0.1,
+            "unit": "s/km",
+            "proposed_tolerance": "one declared slowness grid step"
+          },
+          {
+            "quantity": "ideal relative coherence",
+            "value": 1,
+            "unit": "1",
+            "proposed_tolerance": "tolerance0.02 after taper/finite-window allowance"
+          }
+        ],
+        "negative_cases": [
+          "Clock/sample-rate mismatch",
+          "Collinear geometry",
+          "Aliased slowness grid",
+          "Band above Nyquist"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "SeismicMadagascarFFT",
+          "SeismicObsPyBandpass"
+        ],
+        "distinct_from_existing": "Uses inter-station wavefront delays to estimate direction/slowness; existing tools process one waveform or its spectrum.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Absolute-power normalization needs explicit metadata; do not call it physical energy.",
+        "Backazimuth vs propagation-direction180deg convention must have a signed oracle."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 12,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicSTALTADetection",
+      "capability_key": "geophysics:seismic-staltadetection",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Detect transient seismic event windows using a fixed classic STA/LTA energy detector and explicit on/off thresholds.",
+      "upstream_callable": "obspy.signal.trigger.classic_sta_lta",
+      "supporting_callables": [
+        "obspy.signal.trigger.trigger_onset"
+      ],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/signal/trigger.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "waveform": "consistent amplitude unit",
+        "window_lengths": "samples",
+        "sample_interval": "s",
+        "thresholds": "dimensionless"
+      },
+      "outputs_units": {
+        "characteristic_function": "1",
+        "event_on_off": "s and sample indices"
+      },
+      "constraints": [
+        "0<nsta<nlta<=sample count; finite nonzero-background waveform.",
+        "Fixed algorithm; no separate classic/recursive/delayed variants counted.",
+        "Declare threshold inclusivity, warmup and end-of-record policy."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "For samples[1,1,1,1,3,3,1,1], nsta2,nlta4, the energy means at index5 are9 and5, giving STA/LTA1.8. On threshold1.7/off1.2 yields activation at sample5; at100Hz that is0.05s. Independent rolling sums define truth.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "STA/LTA at index5",
+            "value": 1.8,
+            "unit": "1",
+            "proposed_tolerance": "relative1e-12"
+          },
+          {
+            "quantity": "activation time",
+            "value": 0.05,
+            "unit": "s",
+            "proposed_tolerance": "one sample"
+          }
+        ],
+        "negative_cases": [
+          "nsta>=nlta",
+          "Trace shorter than LTA",
+          "Zero-energy background without defined invalid mask",
+          "Invalid threshold ordering"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "RsudpWindowAmplitude",
+          "SeismicObsPyBandpass"
+        ],
+        "distinct_from_existing": "RSAM is an amplitude summary and bandpass is filtering; STA/LTA outputs event windows relative to background energy.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "A trigger is not a P/S pick or an identified earthquake; no event magnitude inferred."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 13,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicTemplateDetection",
+      "capability_key": "geophysics:seismic-template-detection",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Detect repeating seismic events with explicit multichannel waveform templates, retaining match times and similarity.",
+      "upstream_callable": "obspy.signal.cross_correlation.correlation_detector",
+      "supporting_callables": [],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/signal/cross_correlation.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "waveforms_templates": "same physical unit and sample rate",
+        "template_reference_times": "s or explicit UTC",
+        "minimum_event_spacing": "s",
+        "similarity_threshold": "1"
+      },
+      "outputs_units": {
+        "detections": "time",
+        "similarity": "1"
+      },
+      "constraints": [
+        "Fixed upstream mean-channel similarity, no user functions.",
+        "Channel IDs/sample rates must match; template shorter than data; reject constant-energy-free templates.",
+        "Disable magnitude estimation and plotting; no implicit event-template downloads."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Insert a supplied nonconstant template unchanged at sample100 in a longer trace at100Hz, with zero offset relative to its declared template start. Independent construction gives detection1.0s and normalized similarity1.0; a second copy at sample300 gives3.0s when minimum spacing permits.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "first detection time",
+            "value": 1,
+            "unit": "s",
+            "proposed_tolerance": "one sample"
+          },
+          {
+            "quantity": "perfect match score",
+            "value": 1,
+            "unit": "1",
+            "proposed_tolerance": "absolute1e-8"
+          }
+        ],
+        "negative_cases": [
+          "Mismatched channel identities",
+          "Constant template",
+          "Template longer than data",
+          "Nonfinite samples"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoRemoteMatchedFilter",
+          "GeoRemotePhaseRegistration",
+          "RsudpWindowAmplitude"
+        ],
+        "distinct_from_existing": "Remote matched filtering concerns spectral pixels and registration concerns2D translation; this identifies recurring multichannel seismic waveform events. Distinct from energy-only STA/LTA.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Template dependence and overlapping events limit detection; no inferred magnitude, origin or location."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 14,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicPolarization",
+      "capability_key": "geophysics:seismic-polarization",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Estimate three-component seismic particle-motion azimuth, incidence, rectilinearity and planarity.",
+      "upstream_callable": "obspy.signal.polarization.flinn",
+      "supporting_callables": [],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/signal/polarization.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "components": "synchronized Z,N,E in one amplitude unit",
+        "noise_threshold": "amplitude_unit^2"
+      },
+      "outputs_units": {
+        "azimuth_incidence": "degrees",
+        "rectilinearity_planarity": "1"
+      },
+      "constraints": [
+        "Correct instrument orientation and identical time support; enough surviving nonzero samples.",
+        "Declare axial180deg ambiguity; reject degenerate covariance/equal-leading-eigenvalue orientation.",
+        "All polarization outputs remain one operation."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Use u(t)=s(t)*(Z,N,E)=(1,sqrt(3)/2,1/2)*s(t), with a nonconstant zero-mean s. Rank-one particle motion gives azimuth30deg, incidence45deg, rectilinearity1, planarity1 independently of covariance software.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "azimuth",
+            "value": 30,
+            "unit": "degrees",
+            "proposed_tolerance": "absolute1e-6 modulo180"
+          },
+          {
+            "quantity": "incidence",
+            "value": 45,
+            "unit": "degrees",
+            "proposed_tolerance": "absolute1e-6"
+          },
+          {
+            "quantity": "rectilinearity",
+            "value": 1,
+            "unit": "1",
+            "proposed_tolerance": "absolute1e-8"
+          }
+        ],
+        "negative_cases": [
+          "Mismatched component lengths",
+          "All samples below noise threshold",
+          "Isotropic covariance without unique direction"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoAPSGFisherDirectionalConfidence",
+          "GeoRemoteStructureTensor"
+        ],
+        "distinct_from_existing": "Uses calibrated3C waveform motion to estimate seismic polarization, not structural-direction population statistics or image intensity gradients.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Anisotropy/scattering/sensor tilt affect interpretation; no automatic backazimuth inversion from a single record."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 15,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicTauPRays",
+      "capability_key": "geophysics:seismic-tau-prays",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Predict seismic phase travel times, ray parameters and ray paths in a supplied local1D spherical velocity model.",
+      "upstream_callable": "obspy.taup.TauPyModel.get_ray_paths",
+      "supporting_callables": [],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/taup/tau.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "model_depth": "km",
+        "vp_vs": "km/s",
+        "source_receiver_depth": "km",
+        "epicentral_distance": "degrees",
+        "phase_list": "bounded declared seismic phase names"
+      },
+      "outputs_units": {
+        "travel_time": "s",
+        "ray_path_depth": "km",
+        "ray_path_distance": "radians or explicitly converted degrees",
+        "ray_parameter": "s/radian; explicitly label any s/degree conversion"
+      },
+      "constraints": [
+        "Use a fixed bundled model or locally hashed precompiled model; no online catalogs or arbitrary object deserialization.",
+        "Bound phase/model/path sizes; preserve multiple branches and missing arrivals.",
+        "Phase syntax is a validated physical grammar, never evaluated as code."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "A homogeneous spherical body of radius6371km and P speed6km/s has a direct surface-to-surface chord at60deg of length6371km, giving time1061.8333333333s. Independently compute the chord geometry and turning depth R*(1-cos30deg). Use a locally authored constant-velocity model, not another TauP result.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "homogeneous60deg P travel time",
+            "value": 1061.8333333333333,
+            "unit": "s",
+            "proposed_tolerance": "absolute0.01 after model-discretization allowance"
+          },
+          {
+            "quantity": "turning depth",
+            "value": 853.552152489341,
+            "unit": "km",
+            "proposed_tolerance": "absolute0.1"
+          }
+        ],
+        "negative_cases": [
+          "Source below model radius",
+          "Unknown phase syntax",
+          "Negative depths",
+          "Untrusted/unversioned model"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "DeepEarthQueryLITHO1",
+          "DeepEarthQuerySEMUCB",
+          "GeoSeismicVTIPhase"
+        ],
+        "distinct_from_existing": "Existing deep-earth tools sample supplied models and VTI computes local bulk speed; TauP integrates phase propagation/path geometry through radial layering.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Preparing custom TauP model artifact and verifying phase conventions remain future work; no travel-time uncertainty inferred."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 16,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicNMO",
+      "capability_key": "geophysics:seismic-nmo",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Apply hyperbolic normal-moveout correction to a supplied CMP gather using declared NMO velocities.",
+      "upstream_callable": "bruges.transform.nmo.nmo_correction",
+      "supporting_callables": [],
+      "package_pin": "bruges==0.5.4",
+      "source_commit": "24e2e7912f49089465dd622363fd2788029266b1",
+      "authoritative_source_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/bruges/transform/nmo.py",
+      "license": "Apache-2.0; NMO file carries BSD-3-Clause attribution",
+      "license_evidence_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/LICENSE.txt",
+      "inputs_units": {
+        "cmp_gather": "amplitude, shape(samples,traces)",
+        "dt": "s",
+        "offsets": "m",
+        "nmo_velocity": "m/s"
+      },
+      "outputs_units": {
+        "corrected_gather": "same amplitude unit",
+        "valid_support": "sample mask"
+      },
+      "constraints": [
+        "Positive velocity per zero-offset time sample; finite regularly sampled gather.",
+        "Mask missing cubic-interpolation support rather than presenting upstream zero padding as observations.",
+        "Bound nested interpolation loops; do not claim stretch mute, anisotropic moveout or velocity inversion."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "A reflector at zero-offset time1s with velocity2000m/s occurs at1.25s for1500m offset. Construct unit pulses on that analytic hyperbola with1ms sampling. After correction all interior peak times should be1s and grid-aligned pulse amplitude1.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "corrected peak time",
+            "value": 1,
+            "unit": "s",
+            "proposed_tolerance": "one sample"
+          },
+          {
+            "quantity": "grid-aligned pulse amplitude",
+            "value": 1,
+            "unit": "input_amplitude_unit",
+            "proposed_tolerance": "absolute1e-6"
+          }
+        ],
+        "negative_cases": [
+          "Nonpositive velocities",
+          "Offset/trace mismatch",
+          "Insufficient interpolation support",
+          "Nonfinite data"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "SeismicReflectivity",
+          "GeoSeismicZoeppritzScattering"
+        ],
+        "distinct_from_existing": "Corrects acquisition-offset travel-time geometry in observed CMP gathers, not reflection amplitudes at interfaces.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "bruges",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "bruges==0.5.4",
+        "declared_runtime_dependencies": [
+          "numpy (selected kernels)",
+          "scipy (selected kernels)"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "NMO source is BSD-3-Clause attributed within Apache Bruges.",
+        "Stretch distortions and long-offset nonhyperbolic behavior must be disclosed; no extra synthetic data filling."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 17,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicComplexAttributes",
+      "capability_key": "geophysics:seismic-complex-attributes",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Extract a bundled seismic trace envelope, phase and instantaneous-frequency attribute set with explicit valid support.",
+      "upstream_callable": "bruges.attribute.complex.instantaneous_amplitude",
+      "supporting_callables": [
+        "bruges.attribute.complex.instantaneous_phase",
+        "bruges.attribute.complex.instantaneous_frequency"
+      ],
+      "package_pin": "bruges==0.5.4",
+      "source_commit": "24e2e7912f49089465dd622363fd2788029266b1",
+      "authoritative_source_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/bruges/attribute/complex.py",
+      "license": "Apache-2.0; NMO file carries BSD-3-Clause attribution",
+      "license_evidence_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/LICENSE.txt",
+      "inputs_units": {
+        "trace": "one real finite seismic amplitude series",
+        "dt": "s"
+      },
+      "outputs_units": {
+        "envelope": "input amplitude unit",
+        "phase": "radians",
+        "instantaneous_frequency": "Hz"
+      },
+      "constraints": [
+        "Use actual1D kernels per trace; upstream documented ND behavior is not assumed.",
+        "Fixed Scheuer-Oldenburg frequency method; no algorithm variants or aliases counted.",
+        "Mask near-zero analytic envelope, edges and invalid divisions; disclose frequency branch limitation below fs/4 and any clipping policy."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "A periodic cosine of amplitude2 and frequency10Hz sampled at100Hz has analytic envelope2, phase advance0.2*pi rad/sample, and Scheuer-Oldenburg frequency10Hz away from invalid endpoints. This follows the analytic signal of a cosine, not a second Hilbert implementation snapshot.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "envelope",
+            "value": 2,
+            "unit": "input_amplitude_unit",
+            "proposed_tolerance": "absolute1e-8"
+          },
+          {
+            "quantity": "frequency",
+            "value": 10,
+            "unit": "Hz",
+            "proposed_tolerance": "absolute1e-6"
+          }
+        ],
+        "negative_cases": [
+          "Zero-envelope frequency request",
+          "Nonpositive dt",
+          "Unsupported multidimensional direct-call assumption",
+          "Frequency branch ambiguity"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "SeismicMadagascarFFT",
+          "RsudpWindowAmplitude",
+          "GeoRemoteGabor"
+        ],
+        "distinct_from_existing": "Local seismic analytic-signal amplitude/phase/frequency differs from a full Fourier spectrum, window amplitude summary or2D oriented image filter.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "bruges",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "bruges==0.5.4",
+        "declared_runtime_dependencies": [
+          "numpy (selected kernels)",
+          "scipy (selected kernels)"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Source frequency kernels index the first axis despite ND docstrings; only deliberate1D calls are defensible.",
+        "Frequency near branch limits and edge/leakage behavior need acceptance."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 18,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicWindowCoherence",
+      "capability_key": "geophysics:seismic-window-coherence",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Measure Marfurt seismic trace coherence within an explicitly supplied3D survey-analysis window.",
+      "upstream_callable": "bruges.attribute.discontinuity.marfurt",
+      "supporting_callables": [],
+      "package_pin": "bruges==0.5.4",
+      "source_commit": "24e2e7912f49089465dd622363fd2788029266b1",
+      "authoritative_source_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/bruges/attribute/discontinuity.py",
+      "license": "Apache-2.0; NMO file carries BSD-3-Clause attribution",
+      "license_evidence_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/LICENSE.txt",
+      "inputs_units": {
+        "window": "amplitude array(inline,crossline,time)",
+        "dt": "s; same time basis for all traces"
+      },
+      "outputs_units": {
+        "coherence": "1"
+      },
+      "constraints": [
+        "Call the actual marfurt kernel directly on an explicit window, not the defective high-level discontinuity wrapper.",
+        "Nonzero total energy; aligned time axis and survey sampling.",
+        "Do not count GST/Gersztenkorn variants or axes separately; any future sliding window must preserve declared geometry."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "For two proportional traces w and2w, independent semblance is (1+2)^2/[2*(1^2+2^2)]=0.9. A third polarity-reversed trace changes coherence according to the same independently derived stack-energy ratio; test nonzero amplitudes large enough that the fixed1e-12 guard is negligible.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "two-trace coherence",
+            "value": 0.9,
+            "unit": "1",
+            "proposed_tolerance": "absolute1e-10"
+          }
+        ],
+        "negative_cases": [
+          "All-zero window",
+          "Misaligned trace sampling",
+          "Unbounded volume",
+          "Nonfinite amplitudes"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoRemoteStructureTensor",
+          "GeoRemoteGLCM",
+          "SeismicReflectivity"
+        ],
+        "distinct_from_existing": "Trace waveform coherence diagnoses seismic reflector continuity; it is not image-gradient fabric, gray-level texture or an interface-reflectivity calculation.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "bruges",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "bruges==0.5.4",
+        "declared_runtime_dependencies": [
+          "numpy (selected kernels)",
+          "scipy (selected kernels)"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Bruges high-level discontinuity has wrong3D window ordering/eager method evaluation and is excluded; no scientific kernel patch is proposed.",
+        "Direct-window result is not an interpreted fault probability."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 19,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoPotentialEdgeAttributes",
+      "capability_key": "geophysics:potential-edge-attributes",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Compute bundled total-gradient amplitude and tilt of a potential-field anomaly grid for edge interpretation.",
+      "upstream_callable": "harmonica.total_gradient_amplitude",
+      "supporting_callables": [
+        "harmonica.tilt_angle"
+      ],
+      "package_pin": "harmonica==0.7.0",
+      "source_commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_transformations.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/LICENSE.txt",
+      "inputs_units": {
+        "grid": "nT or mGal, explicitly declared",
+        "horizontal_coordinates": "m"
+      },
+      "outputs_units": {
+        "total_gradient": "field_unit/m",
+        "tilt": "radians"
+      },
+      "constraints": [
+        "Uniform complete planar northing/easting grid.",
+        "Upstream horizontal finite differences and vertical FFT have different edge errors; explicit boundary mask required.",
+        "Reject/mark zero-gradient tilt as undefined; no axis-specific tools or inferred contacts."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "For f=10*cos(0.1*x) continued harmonically with upward z, at an interior cosine crest the horizontal derivative is0 and upward derivative=-1 field_unit/m. Thus total-gradient amplitude1 and tilt=-pi/2. Additional interior points use independently derived discrete secant gradients, not upstream values.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "crest total gradient",
+            "value": 1,
+            "unit": "field_unit/m",
+            "proposed_tolerance": "absolute1e-7"
+          },
+          {
+            "quantity": "crest tilt",
+            "value": -1.5707963267948966,
+            "unit": "radians",
+            "proposed_tolerance": "absolute1e-7"
+          }
+        ],
+        "negative_cases": [
+          "Zero-gradient undefined tilt",
+          "Gaps/nonuniform grid",
+          "Coordinates in incompatible units"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoPrismGravity",
+          "GeoRemoteCanny",
+          "GeoRemoteStructureTensor"
+        ],
+        "distinct_from_existing": "Derives3D harmonic-field edge indicators, including physical vertical derivative, rather than known-source tensor forward modeling or2D image edges.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "harmonica",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "harmonica==0.7.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.23",
+          "pandas>=1.4",
+          "scipy>=1.9",
+          "scikit-learn>=1.0",
+          "numba>=0.53",
+          "xarray>=2022.03",
+          "verde>=1.8.1",
+          "xrft>=1.0",
+          "choclo>=0.1"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Attributes are descriptive and resolution dependent; not geological contact certainty."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 20,
+      "priority": "first_20",
+      "proposed_tool_id": "GeoSeismicArrayStrainRotation",
+      "capability_key": "geophysics:seismic-array-strain-rotation",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Infer time-varying small ground strains and rigid rotations from synchronized3C surface-array displacements and stated noise.",
+      "upstream_callable": "obspy.signal.array_analysis.array_rotation_strain",
+      "supporting_callables": [],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/signal/array_analysis.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "station_coordinates": "m in one local frame",
+        "displacement": "m",
+        "vp_vs": "same velocity unit",
+        "noise_standard_deviation": "m"
+      },
+      "outputs_units": {
+        "strain": "1",
+        "rotation": "radians",
+        "formal_covariance": "corresponding squared units"
+      },
+      "constraints": [
+        "Displacements, not unlabeled velocity/acceleration; component/station alignment explicit.",
+        "Noncollinear sufficiently conditioned array; positive noise standard deviation.",
+        "Free-surface linear/affine-wavefield assumptions; preserve full tensor and rotation vector as one operation."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "At planar stations set rigid rotation ux=-theta*y,uy=theta*x,uz=0 with theta=1e-4rad. Independent kinematics gives zero strain and vertical rotation1e-4. Add affine extension ux=1e-5*x,uy=0 and free-surface-compatible vertical derivative to test nonzero strain rather than only rigid motion.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "rigid vertical rotation",
+            "value": 0.0001,
+            "unit": "rad",
+            "proposed_tolerance": "absolute1e-9"
+          },
+          {
+            "quantity": "affine horizontal extension",
+            "value": 0.00001,
+            "unit": "1",
+            "proposed_tolerance": "absolute1e-9"
+          }
+        ],
+        "negative_cases": [
+          "Collinear stations",
+          "Mispaired station/component order",
+          "Nonpositive noise uncertainty",
+          "Mixed displacement/velocity units"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoAPSGFiniteStrainEllipsoid",
+          "GeoAPSGVelocityGradientEvolution",
+          "GeoAPSGKinematicVorticity"
+        ],
+        "distinct_from_existing": "Estimates a small, time-varying seismic deformation field from array observations under free-surface physics; existing APSG tools transform supplied tectonic deformation/velocity-gradient tensors.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Formal noise errors are not model-error estimates; station geometry and affine approximation dominate."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 21,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoGravityBouguerSlab",
+      "capability_key": "geophysics:gravity-bouguer-slab",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Calculate land/bathymetric infinite-slab gravity correction with explicit crust and water density contrast.",
+      "upstream_callable": "harmonica.bouguer_correction",
+      "supporting_callables": [],
+      "package_pin": "harmonica==0.7.0",
+      "source_commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_gravity_corrections.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/LICENSE.txt",
+      "inputs_units": {
+        "elevation": "m relative to declared reference",
+        "crust_water_density": "kg/m^3"
+      },
+      "outputs_units": {
+        "bouguer_term": "mGal"
+      },
+      "constraints": [
+        "Explicit land/bathymetry sign and datum; densities finite positive.",
+        "Only flat infinite-slab approximation; no claim of complete terrain correction.",
+        "Numeric arrays only; no elevation retrieval."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Integrating Newton attraction across an infinite horizontal slab gives2*pi*G*rho*h. For h100m,rho2670kg/m3 expected correction=1e5*2*pi*6.67430e-11*2670*100mGal. Bathymetry uses water-minus-crust contrast with opposite sign.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "100m land slab term",
+            "value": 11.196875606754226,
+            "unit": "mGal",
+            "proposed_tolerance": "relative1e-9"
+          }
+        ],
+        "negative_cases": [
+          "Unstated vertical datum",
+          "Nonpositive density",
+          "Nonfinite elevations"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoPrismGravity"
+        ],
+        "distinct_from_existing": "Survey reduction under an infinite topographic plate, not finite rectangular body modeling. Distinct from rotational reference-ellipsoid gravity.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "harmonica",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "harmonica==0.7.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.23",
+          "pandas>=1.4",
+          "scipy>=1.9",
+          "scikit-learn>=1.0",
+          "numba>=0.53",
+          "xarray>=2022.03",
+          "verde>=1.8.1",
+          "xrft>=1.0",
+          "choclo>=0.1"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Approximation poor for rugged terrain and distant observation heights; must not be advertised as3D terrain correction."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 22,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoCrustAiryMoho",
+      "capability_key": "geophysics:crust-airy-moho",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Predict crust-mantle boundary depth from basement relief and explicit surface-load layers using Airy mass balance.",
+      "upstream_callable": "harmonica.isostatic_moho_airy",
+      "supporting_callables": [],
+      "package_pin": "harmonica==0.7.0",
+      "source_commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+      "authoritative_source_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/harmonica/_isostasy.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/fatiando/harmonica/blob/b9f9c00b0999f470dcae971b19add28b055633c9/LICENSE.txt",
+      "inputs_units": {
+        "basement_height_layer_thickness_reference_depth": "m",
+        "densities": "kg/m^3"
+      },
+      "outputs_units": {
+        "moho_depth": "m"
+      },
+      "constraints": [
+        "Mantle density strictly greater than crust density; positive layer densities and nonnegative thickness.",
+        "Local column compensation only; no flexure, seismic inversion or inferred observed Moho.",
+        "Layer names are metadata, never code/function selectors."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "With reference Moho30000m, crust2800,mantle3300kg/m3 and basement+1000m, equal-pressure columns require root5600m and Moho35600m. A1000m sediment layer at density2000 over zero basement gives Moho34000m.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "mountain-root Moho",
+            "value": 35600,
+            "unit": "m",
+            "proposed_tolerance": "absolute1e-8"
+          },
+          {
+            "quantity": "sediment-load Moho",
+            "value": 34000,
+            "unit": "m",
+            "proposed_tolerance": "absolute1e-8"
+          }
+        ],
+        "negative_cases": [
+          "Mantle density<=crust",
+          "Negative layer thickness",
+          "Unbounded or inconsistent arrays"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "DeepEarthQueryLITHO1",
+          "GeoRockVRHBounds"
+        ],
+        "distinct_from_existing": "Mass-balance prediction of crustal root geometry is distinct from lookup of supplied Moho tables or elastic mixture properties.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "harmonica",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "harmonica==0.7.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.23",
+          "pandas>=1.4",
+          "scipy>=1.9",
+          "scikit-learn>=1.0",
+          "numba>=0.53",
+          "xarray>=2022.03",
+          "verde>=1.8.1",
+          "xrft>=1.0",
+          "choclo>=0.1"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Airy isostasy is a model assumption, not an observation; density uncertainty not automatically propagated."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 23,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoEMConductiveSphere",
+      "capability_key": "geophysics:emconductive-sphere",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Compute internal/external DC electric fields and current-density contrasts of a conducting sphere in a uniform applied field.",
+      "upstream_callable": "geoana.em.static.ElectrostaticSphere.electric_field",
+      "supporting_callables": [
+        "geoana.em.static.ElectrostaticSphere.current_density"
+      ],
+      "package_pin": "geoana==0.9.0",
+      "source_commit": "7c47ec2e1253e698c26c95d6dd0c7e493a1c8630",
+      "authoritative_source_url": "https://github.com/simpeg/geoana/blob/7c47ec2e1253e698c26c95d6dd0c7e493a1c8630/geoana/em/static/sphere.py",
+      "license": "MIT",
+      "license_evidence_url": "https://github.com/simpeg/geoana/blob/7c47ec2e1253e698c26c95d6dd0c7e493a1c8630/LICENSE",
+      "inputs_units": {
+        "radius_position": "m",
+        "sphere_background_conductivity": "S/m",
+        "primary_electric_field": "V/m"
+      },
+      "outputs_units": {
+        "total_primary_secondary_field": "V/m",
+        "current_density": "A/m^2"
+      },
+      "constraints": [
+        "Positive conductivities and radius; finite coordinates; explicit interface-side convention.",
+        "Uniform whole-space background and static applied field only.",
+        "All field components and primary/secondary partitions bundled."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Boundary continuity for sphere conductivity4S/m in background1S/m under Ex=1V/m gives internal Ex=3/(4+2)=0.5V/m and Jx=2A/m2. At x=2a outside, contrast coefficient(4-1)/(4+2)=0.5 gives Ex=1+2*0.5/8=1.125V/m.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "internal electric field",
+            "value": 0.5,
+            "unit": "V/m",
+            "proposed_tolerance": "relative1e-10"
+          },
+          {
+            "quantity": "internal current density",
+            "value": 2,
+            "unit": "A/m^2",
+            "proposed_tolerance": "relative1e-10"
+          },
+          {
+            "quantity": "external axial electric field",
+            "value": 1.125,
+            "unit": "V/m",
+            "proposed_tolerance": "relative1e-10"
+          }
+        ],
+        "negative_cases": [
+          "Nonpositive conductivity",
+          "Zero radius",
+          "Ambiguous exact interface request"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoDipoleMagnetic",
+          "GeoPrismMagnetic",
+          "GeoSpatialResistanceDistance"
+        ],
+        "distinct_from_existing": "Conductivity-boundary current redistribution and internal fields are not prescribed magnetic sources or network-resistance metrics. Distinct from homogeneous electrode forward modeling.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "geoana",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "geoana==0.9.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.26.0",
+          "scipy>=1.11.2",
+          "libdlf"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "No induced-polarization relaxation or frequency dependence; a conductive sphere does not establish ore. Estimating conductivity from data would be a separate future inverse problem."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 24,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoMagneticWirePath",
+      "capability_key": "geophysics:magnetic-wire-path",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Forward-model the magnetic induction of an explicit closed piecewise-linear current loop for survey source/calibration geometry.",
+      "upstream_callable": "geoana.em.static.LineCurrentWholeSpace.magnetic_flux_density",
+      "supporting_callables": [],
+      "package_pin": "geoana==0.9.0",
+      "source_commit": "7c47ec2e1253e698c26c95d6dd0c7e493a1c8630",
+      "authoritative_source_url": "https://github.com/simpeg/geoana/blob/7c47ec2e1253e698c26c95d6dd0c7e493a1c8630/geoana/em/static/wholespace.py",
+      "license": "MIT",
+      "license_evidence_url": "https://github.com/simpeg/geoana/blob/7c47ec2e1253e698c26c95d6dd0c7e493a1c8630/LICENSE",
+      "inputs_units": {
+        "wire_nodes": "m",
+        "current": "A",
+        "permeability": "H/m"
+      },
+      "outputs_units": {
+        "magnetic_induction_vector": "T"
+      },
+      "constraints": [
+        "Closed path with nonzero segments, no observation on a wire segment.",
+        "Fixed static current and uniform permeability; no dynamic source history.",
+        "All Cartesian components bundled; no separate square/circular/axis variants."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "A counterclockwise square loop with corners(+/-1,+/-1,0)m, current1A and supplied mu=4*pi*1e-7H/m has center Bz=2*sqrt(2)*mu/pi=1.1313708499e-6T. Derive by four finite-wire Biot-Savart integrals, independent of Geoana.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "square-loop center Bz",
+            "value": 0.0000011313708498984761,
+            "unit": "T",
+            "proposed_tolerance": "relative1e-9"
+          }
+        ],
+        "negative_cases": [
+          "Open path in proposed closed-loop profile",
+          "Zero-length segments",
+          "Receiver on wire",
+          "Nonpositive permeability"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoDipoleMagnetic",
+          "GeoPrismMagnetic"
+        ],
+        "distinct_from_existing": "Resolves actual transmitter-wire geometry/near fields, unlike point magnetic moments or magnetized volumes; not a parameter variation of those kernels.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "geoana",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "geoana==0.9.0",
+        "declared_runtime_dependencies": [
+          "numpy>=1.26.0",
+          "scipy>=1.11.2",
+          "libdlf"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Static/quasistatic source-field calculation only, not earth conductivity induction."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 25,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoSeismicARPhasePick",
+      "capability_key": "geophysics:seismic-arphase-pick",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Estimate P and S onset times from3C records using the fixed AR-AIC/STA-LTA phase picker.",
+      "upstream_callable": "obspy.signal.trigger.ar_pick",
+      "supporting_callables": [],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/signal/trigger.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "ZNE_waveforms": "same amplitude unit",
+        "sample_rate": "Hz",
+        "filter_band": "Hz",
+        "STA_LTA_variance_windows": "s",
+        "AR_order": "dimensionless integer"
+      },
+      "outputs_units": {
+        "P_S_onset": "s relative to record start"
+      },
+      "constraints": [
+        "Finite aligned3C data; enough pre-event noise and post-event support.",
+        "Window sizes/orders bounded and consistent; band strictly below Nyquist.",
+        "Fixed algorithm; do not expose arbitrary filter functions or count Baer/AIC variants separately."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Construct independent3C arrivals at tP=2s and tS=4s from explicit onset-modulated band-limited pulses and seeded pre-event noise. Ground-truth times come from the signal construction; a preregistered tolerance0.1s must be accepted or the candidate stays unaccepted. Include non-equal component amplitudes and separated phases.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "P onset",
+            "value": 2,
+            "unit": "s",
+            "proposed_tolerance": "proposed absolute0.1; not demonstrated"
+          },
+          {
+            "quantity": "S onset",
+            "value": 4,
+            "unit": "s",
+            "proposed_tolerance": "proposed absolute0.1; not demonstrated"
+          }
+        ],
+        "negative_cases": [
+          "Trace shorter than windows",
+          "Impossible AR order",
+          "Missing component",
+          "Nonfinite or all-zero data"
+        ],
+        "oracle_readiness": "Constructed-truth timing target, not an asserted analytic exact output; parent must evaluate bias and false picks."
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoSeismicVTIPhase",
+          "SeismicObsPyBandpass"
+        ],
+        "distinct_from_existing": "Measures onset times in data. Proposed STA/LTA finds event windows but does not classify/pick P/S arrivals.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Higher acceptance risk: algorithmic picks are biased/noise-sensitive; synthetic timing targets are not known to pass.",
+        "No automatic earthquake origin, location or magnitude."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 26,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoSeismicProbabilisticNoise",
+      "capability_key": "geophysics:seismic-probabilistic-noise",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Compile calibrated seismic station noise PSD distributions over bounded local waveform segments.",
+      "upstream_callable": "obspy.signal.spectral_estimation.PPSD.add",
+      "supporting_callables": [],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/signal/spectral_estimation.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "waveforms": "counts with epoch-matched local response",
+        "time_sampling": "s/Hz",
+        "spectral_windows": "s",
+        "period_bins": "s"
+      },
+      "outputs_units": {
+        "PSD": "dB relative to1(m/s^2)^2/Hz",
+        "occupancy": "fraction/count",
+        "period": "s"
+      },
+      "constraints": [
+        "One station/channel/sample-rate identity; explicit response epochs and gap exclusion.",
+        "Bound segment count and record length; no merging with synthetic gap fill.",
+        "No unrestricted NPZ pickle loading, FDSN retrieval or automatic noise-model downloads."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "For synthetic stationary velocity noise with variance1(m/s)^2 and fs100Hz, independent one-sided white PSD is0.02(m/s)^2/Hz; acceleration PSD at1Hz is(2*pi)^2*0.02=0.7895683521(m/s2)^2/Hz. Account independently for finite-window/octave averaging. Doubling waveform amplitude must shift PSD by20log10(2)=6.020599913dB.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "reference acceleration PSD at1Hz",
+            "value": 0.7895683520871486,
+            "unit": "(m/s^2)^2/Hz",
+            "proposed_tolerance": "statistical/window tolerance to be fixed before acceptance"
+          },
+          {
+            "quantity": "amplitude-doubling PSD shift",
+            "value": 6.020599913279624,
+            "unit": "dB",
+            "proposed_tolerance": "absolute0.02 before histogram binning"
+          }
+        ],
+        "negative_cases": [
+          "Response epoch mismatch",
+          "All-gap segment",
+          "Unbounded record",
+          "Mixed sample rates"
+        ],
+        "independent_reference_url": "https://pubs.usgs.gov/publication/70026920",
+        "remaining_oracle_work": "Finite-window/octave-bin expectation and confidence band need independent implementation before numeric acceptance."
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "SeismicMadagascarFFT",
+          "RsudpWindowAmplitude"
+        ],
+        "distinct_from_existing": "Station noise probability distributions incorporate calibration and segment occurrence, unlike one-trace FFT or RSAM summary.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "PSD/response normalization and binning require dedicated tests; existing ObsPy filtering does not verify them."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 27,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoSeismicWaveformTFMisfit",
+      "capability_key": "geophysics:seismic-waveform-tfmisfit",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Separate time-frequency envelope and phase discrepancies between aligned synthetic and observed seismic waveforms.",
+      "upstream_callable": "obspy.signal.tf_misfit.tfem",
+      "supporting_callables": [
+        "obspy.signal.tf_misfit.tfpm"
+      ],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/signal/tf_misfit.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "waveforms": "same amplitude unit and component order",
+        "dt": "s",
+        "frequency_band": "Hz"
+      },
+      "outputs_units": {
+        "envelope_phase_misfit": "1"
+      },
+      "constraints": [
+        "Explicit reference waveform; fixed Morlet normalization and transform settings.",
+        "Bound time-frequency grid; mask negligible reference-envelope cells.",
+        "Envelope/phase/global/time/frequency variants not separately counted; initial pair only."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "With nonzero reference signal s2 and s1=1.5*s2, linearity of the wavelet transform gives local-normalized envelope misfit0.5 and phase misfit0 wherever reference energy is valid. A phase-shifted single-frequency packet independently tests signed phase; no upstream generated expected arrays.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "scaled-waveform envelope misfit",
+            "value": 0.5,
+            "unit": "1",
+            "proposed_tolerance": "absolute1e-8 on valid support"
+          }
+        ],
+        "negative_cases": [
+          "Misaligned time axes",
+          "Reference has zero energy",
+          "Nyquist violation",
+          "Excessive frequency-time product"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "SeismicMadagascarFFT",
+          "GeoRemoteSSIMChange"
+        ],
+        "distinct_from_existing": "Separates seismic waveform amplitude and phase misfit, not image structural similarity or generic spectrum generation.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Not an inversion or likelihood; normalization/low-energy masking must be declared."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 28,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoSeismicRadiationPattern",
+      "capability_key": "geophysics:seismic-radiation-pattern",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Compute bundled normalized P and S far-field radiation vectors for a supplied general symmetric seismic moment tensor.",
+      "upstream_callable": "obspy.core.event.source.farfield",
+      "supporting_callables": [],
+      "package_pin": "obspy==1.4.2",
+      "source_commit": "a629e8c021052904b6b8d62699d03f2a3721ae63",
+      "authoritative_source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/core/event/source.py",
+      "license": "LGPL-3.0",
+      "license_evidence_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/LICENSE.txt",
+      "inputs_units": {
+        "moment_tensor": "N*m in explicit common Cartesian frame",
+        "directions": "unit vectors or angles rad",
+        "normalizing_moment": "N*m"
+      },
+      "outputs_units": {
+        "P_S_radiation_vectors": "dimensionless after explicit moment normalization"
+      },
+      "constraints": [
+        "Nonzero directions and normalization; finite symmetric tensor with declared frame.",
+        "Fixed P and S calls bundled; no nodal-plane/mode variants counted.",
+        "Only angular radiation pattern; do not label it absolute displacement, attenuation or near field."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "For normalized M=diag(1,-1,0), direction n=(1,0,0) gives P=(1,0,0), S=0. At n=(1,1,0)/sqrt(2), n^T*M*n=0 and upstream S-sign convention yields(-1,1,0)/sqrt(2), norm1. These are independent tensor projections from elastodynamic radiation.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "P axial pattern magnitude",
+            "value": 1,
+            "unit": "1",
+            "proposed_tolerance": "absolute1e-12"
+          },
+          {
+            "quantity": "S diagonal-direction magnitude",
+            "value": 1,
+            "unit": "1",
+            "proposed_tolerance": "absolute1e-12"
+          }
+        ],
+        "negative_cases": [
+          "Zero direction vector",
+          "Unspecified tensor frame",
+          "Zero normalizing moment",
+          "Nonsymmetric tensor"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "PyrockoDoubleCoupleTensor",
+          "GeoSeismicZoeppritzScattering"
+        ],
+        "distinct_from_existing": "Existing Pyrocko operation constructs a double-couple tensor; this predicts angular elastic-wave radiation of any supplied tensor. Scattering concerns an interface, not source radiation.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "obspy",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "obspy==1.4.2",
+        "declared_runtime_dependencies": [
+          "numpy>=1.20",
+          "scipy>=1.7",
+          "matplotlib>=3.3",
+          "lxml",
+          "setuptools",
+          "sqlalchemy<2",
+          "decorator",
+          "requests"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "S-vector sign convention must be explicit; normalization does not supply distance/rho/velocity/source-time factors."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 29,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoSurfaceWaveEigenfunctions",
+      "capability_key": "geophysics:surface-wave-eigenfunctions",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Compute depth-indexed normalized modal displacement shapes for layered Rayleigh/Love surface waves.",
+      "upstream_callable": "disba.swegn96",
+      "supporting_callables": [],
+      "package_pin": "disba==0.7.0",
+      "source_commit": "18b7d023288f2bf22d2f128e8ca6a10d15b5913a",
+      "authoritative_source_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/disba/_cps/_swegn96.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/LICENSE",
+      "inputs_units": {
+        "period": "s",
+        "layer_thickness": "km",
+        "vp_vs": "km/s",
+        "density": "g/cm^3"
+      },
+      "outputs_units": {
+        "normalized_displacement_components": "1",
+        "layer_interface_depth": "km reconstructed from supplied cumulative thickness"
+      },
+      "constraints": [
+        "Use the publicly exported actual swegn96 kernel; no local algorithm substitution.",
+        "Fixed wave-selector mapping and bounded modes; positive solid layers and existing mode.",
+        "Normalize by a declared nonzero surface displacement; do not expose stress columns as SI traction without a documented normalization.",
+        "Use physical top-of-layer depths [0,cumsum(thickness[:-1])]; high-level EigenFunction depth labels are not trusted."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "Use the independent layered Love construction in GeoSurfaceWaveDispersion with c3km/s,T10s,Vs1=2,Vs2=4 and equal density. With u(0)=1, traction-free surface gives u(z)=cos(q1*z) in the top layer. At interface q1*h=atan(2sqrt(7/5)), u(h)=1/sqrt(6.6)=0.3892494721. Verify independently the exponentially decaying lower-halfspace form and zero surface traction.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "normalized surface Love displacement",
+            "value": 1,
+            "unit": "1",
+            "proposed_tolerance": "absolute1e-7"
+          },
+          {
+            "quantity": "normalized interface displacement",
+            "value": 0.3892494720807615,
+            "unit": "1",
+            "proposed_tolerance": "absolute1e-4"
+          }
+        ],
+        "negative_cases": [
+          "Nonexistent mode",
+          "Zero normalization component",
+          "Negative thickness",
+          "Treating arbitrary normalized stress as Pa"
+        ]
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoSeismicVTIPhase",
+          "GeoSeismicBackus"
+        ],
+        "distinct_from_existing": "Modal displacement distribution over depth is not bulk speed or effective stiffness. Distinct from proposed dispersion curves, which report eigenvalues rather than mode shapes.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "disba",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "disba==0.7.0",
+        "declared_runtime_dependencies": [
+          "importlib_metadata",
+          "matplotlib",
+          "numpy",
+          "numba"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "High-level disba.EigenFunction reports depth=cumsum(thickness)-thickness[0], inconsistent with unequal-layer top interfaces; it is excluded as an entrypoint.",
+        "Kernel row-to-interface mapping and relative-amplitude convention require acceptance; no absolute stress units claimed."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    },
+    {
+      "rank": 30,
+      "priority": "additional_distinct",
+      "proposed_tool_id": "GeoSurfaceWaveSensitivity",
+      "capability_key": "geophysics:surface-wave-sensitivity",
+      "status": "research_only_not_integrated_not_counted",
+      "scientific_task": "Quantify layer-resolved surface-wave phase-speed sensitivity to thickness, Vp, Vs and density for inversion design.",
+      "upstream_callable": "disba.PhaseSensitivity.__call__",
+      "supporting_callables": [],
+      "package_pin": "disba==0.7.0",
+      "source_commit": "18b7d023288f2bf22d2f128e8ca6a10d15b5913a",
+      "authoritative_source_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/disba/_sensitivity.py",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/LICENSE",
+      "inputs_units": {
+        "layer_properties": "km,km/s,g/cm^3",
+        "period": "s",
+        "parameter_increment": "declared relative finite-difference increment"
+      },
+      "outputs_units": {
+        "velocity_sensitivity": "(km/s)/(km/s)",
+        "thickness_sensitivity": "(km/s)/km",
+        "density_sensitivity": "(km/s)/(g/cm^3)"
+      },
+      "constraints": [
+        "Bundle all requested physical parameter kernels; no parameter/mode variants counted separately.",
+        "Positive stable layers and existing tracked mode; reject mode-switch/discontinuous perturbations.",
+        "Explicit differentiation step and convergence study required; this is sensitivity, not an inverse solution."
+      ],
+      "numeric_oracle": {
+        "type": "proposed_independent_analytic_or_constructed_truth",
+        "synthetic": true,
+        "executed": false,
+        "uses_upstream_output_as_truth": false,
+        "derivation": "In a homogeneous halfspace c=Vs*sqrt(x), with k=Vs^2/Vp^2 and F=x^3-8x^2+(24-16k)x-16(1-k)=0. Implicit differentiation independently gives dx/dk=-16(1-x)/(3x^2-16x+24-16k). At Vp=sqrt(3)*3,Vs3, verify both velocity derivatives and the Euler identity Vp*dc/dVp+Vs*dc/dVs=c=2.7582050603km/s; density derivative is0. Add layered Love traction-equation implicit derivatives to avoid homogeneous-only acceptance.",
+        "positive_numeric_expectations": [
+          {
+            "quantity": "combined velocity-scale derivative",
+            "value": 2.7582050603,
+            "unit": "km/s",
+            "proposed_tolerance": "relative1e-3 after finite-difference convergence"
+          }
+        ],
+        "negative_cases": [
+          "Mode changes under perturbation",
+          "Nonpositive perturbed property",
+          "Unbounded perturbation",
+          "Unsupported material model"
+        ],
+        "remaining_oracle_work": "Layered Love implicit derivative numeric expectations and finite-difference step tolerance must be authored independently, not by differencing disba output."
+      },
+      "semantic_dedup": {
+        "reviewed_baseline_count": 229,
+        "reviewed_expansion_counts": {
+          "geology": 28,
+          "geophysics": 29,
+          "remote": 30,
+          "spatial": 30
+        },
+        "nearest_existing_tools": [
+          "GeoSeismicVTIPhase",
+          "GeoSeismicBackus",
+          "GeoRockSelfConsistent"
+        ],
+        "distinct_from_existing": "Provides a surface-wave inverse-problem Jacobian versus depth, unlike forward elastic parameters. It is not a standalone generic finite-difference wrapper; it invokes the maintained geophysical kernel.",
+        "parameter_variants_or_components_counted_separately": false
+      },
+      "expected_dependencies": {
+        "profile": "disba",
+        "preserve_existing_pins": true,
+        "exact_direct_pin": "disba==0.7.0",
+        "declared_runtime_dependencies": [
+          "importlib_metadata",
+          "matplotlib",
+          "numpy",
+          "numba"
+        ],
+        "transitive_lock_status": "parent_private_resolver_review_required_no_install_performed"
+      },
+      "offline_contract": "Only supplied finite numeric arrays or explicitly local hashed data/metadata; no downloads, network, arbitrary callable/module/code or GPU.",
+      "resource_policy": "Bound samples, sites, model size, array dimensions and solver work before any call; exact production caps remain a parent implementation decision.",
+      "risks": [
+        "Moderate research risk: numerical derivative/mode tracking and derivative-unit conventions need validation; one scaling identity alone is not adequate acceptance."
+      ],
+      "readiness": "Parent semantic/source review first; no adapter authored, no numerical validation, no registration, no count toward500."
+    }
+  ],
+  "excluded_or_deferred_not_counted": [
+    {
+      "subject": "GeoRockStressAnisotropy / rockphypy.GM.johnson",
+      "reason": "Previously blocked logarithm defect; not reconsidered, registered or counted.",
+      "evidence": "Prior geophysics r2 blocked-operations.json; history preserved."
+    },
+    {
+      "subject": "rockphypy.EM.Berryman_DEM",
+      "reason": "Previously excluded scientific-kernel defects; not recycled as a new operation.",
+      "evidence": "Prior geophysics source delivery sources.json; history preserved."
+    },
+    {
+      "subject": "Point/prism gravity and dipole/prism magnetics; rock elastic/poroelastic/AVO models already accepted",
+      "reason": "Semantic duplicates of accepted geophysics29, regardless of alternative package or renamed interface.",
+      "evidence": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/catalog-additions.json"
+    },
+    {
+      "subject": "Wavelet families, coordinate axes, algorithm modes, FFT/filter aliases",
+      "reason": "Excluded as variant/axis/generic-math padding; bundled attributes and physical components count once."
+    },
+    {
+      "subject": "bruges.transform.cumavg.v_rms",
+      "reason": "Source time branch uses sqrt(cumsum(v**2/time)/cumsum(time)), not time-weighted RMS. Depth argument is also ambiguous between coordinates and layer support. Not counted or narrowed to unit weights.",
+      "source_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/bruges/transform/cumavg.py",
+      "evidence_status": "source_observation_not_executed"
+    },
+    {
+      "subject": "bruges.transform.timedepthconv.time_to_depth / depth_to_time",
+      "reason": "Conversion averages velocity/slowness in the opposite basis and assumes unweighted sample means. Heterogeneous/nonuniform time-depth mapping lacks a defensible physical integration contract; not counted or restricted to constant velocity.",
+      "source_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/bruges/transform/timedepthconv.py",
+      "evidence_status": "source_observation_not_executed"
+    },
+    {
+      "subject": "obspy.imaging.scripts.mopad.MomentTensor standard mixed ISO/DC/CLVD decomposition",
+      "reason": "The standard decomposition orders deviatoric eigenvectors using absolute full-tensor eigenvalues, while its F ratio uses separately ordered deviatoric eigenvalues. Mixed isotropic/deviatoric tensors need a trustworthy counterexample/fix review. Entire candidate omitted, not limited to easy pure DC.",
+      "source_url": "https://github.com/obspy/obspy/blob/a629e8c021052904b6b8d62699d03f2a3721ae63/obspy/imaging/scripts/mopad.py",
+      "evidence_status": "source_observation_not_executed"
+    },
+    {
+      "subject": "bruges.attribute.dipsteer.dipsteer",
+      "reason": "Reported correlation_coeff accumulates argmin indices rather than correlation coefficients. Early stepout>1 windows can also use negative slice starts with only one maxlag offset. Omitted rather than concealing the issues with easy inputs.",
+      "source_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/bruges/attribute/dipsteer.py",
+      "evidence_status": "source_observation_not_executed"
+    },
+    {
+      "subject": "bruges.attribute.discontinuity.discontinuity high-level wrapper",
+      "reason": "For documented (inline,crossline,time), the3D window puts duration/dt in crossline rather than time; the method dictionary eagerly computes all algorithms. Not a proposed entrypoint. The independently useful direct marfurt analysis-window kernel is a single separate candidate.",
+      "source_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/bruges/attribute/discontinuity.py",
+      "evidence_status": "source_observation_not_executed"
+    },
+    {
+      "subject": "disba.EigenFunction.__call__ high-level depth labels",
+      "reason": "Labels depth as cumsum(thickness)-thickness[0], inconsistent with top-of-layer interfaces for unequal thicknesses. Not the proposed entrypoint: publicly exported swegn96 returns the actual numerical mode arrays; candidate requires supplied physical interface mapping and explicit normalization, without changing that kernel.",
+      "source_url": "https://github.com/keurfonluu/disba/blob/18b7d023288f2bf22d2f128e8ca6a10d15b5913a/disba/_eigen.py",
+      "evidence_status": "source_observation_not_executed"
+    },
+    {
+      "subject": "empymod.gpr and separate dipole/loop/frequency/time/IP-and-Q variants",
+      "reason": "GPR is explicitly experimental in source; the other interfaces overlap the proposed layered EM task and are not counted separately.",
+      "source_url": "https://github.com/emsig/empymod/blob/7a7c221da5940a8e0d8f60478b929e2690806521/empymod/model.py"
+    }
+  ],
+  "remaining_work": [
+    "Parent reviews scientific distinctness across all future500 inventories before authorizing adapters.",
+    "Independent numeric oracle sources here are proposals, not tested expected-output certifications. Layered EM, PPSD statistics, AR timing and surface-wave sensitivities explicitly need more oracle work.",
+    "All proposed operations still require strict bounded schemas, named adapters, provenance, synthetic fixtures, real CPU numerical/negative acceptance and workflow review.",
+    "Harmonica's Verde/xrft with xarray2026.9.0, Geoana ABI and disba/ObsPy kernels on the retained stack need private acceptance.",
+    "LGPL-3.0 ObsPy and the per-file BSD NMO attribution remain explicit; no licensing of accepted code is changed.",
+    "No additional15 slots were filled: duplicates, mode/axis padding and source defects were excluded rather than counted."
+  ]
+}

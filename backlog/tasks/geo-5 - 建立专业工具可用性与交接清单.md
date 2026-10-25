@@ -4,7 +4,7 @@ title: 建立专业工具可用性与交接清单
 status: In Progress
 assignee: []
 created_date: '2026-10-10 06:14'
-updated_date: '2026-10-25 15:39'
+updated_date: '2026-10-25 15:52'
 labels:
   - proposed
   - tools
@@ -60,4 +60,6 @@ Deployed github-minerals-20261025-r3 on A100: 229 professional tools + 12 runtim
 2026-10-25: The accepted 117-operation expansion was merged without replacing unrelated work. Exact accepted hashes for 289 changed files match the Git index. Full CPU regression repeated at the production release path: 751 formal cases passed, zero failed/errors/skipped; the known StressAnisotropy diagnostic remains separate and not counted. Candidate: 346 professional tools, 70 Skills, 12 runtime tools. Deployment and push pending the final switch guard. No GPU or model calls.
 
 2026-10-25 released/deployed: source7466cfa pushed to codex/earth-tools220-20261024. New A100 switched to github-expansion346-20261025-r1 after zero-active-run and exact old/new-source guards. Backend confirms346 professional operations,70Skills,12runtime tools,358registered,0unavailable Skills,PostgreSQL connected. Saved accounts/model settings/conversation-file counts preserved and other services unchanged; noGPU. Browser acceptance remains pending saved site denial; receiving-lab delivery approval is not claimed. Four separate research inventories target additional distinct operations toward500+; research is not counted as available.
+
+2026-10-25 research follow-up:102 proposals recorded separately (geophysics30,geology22,remote20,spatial30),zero implemented or accepted from that research set. Unique-ID/research-status checks passed against deployed346; this is not numerical or semantic acceptance. 501 professional operations requires155 further accepted additions. Even if all102 pass,total448;at least53 more distinct candidates are still needed. Research source inventories and unresolved dependency/license/numeric-oracle risks are retained; no runtime registration or service change.
 <!-- SECTION:NOTES:END -->

@@ -1,0 +1,1399 @@
+{
+  "schema_version": "1.0",
+  "group": "remote",
+  "status": "research_only_not_integrated_not_counted",
+  "research_date": "2026-10-25",
+  "baseline": {
+    "original_tool_count": 229,
+    "accepted_expansion_count": 117,
+    "reported_total": 346,
+    "reported_skills": 70,
+    "release_changes_by_this_group": 0
+  },
+  "requested_maximum": 45,
+  "proposed_count": 20,
+  "unfilled_slots": 25,
+  "priority_count": 20,
+  "deduplication": {
+    "method": "Manual scientific-task comparison from one read pass of registry descriptions/upstream callables and all four prior contribution catalogs; not an automated acceptance check. Parent must review cross-group expansion500 proposals before authoring.",
+    "inputs": [
+      "catalog/registry.json",
+      "catalog/source_delivery/github-expansion-20261025/groups/geology/catalog-additions.json",
+      "catalog/source_delivery/github-expansion-20261025/groups/geophysics/catalog-additions.json",
+      "catalog/source_delivery/github-expansion-20261025/groups/remote/catalog-additions.json",
+      "catalog/source_delivery/github-expansion-20261025/groups/spatial/catalog-additions.json"
+    ],
+    "comparison_scope": "Original229 plus ALL prior group candidates, including rejected candidates; accepted117 is not modified.",
+    "not_counted": [
+      "algorithm substitutions for existing denoising, deconvolution, segmentation or anomaly tasks",
+      "axes, polarization basis variants, index variants, alternative unmixing solvers",
+      "GeoRemoteHistogramMatch / empirical-quantile mapping",
+      "additional names for the same scientific workflow"
+    ]
+  },
+  "common_contract": {
+    "execution": "Research only. No wrappers, tests, imports of scientific libraries, installations, GPU, release changes or deployments were performed. All oracles are proposed analytic expectations, NOT observed results.",
+    "safety": "Future adapters must expose only named fixed upstream kernels or allowlisted OTB launchers; never user-selected modules, callables, shell commands, arbitrary code, remote URLs or network downloads. Bound arrays, windows, iterations, memory and output paths.",
+    "geospatial": "Georeferenced inputs require an explicit CRS, nonsingular affine and masks/nodata. Pairwise rasters require matching CRS, affine, shape and declared compatible units; never silently resample. Preserve the valid footprint. Full-neighborhood algorithms must reject incomplete patches or explicitly erode valid support. Do not replace nodata with numeric zero.",
+    "nongeospatial": "Laboratory/array-only images must explicitly declare a pixel coordinate frame; never manufacture a CRS. Microscopy physical scaling requires a calibrated positive isotropic pixel/voxel pitch and named length unit.",
+    "artifacts": "GeoTIFF only for outputs with a valid image grid and explicit output mask/nodata; CSV for scores, features and audit tables; PNG is a labeled preview, never a substitute for numeric artifacts. Non-spatial transform domains must not inherit a map CRS.",
+    "provenance": "Future calls record package/version/commit, input hashes, declared units, parameters, masks/valid counts, registration assumptions, sensor metadata and artifact hashes. All examples/oracles here are synthetic.",
+    "scientific_limits": "No optical texture, score, class, fused radiance or scatterer parameter is ore identification, mineral concentration or grade. No hidden fill, automatic calibration constants or imputed physical quantities.",
+    "compatibility": "Keep Python3.12/numpy2.1.3/scipy1.15.3/pandas2.3.0/matplotlib3.10.7/rasterio1.4.3 and shared installed pins unchanged. All new binary or unresolved transitive dependencies are private CPU worker proposals, not approved installations."
+  },
+  "sources": [
+    {
+      "id": "skimage",
+      "package": "scikit-image",
+      "pin": "scikit-image==0.26.0",
+      "release": "v0.26.0",
+      "commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "repository": "https://github.com/scikit-image/scikit-image",
+      "release_url": "https://github.com/scikit-image/scikit-image/releases/tag/v0.26.0",
+      "commit_url": "https://github.com/scikit-image/scikit-image/commit/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "license": "BSD-3-Clause core; bundled BSD-2-Clause and MIT notices must be retained",
+      "license_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/LICENSE.txt",
+      "availability": "Reported installed; no installation or compatibility test performed",
+      "dependency_notes": "Python>=3.11, NumPy>=1.24, SciPy>=1.11.4 declared. Reuse shared baseline pins; CPU only."
+    },
+    {
+      "id": "spectral",
+      "package": "spectral",
+      "pin": "spectral==0.25",
+      "release": "0.25",
+      "commit": "bd91dc47377028683ef5c97bc7c1cc2dff14012c",
+      "repository": "https://github.com/spectralpython/spectral",
+      "release_url": "https://github.com/spectralpython/spectral/tree/0.25",
+      "commit_url": "https://github.com/spectralpython/spectral/commit/bd91dc47377028683ef5c97bc7c1cc2dff14012c",
+      "license": "MIT",
+      "license_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/LICENSE.txt",
+      "availability": "Reported installed",
+      "dependency_notes": "Reuse numpy==2.1.3; numerical training covariance and bounded SMACC termination need CPU acceptance."
+    },
+    {
+      "id": "pywavelets",
+      "package": "PyWavelets",
+      "pin": "PyWavelets==1.10.0",
+      "release": "v1.10.0",
+      "commit": "4bd3a5f935ce53a06a531af6fbb0ab941e753adc",
+      "repository": "https://github.com/PyWavelets/pywt",
+      "release_url": "https://github.com/PyWavelets/pywt/releases/tag/v1.10.0",
+      "commit_url": "https://github.com/PyWavelets/pywt/commit/4bd3a5f935ce53a06a531af6fbb0ab941e753adc",
+      "license": "MIT; retain bundled BSD-3-Clause notices",
+      "license_url": "https://github.com/PyWavelets/pywt/blob/4bd3a5f935ce53a06a531af6fbb0ab941e753adc/LICENSE",
+      "availability": "Not installed; private CPU plan only",
+      "dependency_notes": "Python>=3.12; NumPy>=1.26.4,<3. Declared ranges include shared NumPy2.1.3; compatible wheel availability and ABI untested."
+    },
+    {
+      "id": "pyspectral",
+      "package": "pyspectral",
+      "pin": "pyspectral==0.14.3",
+      "release": "v0.14.3",
+      "commit": "14c8dfd01c3fa705af3a9e70d5d0a3d0b06333e0",
+      "repository": "https://github.com/pytroll/pyspectral",
+      "release_url": "https://github.com/pytroll/pyspectral/releases/tag/v0.14.3",
+      "commit_url": "https://github.com/pytroll/pyspectral/commit/14c8dfd01c3fa705af3a9e70d5d0a3d0b06333e0",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/pytroll/pyspectral/blob/14c8dfd01c3fa705af3a9e70d5d0a3d0b06333e0/LICENSE.txt",
+      "availability": "Private CPU dependency proposal",
+      "dependency_notes": "Python>=3.10; numpy>=1.21, scipy>=1.6, python-geotiepoints>=1.1.1, h5py>=2.5, requests, pyyaml, platformdirs. Exact additional transitive lock unresolved; no main-environment changes. Only offline blackbody kernel, not RSR download helpers."
+    },
+    {
+      "id": "sarpy",
+      "package": "sarpy",
+      "pin": "sarpy @ git+https://github.com/ngageoint/sarpy@19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+      "release": "Source snapshot declares 2.1.1; wheel-to-commit correspondence NOT established",
+      "commit": "19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+      "repository": "https://github.com/ngageoint/sarpy",
+      "release_url": "https://github.com/ngageoint/sarpy/blob/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c/sarpy/__about__.py",
+      "commit_url": "https://github.com/ngageoint/sarpy/commit/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+      "license": "MIT",
+      "license_url": "https://github.com/ngageoint/sarpy/blob/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c/LICENSE",
+      "availability": "Not an installation command; exact source pin for future isolated CPU packaging",
+      "dependency_notes": "numpy>=1.19, scipy, h5py, pillow, matplotlib, shapely>=1.6.4, lxml>=4.1.1, deprecated, sarkit. Unresolved sarkit/reader migration and binary transitives. Python3.12 classifier present; execution unverified."
+    },
+    {
+      "id": "otb",
+      "package": "Orfeo ToolBox",
+      "pin": "OTB==9.1.1 (standalone CPU distribution/source, NOT a pip package pin)",
+      "release": "9.1.1",
+      "commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "repository": "https://gitlab.orfeo-toolbox.org/orfeotoolbox/otb",
+      "official_mirror": "https://github.com/orfeotoolbox/OTB",
+      "release_url": "https://github.com/orfeotoolbox/OTB/tree/9.1.1",
+      "commit_url": "https://github.com/orfeotoolbox/OTB/commit/154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "license": "Apache-2.0 software; Cookbook documentation CC-BY-SA-4.0 where stated",
+      "license_url": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/LICENSE",
+      "availability": "Not installed; private CPU CLI worker only",
+      "dependency_notes": "Native OTB Core/Dependencies plus SAR, FeaturesExtraction, Hyperspectral, Learning, StereoProcessing modules as needed. ITK/GDAL/PROJ and Python-binding ABI must stay isolated from shared rasterio/numpy. No numeric OTB dependency versions inferred.",
+      "documentation_caveat": "Current stable Cookbook mixes indexed9.1/10.0 pages; official GitHub mirror has9.1.1 and10.0.0-rc1 but no10.0.0 tag when inspected. GitLab tags page presented bot challenge; no bypass attempted. Pinned9.1.1 application and kernel source is authoritative for proposals."
+    }
+  ],
+  "operations": [
+    {
+      "rank": 1,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemotePhaseUnwrap",
+      "capability_key": "remote:spatial-radian-phase-unwrapping",
+      "source_id": "skimage",
+      "upstream_callable": "skimage.restoration.unwrap_phase",
+      "scientific_task": "Recover spatially continuous phase from a wrapped interferometric phase image.",
+      "scope": "Two-dimensional reliability-based phase unwrapping with a fixed random seed; output remains phase, not inferred displacement or elevation.",
+      "units": {
+        "input": "radian in [-pi,pi)",
+        "output": "radian; arbitrary component-wise integer multiples of 2*pi"
+      },
+      "constraints": [
+        "Finite valid pixels; nonempty connected support for a single-reference result.",
+        "Bound image dimensions; fix rng; declare wrap_around rather than inferring periodic geography.",
+        "Disconnected components have independent phase offsets; never claim absolute phase."
+      ],
+      "crs_mask_nodata": "Preserve input CRS/affine and masked support using the upstream masked-array API; retain component/reference metadata.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "An 8x8 array has analytic phase phi(r,c)=pi*c/2; wrap into [-pi,pi). Compare within the same row, independently of the global offset.",
+        "expected_numeric": {
+          "column7_minus_column0": 10.995574287564276
+        },
+        "proposed_tolerance": "1e-6 rad",
+        "independent_basis": "Spatial continuity plus increments smaller than pi determines a 7*pi/2 phase difference; no second unwrap implementation.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "GeoRemotePhaseRegistration estimates a global translation; it does not unwrap interferometric phase. None of original229 or prior four group candidates recovers phase-cycle continuity.",
+      "artifacts": [
+        "phase GeoTIFF",
+        "component/reference CSV",
+        "phase preview PNG"
+      ],
+      "risk": "Medium: discontinuities, disconnected masks and phase-gradient aliasing make physical interpretation nonunique.",
+      "release": "v0.26.0",
+      "source_commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "license": "BSD-3-Clause core; bundled BSD-2-Clause and MIT notices must be retained",
+      "license_evidence": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/restoration/unwrap.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "scikit-image==0.26.0",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Python>=3.11, NumPy>=1.24, SciPy>=1.11.4 declared. Reuse shared baseline pins; CPU only."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 2,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteBrightnessTemperature",
+      "capability_key": "remote:monochromatic-planck-brightness-temperature",
+      "source_id": "pyspectral",
+      "upstream_callable": "pyspectral.blackbody.blackbody_rad2temp",
+      "scientific_task": "Invert calibrated monochromatic thermal spectral radiance to blackbody brightness temperature.",
+      "scope": "Single wavelength or explicitly independent wavelength channels; not land-surface temperature, emissivity correction, atmospheric correction or sensor-band integration.",
+      "units": {
+        "wavelength": "m",
+        "radiance": "W m^-2 sr^-1 m^-1",
+        "temperature": "K"
+      },
+      "constraints": [
+        "Strictly positive finite wavelengths and radiance; reject per-micrometre radiance unless explicitly converted.",
+        "Use NumPy arrays as required by the kernel; bound dimensions and physically declared wavelength range.",
+        "No fetching spectral response files; no invented emissivity or atmospheric parameters."
+      ],
+      "crs_mask_nodata": "Pointwise conversion retains CRS, affine and valid mask; reject missing/incompatible radiance units.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "At wavelength=1e-5 m, calculate synthetic radiance analytically from Planck's law at T=300 K using the exact modern SI h,k,c constants. Feed only this radiance and wavelength to the upstream inverse.",
+        "expected_numeric": {
+          "temperature_K": 300
+        },
+        "proposed_tolerance": "0.001 K; upstream uses older h,k constants",
+        "independent_basis": "Forward blackbody law evaluated from independent SI constants, not the upstream forward helper.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "Existing raster scale/offset and indices do not invert thermal radiative physics. GeoRemoteSensorBandResample resamples reflectance spectra rather than estimating brightness temperature.",
+      "artifacts": [
+        "brightness-temperature GeoTIFF",
+        "wavelength/radiance/unit audit CSV",
+        "temperature PNG"
+      ],
+      "risk": "Medium: additional private dependency lock unresolved; narrowband approximation and old physical constants must be disclosed.",
+      "release": "v0.14.3",
+      "source_commit": "14c8dfd01c3fa705af3a9e70d5d0a3d0b06333e0",
+      "license": "Apache-2.0",
+      "license_evidence": "https://github.com/pytroll/pyspectral/blob/14c8dfd01c3fa705af3a9e70d5d0a3d0b06333e0/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/pytroll/pyspectral/blob/14c8dfd01c3fa705af3a9e70d5d0a3d0b06333e0/pyspectral/blackbody.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "pyspectral==0.14.3",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Python>=3.10; numpy>=1.21, scipy>=1.6, python-geotiepoints>=1.1.1, h5py>=2.5, requests, pyyaml, platformdirs. Exact additional transitive lock unresolved; no main-environment changes. Only offline blackbody kernel, not RSR download helpers."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 3,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoSARCoherentChange",
+      "capability_key": "sar:complex-local-coherence-change",
+      "source_id": "sarpy",
+      "upstream_callable": "sarpy.processing.sicd.ccd.mem",
+      "scientific_task": "Estimate local complex coherence and interferometric phase between registered SLC acquisitions.",
+      "scope": "Magnitude of normalized complex coherence plus phase; not optical subtraction, terrain displacement, or a standalone extra modulus/phase tool.",
+      "units": {
+        "input": "consistent complex SLC amplitude units",
+        "coherence": "dimensionless, magnitude in [0,1]",
+        "phase": "radian"
+      },
+      "constraints": [
+        "Same acquisition geometry and explicit prior registration; matching arrays and compatible amplitude units.",
+        "Positive bounded odd correlation window and positive local energy in both inputs.",
+        "Reject or mask zero-energy windows; never interpret upstream zero-power zeros as valid coherence."
+      ],
+      "crs_mask_nodata": "Require matching CRS/affine for georeferenced rasters; use complete valid windows or eroded joint support. Raw slant-coordinate inputs require explicit coordinate metadata.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "On a finite all-valid patch, reference=1+0i and match=exp(i*pi/3). Evaluate interior windows, excluding padding.",
+        "expected_numeric": {
+          "coherence_magnitude": 1,
+          "phase_rad": 1.0471975511965976
+        },
+        "proposed_tolerance": "1e-6",
+        "independent_basis": "The normalized sum of identical unit phasors is exp(i*pi/3), independent of implementation.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "GeoRemoteSSIMChange compares real optical structure; GeoRasterChangeAnalysis subtracts calibrated bands. Neither computes complex SLC coherence.",
+      "artifacts": [
+        "coherence/phase GeoTIFF where a map grid exists",
+        "valid-window CSV",
+        "coherence PNG"
+      ],
+      "risk": "High dependency risk: SarPy source snapshot requires sarkit and isolated CPU packaging; science also requires reliable coregistration.",
+      "release": "Source snapshot declares 2.1.1; wheel-to-commit correspondence NOT established",
+      "source_commit": "19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+      "license": "MIT",
+      "license_evidence": "https://github.com/ngageoint/sarpy/blob/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/ngageoint/sarpy/blob/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c/sarpy/processing/sicd/ccd.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "sarpy @ git+https://github.com/ngageoint/sarpy@19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "numpy>=1.19, scipy, h5py, pillow, matplotlib, shapely>=1.6.4, lxml>=4.1.1, deprecated, sarkit. Unresolved sarkit/reader migration and binary transitives. Python3.12 classifier present; execution unverified."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 4,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteGaussianClassify",
+      "capability_key": "hyperspectral:supervised-gaussian-spectral-classification",
+      "source_id": "spectral",
+      "upstream_callable": "spectral.algorithms.classifiers.GaussianClassifier.classify_spectrum",
+      "supporting_callables": [
+        "spectral.algorithms.algorithms.create_training_classes",
+        "spectral.algorithms.classifiers.GaussianClassifier.train"
+      ],
+      "scientific_task": "Assign supplied spectral classes using trained class means, full covariances and priors.",
+      "scope": "Supervised maximum-likelihood spectral classification with explicit training masks; output labels inherit supplied meanings, not automatic mineral identities.",
+      "units": {
+        "spectra": "consistent per-band radiance or reflectance units",
+        "class_label": "categorical integer"
+      },
+      "constraints": [
+        "Training counts must exceed band count and satisfy min_samples explicitly; reject rather than silently omit under-sampled classes.",
+        "Finite positive-definite, well-conditioned class covariances; positive normalized priors.",
+        "Same band definitions/order and calibration in training and prediction; no training/prediction leakage in validation."
+      ],
+      "crs_mask_nodata": "Align training labels and cube exactly in CRS/affine/shape; exclude nodata training pixels and preserve prediction mask.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Class1 contains (0,0),(2,0),(0,2),(2,2); class2 translates these by (10,0). Equal priors. Query spectrum (11,1).",
+        "expected_numeric": {
+          "predicted_class": 2
+        },
+        "proposed_tolerance": "exact categorical value",
+        "independent_basis": "Both covariances equal diag(4/3,4/3); query is the class2 mean and is 10 units from class1 mean.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "SAM is angular reference similarity and RX is one-background anomaly scoring. SLIC partitions spatial superpixels; none trains full Gaussian class distributions for supervised spectral labels.",
+      "artifacts": [
+        "class-label GeoTIFF",
+        "class training-statistics/count CSV",
+        "legend PNG"
+      ],
+      "risk": "Medium: singular covariance, class omission and probabilistic-model mismatch; class labels are not validated composition.",
+      "release": "0.25",
+      "source_commit": "bd91dc47377028683ef5c97bc7c1cc2dff14012c",
+      "license": "MIT",
+      "license_evidence": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/classifiers.py",
+        "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/algorithms.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "spectral==0.25",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Reuse numpy==2.1.3; numerical training covariance and bounded SMACC termination need CPU acceptance."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 5,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteEndmemberDiscovery",
+      "capability_key": "hyperspectral:observed-convex-cone-endmember-discovery",
+      "source_id": "spectral",
+      "upstream_callable": "spectral.algorithms.algorithms.smacc",
+      "scientific_task": "Discover representative observed spectral endmembers from an image or spectrum matrix.",
+      "scope": "One SMACC discovery workflow, returning selected signatures and reconstruction diagnostics; not an additional supplied-library unmixing solver.",
+      "units": {
+        "spectra": "nonnegative calibrated reflectance, dimensionless",
+        "coefficients": "dimensionless reconstruction coefficients",
+        "residual": "reflectance"
+      },
+      "constraints": [
+        "Bound rows<=4096 and bands<=32; require finite nonnegative bounded reflectance.",
+        "Requested endmember count must not exceed numerical rank or available spectra.",
+        "Set internal max_residual_norm=Infinity and bounded min_endmembers=K to terminate after K selections; never expose JSON nonfinite values.",
+        "Upstream warns about reconstruction error for large values; reject unsupported inputs rather than silently replacing the kernel."
+      ],
+      "crs_mask_nodata": "Collect only valid spectral vectors; preserve original pixel/source indices and wavelengths. Signatures are CSV, not georeferenced rasters.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Input spectra are (1,0),(0,1),(0.5,0.5), with K=2. Compare selected endpoints as an unordered set.",
+        "expected_numeric": {
+          "mixed_spectrum_coefficient_for_each_endpoint": 0.5,
+          "selected_endpoint_count": 2
+        },
+        "proposed_tolerance": "1e-6; residual additionally expected zero",
+        "independent_basis": "The two coordinate axes are the unique extreme rays; their equal mixture has coefficients 1/2 independently of selection order.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "GeoSpectralLinearUnmix requires pre-supplied endmembers. This discovers observed extreme signatures; proposed OTB VCA is deliberately not also counted.",
+      "artifacts": [
+        "discovered signatures CSV",
+        "source-index CSV",
+        "reconstruction diagnostics CSV",
+        "spectral PNG"
+      ],
+      "risk": "Medium: library selection is not mineral identification; bounded termination and numerical rank need CPU acceptance.",
+      "release": "0.25",
+      "source_commit": "bd91dc47377028683ef5c97bc7c1cc2dff14012c",
+      "license": "MIT",
+      "license_evidence": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/algorithms.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "spectral==0.25",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Reuse numpy==2.1.3; numerical training covariance and bounded SMACC termination need CPU acceptance."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 6,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteClassSeparability",
+      "capability_key": "hyperspectral:gaussian-class-distribution-separability",
+      "source_id": "spectral",
+      "upstream_callable": "spectral.algorithms.algorithms.bdist",
+      "supporting_callables": [
+        "spectral.algorithms.algorithms.create_training_classes"
+      ],
+      "scientific_task": "Quantify Bhattacharyya separation of two trained spectral-class distributions.",
+      "scope": "Distribution-overlap diagnostic for evaluating training classes/band choices; one metric family, not separate covariance/mean terms or aliases.",
+      "units": {
+        "input": "compatible spectral units in each band",
+        "distance": "dimensionless"
+      },
+      "constraints": [
+        "Two labeled populations, enough samples for positive-definite class covariances.",
+        "Identical band schema; finite values and bounded class/sample count.",
+        "No arbitrary vector distance dispatch; only the fixed Gaussian class diagnostic."
+      ],
+      "crs_mask_nodata": "Raster class samples must share grid and valid-mask alignment; output is class-pair CSV, not a spatial anomaly map.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "ClassA uses the four corners (0,0),(2,0),(0,2),(2,2). ClassB translates A by (2,0). Unbiased covariance is diag(4/3,4/3).",
+        "expected_numeric": {
+          "bhattacharyya_distance": 0.375
+        },
+        "proposed_tolerance": "1e-8",
+        "independent_basis": "Equal covariance cancels the determinant term; the mean-separation contribution is (1/8)*(2^2)/(4/3)=3/8.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "RX and GeoGeochemBackgroundDistance score observations against one background. This compares two full labeled class distributions including determinant/covariance differences.",
+      "artifacts": [
+        "class-pair separation CSV",
+        "sample counts and covariance diagnostics CSV"
+      ],
+      "risk": "Medium: Gaussian assumption and covariance conditioning; not an error-rate guarantee.",
+      "release": "0.25",
+      "source_commit": "bd91dc47377028683ef5c97bc7c1cc2dff14012c",
+      "license": "MIT",
+      "license_evidence": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/algorithms.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "spectral==0.25",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Reuse numpy==2.1.3; numerical training covariance and bounded SMACC termination need CPU acceptance."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 7,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteDenseOpticalFlow",
+      "capability_key": "remote:dense-nonrigid-image-displacement",
+      "source_id": "skimage",
+      "upstream_callable": "skimage.registration.optical_flow_tvl1",
+      "scientific_task": "Estimate a spatially varying displacement field between registered-view grayscale images.",
+      "scope": "Dense TV-L1 motion, not an alternative global translation estimator; no inference of ground velocity without time and geometry.",
+      "units": {
+        "input": "compatible normalized intensity",
+        "flow_row": "pixel",
+        "flow_column": "pixel"
+      },
+      "constraints": [
+        "Two finite 2D intensity arrays, identical shape/grid and documented comparable brightness.",
+        "Bound warps, iterations and image size; reject categorical labels.",
+        "Report occlusion/brightness-constancy limitations; never fill missing motion as zero."
+      ],
+      "crs_mask_nodata": "For initial integration use complete valid patches; retain their grid. Conversion to map-unit displacement needs explicit affine-vector mapping, not degree-to-metre guesses.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Let f(r,c)=(sin(.17*r)+cos(.13*c)+.2*sin(.11*r+.23*c))/4.4+.5 on a 128x128 patch. Reference=f(r,c), moving=f(r-1,c-2). Compare median interior flow on rows/cols32:96.",
+        "expected_numeric": {
+          "row_displacement_pixels": 1,
+          "column_displacement_pixels": 2
+        },
+        "proposed_tolerance": "proposed 0.3 pixel; convergence tolerance NOT calibrated by execution",
+        "independent_basis": "Analytic translation of a continuous textured field fixes the true correspondence without using an image-warp or registration kernel.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "GeoRemotePhaseRegistration estimates one global translation. This estimates local deformation fields, and is not a parameter variant of that global task.",
+      "artifacts": [
+        "two-band displacement GeoTIFF",
+        "interior diagnostics CSV",
+        "quiver PNG"
+      ],
+      "risk": "Medium-high: nonunique texture/occlusion and solver convergence; analytic target known, numerical tolerance still requires CPU acceptance.",
+      "release": "v0.26.0",
+      "source_commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "license": "BSD-3-Clause core; bundled BSD-2-Clause and MIT notices must be retained",
+      "license_evidence": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/registration/_optical_flow.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "scikit-image==0.26.0",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Python>=3.11, NumPy>=1.24, SciPy>=1.11.4 declared. Reuse shared baseline pins; CPU only."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 8,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteProjectiveTiePoints",
+      "capability_key": "registration:projective-tiepoint-model-estimation",
+      "source_id": "skimage",
+      "upstream_callable": "skimage.transform.ProjectiveTransform.from_estimate",
+      "scientific_task": "Fit a planar projective camera-registration model from supplied homologous control points.",
+      "scope": "Eight-degree-of-freedom homography estimation; not a GIS CRS transform or automatic ground orthorectification.",
+      "units": {
+        "input_points": "pixel, x=column and y=row",
+        "residuals": "pixel",
+        "homography": "mixed dimensionless/inverse-pixel coefficients"
+      },
+      "constraints": [
+        "At least four non-collinear pairs, bounded coordinates/count, positive finite weights if supplied.",
+        "Reject falsey estimation results, singular/ill-conditioned models and points near zero homogeneous denominator.",
+        "Use from_estimate in0.26.0, not an assumed legacy estimate method."
+      ],
+      "crs_mask_nodata": "Input coordinate frames must be explicit; outputs are transform/residual tables. Never attach a map CRS to a pixel-domain homography.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Generate six or more non-collinear pairs from H=[[1,0,2],[0,1,3],[.1,0,1]]. Hold out source point(10,4).",
+        "expected_numeric": {
+          "held_out_x": 6,
+          "held_out_y": 3.5
+        },
+        "proposed_tolerance": "1e-8 pixel",
+        "independent_basis": "Direct homogeneous projection gives (12/2,7/2), independent of fitting routine.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "PhaseRegistration solves translation only; spatial reprojection assumes an existing CRS transform. This estimates a perspective model from measured tie points.",
+      "artifacts": [
+        "homography CSV",
+        "control residual CSV",
+        "control-point preview PNG"
+      ],
+      "risk": "Medium: degenerate geometry and extrapolation; not sufficient for relief-dependent sensor orthorectification.",
+      "release": "v0.26.0",
+      "source_commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "license": "BSD-3-Clause core; bundled BSD-2-Clause and MIT notices must be retained",
+      "license_evidence": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/transform/_geometric.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "scikit-image==0.26.0",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Python>=3.11, NumPy>=1.24, SciPy>=1.11.4 declared. Reuse shared baseline pins; CPU only."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 9,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteTemplateLocate",
+      "capability_key": "registration:localized-normalized-template-correlation",
+      "source_id": "skimage",
+      "upstream_callable": "skimage.feature.match_template",
+      "scientific_task": "Locate a fixed image chip within a larger image using normalized local correlation.",
+      "scope": "Local chip matching with explicit tie handling and response-map coordinate conventions.",
+      "units": {
+        "input": "compatible scalar intensity",
+        "response": "dimensionless normalized correlation",
+        "location": "pixel"
+      },
+      "constraints": [
+        "Nonconstant finite template smaller than image; bound search area.",
+        "Use fixed pad_input=False; retain tied maxima rather than inventing a unique match.",
+        "Require full valid support for every evaluated template window."
+      ],
+      "crs_mask_nodata": "Response coordinates identify template top-left placement; response grid is cropped at the far edges with original origin/affine retained. Report center coordinates separately with explicit half-size offset.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Embed the nonconstant 3x3 template [[0,1,0],[1,2,1],[0,1,0]] at top-left(row3,col4) in a9x9 zero image.",
+        "expected_numeric": {
+          "correlation_at_true_match": 1,
+          "match_row": 3,
+          "match_column": 4
+        },
+        "proposed_tolerance": "1e-6 for correlation; exact placement if unique",
+        "independent_basis": "At the true chip placement the normalized centered vectors coincide, so cosine correlation is1.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "Global phase correlation aligns entire same-sized scenes. This searches for a known local patch in a larger image and returns a localization response, not an equivalent global shift.",
+      "artifacts": [
+        "response GeoTIFF",
+        "candidate placements CSV",
+        "match overlay PNG"
+      ],
+      "risk": "Low-medium: repetitive patterns and constant windows can make localization ambiguous.",
+      "release": "v0.26.0",
+      "source_commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "license": "BSD-3-Clause core; bundled BSD-2-Clause and MIT notices must be retained",
+      "license_evidence": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/feature/template.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "scikit-image==0.26.0",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Python>=3.11, NumPy>=1.24, SciPy>=1.11.4 declared. Reuse shared baseline pins; CPU only."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 10,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteScaleSpaceBlobs",
+      "capability_key": "image-analysis:scale-space-blob-center-and-size",
+      "source_id": "skimage",
+      "upstream_callable": "skimage.feature.blob_log",
+      "scientific_task": "Detect localized bright features and estimate their characteristic image scale.",
+      "scope": "Scale-normalized Laplacian-of-Gaussian extrema; not threshold connected-component measurement or inferred geological objects.",
+      "units": {
+        "position": "pixel or affine-transformed map coordinates",
+        "sigma": "pixel",
+        "conventional_radius": "sqrt(2)*sigma pixels in2D"
+      },
+      "constraints": [
+        "Finite scalar intensity image; positive bounded sigma grid and thresholds.",
+        "Isotropic sampling for circular-radius interpretation; otherwise retain pixel scale only.",
+        "No unsupported nodata filling or automatic rock/mineral object naming."
+      ],
+      "crs_mask_nodata": "Reject incomplete patches or restrict to full scale-support interiors; preserve coordinates through the affine for feature CSV.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "On a65x65 grid centered(32,32), synthesize exp(-((r-32)^2+(c-32)^2)/(2*3^2)); use sigma grid[2,3,4] and a sufficiently low declared threshold.",
+        "expected_numeric": {
+          "center_row": 32,
+          "center_column": 32,
+          "sigma_pixels": 3
+        },
+        "proposed_tolerance": "center<=0.5 pixel; selected scale expected3, subject to discrete CPU acceptance",
+        "independent_basis": "For a circular Gaussian the continuous scale-normalized LoG response is maximal at filter sigma equal to object sigma.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "RegionProperties measures pre-segmented labels; HMaxima returns regional peaks without Gaussian scale estimation. This detects center and characteristic scale jointly.",
+      "artifacts": [
+        "feature center/scale CSV",
+        "annotated PNG"
+      ],
+      "risk": "Medium: discrete scale sampling, overlap suppression and boundary handling; reported radius is a filter convention.",
+      "release": "v0.26.0",
+      "source_commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "license": "BSD-3-Clause core; bundled BSD-2-Clause and MIT notices must be retained",
+      "license_evidence": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/feature/blob.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "scikit-image==0.26.0",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Python>=3.11, NumPy>=1.24, SciPy>=1.11.4 declared. Reuse shared baseline pins; CPU only."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 11,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteHoughLineEvidence",
+      "capability_key": "image-analysis:straight-line-parameter-voting",
+      "source_id": "skimage",
+      "upstream_callable": "skimage.transform.hough_line",
+      "scientific_task": "Accumulate global straight-line evidence from an image edge mask.",
+      "scope": "Hough rho/theta line-parameter inference; no automatic fracture/fault interpretation.",
+      "units": {
+        "input": "Boolean edge presence",
+        "rho": "pixel",
+        "theta": "radian of line normal",
+        "accumulator": "edge-pixel vote count"
+      },
+      "constraints": [
+        "Strict finite Boolean mask; explicit bounded theta samples.",
+        "Reject masks with unknown support rather than voting on nodata boundaries.",
+        "Document upper-left image origin and row/column conventions."
+      ],
+      "crs_mask_nodata": "Accumulator is parameter space and must not inherit a map CRS. Input/grid metadata accompanies line evidence; map conversion of derived lines would be separate authorized work.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "A10x10 Boolean edge image contains exactly the10 pixels of column3. Evaluate theta=[0].",
+        "expected_numeric": {
+          "votes_at_rho3": 10,
+          "rho_pixels": 3
+        },
+        "proposed_tolerance": "exact integer votes",
+        "independent_basis": "At theta0, every edge pixel has rho=x=3; direct geometric counting gives10.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "Canny extracts local edges and StructureTensor gives local orientation. This estimates globally supported straight-line parameters; spatial contour extraction traces arbitrary boundaries instead.",
+      "artifacts": [
+        "rho/theta/votes CSV",
+        "Hough-space PNG"
+      ],
+      "risk": "Low-medium: fragmented or curved features create ambiguous peaks; not a geological classification.",
+      "release": "v0.26.0",
+      "source_commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "license": "BSD-3-Clause core; bundled BSD-2-Clause and MIT notices must be retained",
+      "license_evidence": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/LICENSE.txt",
+      "authoritative_sources": [
+        "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/transform/hough_transform.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "scikit-image==0.26.0",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Python>=3.11, NumPy>=1.24, SciPy>=1.11.4 declared. Reuse shared baseline pins; CPU only."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 12,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteWaveletPyramid",
+      "capability_key": "image-analysis:orthogonal-multiscale-spatial-decomposition",
+      "source_id": "pywavelets",
+      "upstream_callable": "pywt.wavedec2",
+      "scientific_task": "Decompose a calibrated image into spatial scale/orientation coefficient fields.",
+      "scope": "One bounded orthogonal2D Haar pyramid for multiscale texture analysis; no separate axis/mode tools and no claimed denoising.",
+      "units": {
+        "input": "declared intensity unit",
+        "coefficients": "same intensity dimension with orthonormal scaling",
+        "level": "dimensionless integer"
+      },
+      "constraints": [
+        "Fixed wavelet='haar', mode='periodization'; finite full-valid2D image.",
+        "Dimensions divisible by2^level; positive level bounded by image dimensions.",
+        "Reject categorical labels and irregular/missing support."
+      ],
+      "crs_mask_nodata": "Wavelet coefficients are scale-domain arrays, not original-grid GeoTIFFs. Retain source CRS/affine as provenance only and export scale-indexed CSV/PNG.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "For one-level2D orthonormal Haar transform of [[1,1],[1,1]], the average coefficient is the inner product with the unit-norm constant basis.",
+        "expected_numeric": {
+          "approximation_coefficient": 2,
+          "total_coefficient_energy": 4
+        },
+        "proposed_tolerance": "1e-12; detail coefficients additionally0",
+        "independent_basis": "Four unit pixels times basis weight1/2 produce2; Parseval energy is4, derived without upstream reconstruction.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "PCA/MNF decompose spectral covariance, Gabor probes a filter frequency, and TV denoises. This provides a complete orthogonal spatial multiscale decomposition.",
+      "artifacts": [
+        "scale/coefficient CSV",
+        "pyramid PNG"
+      ],
+      "risk": "Medium dependency risk; boundary extension and decimation conventions must remain explicit.",
+      "release": "v1.10.0",
+      "source_commit": "4bd3a5f935ce53a06a531af6fbb0ab941e753adc",
+      "license": "MIT; retain bundled BSD-3-Clause notices",
+      "license_evidence": "https://github.com/PyWavelets/pywt/blob/4bd3a5f935ce53a06a531af6fbb0ab941e753adc/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/PyWavelets/pywt/blob/4bd3a5f935ce53a06a531af6fbb0ab941e753adc/pywt/_multilevel.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "PyWavelets==1.10.0",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Python>=3.12; NumPy>=1.26.4,<3. Declared ranges include shared NumPy2.1.3; compatible wheel availability and ABI untested."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 13,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoSARDopplerDeskew",
+      "capability_key": "sar:azimuth-doppler-centroid-deskew",
+      "source_id": "sarpy",
+      "upstream_callable": "sarpy.processing.sicd.normalize_sicd.apply_skew_poly",
+      "scientific_task": "Remove an explicitly supplied azimuth Doppler-centroid phase ramp from an SLC patch.",
+      "scope": "Fixed dimension0 deskew using bounded calibration polynomial coefficients and physical slant coordinates; no generic polynomial or FFT dispatcher.",
+      "units": {
+        "input": "complex SLC amplitude",
+        "row_coordinate": "m",
+        "column_coordinate": "m",
+        "constant_delta_k": "cycle m^-1",
+        "output": "same complex amplitude unit"
+      },
+      "constraints": [
+        "Explicit fft_sgn in{-1,1}, fixed forward=False, finite coordinates and bounded polynomial degree.",
+        "Every coefficient has its power-dependent physical unit recorded.",
+        "Require consistent sampling and calibrated DeltaK metadata; no estimating unknown Doppler coefficients."
+      ],
+      "crs_mask_nodata": "Preserve SLC sampling/grid metadata and mask; raw slant data is not assigned a fabricated ground CRS.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "For row coordinates0,1,2,3m and constant DeltaK=.25 cycle/m, use input2*exp(i*pi*r/2), fft_sgn=-1, dimension0, forward=False.",
+        "expected_numeric": {
+          "real_output_each_row": 2,
+          "output_magnitude": 2
+        },
+        "proposed_tolerance": "1e-6; imaginary part additionally0",
+        "independent_basis": "Integrating constant spatial frequency gives a quarter-cycle-per-metre ramp; the conjugate deskew factor cancels it exactly.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "PhaseRegistration estimates translation; optical flow estimates spatial displacement. Neither removes a SAR Doppler-centroid phase ramp using instrument coordinates.",
+      "artifacts": [
+        "complex raster in its declared grid",
+        "phase-ramp/calibration CSV"
+      ],
+      "risk": "High private dependency and sign/convention risk; coefficients must come from valid metadata rather than user guesses.",
+      "release": "Source snapshot declares 2.1.1; wheel-to-commit correspondence NOT established",
+      "source_commit": "19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+      "license": "MIT",
+      "license_evidence": "https://github.com/ngageoint/sarpy/blob/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/ngageoint/sarpy/blob/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c/sarpy/processing/sicd/normalize_sicd.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "sarpy @ git+https://github.com/ngageoint/sarpy@19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "numpy>=1.19, scipy, h5py, pillow, matplotlib, shapely>=1.6.4, lxml>=4.1.1, deprecated, sarkit. Unresolved sarkit/reader migration and binary transitives. Python3.12 classifier present; execution unverified."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 14,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoSARSubaperture",
+      "capability_key": "sar:azimuth-subaperture-complex-image-formation",
+      "source_id": "sarpy",
+      "upstream_callable": "sarpy.processing.sicd.subaperture.subaperture_processing_array",
+      "scientific_task": "Form a complex SAR subaperture image from a bounded azimuth Doppler interval.",
+      "scope": "One azimuth aperture-splitting task, fixed dimension0; no separate tool per axis, aperture, color rendering or window type.",
+      "units": {
+        "input": "complex amplitude",
+        "output": "relative complex amplitude, not calibrated RCS",
+        "aperture_indices": "FFT-bin index",
+        "sampling": "explicit input azimuth sampling unit"
+      },
+      "constraints": [
+        "Finite complete SLC patch; integer half-open aperture interval inside FFT size.",
+        "Output_resolution fixed to input azimuth length for initial same-grid contract; bound memory.",
+        "Disclose loss of azimuth resolution and cropped-spectrum carrier reindexing; no conservation-of-RCS claim."
+      ],
+      "crs_mask_nodata": "Require complete valid input patch because Fourier support is global. Preserve sampling grid only for same-sized output; keep raw slant geometry explicit.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Use an8-row constant complex amplitude2 patch, aperture_indices=(2,6), output_resolution=8, dimension0. The retained DC coefficient16 occupies cropped-spectrum index2.",
+        "expected_numeric": {
+          "magnitude_each_output_pixel": 2,
+          "phase_increment_rad": 1.5707963267948966
+        },
+        "proposed_tolerance": "1e-6",
+        "independent_basis": "The inverse DFT of one coefficient16 at index2 is2*exp(i*pi*r/2); this also documents the upstream reindexing convention.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "No original or accepted tool forms SAR subapertures; this changes coherent aperture support, not merely computes a generic FFT or applies a display color.",
+      "artifacts": [
+        "complex subaperture raster",
+        "aperture/bin/sampling CSV",
+        "amplitude PNG"
+      ],
+      "risk": "High private dependency risk; carrier convention and amplitude scaling require CPU acceptance.",
+      "release": "Source snapshot declares 2.1.1; wheel-to-commit correspondence NOT established",
+      "source_commit": "19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+      "license": "MIT",
+      "license_evidence": "https://github.com/ngageoint/sarpy/blob/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/ngageoint/sarpy/blob/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c/sarpy/processing/sicd/subaperture.py"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "sarpy @ git+https://github.com/ngageoint/sarpy@19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "numpy>=1.19, scipy, h5py, pillow, matplotlib, shapely>=1.6.4, lxml>=4.1.1, deprecated, sarkit. Unresolved sarkit/reader migration and binary transitives. Python3.12 classifier present; execution unverified."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 15,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoSARSigma0Calibration",
+      "capability_key": "sar:metadata-lut-radiometric-sigma0-calibration",
+      "source_id": "otb",
+      "upstream_callable": "otbcli_SARCalibration",
+      "fixed_invocation": {
+        "application": "SARCalibration",
+        "lut": "sigma",
+        "removenoise": false
+      },
+      "scientific_task": "Calibrate Sentinel-1 SLC amplitude into linear sigma-nought backscatter using local product calibration metadata.",
+      "scope": "Initially Sentinel-1 with explicit valid sigma LUT; no beta/gamma/dB variants counted and no experimental TerraSAR-X denoising.",
+      "units": {
+        "input": "product DN complex amplitude",
+        "sigma0": "dimensionless linear backscatter ratio"
+      },
+      "constraints": [
+        "Complete supported local product metadata and strictly positive finite calibration LUT values.",
+        "Fixed removenoise=False for initial scope; already noise-corrected status must be recorded.",
+        "Never assume absent calibration constants or treat arbitrary TIFFs as calibrated SAR products."
+      ],
+      "crs_mask_nodata": "Retain SAR sensor geometry, affine/CRS where supplied and original valid support; calibrated scalar output must preserve the pixel-to-sensor mapping.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Prepare a fully synthetic supported metadata fixture with constant sigma-amplitude LUT2, unity remaining scale, no noise, and SLC DN=2+0i.",
+        "expected_numeric": {
+          "sigma0": 1
+        },
+        "proposed_tolerance": "1e-6; metadata fixture must still be authored",
+        "independent_basis": "Radiometric power is |DN|^2/LUT^2=4/4=1 from the calibration definition, not another software calibration output.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "Existing scale/offset raster inputs and spectral resampling do not apply sensor SAR power calibration LUTs. No accepted remote30 tool yields calibrated sigma0.",
+      "artifacts": [
+        "sigma0 raster",
+        "calibration/metadata audit CSV",
+        "backscatter PNG"
+      ],
+      "risk": "High: isolated OTB runtime and synthetic product/LUT metadata fixture needed before integration; no claim that metadata wiring is tested.",
+      "release": "9.1.1",
+      "source_commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "license": "Apache-2.0 software; Cookbook documentation CC-BY-SA-4.0 where stated",
+      "license_evidence": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/SAR/Applications/app/otbSARCalibration.cxx",
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/SAR/SARCalibration/include/otbSarRadiometricCalibrationFunction.hxx"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "OTB==9.1.1 (standalone CPU distribution/source, NOT a pip package pin)",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Native OTB Core/Dependencies plus SAR, FeaturesExtraction, Hyperspectral, Learning, StereoProcessing modules as needed. ITK/GDAL/PROJ and Python-binding ABI must stay isolated from shared rasterio/numpy. No numeric OTB dependency versions inferred."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 16,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteTOAReflectance",
+      "capability_key": "remote:solar-geometry-toa-reflectance-calibration",
+      "source_id": "otb",
+      "upstream_callable": "otbcli_OpticalCalibration",
+      "fixed_invocation": {
+        "application": "OpticalCalibration",
+        "level": "toa",
+        "milli": false,
+        "clamp": false
+      },
+      "scientific_task": "Convert supplied optical DN calibration and solar illumination metadata to top-of-atmosphere reflectance.",
+      "scope": "Explicit gains/biases, ESUN, solar distance and solar elevation; not atmospheric/surface correction or ore identification.",
+      "units": {
+        "DN": "digital number",
+        "radiance": "W m^-2 sr^-1 um^-1",
+        "ESUN": "W m^-2 um^-1",
+        "solar_distance": "AU",
+        "solar_elevation": "degree",
+        "reflectance": "dimensionless"
+      },
+      "constraints": [
+        "OTB convention is L=DN/gain+bias, not gain*DN+bias; positive finite gains and ESUN.",
+        "Solar elevation strictly>0 and<=90 degrees; positive finite Earth-Sun distance.",
+        "Disable clamp to avoid silently clipping valid specular values; retain physical-range flags.",
+        "Provide calibration values explicitly; never rely on fallback hard-coded sensor tables."
+      ],
+      "crs_mask_nodata": "Pointwise calibration retains grid/masks; all bands require explicit order, wavelength identities and compatible calibration metadata.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Synthetic DN4, gain2, bias0, ESUN20*pi, solar distance1AU and elevation90degrees yield radiance2.",
+        "expected_numeric": {
+          "TOA_reflectance": 0.1
+        },
+        "proposed_tolerance": "1e-6",
+        "independent_basis": "Independent illumination law rho=pi*L*d^2/(ESUN*sin(elevation)) gives0.1.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "A generic raster scale/offset does not normalize irradiance and sun geometry. BandResample preserves spectral sampling rather than performing absolute optical calibration.",
+      "artifacts": [
+        "TOA reflectance GeoTIFF",
+        "band/calibration/unit CSV",
+        "reflectance PNG"
+      ],
+      "risk": "High deployment dependency; input gain convention and sensor-specific ESUN must be scientifically justified.",
+      "release": "9.1.1",
+      "source_commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "license": "Apache-2.0 software; Cookbook documentation CC-BY-SA-4.0 where stated",
+      "license_evidence": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/Core/Applications/app/otbOpticalCalibration.cxx"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "OTB==9.1.1 (standalone CPU distribution/source, NOT a pip package pin)",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Native OTB Core/Dependencies plus SAR, FeaturesExtraction, Hyperspectral, Learning, StereoProcessing modules as needed. ITK/GDAL/PROJ and Python-binding ABI must stay isolated from shared rasterio/numpy. No numeric OTB dependency versions inferred."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 17,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemotePansharpenFusion",
+      "capability_key": "remote:panchromatic-multispectral-resolution-fusion",
+      "source_id": "otb",
+      "upstream_callable": "otbcli_Pansharpening",
+      "fixed_invocation": {
+        "application": "Pansharpening",
+        "method": "rcs"
+      },
+      "scientific_task": "Fuse registered panchromatic spatial detail with multispectral measurements.",
+      "scope": "One fixed ratio-component-substitution fusion method; no separate LMVM/Bayesian variants and no hidden resampling.",
+      "units": {
+        "pan": "consistent positive intensity",
+        "multispectral": "declared radiance or reflectance",
+        "output": "same nominal multispectral unit; fusion may distort radiometry"
+      },
+      "constraints": [
+        "Inputs already on identical CRS/affine/grid; pan one band, XS multiband.",
+        "Bound positive smoothing radii; require positive smoothed PAN support and finite inputs.",
+        "Reject unsupported zero denominators rather than accepting upstream scale1 fallback as physical fusion."
+      ],
+      "crs_mask_nodata": "Intersect input masks, erode for smoothing footprint, preserve grid and explicit output nodata. Never fill cloud/nodata areas.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "All-valid constant PAN4 and all XS bands0.2 on a patch larger than the smoothing window.",
+        "expected_numeric": {
+          "fused_band_value": 0.2
+        },
+        "proposed_tolerance": "1e-6",
+        "independent_basis": "PAN/local_mean(PAN)=1 on constant support, so each calibrated band must remain0.2.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "Spatial reprojection changes a grid and SensorBandResample changes spectral bandpasses; neither injects high-resolution pan detail into multispectral imagery.",
+      "artifacts": [
+        "fused multiband GeoTIFF",
+        "fusion/window/radiometry CSV",
+        "RGB PNG"
+      ],
+      "risk": "High runtime dependency, medium scientific risk: spectral distortion and registration sensitivity; not preserved absolute surface reflectance by guarantee.",
+      "release": "9.1.1",
+      "source_commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "license": "Apache-2.0 software; Cookbook documentation CC-BY-SA-4.0 where stated",
+      "license_evidence": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/Core/Applications/app/otbPansharpening.cxx",
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/Core/PanSharpening/include/otbSimpleRcsPanSharpeningFusionImageFilter.h",
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/Core/PanSharpening/include/otbSimpleRcsPanSharpeningFusionImageFilter.hxx"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "OTB==9.1.1 (standalone CPU distribution/source, NOT a pip package pin)",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Native OTB Core/Dependencies plus SAR, FeaturesExtraction, Hyperspectral, Learning, StereoProcessing modules as needed. ITK/GDAL/PROJ and Python-binding ABI must stay isolated from shared rasterio/numpy. No numeric OTB dependency versions inferred."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 18,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoRemoteMADChange",
+      "capability_key": "remote:canonical-correlation-multiband-change",
+      "source_id": "otb",
+      "upstream_callable": "otbcli_MultivariateAlterationDetector",
+      "scientific_task": "Detect multiband temporal alteration through canonical-correlation change components.",
+      "scope": "Equal-band-count MAD initially, using full-rank joint spectral statistics; not an extra PCA, RX or scalar difference wrapper.",
+      "units": {
+        "input": "explicit per-band radiometric units",
+        "MAD_components": "dimensionless standardized canonical variates",
+        "canonical_correlation": "dimensionless"
+      },
+      "constraints": [
+        "Same grid and jointly valid complete patches, same band count for initial scope.",
+        "More observations than combined dimensions; positive-definite conditioned marginal covariances.",
+        "Return component order/sign conventions; reject singular cases instead of ridge-regularizing silently."
+      ],
+      "crs_mask_nodata": "Source requires matching origin, spacing, size and projection. Preserve joint mask; estimation samples and output valid counts must be explicit.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Construct four mutually orthogonal zero-mean synthetic sample columns with sample variance1. X=(u1,u2); Y=(.5*u1+sqrt(.75)*u3,.25*u2+sqrt(.9375)*u4).",
+        "expected_numeric": {
+          "canonical_correlations_sorted": [
+            0.25,
+            0.5
+          ],
+          "MAD_component_variances_descending": [
+            1.5,
+            1
+          ]
+        },
+        "proposed_tolerance": "1e-6; compare sign-invariant variance",
+        "independent_basis": "Marginal covariances are identity and cross-covariance diag(.5,.25); Var(U-V)=2*(1-rho).",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "SSIM measures local image structure and RX scores a single cube against its background. MAD learns correlated cross-date band combinations and orthogonal change components.",
+      "artifacts": [
+        "MAD component GeoTIFF",
+        "canonical correlations/statistics CSV",
+        "change PNG"
+      ],
+      "risk": "High OTB dependency; statistical stationarity, training contamination and component sign/order require explicit handling.",
+      "release": "9.1.1",
+      "source_commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "license": "Apache-2.0 software; Cookbook documentation CC-BY-SA-4.0 where stated",
+      "license_evidence": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/FeaturesExtraction/Applications/app/otbMultivariateAlterationDetector.cxx",
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/FeaturesExtraction/Filtering/ChangeDetection/include/otbMultivariateAlterationDetectorImageFilter.hxx"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "OTB==9.1.1 (standalone CPU distribution/source, NOT a pip package pin)",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Native OTB Core/Dependencies plus SAR, FeaturesExtraction, Hyperspectral, Learning, StereoProcessing modules as needed. ITK/GDAL/PROJ and Python-binding ABI must stay isolated from shared rasterio/numpy. No numeric OTB dependency versions inferred."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 19,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoSARPolarimetricHAlpha",
+      "capability_key": "sar:polarimetric-scattering-entropy-alpha-anisotropy",
+      "source_id": "otb",
+      "upstream_callable": "otbcli_SARDecompositions",
+      "fixed_invocation": {
+        "application": "SARDecompositions",
+        "decomp": "haa"
+      },
+      "scientific_task": "Estimate H/alpha/anisotropy scattering descriptors from reciprocal full-polarimetric SAR.",
+      "scope": "One incoherent H-alpha-A decomposition; no separate decomposition-mode counts or automatic lithology classes.",
+      "units": {
+        "input": "consistent complex HH,HV,VV amplitudes",
+        "entropy_H": "dimensionless",
+        "alpha": "degree",
+        "anisotropy_A": "dimensionless"
+      },
+      "constraints": [
+        "Monostatic reciprocal data; matching polarization grids and units.",
+        "Positive total coherency power; bounded spatial mean radius; finite outputs.",
+        "Source parameter inco.kernelsize is passed to SetRadius, hence width=2*value+1 despite ambiguous documentation.",
+        "Require real outputs within tolerance before discarding negligible complex storage parts; disclose eigenvalue degeneracy."
+      ],
+      "crs_mask_nodata": "Use jointly valid complete averaging windows and preserve the eroded mask/grid.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "Use a period3 pixel pattern of Pauli vectors (3,0,0),(0,sqrt(6),0),(0,0,sqrt(3)); invert to reciprocal HH/HV/VV analytically. A9x9 interior window (radius4) has average coherency diag(3,2,1).",
+        "expected_numeric": {
+          "entropy_H": 0.920619835714305,
+          "alpha_degrees": 45,
+          "anisotropy_A": 0.3333333333333333
+        },
+        "proposed_tolerance": "1e-6 for H/A, 1e-4degree for alpha; A has upstream1e-6 denominator stabilizer",
+        "independent_basis": "Eigenvalues3,2,1 give probabilities1/2,1/3,1/6 and known coordinate eigenvectors. Shannon entropy/base3 and weighted angles follow analytically.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "StructureTensor describes optical image gradients. This decomposes calibrated electromagnetic coherency; not present in original229 or remote30.",
+      "artifacts": [
+        "H/alpha/A multiband GeoTIFF",
+        "polarization/window audit CSV",
+        "descriptor PNG"
+      ],
+      "risk": "High runtime dependency and polarization calibration risk; source radius convention and eigenvalue degeneracy need CPU acceptance.",
+      "release": "9.1.1",
+      "source_commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "license": "Apache-2.0 software; Cookbook documentation CC-BY-SA-4.0 where stated",
+      "license_evidence": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/SAR/Applications/app/otbSARDecompositions.cxx",
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/FeaturesExtraction/Filtering/Polarimetry/include/otbReciprocalHAlphaImageFilter.h"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "OTB==9.1.1 (standalone CPU distribution/source, NOT a pip package pin)",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Native OTB Core/Dependencies plus SAR, FeaturesExtraction, Hyperspectral, Learning, StereoProcessing modules as needed. ITK/GDAL/PROJ and Python-binding ABI must stay isolated from shared rasterio/numpy. No numeric OTB dependency versions inferred."
+      },
+      "common_contract_ref": "#/common_contract"
+    },
+    {
+      "rank": 20,
+      "priority": "first20",
+      "status": "research_only_not_integrated_not_counted",
+      "implementation_status": "not_authored",
+      "acceptance_status": "not_tested_not_integrated_not_counted",
+      "tool_id": "GeoSARPolarizationSynthesis",
+      "capability_key": "sar:virtual-transmit-receive-polarization-power",
+      "source_id": "otb",
+      "upstream_callable": "otbcli_SARPolarSynth",
+      "fixed_invocation": {
+        "application": "SARPolarSynth",
+        "mode": "none"
+      },
+      "scientific_task": "Predict return power for explicit transmit/receive polarization states from full polarimetric scattering measurements.",
+      "scope": "Four-band HH,HV,VH,VV input initially; one physical synthesis task, not one operation per Jones-vector angle.",
+      "units": {
+        "input": "complex scattering amplitude",
+        "orientation": "degree in[-90,90]",
+        "ellipticity": "degree in[-45,45]",
+        "output": "relative amplitude-squared power"
+      },
+      "constraints": [
+        "Exactly ordered full-polarization channels with consistent calibration, grid and time.",
+        "Finite allowed orientation/ellipticity angles; bounded arrays.",
+        "No automatic dual-polarization completion and no absolute RCS claim; application docs mention gain but no gain parameter is exposed in pinned application."
+      ],
+      "crs_mask_nodata": "Pointwise polarimetric synthesis preserves joint mask and CRS/affine; never mix channel grids.",
+      "numeric_oracle": {
+        "fixture": "clearly_synthetic",
+        "construction": "A synthetic scattering matrix S=identity with transmit and receive both horizontal (all four angles0degrees).",
+        "expected_numeric": {
+          "synthesized_power": 1
+        },
+        "proposed_tolerance": "1e-8",
+        "independent_basis": "The Jones-vector contraction [1,0]*I*[1,0]^T has amplitude1 and power1.",
+        "execution": "not_run"
+      },
+      "distinct_from_existing": "H-alpha-A summarizes scattering statistics; this predicts an instrument polarization response. No optical classification, resampling or accepted remote30 operation does this.",
+      "artifacts": [
+        "synthesized-power raster",
+        "Jones-angle/channel audit CSV",
+        "power PNG"
+      ],
+      "risk": "High OTB dependency; omitted polarization-independent gain means output remains relative power.",
+      "release": "9.1.1",
+      "source_commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "license": "Apache-2.0 software; Cookbook documentation CC-BY-SA-4.0 where stated",
+      "license_evidence": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/LICENSE",
+      "authoritative_sources": [
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/SAR/Applications/app/otbSARPolarSynth.cxx",
+        "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/FeaturesExtraction/Filtering/Polarimetry/include/otbPolarimetricSynthesisFunctor.h"
+      ],
+      "expected_dependencies": {
+        "primary_pin": "OTB==9.1.1 (standalone CPU distribution/source, NOT a pip package pin)",
+        "shared_pins_unchanged": [
+          "numpy==2.1.3",
+          "scipy==1.15.3",
+          "rasterio==1.4.3"
+        ],
+        "additional_dependency_plan": "Native OTB Core/Dependencies plus SAR, FeaturesExtraction, Hyperspectral, Learning, StereoProcessing modules as needed. ITK/GDAL/PROJ and Python-binding ABI must stay isolated from shared rasterio/numpy. No numeric OTB dependency versions inferred."
+      },
+      "common_contract_ref": "#/common_contract"
+    }
+  ],
+  "excluded_or_deferred": [
+    {
+      "task": "Histogram matching",
+      "reason": "Duplicate of original SkdownscaleQuantileBiasCorrection; GeoRemoteHistogramMatch remains excluded."
+    },
+    {
+      "task": "OTB local RX, unmixing, alternative segmentation/denoisers and Pantex GLCM summaries",
+      "reason": "Already represented by accepted RX, linear unmixing, segmentation, TV/RichardsonLucy or GLCM workflows; algorithm/aggregation substitutions do not create new counts."
+    },
+    {
+      "task": "OTB VertexComponentAnalysis",
+      "reason": "Same proposed endmember-discovery task as SMACC; one discovery operation only."
+    },
+    {
+      "task": "OTB SARDeburst / burst extraction / burst concatenate",
+      "reason": "Deferred, not inventoried: source otbSarDeburstImageFilter.hxx lines147-148 writes NumberOfLines from size[0] and NumberOfColumns from size[1], an apparent row/column metadata inconsistency requiring upstream clarification and a non-square sensor-metadata fixture. No claim of proven runtime defect; no local workaround authored.",
+      "source_url": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/SAR/SARCalibration/include/otbSarDeburstImageFilter.hxx#L147"
+    },
+    {
+      "task": "Additional polarization matrix bases, Pauli/Barnes/Huynen variants, beta/gamma/dB calibration variants",
+      "reason": "Not separate operations; no mode-padding."
+    },
+    {
+      "task": "Standalone interferogram modulus/phase and SAR subaperture color visualization",
+      "reason": "Insufficient additional task separation from coherent-change phase output and subaperture formation."
+    },
+    {
+      "task": "OTB homologous-point/SIFT extraction and SFS texture",
+      "reason": "Potential later research, not counted: full deterministic oracle/source-contract work not completed; website maintenance affected documentation. No speculative wrappers."
+    },
+    {
+      "task": "PoreSpy access-limited porosimetry",
+      "reason": "Potential later physical pore-entry task, not counted: need stronger independent throat-limited fixture and special uninvaded-value audit rather than rebranding local thickness."
+    }
+  ],
+  "stop_reason": "User requested immediate research cutoff. Twenty complete evidence-backed candidate records are delivered; additional partially assembled leads are not included or counted.",
+  "top5": [
+    "GeoSARSigma0Calibration",
+    "GeoRemoteBrightnessTemperature",
+    "GeoRemotePhaseUnwrap",
+    "GeoRemoteMADChange",
+    "GeoRemotePansharpenFusion"
+  ]
+}

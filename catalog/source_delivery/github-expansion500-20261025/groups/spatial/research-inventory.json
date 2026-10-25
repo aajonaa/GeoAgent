@@ -1,0 +1,616 @@
+{
+  "group": "spatial",
+  "status": "research_only_not_integrated_not_counted",
+  "candidate_count": 30,
+  "evidence_scope": "Consolidation of previously obtained official source/docs only. No new browsing or source reads for this delivery.",
+  "dedup_scope": "Previously read baseline229 plus all four github-expansion-20261025 group catalogs (accepted117), total346 tools/70Skills. Semantic research notes are not parent acceptance or an exhaustive proof of distinctness.",
+  "delivery_scope": "Research inventory only; no adapters, schemas, Skills, registration, installation, tests, release or deployment.",
+  "common_unverified_risks": [
+    "Every proposed ID and scientific scope requires parent cross-group dedup review before implementation.",
+    "Exact source releases are recorded; these are not complete install locks. Missing transitive/native pins are null, not inferred.",
+    "No CPU tests or independent numeric-oracle fixtures were authored or executed in this delivery.",
+    "Future interfaces must be bounded and closed, preserve CRS/units/masks/provenance, and prohibit arbitrary callables, commands, pipelines and network data access.",
+    "No installed package or shared environment is to be replaced or downgraded on the basis of this inventory."
+  ],
+  "sources": {
+    "pyflwdir": {
+      "version": "0.5.12",
+      "commit": "4e598e77611232bbf5fc620919d914de5bfd2cdb",
+      "license": "MIT",
+      "repository_url": "https://github.com/Deltares/pyflwdir",
+      "license_url": "https://github.com/Deltares/pyflwdir/blob/4e598e77611232bbf5fc620919d914de5bfd2cdb/LICENSE",
+      "exact_transitive_lock": null
+    },
+    "shapely": {
+      "version": "2.1.2",
+      "commit": "5fb639d1056888d135fe56bfaf750c9648addeec",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/shapely/shapely",
+      "license_url": "https://github.com/shapely/shapely/blob/5fb639d1056888d135fe56bfaf750c9648addeec/LICENSE.txt",
+      "exact_transitive_lock": null
+    },
+    "tobler": {
+      "version": "0.14.0",
+      "commit": "955790dac77f4a76d06591ffe9f246cfb0af4501",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/pysal/tobler",
+      "license_url": "https://github.com/pysal/tobler/blob/955790dac77f4a76d06591ffe9f246cfb0af4501/LICENSE.txt",
+      "exact_transitive_lock": null
+    },
+    "flopy": {
+      "version": "3.11.0",
+      "commit": "a43f79127d0383e5328a602e72faf9a9730c7d61",
+      "license": "CC0-1.0",
+      "repository_url": "https://github.com/modflowpy/flopy",
+      "license_url": "https://github.com/modflowpy/flopy/blob/a43f79127d0383e5328a602e72faf9a9730c7d61/LICENSE.md",
+      "exact_transitive_lock": null
+    },
+    "rasterio": {
+      "version": "1.4.3",
+      "commit": "7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/rasterio/rasterio",
+      "license_url": "https://github.com/rasterio/rasterio/blob/7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede/LICENSE.txt",
+      "exact_transitive_lock": null
+    },
+    "esda": {
+      "version": "2.10.0",
+      "commit": "6ffd5b66565791cede8703c438c90a819aacd49f",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/pysal/esda",
+      "license_url": "https://github.com/pysal/esda/blob/6ffd5b66565791cede8703c438c90a819aacd49f/LICENSE.txt",
+      "exact_transitive_lock": null
+    },
+    "pointpats": {
+      "version": "2.6.0",
+      "commit": "524296c551488998a26000c072d69b76ca095d68",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/pysal/pointpats",
+      "license_url": "https://github.com/pysal/pointpats/blob/524296c551488998a26000c072d69b76ca095d68/LICENSE.txt",
+      "exact_transitive_lock": null
+    },
+    "spopt": {
+      "version": "0.8.0",
+      "commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/pysal/spopt",
+      "license_url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/LICENSE.txt",
+      "exact_transitive_lock": null
+    },
+    "landlab": {
+      "version": "2.11.0",
+      "commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "repository_url": "https://github.com/landlab/landlab",
+      "license_url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/LICENSE.md",
+      "exact_transitive_lock": null
+    },
+    "scikit-learn": {
+      "version": "1.7.2",
+      "commit": "25dee604bae18205b01548348388baf7a1cdfe0e",
+      "license": "BSD-3-Clause",
+      "repository_url": "https://github.com/scikit-learn/scikit-learn",
+      "license_url": "https://github.com/scikit-learn/scikit-learn/blob/25dee604bae18205b01548348388baf7a1cdfe0e/COPYING",
+      "exact_transitive_lock": null
+    },
+    "PDAL": {
+      "version": "2.9.1",
+      "commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license": "BSD-3-Clause; bundled components have separate notices",
+      "repository_url": "https://github.com/PDAL/PDAL",
+      "license_url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/LICENSE.txt",
+      "exact_transitive_lock": null
+    },
+    "GRASS": {
+      "version": "8.5.0",
+      "commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+      "license": "GPL-2.0-or-later; component notices also apply",
+      "repository_url": "https://github.com/OSGeo/grass",
+      "license_url": "https://github.com/OSGeo/grass/blob/8d6ceba290a2f0059a7301b9d4944455f313da72/COPYING",
+      "exact_transitive_lock": null
+    }
+  },
+  "operations": [
+    {
+      "tool_id": "GeoSpatialFlowNetworkUpscaleIHU",
+      "scientific_task": "Coarsen a supplied D8 drainage network with iterative hydrography upscaling, retaining coarse drainage connectivity.",
+      "package": "pyflwdir",
+      "callable": "pyflwdir.pyflwdir.FlwdirRaster.upscale",
+      "official_url": "https://github.com/Deltares/pyflwdir/blob/4e598e77611232bbf5fc620919d914de5bfd2cdb/pyflwdir/pyflwdir.py#L1013",
+      "version": "0.5.12",
+      "commit": "4e598e77611232bbf5fc620919d914de5bfd2cdb",
+      "license": "MIT",
+      "distinctness_note": "Changes network resolution; existing accumulation, flow-direction and Strahler operations do not perform hydrography upscaling.",
+      "unverified_risks": [
+        "Fixed method='ihu'; validate acyclic D8 input, terminal semantics, masks and affine scaling. NumPy/Numba compatibility and numerical behavior were not executed."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialFloodplainStageStorage",
+      "scientific_task": "Compute unit-catchment floodplain storage volumes in m3 for supplied water depths and HAND elevations in m.",
+      "package": "pyflwdir",
+      "callable": "pyflwdir.pyflwdir.FlwdirRaster.ucat_volume",
+      "official_url": "https://github.com/Deltares/pyflwdir/blob/4e598e77611232bbf5fc620919d914de5bfd2cdb/pyflwdir/pyflwdir.py#L1193",
+      "version": "0.5.12",
+      "commit": "4e598e77611232bbf5fc620919d914de5bfd2cdb",
+      "license": "MIT",
+      "distinctness_note": "Uses existing HAND as input to stage-storage integration; not another HAND or depression-fill operation.",
+      "unverified_risks": [
+        "Require explicit outlet indices, cell areas, vertical datum and HAND validity. Upstream missing-outlet sentinel must not become a valid volume. No hydraulic inundation forecast is implied."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialCoverageSimplification",
+      "scientific_task": "Simplify shared parcel boundaries while preserving a valid polygon coverage.",
+      "package": "shapely",
+      "callable": "shapely.coverage_simplify",
+      "official_url": "https://github.com/shapely/shapely/blob/5fb639d1056888d135fe56bfaf750c9648addeec/shapely/_coverage.py#L101",
+      "version": "2.1.2",
+      "commit": "5fb639d1056888d135fe56bfaf750c9648addeec",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Retains individual simplified parcels; existing coverage union dissolves their internal boundaries.",
+      "unverified_risks": [
+        "GEOS >=3.12 gate; parent previously reported GEOS 3.13.1. Invalid or overlapping coverage must be rejected. Tolerance is approximately square-root removed triangle area, not a maximum displacement guarantee."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialConservativeArealTransfer",
+      "scientific_task": "Redistribute extensive environmental totals between polygon partitions using overlap-area weights.",
+      "package": "tobler",
+      "callable": "tobler.area_weighted.area_interpolate.area_interpolate",
+      "official_url": "https://github.com/pysal/tobler/blob/955790dac77f4a76d06591ffe9f246cfb0af4501/tobler/area_weighted/area_interpolate.py#L204",
+      "version": "0.14.0",
+      "commit": "955790dac77f4a76d06591ffe9f246cfb0af4501",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Polygon-to-polygon redistribution of totals differs from polygon intersection and raster zonal statistics.",
+      "unverified_risks": [
+        "Equal-area/projected CRS and explicit overlap/coverage policy required. allocate_total and fill_nan must be explicit; no silent redistribution of uncovered totals or missing observations. Additional GeoPandas/rasterstats dependencies are not locked."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialGroundwaterZoneBudget",
+      "scientific_task": "Summarize groundwater transfers and budget residuals between supplied model zones from an existing cell-budget file.",
+      "package": "flopy",
+      "callable": "flopy.utils.zonbud.ZoneBudget.get_budget",
+      "official_url": "https://github.com/modflowpy/flopy/blob/a43f79127d0383e5328a602e72faf9a9730c7d61/flopy/utils/zonbud.py#L1092",
+      "version": "3.11.0",
+      "commit": "a43f79127d0383e5328a602e72faf9a9730c7d61",
+      "license": "CC0-1.0",
+      "distinctness_note": "Interzonal flux accounting differs from existing uppermost water-table extraction.",
+      "unverified_risks": [
+        "ZoneBudget construction performs budget processing before get_budget. Require bounded local budget files, matched integer zones, time selection and declared volumetric-rate units. Do not invoke MODFLOW or ZoneBudget6 executables."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "setup_callable": "flopy.utils.zonbud.ZoneBudget"
+    },
+    {
+      "tool_id": "GeoSpatialDarcySpecificDischarge",
+      "scientific_task": "Convert groundwater model face fluxes into the complete Darcy discharge vector using cell geometry and saturated thickness.",
+      "package": "flopy",
+      "callable": "flopy.utils.postprocessing.get_specific_discharge",
+      "official_url": "https://github.com/modflowpy/flopy/blob/a43f79127d0383e5328a602e72faf9a9730c7d61/flopy/utils/postprocessing.py#L758",
+      "version": "3.11.0",
+      "commit": "a43f79127d0383e5328a602e72faf9a9730c7d61",
+      "license": "CC0-1.0",
+      "distinctness_note": "Produces physical flow vectors from face budgets, not water-table extraction or a confined-well head solution.",
+      "unverified_risks": [
+        "Declare length/time units and face versus center positions. Preserve dry/inactive masks and north/up signs; Darcy flux is not pore-water velocity. Model-object setup remains unvalidated."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialRPCGeolocation",
+      "scientific_task": "Locate image pixels through supplied rational polynomial sensor coefficients and explicit ellipsoidal heights.",
+      "package": "rasterio",
+      "callable": "rasterio.transform.RPCTransformer.xy",
+      "official_url": "https://github.com/rasterio/rasterio/blob/7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede/rasterio/transform.py#L537",
+      "version": "1.4.3",
+      "commit": "7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Sensor-model geolocation differs from reprojecting an already affine-georeferenced raster.",
+      "unverified_risks": [
+        "Input heights are WGS84 ellipsoidal metres; outputs are longitude/latitude degrees. Pixel-center offsets, inverse convergence and failed-point warnings need CPU acceptance. Forbid arbitrary RPC options, DEM paths and network access; native GDAL build is not locked."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "documentation_url": "https://gdal.org/en/stable/development/rfc/rfc22_rpc.html"
+    },
+    {
+      "tool_id": "GeoSpatialGCPGeoreferencing",
+      "scientific_task": "Geolocate legacy map or image pixels from surveyed ground-control points using a thin-plate-spline transform.",
+      "package": "rasterio",
+      "callable": "rasterio.transform.GCPTransformer.xy",
+      "official_url": "https://github.com/rasterio/rasterio/blob/7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede/rasterio/transform.py#L558",
+      "version": "1.4.3",
+      "commit": "7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Fits a georeferencing transform from controls rather than applying an existing CRS-to-CRS warp.",
+      "unverified_risks": [
+        "Fixed tps=True; require nondegenerate controls, explicit control-point CRS, pixel conventions and interpolation extent. No silent extrapolation or CRS assignment. Native GDAL version and residual acceptance remain unresolved."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialLocalHeteroscedasticity",
+      "scientific_task": "Measure local spatial variation in residual dispersion with LOSH.",
+      "package": "esda",
+      "callable": "esda.losh.LOSH.fit",
+      "official_url": "https://github.com/pysal/esda/blob/6ffd5b66565791cede8703c438c90a819aacd49f/esda/losh.py#L50",
+      "version": "2.10.0",
+      "commit": "6ffd5b66565791cede8703c438c90a819aacd49f",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "LOSH measures spatial variance heterogeneity, not the mean association or squared-neighbour contrasts returned by existing Moran and Geary tools.",
+      "unverified_risks": [
+        "Require aligned numeric observations and explicit spatial weights, no islands and nonzero residual variance. Fixed exponent a=2; descriptive statistic only until inference is separately approved."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialContiguousRegionalization",
+      "scientific_task": "Partition neighbouring environmental zones into attribute-similar contiguous regions using SKATER.",
+      "package": "spopt",
+      "callable": "spopt.region.skater.Skater.solve",
+      "official_url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/spopt/region/skater.py#L538",
+      "version": "0.8.0",
+      "commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Creates graph-contiguous regional partitions; remote image segmentation and existing Voronoi service regions solve different tasks.",
+      "unverified_risks": [
+        "Explicit connectivity, feature units/scales, minimum region size and island handling required. The method is heuristic, not a global optimum guarantee. GeoPandas/networkx and other transitive dependencies remain unlocked."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "setup_callable": "spopt.region.skater.Skater"
+    },
+    {
+      "tool_id": "GeoSpatialKnoxSpaceTimeInteraction",
+      "scientific_task": "Count environmental events close in both space and time, and report the independence expectation.",
+      "package": "pointpats",
+      "callable": "pointpats.spacetime.Knox",
+      "official_url": "https://github.com/pysal/pointpats/blob/524296c551488998a26000c072d69b76ca095d68/pointpats/spacetime.py#L941",
+      "version": "2.6.0",
+      "commit": "524296c551488998a26000c072d69b76ca095d68",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Space-time event interaction is distinct from spatial-only Moran/Geary association and spacetime semivariograms.",
+      "unverified_risks": [
+        "Use projected distance and explicitly declared time units. Fix permutations=0 for deterministic initial scope; do not label counts as causal evidence. Pair counting and threshold inclusivity need acceptance."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialDemandWeightedFacilitySiting",
+      "scientific_task": "Choose a fixed number of environmental service or monitoring facilities minimizing demand-weighted assignment cost.",
+      "package": "spopt",
+      "callable": "spopt.locate.p_median.PMedian.solve",
+      "official_url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/spopt/locate/p_median.py#L517",
+      "version": "0.8.0",
+      "commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Optimizes which sites to open; existing cost allocation only assigns cells to sites already selected.",
+      "unverified_risks": [
+        "Cost units, nonnegative demand weights and feasibility must be explicit. PuLP >=3.2,<4 is declared upstream, but exact solver/package/binary pins are unresolved. Only a parent-approved fixed CPU solver is acceptable."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "setup_callable": "spopt.locate.p_median.PMedian.from_cost_matrix"
+    },
+    {
+      "tool_id": "GeoSpatialMinimumCoverageFacilitySet",
+      "scientific_task": "Find the minimum number of facilities that covers every demand location within a declared service threshold.",
+      "package": "spopt",
+      "callable": "spopt.locate.coverage.LSCP.solve",
+      "official_url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/spopt/locate/coverage.py#L490",
+      "version": "0.8.0",
+      "commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Minimizes facility count subject to full coverage, unlike p-median's fixed-count total-cost objective or allocation to existing sites.",
+      "unverified_risks": [
+        "Require finite cost matrix, explicit threshold units and infeasibility reporting. Exact PuLP/CPU solver lock is unresolved; no user-selected executable or solver options."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "setup_callable": "spopt.locate.coverage.LSCP.from_cost_matrix"
+    },
+    {
+      "tool_id": "GeoSpatialHillslopeDiffusionStep",
+      "scientific_task": "Advance terrain elevations through a physical linear hillslope sediment-diffusion timestep.",
+      "package": "landlab",
+      "callable": "landlab.components.diffusion.diffusion.LinearDiffuser.run_one_step",
+      "official_url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/diffusion/diffusion.py#L391",
+      "version": "2.11.0",
+      "commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "distinctness_note": "Evolves terrain through sediment transport rather than smoothing an image or extracting static slope.",
+      "unverified_risks": [
+        "Declare elevation/spacing in m, diffusivity in m2/s, time in s and boundary conditions. Fixed simple method; retain deposition and mass-balance semantics. Full Landlab compiled dependencies including py-richdem remain unvalidated."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialStreamPowerErosionStep",
+      "scientific_task": "Advance channel elevations with the implicit Fastscape stream-power incision algorithm.",
+      "package": "landlab",
+      "callable": "landlab.components.stream_power.fastscape_stream_power.FastscapeEroder.run_one_step",
+      "official_url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/stream_power/fastscape_stream_power.py#L277",
+      "version": "2.11.0",
+      "commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "distinctness_note": "Models fluvial bed incision, not existing flow-direction, accumulation or Strahler calculations.",
+      "unverified_risks": [
+        "Supply valid receivers, upstream order, drainage areas and positive link lengths. Erodibility units depend on area exponent; timestep, threshold and flooded-node policy must be explicit. Full compiled dependency stack is unvalidated."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialChannelChiCoordinate",
+      "scientific_task": "Integrate an area-normalized channel distance coordinate for longitudinal-profile analysis.",
+      "package": "landlab",
+      "callable": "landlab.components.chi_index.channel_chi.ChiFinder.calculate_chi",
+      "official_url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/chi_index/channel_chi.py#L243",
+      "version": "2.11.0",
+      "commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "distinctness_note": "Area-normalized longitudinal coordinate differs from existing physical distance-to-outlet and stream order.",
+      "unverified_risks": [
+        "Require single-receiver acyclic routing, m2 drainage/reference areas and m link lengths. Fix use_true_dx=True; preserve hillslope mask separately from valid zero chi at outlets. Landlab dependency acceptance is pending."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialPointCloudGroundClassification",
+      "scientific_task": "Classify LiDAR ground returns with the Simple Morphological Filter.",
+      "package": "PDAL",
+      "callable": "pdal::SMRFilter::run",
+      "official_url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/filters/SMRFilter.cpp#L174",
+      "version": "2.9.1",
+      "commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license": "BSD-3-Clause; bundled components have separate notices",
+      "distinctness_note": "Ground/non-ground classification of 3D returns differs from 2D raster morphology or remote image segmentation.",
+      "unverified_risks": [
+        "Native C++ stage filters.smrf, not a Python callable. Fix the stage; no caller-supplied pipeline. Require metric XYZ, explicit return/classification handling and morphology parameters. Native PDAL build and full dependency lock are unresolved."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "stage": "filters.smrf",
+      "python_binding_version": null,
+      "documentation_url": "https://pdal.org/en/2.9.1/stages/filters.smrf.html"
+    },
+    {
+      "tool_id": "GeoSpatialPointCloudHeightAboveGround",
+      "scientific_task": "Normalize LiDAR return heights against nearby ground-classified returns.",
+      "package": "PDAL",
+      "callable": "pdal::HagNnFilter::filter",
+      "official_url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/filters/HagNnFilter.cpp#L125",
+      "version": "2.9.1",
+      "commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license": "BSD-3-Clause; bundled components have separate notices",
+      "distinctness_note": "Height above a local ground surface is not raster height above a downstream drainage cell and is not generic nearest-neighbour reporting.",
+      "unverified_risks": [
+        "Native fixed stage filters.hag_nn. Require ground class 2, sufficient neighbours, metric XYZ and an explicit interpolation support policy. Upstream can leave/produce zero for missing ground or unsupported interpolation; such cases must be distinguished from valid zero HAG. No native lock or CPU acceptance yet."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "stage": "filters.hag_nn",
+      "python_binding_version": null,
+      "documentation_url": "https://pdal.org/en/2.9.1/stages/filters.hag_nn.html"
+    },
+    {
+      "tool_id": "GeoSpatialRigidPointCloudRegistration",
+      "scientific_task": "Align two 3D surveys with iterative closest-point rigid registration.",
+      "package": "PDAL",
+      "callable": "pdal::IterativeClosestPoint::run",
+      "official_url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/filters/IterativeClosestPoint.cpp#L98",
+      "version": "2.9.1",
+      "commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license": "BSD-3-Clause; bundled components have separate notices",
+      "distinctness_note": "Rigid 3D rotation/translation of irregular point clouds differs from existing 2D raster phase-correlation translation.",
+      "unverified_risks": [
+        "Native fixed stage filters.icp; requires overlapping, sufficiently close initial poses and nondegenerate metric XYZ. Global optimum is not guaranteed. Use composed world-coordinate transform; upstream fitness is mean Euclidean distance, not the MSE its comments suggest. Native dependency lock remains unresolved."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "stage": "filters.icp",
+      "python_binding_version": null,
+      "documentation_url": "https://pdal.org/en/2.9.1/stages/filters.icp.html"
+    },
+    {
+      "tool_id": "GeoSpatialTerrainViewshed",
+      "scientific_task": "Compute terrain line-of-sight visibility from a specified observer location.",
+      "package": "GRASS",
+      "callable": "grass.script.core.run_command",
+      "official_url": "https://github.com/OSGeo/grass/blob/8d6ceba290a2f0059a7301b9d4944455f313da72/raster/r.viewshed/main.cpp#L92",
+      "version": "8.5.0",
+      "commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+      "license": "GPL-2.0-or-later; component notices also apply",
+      "distinctness_note": "Visibility depends on intervening terrain obstruction, unlike proximity, access paths or catchment delineation.",
+      "unverified_risks": [
+        "Only the literal module r.viewshed is proposed, not generic command dispatch. Require isolated mapset, explicit computational region/CRS/NULL mask, observer and target heights, curvature/refraction policy and bounded distance. Native GRASS build is not installed or locked by this research."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "fixed_module": "r.viewshed",
+      "python_entrypoint_url": "https://github.com/OSGeo/grass/blob/8d6ceba290a2f0059a7301b9d4944455f313da72/python/grass/script/core.py#L568",
+      "documentation_url": "https://grass.osgeo.org/grass85/manuals/r.viewshed.html"
+    },
+    {
+      "tool_id": "GeoSpatialRipleyKObservedWindow",
+      "scientific_task": "Describe point-pattern concentration across distance scales with uncorrected Ripley K using the observed bounding-box window.",
+      "package": "pointpats",
+      "callable": "pointpats.distance_statistics.k",
+      "official_url": "https://github.com/pysal/pointpats/blob/524296c551488998a26000c072d69b76ca095d68/pointpats/distance_statistics.py#L381",
+      "version": "2.6.0",
+      "commit": "524296c551488998a26000c072d69b76ca095d68",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Pairwise point-pattern concentration across scales differs from point-count rasters and attribute-based local spatial statistics.",
+      "unverified_risks": [
+        "This callable does not accept an arbitrary survey-window argument and edge correction is unimplemented. Require explicit acceptance of the observed bounding box, nonzero area and projected units. Do not claim an edge-corrected estimate or significance."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialRegionBoundarySilhouette",
+      "scientific_task": "Evaluate supplied environmental region boundaries by comparing within-region and adjacent-region attribute dissimilarity.",
+      "package": "esda",
+      "callable": "esda.silhouettes.boundary_silhouette",
+      "official_url": "https://github.com/pysal/esda/blob/6ffd5b66565791cede8703c438c90a819aacd49f/esda/silhouettes.py#L253",
+      "version": "2.10.0",
+      "commit": "6ffd5b66565791cede8703c438c90a819aacd49f",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Evaluates an existing regional partition; it neither creates clusters nor measures Moran/Geary association.",
+      "unverified_risks": [
+        "Require aligned contiguous numeric IDs, libpysal weights without islands, explicit feature scaling and a fixed metric. Upstream changes NumPy error settings and has fragile alternate-Graph handling; worker isolation/error-state restoration needs design and acceptance."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialUnconfinedGroundwaterStep",
+      "scientific_task": "Advance a shallow unconfined aquifer under Dupuit flow, recharge and surface-discharge coupling.",
+      "package": "landlab",
+      "callable": "landlab.components.groundwater.dupuit_percolator.GroundwaterDupuitPercolator.run_one_step",
+      "official_url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/groundwater/dupuit_percolator.py#L611",
+      "version": "2.11.0",
+      "commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "distinctness_note": "A spatial unconfined aquifer timestep differs from existing homogeneous confined-well analytic solutions and head extraction.",
+      "unverified_risks": [
+        "Require m elevations, m/s conductivity/recharge, porosity, time in s and explicit boundaries. Distinguish m2/s discharge per width from m/s velocity. Reject out-of-domain initial heads rather than silently clipping; regularization, stability and compiled dependencies are unvalidated."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialOverlandFlowStep",
+      "scientific_task": "Advance two-dimensional shallow overland flow and rainfall on a terrain grid with the de Almeida local-inertial method.",
+      "package": "landlab",
+      "callable": "landlab.components.overland_flow.generate_overland_flow_deAlmeida.OverlandFlow.run_one_step",
+      "official_url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/overland_flow/generate_overland_flow_deAlmeida.py#L517",
+      "version": "2.11.0",
+      "commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "distinctness_note": "Spatial overland flow on a 2D terrain differs from the existing one-reach kinematic-wave step and lumped runoff models.",
+      "unverified_risks": [
+        "Require metric grid, water depth in m, rainfall in m/s, SI roughness and time in s. Explicit closed/open boundaries, wetting threshold and timestep policy are essential. Upstream steep-slope depth correction can alter water mass; compiled dependencies and conservation acceptance are pending."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialLineworkPolygonTopology",
+      "scientific_task": "Construct faces from noded survey linework and return dangling, cut and invalid-ring diagnostics.",
+      "package": "shapely",
+      "callable": "shapely.polygonize_full",
+      "official_url": "https://github.com/shapely/shapely/blob/5fb639d1056888d135fe56bfaf750c9648addeec/shapely/constructive.py#L950",
+      "version": "2.1.2",
+      "commit": "5fb639d1056888d135fe56bfaf750c9648addeec",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Builds and diagnoses polygons from line networks, not classified raster cells or an existing parcel split.",
+      "unverified_risks": [
+        "Require explicit CRS, finite coordinates and pre-noded linework. Do not silently snap, node or repair; preserve all four result categories. Numerical/topological acceptance has not run."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialScreenedTransmissivity",
+      "scientific_task": "Compute layer contributions to saturated transmissivity over specified well-screen intervals.",
+      "package": "flopy",
+      "callable": "flopy.utils.postprocessing.get_transmissivities",
+      "official_url": "https://github.com/modflowpy/flopy/blob/a43f79127d0383e5328a602e72faf9a9730c7d61/flopy/utils/postprocessing.py#L183",
+      "version": "3.11.0",
+      "commit": "a43f79127d0383e5328a602e72faf9a9730c7d61",
+      "license": "CC0-1.0",
+      "distinctness_note": "Screen-limited hydraulic capacity differs from water-table extraction, borehole resampling and well drawdown solutions.",
+      "unverified_risks": [
+        "Require consistent model length/time units, hydraulic conductivity, layer boundaries, heads and ordered screen intervals. Output has length2/time units. Explicitly handle dry/inactive layers and partially penetrating screens; model-object construction remains unvalidated."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialChannelFrechetDeviation",
+      "scientific_task": "Measure ordered channel-planform or survey-line separation with discrete Frechet distance.",
+      "package": "shapely",
+      "callable": "shapely.frechet_distance",
+      "official_url": "https://github.com/shapely/shapely/blob/5fb639d1056888d135fe56bfaf750c9648addeec/shapely/measurement.py#L241",
+      "version": "2.1.2",
+      "commit": "5fb639d1056888d135fe56bfaf750c9648addeec",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Compares complete ordered curves, unlike nearest-site distance, geodesic transects or raster change metrics.",
+      "unverified_risks": [
+        "Use projected coordinates with declared length units and explicit vertex sampling/densification. Preserve line direction; reversal can change the result. No silent resampling, correspondence or uncertainty claim."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialEventKernelDensity",
+      "scientific_task": "Estimate planar event/site density with a Gaussian kernel and explicit metric bandwidth.",
+      "package": "scikit-learn",
+      "callable": "sklearn.neighbors._kde.KernelDensity.score_samples",
+      "official_url": "https://github.com/scikit-learn/scikit-learn/blob/25dee604bae18205b01548348388baf7a1cdfe0e/sklearn/neighbors/_kde.py#L248",
+      "version": "1.7.2",
+      "commit": "25dee604bae18205b01548348388baf7a1cdfe0e",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Continuous bandwidth-based density differs from the existing Datashader cell-count grid.",
+      "unverified_risks": [
+        "Fit the fixed Gaussian/Euclidean model first. Log density output must be identified or explicitly exponentiated to m-2. Bandwidth, survey window and lack of boundary correction must be disclosed; finite bounded coordinates only."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "setup_callable": "sklearn.neighbors._kde.KernelDensity.fit"
+    },
+    {
+      "tool_id": "GeoSpatialDensityConnectedSiteClusters",
+      "scientific_task": "Identify density-connected event/site clusters and isolated noise using spatial DBSCAN.",
+      "package": "scikit-learn",
+      "callable": "sklearn.cluster._dbscan.DBSCAN.fit_predict",
+      "official_url": "https://github.com/scikit-learn/scikit-learn/blob/25dee604bae18205b01548348388baf7a1cdfe0e/sklearn/cluster/_dbscan.py#L448",
+      "version": "1.7.2",
+      "commit": "25dee604bae18205b01548348388baf7a1cdfe0e",
+      "license": "BSD-3-Clause",
+      "distinctness_note": "Clusters an irregular site point pattern with noise rejection, not raster superpixels, watershed regions or nearest-neighbour matches.",
+      "unverified_risks": [
+        "Fixed Euclidean metric with metric CRS, bounded point count, explicit eps/min_samples and deterministic input order. Labels are arbitrary IDs; border assignments and duplicate observations need an explicit policy. Dense neighbourhoods can require quadratic memory."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted"
+    },
+    {
+      "tool_id": "GeoSpatialTerrainSolarIrradiance",
+      "scientific_task": "Compute direct, diffuse and reflected surface solar radiation with terrain shadowing and explicit atmospheric conditions.",
+      "package": "GRASS",
+      "callable": "grass.script.core.run_command",
+      "official_url": "https://github.com/OSGeo/grass/blob/8d6ceba290a2f0059a7301b9d4944455f313da72/raster/r.sun/main.c#L214",
+      "version": "8.5.0",
+      "commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+      "license": "GPL-2.0-or-later; component notices also apply",
+      "distinctness_note": "Surface radiation with atmospheric attenuation and terrain shadows differs from existing TopoFlow top-of-atmosphere horizontal flux.",
+      "unverified_risks": [
+        "Only literal module r.sun is proposed. Requires isolated mapset and fixed CPU limits, explicit region/masks, slope/aspect conventions, turbidity/albedo and solar versus civil time. Instantaneous W/m2 and daily Wh/m2/day must never be conflated. Native GRASS dependency lock and numerical acceptance remain unresolved."
+      ],
+      "cpu_acceptance": null,
+      "status": "research_only_not_integrated_not_counted",
+      "fixed_module": "r.sun",
+      "python_entrypoint_url": "https://github.com/OSGeo/grass/blob/8d6ceba290a2f0059a7301b9d4944455f313da72/python/grass/script/core.py#L568",
+      "documentation_url": "https://grass.osgeo.org/grass85/manuals/r.sun.html"
+    }
+  ]
+}
