@@ -1,0 +1,3 @@
+# Synthetic remote-sensing inputs
+
+All fixtures are synthetic analytic constructions, NOT observations or mineral evidence. Their arbitrary EPSG:32650 grid (30 m pixels, origin 500000,4500000) exists only to exercise georeferencing. Detector and band-resampling fixtures exclude the top-left pixel with NoData=-9999; the latter has NoData in only its first source band. The 8x8 quality-spectral fixture excludes (1,1). histogram-reference.tif is retained only for the excluded r1 duplicate record. No real location or sensor is represented. Fixture generation uses only the standard library; the r2 source revision remains NOT TESTED. Historical r1 CPU reports are not rewritten or claimed as r2 evidence.

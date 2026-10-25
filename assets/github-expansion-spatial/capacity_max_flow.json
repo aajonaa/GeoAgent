@@ -1,0 +1,36 @@
+{
+  "source": {
+    "kind": "synthetic",
+    "citation": "Explicit synthetic analytic fixture; not a geological observation or mineral evidence."
+  },
+  "crs": "EPSG:32631",
+  "coordinate_unit": "m",
+  "values": [
+    [
+      5,
+      3,
+      4
+    ]
+  ],
+  "valid_mask": [
+    [
+      true,
+      true,
+      true
+    ]
+  ],
+  "origin_xy": [
+    0,
+    1
+  ],
+  "cell_size_m": 1,
+  "value_unit": "tonne/day",
+  "start_rc": [
+    0,
+    0
+  ],
+  "end_rc": [
+    0,
+    2
+  ]
+}

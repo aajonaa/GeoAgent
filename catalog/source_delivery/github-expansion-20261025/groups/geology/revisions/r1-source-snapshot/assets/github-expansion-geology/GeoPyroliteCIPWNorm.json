@@ -1,0 +1,33 @@
+{
+  "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+  "major_wt_percent": {
+    "SiO2": 100,
+    "TiO2": 0,
+    "Al2O3": 0,
+    "Fe2O3": 0,
+    "FeO": 0,
+    "MnO": 0,
+    "MgO": 0,
+    "CaO": 0,
+    "Na2O": 0,
+    "K2O": 0,
+    "P2O5": 0
+  },
+  "minor_ppm": {
+    "CO2": 0,
+    "SO3": 0,
+    "F": 0,
+    "Cl": 0,
+    "S": 0,
+    "Ni": 0,
+    "Co": 0,
+    "Sr": 0,
+    "Ba": 0,
+    "Rb": 0,
+    "Cs": 0,
+    "Li": 0,
+    "Zr": 0,
+    "Cr": 0,
+    "V": 0
+  }
+}

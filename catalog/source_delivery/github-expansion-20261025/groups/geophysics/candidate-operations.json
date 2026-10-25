@@ -1,0 +1,266 @@
+{
+  "group": "geophysics",
+  "operations": [
+    {
+      "tool_id": "GeoPointMassGravity",
+      "capability_key": "geophysics:point-mass-gravity",
+      "upstream_callable": "choclo.point.gravity_pot",
+      "scientific_task": "Forward-model potential, acceleration and full gravity-gradient tensor of point mass contrasts.",
+      "distinct_from_existing": "No source gravity forward model in original229; GeoMagnitudeToEnergy concerns earthquake energy, not gravitational sources.",
+      "numeric_oracle": "Independent Newton solution at r=10m,m=1e9kg: V=Gm/r, gu=-Gm/r^2, Tuu=2Gm/r^3.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoPrismGravity",
+      "capability_key": "geophysics:prism-gravity",
+      "upstream_callable": "choclo.prism.gravity_pot",
+      "scientific_task": "Forward-model gravity and its full gradient tensor for finite rectangular density-contrast bodies.",
+      "distinct_from_existing": "No finite-body gravity in original229; finite-volume integration differs from point-source approximation.",
+      "numeric_oracle": "Independent surface solid-angle identity for a 2m cube at z=3m: Tzz=G*rho*[Omega(2)-Omega(4)], Omega(d)=4atan[1/(d*sqrt(d^2+2))].",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoDipoleMagnetic",
+      "capability_key": "geophysics:dipole-magnetic",
+      "upstream_callable": "choclo.dipole.magnetic_field",
+      "scientific_task": "Forward-model all magnetic induction components from explicit dipole moments.",
+      "distinct_from_existing": "No magnetic forward model in original229; PyrockoDoubleCoupleTensor is a seismic moment tensor.",
+      "numeric_oracle": "Independent axial dipole Bz=mu0*m/(2*pi*r^3), m=1000A*m^2,r=10m.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoPrismMagnetic",
+      "capability_key": "geophysics:prism-magnetic",
+      "upstream_callable": "choclo.prism.magnetic_field",
+      "scientific_task": "Forward-model magnetic induction vectors from uniformly magnetized finite prisms.",
+      "distinct_from_existing": "No finite-volume magnetics in original229; source geometry differs physically from a point dipole at finite offsets.",
+      "numeric_oracle": "Independent bound magnetic-charge surface integral: Bz=mu0*M*[Omega_top-Omega_bottom]/(4*pi).",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockVRHBounds",
+      "capability_key": "geophysics:rock-vrh-bounds",
+      "upstream_callable": "rockphypy.EM.EM.VRH",
+      "scientific_task": "Compute Voigt, Reuss and Hill bulk/shear estimates for a multiphase mineral aggregate.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Aggregate phase-energy bounds are absent.",
+      "numeric_oracle": "Independent series/parallel energy bounds: harmonic/arithmetic means, then midpoint; output V,R,H.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockHashinShtrikman",
+      "capability_key": "geophysics:rock-hashin-shtrikman",
+      "upstream_callable": "rockphypy.EM.EM.HS",
+      "scientific_task": "Compute both Hashin-Shtrikman elastic bounds for a two-phase composite.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Coupled elastic variational bounds are tighter than uncoupled VRH.",
+      "numeric_oracle": "Independent two-phase variational expressions at f=1/2 give K_lower=360/13,K_upper=480/17GPa.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockCriticalPorosity",
+      "capability_key": "geophysics:rock-critical-porosity",
+      "upstream_callable": "rockphypy.EM.EM.cripor",
+      "scientific_task": "Predict load-bearing dry-frame moduli below critical porosity.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Frame collapse with porosity differs from mineral-mixture bounds.",
+      "numeric_oracle": "Independent load-bearing fraction 1-phi/phi_c=3/4 gives K=30,G=22.5GPa.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockSphericalPores",
+      "capability_key": "geophysics:rock-spherical-pores",
+      "upstream_callable": "rockphypy.EM.EM.Swiss_cheese",
+      "scientific_task": "Estimate elastic compliance added by dilute spherical dry pores.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Cavity compliance differs from critical-porosity collapse and phase mixing.",
+      "numeric_oracle": "For K=20,G=15GPa the independent spherical pore compliance multiplier is 1+2phi=1.2 for both moduli.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockSelfConsistent",
+      "capability_key": "geophysics:rock-self-consistent",
+      "upstream_callable": "rock_physics_open.shale_models.multi_sca.multi_sca",
+      "scientific_task": "Solve Berryman multiphase spheroidal self-consistency with unmodified Equinor geometry and dual constitutive convergence checks.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Berryman coherent-potential self-consistency, not variational bounds or differential effective-medium accumulation.",
+      "numeric_oracle": "Heterogeneous exact spheres with K_i=4G_i/3 and equal fractions have P_i=Q_i at K=4G/3. The two self-consistency equations reduce to G^2=G1*G2=36: K=8,G=6 GPa, density=2600 kg/m3. Additional prolate and mixed-shape inverse-design analytic oracles are in r2-oracles.json.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockRandomCracks",
+      "capability_key": "geophysics:rock-random-cracks",
+      "upstream_callable": "rockphypy.EM.EM.OConnell_Budiansky",
+      "scientific_task": "Predict isotropic elastic weakening by randomly oriented dry penny-shaped cracks.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Random cracks yield isotropic weakening; Hudson predicts a full tensor for a resolved aligned fracture set.",
+      "numeric_oracle": "Independent O'Connell-Budiansky expression with nu0=1/5, corrected nu=41/225, crack density=1/20.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockMoriTanaka",
+      "capability_key": "geophysics:rock-mori-tanaka",
+      "upstream_callable": "rockphypy.EM.EM.MT_average",
+      "scientific_task": "Estimate composite moduli using a virtual matrix and modified Mori-Tanaka localization.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Prescribed virtual-matrix localization differs from a self-consistent host or bounds.",
+      "numeric_oracle": "Equal-inhomogeneity limit: numerator is modulus times denominator, giving 20,10GPa even with a different virtual matrix.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockHudsonCracks",
+      "capability_key": "geophysics:rock-hudson-cracks",
+      "upstream_callable": "rockphypy.EM.EM.hudson",
+      "scientific_task": "Predict first-order VTI stiffness for aligned penny-shaped cracks.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. An aligned crack population produces anisotropic compliance; this is not a stereonet or orientation-only calculation.",
+      "numeric_oracle": "Independent dry-crack U3=32/15 for lambda=10,mu=15GPa; C33=40-(40^2/15)*0.02*U3,C66=15.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockHertzMindlin",
+      "capability_key": "geophysics:rock-hertz-mindlin",
+      "upstream_callable": "rockphypy.GM.GM.hertzmindlin",
+      "scientific_task": "Predict confining-stress-dependent stiffness of an uncemented granular packing.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Pressure-dependent unbonded contacts differ from cement and porosity averaging.",
+      "numeric_oracle": "Independent Hertz contact scaling at P=0.1GPa: K^3=P*n^2*(1-phi)^2*G^2/[18*pi^2*(1-nu)^2],nu=.2; zero shear factor gives G_eff=3K_eff/5.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockContactCement",
+      "capability_key": "geophysics:rock-contact-cement",
+      "upstream_callable": "rockphypy.GM.GM.contactcement",
+      "scientific_task": "Estimate sandstone stiffness from cement deposited at grain contacts.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Cement elasticity and deposition geometry differ from pressure-only Hertz contacts or existing bonded areas.",
+      "numeric_oracle": "Independent Dvorkin-Nur contact polynomial evaluation: nu0=nuc=.2,alpha=2*(1/270)^(1/4),LambdaN=32/(15*pi),K_eff=24*S_n.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockDigbyContacts",
+      "capability_key": "geophysics:rock-digby-contacts",
+      "upstream_callable": "rockphypy.GM.GM.Digby",
+      "scientific_task": "Predict granular moduli from pre-existing bonded contacts under stress.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Finite prebond tangential rigidity differs from unbonded Hertz and newly deposited cement.",
+      "numeric_oracle": "Choose pressure making the positive contact cubic root exactly d=.1 with a/R=.1; b/R=sqrt(.02). Independent spring sums give bulk and shear.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockSandShalePorosity",
+      "capability_key": "geophysics:rock-sand-shale-porosity",
+      "upstream_callable": "rockphypy.GM.GM.ThomasStieber",
+      "scientific_task": "Predict dispersed and laminated sand-shale porosity envelopes.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Texture-controlled porosity is distinct from geochemical normalization and elastic mixture averaging.",
+      "numeric_oracle": "Independent volumetric geometry: laminated line joins .4 and .1; dispersed envelope intersects pore-filling and shale-framework lines.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockGassmannSubstitution",
+      "capability_key": "geophysics:rock-gassmann-substitution",
+      "upstream_callable": "rockphypy.Fluid.Fluid.Gassmann_sub",
+      "scientific_task": "Replace pore fluid in an isotropic low-frequency frame and report both saturated bulk moduli.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Changes saturant at fixed frame instead of evaluating an interface.",
+      "numeric_oracle": "Independent Gassmann alpha=3/4; denominators3/40 and7/160 give Ksat1=17.5,Ksat2=160/7GPa; shear=8.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockBrownKorringa",
+      "capability_key": "geophysics:rock-brown-korringa",
+      "upstream_callable": "rockphypy.Fluid.Fluid.Brown_Korringa_dry2sat",
+      "scientific_task": "Saturate supplied anisotropic dry compliance using Brown-Korringa poroelasticity.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Full anisotropic compliance differs from scalar isotropic substitution.",
+      "numeric_oracle": "Independent isotropic Gassmann limit Ksat=17.5,G=8: C11=169/6,C12=73/6,C44=8GPa.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockBiotDispersion",
+      "capability_key": "geophysics:rock-biot-dispersion",
+      "upstream_callable": "rockphypy.Fluid.Fluid.Biot",
+      "scientific_task": "Compute frequency-dependent fast/slow P waves, shear waves and Biot attenuation.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Poroelastic slow wave and frequency loss are absent from static saturation and acoustic reflection.",
+      "numeric_oracle": "Independent locked-fluid low-frequency limit: rho=2237.5kg/m3,Ksat=17.5GPa,G=8GPa. Expected sqrt((Ksat+4G/3)/rho) and sqrt(G/rho); 1e-4 relative tolerance at finite .01Hz.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockSquirtFlow",
+      "capability_key": "geophysics:rock-squirt-flow",
+      "upstream_callable": "rockphypy.Fluid.Fluid.Mavko_Jizba",
+      "scientific_task": "Predict high-frequency saturated properties from pressure-dependent dry velocities via squirt flow.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Compliant-pore high-frequency squirt limit differs from macroscopic Biot flow.",
+      "numeric_oracle": "Nonzero crack compliance: Kdry=5,Gdry=6,Khigh=10,Ghigh=8 GPa. Independent Gwet=1/(1/6-(4/15)*(1/5-1/10))=50/7 GPa, Ksat=17.5 GPa and rho_sat=2250 kg/m3.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockPatchySaturation",
+      "capability_key": "geophysics:rock-patchy-saturation",
+      "upstream_callable": "rockphypy.Fluid.Fluid.White_Dutta_Ode",
+      "scientific_task": "Compute P-wave dispersion and attenuation for concentric patches of two pore fluids.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Spatial two-fluid patch relaxation differs from single-fluid Biot and compliant-crack squirt flow.",
+      "numeric_oracle": "Independent equal-fluid limit cancels patch flow: positive K*=17.5GPa and vp=sqrt((17.5+32/3)*1e9/2237.5), with zero attenuation at both frequencies.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockBrieMixing",
+      "capability_key": "geophysics:rock-brie-mixing",
+      "upstream_callable": "rockphypy.Fluid.Fluid.Brie",
+      "scientific_task": "Predict effective liquid-gas bulk modulus versus saturation using the Brie mixing law.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Pore-fluid constitutive mixing differs from rock substitution and patch-scale dynamics.",
+      "numeric_oracle": "Independent polynomial K=.1+2.4*S^2 gives .1,.7,2.5GPa at S=0,.5,1.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRockFluidPVT",
+      "capability_key": "geophysics:rock-fluid-pvt",
+      "upstream_callable": "rockphypy.BW.BW.rho_K_brine",
+      "scientific_task": "Evaluate Batzle-Wang water, brine, oil and gas density and acoustic bulk moduli.",
+      "distinct_from_existing": "Original229 SeismicReflectivity computes acoustic interface contrast, not constitutive rock properties. Reservoir-fluid acoustic properties are absent; all fluid species are bundled as one tool.",
+      "numeric_oracle": "At T=0C,P=10MPa independent water polynomial rho=1.0048567g/cm3 and velocity cubic; evaluate brine salinity terms independently, then K=rho*v^2.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSeismicBackus",
+      "capability_key": "geophysics:seismic-backus",
+      "upstream_callable": "rockphypy.Anisotropy.Anisotropy.Backus",
+      "scientific_task": "Upscale fine isotropic layering to five long-wavelength VTI stiffnesses.",
+      "distinct_from_existing": "Original229 SeismicReflectivity operates at interfaces; Backus homogenizes subwavelength layers into anisotropy.",
+      "numeric_oracle": "Independent layered compliance: C33=harmonic(30,60)=40,C44=harmonic(10,20)=40/3,C66=15; lambda/(lambda+2G)=1/3 gives C13=40/3,C11=400/9.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSeismicVTIPhase",
+      "capability_key": "geophysics:seismic-vti-phase",
+      "upstream_callable": "rockphypy.Anisotropy.Anisotropy.vel_azi_VTI",
+      "scientific_task": "Compute quasi-P, quasi-SV and SH phase velocities versus inclination in a VTI rock.",
+      "distinct_from_existing": "Original229 has reflection and seismic moment tensors, not anisotropic propagation; all wave modes remain one tool.",
+      "numeric_oracle": "Principal-direction Christoffel diagonalization: vertical P=sqrt(C33/rho)=4000m/s,horizontal P=sqrt(C11/rho),SH=sqrt(15GPa/rho).",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSeismicOrthorhombicParameters",
+      "capability_key": "geophysics:seismic-orthorhombic-parameters",
+      "upstream_callable": "rockphypy.Anisotropy.Anisotropy.Thomsen_Tsvankin",
+      "scientific_task": "Extract seven Thomsen-Tsvankin anisotropy parameters from a supplied orthorhombic stiffness tensor.",
+      "distinct_from_existing": "Original229 lacks constitutive anisotropy characterization; this resolves three orthorhombic symmetry planes rather than VTI wave propagation.",
+      "numeric_oracle": "Independent stiffness contrasts: eps1=(44-40)/80=.05,eps2=.1,gamma1=1/12,gamma2=.2; delta terms are the stated rational square contrasts.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSeismicHTIReflectivity",
+      "capability_key": "geophysics:seismic-hti-reflectivity",
+      "upstream_callable": "rockphypy.AVO.AVO.AVO_HTI",
+      "scientific_task": "Compute Ruger PP reflectivity versus incidence and azimuth for two weakly anisotropic HTI layers.",
+      "distinct_from_existing": "SeismicReflectivity is normal-incidence acoustic contrast; this takes full HTI stiffness and resolves fracture-sensitive azimuthal AVO.",
+      "numeric_oracle": "Independent isotropic normal-incidence limit: equal density and vp=4,4.4km/s give R=(4.4-4)/(4.4+4)=1/21 at each azimuth.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSeismicZoeppritzScattering",
+      "capability_key": "geophysics:seismic-zoeppritz-scattering",
+      "upstream_callable": "bruges.reflection.reflection.scattering_matrix",
+      "scientific_task": "Compute complete complex P/S reflection and transmission matrices at an elastic interface.",
+      "distinct_from_existing": "SeismicReflectivity is scalar acoustic contrast; full elastic converted/transmitted modes and complex critical-angle behavior are distinct.",
+      "numeric_oracle": "Independent normal-incidence displacement/traction continuity with impedance ratio3/2 gives R=1/5,transmitted displacement=4/5; postcritical output is not discarded.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSeismicElasticImpedance",
+      "capability_key": "geophysics:seismic-elastic-impedance",
+      "upstream_callable": "rockphypy.AVO.AVO.EI_ref",
+      "scientific_task": "Construct normalized PP, PSV, SVP, SVSV and SHSH angle-dependent elastic impedance logs.",
+      "distinct_from_existing": "SeismicReflectivity returns interface coefficients; elastic impedance creates angle-dependent multicomponent property logs for inversion parameterization.",
+      "numeric_oracle": "Independent normalized PP zero-angle limit is rho*Vp=4e6 and6.6e6kg/(m^2*s).",
+      "status": "source_authored_unverified"
+    }
+  ]
+}

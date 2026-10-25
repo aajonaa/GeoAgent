@@ -1,0 +1,280 @@
+{
+  "GeoRemotePCA": {
+    "raster_path": "assets/github-expansion-remote/spectral-pca.tif",
+    "input_unit": "DN",
+    "wavelength_nm": [
+      1000,
+      1500
+    ],
+    "components": 1
+  },
+  "GeoRemoteNoiseCovariance": {
+    "raster_path": "assets/github-expansion-remote/spectral-noise.tif",
+    "input_unit": "DN",
+    "wavelength_nm": [
+      1000,
+      1500
+    ],
+    "homogeneous_patch_source": "SYNTHETIC repeated differences; stationarity assumed for oracle"
+  },
+  "GeoRemoteMNF": {
+    "raster_path": "assets/github-expansion-remote/spectral-pca.tif",
+    "input_unit": "DN",
+    "wavelength_nm": [
+      1000,
+      1500
+    ],
+    "components": 1,
+    "noise_covariance": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "noise_source": "SYNTHETIC diagonal noise covariance"
+  },
+  "GeoRemoteRX": {
+    "raster_path": "assets/github-expansion-remote/spectral-targets.tif",
+    "input_unit": "DN",
+    "wavelength_nm": [
+      1000,
+      1500
+    ],
+    "background_mean": [
+      0,
+      0
+    ],
+    "background_covariance": [
+      [
+        4,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "background_source": "SYNTHETIC analytic diagonal covariance; not measured"
+  },
+  "GeoRemoteMatchedFilter": {
+    "raster_path": "assets/github-expansion-remote/spectral-targets.tif",
+    "input_unit": "DN",
+    "wavelength_nm": [
+      1000,
+      1500
+    ],
+    "background_mean": [
+      0,
+      0
+    ],
+    "background_covariance": [
+      [
+        4,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "background_source": "SYNTHETIC analytic diagonal covariance; not measured",
+    "target": [
+      2,
+      0
+    ],
+    "target_source": "SYNTHETIC target; not a mineral spectrum"
+  },
+  "GeoRemoteACE": {
+    "raster_path": "assets/github-expansion-remote/spectral-targets.tif",
+    "input_unit": "DN",
+    "wavelength_nm": [
+      1000,
+      1500
+    ],
+    "background_mean": [
+      0,
+      0
+    ],
+    "background_covariance": [
+      [
+        4,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "background_source": "SYNTHETIC analytic diagonal covariance; not measured",
+    "target": [
+      2,
+      0
+    ],
+    "target_source": "SYNTHETIC target; not a mineral spectrum"
+  },
+  "GeoRemoteWhiteTophat": {
+    "raster_path": "assets/github-expansion-remote/peak.tif",
+    "input_unit": "DN",
+    "radius_pixels": 1
+  },
+  "GeoRemoteSeedReconstruction": {
+    "raster_path": "assets/github-expansion-remote/constraint.tif",
+    "input_unit": "DN",
+    "seed_path": "assets/github-expansion-remote/seed.tif"
+  },
+  "GeoRemoteSkeleton": {
+    "raster_path": "assets/github-expansion-remote/skeleton.tif",
+    "input_unit": "binary"
+  },
+  "GeoRemoteRemoveSmallObjects": {
+    "raster_path": "assets/github-expansion-remote/objects.tif",
+    "input_unit": "binary",
+    "max_size_pixels": 1
+  },
+  "GeoRemoteFillSmallHoles": {
+    "raster_path": "assets/github-expansion-remote/holes.tif",
+    "input_unit": "binary",
+    "max_size_pixels": 1
+  },
+  "GeoRemoteHMaxima": {
+    "raster_path": "assets/github-expansion-remote/peak.tif",
+    "input_unit": "DN",
+    "height": 3
+  },
+  "GeoRemoteGLCM": {
+    "raster_path": "assets/github-expansion-remote/checkerboard.tif",
+    "input_unit": "DN",
+    "levels": 2,
+    "distance_pixels": 1,
+    "angle_degrees": 0
+  },
+  "GeoRemoteLocalEntropy": {
+    "raster_path": "assets/github-expansion-remote/checkerboard.tif",
+    "input_unit": "DN",
+    "radius_pixels": 1
+  },
+  "GeoRemoteLBP": {
+    "raster_path": "assets/github-expansion-remote/constant-dn.tif",
+    "input_unit": "DN"
+  },
+  "GeoRemoteStructureTensor": {
+    "raster_path": "assets/github-expansion-remote/ramp.tif",
+    "input_unit": "DN",
+    "sigma_pixels": 0
+  },
+  "GeoRemoteGabor": {
+    "raster_path": "assets/github-expansion-remote/impulse.tif",
+    "input_unit": "normalized_intensity",
+    "frequency_cycles_per_pixel": 0.25,
+    "orientation_degrees": 0,
+    "sigma_pixels": 1
+  },
+  "GeoRemoteCanny": {
+    "raster_path": "assets/github-expansion-remote/step.tif",
+    "input_unit": "normalized_intensity",
+    "sigma_pixels": 0,
+    "low_threshold": 0.1,
+    "high_threshold": 0.2
+  },
+  "GeoRemoteOtsu": {
+    "raster_path": "assets/github-expansion-remote/step-dn.tif",
+    "input_unit": "DN"
+  },
+  "GeoRemoteWatershed": {
+    "raster_path": "assets/github-expansion-remote/flat.tif",
+    "input_unit": "normalized_intensity",
+    "markers_path": "assets/github-expansion-remote/markers-one.tif"
+  },
+  "GeoRemoteSLIC": {
+    "raster_path": "assets/github-expansion-remote/flat.tif",
+    "input_unit": "normalized_intensity",
+    "segments": 1,
+    "compactness": 10
+  },
+  "GeoRemoteFelzenszwalb": {
+    "raster_path": "assets/github-expansion-remote/flat.tif",
+    "input_unit": "normalized_intensity",
+    "scale": 100,
+    "min_size_pixels": 1
+  },
+  "GeoRemoteRandomWalker": {
+    "raster_path": "assets/github-expansion-remote/walker.tif",
+    "input_unit": "normalized_intensity",
+    "markers_path": "assets/github-expansion-remote/markers-walker.tif",
+    "beta": 0
+  },
+  "GeoRemoteRegionProperties": {
+    "raster_path": "assets/github-expansion-remote/regions.tif",
+    "input_unit": "label"
+  },
+  "GeoRemotePhaseRegistration": {
+    "raster_path": "assets/github-expansion-remote/registration-moving.tif",
+    "input_unit": "normalized_intensity",
+    "reference_path": "assets/github-expansion-remote/registration-reference.tif",
+    "upsample_factor": 1
+  },
+  "GeoRemoteSSIMChange": {
+    "raster_path": "assets/github-expansion-remote/flat.tif",
+    "input_unit": "normalized_intensity",
+    "reference_path": "assets/github-expansion-remote/quarter.tif",
+    "data_range": 1,
+    "window_pixels": 7
+  },
+  "GeoRemoteSensorBandResample": {
+    "raster_path": "assets/github-expansion-remote/spectral-resample.tif",
+    "input_unit": "reflectance",
+    "wavelength_nm": [
+      1000,
+      1100
+    ],
+    "source_fwhm_nm": [
+      100,
+      100
+    ],
+    "target_wavelength_nm": [
+      1050
+    ],
+    "target_fwhm_nm": [
+      200
+    ],
+    "bandpass_source": "SYNTHETIC adjoining source intervals and symmetric Gaussian target; not a measured sensor response"
+  },
+  "GeoRemoteTVDenoise": {
+    "raster_path": "assets/github-expansion-remote/flat.tif",
+    "input_unit": "normalized_intensity",
+    "weight": 0.1,
+    "iterations": 20
+  },
+  "GeoRemoteRichardsonLucy": {
+    "raster_path": "assets/github-expansion-remote/rl.tif",
+    "input_unit": "normalized_intensity",
+    "psf": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "psf_source": "SYNTHETIC identity PSF",
+    "iterations": 4
+  },
+  "GeoRemoteRollingBall": {
+    "raster_path": "assets/github-expansion-remote/background.tif",
+    "input_unit": "DN",
+    "radius_pixels": 3
+  }
+}

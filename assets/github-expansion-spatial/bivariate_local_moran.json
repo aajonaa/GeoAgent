@@ -1,0 +1,41 @@
+{
+  "source": {
+    "kind": "synthetic",
+    "citation": "Explicit synthetic analytic fixture; not a geological observation or mineral evidence."
+  },
+  "crs": "EPSG:32631",
+  "coordinate_unit": "m",
+  "points_xy": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "values": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "radius_m": 1.01,
+  "value_unit": "dimensionless",
+  "other_values": [
+    4,
+    3,
+    2,
+    1
+  ],
+  "other_value_unit": "m"
+}

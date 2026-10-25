@@ -1,0 +1,17 @@
+HISTORICAL R1 SOURCE, NOT AN ACTIVE CANDIDATE.
+Original defective upstream wrapper retained as evidence, not executed.
+
+@operation("GeoRockStressAnisotropy")
+def rock_stress_anisotropy(a):
+    from rockphypy import GM
+    ratio = a["hydrostatic_strain"] / a["axial_strain"]
+    if not 0.1 <= ratio <= 10:
+        reject("Hydrostatic/axial compressive strain ratio must be within [0.1,10]")
+    c, s33, s11 = GM.johnson(a["bulk_gpa"], a["shear_gpa"], a["coordination"],
+                            a["porosity"], a["hydrostatic_strain"], a["axial_strain"],
+                            path="together")
+    _matrix(c, "vti")
+    return _pack(a, {"stiffness_gpa": "GPa", "stress_33_gpa": "GPa", "stress_11_gpa": "GPa"},
+                 stiffness_gpa=c, stress_33_gpa=s33, stress_11_gpa=s11)
+
+

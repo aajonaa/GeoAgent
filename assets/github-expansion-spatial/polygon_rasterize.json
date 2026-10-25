@@ -1,0 +1,34 @@
+{
+  "source": {
+    "kind": "synthetic",
+    "citation": "Explicit synthetic analytic fixture; not a geological observation or mineral evidence."
+  },
+  "crs": "EPSG:32631",
+  "coordinate_unit": "m",
+  "polygons_wkt": [
+    "POLYGON ((0 0, 1 0, 1 2, 0 2, 0 0))"
+  ],
+  "class_ids": [
+    7
+  ],
+  "shape": [
+    2,
+    2
+  ],
+  "valid_mask": [
+    [
+      true,
+      true
+    ],
+    [
+      true,
+      true
+    ]
+  ],
+  "origin_xy": [
+    0,
+    2
+  ],
+  "cell_size_m": 1,
+  "all_touched": false
+}

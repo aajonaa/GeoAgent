@@ -1,0 +1,92 @@
+{
+  "GeoSpatialRasterReproject": {
+    "data_path": "assets/github-expansion-spatial/raster_reproject.json"
+  },
+  "GeoSpatialPolygonRasterize": {
+    "data_path": "assets/github-expansion-spatial/polygon_rasterize.json"
+  },
+  "GeoSpatialRasterPolygonize": {
+    "data_path": "assets/github-expansion-spatial/raster_polygonize.json"
+  },
+  "GeoSpatialPolygonIntersection": {
+    "data_path": "assets/github-expansion-spatial/polygon_intersection.json"
+  },
+  "GeoSpatialCoverageUnion": {
+    "data_path": "assets/github-expansion-spatial/coverage_union.json"
+  },
+  "GeoSpatialConstrainedTriangulation": {
+    "data_path": "assets/github-expansion-spatial/constrained_triangulation.json"
+  },
+  "GeoSpatialDepressionFill": {
+    "data_path": "assets/github-expansion-spatial/depression_fill.json"
+  },
+  "GeoSpatialHeightAboveDrainage": {
+    "data_path": "assets/github-expansion-spatial/height_above_drainage.json"
+  },
+  "GeoSpatialDistanceToOutlet": {
+    "data_path": "assets/github-expansion-spatial/distance_to_outlet.json"
+  },
+  "GeoSpatialDistanceToRidge": {
+    "data_path": "assets/github-expansion-spatial/distance_to_ridge.json"
+  },
+  "GeoSpatialStrahlerOrder": {
+    "data_path": "assets/github-expansion-spatial/strahler_order.json"
+  },
+  "GeoSpatialTerrainContours": {
+    "data_path": "assets/github-expansion-spatial/terrain_contours.json"
+  },
+  "GeoSpatialLocalMoran": {
+    "data_path": "assets/github-expansion-spatial/local_moran.json"
+  },
+  "GeoSpatialBivariateLocalMoran": {
+    "data_path": "assets/github-expansion-spatial/bivariate_local_moran.json"
+  },
+  "GeoSpatialLocalGetisOrd": {
+    "data_path": "assets/github-expansion-spatial/local_getis_ord.json"
+  },
+  "GeoSpatialGlobalGeary": {
+    "data_path": "assets/github-expansion-spatial/global_geary.json"
+  },
+  "GeoSpatialBinaryJoinCounts": {
+    "data_path": "assets/github-expansion-spatial/binary_join_counts.json"
+  },
+  "GeoSpatialLocalGeary": {
+    "data_path": "assets/github-expansion-spatial/local_geary.json"
+  },
+  "GeoSpatialLeastCostPath": {
+    "data_path": "assets/github-expansion-spatial/least_cost_path.json"
+  },
+  "GeoSpatialCostAllocation": {
+    "data_path": "assets/github-expansion-spatial/cost_allocation.json"
+  },
+  "GeoSpatialEuclideanProximity": {
+    "data_path": "assets/github-expansion-spatial/euclidean_proximity.json"
+  },
+  "GeoSpatialResistanceDistance": {
+    "data_path": "assets/github-expansion-spatial/resistance_distance.json"
+  },
+  "GeoSpatialCostCorridor": {
+    "data_path": "assets/github-expansion-spatial/cost_corridor.json"
+  },
+  "GeoSpatialCapacityMaxFlow": {
+    "data_path": "assets/github-expansion-spatial/capacity_max_flow.json"
+  },
+  "GeoSpatialEllipsoidalPolygonArea": {
+    "data_path": "assets/github-expansion-spatial/ellipsoidal_polygon_area.json"
+  },
+  "GeoSpatialGeodesicTransect": {
+    "data_path": "assets/github-expansion-spatial/geodesic_transect.json"
+  },
+  "GeoSpatialProjectionDistortion": {
+    "data_path": "assets/github-expansion-spatial/projection_distortion.json"
+  },
+  "GeoSpatialMaximumInscribedCircle": {
+    "data_path": "assets/github-expansion-spatial/maximum_inscribed_circle.json"
+  },
+  "GeoSpatialSiteVoronoi": {
+    "data_path": "assets/github-expansion-spatial/site_voronoi.json"
+  },
+  "GeoSpatialSiteParcelSplit": {
+    "data_path": "assets/github-expansion-spatial/site_parcel_split.json"
+  }
+}

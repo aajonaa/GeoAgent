@@ -1,0 +1,45 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockMoriTanaka",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "phase1_fraction": 0.3,
+    "matrix_bulk_gpa": 30,
+    "matrix_shear_gpa": 20,
+    "phase1_bulk_gpa": 20,
+    "phase1_shear_gpa": 10,
+    "phase2_bulk_gpa": 20,
+    "phase2_shear_gpa": 10
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "bulk_gpa"
+      ],
+      "value": 20,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "shear_gpa"
+      ],
+      "value": 10,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "matrix_shear_gpa": 0
+  },
+  "numeric_oracle": "Equal-inhomogeneity limit: numerator is modulus times denominator, giving 20,10GPa even with a different virtual matrix.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/EM.py",
+  "limitations": [
+    "Virtual matrix is a supplied physical modeling assumption, not fitted from data.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

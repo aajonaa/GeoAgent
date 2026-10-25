@@ -1,0 +1,275 @@
+{
+  "group": "remote",
+  "operations": [
+    {
+      "tool_id": "GeoRemotePCA",
+      "capability_key": "remote-sensing:spectral-pca",
+      "upstream_callable": "spectral.algorithms.algorithms.principal_components",
+      "scientific_task": "Reduce calibrated multispectral imagery to principal components with eigenvalues and band loadings.",
+      "distinct_from_existing": "GeoSpectralLinearUnmix fits supplied endmembers; PCA learns orthogonal variance directions without an endmember library.",
+      "numeric_oracle": "Four corners (0,0),(2,0),(0,4),(2,4) have unbiased covariance diag(4/3,16/3); the largest eigenvalue is 16/3.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteNoiseCovariance",
+      "capability_key": "remote-sensing:spectral-noise-covariance",
+      "upstream_callable": "spectral.algorithms.algorithms.noise_from_diffs",
+      "scientific_task": "Estimate spectral noise covariance from horizontal adjacent-pixel differences in a declared homogeneous patch.",
+      "distinct_from_existing": "Existing spectral continuum and angle tools do not estimate sensor-noise cross-band covariance.",
+      "numeric_oracle": "Differences -1,+1,-1,+1 have sample variance 4/3; independent equal-variance pixel noise contributes half, 2/3.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteMNF",
+      "capability_key": "remote-sensing:spectral-mnf",
+      "upstream_callable": "spectral.algorithms.algorithms.mnf",
+      "scientific_task": "Reduce spectral dimensions after whitening by an explicitly supplied noise covariance.",
+      "distinct_from_existing": "PCA orders raw variance; MNF orders variance relative to measured noise. Existing spectral matching/unmixing does neither noise whitening nor MNF.",
+      "numeric_oracle": "Whitening diag(4/3,16/3) by noise diag(1,2) yields diag(4/3,8/3).",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteRX",
+      "capability_key": "remote-sensing:spectral-rx",
+      "upstream_callable": "spectral.algorithms.detectors.rx",
+      "scientific_task": "Detect multivariate spectral anomalies relative to supplied background statistics.",
+      "distinct_from_existing": "GeoSpectralAngleMap compares reference directions; RX needs no target and measures squared background Mahalanobis distance.",
+      "numeric_oracle": "For x=(2,1), mean=0 and covariance diag(4,1), x^T C^-1 x=4/4+1=2.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteMatchedFilter",
+      "capability_key": "remote-sensing:spectral-matched-filter",
+      "upstream_callable": "spectral.algorithms.detectors.matched_filter",
+      "scientific_task": "Map covariance-weighted linear responses to a supplied spectral target.",
+      "distinct_from_existing": "GeoSpectralLinearUnmix solves endmember coefficients; matched filtering uses an explicit background mean/covariance and one target, without interpreting coefficients as abundances.",
+      "numeric_oracle": "For target=(2,0), x=(2,1), mean=0 and C=diag(4,1), t^T C^-1 x / (t^T C^-1 t)=1.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteACE",
+      "capability_key": "remote-sensing:spectral-ace",
+      "upstream_callable": "spectral.algorithms.detectors.ace",
+      "scientific_task": "Map adaptive coherence scores for a supplied target in background-whitened spectral space.",
+      "distinct_from_existing": "GeoSpectralAngleMap is an unwhitened angle; ACE uses background covariance and squared normalized coherence, distinct from amplitude-sensitive matched filtering.",
+      "numeric_oracle": "Whitened target=(1,0) and pixel=(1,1) have squared cosine 1/(1*2)=1/2.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteWhiteTophat",
+      "capability_key": "remote-sensing:white-tophat-features",
+      "upstream_callable": "skimage.morphology.white_tophat",
+      "scientific_task": "Extract compact bright image features by white top-hat morphology at an explicit spatial scale.",
+      "distinct_from_existing": "RemoteSensingBatchHotspotRaster thresholds absolute brightness; top-hat measures brightness above a morphological local background.",
+      "numeric_oracle": "A single value 10 on uniform 2 has 3x3 opening 2 and white top-hat peak 10-2=8.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteSeedReconstruction",
+      "capability_key": "remote-sensing:seeded-reconstruction",
+      "upstream_callable": "skimage.morphology.reconstruction",
+      "scientific_task": "Propagate supplied intensity seeds under a constraining image by grayscale geodesic reconstruction.",
+      "distinct_from_existing": "GeoMapColorExtract uses legend color distance; reconstruction follows connected intensity support from explicit seed evidence.",
+      "numeric_oracle": "A seed of 2 propagates across the connected 3x3 plateau of height 5 but cannot cross its zero boundary; plateau value is 2.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteSkeleton",
+      "capability_key": "remote-sensing:binary-skeleton",
+      "upstream_callable": "skimage.morphology.skeletonize",
+      "scientific_task": "Thin a supplied binary image feature mask to a one-pixel skeleton using Zhang thinning.",
+      "distinct_from_existing": "Existing cloud and hotspot masks classify pixels; skeletonization extracts the topology of supplied linear image features.",
+      "numeric_oracle": "An already one-pixel-wide isolated horizontal segment with 9 cells is a fixed point of topology-preserving thinning.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteRemoveSmallObjects",
+      "capability_key": "remote-sensing:remove-small-objects",
+      "upstream_callable": "skimage.morphology.remove_small_objects",
+      "scientific_task": "Remove small connected detections by inclusive pixel-area threshold with four-neighbor connectivity.",
+      "distinct_from_existing": "Existing hotspot thresholding has no connected-area filtering; this rejects isolated detections based on spatial support.",
+      "numeric_oracle": "A 9-cell connected square survives max_size=1 while a disconnected singleton is removed.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteFillSmallHoles",
+      "capability_key": "remote-sensing:fill-small-holes",
+      "upstream_callable": "skimage.morphology.remove_small_holes",
+      "scientific_task": "Fill small connected background gaps in a supplied binary detection mask.",
+      "distinct_from_existing": "Cloud masking excludes observations; hole filling edits supplied binary classification topology and does not reconstruct missing radiometry.",
+      "numeric_oracle": "A 3x3 foreground ring has a single-cell central background component; inclusive max_size=1 fills exactly one cell.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteHMaxima",
+      "capability_key": "remote-sensing:prominence-maxima",
+      "upstream_callable": "skimage.morphology.h_maxima",
+      "scientific_task": "Identify image maxima with a declared minimum intensity prominence.",
+      "distinct_from_existing": "RemoteSensingMaxValueAndIndex finds a global scalar maximum; h-maxima detects spatial prominence above surrounding image support.",
+      "numeric_oracle": "The isolated height-10 peak above background 2 has prominence 8>=3 and occupies one cell.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteGLCM",
+      "capability_key": "remote-sensing:gray-cooccurrence-texture",
+      "upstream_callable": "skimage.feature.graycomatrix",
+      "scientific_task": "Measure directional gray-level co-occurrence texture from explicitly quantized image intensities.",
+      "distinct_from_existing": "Existing batch means and hotspot percentages discard neighbor relationships; GLCM retains pairwise spatial texture at a declared lag.",
+      "numeric_oracle": "Horizontal neighbors of a binary checkerboard always differ by one; symmetric P01=P10=1/2, hence contrast=1.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteLocalEntropy",
+      "capability_key": "remote-sensing:local-entropy",
+      "upstream_callable": "skimage.filters.rank.entropy",
+      "scientific_task": "Map neighborhood Shannon entropy of explicitly quantized image intensities, excluding quality-mask pixels.",
+      "distinct_from_existing": "Existing scalar coefficient-of-variation and kurtosis tools do not map local histogram information content.",
+      "numeric_oracle": "At a straight image edge the truncated 2x3 checkerboard footprint contains three zeros and three ones, giving entropy 1 bit.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteLBP",
+      "capability_key": "remote-sensing:local-binary-patterns",
+      "upstream_callable": "skimage.feature.local_binary_pattern",
+      "scientific_task": "Encode eight-neighbor local binary texture patterns on a supplied quantized image.",
+      "distinct_from_existing": "Existing optical indices compare spectral bands; LBP compares spatial neighbors with a center intensity to encode local texture.",
+      "numeric_oracle": "Inside a constant image all eight radius-one neighbors equal the center, so all bits are set: 2^8-1=255.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteStructureTensor",
+      "capability_key": "remote-sensing:image-structure-tensor",
+      "upstream_callable": "skimage.feature.structure_tensor",
+      "scientific_task": "Map image structure tensors and principal eigenvalues for directional fabric evidence.",
+      "distinct_from_existing": "GeoStereonetAnalysis uses supplied structural measurements; this estimates image-gradient anisotropy and does not infer geological strike/dip.",
+      "numeric_oracle": "For unit column ramp, the 3x3 Sobel derivative is 8 and row derivative is zero; the tensor eigenvalues are 64 and 0.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteGabor",
+      "capability_key": "remote-sensing:oriented-gabor-texture",
+      "upstream_callable": "skimage.filters.gabor",
+      "scientific_task": "Map real and imaginary responses to an oriented, band-limited Gabor texture filter.",
+      "distinct_from_existing": "GLCM measures quantized pairs; Gabor resolves signed local oscillation at a specified frequency and orientation, absent from baseline image tools.",
+      "numeric_oracle": "A unit impulse sampled at the center of a sigma_x=sigma_y=1 Gabor kernel has real response 1/(2*pi).",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteCanny",
+      "capability_key": "remote-sensing:canny-boundaries",
+      "upstream_callable": "skimage.feature.canny",
+      "scientific_task": "Detect thin image boundaries using Gaussian smoothing, nonmaximum suppression and hysteresis.",
+      "distinct_from_existing": "Existing hotspot masks classify intensity; Canny detects connected gradient boundaries using two hysteresis thresholds.",
+      "numeric_oracle": "A 16x16 vertical unit step with sigma=0 has two equal Sobel-ridge columns; nonmaximum suppression keeps both on 14 interior rows: 28 cells.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteOtsu",
+      "capability_key": "remote-sensing:otsu-segmentation",
+      "upstream_callable": "skimage.filters.threshold_otsu",
+      "scientific_task": "Derive an image threshold by maximizing between-class histogram variance and export its binary partition.",
+      "distinct_from_existing": "RemoteSensingBatchHotspotRaster uses a caller-fixed threshold; Otsu estimates the threshold from the observed histogram.",
+      "numeric_oracle": "Equal populations at integer DN=2 and 6 share the same optimal split for thresholds 2..5; the first maximizing bin is 2.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteWatershed",
+      "capability_key": "remote-sensing:marker-watershed",
+      "upstream_callable": "skimage.segmentation.watershed",
+      "scientific_task": "Partition an image cost surface by flooding from explicit labeled markers.",
+      "distinct_from_existing": "GeoPyshedsFlowAccumulation is terrain hydrology; this is seeded image segmentation with arbitrary image costs, no drainage calculation.",
+      "numeric_oracle": "A connected 16x16 flat cost domain with a single marker is entirely reached by that seed: 256 cells.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteSLIC",
+      "capability_key": "remote-sensing:slic-superpixels",
+      "upstream_callable": "skimage.segmentation.slic",
+      "scientific_task": "Create compact image superpixels using joint intensity and pixel-coordinate clustering.",
+      "distinct_from_existing": "GeoMapColorExtract matches legend colors to classes; SLIC forms unsupervised compact spatial support regions without semantic classes.",
+      "numeric_oracle": "One requested cluster on a connected constant 16x16 image assigns all 256 cells to one superpixel.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteFelzenszwalb",
+      "capability_key": "remote-sensing:graph-segmentation",
+      "upstream_callable": "skimage.segmentation.felzenszwalb",
+      "scientific_task": "Segment intensity imagery by graph edge weights and adaptive component merging.",
+      "distinct_from_existing": "SLIC imposes compact superpixels; graph segmentation follows intensity-edge component evidence without a requested region count, absent from the baseline.",
+      "numeric_oracle": "All graph edges of a constant connected 16x16 image have weight zero, so the positive-scale merge criterion combines all 256 cells.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteRandomWalker",
+      "capability_key": "remote-sensing:seeded-random-walker",
+      "upstream_callable": "skimage.segmentation.random_walker",
+      "scientific_task": "Estimate seeded class probabilities by solving an intensity-weighted image diffusion problem.",
+      "distinct_from_existing": "Watershed supplies hard flood labels; random walker solves a Dirichlet probability problem and exports per-class probability rasters, absent from baseline tools.",
+      "numeric_oracle": "On an 8x8 uniform-conductance grid seeded left=1 and right=2, p1(c)=1-c/7; summing gives 8*4=32.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteRegionProperties",
+      "capability_key": "remote-sensing:segmented-region-properties",
+      "upstream_callable": "skimage.measure.regionprops_table",
+      "scientific_task": "Measure pixel area, centroid, orientation and shape descriptors of supplied labeled image regions.",
+      "distinct_from_existing": "GeoShapelyGeometry measures vector geometry; this measures discrete labeled image regions and their intensity-independent shape moments.",
+      "numeric_oracle": "A labeled rectangle covering rows 2,3 and columns 2,3,4 contains 2*3=6 cells with centroid (2.5,3).",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemotePhaseRegistration",
+      "capability_key": "remote-sensing:phase-registration",
+      "upstream_callable": "skimage.registration.phase_cross_correlation",
+      "scientific_task": "Estimate translational alignment between two same-grid image patches using Fourier cross-correlation.",
+      "distinct_from_existing": "GeoRasterChangeAnalysis requires aligned imagery and only differences values; this estimates residual translation before change analysis.",
+      "numeric_oracle": "Moving impulse at (8,5) and reference at (6,6) require shift (-2,+1); with 30 m pixels map translation is (+30,+60) m.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteSSIMChange",
+      "capability_key": "remote-sensing:structural-similarity-change",
+      "upstream_callable": "skimage.metrics.structural_similarity",
+      "scientific_task": "Map structural-similarity change between aligned acquisitions using an explicit intensity range and window.",
+      "distinct_from_existing": "RemoteSensingTiffDifference and GeoRasterChangeAnalysis use pixel subtraction; SSIM compares local luminance, contrast and structure.",
+      "numeric_oracle": "Constant a=.25,b=.5 with range=1 give SSIM=(2ab+.01^2)/(a^2+b^2+.01^2); variance terms cancel.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteSensorBandResample",
+      "capability_key": "remote-sensing:sensor-band-resample",
+      "upstream_callable": "spectral.algorithms.resampling.BandResampler",
+      "scientific_task": "Resample calibrated hyperspectral reflectance to explicit target sensor bands using Gaussian response-overlap integration.",
+      "distinct_from_existing": "Original SAM/continuum/unmixing tools compare or decompose spectra, and current PCA/MNF changes statistical basis; none integrates explicit source/target wavelength bandwidths. Spatial reprojection changes map coordinates, not spectral response. Unlike original SkdownscaleQuantileBiasCorrection, no empirical scene-distribution mapping is fitted.",
+      "numeric_oracle": "Source intervals [950,1050] and [1050,1150] nm partition a target Gaussian centered at 1050 nm with FWHM 200 nm into equal halves. Symmetry gives weights 1/2,1/2; reflectances .2,.6 therefore yield .4, independently of the upstream implementation.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteTVDenoise",
+      "capability_key": "remote-sensing:total-variation-denoise",
+      "upstream_callable": "skimage.restoration.denoise_tv_chambolle",
+      "scientific_task": "Denoise image radiometry with Chambolle total-variation regularization.",
+      "distinct_from_existing": "RemoteSensingTiffAverage averages acquisitions; TV regularizes spatial gradients within one image and does not require temporal repeats.",
+      "numeric_oracle": "A constant .5 field has zero total variation and is the exact minimizer of the nonnegative ROF objective; every output pixel remains .5.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteRichardsonLucy",
+      "capability_key": "remote-sensing:richardson-lucy-deconvolution",
+      "upstream_callable": "skimage.restoration.richardson_lucy",
+      "scientific_task": "Restore spatial blur by Richardson-Lucy iterations with an explicitly supplied normalized point-spread function.",
+      "distinct_from_existing": "Existing image previews and difference tools do not invert a supplied instrument point-spread function.",
+      "numeric_oracle": "An identity PSF leaves the row ramp .2+.01*c unchanged; c=0..15 has mean 7.5, giving .275 (tolerance allows upstream epsilon).",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoRemoteRollingBall",
+      "capability_key": "remote-sensing:rolling-ball-background",
+      "upstream_callable": "skimage.restoration.rolling_ball",
+      "scientific_task": "Estimate a smooth image background with a rolling-ball intensity surface and export background plus residual.",
+      "distinct_from_existing": "White top-hat uses a flat morphological footprint; rolling ball uses a curved nonflat intensity surface to estimate spatial background, absent from baseline calibration.",
+      "numeric_oracle": "For a constant field 4, the ball tangent at its center yields background exactly 4; no lower background candidate exists.",
+      "status": "source_authored_unverified"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoPrismGravity",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "observations_enu_m": [
+      [
+        0,
+        0,
+        3
+      ]
+    ],
+    "prisms_wesnbt_m": [
+      [
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1
+      ]
+    ],
+    "density_contrast_kg_m3": [
+      1000
+    ]
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "gradient_enu_s2",
+        0,
+        2,
+        2
+      ],
+      "value": 3.8043620751532025e-08,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "gradient_enu_s2",
+        0,
+        0,
+        0
+      ],
+      "value": -1.9021810375766012e-08,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "prisms_wesnbt_m": [
+      [
+        1,
+        -1,
+        -1,
+        1,
+        -1,
+        1
+      ]
+    ]
+  },
+  "numeric_oracle": "Independent surface solid-angle identity for a 2m cube at z=3m: Tzz=G*rho*[Omega(2)-Omega(4)], Omega(d)=4atan[1/(d*sqrt(d^2+2))].",
+  "upstream_source": "https://github.com/fatiando/choclo/blob/6b4171701a6c8d7ffff88efc83c6bab5655233c3/choclo/prism/_gravity.py",
+  "limitations": [
+    "Uniform density per prism; reject observations inside or on any closed prism; no inversion or inferred ore volume.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

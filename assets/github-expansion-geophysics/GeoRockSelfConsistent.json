@@ -1,0 +1,71 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockSelfConsistent",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "fractions": [
+      0.5,
+      0.5
+    ],
+    "bulk_gpa": [
+      4,
+      16
+    ],
+    "shear_gpa": [
+      3,
+      12
+    ],
+    "aspect_ratios": [
+      1,
+      1
+    ],
+    "density_kg_m3": [
+      2400,
+      2800
+    ]
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "bulk_gpa"
+      ],
+      "value": 8,
+      "relative_tolerance": 1e-06,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "shear_gpa"
+      ],
+      "value": 6,
+      "relative_tolerance": 1e-06,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "density_kg_m3"
+      ],
+      "value": 2600,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "fractions": [
+      0.4,
+      0.5
+    ]
+  },
+  "numeric_oracle": "Heterogeneous exact spheres with K_i=4G_i/3 and equal fractions have P_i=Q_i at K=4G/3. The two self-consistency equations reduce to G^2=G1*G2=36: K=8,G=6 GPa, density=2600 kg/m3. Additional prolate and mixed-shape inverse-design analytic oracles are in r2-oracles.json.",
+  "upstream_source": "https://github.com/equinor/rock-physics-open/blob/68cd21b6a581e591d78ef90003292444cb81fe81/src/rock_physics_open/shale_models/multi_sca.py",
+  "limitations": [
+    "Explicit phase densities, GPa->Pa conversion; exact spheres and prolates retained, with no equal-phase restriction.",
+    "Upstream iteration stops on bulk change only and caps at 3000. Adapter checks BOTH weighted residuals <=1e-8 times their phase modulus scale and rejects nonconvergence without altering the kernel.",
+    "Fractions must sum to 1 within 1e-12. No imputed densities; LGPL-3.0 dependency. R2 NOT TESTED.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

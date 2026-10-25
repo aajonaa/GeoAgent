@@ -1,0 +1,14 @@
+{
+  "baseline_professional_tools": 229,
+  "baseline_skills": 50,
+  "minimum_additional_verified_operations": 101,
+  "planning_target": 120,
+  "groups": {"geophysics": 30, "remote": 30, "geology": 30, "spatial": 30},
+  "count_excludes": ["existing_tools", "aliases", "parameter_only_variants", "placeholder_implementations", "failed_or_skipped_operations", "repository_or_skill_counts"],
+  "gpu_use": false,
+  "live_service_change_authorized_by_this_plan": false,
+  "current_state": "source_authoring_in_progress",
+  "independent_cpu_acceptance": "pending",
+  "deployment": "not_started",
+  "receiving_lab_submission": "not_submitted"
+}

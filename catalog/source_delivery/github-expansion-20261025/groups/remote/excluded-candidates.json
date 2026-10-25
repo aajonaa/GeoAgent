@@ -1,0 +1,44 @@
+{
+  "group": "remote",
+  "operations": [
+    {
+      "tool_id": "GeoRemoteHistogramMatch",
+      "status": "excluded_semantic_duplicate",
+      "counted_as_new": false,
+      "duplicate_of": "SkdownscaleQuantileBiasCorrection",
+      "replacement_tool_id": "GeoRemoteSensorBandResample",
+      "decision": "Both implement empirical CDF/inverse-CDF quantile mapping. Tie handling, plotting positions and raster packaging do not establish a distinct scientific operation.",
+      "original_candidate": {
+        "tool_id": "GeoRemoteHistogramMatch",
+        "capability_key": "remote-sensing:relative-histogram-match",
+        "upstream_callable": "skimage.exposure.match_histograms",
+        "scientific_task": "Normalize one acquisition's empirical intensity distribution to a supplied reference acquisition.",
+        "distinct_from_existing": "Existing raster scale/offset calibration is affine; empirical histogram matching applies a monotone quantile mapping to the common valid support.",
+        "numeric_oracle": "Equal populations at 0 and 1 map by empirical quantiles to equal reference populations at 2 and 4, with mean 3.",
+        "status": "source_authored_unverified"
+      },
+      "original_example": {
+        "raster_path": "assets/github-expansion-remote/step.tif",
+        "input_unit": "DN",
+        "reference_path": "assets/github-expansion-remote/histogram-reference.tif"
+      },
+      "original_oracle": {
+        "path": [
+          "mean"
+        ],
+        "expected": 3,
+        "reason": "Equal populations at 0 and 1 map by empirical quantiles to equal reference populations at 2 and 4, with mean 3."
+      },
+      "upstream": {
+        "package": "scikit-image",
+        "version": "0.26.0",
+        "source_commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+        "license": "BSD-3-Clause AND BSD-2-Clause AND MIT",
+        "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/exposure/histogram_matching.py"
+      },
+      "baseline_source_url": "https://github.com/pangeo-data/scikit-downscale/blob/44d042584e0fd96bc16e2fca4caa928c5718b970/skdownscale/pointwise_models/quantile.py",
+      "original_adapter_source": "@operation(\"GeoRemoteHistogramMatch\")\ndef relative_histogram_match(args, output_dir=None):\n    import numpy as np\n    from skimage.exposure import match_histograms\n    loaded, reference = _pair(args, complete=False)\n    image, valid, _, _ = loaded\n    result = np.zeros(image.shape)\n    result[valid] = match_histograms(image[valid], reference[valid], channel_axis=None)\n    return _image_result(args, output_dir, loaded, result, args[\"input_unit\"])\n",
+      "historical_evidence": "The parent reported 29 passing r1 numeric subcases and a matched-filter shape failure. This record does not modify that report or treat the duplicate as net-new."
+    }
+  ]
+}

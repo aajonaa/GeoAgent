@@ -1,0 +1,51 @@
+{
+  "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+  "coordinates_m": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      3,
+      0
+    ]
+  ],
+  "values_by_station_time": [
+    [
+      0,
+      3,
+      6,
+      9
+    ],
+    [
+      2,
+      5,
+      8,
+      11
+    ],
+    [
+      4,
+      7,
+      10,
+      13
+    ],
+    [
+      6,
+      9,
+      12,
+      15
+    ]
+  ],
+  "time_step_days": 2,
+  "spatial_lags": 3,
+  "temporal_lags": 3,
+  "value_unit": "ppm"
+}

@@ -1,0 +1,75 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoPointMassGravity",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "observations_enu_m": [
+      [
+        0,
+        0,
+        10
+      ]
+    ],
+    "sources_enu_m": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "masses_kg": [
+      1000000000.0
+    ]
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "potential_j_kg",
+        0
+      ],
+      "value": 0.006674299999999999,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "acceleration_enu_m_s2",
+        0,
+        2
+      ],
+      "value": -0.0006674299999999999,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "gradient_enu_s2",
+        0,
+        2,
+        2
+      ],
+      "value": 0.000133486,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "observations_enu_m": [
+      [
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "numeric_oracle": "Independent Newton solution at r=10m,m=1e9kg: V=Gm/r, gu=-Gm/r^2, Tuu=2Gm/r^3.",
+  "upstream_source": "https://github.com/fatiando/choclo/blob/6b4171701a6c8d7ffff88efc83c6bab5655233c3/choclo/point/_forward.py",
+  "limitations": [
+    "Point-source idealization; >=1mm separation; all components bundled; no density inversion.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

@@ -1,0 +1,259 @@
+{
+  "group": "geology",
+  "status": "source_authored_unverified",
+  "testing": "NOT TESTED",
+  "deployment": "NOT DEPLOYED",
+  "submission": "NOT SUBMITTED",
+  "research_date": "2026-10-25",
+  "repositories": [
+    {
+      "package": "apsg",
+      "version": "2.0.6",
+      "repository": "https://github.com/ondrolexa/apsg",
+      "source_commit": "f9f45a52d60521ba37f326a85645df3dee74272e",
+      "release_evidence_url": "https://pypi.org/pypi/apsg/2.0.6/json",
+      "commit_url": "https://github.com/ondrolexa/apsg/commit/f9f45a52d60521ba37f326a85645df3dee74272e",
+      "license": "MIT",
+      "license_url": "https://github.com/ondrolexa/apsg/blob/f9f45a52d60521ba37f326a85645df3dee74272e/LICENSE",
+      "license_file": "licenses/apsg.txt",
+      "release_correspondence": "Commit __version__ explicitly declares 2.0.6; commit date and PyPI upload are 2026-10-16. Distribution byte correspondence has NOT been tested.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "pyrolite",
+      "version": "0.3.7",
+      "repository": "https://github.com/morganjwilliams/pyrolite",
+      "source_commit": "ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca",
+      "release_evidence_url": "https://pypi.org/pypi/pyrolite/0.3.7/json",
+      "commit_url": "https://github.com/morganjwilliams/pyrolite/commit/ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca",
+      "license": "LicenseRef-CSIRO-BSD-MIT",
+      "license_url": "https://github.com/morganjwilliams/pyrolite/blob/ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca/LICENSE",
+      "license_file": "licenses/pyrolite.txt",
+      "release_correspondence": "Official release tag resolves to this commit. Distribution byte correspondence has NOT been tested.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "scikit-gstat",
+      "version": "1.0.24",
+      "repository": "https://github.com/mmaelicke/scikit-gstat",
+      "source_commit": "813a4c4f5173df100e64cc84c8ad56d928c9e0af",
+      "release_evidence_url": "https://pypi.org/pypi/scikit-gstat/1.0.24/json",
+      "commit_url": "https://github.com/mmaelicke/scikit-gstat/commit/813a4c4f5173df100e64cc84c8ad56d928c9e0af",
+      "license": "MIT",
+      "license_url": "https://github.com/mmaelicke/scikit-gstat/blob/813a4c4f5173df100e64cc84c8ad56d928c9e0af/LICENSE",
+      "license_file": "licenses/scikit-gstat.txt",
+      "release_correspondence": "Official release tag resolves to this commit. Distribution byte correspondence has NOT been tested.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "gstools",
+      "version": "1.7.0",
+      "repository": "https://github.com/GeoStat-Framework/GSTools",
+      "source_commit": "1edd2b93bf429803d716a9cbab125362583575de",
+      "release_evidence_url": "https://pypi.org/pypi/gstools/1.7.0/json",
+      "commit_url": "https://github.com/GeoStat-Framework/GSTools/commit/1edd2b93bf429803d716a9cbab125362583575de",
+      "license": "LGPL-3.0",
+      "license_url": "https://github.com/GeoStat-Framework/GSTools/blob/1edd2b93bf429803d716a9cbab125362583575de/LICENSE",
+      "license_file": "licenses/gstools.txt",
+      "release_correspondence": "Official release tag resolves to this commit. Distribution byte correspondence has NOT been tested.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "lasio",
+      "version": "0.32",
+      "repository": "https://github.com/kinverarity1/lasio",
+      "source_commit": "aef25d50b9b36c08a9bde8c53181ed244ee2a035",
+      "release_evidence_url": "https://pypi.org/pypi/lasio/0.32/json",
+      "commit_url": "https://github.com/kinverarity1/lasio/commit/aef25d50b9b36c08a9bde8c53181ed244ee2a035",
+      "license": "MIT",
+      "license_url": "https://github.com/kinverarity1/lasio/blob/aef25d50b9b36c08a9bde8c53181ed244ee2a035/LICENSE",
+      "license_file": "licenses/lasio.txt",
+      "release_correspondence": "Official release tag resolves to this commit. Distribution byte correspondence has NOT been tested.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "welly",
+      "version": "0.5.2",
+      "repository": "https://github.com/agilescientific/welly",
+      "source_commit": "1c028a44b11e7148aaedfd3689630e356c5bcf80",
+      "release_evidence_url": "https://pypi.org/pypi/welly/0.5.2/json",
+      "commit_url": "https://github.com/agilescientific/welly/commit/1c028a44b11e7148aaedfd3689630e356c5bcf80",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/agilescientific/welly/blob/1c028a44b11e7148aaedfd3689630e356c5bcf80/LICENSE",
+      "license_file": "licenses/welly.txt",
+      "release_correspondence": "Official release tag resolves to this commit. Distribution byte correspondence has NOT been tested.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "striplog",
+      "version": "0.9.2",
+      "repository": "https://github.com/agilescientific/striplog",
+      "source_commit": "314fed40a2df1d4b20bb2d108cca3f8c652a35bf",
+      "release_evidence_url": "https://pypi.org/pypi/striplog/0.9.2/json",
+      "commit_url": "https://github.com/agilescientific/striplog/commit/314fed40a2df1d4b20bb2d108cca3f8c652a35bf",
+      "license": "Apache-2.0",
+      "license_url": "https://github.com/agilescientific/striplog/blob/314fed40a2df1d4b20bb2d108cca3f8c652a35bf/LICENSE",
+      "license_file": "licenses/striplog.txt",
+      "release_correspondence": "Official release tag resolves to this commit. Distribution byte correspondence has NOT been tested.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "wellpathpy",
+      "version": "0.5.2",
+      "repository": "https://github.com/Zabamund/wellpathpy",
+      "source_commit": "ccbb7cd803485a74d2de83ef4dd5912bb7f9c2bd",
+      "release_evidence_url": "https://pypi.org/pypi/wellpathpy/0.5.2/json",
+      "commit_url": "https://github.com/Zabamund/wellpathpy/commit/ccbb7cd803485a74d2de83ef4dd5912bb7f9c2bd",
+      "license": "LGPL-3.0",
+      "license_url": "https://github.com/Zabamund/wellpathpy/blob/ccbb7cd803485a74d2de83ef4dd5912bb7f9c2bd/LICENSE",
+      "license_file": "licenses/wellpathpy.txt",
+      "release_correspondence": "Official release tag resolves to this commit. Distribution byte correspondence has NOT been tested.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "scikit-learn",
+      "version": "1.7.2",
+      "repository": "https://github.com/scikit-learn/scikit-learn",
+      "source_commit": "25dee604bae18205b01548348388baf7a1cdfe0e",
+      "release_evidence_url": "https://pypi.org/pypi/scikit-learn/1.7.2/json",
+      "commit_url": "https://github.com/scikit-learn/scikit-learn/commit/25dee604bae18205b01548348388baf7a1cdfe0e",
+      "license": "BSD-3-Clause",
+      "license_url": "https://github.com/scikit-learn/scikit-learn/blob/25dee604bae18205b01548348388baf7a1cdfe0e/COPYING",
+      "license_file": "licenses/scikit-learn.txt",
+      "release_correspondence": "Official release tag resolves to this commit. Distribution byte correspondence has NOT been tested.",
+      "status": "source_authored_unverified"
+    }
+  ],
+  "dependency_release_evidence": [
+    {
+      "package": "gstools-cython",
+      "version": "1.2.0",
+      "url": "https://pypi.org/pypi/gstools-cython/1.2.0/json",
+      "status": "metadata_reviewed_runtime_unverified"
+    },
+    {
+      "package": "emcee",
+      "version": "3.1.6",
+      "url": "https://pypi.org/pypi/emcee/3.1.6/json",
+      "status": "metadata_reviewed_runtime_unverified"
+    },
+    {
+      "package": "hankel",
+      "version": "1.2.2",
+      "url": "https://pypi.org/pypi/hankel/1.2.2/json",
+      "status": "metadata_reviewed_runtime_unverified"
+    },
+    {
+      "package": "meshio",
+      "version": "5.3.5",
+      "url": "https://pypi.org/pypi/meshio/5.3.5/json",
+      "status": "metadata_reviewed_runtime_unverified"
+    },
+    {
+      "package": "pyevtk",
+      "version": "1.7.0",
+      "url": "https://pypi.org/pypi/pyevtk/1.7.0/json",
+      "status": "metadata_reviewed_runtime_unverified"
+    },
+    {
+      "package": "SQLAlchemy",
+      "version": "1.4.54",
+      "url": "https://pypi.org/pypi/SQLAlchemy/1.4.54/json",
+      "status": "parent_reported_joint_import_success_not_scientific_acceptance"
+    },
+    {
+      "package": "pygeomag",
+      "version": "1.1.0",
+      "url": "https://pypi.org/pypi/pygeomag/1.1.0/json",
+      "status": "metadata_reviewed_runtime_unverified"
+    }
+  ],
+  "compatibility": {
+    "python": "3.12",
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
+    "pandas": "2.3.0",
+    "matplotlib": "3.10.7",
+    "scikit_learn": "1.7.2",
+    "numba": "0.68.0",
+    "evidence": "Parent reports successful joint imports of SQLAlchemy 1.4.54, APSG 2.0.6 and ObsPy 1.4.2 in the r2 isolated environment, retaining typing-extensions 4.16.0, pydantic 2.13.5 and langgraph 1.2.12. This worker performed no installation, imports, tests or scientific acceptance. Other binary/runtime compatibility remains unverified here.",
+    "private_worker_required": true,
+    "no_shared_environment_downgrades": true,
+    "SQLAlchemy": "1.4.54",
+    "retained_parent_stack": {
+      "typing-extensions": "4.16.0",
+      "pydantic": "2.13.5",
+      "langgraph": "1.2.12",
+      "obspy": "1.4.2"
+    }
+  },
+  "blockers": [
+    "Parent must integrate fixed module whitelist/worker dispatch and strictly additive registry contributions before platform execution.",
+    "Missing packages and their binary/transitive dependencies require a private CPU worker; no installation was performed.",
+    "R2 analytic/negative/provenance scientific acceptance has not been run by this worker; parent-reported package joint imports are not tool acceptance.",
+    "APSG requires its default geological stress convention; adapter rejects other active conventions without changing shared configuration.",
+    "Upstream license obligations, adapter licensing, receiving-lab approval, model workflows and real-data evaluation remain pending.",
+    "GeoPyroliteCIPWNorm remains blocked by upstream fluorapatite mass handling, including reviewed 0.3.8post1/develop sources; float adaptation alone is not sufficient.",
+    "GeoAPSGBinghamAxialConfidence remains blocked pending immutable-commit private-worker binding, source identity enforcement and independent numeric/coverage acceptance. No main APSG pin is changed."
+  ],
+  "revision": "r2",
+  "unreleased_candidates": [
+    {
+      "package": "apsg",
+      "source_commit": "44f9dde66e2e36417e09aebffd9992756705d7ab",
+      "source_mode": "immutable_upstream_commit",
+      "published_release": false,
+      "source_declared_version": "2.1.0",
+      "version_warning": "The source declares 2.1.0; it is NOT represented as a published apsg==2.1.0 release.",
+      "repository": "https://github.com/ondrolexa/apsg",
+      "archive_url": "https://github.com/ondrolexa/apsg/archive/44f9dde66e2e36417e09aebffd9992756705d7ab.zip",
+      "license": "MIT",
+      "license_url": "https://github.com/ondrolexa/apsg/blob/44f9dde66e2e36417e09aebffd9992756705d7ab/LICENSE",
+      "license_file": "private-workers/bingham/LICENSE-APSG.txt",
+      "api_url": "https://github.com/ondrolexa/apsg/blob/44f9dde66e2e36417e09aebffd9992756705d7ab/src/apsg/feature/_distributions/_axial.py",
+      "public_api_url": "https://github.com/ondrolexa/apsg/blob/44f9dde66e2e36417e09aebffd9992756705d7ab/src/apsg/feature/_container/_vectorsets.py",
+      "change_evidence_url": "https://github.com/ondrolexa/apsg/compare/f9f45a52d60521ba37f326a85645df3dee74272e...44f9dde66e2e36417e09aebffd9992756705d7ab",
+      "status": "blocked_not_registered",
+      "upstream_callable": "apsg.feature.Vector3Set.bingham_statistics",
+      "intended_tool_id": "GeoAPSGBinghamAxialConfidence"
+    }
+  ],
+  "blocked_operations": [
+    {
+      "tool_id": "GeoAPSGBinghamAxialConfidence",
+      "status": "blocked_not_registered",
+      "counted": false,
+      "reason": "APSG 2.0.6 collapses degenerate-axis confidence; r1 expected angles repeated the faulty expression. No distinct-eigenvalue restriction is accepted as a repair.",
+      "maintained_fix_commit": "44f9dde66e2e36417e09aebffd9992756705d7ab",
+      "upstream_fix_status": "Unreleased immutable upstream source reviewed, not installed or executed here.",
+      "private_worker_profile": "private-workers/bingham/worker-profile.json",
+      "activation_blockers": [
+        "A fixed single-tool CPU interpreter binding and immutable-source identity enforcement are not implemented in this contribution.",
+        "The shared decorator checks package pins before the function body; in-process imports or changing every APSG pin cannot isolate this tool.",
+        "Independent degeneracy, rotation-equivariance and statistical-coverage acceptance is not complete; the r1 angle oracle is rejected, not reused."
+      ],
+      "source_url": "https://github.com/ondrolexa/apsg/blob/44f9dde66e2e36417e09aebffd9992756705d7ab/src/apsg/feature/_distributions/_axial.py",
+      "historical_evidence": "revisions/r1-source-snapshot; parent's existing r1 reports remain untouched"
+    },
+    {
+      "tool_id": "GeoPyroliteCIPWNorm",
+      "status": "blocked_not_registered",
+      "counted": false,
+      "reason": "CIPW fluorapatite mass conversion compares a mineral string with the list [\"Ap\"], skipping the intended branch. A float DataFrame fixes only the integer-casting adapter failure.",
+      "adapter_repair": "Unregistered draft uses pandas.DataFrame(..., dtype=float); public operation fails closed.",
+      "affected_versions_reviewed": [
+        "0.3.7",
+        "0.3.8post1"
+      ],
+      "current_release_commit_reviewed": "984b0fba2728d6292894afa92f68d716dda90f14",
+      "develop_commit_reviewed": "2da306334b11771ba76c1fea9af1b77c9c61f76b",
+      "maintained_scientific_fix_found": false,
+      "source_url": "https://github.com/morganjwilliams/pyrolite/blob/984b0fba2728d6292894afa92f68d716dda90f14/pyrolite/mineral/normative.py",
+      "activation_blockers": [
+        "A maintained upstream scientific fix or independently qualified alternative is required.",
+        "A nonzero-fluorine/apatite mass-balance oracle is required; silica-only/F=0 examples do not qualify the operation."
+      ],
+      "historical_evidence": "revisions/r1-source-snapshot; parent's existing r1 reports remain untouched"
+    }
+  ]
+}

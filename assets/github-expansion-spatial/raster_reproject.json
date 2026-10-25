@@ -1,0 +1,45 @@
+{
+  "source": {
+    "kind": "synthetic",
+    "citation": "Explicit synthetic analytic fixture; not a geological observation or mineral evidence."
+  },
+  "crs": "EPSG:32631",
+  "coordinate_unit": "m",
+  "values": [
+    [
+      1,
+      null
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "valid_mask": [
+    [
+      true,
+      false
+    ],
+    [
+      true,
+      true
+    ]
+  ],
+  "origin_xy": [
+    0,
+    2
+  ],
+  "cell_size_m": 1,
+  "value_unit": "dimensionless",
+  "dst_crs": "EPSG:32631",
+  "dst_shape": [
+    2,
+    2
+  ],
+  "dst_origin_xy": [
+    1,
+    2
+  ],
+  "dst_cell_size_m": 1,
+  "resampling": "nearest"
+}

@@ -1,0 +1,25 @@
+{
+  "group": "geophysics",
+  "candidate_operations": 29,
+  "blocked_operations": 1,
+  "workflow_skills": 5,
+  "source_status": "source_authored_unverified",
+  "scientific_tests_run_by_this_agent": false,
+  "parent_reported_r1": "30 basic numeric cases passed; later heterogeneous/geometry/logarithm counterexamples remain historical failures, not r2 evidence.",
+  "parent_reported_private_dependencies": "rock_physics_open1.0.1/tmatrix1.2.0 source SHA, wheel ABI and requirements verified by parent with numpy2.1.3/scipy1.15.3/pandas2.3.0/typing-extensions4.16.0.",
+  "historical_r1_reports": "Preserved unchanged; no historical acceptance is relabeled r2.",
+  "unchanged_shared_pins": [
+    "SQLAlchemy==1.4.54",
+    "typing-extensions==4.16.0",
+    "pydantic==2.13.5",
+    "langgraph==1.2.12"
+  ],
+  "deployment_status": "not_deployed",
+  "submission_status": "not_submitted",
+  "remaining_blockers": [
+    "Parent joint CPU acceptance not yet reported for this source revision.",
+    "GeoRockStressAnisotropy has no accepted upstream repair and remains excluded.",
+    "Upstream multi_sca bulk-only convergence can cause valid inputs to be rejected by dual residual gate; no local solver patch is supplied.",
+    "GPL/LGPL redistribution and adapter licensing review remains pending."
+  ]
+}

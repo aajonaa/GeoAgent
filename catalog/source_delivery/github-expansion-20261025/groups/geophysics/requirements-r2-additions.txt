@@ -1,0 +1,5 @@
+# Parent-reported installed private additions; no installation by this generator.
+rock-physics-open==1.0.1
+tmatrix==1.2.0
+# Retain typing-extensions==4.16.0 and all other baseline pins.
+# Complete direct profile: requirements-geophysics.txt

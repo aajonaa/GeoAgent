@@ -1,0 +1,45 @@
+{
+  "group": "geology",
+  "revision": "r2",
+  "active_candidate_count": 28,
+  "assigned_target": 30,
+  "deficit": 2,
+  "operations": [
+    {
+      "tool_id": "GeoAPSGBinghamAxialConfidence",
+      "status": "blocked_not_registered",
+      "counted": false,
+      "reason": "APSG 2.0.6 collapses degenerate-axis confidence; r1 expected angles repeated the faulty expression. No distinct-eigenvalue restriction is accepted as a repair.",
+      "maintained_fix_commit": "44f9dde66e2e36417e09aebffd9992756705d7ab",
+      "upstream_fix_status": "Unreleased immutable upstream source reviewed, not installed or executed here.",
+      "private_worker_profile": "private-workers/bingham/worker-profile.json",
+      "activation_blockers": [
+        "A fixed single-tool CPU interpreter binding and immutable-source identity enforcement are not implemented in this contribution.",
+        "The shared decorator checks package pins before the function body; in-process imports or changing every APSG pin cannot isolate this tool.",
+        "Independent degeneracy, rotation-equivariance and statistical-coverage acceptance is not complete; the r1 angle oracle is rejected, not reused."
+      ],
+      "source_url": "https://github.com/ondrolexa/apsg/blob/44f9dde66e2e36417e09aebffd9992756705d7ab/src/apsg/feature/_distributions/_axial.py",
+      "historical_evidence": "revisions/r1-source-snapshot; parent's existing r1 reports remain untouched"
+    },
+    {
+      "tool_id": "GeoPyroliteCIPWNorm",
+      "status": "blocked_not_registered",
+      "counted": false,
+      "reason": "CIPW fluorapatite mass conversion compares a mineral string with the list [\"Ap\"], skipping the intended branch. A float DataFrame fixes only the integer-casting adapter failure.",
+      "adapter_repair": "Unregistered draft uses pandas.DataFrame(..., dtype=float); public operation fails closed.",
+      "affected_versions_reviewed": [
+        "0.3.7",
+        "0.3.8post1"
+      ],
+      "current_release_commit_reviewed": "984b0fba2728d6292894afa92f68d716dda90f14",
+      "develop_commit_reviewed": "2da306334b11771ba76c1fea9af1b77c9c61f76b",
+      "maintained_scientific_fix_found": false,
+      "source_url": "https://github.com/morganjwilliams/pyrolite/blob/984b0fba2728d6292894afa92f68d716dda90f14/pyrolite/mineral/normative.py",
+      "activation_blockers": [
+        "A maintained upstream scientific fix or independently qualified alternative is required.",
+        "A nonzero-fluorine/apatite mass-balance oracle is required; silica-only/F=0 examples do not qualify the operation."
+      ],
+      "historical_evidence": "revisions/r1-source-snapshot; parent's existing r1 reports remain untouched"
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockBrownKorringa",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "dry_stiffness_gpa": [
+      [
+        20.666666666666668,
+        4.666666666666667,
+        4.666666666666667,
+        0,
+        0,
+        0
+      ],
+      [
+        4.666666666666667,
+        20.666666666666668,
+        4.666666666666667,
+        0,
+        0,
+        0
+      ],
+      [
+        4.666666666666667,
+        4.666666666666667,
+        20.666666666666668,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        8,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        8,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        8
+      ]
+    ],
+    "mineral_bulk_gpa": 40,
+    "mineral_shear_gpa": 30,
+    "fluid_bulk_gpa": 4,
+    "porosity": 0.25
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "saturated_stiffness_gpa",
+        0,
+        0
+      ],
+      "value": 28.166666666666668,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "saturated_stiffness_gpa",
+        0,
+        1
+      ],
+      "value": 12.166666666666666,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "saturated_stiffness_gpa",
+        3,
+        3
+      ],
+      "value": 8,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "fluid_bulk_gpa": 50
+  },
+  "numeric_oracle": "Independent isotropic Gassmann limit Ksat=17.5,G=8: C11=169/6,C12=73/6,C44=8GPa.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/Fluid.py",
+  "limitations": [
+    "Isotropic mineral assumption; engineering Voigt order; positive definite tensors.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

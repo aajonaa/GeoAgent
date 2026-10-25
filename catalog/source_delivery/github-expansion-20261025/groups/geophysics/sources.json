@@ -1,0 +1,152 @@
+{
+  "group": "geophysics",
+  "sources": [
+    {
+      "package": "rock-physics-open",
+      "version": "1.0.1",
+      "repository": "equinor/rock-physics-open",
+      "commit": "68cd21b6a581e591d78ef90003292444cb81fe81",
+      "tag": "v1.0.1",
+      "license": "LGPL-3.0",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "jsonschema==4.25.1",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "scikit-learn==1.7.2",
+        "tmatrix==1.2.0",
+        "typing-extensions==4.16.0"
+      ],
+      "docs": "https://github.com/equinor/rock-physics-open/tree/v1.0.1/src/rock_physics_open/shale_models",
+      "compatibility": "Published Python>=3.11,<3.15 and dependency lower bounds admit the retained CPU baseline; actual r2 acceptance NOT RUN. Preserve typing-extensions4.16.0, pydantic2.13.5, langgraph1.2.12 and all shared pins. tmatrix1.2.0 has official CPython3.12 Linux/Windows wheels.",
+      "repository_url": "https://github.com/equinor/rock-physics-open",
+      "release_metadata_url": "https://pypi.org/pypi/rock-physics-open/1.0.1/json",
+      "release_tag_url": "https://github.com/equinor/rock-physics-open/tree/v1.0.1",
+      "license_url": "https://github.com/equinor/rock-physics-open/blob/68cd21b6a581e591d78ef90003292444cb81fe81/LICENSE",
+      "local_license_evidence": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/licenses/rock-physics-open.txt",
+      "reviewed_source_files": [
+        "src/rock_physics_open/shale_models/multi_sca.py",
+        "src/rock_physics_open/shale_models/pq.py"
+      ],
+      "release_tag_commit_evidence": "Read-only GitHub tags API. Parent reports r2 rock-physics-open/tmatrix SHA and wheel ABI checked; scientific acceptance NOT RUN by this agent.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "choclo",
+      "version": "0.3.2",
+      "repository": "fatiando/choclo",
+      "commit": "6b4171701a6c8d7ffff88efc83c6bab5655233c3",
+      "tag": "v0.3.2",
+      "license": "BSD-3-Clause",
+      "license_file": "LICENSE.txt",
+      "requirements": [
+        "numpy==2.1.3",
+        "numba==0.68.0",
+        "jsonschema==4.25.1"
+      ],
+      "docs": "https://www.fatiando.org/choclo/v0.3.2/api/index.html",
+      "compatibility": "Published numpy>=1.19,numba>=0.52. Supplied Python3.12/NumPy2.1.3/Numba0.68.0 acceptance NOT TESTED; no downgrade.",
+      "repository_url": "https://github.com/fatiando/choclo",
+      "release_metadata_url": "https://pypi.org/pypi/choclo/0.3.2/json",
+      "release_tag_url": "https://github.com/fatiando/choclo/tree/v0.3.2",
+      "license_url": "https://github.com/fatiando/choclo/blob/6b4171701a6c8d7ffff88efc83c6bab5655233c3/LICENSE.txt",
+      "local_license_evidence": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/licenses/choclo.txt",
+      "reviewed_source_files": [
+        "choclo/dipole/_forward.py",
+        "choclo/point/_forward.py",
+        "choclo/prism/_gravity.py",
+        "choclo/prism/_magnetic.py"
+      ],
+      "release_tag_commit_evidence": "Read-only GitHub tags API. Parent reports r2 rock-physics-open/tmatrix SHA and wheel ABI checked; scientific acceptance NOT RUN by this agent.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "rockphypy",
+      "version": "0.0.2",
+      "repository": "yujiaxin666/rockphypy",
+      "commit": "54c89027fb99e00b53761a05fcd7c20bc796ce7e",
+      "tag": "V0.0.2",
+      "license": "GPL-3.0",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "jsonschema==4.25.1",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "KDE-diffusion==1.0.5"
+      ],
+      "docs": "https://rockphypy.readthedocs.io/en/latest/autoapi/rockphypy/index.html",
+      "compatibility": "Published lower bounds admit the supplied stack but do not prove compatibility. Package initialization imports KDE-diffusion. Private CPU installation/acceptance pending; retain GPLv3.",
+      "repository_url": "https://github.com/yujiaxin666/rockphypy",
+      "release_metadata_url": "https://pypi.org/pypi/rockphypy/0.0.2/json",
+      "release_tag_url": "https://github.com/yujiaxin666/rockphypy/tree/V0.0.2",
+      "license_url": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/LICENSE",
+      "local_license_evidence": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/licenses/rockphypy.txt",
+      "reviewed_source_files": [
+        "rockphypy/AVO.py",
+        "rockphypy/Anisotropy.py",
+        "rockphypy/BW.py",
+        "rockphypy/EM.py",
+        "rockphypy/Fluid.py",
+        "rockphypy/GM.py"
+      ],
+      "release_tag_commit_evidence": "Read-only GitHub tags API. Parent reports r2 rock-physics-open/tmatrix SHA and wheel ABI checked; scientific acceptance NOT RUN by this agent.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "package": "bruges",
+      "version": "0.5.4",
+      "repository": "agilescientific/bruges",
+      "commit": "24e2e7912f49089465dd622363fd2788029266b1",
+      "tag": "v0.5.4",
+      "license": "Apache-2.0",
+      "license_file": "LICENSE.txt",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "jsonschema==4.25.1"
+      ],
+      "docs": "https://code.agilescientific.com/bruges/api/bruges.reflection.html",
+      "compatibility": "User-provided installed pin retained. New scattering entrypoint NOT TESTED.",
+      "repository_url": "https://github.com/agilescientific/bruges",
+      "release_metadata_url": "https://pypi.org/pypi/bruges/0.5.4/json",
+      "release_tag_url": "https://github.com/agilescientific/bruges/tree/v0.5.4",
+      "license_url": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/LICENSE.txt",
+      "local_license_evidence": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/licenses/bruges.txt",
+      "reviewed_source_files": [
+        "bruges/reflection/reflection.py"
+      ],
+      "release_tag_commit_evidence": "Read-only GitHub tags API. Parent reports r2 rock-physics-open/tmatrix SHA and wheel ABI checked; scientific acceptance NOT RUN by this agent.",
+      "status": "source_authored_unverified"
+    }
+  ],
+  "status": "source_authored_unverified",
+  "additional_dependency_evidence": {
+    "tmatrix==1.2.0": {
+      "release_url": "https://pypi.org/project/tmatrix/1.2.0/",
+      "publishing_commit": "51692ac838722fe78513bb5da60b72309e77ea57",
+      "role": "Declared private-worker dependency; no T-matrix operation added"
+    },
+    "typing-extensions==4.16.0": "Parent-confirmed existing private CPU pin, retained without downgrade",
+    "KDE-diffusion==1.0.5": "https://pypi.org/pypi/KDE-diffusion/1.0.5/json",
+    "shared_pins": "User-provided deployed CPU metadata preserved without install/downgrade."
+  },
+  "excluded_candidates": [
+    {
+      "callable": "rockphypy.EM.EM.Berryman_DEM",
+      "reason": "Release DEM passes G_eff,K_eff to PQ(Km,Gm,...) and uses -G_eff for shear contrast. Excluded; no kernel replacement.",
+      "source_url": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/EM.py"
+    }
+  ],
+  "blockers": [
+    "R2 changes NOT TESTED. Parent owns private CPU acceptance; r1 basic30 passing report is historical only.",
+    "GeoRockStressAnisotropy is BLOCKED and absent from additions: incorrect Johnson logarithm, no accepted maintained replacement.",
+    "SelfConsistent uses rock-physics-open1.0.1 and tmatrix1.2.0, installed and dependency-checked by parent; scientific acceptance remains pending.",
+    "Parent reports private dependency compatibility; this r2 numeric/schema source has NOT RUN.",
+    "GPLv3 dependency must remain explicit; adapter license and receiving-lab review pending.",
+    "Parent must merge additive metadata and fixed module dispatch."
+  ]
+}

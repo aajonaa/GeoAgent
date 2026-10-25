@@ -1,0 +1,154 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoSeismicHTIReflectivity",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "upper_stiffness_gpa": [
+      [
+        40.0,
+        10.0,
+        10.0,
+        0,
+        0,
+        0
+      ],
+      [
+        10.0,
+        40.0,
+        10.0,
+        0,
+        0,
+        0
+      ],
+      [
+        10.0,
+        10.0,
+        40.0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        15,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        15,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        15
+      ]
+    ],
+    "lower_stiffness_gpa": [
+      [
+        48.4,
+        12.1,
+        12.1,
+        0,
+        0,
+        0
+      ],
+      [
+        12.1,
+        48.4,
+        12.1,
+        0,
+        0,
+        0
+      ],
+      [
+        12.1,
+        12.1,
+        48.4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        18.15,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        18.15,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        18.15
+      ]
+    ],
+    "upper_density_kg_m3": 2500,
+    "lower_density_kg_m3": 2500,
+    "incidence_degrees": [
+      0,
+      20
+    ],
+    "azimuth_degrees": [
+      0,
+      90
+    ]
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "pp_reflectivity_azimuth_by_angle",
+        0,
+        0
+      ],
+      "value": 0.047619047619047616,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "pp_reflectivity_azimuth_by_angle",
+        1,
+        0
+      ],
+      "value": 0.047619047619047616,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "incidence_degrees": [
+      60
+    ]
+  },
+  "numeric_oracle": "Independent isotropic normal-incidence limit: equal density and vp=4,4.4km/s give R=(4.4-4)/(4.4+4)=1/21 at each azimuth.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/AVO.py",
+  "limitations": [
+    "Ruger approximation; incidence<=35deg AND actual anisotropic transmission must be strictly propagating. Christoffel vertical-slowness domain gate rejects critical/evanescent modes at each supplied azimuth; it does not replace upstream amplitudes. Weak anisotropy<=.2; aligned HTI axes; not fracture inversion.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

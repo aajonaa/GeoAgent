@@ -1,0 +1,115 @@
+{
+  "asOf": "2026-10-25",
+  "strahler": {
+    "package": "pyflwdir",
+    "version": "0.5.12",
+    "commit": "4e598e77611232bbf5fc620919d914de5bfd2cdb",
+    "license": "MIT",
+    "source": "https://github.com/Deltares/pyflwdir/tree/4e598e77611232bbf5fc620919d914de5bfd2cdb",
+    "changelog": "https://deltares.github.io/pyflwdir/latest/changelog.html",
+    "entrypoints": [
+      "pyflwdir.from_array",
+      "FlwdirRaster.stream_order"
+    ],
+    "retains": [
+      "D8 source zero-terminal",
+      "multi-tributary[2,2,1] expected3",
+      "multi-tributary[1,1,2] expected2",
+      "zero-terminal expected2",
+      "cycle/CRS/channel mask constraints"
+    ],
+    "gates": [
+      "user repair decision",
+      "new pinned wheel",
+      "Affine version lock",
+      "CPU independent numeric oracle",
+      "metadata/provenance explicit backend"
+    ],
+    "installed": false,
+    "tested": false
+  },
+  "histogram": {
+    "excludedCandidate": "GeoRemoteHistogramMatch",
+    "reason": "Same empirical CDF mapping capability as existing SkdownscaleQuantileBiasCorrection; do not count raster packaging as net-new.",
+    "proposedTool": "GeoRemoteSensorBandResample",
+    "upstream": "spectral.algorithms.resampling.BandResampler",
+    "version": "0.25",
+    "commit": "bd91dc47377028683ef5c97bc7c1cc2dff14012c",
+    "oracle": {
+      "sourceCentersNm": [
+        1000,
+        1100
+      ],
+      "sourceFwhmNm": [
+        100,
+        100
+      ],
+      "sourceReflectances": [
+        0.2,
+        0.6
+      ],
+      "targetCenterNm": 1050,
+      "targetFwhmNm": 200,
+      "expectedReflectance": 0.4
+    },
+    "requirements": [
+      "reject unsupported partial target coverage",
+      "preserve CRS/affine/validity",
+      "output target-band GeoTIFF and weight CSV",
+      "state approximate Gaussian target response assumptions"
+    ],
+    "implemented": false
+  },
+  "selfConsistent": {
+    "package": "rock-physics-open",
+    "version": "1.0.1",
+    "commit": "68cd21b6a581e591d78ef90003292444cb81fe81",
+    "callable": "rock_physics_open.shale_models.multi_sca.multi_sca",
+    "license": "LGPL-3.0",
+    "additionalRequirements": [
+      "Pa modulus input",
+      "explicit phase densities kg/m3",
+      "verify both constitutive residuals",
+      "tmatrix~=1.2.0 private dependency"
+    ],
+    "tested": false,
+    "source": "https://github.com/equinor/rock-physics-open/tree/68cd21b6a581e591d78ef90003292444cb81fe81"
+  },
+  "bingham": {
+    "package": "apsg",
+    "sourceCommit": "44f9dde66e2e36417e09aebffd9992756705d7ab",
+    "fixCommit": "796b4c9347099aa6bf90659340ffcdd486865414",
+    "publishedVersion": "2.0.6 remains defective",
+    "candidateVersion": "2.1.0 unreleased; immutable source/private worker only",
+    "license": "MIT",
+    "tested": false,
+    "source": "https://github.com/ondrolexa/apsg/tree/44f9dde66e2e36417e09aebffd9992756705d7ab"
+  },
+  "blockedFullDomain": [
+    "GeoRockStressAnisotropy",
+    "GeoPyroliteCIPWNorm"
+  ],
+  "repairsAuthorized": false,
+  "state": "research_only_not_implemented_not_cpu_verified",
+  "user_decision": "Pending response to the unified repair question.",
+  "online_changes": false,
+  "gpu_used": false,
+  "blocked_details": {
+    "GeoRockStressAnisotropy": {
+      "upstreamHead": "2f13920ac29d4fc45c3f8dfc0443688b76242271",
+      "finding": "Original logarithm defect persists. Rokpy candidate has a VTI C12 identity issue and omits stresses, so it is not an equivalent repair.",
+      "source": "https://github.com/yujiaxin666/rockphypy/blob/2f13920ac29d4fc45c3f8dfc0443688b76242271/rockphypy/GM.py",
+      "alternativeSource": "https://github.com/mostafabbasi/Rokpy/blob/8fc29d15ee2816959a7195f7497b46e383a3839d/rokpy/effective_medium/contact_methods.py",
+      "status": "No verified maintained full-contract replacement found."
+    },
+    "GeoPyroliteCIPWNorm": {
+      "release": "0.3.8.post1",
+      "releaseCommit": "984b0fba2728d6292894afa92f68d716dda90f14",
+      "developmentCommit": "2da306334b11771ba76c1fea9af1b77c9c61f76b",
+      "finding": "Fluorapatite mass branch remains unreachable; upgrading alone is not a fix.",
+      "source": "https://github.com/morganjwilliams/pyrolite/blob/984b0fba2728d6292894afa92f68d716dda90f14/pyrolite/mineral/normative.py",
+      "alternative": "GeoNormPy uses a different fluorine/mineral allocation contract; shinyNORRRM has a separate R implementation but recent maintenance was not established; WebNORM calls pyrolite and is not independent.",
+      "status": "Full-domain operation remains unresolved. Integer DataFrame normalization is a separate adapter repair, not the scientific fix."
+    }
+  }
+}

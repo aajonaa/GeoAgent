@@ -1,0 +1,17 @@
+{
+  "source": {
+    "kind": "synthetic",
+    "citation": "Explicit synthetic analytic fixture; not a geological observation or mineral evidence."
+  },
+  "crs": "EPSG:4326",
+  "coordinate_unit": "degree",
+  "start_lonlat": [
+    0,
+    0
+  ],
+  "end_lonlat": [
+    4,
+    0
+  ],
+  "interior_points": 3
+}

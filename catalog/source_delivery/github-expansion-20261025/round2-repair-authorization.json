@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-25",
+  "status": "approved_repairs_in_progress_not_yet_accepted",
+  "user_decision": "Unify the approved adapter, georeferencing, physical-domain, test and dependency repairs; continue full CPU acceptance.",
+  "minimum_additional_operations": 101,
+  "original_professional_operations": 229,
+  "dependency_policy": {
+    "preserve_original_SQLAlchemy": "1.4.54",
+    "do_not_reuse_conflicting_SQLAlchemy": "2.1.6",
+    "new_dependencies": "Private CPU-only candidate; incompatible dependencies require a fixed isolated entry point.",
+    "preserve_runtime_dependencies": true
+  },
+  "admission_policy": {
+    "upstream_scientific_defects": "Not countable unless resolved through an explicitly identified, independently verified implementation.",
+    "duplicate_capabilities": "Not countable as additional tools.",
+    "scientific_assertions": "Preserve original failures, source hashes, units, tolerances and independent numerical checks.",
+    "baseline_regression": "Run all original 229 operations as well as the admitted additions."
+  },
+  "gpu_use": false,
+  "production_changes": false,
+  "deployment": false,
+  "push": false,
+  "round1_evidence": "Retained without modification."
+}

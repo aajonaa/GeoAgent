@@ -1,0 +1,52 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockGassmannSubstitution",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "dry_bulk_gpa": 10,
+    "dry_shear_gpa": 8,
+    "mineral_bulk_gpa": 40,
+    "porosity": 0.25,
+    "initial_fluid_bulk_gpa": 4,
+    "replacement_fluid_bulk_gpa": 8
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "initial_bulk_gpa"
+      ],
+      "value": 17.5,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "replacement_bulk_gpa"
+      ],
+      "value": 22.857142857142858,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "shear_gpa"
+      ],
+      "value": 8,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "dry_bulk_gpa": 45
+  },
+  "numeric_oracle": "Independent Gassmann alpha=3/4; denominators3/40 and7/160 give Ksat1=17.5,Ksat2=160/7GPa; shear=8.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/Fluid.py",
+  "limitations": [
+    "Connected equilibrated pores; unchanged dry frame and shear; no saturation inference.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

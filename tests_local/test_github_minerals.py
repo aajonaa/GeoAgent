@@ -221,12 +221,12 @@ def test_catalog_is_exact_addition_to_accepted_baseline():
     def canon(v):
         return hashlib.sha256(json.dumps(v, sort_keys=True, ensure_ascii=True, separators=(",", ":")).encode()).hexdigest()
     current = catalog()
-    assert len(current["tools"]) == 229 and len(current["skills"]) == 50
-    assert {t["id"] for t in current["tools"][220:]} == set(NAMES)
+    assert len(current["tools"]) == 346 and len(current["skills"]) == 70
+    assert {t["id"] for t in current["tools"][220:229]} == set(NAMES)
     assert canon(current["tools"][:220]) == note["old_tools_canonical_sha256"]
     assert canon(current["skills"][:47]) == note["old_skills_canonical_sha256"]
     examples = json.loads((ROOT / "catalog/source_delivery/examples.json").read_text())
-    assert canon({k: v for k, v in examples.items() if k not in NAMES}) == note["old_examples_canonical_sha256"]
+    assert canon({k: v for k, v in examples.items() if k in {t["id"] for t in current["tools"][:220]}}) == note["old_examples_canonical_sha256"]
 
 
 def test_missing_dependency_is_explicit(inputs, monkeypatch):

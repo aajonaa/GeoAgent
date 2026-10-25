@@ -1,0 +1,631 @@
+{
+  "GeoPointMassGravity": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "observations_enu_m": [
+      [
+        0,
+        0,
+        10
+      ]
+    ],
+    "sources_enu_m": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "masses_kg": [
+      1000000000.0
+    ]
+  },
+  "GeoPrismGravity": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "observations_enu_m": [
+      [
+        0,
+        0,
+        3
+      ]
+    ],
+    "prisms_wesnbt_m": [
+      [
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1
+      ]
+    ],
+    "density_contrast_kg_m3": [
+      1000
+    ]
+  },
+  "GeoDipoleMagnetic": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "observations_enu_m": [
+      [
+        0,
+        0,
+        10
+      ]
+    ],
+    "sources_enu_m": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "moments_enu_a_m2": [
+      [
+        0,
+        0,
+        1000
+      ]
+    ]
+  },
+  "GeoPrismMagnetic": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "observations_enu_m": [
+      [
+        0,
+        0,
+        3
+      ]
+    ],
+    "prisms_wesnbt_m": [
+      [
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1
+      ]
+    ],
+    "magnetization_enu_a_m": [
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "GeoRockVRHBounds": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "fractions": [
+      0.5,
+      0.5
+    ],
+    "bulk_gpa": [
+      20,
+      40
+    ],
+    "shear_gpa": [
+      10,
+      20
+    ]
+  },
+  "GeoRockHashinShtrikman": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "stiff_fraction": 0.5,
+    "stiff_bulk_gpa": 40,
+    "soft_bulk_gpa": 20,
+    "stiff_shear_gpa": 20,
+    "soft_shear_gpa": 10
+  },
+  "GeoRockCriticalPorosity": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 40,
+    "shear_gpa": 30,
+    "porosity": 0.1,
+    "critical_porosity": 0.4
+  },
+  "GeoRockSphericalPores": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "porosity": 0.1
+  },
+  "GeoRockSelfConsistent": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "fractions": [
+      0.5,
+      0.5
+    ],
+    "bulk_gpa": [
+      4,
+      16
+    ],
+    "shear_gpa": [
+      3,
+      12
+    ],
+    "aspect_ratios": [
+      1,
+      1
+    ],
+    "density_kg_m3": [
+      2400,
+      2800
+    ]
+  },
+  "GeoRockRandomCracks": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "crack_density": 0.05
+  },
+  "GeoRockMoriTanaka": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "phase1_fraction": 0.3,
+    "matrix_bulk_gpa": 30,
+    "matrix_shear_gpa": 20,
+    "phase1_bulk_gpa": 20,
+    "phase1_shear_gpa": 10,
+    "phase2_bulk_gpa": 20,
+    "phase2_shear_gpa": 10
+  },
+  "GeoRockHudsonCracks": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "inclusion_bulk_gpa": 0,
+    "inclusion_shear_gpa": 0,
+    "aspect_ratio": 0.01,
+    "crack_density": 0.02
+  },
+  "GeoRockHertzMindlin": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "porosity": 0.4,
+    "coordination": 6,
+    "effective_stress_mpa": 100,
+    "shear_factor": 0
+  },
+  "GeoRockContactCement": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "porosity": 0.36,
+    "critical_porosity": 0.4,
+    "coordination": 6,
+    "cement_bulk_gpa": 20,
+    "cement_shear_gpa": 15
+  },
+  "GeoRockDigbyContacts": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "porosity": 0.4,
+    "coordination": 6,
+    "effective_stress_mpa": 35.809862195676445,
+    "bond_radius_ratio": 0.1
+  },
+  "GeoRockSandShalePorosity": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "sand_porosity": 0.4,
+    "shale_porosity": 0.1,
+    "shale_fraction": [
+      0,
+      0.2,
+      0.6,
+      1
+    ]
+  },
+  "GeoRockGassmannSubstitution": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "dry_bulk_gpa": 10,
+    "dry_shear_gpa": 8,
+    "mineral_bulk_gpa": 40,
+    "porosity": 0.25,
+    "initial_fluid_bulk_gpa": 4,
+    "replacement_fluid_bulk_gpa": 8
+  },
+  "GeoRockBrownKorringa": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "dry_stiffness_gpa": [
+      [
+        20.666666666666668,
+        4.666666666666667,
+        4.666666666666667,
+        0,
+        0,
+        0
+      ],
+      [
+        4.666666666666667,
+        20.666666666666668,
+        4.666666666666667,
+        0,
+        0,
+        0
+      ],
+      [
+        4.666666666666667,
+        4.666666666666667,
+        20.666666666666668,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        8,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        8,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        8
+      ]
+    ],
+    "mineral_bulk_gpa": 40,
+    "mineral_shear_gpa": 30,
+    "fluid_bulk_gpa": 4,
+    "porosity": 0.25
+  },
+  "GeoRockBiotDispersion": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "dry_bulk_gpa": 10,
+    "dry_shear_gpa": 8,
+    "mineral_bulk_gpa": 40,
+    "porosity": 0.25,
+    "fluid_bulk_gpa": 4,
+    "mineral_density_kg_m3": 2650,
+    "fluid_density_kg_m3": 1000,
+    "permeability_m2": 1e-12,
+    "viscosity_pa_s": 0.001,
+    "pore_radius_m": 1e-05,
+    "tortuosity": 2,
+    "frequencies_hz": [
+      0.01
+    ]
+  },
+  "GeoRockSquirtFlow": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "high_pressure_vp_m_s": 3214.550253664318,
+    "high_pressure_vs_m_s": 2000,
+    "dry_vp_m_s": [
+      2549.5097567963926
+    ],
+    "dry_vs_m_s": [
+      1732.0508075688772
+    ],
+    "mineral_bulk_gpa": 40,
+    "dry_density_kg_m3": 2000,
+    "fluid_density_kg_m3": 1000,
+    "fluid_bulk_gpa": 4,
+    "porosity": 0.25
+  },
+  "GeoRockPatchySaturation": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "dry_bulk_gpa": 10,
+    "dry_shear_gpa": 8,
+    "mineral_bulk_gpa": 40,
+    "porosity": 0.25,
+    "mineral_density_kg_m3": 2650,
+    "inner_fluid_bulk_gpa": 4,
+    "outer_fluid_bulk_gpa": 4,
+    "inner_density_kg_m3": 1000,
+    "outer_density_kg_m3": 1000,
+    "inner_viscosity_pa_s": 0.001,
+    "outer_viscosity_pa_s": 0.001,
+    "permeability_m2": 1e-10,
+    "inner_radius_m": 0.01,
+    "inner_saturation": 0.5,
+    "frequencies_hz": [
+      1,
+      10
+    ]
+  },
+  "GeoRockBrieMixing": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "liquid_bulk_gpa": 2.5,
+    "gas_bulk_gpa": 0.1,
+    "liquid_saturation": [
+      0,
+      0.5,
+      1
+    ],
+    "exponent": 2
+  },
+  "GeoRockFluidPVT": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "temperature_c": 0,
+    "pressure_mpa": 10,
+    "salinity_mass_fraction": 0.1,
+    "reference_oil_density_kg_m3": 850,
+    "gas_specific_gravity": 0.7
+  },
+  "GeoSeismicBackus": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "fractions": [
+      0.5,
+      0.5
+    ],
+    "lame_lambda_gpa": [
+      10,
+      20
+    ],
+    "shear_gpa": [
+      10,
+      20
+    ]
+  },
+  "GeoSeismicVTIPhase": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "stiffness_gpa": [
+      [
+        44,
+        14,
+        10.0,
+        0,
+        0,
+        0
+      ],
+      [
+        14,
+        44,
+        10.0,
+        0,
+        0,
+        0
+      ],
+      [
+        10.0,
+        10.0,
+        40.0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        15,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        15,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        15
+      ]
+    ],
+    "density_kg_m3": 2500,
+    "inclination_degrees": [
+      0,
+      90
+    ]
+  },
+  "GeoSeismicOrthorhombicParameters": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "stiffness_gpa": [
+      [
+        48,
+        16,
+        14,
+        0,
+        0,
+        0
+      ],
+      [
+        16,
+        44,
+        12,
+        0,
+        0,
+        0
+      ],
+      [
+        14,
+        12,
+        40,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        12,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        14
+      ]
+    ]
+  },
+  "GeoSeismicHTIReflectivity": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "upper_stiffness_gpa": [
+      [
+        40.0,
+        10.0,
+        10.0,
+        0,
+        0,
+        0
+      ],
+      [
+        10.0,
+        40.0,
+        10.0,
+        0,
+        0,
+        0
+      ],
+      [
+        10.0,
+        10.0,
+        40.0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        15,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        15,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        15
+      ]
+    ],
+    "lower_stiffness_gpa": [
+      [
+        48.4,
+        12.1,
+        12.1,
+        0,
+        0,
+        0
+      ],
+      [
+        12.1,
+        48.4,
+        12.1,
+        0,
+        0,
+        0
+      ],
+      [
+        12.1,
+        12.1,
+        48.4,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        18.15,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        18.15,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        18.15
+      ]
+    ],
+    "upper_density_kg_m3": 2500,
+    "lower_density_kg_m3": 2500,
+    "incidence_degrees": [
+      0,
+      20
+    ],
+    "azimuth_degrees": [
+      0,
+      90
+    ]
+  },
+  "GeoSeismicZoeppritzScattering": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "upper_vp_m_s": 2000,
+    "upper_vs_m_s": 1000,
+    "upper_density_kg_m3": 2000,
+    "lower_vp_m_s": 3000,
+    "lower_vs_m_s": 1500,
+    "lower_density_kg_m3": 2000,
+    "incidence_degrees": [
+      0,
+      30,
+      60
+    ]
+  },
+  "GeoSeismicElasticImpedance": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "vp_m_s": [
+      2000,
+      3000
+    ],
+    "vs_m_s": [
+      1000,
+      1500
+    ],
+    "density_kg_m3": [
+      2000,
+      2200
+    ],
+    "incidence_degrees": [
+      0,
+      20
+    ],
+    "shear_p_ratio": 0.5
+  }
+}

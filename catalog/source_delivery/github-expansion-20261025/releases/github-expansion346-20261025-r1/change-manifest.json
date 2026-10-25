@@ -1,0 +1,1447 @@
+[
+  {
+    "path": "geological_agent/geology/github_expansion_geophysics.py",
+    "old_sha256": null,
+    "sha256": "af0729aef77171d9b2b776a04f4b9c3db7f4d0b21ad71fb9577e4a31ae3cfd32"
+  },
+  {
+    "path": "geological_agent/geology/github_expansion_remote.py",
+    "old_sha256": null,
+    "sha256": "a0cd4d3cf4d56e11cb0c28bc3230a7f154264d926bb76ae577d935fd79756f52"
+  },
+  {
+    "path": "geological_agent/geology/github_expansion_spatial.py",
+    "old_sha256": null,
+    "sha256": "c739b6d6a68ec1d9199b86f0eb9fb3dd078e5df6b1ee773397106feb8ff7a389"
+  },
+  {
+    "path": "geological_agent/geology/github_expansion_geology.py",
+    "old_sha256": null,
+    "sha256": "8fbfbcd35d3b890d37118fbdb1fa48251ad74fcba54ad441db04f75a5618216f"
+  },
+  {
+    "path": "geological_agent/geology/source_registry.py",
+    "old_sha256": "e0685fc95242850f22d3d989a341fd6e98b8da958863cf9ccd4eb0a12a68f3c5",
+    "sha256": "ae81d25f2464ab003e96a617ec173da04ff96204fbd528f431bf903f6b04cd0a"
+  },
+  {
+    "path": "geotool/domain_worker.py",
+    "old_sha256": "809e165bb6dc422da6cdcbb79026517cc5375219d53ee9a46d51a20d36f16ad3",
+    "sha256": "819d8f6fe872bb3ffa4c5a5597c1d0b420d511a8389e3e3d89bbf44d6eb959b1"
+  },
+  {
+    "path": "catalog/registry.json",
+    "old_sha256": "7bda4a776eb389cc265a64f428b7e262a09a035a37fffa494d15c577a022af79",
+    "sha256": "fb8775ec690afbf11deb4811e1fb887d48a9c04dc5b2d40d78e36d9aea1e58df"
+  },
+  {
+    "path": "catalog/source_delivery/examples.json",
+    "old_sha256": "62141c9fb128b778f3e6f634207b88461a843d4fea0d9cdbdaa9d55deeb0e39f",
+    "sha256": "a77fd531197d2f7657c30f6079a77018f009dcba428da8fb6b2608cfcc5d0fa8"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/MERGE.json",
+    "old_sha256": null,
+    "sha256": "9e91d563dad4a45c331b8a4cc7a0ad5198ae02fc5ed11cc4192f57151c258b51"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/build_contribution.py",
+    "old_sha256": null,
+    "sha256": "20134c6ab0ec2ae979a95e1c11fd3dbdaa98d4ecc35464a6f6b1b2de66e93dc6"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/PROPOSAL.md",
+    "old_sha256": null,
+    "sha256": "f042ab427017ed0687deb66a6481ea59f8919f412086575431897f19e01b5db0"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/README.md",
+    "old_sha256": null,
+    "sha256": "f080c909e6fc066db386a42bdab60d063b0d9b25f5e409828e5c4c9c385c0faa"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/R2-STATUS.md",
+    "old_sha256": null,
+    "sha256": "ae1c17a9d9c60536902298cd1e92c6c93cb22eaf6b1b42a7bf966448c2915835"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/blocked-operations.json",
+    "old_sha256": null,
+    "sha256": "145118d6fa9755228b9ede4af201a50b2987d5882ab5666b8034042b893e2d53"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/delivery-status.json",
+    "old_sha256": null,
+    "sha256": "804ae3048e5d348671b4269fbc8fe8e27605f7d599c1e064b96482cfe95a65ee"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/candidate-operations.json",
+    "old_sha256": null,
+    "sha256": "bef9fe99709616931e16967c3f7223a65cd4f359fc86c9153835cf2e08f0b25e"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/requirements.txt",
+    "old_sha256": null,
+    "sha256": "971cc0078208d82720b1237391c8024c7744b2a9b2f2edd6b28506816c7bc773"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/sources.json",
+    "old_sha256": null,
+    "sha256": "3babc08e9b9d020dfa8f5cd57b8adbbc42fb0b7b572d2cfed3abd0461809f9bb"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/oracle-cases.json",
+    "old_sha256": null,
+    "sha256": "ee8a62d496c41fa0cef24b5e759de24b037af0c98cdbaf15e01939aac9bfdfae"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/catalog-additions.json",
+    "old_sha256": null,
+    "sha256": "689c47a204822559d172b8687cf49271c33e6ba80ef68cbf9aaeb5163881e95b"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/examples-additions.json",
+    "old_sha256": null,
+    "sha256": "5336b0e138e1a9005fd5623bf3d41e91d89886f7f31028a1ce5173636fad1fd5"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/README.md",
+    "old_sha256": null,
+    "sha256": "036427c1f00eb91eabab372fd154f4d2c15939265cb833a26a4cbf33c9275ebe"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/tests_local/test_github_expansion_geology.py",
+    "old_sha256": null,
+    "sha256": "a443734a0a1e1e45e8fce1ca7b6f6bd9cd112b7342af45bb030997f8ae8c2916"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoStriplogIntervalIntersection.json",
+    "old_sha256": null,
+    "sha256": "eb828434330255c64f5f90cf2d99c55f58e53078b82d99f52ccaf0584688f400"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoPyroliteCompositionalCenter.json",
+    "old_sha256": null,
+    "sha256": "6880315f04c9d72db51e53ab9816bf7396c37c3adf3f786682b5ad92da15f0e0"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGDeformationPolarSplit.json",
+    "old_sha256": null,
+    "sha256": "20cf017603c9a7d1188bef5786521269b8adef857cf14f615492469636fda1d1"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoSKGstatRobustVariogram.json",
+    "old_sha256": null,
+    "sha256": "ad70fb309f0ad70c78fb1fa835d5ca8ab1a2efbcce5722a55e5765b3298e52c6"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoGSToolsBlockSupportCovariance.json",
+    "old_sha256": null,
+    "sha256": "b72dffb681887023d9be3681bc964017ad63050a109a3700cf5a4522fd030ced"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/README.md",
+    "old_sha256": null,
+    "sha256": "720024fda1550ce137c734497a7bd9600242b07ec2136a4cf3c05f21c5d680c0"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoWellyLogResample.json",
+    "old_sha256": null,
+    "sha256": "9a01289fccbee88756ea34da039815e873408b39fec25a4c05ef0262cfefe000"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoGeochemBackgroundDistance.json",
+    "old_sha256": null,
+    "sha256": "2300adda21a1568cc744a10031b3e4bbfbbfdfb82e9dee78e4be7ffa25ccf502"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/synthetic-nonmonotone.las",
+    "old_sha256": null,
+    "sha256": "d59838e4f3a6d71b0b6123bdd4079042596a95dff6b6587ca32362b3f75acba7"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoWellyLogDespike.json",
+    "old_sha256": null,
+    "sha256": "42db70c39b879684b0e17720bcd6a3a830ef14626e3bf97e1b2de68c44f48900"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoLasioLogAudit.json",
+    "old_sha256": null,
+    "sha256": "96767f5bae344df1edd3ef24d2f582b97ae01720f327cce48388b533ce0b72d6"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoPyroliteSphericalComposition.json",
+    "old_sha256": null,
+    "sha256": "8a05d219f729c547d488512038f706ea0ea9003c570d3f6dc5966dddcbba6ce6"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGVelocityGradientEvolution.json",
+    "old_sha256": null,
+    "sha256": "5a0a11d7b529dc74700a7ef9d07a16d86026f944f3e6a9716e302ca60de14dec"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoPyroliteMineralEndmemberUnmix.json",
+    "old_sha256": null,
+    "sha256": "6a994a064ebf2779ba57fd327dda02a71b1db2dd4b262b04db0bc86de6693084"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGBinghamAxialConfidence.json",
+    "old_sha256": null,
+    "sha256": "c1ec65355805a69abbc60b87c4ee4478ee2469f41f051c27bf12e510da7fbc3e"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGPairFabricTensor.json",
+    "old_sha256": null,
+    "sha256": "366acd1645a32d540558844490e32e51d3afc665e8a69b7347cd4a8b514b1fe4"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGFisherDirectionalConfidence.json",
+    "old_sha256": null,
+    "sha256": "980ea454126a029b948a5fa9b0b2b04afbebace2c1e89a7ee3eb3882a2776755"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoGSToolsVariogramFit.json",
+    "old_sha256": null,
+    "sha256": "af15f77feb4b5b2a640fbbbc93e4b7174af7a7dc3ffd2484accc43607b379e88"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGKinematicVorticity.json",
+    "old_sha256": null,
+    "sha256": "ee021bf33c892471c73fc5b6c835078df2e68007cb826bf2d9cc8812dc5cf0f8"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoSKGstatSpaceTimeVariogram.json",
+    "old_sha256": null,
+    "sha256": "e57442c63bf5b205e17291c25020e69d0e68c78c09e9333bcf9b19adb666e977"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGMarkerStrainEstimate.json",
+    "old_sha256": null,
+    "sha256": "40dee495787fed52dca2098146dd3cfaad8fa154f3bf98d843aa18e7d6bde031"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoPyroliteILR.json",
+    "old_sha256": null,
+    "sha256": "00c371e7d0ea1c5595e891739b8f0f1bea20e713e01016fce728373acdb26b7b"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGFractureTraction.json",
+    "old_sha256": null,
+    "sha256": "c1d4b091458dea9cb658f636ccb931cea7aed06ceb36634b413e2d83b18ce776"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGFoldAxis.json",
+    "old_sha256": null,
+    "sha256": "50dcec9bb4d51e4421ad406ba3de0a6fa984637fddb13e159a19670d985feee4"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGFaultReactivation.json",
+    "old_sha256": null,
+    "sha256": "03e56b20d37153e0cfe0677acfbb5c9436d092b2456237a3ac2e6d8e3c56cfed"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGFiniteStrainEllipsoid.json",
+    "old_sha256": null,
+    "sha256": "429daac20148d616259a8ba86701b9952da34b3e9317ae9c72c2f249d0e4f3b9"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoWellyLogFaciesBlock.json",
+    "old_sha256": null,
+    "sha256": "4d7cbcffd940f37ed386b9813b6a9df3c6164708d9dcba70208e2c862f4b4252"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoAPSGFaultKinematicAxes.json",
+    "old_sha256": null,
+    "sha256": "f8f26fd1e85753aa0fd90978af046700cb5dbb149864b3f84558ec619852ca2a"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoSKGstatKrigingLOO.json",
+    "old_sha256": null,
+    "sha256": "525f21fd577e2c4a438b4b55bf2a12b9641656596d741d0b14cd7573b3dd9c46"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/synthetic-log.las",
+    "old_sha256": null,
+    "sha256": "3dc59bd329cbf1c3bcdae4523d00a4d96761404835358af22193f2898a2a4280"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoWellyMinimumCurvature.json",
+    "old_sha256": null,
+    "sha256": "e4f5df1fda8276a191e4e5b5ca9fcef5c792e9167a4866f500d7e7d3d9384e9a"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoPyroliteALR.json",
+    "old_sha256": null,
+    "sha256": "c022b4f5a3846cf6425e1bbc4e0d3589515516d1effc144b43e4037de624a80c"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/assets/github-expansion-geology/GeoPyroliteCIPWNorm.json",
+    "old_sha256": null,
+    "sha256": "d1acefa62437f40629c8cc9e1b1ee0bb899b53defc72256390be802bb4bfaebc"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/geological_agent/geology/github_expansion_geology.py",
+    "old_sha256": null,
+    "sha256": "c63bdb481b33513c608f2bf38e18e07f02d54bc89f3d6f2834637377169558a9"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/build_contribution.py",
+    "old_sha256": null,
+    "sha256": "b6b883bc83d849f70cb8a5857bacf09ea5425db166c9c18688b8ee060d7ccb0d"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/PROPOSAL.md",
+    "old_sha256": null,
+    "sha256": "b839cf319fe1099d8c06bf97ff5d23d16aa6c686534f937a01cc72bb655a3112"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/README.md",
+    "old_sha256": null,
+    "sha256": "6a42ddbbbedde19665dd45e7c735199143d7652fe8cc98b0ae4249425ea0f4d7"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/delivery-status.json",
+    "old_sha256": null,
+    "sha256": "018a95369f165c22e88f1b2d552c2866d39c4c8d29ec2866cc44acb25466c78c"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/candidate-operations.json",
+    "old_sha256": null,
+    "sha256": "17d61b3f1a2f66a72860ce44e1c8bf55cc29cad261b7bdc77c11654c26893245"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/requirements.txt",
+    "old_sha256": null,
+    "sha256": "f8592d0f5752b86c13c3bfe086ac629c258ad84f6e2b9da7246db40266b37f12"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/sources.json",
+    "old_sha256": null,
+    "sha256": "24695e5864973d55e64d1ec478db417ad5d7b7ca7145eb43ed2d0ecd16ed1963"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/oracle-cases.json",
+    "old_sha256": null,
+    "sha256": "a06d13a5e05158193705c5ea0f8d5cdf906b6ea0950622c679b98b2269b4c69e"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/catalog-additions.json",
+    "old_sha256": null,
+    "sha256": "57382ffad99eefb8456792be195b296cd51c4d8ee4ec267d9dce18642ea662a0"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/source_delivery/github-expansion-20261025/groups/geology/examples-additions.json",
+    "old_sha256": null,
+    "sha256": "25711196c884d32088cda27c47616fc41fba4f93b54337543a64c8831e1ce454"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/skills/github-geology-mineral-chemistry/SKILL.md",
+    "old_sha256": null,
+    "sha256": "57ac1b9b0bfddfad70d2114d94a31537dfbe0f8acdcfb3de5271d2657b16a7fd"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/skills/github-geology-geostat-validation/SKILL.md",
+    "old_sha256": null,
+    "sha256": "a2d7729976a819194216ce31dffd748a8f18af7140ad8797460761f949b524e6"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/skills/github-geology-drillhole-logs/SKILL.md",
+    "old_sha256": null,
+    "sha256": "668e263231692aff332a89ffe1f1b4d9fc23be4a59ac6ceb9f5e29f293c97b3a"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/skills/github-geology-strain-stress/SKILL.md",
+    "old_sha256": null,
+    "sha256": "e208a4f6c8c6538640d7dcc03d69844a1ffdb1c81b1b951be53b1d1e0c9dc9ba"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/revisions/r1-source-snapshot/catalog/skills/github-geology-structural-fabrics/SKILL.md",
+    "old_sha256": null,
+    "sha256": "4288f2021526d5e1901ea0ecd98418c98aec6f00062ab1efe34777c9b7d39072"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/private-workers/bingham/README.md",
+    "old_sha256": null,
+    "sha256": "b30a4a4382f11782a3a97b694cc071e4e68b79424ec8674625fd5fd70e2d2d14"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/private-workers/bingham/requirements-source.txt",
+    "old_sha256": null,
+    "sha256": "75ab2da5169734402c984e2761f84e0b5b47b5ef951183c223f784c5b864b2cc"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/private-workers/bingham/LICENSE-APSG.txt",
+    "old_sha256": null,
+    "sha256": "d92275255684f173513969ddf8ae0015e3c0fe3bddb5caf90407ea394f6acaff"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/private-workers/bingham/worker-profile.json",
+    "old_sha256": null,
+    "sha256": "6489c854ef98fc6b31180066e0232236b9e6860dfee57c2cf2955577ac297297"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/private-workers/bingham/acceptance-plan.json",
+    "old_sha256": null,
+    "sha256": "0926f97bd1cf09f5f3dba5e2d10ba1db2fd51a8c455628b2bad3d653fd832f22"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/licenses/apsg.txt",
+    "old_sha256": null,
+    "sha256": "d92275255684f173513969ddf8ae0015e3c0fe3bddb5caf90407ea394f6acaff"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/licenses/welly.txt",
+    "old_sha256": null,
+    "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/licenses/lasio.txt",
+    "old_sha256": null,
+    "sha256": "991f6f5acafee7efa1bacb2a581aaeb2c98e88cecd1f88fd1167754de933dbdf"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/licenses/striplog.txt",
+    "old_sha256": null,
+    "sha256": "a8ad31b1c3f40dca5a84119351b8fa8ddc868edd77fad8a8ebf6d8f2d16fa4ae"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/licenses/wellpathpy.txt",
+    "old_sha256": null,
+    "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/licenses/scikit-gstat.txt",
+    "old_sha256": null,
+    "sha256": "86a0a7ea6f269d11813700a9259d08280eac56eccc94fba33e20e9d022fad664"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/licenses/gstools.txt",
+    "old_sha256": null,
+    "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/licenses/pyrolite.txt",
+    "old_sha256": null,
+    "sha256": "ab327cc9a151ff81c24a45672daec091755c6a37db0c96e000fcb643ab4d4bfc"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geology/licenses/scikit-learn.txt",
+    "old_sha256": null,
+    "sha256": "75684d16f4662ab842ed5af9482ac01939aee83c8243d89993616d959d3053f8"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/build_contribution.py",
+    "old_sha256": null,
+    "sha256": "88347bca03ef63b32ec8600ea7ac643007a1dc0e850168ee00684e552b3a7c57"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/candidate-operations.json",
+    "old_sha256": null,
+    "sha256": "f7db90147307ff4b5409247622ee5be6b6e0847b07a5fbd53b017f3b9034935c"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/requirements.txt",
+    "old_sha256": null,
+    "sha256": "c28f307d1d9265e4a61c6028f4ec1a9613ec0a5ee6e0b01ed0859e198b7919dc"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/R2_HANDOFF.md",
+    "old_sha256": null,
+    "sha256": "f6170066d859002f58d96db1af095cfd1c17a2e5d98d3ecadcdd6a3968adb95b"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/excluded-candidates.json",
+    "old_sha256": null,
+    "sha256": "0dd0f5bfb983e0745dbb1a2205b7c331fa8c0bcd1cf76fdb278e09a9391019f3"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/sources.json",
+    "old_sha256": null,
+    "sha256": "053c96476b2df041e17f3e11b8a0e26a9df5ceb8b395d87da0a837939bb71057"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/catalog-additions.json",
+    "old_sha256": null,
+    "sha256": "118a3493f0d6e5a456d3a24d6b7830d16dcd2a15fbb2c8383ff0e19b5a2d3261"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/r2-delivery.json",
+    "old_sha256": null,
+    "sha256": "badf550e2cc97eb28f2c6a75fe3be7fd58466f3004c43b18c921e963242622e0"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/FILE_SCHEMAS.md",
+    "old_sha256": null,
+    "sha256": "06ae40a6c0342dfa6cca35325a68c3a6637ef58db763340abfd4e55f8f58a5be"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/examples-additions.json",
+    "old_sha256": null,
+    "sha256": "4071c8dd8a0f3f529e6288c352d07b57bfd070347017a0c8b7722d454cc11549"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/licenses/scikit-image.txt",
+    "old_sha256": null,
+    "sha256": "f1c92bdd34e33c748763db0623a5b0817feed3b445802d7014b2d46e497cb9e9"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/remote/licenses/spectral.txt",
+    "old_sha256": null,
+    "sha256": "246fb0226012d12eb4d6c8eac12d3a956f012450482ddf9a6350b8aab3d632ad"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/build_contribution.py",
+    "old_sha256": null,
+    "sha256": "510e76e5d022ea9ba4a629734e475e91cffe2cea330b1fd661e4c7983a7e49c0"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/README.md",
+    "old_sha256": null,
+    "sha256": "4d41c206b87e2b501f8e06058b3f2c6f2445aefe566bc0c30c8192e9c90e8009"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/blocked-operations.json",
+    "old_sha256": null,
+    "sha256": "b00a4d1f6006e0d0fb7f51cb5fb6cf54d392cef3bab0ad45cdcc8ea278dae0d7"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/candidate-operations.json",
+    "old_sha256": null,
+    "sha256": "9d14a4556cd8b85e595472e39325f8ba78cf36f597bd3c1f53b97b5873e7964d"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/sources.json",
+    "old_sha256": null,
+    "sha256": "0e4269abf4a153f887115539d6c648897c239fc52aa379d35e44fadc0083ac41"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/r2-status.json",
+    "old_sha256": null,
+    "sha256": "fdbbec8831b588e93e0a62ba3b8bcfaf18cd19d2cb5e84e2e6095616173ffae9"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/requirements-r2-additions.txt",
+    "old_sha256": null,
+    "sha256": "4f343f8482afc4e9fe77777f649ed12f56a2c3129650b018e44e37ed17869065"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/catalog-additions.json",
+    "old_sha256": null,
+    "sha256": "07a199469125a9abb7861a9867a3269c5ea766d2d5b45b3d62ce447d714d3646"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/requirements-geophysics.txt",
+    "old_sha256": null,
+    "sha256": "b59399cd78d8e0d050765adffed23c40d6a4268022a2f7e4c0a6673071091c01"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/independent-oracles.md",
+    "old_sha256": null,
+    "sha256": "1566531299725b650284e4d54fd30d069ccdf6c9db6c4507258e6af7f0d45287"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/examples-additions.json",
+    "old_sha256": null,
+    "sha256": "add6c04ebe21b18a6f392e3ce41031272ac03b7b7bf9d700d83236100f319643"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/diagnostics/r1-stress-anisotropy-source.txt",
+    "old_sha256": null,
+    "sha256": "caff7856ee95e111be4c4dfdf0da69063065ab1bffb93a3350b4855e03416a28"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/licenses/rock-physics-open.txt",
+    "old_sha256": null,
+    "sha256": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/licenses/rockphypy.txt",
+    "old_sha256": null,
+    "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/licenses/choclo.txt",
+    "old_sha256": null,
+    "sha256": "983020989de1a464f6fe235f82d5be0f7c8804a8ecc213554cb31f58e47eaf3d"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/licenses/bruges.txt",
+    "old_sha256": null,
+    "sha256": "73ba74dfaa520b49a401b5d21459a8523a146f3b7518a833eea5efa85130bf68"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/build_contribution.py",
+    "old_sha256": null,
+    "sha256": "813367b665edf5d439c63d1bbbf2e90e193176fce1873abe189dd93bd14adfe3"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/candidate-operations.json",
+    "old_sha256": null,
+    "sha256": "1c9b90aff08a610b0b5ab6bd1ea85f45731896b0ab2374e626c67a26a5acd050"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/requirements-spatial.txt",
+    "old_sha256": null,
+    "sha256": "388357515469c8dc21133e99e5afab8cb4384e74af0b7ea666d6c097ea592b32"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/sources.json",
+    "old_sha256": null,
+    "sha256": "0b0bfcea6173748343e19678f912a4efbf566fadfdabdf504cbcf6a99df3dd71"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/catalog-additions.json",
+    "old_sha256": null,
+    "sha256": "d29edba9df9db36b6fd7d10aeba6438462cae79e6368a51db733d65413d3182f"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/changed-paths.json",
+    "old_sha256": null,
+    "sha256": "23fc715b1a5b0134af15bcd1d45ab1228893132a7f28031862b4e53af20dfe67"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/HANDOFF.md",
+    "old_sha256": null,
+    "sha256": "5c31673196e508c55f9c8bb5b7c85995ea51970ab8717c8b0de6916b4aa776c8"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/examples-additions.json",
+    "old_sha256": null,
+    "sha256": "f12c962eaf34a19935fb35f22feda7f76917dbb4de92b807a4ff689a550de01a"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/licenses/pysheds.txt",
+    "old_sha256": null,
+    "sha256": "d62f065830aa3739cc031156b9690805c7b2e811b4a178c8b4acd8725d561c94"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/licenses/esda.txt",
+    "old_sha256": null,
+    "sha256": "f9d52ad9d8eeaa224dbded7ea424c60869f9d858a19a6a920b7a6c0ac4393ddb"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/licenses/pyproj.txt",
+    "old_sha256": null,
+    "sha256": "ad66a228e30d6a7c54e70263e625c70f6b1320eb310371f75909f1d837a7948e"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/licenses/pyflwdir.txt",
+    "old_sha256": null,
+    "sha256": "c5e25ded8122aaa072198ccd0ddad7968a5a5f630ad114efba5a5667feef423b"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/licenses/rasterio.txt",
+    "old_sha256": null,
+    "sha256": "980ec3a263813effd4c813ecd18934bf3149d75be9205b47c0b0f16dd750c8c6"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/licenses/libpysal.txt",
+    "old_sha256": null,
+    "sha256": "aee205d0ec9dc95256e33a3c802d93f32b7060f6eddcc554be2040460747ba84"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/licenses/scikit-image.txt",
+    "old_sha256": null,
+    "sha256": "f1c92bdd34e33c748763db0623a5b0817feed3b445802d7014b2d46e497cb9e9"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/licenses/scipy.txt",
+    "old_sha256": null,
+    "sha256": "c295a00a217e473b65fb83c34d645b9523b9ba9d6e9a2b883ea11a521a47b12e"
+  },
+  {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/spatial/licenses/shapely.txt",
+    "old_sha256": null,
+    "sha256": "e8bd1e5b27debbfb06a868892d2b5894995c781b4ed5a5bb8364650b848c9753"
+  },
+  {
+    "path": "catalog/skills/github-spatial-survey-layout/SKILL.md",
+    "old_sha256": null,
+    "sha256": "7bcef98377b6b4361b28c18318c45835118ccd52671d212b7fbcd9e97bcf0149"
+  },
+  {
+    "path": "catalog/skills/github-geology-mineral-chemistry/SKILL.md",
+    "old_sha256": null,
+    "sha256": "f90f172639ab031ed029cdf96b13b7d18677da942b21da4dc54b2a7694cc8081"
+  },
+  {
+    "path": "catalog/skills/github-spatial-gis-conversion/SKILL.md",
+    "old_sha256": null,
+    "sha256": "74c1aa86be53fd274b1518ee5a79bc5203c394c793fc8a01409e5c049cdff651"
+  },
+  {
+    "path": "catalog/skills/github-geophysics-effective-media/SKILL.md",
+    "old_sha256": null,
+    "sha256": "22e58cb6c2053dab87d7b5a53ea507a6fa0491997d65cbcf75a8069eaa32da6a"
+  },
+  {
+    "path": "catalog/skills/github-geology-geostat-validation/SKILL.md",
+    "old_sha256": null,
+    "sha256": "3d394dbf462e637e48a1140fe8b9e81c329a20e435f9dbd13dfe44eea541ae83"
+  },
+  {
+    "path": "catalog/skills/github-spatial-terrain-drainage/SKILL.md",
+    "old_sha256": null,
+    "sha256": "a4e1a380725e006d64e418ea5eab4ecccca7cadee6937ce2d6db0e4bb9c40cf3"
+  },
+  {
+    "path": "catalog/skills/github-geology-drillhole-logs/SKILL.md",
+    "old_sha256": null,
+    "sha256": "307f243f4c377608db5a6d82bba1d204aad4953cac3fecf3c1d2866909a9fa7d"
+  },
+  {
+    "path": "catalog/skills/github-spatial-raster-access/SKILL.md",
+    "old_sha256": null,
+    "sha256": "88b7fa94a75c3672287d0f1f247519f9440dbba507ea711717dfcec26eeff3f9"
+  },
+  {
+    "path": "catalog/skills/github-remote-morphology/SKILL.md",
+    "old_sha256": null,
+    "sha256": "1c2e11b812f6354ee65d0c430cf335862224a6fc2e0006e937d667108ca5a2d8"
+  },
+  {
+    "path": "catalog/skills/github-spatial-site-association/SKILL.md",
+    "old_sha256": null,
+    "sha256": "7f16eb79fbb48a31cd895a81d973dcee7e7a991c31329e472c0265da193ee4ba"
+  },
+  {
+    "path": "catalog/skills/github-remote-radiometry/SKILL.md",
+    "old_sha256": null,
+    "sha256": "831d6a9af1c54a30d337db36d3f16cacb3eb4e37ec57acba62d6057d166a0eb4"
+  },
+  {
+    "path": "catalog/skills/github-remote-texture/SKILL.md",
+    "old_sha256": null,
+    "sha256": "356b925ad1fa1f44ec4be97b2bf5fc5640d0c8e2cd6a2d6f1df32510420aab3a"
+  },
+  {
+    "path": "catalog/skills/github-geology-strain-stress/SKILL.md",
+    "old_sha256": null,
+    "sha256": "3ab01f940a95fc9e5e684b62091c20ef16f023d822fb61d6d574c4d2bee1b5a6"
+  },
+  {
+    "path": "catalog/skills/github-geophysics-grain-fracture/SKILL.md",
+    "old_sha256": null,
+    "sha256": "2b69f223b35ca53b4bd10c3584ae0909bef0ad24d1f1d5f2e08cc55e0c4e618d"
+  },
+  {
+    "path": "catalog/skills/github-geophysics-seismic-interpretation/SKILL.md",
+    "old_sha256": null,
+    "sha256": "76a4994bbacecdc6c83adf2effc46d4a5028d2a92a7e1c9b9651b803c97c3d41"
+  },
+  {
+    "path": "catalog/skills/github-remote-segmentation/SKILL.md",
+    "old_sha256": null,
+    "sha256": "71d110165c7b640eeaa9ebeec61a180cb700aac073b4b88e3bed3e70c16dba7b"
+  },
+  {
+    "path": "catalog/skills/github-geology-structural-fabrics/SKILL.md",
+    "old_sha256": null,
+    "sha256": "bfa1153b2a11851809308ed4f7238e4efb1e47324b6914a5a7cd59d2f1b7332c"
+  },
+  {
+    "path": "catalog/skills/github-geophysics-fluid-effects/SKILL.md",
+    "old_sha256": null,
+    "sha256": "6d789c274eda6948105cf25e4b6cf5eec231b5920ad9107447956af90b59e0ad"
+  },
+  {
+    "path": "catalog/skills/github-geophysics-potential-fields/SKILL.md",
+    "old_sha256": null,
+    "sha256": "69be600000c8667014b11f2922d75ca6d50b135329421e2d9da406a2e4df02ac"
+  },
+  {
+    "path": "catalog/skills/github-remote-spectral/SKILL.md",
+    "old_sha256": null,
+    "sha256": "1685f0b63b24e3837238c1c77bde6e67930d5d08c923522e352a686579ee1d68"
+  },
+  {
+    "path": "assets/github-expansion-remote/peak.tif",
+    "old_sha256": null,
+    "sha256": "5f28a4392bafbcacd55f3dbb541c27d39004cd92b15746a6084edeaf3dfcefe4"
+  },
+  {
+    "path": "assets/github-expansion-remote/spectral-targets.tif",
+    "old_sha256": null,
+    "sha256": "0162dfda975f0942bdb6eb4996d038bb43555f1a06ad7255fb5ac077c292d52e"
+  },
+  {
+    "path": "assets/github-expansion-remote/flat.tif",
+    "old_sha256": null,
+    "sha256": "b33f60177d5e3391dfa1fe70015c601c94275acde7de6d3c343759db700251f6"
+  },
+  {
+    "path": "assets/github-expansion-remote/README.md",
+    "old_sha256": null,
+    "sha256": "7d6d31c6b45ff8b6c8194b080eba8780aa27d3cc08e875424779bfd4df75e658"
+  },
+  {
+    "path": "assets/github-expansion-remote/registration-moving.tif",
+    "old_sha256": null,
+    "sha256": "b9324e888eb83ae26c3460252111cc6660b47e1af704e56689f34b5e4adfbe1a"
+  },
+  {
+    "path": "assets/github-expansion-remote/markers-walker.tif",
+    "old_sha256": null,
+    "sha256": "106474c713721f4041df94e5458390b2e81c40dd614a1d3667bb6650f8e6541a"
+  },
+  {
+    "path": "assets/github-expansion-remote/constant-dn.tif",
+    "old_sha256": null,
+    "sha256": "f0e9b6bc0536b26ade9466c3c3f9d900d1e4dc5bb00123f5f83691f50a0e1ab0"
+  },
+  {
+    "path": "assets/github-expansion-remote/ramp.tif",
+    "old_sha256": null,
+    "sha256": "a6138f410972d554705e76aa9eb3839233fe2597d7121ab8ad27a50f681ba595"
+  },
+  {
+    "path": "assets/github-expansion-remote/spectral-pca.tif",
+    "old_sha256": null,
+    "sha256": "c51bb90fe2aa8acfed10aafed8d4d0d763d32f983a137a27767e17c0976f5653"
+  },
+  {
+    "path": "assets/github-expansion-remote/rl.tif",
+    "old_sha256": null,
+    "sha256": "336373674b4ebe3cd74fedabad8d38bd7d5421d6ec9f6a802dac189735f52c76"
+  },
+  {
+    "path": "assets/github-expansion-remote/walker.tif",
+    "old_sha256": null,
+    "sha256": "52fdbe4c6f5458eb240b038c960dadd268e8ae118304210c5025fec44e68e522"
+  },
+  {
+    "path": "assets/github-expansion-remote/markers-one.tif",
+    "old_sha256": null,
+    "sha256": "d045ad41f43276277dd0061b201c9ea8dbd123c967bdd8af1727c752fd40fc02"
+  },
+  {
+    "path": "assets/github-expansion-remote/step.tif",
+    "old_sha256": null,
+    "sha256": "33cfcd9d893db28610de472deab53cb4f31f188506f656683b5a1de90ed3104c"
+  },
+  {
+    "path": "assets/github-expansion-remote/quality-spectral.tif",
+    "old_sha256": null,
+    "sha256": "3e25dd395e4c501b447f6446897570046e75ad6e8a5b1db952885e49e624bde6"
+  },
+  {
+    "path": "assets/github-expansion-remote/histogram-reference.tif",
+    "old_sha256": null,
+    "sha256": "5dd41763faa9a98caabd5711ae7255b355f6c96663b0aef7f23ca96b90e81578"
+  },
+  {
+    "path": "assets/github-expansion-remote/spectral-noise.tif",
+    "old_sha256": null,
+    "sha256": "e4f3bb8b493837bbe8648ff1a4df9fa4daea39e5fdac5d54a87817d8f4aaddb0"
+  },
+  {
+    "path": "assets/github-expansion-remote/step-dn.tif",
+    "old_sha256": null,
+    "sha256": "801e6b38e6e623772075fa234e51601149c881810b9035dceecb0cbdf71d4a67"
+  },
+  {
+    "path": "assets/github-expansion-remote/quarter.tif",
+    "old_sha256": null,
+    "sha256": "7b3e208bd81705c575414a4a3fa1959c263d400f2b1cf378689b9c0e5b9f5234"
+  },
+  {
+    "path": "assets/github-expansion-remote/regions.tif",
+    "old_sha256": null,
+    "sha256": "488fa80db92f23eb5a9bb036989a65e7fce05a91f8a7558076f826de33bb8030"
+  },
+  {
+    "path": "assets/github-expansion-remote/skeleton.tif",
+    "old_sha256": null,
+    "sha256": "333e4a0cb43843d2c02c2b4e53d1532d0bf105dfca45e8a0fefd6a89c7331972"
+  },
+  {
+    "path": "assets/github-expansion-remote/constraint.tif",
+    "old_sha256": null,
+    "sha256": "e10f73e5fbcd4158c29133ff81b892a03a2379414e20444d796800df846c325f"
+  },
+  {
+    "path": "assets/github-expansion-remote/oracles.json",
+    "old_sha256": null,
+    "sha256": "5ed38881e2cb43ac0ff2330ebd397514443abbbb304a7b7b2143933362b23988"
+  },
+  {
+    "path": "assets/github-expansion-remote/quality.tif",
+    "old_sha256": null,
+    "sha256": "6b650492ddb787ef1b1692af3e27a590d0c3edfc29d332b243a37fe21fbe0fb0"
+  },
+  {
+    "path": "assets/github-expansion-remote/holes.tif",
+    "old_sha256": null,
+    "sha256": "c62588228190abbac49587edacdd6bbca7ce5d03747852379b7c1086b06690a1"
+  },
+  {
+    "path": "assets/github-expansion-remote/checkerboard.tif",
+    "old_sha256": null,
+    "sha256": "227291c84be0a3effe24e04caf49425c8350df06f9ec876b5b525d480bb3d330"
+  },
+  {
+    "path": "assets/github-expansion-remote/objects.tif",
+    "old_sha256": null,
+    "sha256": "8a2d94cdc52f77a8c7c07e7f152f066be4f6d5f3681101e59cb24836f3d9e8cb"
+  },
+  {
+    "path": "assets/github-expansion-remote/impulse.tif",
+    "old_sha256": null,
+    "sha256": "d045ad41f43276277dd0061b201c9ea8dbd123c967bdd8af1727c752fd40fc02"
+  },
+  {
+    "path": "assets/github-expansion-remote/registration-reference.tif",
+    "old_sha256": null,
+    "sha256": "055e3543fd3ddea6e2cf2d5377e5f526d84436638b2d52e62de4dd63eb5fce48"
+  },
+  {
+    "path": "assets/github-expansion-remote/zeros.tif",
+    "old_sha256": null,
+    "sha256": "4a3bdf0560510422bf339a9e88cd341682bcbdcb8b5d063478949c6eddcf7b65"
+  },
+  {
+    "path": "assets/github-expansion-remote/spectral-resample.tif",
+    "old_sha256": null,
+    "sha256": "b34675cbc30b9b2dcc2329e64ed1bfd00e449c516eeb0cf1a42e66c5e9d12fc6"
+  },
+  {
+    "path": "assets/github-expansion-remote/seed.tif",
+    "old_sha256": null,
+    "sha256": "755dd191457ba932aed15d38af0485b1e91a936f3ba3c37bd119b57f3b53a912"
+  },
+  {
+    "path": "assets/github-expansion-remote/background.tif",
+    "old_sha256": null,
+    "sha256": "f0e9b6bc0536b26ade9466c3c3f9d900d1e4dc5bb00123f5f83691f50a0e1ab0"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoStriplogIntervalIntersection.json",
+    "old_sha256": null,
+    "sha256": "eb828434330255c64f5f90cf2d99c55f58e53078b82d99f52ccaf0584688f400"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoPyroliteCompositionalCenter.json",
+    "old_sha256": null,
+    "sha256": "6880315f04c9d72db51e53ab9816bf7396c37c3adf3f786682b5ad92da15f0e0"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGDeformationPolarSplit.json",
+    "old_sha256": null,
+    "sha256": "20cf017603c9a7d1188bef5786521269b8adef857cf14f615492469636fda1d1"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoSKGstatRobustVariogram.json",
+    "old_sha256": null,
+    "sha256": "ad70fb309f0ad70c78fb1fa835d5ca8ab1a2efbcce5722a55e5765b3298e52c6"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoGSToolsBlockSupportCovariance.json",
+    "old_sha256": null,
+    "sha256": "b72dffb681887023d9be3681bc964017ad63050a109a3700cf5a4522fd030ced"
+  },
+  {
+    "path": "assets/github-expansion-geology/README.md",
+    "old_sha256": null,
+    "sha256": "489f173e6b0ce1d1c11032ccf7cd41a30783188fadf63b2ee862a047fd02b8ea"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoWellyLogResample.json",
+    "old_sha256": null,
+    "sha256": "9a01289fccbee88756ea34da039815e873408b39fec25a4c05ef0262cfefe000"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoGeochemBackgroundDistance.json",
+    "old_sha256": null,
+    "sha256": "2300adda21a1568cc744a10031b3e4bbfbbfdfb82e9dee78e4be7ffa25ccf502"
+  },
+  {
+    "path": "assets/github-expansion-geology/synthetic-nonmonotone.las",
+    "old_sha256": null,
+    "sha256": "d59838e4f3a6d71b0b6123bdd4079042596a95dff6b6587ca32362b3f75acba7"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoWellyLogDespike.json",
+    "old_sha256": null,
+    "sha256": "42db70c39b879684b0e17720bcd6a3a830ef14626e3bf97e1b2de68c44f48900"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoLasioLogAudit.json",
+    "old_sha256": null,
+    "sha256": "96767f5bae344df1edd3ef24d2f582b97ae01720f327cce48388b533ce0b72d6"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoPyroliteSphericalComposition.json",
+    "old_sha256": null,
+    "sha256": "8a05d219f729c547d488512038f706ea0ea9003c570d3f6dc5966dddcbba6ce6"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGVelocityGradientEvolution.json",
+    "old_sha256": null,
+    "sha256": "5a0a11d7b529dc74700a7ef9d07a16d86026f944f3e6a9716e302ca60de14dec"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoPyroliteMineralEndmemberUnmix.json",
+    "old_sha256": null,
+    "sha256": "6a994a064ebf2779ba57fd327dda02a71b1db2dd4b262b04db0bc86de6693084"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGPairFabricTensor.json",
+    "old_sha256": null,
+    "sha256": "366acd1645a32d540558844490e32e51d3afc665e8a69b7347cd4a8b514b1fe4"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGFisherDirectionalConfidence.json",
+    "old_sha256": null,
+    "sha256": "980ea454126a029b948a5fa9b0b2b04afbebace2c1e89a7ee3eb3882a2776755"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoGSToolsVariogramFit.json",
+    "old_sha256": null,
+    "sha256": "af15f77feb4b5b2a640fbbbc93e4b7174af7a7dc3ffd2484accc43607b379e88"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGKinematicVorticity.json",
+    "old_sha256": null,
+    "sha256": "ee021bf33c892471c73fc5b6c835078df2e68007cb826bf2d9cc8812dc5cf0f8"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoSKGstatSpaceTimeVariogram.json",
+    "old_sha256": null,
+    "sha256": "e57442c63bf5b205e17291c25020e69d0e68c78c09e9333bcf9b19adb666e977"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGMarkerStrainEstimate.json",
+    "old_sha256": null,
+    "sha256": "40dee495787fed52dca2098146dd3cfaad8fa154f3bf98d843aa18e7d6bde031"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoPyroliteILR.json",
+    "old_sha256": null,
+    "sha256": "00c371e7d0ea1c5595e891739b8f0f1bea20e713e01016fce728373acdb26b7b"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGFractureTraction.json",
+    "old_sha256": null,
+    "sha256": "c1d4b091458dea9cb658f636ccb931cea7aed06ceb36634b413e2d83b18ce776"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGFoldAxis.json",
+    "old_sha256": null,
+    "sha256": "50dcec9bb4d51e4421ad406ba3de0a6fa984637fddb13e159a19670d985feee4"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGFaultReactivation.json",
+    "old_sha256": null,
+    "sha256": "03e56b20d37153e0cfe0677acfbb5c9436d092b2456237a3ac2e6d8e3c56cfed"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGFiniteStrainEllipsoid.json",
+    "old_sha256": null,
+    "sha256": "429daac20148d616259a8ba86701b9952da34b3e9317ae9c72c2f249d0e4f3b9"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoWellyLogFaciesBlock.json",
+    "old_sha256": null,
+    "sha256": "4d7cbcffd940f37ed386b9813b6a9df3c6164708d9dcba70208e2c862f4b4252"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoAPSGFaultKinematicAxes.json",
+    "old_sha256": null,
+    "sha256": "f8f26fd1e85753aa0fd90978af046700cb5dbb149864b3f84558ec619852ca2a"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoSKGstatKrigingLOO.json",
+    "old_sha256": null,
+    "sha256": "525f21fd577e2c4a438b4b55bf2a12b9641656596d741d0b14cd7573b3dd9c46"
+  },
+  {
+    "path": "assets/github-expansion-geology/synthetic-log.las",
+    "old_sha256": null,
+    "sha256": "3dc59bd329cbf1c3bcdae4523d00a4d96761404835358af22193f2898a2a4280"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoWellyMinimumCurvature.json",
+    "old_sha256": null,
+    "sha256": "e4f5df1fda8276a191e4e5b5ca9fcef5c792e9167a4866f500d7e7d3d9384e9a"
+  },
+  {
+    "path": "assets/github-expansion-geology/GeoPyroliteALR.json",
+    "old_sha256": null,
+    "sha256": "c022b4f5a3846cf6425e1bbc4e0d3589515516d1effc144b43e4037de624a80c"
+  },
+  {
+    "path": "assets/github-expansion-spatial/polygon_intersection.json",
+    "old_sha256": null,
+    "sha256": "dcc6284bbdca589767d67aaee7063bded4603c8345b67525702a504ed3c3b3db"
+  },
+  {
+    "path": "assets/github-expansion-spatial/README.md",
+    "old_sha256": null,
+    "sha256": "50a22d861bd156eea7bde4ac32f163fe682276ebc798657a7acddbef9b7510a4"
+  },
+  {
+    "path": "assets/github-expansion-spatial/raster_polygonize.json",
+    "old_sha256": null,
+    "sha256": "36d60ab9dea4915a256cfebceb246667b1586b73987900d3ca21bd290bb0c7eb"
+  },
+  {
+    "path": "assets/github-expansion-spatial/terrain_contours.json",
+    "old_sha256": null,
+    "sha256": "02e6de0b141e13675c713209d80783196b2268f2b0580e4d12e9230f55cd7214"
+  },
+  {
+    "path": "assets/github-expansion-spatial/least_cost_path.json",
+    "old_sha256": null,
+    "sha256": "2a880bb5174a2d43c42156370865664b9523cf23b00ed00e579b240880755855"
+  },
+  {
+    "path": "assets/github-expansion-spatial/cost_corridor.json",
+    "old_sha256": null,
+    "sha256": "5eabc2643255ca1afe5809fb51fb473dc572dd0049b124648bed5d3829b432fa"
+  },
+  {
+    "path": "assets/github-expansion-spatial/depression_fill.json",
+    "old_sha256": null,
+    "sha256": "b114f4b0083d2f26d6197047dbf156bbc54a8b08bb4fccc169f852aa9546ec9f"
+  },
+  {
+    "path": "assets/github-expansion-spatial/projection_distortion.json",
+    "old_sha256": null,
+    "sha256": "5b6215197c6a7fffb9146e8f7130979e8a17b519430fa28098834db0d1fef7e5"
+  },
+  {
+    "path": "assets/github-expansion-spatial/raster_reproject.json",
+    "old_sha256": null,
+    "sha256": "46716793f1f9bc3da2f2e6b31c8f8562324d1eb73877d67c04769d9cf83c380f"
+  },
+  {
+    "path": "assets/github-expansion-spatial/local_getis_ord.json",
+    "old_sha256": null,
+    "sha256": "9040470dca34cab57fb67319c3ec89a1a41e5c7e4fc3e575be44ae903fc9f370"
+  },
+  {
+    "path": "assets/github-expansion-spatial/raster_reproject_cross_crs.json",
+    "old_sha256": null,
+    "sha256": "28e7a958653b24c1087f46d86560b9492b5c105b6168fce2353634a1b1799d82"
+  },
+  {
+    "path": "assets/github-expansion-spatial/strahler_order.json",
+    "old_sha256": null,
+    "sha256": "acf857afb89b3cda8a32ae4423f0871b45dc69ff7d029803d5d06f7e1e707436"
+  },
+  {
+    "path": "assets/github-expansion-spatial/strahler_order_multi_221.json",
+    "old_sha256": null,
+    "sha256": "a8d604a605edd6a6e6ff123dd4f85be273ee6852e0a640c2f10bb90ab6ede37c"
+  },
+  {
+    "path": "assets/github-expansion-spatial/strahler_order_multi_112.json",
+    "old_sha256": null,
+    "sha256": "8cf119ec00bc4aea36e0a1edb78d7e22f0581e2ba489f99d1a4094d56bf57819"
+  },
+  {
+    "path": "assets/github-expansion-spatial/geodesic_transect.json",
+    "old_sha256": null,
+    "sha256": "d88df76730166b061e7c66cf92197849d0f90c37675ed17cea274e90f118774e"
+  },
+  {
+    "path": "assets/github-expansion-spatial/coverage_union.json",
+    "old_sha256": null,
+    "sha256": "ff984eab98aa6729daee6f38829000b3b81a81b44ee6e769b39054ed2c218403"
+  },
+  {
+    "path": "assets/github-expansion-spatial/polygon_rasterize.json",
+    "old_sha256": null,
+    "sha256": "b089953008cc3728d5642696d0be11cd95ac93ffdd2ef2dc27d1de48fa588007"
+  },
+  {
+    "path": "assets/github-expansion-spatial/euclidean_proximity.json",
+    "old_sha256": null,
+    "sha256": "76549da6a6f6f2f2131c87b9b973e5ca9d4ca8a4b790281fbbd7680213ac7c44"
+  },
+  {
+    "path": "assets/github-expansion-spatial/resistance_distance.json",
+    "old_sha256": null,
+    "sha256": "cdbe7eedf3dab537ddb40641f974718548e9e3a1b4693aecf6ff4860896601d9"
+  },
+  {
+    "path": "assets/github-expansion-spatial/local_moran.json",
+    "old_sha256": null,
+    "sha256": "9040470dca34cab57fb67319c3ec89a1a41e5c7e4fc3e575be44ae903fc9f370"
+  },
+  {
+    "path": "assets/github-expansion-spatial/cost_allocation.json",
+    "old_sha256": null,
+    "sha256": "23cf5063e2d936b896530921f0ae5f062ce4a84f464c0ed4601993919e23ad6a"
+  },
+  {
+    "path": "assets/github-expansion-spatial/site_parcel_split.json",
+    "old_sha256": null,
+    "sha256": "ee369d4263e1e24ceccac9575d29e59462e23e88a7bdcd48567c756f1f15ce97"
+  },
+  {
+    "path": "assets/github-expansion-spatial/constrained_triangulation.json",
+    "old_sha256": null,
+    "sha256": "b9d7d57823ddbb5264312fb1f878fb376f422fcf2c3bb287130179e4436510d9"
+  },
+  {
+    "path": "assets/github-expansion-spatial/global_geary.json",
+    "old_sha256": null,
+    "sha256": "9040470dca34cab57fb67319c3ec89a1a41e5c7e4fc3e575be44ae903fc9f370"
+  },
+  {
+    "path": "assets/github-expansion-spatial/site_voronoi.json",
+    "old_sha256": null,
+    "sha256": "48f312b9f70a6d7e5d39766bb5f1b37d8079f8d6603116680f7ed95fca844765"
+  },
+  {
+    "path": "assets/github-expansion-spatial/maximum_inscribed_circle.json",
+    "old_sha256": null,
+    "sha256": "b32fec054162e8b857a17bc44e21227b8838ea02cf317b6c48fa44d0f5e25d97"
+  },
+  {
+    "path": "assets/github-expansion-spatial/height_above_drainage.json",
+    "old_sha256": null,
+    "sha256": "378ff82be89db630c5eced5fd2ec5afb627e0abef63e3c5e68e0664c99da944c"
+  },
+  {
+    "path": "assets/github-expansion-spatial/local_geary.json",
+    "old_sha256": null,
+    "sha256": "9040470dca34cab57fb67319c3ec89a1a41e5c7e4fc3e575be44ae903fc9f370"
+  },
+  {
+    "path": "assets/github-expansion-spatial/bivariate_local_moran.json",
+    "old_sha256": null,
+    "sha256": "8366cea3e06905bb49f56f3dc75b907bd54945393d8afff7fce40411da8726c7"
+  },
+  {
+    "path": "assets/github-expansion-spatial/ellipsoidal_polygon_area.json",
+    "old_sha256": null,
+    "sha256": "7bddc18ac7f289f88126212da62a38e761a0dd718751e5362fe9f8b76645c069"
+  },
+  {
+    "path": "assets/github-expansion-spatial/distance_to_outlet.json",
+    "old_sha256": null,
+    "sha256": "7231ee1cf17a6e3752a9ccd4d4e63d5fa5248a902dd662bdb1ef1981504db0ab"
+  },
+  {
+    "path": "assets/github-expansion-spatial/distance_to_ridge.json",
+    "old_sha256": null,
+    "sha256": "c42964e060a5838e774aca9adf4e4299afd3fe85bb210790c7b85d89ddc491bb"
+  },
+  {
+    "path": "assets/github-expansion-spatial/capacity_max_flow.json",
+    "old_sha256": null,
+    "sha256": "a89b52be2eba78a4b994aef97d985454cc2c7b5ee0ccb6d99dea12ee7297b8d6"
+  },
+  {
+    "path": "assets/github-expansion-spatial/binary_join_counts.json",
+    "old_sha256": null,
+    "sha256": "0c837e92b8ce094d3464c1f8be2a30e3d3a06455f157eb6c3f5d35160e447bb2"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockHashinShtrikman.json",
+    "old_sha256": null,
+    "sha256": "236af6e32c064895d2a4903807d58a2c8f99105303de345b061000f95b382ca6"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockCriticalPorosity.json",
+    "old_sha256": null,
+    "sha256": "a1eb548617040a89ae8b1a13f555e59db50687c9e477d2353d7998417946ea49"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockPatchySaturation.json",
+    "old_sha256": null,
+    "sha256": "f39a9764c8452752e8bfd7c173c7e2003fa990a52d97e446a45a2d93b818c3c1"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/README.md",
+    "old_sha256": null,
+    "sha256": "889225bf2e3809c9988ed899960584f54cf6e67b0b8a7837bd360a29fad7c05e"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockMoriTanaka.json",
+    "old_sha256": null,
+    "sha256": "c90a366793a7ac4106a1c8ea76aec46d5a6b4f500076ee1227518d7318550d73"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockBrownKorringa.json",
+    "old_sha256": null,
+    "sha256": "8b1a2da6bc8639137ecbfa7413a3063d307f808b0a6709849a8a7633ce1a33bf"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockSquirtFlow.json",
+    "old_sha256": null,
+    "sha256": "554e29dc24354936a70adb4fd20d0bee40c3dbbea75030069c5bbfe19e4712ad"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoPointMassGravity.json",
+    "old_sha256": null,
+    "sha256": "6ec9bc8c5146e5e7e64428999c58224d054fe1a9221553c2201e739ab6080589"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockRandomCracks.json",
+    "old_sha256": null,
+    "sha256": "b80eab69fb9f2cffa67d29fc352b28963401cc260e458121c5d2190105380b5b"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoSeismicZoeppritzScattering.json",
+    "old_sha256": null,
+    "sha256": "0e979dd33d13729886832f0c5a8f16bcdd6d365cddde88f7542a4161d025ac73"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockSandShalePorosity.json",
+    "old_sha256": null,
+    "sha256": "6cfdc8d443277eb45af8db7e787a7862d15a3ae395ac1d9fa96d500d248565a3"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoDipoleMagnetic.json",
+    "old_sha256": null,
+    "sha256": "6871b141aa8c71abe55c787a4861cf136d1dce5cf1a399b6a9149ab173e0d8f5"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockSphericalPores.json",
+    "old_sha256": null,
+    "sha256": "b2298695262527dfe1a2f0d74248e85d395ded2d1b430fa88e6dfdae507239cb"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockDigbyContacts.json",
+    "old_sha256": null,
+    "sha256": "a23d8d8c37f7bf6a3c42540bc7751da76b3c83cb8511abae1dc2b5c2b271ebf6"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockHertzMindlin.json",
+    "old_sha256": null,
+    "sha256": "d098416db834414df57168f9cd2f5c6c065056ef792bd6659c3ce3ba3c5c5cb5"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoSeismicOrthorhombicParameters.json",
+    "old_sha256": null,
+    "sha256": "b5e536f65dd7b1ad26cdfeeec9f310800889a70cf7ff71f649138e1aa5625a48"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/r2-oracles.json",
+    "old_sha256": null,
+    "sha256": "ba8e81e70af37e97534cd9278a9a5e2f55d3acdd11a99c924e1149a17858ac48"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockVRHBounds.json",
+    "old_sha256": null,
+    "sha256": "6c07cac960c22b856f33c84f312f1efe3c2352878857a1f111fce1121e4d74fc"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoSeismicVTIPhase.json",
+    "old_sha256": null,
+    "sha256": "1451a977458a2a96fc281e538b19a1f81ac32f78d9ce2ba309d1b463e5d02eb2"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockContactCement.json",
+    "old_sha256": null,
+    "sha256": "4b73d5c24ecaaca76bd10a3fc067fd0f3dba9fdee3f7a324d7ec7a5caa61005c"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockGassmannSubstitution.json",
+    "old_sha256": null,
+    "sha256": "58f6cc04fc3c5e63db5fe6e7746480e043628e454593a06106663889b1ec490f"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoPrismMagnetic.json",
+    "old_sha256": null,
+    "sha256": "b9df9c2dfdd8c17f8cecb658041b5db1d9f12b3cd7e231a344a4501b0c7599c2"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoSeismicHTIReflectivity.json",
+    "old_sha256": null,
+    "sha256": "08390b0da4dcccd05d6e2acae6c0aa7bb528fd68df2a52d10118ff790edae26f"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockHudsonCracks.json",
+    "old_sha256": null,
+    "sha256": "70bd024b81d16a5b84cc9c6ad3221486262adf3111aa6dbc267bc0514b092b63"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoSeismicElasticImpedance.json",
+    "old_sha256": null,
+    "sha256": "8bca027acf8a4bd778e2ee2089b9d09567224c3971a64cd7fcbf46f21e286e9e"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockBiotDispersion.json",
+    "old_sha256": null,
+    "sha256": "10244be4aa4b302533e9d5abb4aa687f3abb24d4471dd0eeb00158ef560cf6a1"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoPrismGravity.json",
+    "old_sha256": null,
+    "sha256": "55efbe9aa2e020a0368beedd254e10d7ed2a36ec27e7d11c54e1aea8b65040c6"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockSelfConsistent.json",
+    "old_sha256": null,
+    "sha256": "b41545a2b4f1bb0d2816636f696454e8dd303965e5405c5881163f5a61085a72"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockBrieMixing.json",
+    "old_sha256": null,
+    "sha256": "5d564e0b9a2f52620bc1f6c48a462c79090eac63c79536895ceaabd0b059cc05"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockStressAnisotropy.json",
+    "old_sha256": null,
+    "sha256": "09b75dc7865f0044e8ef9cce8006d7efd91458c3badc25124fd242da1bb21539"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoSeismicBackus.json",
+    "old_sha256": null,
+    "sha256": "1fd7f7fd42365f431c51471a8bc2c09952fbf7b47caecc4da943bd1ca3b98850"
+  },
+  {
+    "path": "assets/github-expansion-geophysics/GeoRockFluidPVT.json",
+    "old_sha256": null,
+    "sha256": "44b094176701f737a1b52f28a8e502289c25a2183d97ca78f2ec29019a7353be"
+  },
+  {
+    "path": "tests_local/test_github_expansion_spatial.py",
+    "old_sha256": null,
+    "sha256": "7ea92c75a20acbe3442bb545d0dc41f29ef13ae23aa589b9ce7b8f773ecedbf7"
+  },
+  {
+    "path": "tests_local/test_github_expansion_geology.py",
+    "old_sha256": null,
+    "sha256": "cec9ae0c722533e45ca2e8808dd74281eb5d644f8e1b50769d4f6b039ea83295"
+  },
+  {
+    "path": "tests_local/test_catalog_metadata.py",
+    "old_sha256": "9c52f93422fa2abb5010492303e6d142bd65bbdd4c459263d975efb0f40be346",
+    "sha256": "91a45ce22d9ce543f5daa8a208247c3b31eaeb9caad800c8cb2a70123a3a56fb"
+  },
+  {
+    "path": "tests_local/test_unified_skills.py",
+    "old_sha256": "38dd8c8f62b722f3abae6ca4c2e1c38008786d7eafcd3b1247d77257d7562e98",
+    "sha256": "ae419451c337a9e65c9768ddb5095a2e92064877eed53632cebd4492cd6d8edf"
+  },
+  {
+    "path": "tests_local/test_github_expansion_contracts.py",
+    "old_sha256": null,
+    "sha256": "845ad53824fcce6e6b97b2c78eca305ffb40985e31e68a8ea5f30752c0f4cd7e"
+  },
+  {
+    "path": "tests_local/test_github_minerals.py",
+    "old_sha256": "89b0297ae26001a0dcc5d793729f4c8b945062e796dff7b7e069facc4d8d2801",
+    "sha256": "3f04f1f03e8b89e1f3ca7bc59fc21306e619644fe3ec32d1a599d992a9ef1491"
+  },
+  {
+    "path": "tests_local/test_professional_catalog.py",
+    "old_sha256": "659309c91654f0597672e4717b90d5dc539726cffa34fc43b14b14f933f6f2c2",
+    "sha256": "fbf90c142f57886936c83fe0ce35a06b4170c3e8fd230f635c47a7b6fa9db898"
+  },
+  {
+    "path": "tests_local/test_github_expansion_remote.py",
+    "old_sha256": null,
+    "sha256": "1fa0346119e570c5d842508f2d923455c591f728ae7591172ccb9fb7c79058ca"
+  },
+  {
+    "path": "tests_local/test_github_expansion_geophysics.py",
+    "old_sha256": null,
+    "sha256": "15b321f775ac3fdf29d66376076b3867cfb231e3de6cd370899a17cfdac317e5"
+  }
+]

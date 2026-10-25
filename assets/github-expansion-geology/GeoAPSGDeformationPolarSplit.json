@@ -1,0 +1,21 @@
+{
+  "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+  "coordinate_frame": "NED",
+  "deformation_gradient": [
+    [
+      0,
+      -1,
+      0
+    ],
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0.5
+    ]
+  ]
+}

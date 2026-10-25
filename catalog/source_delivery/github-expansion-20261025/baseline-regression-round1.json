@@ -1,0 +1,44 @@
+{
+  "phase": "baseline_compatibility_regression_failed",
+  "date": "2026-10-25",
+  "candidate_root": "/data/wangjian/github-expansion120-20261025-r1/candidate",
+  "original_professional_tools": 229,
+  "passed": 243,
+  "failed": 1,
+  "seconds": 76.34,
+  "pytest_exit_code": 1,
+  "scope": "All 229 original native-runtime operations, catalog metadata, discovery, external-path rejection, unavailable-Skill behavior and changed-input cache behavior.",
+  "failing_operation": "SeismicObsPyBandpass",
+  "root_cause": {
+    "new_candidate_dependency": "SQLAlchemy==2.1.6",
+    "existing_operation_dependency": "obspy==1.4.2",
+    "existing_requirement": "sqlalchemy<2",
+    "observed_error": "ContextualVersionConflict",
+    "apsg_requirement": "sqlalchemy (no declared version bound)",
+    "original_installed_sqlalchemy": "1.4.54"
+  },
+  "counterfactual": {
+    "candidate_source_unchanged": true,
+    "dependency_search_path": "Original dependency paths, excluding the new private target",
+    "operation": "SeismicObsPyBandpass",
+    "passed": 1,
+    "failed": 0,
+    "seconds": 5.74,
+    "not_a_candidate_repair": true
+  },
+  "proposal": "First test compatibility with the original SQLAlchemy 1.4.54 and update new-candidate pins accordingly only after approval. Isolate genuinely incompatible new versions in fixed CPU workers; do not downgrade or overwrite production dependencies.",
+  "repair_applied": false,
+  "user_decision_pending": true,
+  "evidence_directory": "tests_local/expansion-release-20261025-r1",
+  "evidence_files": [
+    "baseline229-regression-nodes.json",
+    "baseline229-regression.log",
+    "baseline229-regression.xml",
+    "sqlalchemy-conflict.json",
+    "obspy-original-dependencies.log",
+    "obspy-original-dependencies.xml"
+  ],
+  "deployed": false,
+  "pushed": false,
+  "gpu_used": false
+}

@@ -1,0 +1,9 @@
+{
+  "source": {
+    "kind": "synthetic",
+    "citation": "Explicit synthetic analytic fixture; not a geological observation or mineral evidence."
+  },
+  "crs": "EPSG:4326",
+  "coordinate_unit": "degree",
+  "polygon_wkt": "POLYGON ((0 0, 90 0, 0 90, 0 0))"
+}

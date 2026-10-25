@@ -1,0 +1,96 @@
+{
+  "status": "blocked_acceptance_plan_not_an_active_oracle",
+  "synthetic": true,
+  "tests_run": false,
+  "rejected_r1_oracle": "The r1 semi-angle expectation reproduced the defective kernel expression. It is retained only in historical source, not a valid independent acceptance value.",
+  "independent_invariants": [
+    {
+      "task": "Nonidentifiable isotropic axial fabric",
+      "synthetic_vectors_ned": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          -1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          -1,
+          0
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          -1
+        ]
+      ],
+      "expected_eigenvalues": [
+        0.3333333333333333,
+        0.3333333333333333,
+        0.3333333333333333
+      ],
+      "expected_transverse_semi_angles_degree": [
+        90,
+        90
+      ],
+      "derivation": "Rotational invariance leaves no identifiable major axis. Full axial uncertainty must not collapse to zero. This is an identifiability argument, not a copy of the upstream confidence expression.",
+      "qualification": "The full public upstream call, not just its low-level ellipse helper, must retain this behavior or report scientifically explicit nonidentifiability. No successful numerical result is asserted here."
+    },
+    {
+      "task": "Antipodal and orthogonal-frame invariance",
+      "expected_absolute_axis_inner_product": 1,
+      "expected_semi_angle_change_degree": 0,
+      "derivation": "Reversing arbitrary axis signs preserves the axial sample; rotating all measurements rigidly rotates the reported region without changing angular widths."
+    }
+  ],
+  "missing_acceptance": [
+    "A positive finite nondegenerate angular oracle independent of the upstream expression has not been qualified.",
+    "Population-coverage acceptance must use an independently implemented/qualified sampler and justified finite-trial binomial tolerances; copying the upstream sampler and confidence formula is not an independent oracle.",
+    "Fixed-worker source/provenance identity and coexistence with APSG 2.0.6 must be tested by the parent."
+  ],
+  "upstream_tests_are_context_not_local_evidence": true
+}
