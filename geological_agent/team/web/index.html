@@ -3,12 +3,15 @@
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>GeoAgent · 研究组</title>
-  <link rel="stylesheet" href="/assets/style.css?v=20261004-toolbar-layout1"><link rel="stylesheet" href="/assets/library.css?v=20261003-nav-icons2"><link rel="stylesheet" href="/assets/model-profiles.css?v=20261003-context1"><link rel="stylesheet" href="/assets/knowledge.css?v=20261004-pdf1">
+  <link rel="stylesheet" href="/assets/style.css?v=20261004-toolbar-layout1"><link rel="stylesheet" href="/assets/library.css?v=20261003-nav-icons2"><link rel="stylesheet" href="/assets/model-profiles.css?v=20261003-context1"><link rel="stylesheet" href="/assets/knowledge.css?v=20261004-pdf2">
   <link rel="stylesheet" href="/assets/images.css?v=20261004-experience1">
   <link rel="stylesheet" href="/assets/presentation.css?v=20261003-rich1">
+  <link rel="stylesheet" href="/assets/citations.css?v=20261026-citations1">
+  <script src="/assets/citations.js?v=20261026-citations1" defer></script>
   <script src="/assets/timeline.js?v=20261004-timeline1" defer></script>
-<script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261004-experience1" defer></script><script src="/assets/images.js?v=20261004-experience1" defer></script>
+<script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261026-citations1" defer></script><script src="/assets/images.js?v=20261004-experience1" defer></script>
   <script src="/assets/defaults.js?v=20261004-token-format1" defer></script>
+<script src="/assets/memorax.js?v=20261024-live3" defer></script>
 <link rel="stylesheet" href="/assets/timeline.css?v=20261004-timeline1">
 </head>
 <body>
@@ -99,9 +102,9 @@
   </div>
 </section>
 <dialog id="knowledge-import" class="k-import" aria-labelledby="knowledge-import-heading"><form id="knowledge-form"><header class="k-import-heading"><div><p class="k-eyebrow">ADD A SOURCE</p><h2 id="knowledge-import-heading">把资料放进来。</h2></div><button id="knowledge-import-close" class="k-button" type="button" aria-label="关闭添加文献">关闭</button></header><div class="k-import-content"><button id="knowledge-drop" class="k-dropzone" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4m-4 4 4-4 4 4M4 15v5h16v-5"/></svg><strong>选择文件，或拖到这里</strong><span id="knowledge-file-label">PDF · 最多 50 MiB / UTF-8 文本与 Markdown · 最多 240 KB</span></button><input id="knowledge-file" type="file" accept=".pdf,.txt,.md,.markdown" hidden><p class="k-caption">PDF 和扫描件会发送到研究组的 5060 Ti 私有解析服务。也可以直接添加文本或 Markdown。</p><label for="knowledge-title">资料标题</label><input id="knowledge-title" maxlength="160" required placeholder="让你下次能认出这份资料"><label for="knowledge-source">来源 / 版本说明</label><input id="knowledge-source" maxlength="1000" placeholder="论文 DOI、原始链接、作者或版本"><p id="knowledge-pdf-selection" class="k-pdf-selection" hidden>已选择 PDF：保留原文件，自动识别原生文本或扫描页。解析完成后可下载结果，并在确认后入库。</p><label for="knowledge-text">原始正文（文本资料）</label><textarea id="knowledge-text" rows="7" maxlength="120000" required placeholder="保留原始表述，不用先改写成摘要…"></textarea><div class="k-import-footnote"><span id="knowledge-text-count">0 / 120,000 字符</span><span>不调用聊天模型</span></div><p id="knowledge-import-status" role="status" aria-live="polite"></p><p class="k-caption">PDF 先解析，再由你确认入库；文本直接交给当前知识后端分块和建索引。不会自动切换模型，Rerank 在检索时运行。每个账号最多 100 份资料与 100 项 PDF 导入任务。</p></div><footer class="k-import-actions"><button id="knowledge-import-cancel" class="k-button" type="button">取消</button><button id="knowledge-save" class="k-button k-primary" type="submit">保存并建立索引</button></footer></form></dialog>
-<script src="/assets/knowledge.js?v=20261004-pdf1" defer></script>
+<script src="/assets/knowledge.js?v=20261004-pdf2" defer></script>
 <script src="/assets/presentation-state.js?v=20261003-rich2" defer></script>
-<script src="/assets/presentation.js?v=20261004-experience1" defer></script>
+<script src="/assets/presentation.js?v=20261026-citations1" defer></script>
 </body>
 <link rel="stylesheet" href="/scientific-assets/scientific-viewer.css?v=1">
 <script src="/scientific-assets/scientific-viewer.js?v=1" defer></script>

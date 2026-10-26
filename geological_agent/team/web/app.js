@@ -19,13 +19,14 @@ async function api(path, options = {}) {
 }
 function showLogin() { window.GeoAgentDefaults?.clear(); window.GeoAgentImages?.clear(); stopRunElapsedClock(); state.runs.clear(); window.GeoToolLibrary?.reset(); window.GeoToolHITL?.reset(); state.view++; state.cid = null; state.me = null; modelSettings = null; $('model-token').value = ''; $('model-dialog').close(); for (const source of state.sources.values()) source.close(); state.sources.clear(); $('app').hidden = true; $('auth-screen').hidden = false; }
 function notice(message = '') { $('notice').textContent = message; }
-function inline(node, text, assets = null) {
-  const pattern = /(`[^`]+`|!?\[[^\]\n]*\]\((?:[^()\n]|\([^()\n]*\))*\)|\*\*[^*]+\*\*|\$\$[^\n]+?\$\$|\\\[[^\n]+?\\\]|\$[^$\n]+\$|\\\([^\n]+?\\\))/g; let index = 0;
+function inline(node, text, assets = null, citations = null) {
+  const pattern = /(`[^`]+`|!?\[[^\]\n]*\]\((?:[^()\n]|\([^()\n]*\))*\)|\[K[0-9a-f]{16,64}_[0-9]+\]|\*\*[^*]+\*\*|\$\$[^\n]+?\$\$|\\\[[^\n]+?\\\]|\$[^$\n]+\$|\\\([^\n]+?\\\))/g; let index = 0;
   for (const match of text.matchAll(pattern)) {
     node.append(document.createTextNode(text.slice(index, match.index)));
     const token = match[0];
     if (token.startsWith('`')) node.append(element('code', token.slice(1, -1)));
-    else if (token.startsWith('**')) node.append(element('strong', token.slice(2, -2)));
+    else if (token.startsWith('**')) { const strong = element('strong'); inline(strong, token.slice(2, -2), assets, citations); node.append(strong); }
+    else if (/^\[K[0-9a-f]{16,64}_[0-9]+\]$/.test(token) && citations) node.append(window.GeoAgentCitations.mark(token.slice(1, -1), citations));
     else if (token.startsWith('[') || token.startsWith('![')) node.append(window.GeoAgentArtifacts?.renderLink(token, assets) || document.createTextNode(token));
     else {
       const span = element('span');
@@ -40,7 +41,8 @@ function inline(node, text, assets = null) {
   node.append(document.createTextNode(text.slice(index)));
 }
 function markdown(target, text, assets = null) {
-  const renderInline = (node, value) => inline(node, value, assets);
+  const citations = target.classList.contains('answer') ? window.GeoAgentCitations?.context(assets) : null;
+  const renderInline = (node, value) => inline(node, value, assets, citations);
   target.replaceChildren(); const lines = String(text || '').split('\n'); let i = 0;
   while (i < lines.length) {
     const line = lines[i];
@@ -72,6 +74,7 @@ function markdown(target, text, assets = null) {
     if (/^\s*(?:[-*]|\d+\.)\s+/.test(line)) { const list = element(/^\s*\d+\./.test(line) ? 'ol' : 'ul'); while (i < lines.length && /^\s*(?:[-*]|\d+\.)\s+/.test(lines[i])) { const li = element('li'); renderInline(li, lines[i++].replace(/^\s*(?:[-*]|\d+\.)\s+/, '')); list.append(li); } target.append(list); continue; }
     const p = element('p'); renderInline(p, line); target.append(p); i++;
   }
+  if (citations) window.GeoAgentCitations.finish(target, citations, String(text || ''));
 }
 async function initialize() {
   state.me = await api('/api/me'); $('auth-screen').hidden = true; $('app').hidden = false;
@@ -93,7 +96,7 @@ async function loadConversations() {
   const conversations = await api('/api/conversations'); $('conversation-list').replaceChildren();
   for (const conversation of conversations) { const button = element('button', conversation.title, conversation.id === state.cid ? 'selected' : ''); button.title = conversation.title; button.addEventListener('click', () => openConversation(conversation.id).catch(e => notice(e.message))); $('conversation-list').append(button); }
 }
-function closeStreams() { stopRunElapsedClock(); for (const source of state.sources.values()) source.close(); state.sources.clear(); }
+function closeStreams() { window.GeoAgentCitations?.clear(); stopRunElapsedClock(); for (const source of state.sources.values()) source.close(); state.sources.clear(); }
 function busy(rid) { state.busy = rid; $('send').disabled = Boolean(rid); $('stop').hidden = !rid; $('attach').disabled = Boolean(rid); $('upload-button').disabled = Boolean(rid); window.GeoToolHITL?.syncComposer(); }
 async function openConversation(cid) {
   window.GeoToolLibrary?.close({focus:false});
@@ -133,6 +136,7 @@ function syncRunElapsedClock() {
   }, 1000);
 }
 function setRunElapsed(ui, run) {
+  setRunMessageTimes(ui, run);
   const measured = typeof run.elapsed_seconds === 'number' && Number.isFinite(run.elapsed_seconds);
   const elapsed = measured ? Math.max(0, run.elapsed_seconds) : elapsedSeconds(ui);
   ui.status = run.status || ui.status;
@@ -145,6 +149,64 @@ function setRunElapsed(ui, run) {
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden) for (const ui of state.runs.values()) paintRunElapsed(ui);
 });
+// Message timestamps use persisted server times, never page-load time.
+function messageDate(value) {
+  if (typeof value === 'number' && Number.isFinite(value) && value > 0) {
+    const date = new Date(value * 1000);
+    return Number.isFinite(date.getTime()) ? date : null;
+  }
+  if (typeof value === 'string' && /^\d{4}-\d\d-\d\dT.*(?:Z|[+-]\d\d:\d\d)$/.test(value)) {
+    const date = new Date(value);
+    return Number.isFinite(date.getTime()) ? date : null;
+  }
+  return null;
+}
+function messageDayKey(date) { return date.getFullYear() + '-' + date.getMonth() + '-' + date.getDate(); }
+function shouldSeparateMessages(current, previous) {
+  return Boolean(current && (!previous || messageDayKey(current) !== messageDayKey(previous)
+    || current.getTime() - previous.getTime() >= 30 * 60 * 1000));
+}
+function messageTimeLabel(date, now = new Date()) {
+  const clock = new Intl.DateTimeFormat('zh-CN', {hour:'2-digit', minute:'2-digit', hourCycle:'h23'}).format(date);
+  if (messageDayKey(date) === messageDayKey(now)) return '今天 ' + clock;
+  const yesterday = new Date(now); yesterday.setDate(yesterday.getDate() - 1);
+  if (messageDayKey(date) === messageDayKey(yesterday)) return '昨天 ' + clock;
+  return new Intl.DateTimeFormat('zh-CN', {year:'numeric', month:'long', day:'numeric'}).format(date) + ' ' + clock;
+}
+function messageTimeNode(kind) {
+  const box = element('div', undefined, 'message-meta message-meta-' + kind);
+  const time = element('time'); time.tabIndex = 0; box.append(time); box.hidden = true;
+  return {box, time};
+}
+function setRunMessageTimes(ui, run) {
+  const sent = messageDate(run.created), finished = messageDate(run.finished_at);
+  if (sent) ui.sentAt = sent;
+  if (finished) ui.finishedAt = finished;
+  function paint(entry, date, label) {
+    if (!date) return;
+    entry.time.dateTime = date.toISOString();
+    entry.time.textContent = messageTimeLabel(date);
+    entry.time.title = label + '：' + new Intl.DateTimeFormat('zh-CN', {
+      year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit',
+      second:'2-digit', hourCycle:'h23', timeZoneName:'longOffset'
+    }).format(date);
+    entry.time.setAttribute('aria-label', entry.time.title); entry.box.hidden = false;
+  }
+  paint(ui.userTime, ui.sentAt, '发送时间');
+  paint(ui.answerTime, ui.finishedAt, '本轮答复或暂停时间');
+  let previous = null;
+  for (const turn of state.runs.values()) {
+    if (turn === ui) break;
+    previous = turn.finishedAt || turn.sentAt || previous;
+  }
+  ui.timeSeparator.hidden = !shouldSeparateMessages(ui.sentAt, previous);
+  if (!ui.timeSeparator.hidden) {
+    ui.timeSeparator.firstChild.dateTime = ui.sentAt.toISOString();
+    ui.timeSeparator.firstChild.textContent = messageTimeLabel(ui.sentAt);
+  }
+}
+// End message timestamp helpers.
+
 function renderRun(run) {
   const turn = element('article', undefined, 'turn'); turn.dataset.run = run.id;
   const user = element('div', run.query, 'user-message'); const label = element('div', 'GeoAgent', 'assistant-label');
@@ -153,8 +215,11 @@ function renderRun(run) {
   const elapsed = element('div', undefined, 'run-elapsed');
   elapsed.setAttribute('role', 'timer'); elapsed.setAttribute('aria-live', 'off');
   elapsed.title = 'Elapsed time for this run, including model, tool and review time. Waiting for a human reply is excluded.';
-  turn.append(user, label, elapsed, activity, answer, reason); $('messages').append(turn);
-  const ui = {elapsed, elapsedBase:0, elapsedAnchor:performance.now(), elapsedKnown:runIsWorking(run.status), status:run.status, turn, activity, summary, list, answer, answerText:run.answer || '', reason, tools:new Map(), finished:!['running','stopping'].includes(run.status)}; state.runs.set(run.id, ui); setRunElapsed(ui, run); window.GeoToolHITL?.attachCards(); window.GeoAgentExperience?.attach(run.id, ui); window.GeoAgentTimeline?.attach(run.id, ui); window.GeoAgentPresentation?.attach(run.id, ui);
+  const userTime = messageTimeNode('user'), answerTime = messageTimeNode('assistant');
+  const userGroup = element('div', undefined, 'message-user-group'); userGroup.append(user, userTime.box);
+  const timeSeparator = element('div', undefined, 'message-time-separator'); timeSeparator.append(element('time')); timeSeparator.hidden = true;
+  turn.append(timeSeparator, userGroup, label, elapsed, activity, answer, reason, answerTime.box); $('messages').append(turn);
+  const ui = {userTime, answerTime, timeSeparator, sentAt:null, finishedAt:null, elapsed, elapsedBase:0, elapsedAnchor:performance.now(), elapsedKnown:runIsWorking(run.status), status:run.status, turn, activity, summary, list, answer, answerText:run.answer || '', reason, tools:new Map(), finished:!['running','stopping'].includes(run.status)}; state.runs.set(run.id, ui); setRunElapsed(ui, run); window.GeoToolHITL?.attachCards(); window.GeoAgentExperience?.attach(run.id, ui); window.GeoAgentTimeline?.attach(run.id, ui); window.GeoAgentPresentation?.attach(run.id, ui);
   if (run.activity?.profile) handleEvent(run.id, {kind:'model_config', profile:run.activity.profile}, null, true);
   if (run.activity?.timing) window.GeoAgentTimeline?.event(run.id, run.activity.timing);
   if (ui.finished && Number.isSafeInteger(run.activity?.tool_count)) { ui.summary.textContent = '执行过程 · ' + run.activity.tool_count + ' 次工具调用'; if (ui.overview) ui.overview.counts.textContent = run.activity.tool_count + ' 次工具调用 · 展开查看记录'; }
@@ -173,6 +238,7 @@ function handleEvent(rid, data, eventId, historical = false) {
   }
   const wasNearEnd = $('messages').scrollHeight - $('messages').scrollTop - $('messages').clientHeight < 130;
   if (data.kind === 'model_config') { ui.turn.querySelector('.assistant-label').textContent = 'GeoAgent · ' + data.profile.model; }
+  if (data.kind === 'finished') setRunMessageTimes(ui, data);
   if (data.kind === 'finished' && !historical) {
     setRunElapsed(ui, data); ui.finished = true; ui.answerText = data.answer || ''; markdown(ui.answer, ui.answerText, ui.artifactContext); ui.summary.textContent = '查看执行详情'; ui.reason.textContent = data.reason || '';
     const source = state.sources.get(rid); if (source) source.close(); state.sources.delete(rid); if (state.busy === rid) busy(null); window.GeoToolHITL?.refresh(data.status === 'needs_input'); loadFiles().catch(e => notice(e.message)); loadConversations().catch(e => notice(e.message));

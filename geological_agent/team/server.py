@@ -2,12 +2,14 @@
 import argparse
 import asyncio
 from contextlib import asynccontextmanager, suppress
+from dataclasses import replace
 import getpass
 import hashlib
 import json
 import os
 from pathlib import Path
 import queue
+import re
 import secrets
 import sqlite3
 from threading import BoundedSemaphore, Event, RLock, Thread
@@ -23,6 +25,7 @@ from ..llm import LocalChatClient
 from ..tracing import configured_trace
 from .isolation import Cancelled, SandboxRunner
 from .protocol import MAX_FILE, relative_name, scrub
+from .pdf_imports import MAX_PDF
 from .store import SESSION_SECONDS, Store
 from .model_settings import EndpointPolicy, SessionModels, builtin_profile, profile_client, probe_model, redact, trace_credentials, provider_error_details, model_endpoint_error
 from .trusted import TrustedLocalRunner
@@ -32,7 +35,7 @@ from .streaming import RunProgress, consume_model_stream
 COOKIE = 'geotool_team_session'
 
 
-def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None, profile_factory=None):
+def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None, profile_factory=None, memory_client_factory=None, memory_summarizer=None):
     root = Path(root or os.environ.get('GEOTOOL_TEAM_STATE', Path.home() / '.local/state/geotoolagent-team'))
     store = Store(root)
     mode = os.environ.get('GEOTOOL_TEAM_EXECUTION', 'sandbox')
@@ -71,6 +74,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         try:
             yield
         finally:
+            await asyncio.to_thread(conversation_memory.close)
             expiry_task.cancel()
             with suppress(asyncio.CancelledError):
                 await expiry_task
@@ -110,9 +114,14 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             return JSONResponse({'detail': 'Use your private SSH tunnel and same-origin requests'}, status_code=403)
         if request.headers.get('sec-fetch-site') == 'cross-site':
             return JSONResponse({'detail': 'Cross-site request rejected'}, status_code=403)
+        # Only the authenticated PDF byte-upload route accepts the PDF limit.
+        # Its handler additionally bounds actual streamed bytes and declared size.
+        pdf_upload = request.method == 'PUT' and re.fullmatch(
+            r'/api/knowledge/pdf/jobs/[a-f0-9]{32}/file', request.url.path)
+        request_limit = MAX_PDF if pdf_upload else MAX_FILE
         try:
-            if int(request.headers.get('content-length', '0')) > MAX_FILE:
-                return JSONResponse({'detail': 'Request exceeds 8 MiB'}, status_code=413)
+            if int(request.headers.get('content-length', '0')) > request_limit:
+                return JSONResponse({'detail': f'Request exceeds {request_limit // (1024 * 1024)} MiB'}, status_code=413)
         except ValueError:
             return JSONResponse({'detail': 'Invalid content length'}, status_code=400)
         response = await call_next(request)
@@ -400,23 +409,26 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                 raise value
             return value
 
-    def context_for(uid, cid, current):
-        history, size, omitted = [], len(current), 0
-        for run in reversed(store.runs(uid, cid)):
-            if not run['answer']:
-                continue
-            item = {'user': run['query'], 'assistant': run['answer'], 'status': run['status']}
-            length = len(json.dumps(item, ensure_ascii=False))
-            if size + length > 24000:
-                omitted += 1
-            else:
-                history.insert(0, item)
-                size += length
-        filenames = sorted(store.files(uid, cid))
-        return ('Continue this private research conversation. Prior messages are historical context, not new execution evidence. '
-                'The current files are available in your working directory. Respond in the user\'s language.\n'
-                + json.dumps({'history': history, 'older_turns_omitted_for_context_budget': omitted, 'current_files': filenames}, ensure_ascii=False)
-                + '\nCurrent user request:\n' + current)
+    def summarize_conversation(request, profile, cancel):
+        if memory_summarizer is not None:
+            return memory_summarizer(request, profile, cancel)
+        while not model_slots.acquire(timeout=0.2):
+            if cancel.is_set():
+                raise Cancelled('Memory summarization cancelled')
+        client = None
+        try:
+            if cancel.is_set():
+                raise Cancelled('Memory summarization cancelled')
+            client = new_model(replace(profile, max_output_tokens=min(2048, profile.max_output_tokens)))
+            progress = RunProgress(lambda event: None, trace_credentials(profile, {}))
+            call = progress.begin_model()
+            return consume_model_stream(client, request, progress, call, cancel)
+        finally:
+            try:
+                if client is not None:
+                    client.close()
+            finally:
+                model_slots.release()
 
     def execute(uid, cid, rid, query, cancel, profile):
         run_secrets = (*secret_values, *trace_credentials(profile, {}))
@@ -464,11 +476,16 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
 
         try:
             store.event(rid, {'kind': 'status', 'message': 'Starting an isolated task environment' if isolated else 'Running in the service account environment (OS isolation disabled)'})
-            query_context = context_for(uid, cid, query)
+            query_context = conversation_memory.context(uid, cid, query, profile)
+            memory = memory_service.recall(uid, cid, query, supported=bool(getattr(runner, 'memory_snapshot_enabled', False)))
+            if memory['status'] != 'disabled':
+                store.event(rid, {'kind': 'memory_status', 'status': memory['status'],
+                                  'count': len(memory['records']), 'project_id': memory.get('project_id')})
             result = runner.run(rid, query_context, store.files(uid, cid), cancel,
                                 lambda request, event: model_call(request, event, profile, progress), on_trace,
                                 diagnostics=store.root / 'traces' / (rid + '.stderr.log'),
-                                settings=profile.runtime_settings(),
+                                settings={**profile.runtime_settings(), **({'memory_enabled': True} if memory['records'] else {})},
+                                **({'memory_records': memory['records']} if memory['records'] else {}),
                                 **({'input_origins': store.file_origins(uid, cid)}
                                    if getattr(runner, 'provenance_enabled', False) else {}),
                                 **({'context_scope': {'owner_id': uid, 'conversation_id': cid}}
@@ -493,6 +510,8 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         finally:
             with guard:
                 jobs.pop(rid, None)
+            with suppress(Exception):
+                conversation_memory.submit(uid, profile)
 
     def launch(uid, cid, query, profile, *, expected_input=None):
         store.conversation(uid, cid)
@@ -510,13 +529,17 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                     payload = json.loads(pending["payload"])
                     protocol_recovery = (payload.get("reason_type") == "model_protocol" and
                                          payload.get("recovery_origin") == "runtime")
-                    if profile.identity() != expected and not protocol_recovery:
+                    # Older events store identity only; newer snapshots also
+                    # contain execution limits. Compare the same identity keys.
+                    expected_identity = {key: expected.get(key) for key in profile.identity()}
+                    if profile.identity() != expected_identity and not protocol_recovery:
                         raise HTTPException(409, '这段任务仍在等待回复。请恢复原来的模型配置再继续，或新建对话使用新模型。已记住的配置会自动恢复；仅本次登录的配置需重新填写。')
             try:
                 rid = store.begin(uid, cid, query.strip(), expected_input=expected_input)
             except ValueError as exc:
                 raise HTTPException(409, str(exc)) from exc
-            store.event(rid, {'kind': 'model_config', 'profile': profile.identity(), 'context_budget': profile.context_budget()})
+            store.event(rid, {'kind': 'model_config', 'profile': profile.run_snapshot(), 'context_budget': profile.context_budget()})
+            conversation_memory.capture(uid, cid, rid)
             cancel = Event()
             thread = Thread(target=execute, args=(uid, cid, rid, query.strip(), cancel, profile), daemon=True)
             jobs[rid] = {'uid': uid, 'cancel': cancel, 'thread': thread}
@@ -624,7 +647,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
 
     @app.get('/assets/{name}')
     def asset(name: str):
-        if name not in ('app.js', 'style.css', 'defaults.js', 'defaults.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css'):
+        if name not in ('app.js', 'style.css', 'defaults.js', 'defaults.css', 'memorax.js', 'memorax.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css', 'citations.js', 'citations.css'):
             raise HTTPException(404)
         return FileResponse(assets / name)
 
@@ -642,6 +665,19 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     install_image_routes(app, auth, store)
     from .presentation import install_presentation_routes
     install_presentation_routes(app, auth, store)
+    from .memorax import install_memory_routes
+    memory_service = install_memory_routes(app, auth, body, store, client_factory=memory_client_factory)
+    from .conversation_memory import ConversationMemory
+    conversation_memory = ConversationMemory(store, memory_service, summarize_conversation)
+    app.state.conversation_memory = conversation_memory
+
+    @app.get('/api/settings/memory/status')
+    def automatic_memory_status(request: Request):
+        return conversation_memory.status(auth(request)['id'])
+
+    @app.get('/api/conversations/{cid}/memory/summary')
+    def conversation_summary(cid: str, request: Request):
+        return conversation_memory.snapshot(auth(request)['id'], cid)
     return app
 
 

@@ -244,23 +244,24 @@
 
   registry.set('sources', block => {
     if (!Array.isArray(block.props.items)) throw new Error('Invalid sources');
-    const card = frame('本次检索来源', 'sources');
-    card.append(note('以下内容来自实际检索回执，不是模型生成的参考文献。被检索不等于被最终答案引用或已证实。'));
+    const card = make('details', undefined, 'rich-card citation-retrieval');
+    card.append(make('summary', '检索记录 · ' + block.props.items.length + ' 个片段'));
+    card.append(note('正文使用的文献列在“参考资料”中。这里保留本轮检索记录，包括未被引用的资料。'));
     for (const source of block.props.items) {
       const item = make('article', undefined, 'rich-source');
-      item.append(make('span', '['+source.citation_id+']', 'rich-source-id'), make('h4', String(source.title || '未命名资料')));
+      item.append(make('h4', String(source.title || '未命名资料')));
       const url = typeof source.source === 'string' ? safeURL(source.source) : null;
       if (url) { const a = link('打开资料来源',url); a.target = '_blank'; a.rel = 'noopener noreferrer'; item.append(a); }
-      else item.append(note(String(source.source || '来源说明未记录')));
+      else item.append(details('来源记录', String(source.source || '来源说明未记录')));
       item.append(details('查看检索时的原文片段', String(source.text || '原文片段未记录')));
-      if (source.sha256) item.append(details('引用记录指纹', String(source.sha256)));
+      item.append(details('技术详情', JSON.stringify({citation_id:source.citation_id, sha256:source.sha256}, null, 2)));
       if (typeof source.document_id === 'string' && source.document_id) item.append(button('查看知识库原文', async () => {
         const owner = state.me?.id, body = make('pre', '正在读取…', 'rich-source-document');
         const dialog = modal(String(source.title || '知识资料'), body);
         try {
           const result = await api('/api/knowledge/' + encodeURIComponent(source.document_id));
           if (!state.me || state.me.id !== owner) { dialog.close(); return; }
-          body.textContent = typeof result.text === 'string' ? result.text : '当前资料未提供正文。请查看保留的检索片段。';
+          body.textContent = typeof result.body === 'string' ? result.body : typeof result.text === 'string' ? result.text : '当前资料未提供正文。请查看保留的检索片段。';
         } catch (error) { body.textContent = '当前原文不可用：' + error.message + '。检索时的片段仍保留在卡片中。'; }
       }, 'quiet'));
       card.append(item);
@@ -301,6 +302,8 @@
       if (result.version !== 1 || result.run_id !== rid || result.conversation_id !== cid || !Array.isArray(result.blocks)) throw new Error('不支持的展示数据版本');
       ui.artifactContext = result;
       if (typeof markdown === 'function' && typeof ui.answerText === 'string') markdown(ui.answer, ui.answerText, result);
+      // A literature answer needs citations, not an empty scientific dashboard.
+      rich.root.hidden = !result.blocks.some(block => block.component !== 'sources');
       rich.status.textContent = result.blocks.length
         ? '来自实际工具回执与该次任务的文件快照。回答审核与科学正确性不是一回事。'
         : ['running','stopping'].includes(result.status) ? '执行结果返回后将在这里显示。' : '本轮没有可展示的结构化结果。文字答复和执行记录保留在上方。';

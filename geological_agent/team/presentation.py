@@ -15,6 +15,7 @@ from fastapi import HTTPException, Query, Request
 from fastapi.responses import JSONResponse, Response
 
 from .protocol import relative_name
+from .citations import answer_citations
 
 
 def block(component, identifier, title, props):
@@ -183,7 +184,8 @@ def install_presentation_routes(app, auth, store):
         if sources:
             blocks.append(block("sources", "knowledge", "Sources", {"items": sources}))
         return response({"version": 1, "run_id": rid, "conversation_id": run["cid"],
-                         "generation": generation, "status": run["status"], "files": files, "blocks": blocks})
+                         "generation": generation, "status": run["status"], "files": files, "blocks": blocks,
+                         "citations": answer_citations(store, uid, run)})
 
     @app.get("/api/runs/{rid}/table")
     def table(rid: str, request: Request, name: str,
