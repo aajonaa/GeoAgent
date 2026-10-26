@@ -1,0 +1,33 @@
+{
+  "crs": "EPSG:32631",
+  "points_xy_m": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      1
+    ]
+  ],
+  "radii_m": [
+    0.5,
+    1.1,
+    1.5
+  ],
+  "window_policy": "observed_bounding_box",
+  "edge_correction": "none",
+  "units": {
+    "points_xy_m": "m",
+    "radii_m": "m"
+  }
+}
+

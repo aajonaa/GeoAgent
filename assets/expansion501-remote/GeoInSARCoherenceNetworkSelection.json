@@ -1,0 +1,26 @@
+{
+  "sar": {
+    "state": "coregistered_unwrapped_insar",
+    "processing_provenance": "SYNTHETIC analytic already-unwrapped/coregistered SAR fixture, not an RGB observation",
+    "wavelength_m": 0.12566370614359174,
+    "los_convention": "positive_toward_sensor"
+  },
+  "dates": [
+    "20200101",
+    "20200113",
+    "20200125"
+  ],
+  "pairs": [
+    "20200101_20200113",
+    "20200113_20200125",
+    "20200101_20200125"
+  ],
+  "mean_coherence": [
+    0.9,
+    0.8,
+    0.1
+  ],
+  "minimum_coherence": 0.85,
+  "coherence_unit": "dimensionless",
+  "coherence_provenance": "SYNTHETIC pair mean complex coherences, not an RGB statistic"
+}

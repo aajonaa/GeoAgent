@@ -1,0 +1,1608 @@
+{
+  "Geo500CrystalSpaceGroupAudit": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "structure": {
+      "lattice_angstrom": [
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ]
+      ],
+      "species": [
+        "Si"
+      ],
+      "fractional_coords": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "symprec_angstrom": 1e-05
+  },
+  "Geo500IrreducibleReciprocalMesh": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "structure": {
+      "lattice_angstrom": [
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ]
+      ],
+      "species": [
+        "Si"
+      ],
+      "fractional_coords": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "mesh": [
+      2,
+      2,
+      2
+    ],
+    "symprec_angstrom": 1e-05
+  },
+  "Geo500PowderXRDPattern": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "structure": {
+      "lattice_angstrom": [
+        [
+          4,
+          0,
+          0
+        ],
+        [
+          0,
+          4,
+          0
+        ],
+        [
+          0,
+          0,
+          4
+        ]
+      ],
+      "species": [
+        "Si"
+      ],
+      "fractional_coords": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "wavelength_angstrom": 1,
+    "two_theta_min_degrees": 5,
+    "two_theta_max_degrees": 40
+  },
+  "Geo500MineralOxygenBasisFormula": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "oxides": [
+      "MgO",
+      "SiO2"
+    ],
+    "oxide_wt_percent": [
+      57.293630232496,
+      42.706369767504
+    ],
+    "oxygen_basis": 4,
+    "atomic_weight_convention": "periodictable-2.1.0-elemental"
+  },
+  "Geo500MineralReactionBalance": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "reactants": [
+      "Mg2SiO4",
+      "SiO2"
+    ],
+    "products": [
+      "MgSiO3"
+    ]
+  },
+  "Geo500MineralPhaseHull": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "entries": [
+      {
+        "id": "Li",
+        "formula": "Li",
+        "energy_ev_per_formula": 0
+      },
+      {
+        "id": "O",
+        "formula": "O",
+        "energy_ev_per_formula": 0
+      },
+      {
+        "id": "LiO_low",
+        "formula": "LiO",
+        "energy_ev_per_formula": -2
+      },
+      {
+        "id": "LiO_high",
+        "formula": "LiO",
+        "energy_ev_per_formula": 0
+      }
+    ],
+    "target_ids": [
+      "LiO_high"
+    ],
+    "energy_reference": "SYNTHETIC common zero; arbitrary reference energies, not ab initio or measured data."
+  },
+  "Geo500CrystalCoordination": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "structure": {
+      "lattice_angstrom": [
+        [
+          5.64,
+          0,
+          0
+        ],
+        [
+          0,
+          5.64,
+          0
+        ],
+        [
+          0,
+          0,
+          5.64
+        ]
+      ],
+      "species": [
+        "Na",
+        "Na",
+        "Na",
+        "Na",
+        "Cl",
+        "Cl",
+        "Cl",
+        "Cl"
+      ],
+      "fractional_coords": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0
+        ],
+        [
+          0.5,
+          0,
+          0
+        ],
+        [
+          0,
+          0.5,
+          0
+        ],
+        [
+          0,
+          0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    "site_indices": [
+      0
+    ]
+  },
+  "Geo500BondValenceOxidation": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "structure": {
+      "lattice_angstrom": [
+        [
+          4.21,
+          0,
+          0
+        ],
+        [
+          0,
+          4.21,
+          0
+        ],
+        [
+          0,
+          0,
+          4.21
+        ]
+      ],
+      "species": [
+        "Mg",
+        "Mg",
+        "Mg",
+        "Mg",
+        "O",
+        "O",
+        "O",
+        "O"
+      ],
+      "fractional_coords": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0
+        ],
+        [
+          0.5,
+          0,
+          0
+        ],
+        [
+          0,
+          0.5,
+          0
+        ],
+        [
+          0,
+          0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  },
+  "Geo500CrystalStructureEquivalence": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "left_structure": {
+      "lattice_angstrom": [
+        [
+          5.64,
+          0,
+          0
+        ],
+        [
+          0,
+          5.64,
+          0
+        ],
+        [
+          0,
+          0,
+          5.64
+        ]
+      ],
+      "species": [
+        "Na",
+        "Na",
+        "Na",
+        "Na",
+        "Cl",
+        "Cl",
+        "Cl",
+        "Cl"
+      ],
+      "fractional_coords": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0
+        ],
+        [
+          0.5,
+          0,
+          0
+        ],
+        [
+          0,
+          0.5,
+          0
+        ],
+        [
+          0,
+          0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    "right_structure": {
+      "lattice_angstrom": [
+        [
+          5.64,
+          0,
+          0
+        ],
+        [
+          0,
+          5.64,
+          0
+        ],
+        [
+          0,
+          0,
+          5.64
+        ]
+      ],
+      "species": [
+        "Cl",
+        "Cl",
+        "Cl",
+        "Cl",
+        "Na",
+        "Na",
+        "Na",
+        "Na"
+      ],
+      "fractional_coords": [
+        [
+          0.75,
+          0.75,
+          0.75
+        ],
+        [
+          0.25,
+          0.25,
+          0.75
+        ],
+        [
+          0.25,
+          0.75,
+          0.25
+        ],
+        [
+          0.75,
+          0.25,
+          0.25
+        ],
+        [
+          0.75,
+          0.75,
+          0.25
+        ],
+        [
+          0.75,
+          0.25,
+          0.75
+        ],
+        [
+          0.25,
+          0.75,
+          0.75
+        ],
+        [
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    }
+  },
+  "Geo500WulffCrystalHabit": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "lattice_angstrom": [
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        4
+      ]
+    ],
+    "miller_indices": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "surface_energies_j_m2": [
+      1,
+      2,
+      2
+    ]
+  },
+  "Geo500PeriodicIonicLatticeEnergy": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "structure": {
+      "lattice_angstrom": [
+        [
+          5.64,
+          0,
+          0
+        ],
+        [
+          0,
+          5.64,
+          0
+        ],
+        [
+          0,
+          0,
+          5.64
+        ]
+      ],
+      "species": [
+        "Na",
+        "Na",
+        "Na",
+        "Na",
+        "Cl",
+        "Cl",
+        "Cl",
+        "Cl"
+      ],
+      "fractional_coords": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0
+        ],
+        [
+          0.5,
+          0,
+          0
+        ],
+        [
+          0,
+          0.5,
+          0
+        ],
+        [
+          0,
+          0,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    "site_charges_e": [
+      1,
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1,
+      -1
+    ]
+  },
+  "Geo500CoherentMineralInterfaceMatch": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "film_vectors_angstrom": [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ]
+    ],
+    "substrate_vectors_angstrom": [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ]
+    ],
+    "max_area_angstrom2": 20
+  },
+  "Geo500MineralSurfaceTerminations": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "structure": {
+      "lattice_angstrom": [
+        [
+          2,
+          0,
+          0
+        ],
+        [
+          0,
+          2,
+          0
+        ],
+        [
+          0,
+          0,
+          2
+        ]
+      ],
+      "species": [
+        "Si"
+      ],
+      "fractional_coords": [
+        [
+          0,
+          0,
+          0
+        ]
+      ]
+    },
+    "miller_index": [
+      0,
+      0,
+      1
+    ],
+    "minimum_slab_angstrom": 8,
+    "minimum_vacuum_angstrom": 10
+  },
+  "Geo500REEOrthogonalShape": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "ree_ppm": [
+      [
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065,
+        7.38905609893065
+      ]
+    ],
+    "reference_ppm": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "reference_source": "SYNTHETIC unit reference, not chondrite measurements."
+  },
+  "Geo500VolcanicTASClass": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "anhydrous_sio2_na2o_k2o_wt_percent": [
+      [
+        50,
+        2,
+        1
+      ]
+    ]
+  },
+  "Geo500MineralNeutronContrast": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "formula": "SiO2",
+    "density_g_cm3": 2.65,
+    "wavelength_angstrom": 1.798
+  },
+  "Geo500PoreChordDistribution": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "shape": [
+      8,
+      8
+    ],
+    "pore_mask": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "voxel_size_m": 0.01,
+    "axis": 0,
+    "bin_edges_m": [
+      0,
+      0.03,
+      0.05
+    ]
+  },
+  "Geo500PoreBodyRadiusDistribution": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "shape": [
+      7,
+      7,
+      7
+    ],
+    "pore_mask": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "voxel_size_m": 1e-06,
+    "bin_edges_m": [
+      0,
+      1.5e-06,
+      2.5e-06
+    ]
+  },
+  "Geo500QuasistaticCapillaryDrainage": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "shape": [
+      7,
+      7
+    ],
+    "pore_mask": [
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "voxel_size_m": 1e-06,
+    "inlet_mask": [
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "outlet_mask": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "entry_pressure_pa": [
+      0,
+      0,
+      0,
+      2000,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2000,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2000,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2000,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2000,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2000,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      2000,
+      0,
+      0,
+      0
+    ],
+    "pressure_steps_pa": [
+      1000,
+      3000
+    ]
+  },
+  "Geo500MineralEhPHStability": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "element": "Fe",
+    "entries": [
+      {
+        "id": "Fe_s",
+        "formula": "Fe",
+        "phase": "solid",
+        "charge_e": 0,
+        "formation_energy_ev_per_formula": 0,
+        "concentration_mol_l": 1
+      },
+      {
+        "id": "Fe_ion",
+        "formula": "Fe",
+        "phase": "ion",
+        "charge_e": 2,
+        "formation_energy_ev_per_formula": 1,
+        "concentration_mol_l": 1
+      }
+    ],
+    "target_id": "Fe_s",
+    "metal_concentration_mol_l": 1,
+    "ph_eh_points": [
+      [
+        7,
+        0
+      ],
+      [
+        7,
+        1
+      ]
+    ],
+    "energy_reference": "SYNTHETIC formation energies versus H2/O2; not measured Fe thermochemistry."
+  },
+  "Geo500SpatialCellDeclustering": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "coordinates_m": [
+      [
+        0.1,
+        0.1
+      ],
+      [
+        0.2,
+        0.2
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        10.1,
+        10.1
+      ]
+    ],
+    "values": [
+      10,
+      10,
+      10,
+      2
+    ],
+    "value_unit": "ppm",
+    "cell_size_min_m": 5,
+    "cell_size_max_m": 5,
+    "cell_size_steps": 1,
+    "origin_offsets": 1
+  },
+  "GeoSlopeLimitEquilibrium": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "height_m": 3,
+    "angle_degrees": 30,
+    "materials": [
+      {
+        "unit_weight_kn_m3": 20,
+        "friction_degrees": 30,
+        "cohesion_kpa": 5,
+        "depth_to_bottom_m": 10
+      }
+    ],
+    "water_depth_m": null,
+    "uniform_loads": [],
+    "line_loads": [],
+    "search_crest_distance_m": 1,
+    "search_toe_distance_m": 1,
+    "slices": 30,
+    "search_iterations": 500
+  },
+  "GeoMantleMeltingPath": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "lithology_mass_fractions": [
+      0.8,
+      0.2
+    ],
+    "potential_temperature_degc": 1300,
+    "start_pressure_gpa": 4,
+    "end_pressure_gpa": 0.1,
+    "steps": 101
+  },
+  "GeoImplicitStructuralModel": {
+    "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+    "extent_m": [
+      0,
+      1000,
+      0,
+      1000,
+      0,
+      1000
+    ],
+    "resolution": [
+      8,
+      8,
+      8
+    ],
+    "surface_names_youngest_first": [
+      "contact"
+    ],
+    "surface_points_xyz_m": [
+      [
+        100,
+        100,
+        500
+      ],
+      [
+        900,
+        100,
+        500
+      ],
+      [
+        100,
+        900,
+        500
+      ],
+      [
+        900,
+        900,
+        500
+      ]
+    ],
+    "point_surface_indices": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "orientation_xyz_m": [
+      [
+        500,
+        500,
+        500
+      ]
+    ],
+    "orientation_normals": [
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "orientation_surface_indices": [
+      0
+    ],
+    "coordinate_reference": "SYNTHETIC Cartesian XYZ in metres; Z up from local zero, not geographic coordinates."
+  },
+  "GeoConditionedResourceEnsemble": {
+    "data_source": "SYNTHETIC analytic fixture; no measured resource, assay or engineering observation.",
+    "observation_coordinates_m": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "observed_values_ppm": [
+      12
+    ],
+    "target_coordinates_m": [
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "known_mean_ppm": 10,
+    "prior_variance_ppm2": 4,
+    "correlation_length_m": 1,
+    "measurement_noise_variance_ppm2": 0,
+    "realization_count": 64,
+    "random_seed": 50126
+  },
+  "Geo500PoreDiffusionTortuosity": {
+    "data_source": "SYNTHETIC analytic fixture; no measured resource, assay or engineering observation.",
+    "shape": [
+      3,
+      3,
+      5
+    ],
+    "pore_mask": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      true,
+      true,
+      true,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "axis": 2,
+    "voxel_spacing_m": 1e-05,
+    "molecular_diffusivity_m2_s": 1e-09
+  }
+}

@@ -1,0 +1,5 @@
+-r requirements-core.txt
+# NON-PIP native requirement: OrfeoToolBox==9.1.1
+# Source commit 154726b379fdb39b481ee8fd793fbd3d584884e6
+# Linux EXPANSION501_OTB_ROOT and reviewed expansion501-identity.json required.
+# Parent must lock/hash the native build and all runtime dependencies.

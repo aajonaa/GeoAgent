@@ -1,0 +1,99 @@
+{
+  "status": "source_evidence_not_build_or_license_certification",
+  "review_date": "2026-10-26",
+  "sources": [
+    {
+      "project": "MintPy",
+      "version": "1.6.4",
+      "commit": "297aa16018b93ba0d247413a56855cf012b8a7bb",
+      "url": "https://github.com/insarlab/MintPy",
+      "license": "GPL-3.0-or-later",
+      "license_url": "https://raw.githubusercontent.com/insarlab/MintPy/297aa16018b93ba0d247413a56855cf012b8a7bb/LICENSE",
+      "identity_evidence_url": "https://api.github.com/repos/insarlab/MintPy/git/ref/tags/v1.6.4",
+      "source_pin": "mintpy==1.6.4"
+    },
+    {
+      "project": "PySolid",
+      "version": null,
+      "commit": "37276a8d7a2127b8867b976dbc240aab2fe46715",
+      "url": "https://github.com/insarlab/PySolid",
+      "license": "GPL-3.0-or-later",
+      "license_url": "https://raw.githubusercontent.com/insarlab/PySolid/37276a8d7a2127b8867b976dbc240aab2fe46715/LICENSE",
+      "identity_evidence_url": "https://api.github.com/repos/insarlab/PySolid/git/ref/heads/main",
+      "source_pin": "pysolid @ https://github.com/insarlab/PySolid/archive/37276a8d7a2127b8867b976dbc240aab2fe46715.zip",
+      "limitations": [
+        "SCM package version/build receipt not established.",
+        "Reviewed solid.for leap table expires 2025-12-28; conservative half-open UTC bound.",
+        "Fortran extension and embedded IERS-derived code licensing/notice audit remain acceptance requirements."
+      ]
+    },
+    {
+      "project": "PyAPS",
+      "version": null,
+      "commit": "11c5310dd9e6937f917c474e1863782a0e8f6987",
+      "url": "https://github.com/insarlab/PyAPS",
+      "license": "GPL-3.0-or-later",
+      "license_url": "https://raw.githubusercontent.com/insarlab/PyAPS/11c5310dd9e6937f917c474e1863782a0e8f6987/LICENSE",
+      "identity_evidence_url": "https://api.github.com/repos/insarlab/PyAPS/git/ref/heads/main",
+      "source_pin": "pyaps3 @ https://github.com/insarlab/PyAPS/archive/11c5310dd9e6937f917c474e1863782a0e8f6987.zip",
+      "limitations": [
+        "SCM package version and GRIB/ecCodes transitive lock not established.",
+        "ERA5 data, license, pressure levels, scene/DEM coverage and exact weather time require independent supplied files."
+      ]
+    },
+    {
+      "project": "pypro4sail",
+      "distribution": "radiative-transfer-models",
+      "version": "1.6.2",
+      "commit": "470bc26238dbce7a8e77746b5569036f1219f298",
+      "url": "https://github.com/hectornieto/pypro4sail",
+      "license": "GPL-3.0-or-later",
+      "license_url": "https://raw.githubusercontent.com/hectornieto/pypro4sail/470bc26238dbce7a8e77746b5569036f1219f298/LICENSE",
+      "identity_evidence_url": "https://raw.githubusercontent.com/hectornieto/pypro4sail/470bc26238dbce7a8e77746b5569036f1219f298/pyproject.toml",
+      "source_pin": "radiative-transfer-models @ https://github.com/hectornieto/pypro4sail/archive/470bc26238dbce7a8e77746b5569036f1219f298.zip",
+      "alternative_for": "jgomezdans/prosail",
+      "equivalence": "Explicitly labelled PROSPECT-D plus 4SAIL composition for canopy/soil directional reflectance; not claimed byte-identical to jgomezdans/prosail.",
+      "limitations": [
+        "Bundled spectral constants and their notices need receipt hashes.",
+        "Declared distribution includes salib/Py6S/joblib etc.; no claim of a full transitive lock.",
+        "No runtime/native 6S invocation in the selected PROSPECT-D/4SAIL composition."
+      ]
+    },
+    {
+      "project": "Py6S",
+      "version": "1.9.2 documented; reviewed HEAD package version not established",
+      "commit": "801824eac00e705e4aa235d8f6c5f9458e3065b7",
+      "url": "https://github.com/robintw/Py6S",
+      "license": "LGPL-3.0; verify component notices at fixed source",
+      "license_url": "https://github.com/robintw/Py6S/blob/801824eac00e705e4aa235d8f6c5f9458e3065b7/COPYING.LESSER",
+      "identity_evidence_url": "https://api.github.com/repos/robintw/Py6S/git/ref/heads/master",
+      "source_pin": "Py6S @ https://github.com/robintw/Py6S/archive/801824eac00e705e4aa235d8f6c5f9458e3065b7.zip"
+    },
+    {
+      "project": "6S mirror used by Py6S ecosystem",
+      "version": null,
+      "commit": "96223f73eb3a2a00d01c190365b9afb346c27f31",
+      "url": "https://github.com/robintw/6S",
+      "license": "MIT text present in mirror LICENSE.md; upstream/component redistribution review pending",
+      "license_url": "https://raw.githubusercontent.com/robintw/6S/96223f73eb3a2a00d01c190365b9afb346c27f31/LICENSE.md",
+      "identity_evidence_url": "https://api.github.com/repos/robintw/6S/git/ref/heads/master",
+      "limitations": [
+        "Mirror identity is not original-author ownership/redistribution certification.",
+        "No native binary, compiler/runtime hash, successful build, or published-vector reproduction is asserted."
+      ]
+    },
+    {
+      "project": "OTB",
+      "version": "9.1.1",
+      "commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "url": "https://gitlab.orfeo-toolbox.org/orfeotoolbox/otb",
+      "license": "Apache-2.0 per prior group evidence; retained not re-audited",
+      "license_url": "https://gitlab.orfeo-toolbox.org/orfeotoolbox/otb/-/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/LICENSE",
+      "identity_evidence_url": "prior group sources.json (preserved)",
+      "limitations": [
+        "Current stable cookbook is 10.0.0 and cannot prove 9.1.1 build compatibility.",
+        "Original SAFE measurement, annotations, calibration/noise LUT coverage and sensor geolocation must survive artifact transfer."
+      ]
+    }
+  ]
+}

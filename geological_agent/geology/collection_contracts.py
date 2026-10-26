@@ -117,6 +117,16 @@ def operation(name):
                     reject("Arguments exceed the 4 MB source-operation budget", "resource_limit")
                 spec = definition(name)
                 upstream = spec["metadata"]["upstream"]
+                profile_id = spec.get("registration_metadata", {}).get("runtime", {}).get("isolation_profile_id")
+                if profile_id:
+                    from geological_agent.geology import isolated_cpu_bridge_v2 as bridge
+                    try:
+                        if not bridge.active_child(name, spec):
+                            return bridge.invoke(name, args, output_dir, function, spec)
+                    except bridge.BridgeError as exc:
+                        native = ScientificToolError(exc.code, str(exc), retryable=False)
+                        native.remote_error = exc.details
+                        raise native from exc
                 installed = _dependencies(spec)
                 canonical = _canonical_inputs(args, spec["source_interface"].get("path_fields", []))
                 generates = bool(spec["source_interface"]["entrypoint"].get("output_directory_parameter"))
@@ -173,5 +183,6 @@ def operation(name):
                 if qualified == "pyproj.exceptions.CRSError":
                     reject("The declared CRS is invalid")
                 reject("The reviewed upstream operation failed: " + qualified, "upstream_failure")
+        call.__geoagent_operation_id__ = name
         return call
     return decorate

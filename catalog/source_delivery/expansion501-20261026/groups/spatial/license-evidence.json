@@ -1,0 +1,104 @@
+{
+  "status": "source_revised_unverified",
+  "upstream_licenses": [
+    {
+      "package": "pyflwdir",
+      "version": "0.5.12",
+      "license": "MIT",
+      "source_commit": "4e598e77611232bbf5fc620919d914de5bfd2cdb",
+      "evidence_url": "https://github.com/Deltares/pyflwdir/blob/4e598e77611232bbf5fc620919d914de5bfd2cdb/LICENSE"
+    },
+    {
+      "package": "shapely",
+      "version": "2.1.2",
+      "license": "BSD-3-Clause",
+      "source_commit": "5fb639d1056888d135fe56bfaf750c9648addeec",
+      "evidence_url": "https://github.com/shapely/shapely/blob/5fb639d1056888d135fe56bfaf750c9648addeec/LICENSE.txt"
+    },
+    {
+      "package": "tobler",
+      "version": "0.14.0",
+      "license": "BSD-3-Clause",
+      "source_commit": "955790dac77f4a76d06591ffe9f246cfb0af4501",
+      "evidence_url": "https://github.com/pysal/tobler/blob/955790dac77f4a76d06591ffe9f246cfb0af4501/LICENSE.txt"
+    },
+    {
+      "package": "flopy",
+      "version": "3.11.0",
+      "license": "CC0-1.0",
+      "source_commit": "a43f79127d0383e5328a602e72faf9a9730c7d61",
+      "evidence_url": "https://github.com/modflowpy/flopy/blob/a43f79127d0383e5328a602e72faf9a9730c7d61/LICENSE.md"
+    },
+    {
+      "package": "rasterio",
+      "version": "1.4.3",
+      "license": "BSD-3-Clause",
+      "source_commit": "7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede",
+      "evidence_url": "https://github.com/rasterio/rasterio/blob/7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede/LICENSE.txt"
+    },
+    {
+      "package": "esda",
+      "version": "2.10.0",
+      "license": "BSD-3-Clause",
+      "source_commit": "6ffd5b66565791cede8703c438c90a819aacd49f",
+      "evidence_url": "https://github.com/pysal/esda/blob/6ffd5b66565791cede8703c438c90a819aacd49f/LICENSE.txt"
+    },
+    {
+      "package": "libpysal",
+      "version": "4.15.0",
+      "license": "BSD-3-Clause",
+      "source_commit": "40cab61991086968799609f0856bf1eb2042e5ef",
+      "evidence_url": "https://github.com/pysal/libpysal/blob/40cab61991086968799609f0856bf1eb2042e5ef/LICENSE.txt"
+    },
+    {
+      "package": "pointpats",
+      "version": "2.6.0",
+      "license": "BSD-3-Clause",
+      "source_commit": "524296c551488998a26000c072d69b76ca095d68",
+      "evidence_url": "https://github.com/pysal/pointpats/blob/524296c551488998a26000c072d69b76ca095d68/LICENSE.txt"
+    },
+    {
+      "package": "spopt",
+      "version": "0.8.0",
+      "license": "BSD-3-Clause",
+      "source_commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+      "evidence_url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/LICENSE.txt"
+    },
+    {
+      "package": "landlab",
+      "version": "2.11.0",
+      "license": "MIT",
+      "source_commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "evidence_url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/LICENSE.md"
+    },
+    {
+      "package": "scikit-learn",
+      "version": "1.7.2",
+      "license": "BSD-3-Clause",
+      "source_commit": "25dee604bae18205b01548348388baf7a1cdfe0e",
+      "evidence_url": "https://github.com/scikit-learn/scikit-learn/blob/25dee604bae18205b01548348388baf7a1cdfe0e/COPYING"
+    },
+    {
+      "package": "PDAL",
+      "version": "2.9.1",
+      "license": "BSD-3-Clause",
+      "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "evidence_url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/LICENSE.txt"
+    },
+    {
+      "package": "GRASS",
+      "version": "8.5.0",
+      "license": "GPL-2.0-or-later",
+      "source_commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+      "evidence_url": "https://github.com/OSGeo/grass/blob/8d6ceba290a2f0059a7301b9d4944455f313da72/COPYING"
+    }
+  ],
+  "wrapper_license_status": "Repository owner redistribution approval pending; no third-party algorithm implementation is vendored.",
+  "native_blocked_projects": [
+    "PDAL",
+    "GRASS"
+  ],
+  "transitive_review": "Pending full private-environment license/notice inventory; GPL GRASS native candidates are blocked and not catalog-registered.",
+  "receiving_lab_certification": "not_established"
+}
+

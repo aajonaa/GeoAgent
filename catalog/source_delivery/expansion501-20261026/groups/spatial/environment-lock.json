@@ -1,0 +1,47 @@
+{
+  "python": "3.12",
+  "status": "partial_exact_direct_pins_private_acceptance_pending",
+  "requirements": [
+    "affine==3.0.1",
+    "esda==2.10.0",
+    "flopy==3.11.0",
+    "geopandas==1.1.2",
+    "jsonschema==4.25.1",
+    "landlab==2.11.0",
+    "libpysal==4.15.0",
+    "matplotlib==3.10.7",
+    "numba==0.68.0",
+    "numpy==2.1.3",
+    "pandas==2.3.0",
+    "pointpats==2.6.0",
+    "pyflwdir==0.5.12",
+    "pyproj==3.7.2",
+    "rasterio==1.4.3",
+    "scikit-learn==1.7.2",
+    "scipy==1.15.3",
+    "shapely==2.1.2",
+    "spopt==0.8.0",
+    "tobler==0.14.0",
+    "xarray==2026.9.0"
+  ],
+  "complete_transitive_lock": false,
+  "installed_here": false,
+  "main_environment_changes": false,
+  "required_private_settings": {
+    "NUMBA_CACHE_DIR": "private-workspace-cache",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "network": "disabled",
+    "gpu": "not_used"
+  },
+  "unresolved": [
+    "Full transitive wheel/build hashes, including Landlab py-richdem and spopt/PuLP import chain",
+    "GDAL/PROJ/GEOS and compiled-extension identities",
+    "CPU import/schema/analytic-oracle acceptance",
+    "Source distribution correspondence and license notices",
+    "Receiving AI Lab contract and certification"
+  ],
+  "native_artifact_transport": "Not used by adapted JSON-only functions. GRASS/PDAL artifact pipelines and MILP workers remain blocked; existing native_cpu_bridge profiles untouched."
+}
+

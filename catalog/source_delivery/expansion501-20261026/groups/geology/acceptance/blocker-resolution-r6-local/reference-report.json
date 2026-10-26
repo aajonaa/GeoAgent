@@ -1,0 +1,11 @@
+{
+  "scope": "stdlib_reference_and_source_only_not_upstream_acceptance",
+  "executed": 7,
+  "failures": 0,
+  "errors": 0,
+  "passed": 7,
+  "scientific_upstream_executed": 0,
+  "main_runtime_v2_executed": 0,
+  "model_workflow": "not_run",
+  "deployment": "not_deployed"
+}

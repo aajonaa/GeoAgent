@@ -1,0 +1,72 @@
+{
+  "grid": {
+    "crs": "EPSG:4326",
+    "affine": [
+      0.01,
+      0,
+      -0.005,
+      0,
+      -0.01,
+      0.005
+    ],
+    "nodata": null,
+    "mask": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "sar": {
+    "state": "coregistered_unwrapped_insar",
+    "processing_provenance": "SYNTHETIC analytic already-unwrapped/coregistered SAR fixture, not an RGB observation",
+    "wavelength_m": 0.12566370614359174,
+    "los_convention": "positive_toward_sensor"
+  },
+  "los_velocity_m_per_year": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      0
+    ]
+  ],
+  "incidence_deg": [
+    [
+      30,
+      30
+    ],
+    [
+      30,
+      30
+    ]
+  ],
+  "azimuth_deg": [
+    [
+      90,
+      90
+    ],
+    [
+      90,
+      90
+    ]
+  ],
+  "euler_cartesian_mas_per_year": [
+    1,
+    1,
+    1
+  ],
+  "reference_pixel": [
+    0,
+    0
+  ],
+  "velocity_unit": "m/year",
+  "euler_unit": "mas/year",
+  "reference_frame": "ITRF2014"
+}

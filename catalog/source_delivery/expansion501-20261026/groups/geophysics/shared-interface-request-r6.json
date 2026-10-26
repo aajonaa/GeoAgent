@@ -1,0 +1,44 @@
+{
+  "revision": "pending-two-r6",
+  "status": "superseded_by_parent_v2_not_integrated",
+  "superseded_by": "fixed-profile-requirements-r6.json; parent/Ramanujan isolated_cpu_bridge_v2.py and worker_v2.py are the only integration route. The v1 design below is retained as historical diagnosis, not an active request.",
+  "shared_files_changed": [],
+  "requested_owner": "parent",
+  "protocol": "fixed-cpu-arguments-json-v1",
+  "preferred_minimal_route": {
+    "location": "source_registry/domain_worker fixed dispatch, before calling decorated main-interpreter function",
+    "allowlist": [
+      "GeoSeismicMarchenkoRedatuming",
+      "GeoSeismicTraveltimeTomography"
+    ],
+    "action": "Route only administrator-bound IDs to native_cpu_bridge.invoke(name, args=args, implementation_path=fixed adapter path). The child invokes the real @operation function, including _dependencies and the entire existing contract in its own interpreter. Do not set source_mode=vendored or omit upstream requirements to evade dependency checks.",
+    "main_direct_python_calls": "Remain ordinary decorated calls and truthfully fail missing_dependency if the main interpreter lacks the pinned packages; they are not advertised as isolated entrypoints."
+  },
+  "alternative_if_direct_python_routing_is_required": {
+    "location": "collection_contracts.operation immediately before _dependencies",
+    "change": "Extract existing local execution body without changing dependency or schema checks. Add a trusted fixed-worker-only entry to that same body, then route the public decorated call through an administrator profile. Do not use a user arg or environment bypass flag. Agree and implement this shared API before altering this group's worker.",
+    "status": "not_implemented_not_assumed"
+  },
+  "existing_bridge_gaps": [
+    "Read stdout/stderr incrementally with hard caps and terminate/reap on overflow. Current subprocess.run buffers without a live cap.",
+    "Set all BLAS/OpenMP/NUMBA threads <=2, GPU visibility empty/none for CUDA/NVIDIA/HIP/ROCR/ONEAPI, tracing disabled, private cwd/HOME/cache/tmp.",
+    "Parent binding must include the fixed child interpreter, worker, adapter, contract, private catalog, build receipt and native library hashes; immutable per revision.",
+    "Check child provenance.input_sha256 against the shared canonical input hash, installed_versions against the unchanged scientific pins, and child implementation/contract/catalog hashes against the trusted profile.",
+    "Keep child installed_versions and child implementation hash. Do not rewrap the result in the main interpreter's operation() and overwrite its provenance.",
+    "Enforce real exit/status consistency and schema validation. Both new operations return bounded numeric JSON, artifacts=[] and output_sha256={}; no artifact transport extension is needed for these two.",
+    "No profile or private build receipt is supplied as runnable until native identity/license/ABI and scientific acceptance gates pass."
+  ],
+  "worker": "geological_agent/geology/expansion501_geophysics/fixed_cpu_entry.py",
+  "request": "The existing bridge passes raw finite JSON args on stdin and a fixed allowlisted tool ID in argv; no new generic command/callable protocol.",
+  "response": "Existing {status:'ok',tool:<ID>,data:<contract result>} or {status:'error',tool:<ID>,error:{code,message,retryable:false}}, with real zero/nonzero exit.",
+  "registration_gate": "Keep both IDs blocked and absent from catalog-additions until this route, profile preparation and numerical acceptance are demonstrated.",
+  "acceptance_pending": [
+    "main runtime dependency absence -> fixed private worker success",
+    "wrong private dependency pin rejected",
+    "mismatched request/source/catalog/build hash rejected",
+    "output overflow/timeout terminates worker",
+    "scientific positive/negative references",
+    "native ABI and bundled license evidence"
+  ],
+  "no_remote_retry": true
+}

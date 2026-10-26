@@ -45,6 +45,10 @@ ENTRY_MODULES = {
     "geological_agent.geology.collection_hydro_models",
     "geological_agent.geology.collection_groundwater_other",
     "geological_agent.geology.collection_weather_climate_seismic",
+    'geological_agent.geology.expansion501_geophysics',
+    'geological_agent.geology.expansion501_geology',
+    'geological_agent.geology.expansion501_remote',
+    'geological_agent.geology.expansion501_spatial',
 }
 # Declarative source semantics, not a planner or a tool-name heuristic.
 # These operations query reference catalog records; model-authored rows cannot

@@ -1,0 +1,149 @@
+{
+  "status": "source_revised_unverified",
+  "review_date": "2026-10-26",
+  "sources": [
+    {
+      "package": "scikit-image",
+      "version": "0.26.0",
+      "source_commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "repository": "https://github.com/scikit-image/scikit-image",
+      "source_mode": "package_release",
+      "license": "BSD-3-Clause (core; bundled notices retained)",
+      "license_evidence_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/LICENSE.txt",
+      "transitive_license_review": "pending",
+      "executed": false,
+      "runtime_source_correspondence": "Reviewed source commit and installed release recorded separately; no byte-identity claim."
+    },
+    {
+      "package": "spectral",
+      "version": "0.25",
+      "source_commit": "bd91dc47377028683ef5c97bc7c1cc2dff14012c",
+      "repository": "https://github.com/spectralpython/spectral",
+      "source_mode": "package_release",
+      "license": "MIT",
+      "license_evidence_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/LICENSE.txt",
+      "transitive_license_review": "pending",
+      "executed": false,
+      "runtime_source_correspondence": "Reviewed source commit and installed release recorded separately; no byte-identity claim."
+    },
+    {
+      "package": "PyWavelets",
+      "version": "1.10.0",
+      "source_commit": "4bd3a5f935ce53a06a531af6fbb0ab941e753adc",
+      "repository": "https://github.com/PyWavelets/pywt",
+      "source_mode": "package_release",
+      "license": "MIT; bundled BSD-3-Clause notices",
+      "license_evidence_url": "https://github.com/PyWavelets/pywt/blob/4bd3a5f935ce53a06a531af6fbb0ab941e753adc/LICENSE",
+      "transitive_license_review": "pending",
+      "executed": false,
+      "runtime_source_correspondence": "Reviewed source commit and installed release recorded separately; no byte-identity claim."
+    },
+    {
+      "package": "pyspectral",
+      "version": "0.14.3",
+      "source_commit": "14c8dfd01c3fa705af3a9e70d5d0a3d0b06333e0",
+      "repository": "https://github.com/pytroll/pyspectral",
+      "source_mode": "package_release",
+      "license": "Apache-2.0",
+      "license_evidence_url": "https://github.com/pytroll/pyspectral/blob/14c8dfd01c3fa705af3a9e70d5d0a3d0b06333e0/LICENSE.txt",
+      "transitive_license_review": "pending",
+      "executed": false,
+      "runtime_source_correspondence": "Reviewed source commit and installed release recorded separately; no byte-identity claim."
+    },
+    {
+      "package": "sarpy",
+      "version": "2.1.1",
+      "source_commit": "19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c",
+      "repository": "https://github.com/ngageoint/sarpy",
+      "source_mode": "reviewed_source_snapshot",
+      "license": "MIT",
+      "license_evidence_url": "https://github.com/ngageoint/sarpy/blob/19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c/LICENSE",
+      "transitive_license_review": "pending",
+      "executed": false,
+      "runtime_source_correspondence": "Reviewed source commit and installed release recorded separately; no byte-identity claim."
+    },
+    {
+      "package": "OrfeoToolBox",
+      "version": "9.1.1",
+      "source_commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+      "repository": "https://github.com/orfeotoolbox/OTB",
+      "source_mode": "fixed_native_cpu",
+      "license": "Apache-2.0",
+      "license_evidence_url": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/LICENSE",
+      "transitive_license_review": "pending",
+      "executed": false,
+      "runtime_source_correspondence": "Reviewed source commit and installed release recorded separately; no byte-identity claim."
+    },
+    {
+      "package": "mintpy",
+      "version": "1.6.4",
+      "source_commit": "297aa16018b93ba0d247413a56855cf012b8a7bb",
+      "repository": "https://github.com/insarlab/MintPy",
+      "source_mode": "package_release",
+      "license": "GPL-3.0-or-later",
+      "license_evidence_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/LICENSE",
+      "transitive_license_review": "pending",
+      "executed": false,
+      "runtime_source_correspondence": "Reviewed source commit and installed release recorded separately; no byte-identity claim."
+    }
+  ],
+  "blocked_source_evidence": [
+    {
+      "id": "GeoSARSigma0Calibration",
+      "source_url": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/SAR/Applications/app/otbSARCalibration.cxx",
+      "reason": "OTB SARCalibration requires original sensor calibration/noise LUTs and product metadata not preserved by the bounded array interface."
+    },
+    {
+      "id": "GeoInSARClosureAmbiguityCorrection",
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/unwrap_error_phase_closure.py",
+      "reason": "MintPy mutates an interferogram HDF stack and solves integer ambiguities with cvxopt/connected-component sampling."
+    },
+    {
+      "id": "GeoInSARTroposphericDelay",
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/tropo_pyaps3.py",
+      "reason": "MintPy tropo_pyaps3 CLI includes weather acquisition; offline use needs calc_delay_timeseries plus validated local ERA5 GRIB."
+    },
+    {
+      "id": "GeoInSARSolidEarthTideCorrection",
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/solid_earth_tides.py",
+      "reason": "Compiled PySolid kernel is required. Located v0.3.4 release does not yet close reviewed source/build/license identity."
+    },
+    {
+      "id": "GeoInSARMultilookClosureBias",
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/closure_phase_bias.py",
+      "reason": "MintPy closure_phase_bias estimate path calls ISCE2/SNAPHU unwrapping; it is not a standalone Python kernel."
+    },
+    {
+      "id": "GeoInSARSentinelInterplatformRangeBias",
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/s1ab_range_bias.py",
+      "reason": "Data-estimation path reads inputs/geometryRadar.h5, derives IW masks from nonzero height and maps SAFE acquisition identity to A/B dates."
+    },
+    {
+      "id": "GeoRemoteAtmosphericRadiativeTransfer",
+      "source_url": "https://github.com/robintw/Py6S",
+      "reason": "Py6S wraps an external 6S engine; reviewed matching native version/source/license/identity is not established."
+    },
+    {
+      "id": "GeoRemoteCanopySoilRadiativeTransfer",
+      "source_url": "https://github.com/jgomezdans/prosail",
+      "reason": "Inspected jgomezdans/prosail root and setup.py do not establish redistribution license."
+    }
+  ],
+  "additional_reviewed_sources": [
+    {
+      "url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/objects/stack.py",
+      "scope": "ifgram design matrix"
+    },
+    {
+      "url": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/Core/Wrappers/CommandLine/src/otbApplicationLauncherCommandLine.cxx",
+      "scope": "fixed launcher grammar and real exit code"
+    },
+    {
+      "package": "h5py",
+      "version": "3.16.0",
+      "source_commit": "b2f0347c4200333acd89b43733f1caa0c115162f",
+      "url": "https://github.com/h5py/h5py/releases/tag/3.16.0",
+      "license_review": "transitive review pending"
+    }
+  ]
+}

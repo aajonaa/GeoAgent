@@ -1,0 +1,84 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "structure": {
+    "lattice_angstrom": [
+      [
+        5.64,
+        0,
+        0
+      ],
+      [
+        0,
+        5.64,
+        0
+      ],
+      [
+        0,
+        0,
+        5.64
+      ]
+    ],
+    "species": [
+      "Na",
+      "Na",
+      "Na",
+      "Na",
+      "Cl",
+      "Cl",
+      "Cl",
+      "Cl"
+    ],
+    "fractional_coords": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0,
+        0.5
+      ],
+      [
+        0.5,
+        0.5,
+        0
+      ],
+      [
+        0.5,
+        0,
+        0
+      ],
+      [
+        0,
+        0.5,
+        0
+      ],
+      [
+        0,
+        0,
+        0.5
+      ],
+      [
+        0.5,
+        0.5,
+        0.5
+      ]
+    ]
+  },
+  "site_charges_e": [
+    1,
+    1,
+    1,
+    1,
+    -1,
+    -1,
+    -1,
+    -1
+  ]
+}

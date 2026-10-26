@@ -1,0 +1,849 @@
+{
+  "status": "source_specification_not_run",
+  "operations": [
+    {
+      "tool_id": "GeoSARCoherentChange",
+      "fixture": "assets/expansion501-remote/GeoSARCoherentChange.json",
+      "cases": [
+        {
+          "mutation": "NaN/Infinity in an existing complex SLC component",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Reference/secondary shape mismatch, zero complex amplitude, even/oversized window or incomplete mask",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Missing CRS, singular affine, wrong amplitude unit, RGB state, duplicate acquisition IDs",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Fault-injected upstream malformed shapes, nonfinite CCD/phase, complex phase or magnitude1.01",
+          "expect": "ScientificToolError invalid_output; fault injection is not a scientific kernel pass"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemotePhaseUnwrap",
+      "fixture": "assets/expansion501-remote/GeoRemotePhaseUnwrap.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteBrightnessTemperature",
+      "fixture": "assets/expansion501-remote/GeoRemoteBrightnessTemperature.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteGaussianClassify",
+      "fixture": "assets/expansion501-remote/GeoRemoteGaussianClassify.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteEndmemberDiscovery",
+      "fixture": "assets/expansion501-remote/GeoRemoteEndmemberDiscovery.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteClassSeparability",
+      "fixture": "assets/expansion501-remote/GeoRemoteClassSeparability.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteDenseOpticalFlow",
+      "fixture": "assets/expansion501-remote/GeoRemoteDenseOpticalFlow.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteProjectiveTiePoints",
+      "fixture": "assets/expansion501-remote/GeoRemoteProjectiveTiePoints.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteTemplateLocate",
+      "fixture": "assets/expansion501-remote/GeoRemoteTemplateLocate.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteScaleSpaceBlobs",
+      "fixture": "assets/expansion501-remote/GeoRemoteScaleSpaceBlobs.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteHoughLineEvidence",
+      "fixture": "assets/expansion501-remote/GeoRemoteHoughLineEvidence.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteWaveletPyramid",
+      "fixture": "assets/expansion501-remote/GeoRemoteWaveletPyramid.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoSARDopplerDeskew",
+      "fixture": "assets/expansion501-remote/GeoSARDopplerDeskew.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoSARSubaperture",
+      "fixture": "assets/expansion501-remote/GeoSARSubaperture.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteTOAReflectance",
+      "fixture": "assets/expansion501-remote/GeoRemoteTOAReflectance.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Omit/alter native identity manifest or hash",
+          "expect": "missing_dependency/incompatible_dependency; no launch"
+        },
+        {
+          "mutation": "Native nonzero exit, excessive output streams, or wrong output CRS",
+          "expect": "upstream_failure/invalid_output"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemotePansharpenFusion",
+      "fixture": "assets/expansion501-remote/GeoRemotePansharpenFusion.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Omit/alter native identity manifest or hash",
+          "expect": "missing_dependency/incompatible_dependency; no launch"
+        },
+        {
+          "mutation": "Native nonzero exit, excessive output streams, or wrong output CRS",
+          "expect": "upstream_failure/invalid_output"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoRemoteMADChange",
+      "fixture": "assets/expansion501-remote/GeoRemoteMADChange.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Omit/alter native identity manifest or hash",
+          "expect": "missing_dependency/incompatible_dependency; no launch"
+        },
+        {
+          "mutation": "Native nonzero exit, excessive output streams, or wrong output CRS",
+          "expect": "upstream_failure/invalid_output"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoSARPolarimetricHAlpha",
+      "fixture": "assets/expansion501-remote/GeoSARPolarimetricHAlpha.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Omit/alter native identity manifest or hash",
+          "expect": "missing_dependency/incompatible_dependency; no launch"
+        },
+        {
+          "mutation": "Native nonzero exit, excessive output streams, or wrong output CRS",
+          "expect": "upstream_failure/invalid_output"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoSARPolarizationSynthesis",
+      "fixture": "assets/expansion501-remote/GeoSARPolarizationSynthesis.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Omit/alter native identity manifest or hash",
+          "expect": "missing_dependency/incompatible_dependency; no launch"
+        },
+        {
+          "mutation": "Native nonzero exit, excessive output streams, or wrong output CRS",
+          "expect": "upstream_failure/invalid_output"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoInSARNetworkDisplacement",
+      "fixture": "assets/expansion501-remote/GeoInSARNetworkDisplacement.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Replace sar.state with RGB",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Unset private CPU profile or expose CUDA",
+          "expect": "ScientificToolError; do not run"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoInSARResidualDEM",
+      "fixture": "assets/expansion501-remote/GeoInSARResidualDEM.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Replace sar.state with RGB",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Unset private CPU profile or expose CUDA",
+          "expect": "ScientificToolError; do not run"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoInSARIonosphericDelay",
+      "fixture": "assets/expansion501-remote/GeoInSARIonosphericDelay.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Replace sar.state with RGB",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Unset private CPU profile or expose CUDA",
+          "expect": "ScientificToolError; do not run"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoInSARPlateFrameCorrection",
+      "fixture": "assets/expansion501-remote/GeoInSARPlateFrameCorrection.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Replace sar.state with RGB",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Unset private CPU profile or expose CUDA",
+          "expect": "ScientificToolError; do not run"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoInSARAscDescDecomposition",
+      "fixture": "assets/expansion501-remote/GeoInSARAscDescDecomposition.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Replace sar.state with RGB",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Unset private CPU profile or expose CUDA",
+          "expect": "ScientificToolError; do not run"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoInSAREnvisatOscillatorCorrection",
+      "fixture": "assets/expansion501-remote/GeoInSAREnvisatOscillatorCorrection.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Remove grid.crs or use nonexistent EPSG/singular affine",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Mismatch array dimensions and single grid",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Make grid.mask entirely false",
+          "expect": "ScientificToolError"
+        },
+        {
+          "mutation": "Replace sar.state with RGB",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Unset private CPU profile or expose CUDA",
+          "expect": "ScientificToolError; do not run"
+        }
+      ]
+    },
+    {
+      "tool_id": "GeoInSARCoherenceNetworkSelection",
+      "fixture": "assets/expansion501-remote/GeoInSARCoherenceNetworkSelection.json",
+      "cases": [
+        {
+          "mutation": "Add arbitrary_function='os.system' to the top-level object",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace numeric datum with NaN or Infinity",
+          "expect": "ScientificToolError; no successful artifact"
+        },
+        {
+          "mutation": "Replace required unit literal with incompatible unit",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Replace sar.state with RGB",
+          "expect": "ScientificToolError invalid_arguments"
+        },
+        {
+          "mutation": "Unset private CPU profile or expose CUDA",
+          "expect": "ScientificToolError; do not run"
+        }
+      ]
+    }
+  ]
+}

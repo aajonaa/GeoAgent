@@ -1,0 +1,478 @@
+{
+  "status": "source_specification_not_run",
+  "fixture_origin": "All fixtures explicitly synthetic; no measured mineral/ore/real SAR/weather observations.",
+  "operations": [
+    {
+      "tool_id": "GeoSARCoherentChange",
+      "fixture": "assets/expansion501-remote/GeoSARCoherentChange.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "coherence magnitude at all 35 complete-window pixels",
+          "value": 1,
+          "atol": 1e-8
+        },
+        {
+          "artifact": "result.tif",
+          "check": "correlation phase at all 35 complete-window pixels",
+          "value": 1.0471975511965976,
+          "atol": 1e-8
+        },
+        {
+          "artifact": "result.tif",
+          "check": "valid pixel count",
+          "value": 35,
+          "atol": 0
+        }
+      ],
+      "derivation": "For reference=2 and secondary=5*exp(i*pi/3), complex normalized correlation=sum(conj(2)*secondary)/sqrt(sum(4)*sum(25))=exp(i*pi/3). Its magnitude is 1, phase pi/3, and a 7x9 tile with a 3x3 full window has (7-2)*(9-2)=35 valid pixels.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemotePhaseUnwrap",
+      "fixture": "assets/expansion501-remote/GeoRemotePhaseUnwrap.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "band1[0,7]-band1[0,0]",
+          "value": 10.995574287564276,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "The analytic phase ramp increments pi/2 per column; seven increments equal 7*pi/2. Absolute 2*pi offset is deliberately not asserted.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteBrightnessTemperature",
+      "fixture": "assets/expansion501-remote/GeoRemoteBrightnessTemperature.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "all valid cells",
+          "value": 300,
+          "atol": 0.001
+        }
+      ],
+      "derivation": "Independent forward SI Planck law at wavelength 10 um, T=300 K; tolerance allows upstream historical h/k constants.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteGaussianClassify",
+      "fixture": "assets/expansion501-remote/GeoRemoteGaussianClassify.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "band1[2,0]",
+          "value": 2,
+          "atol": 0
+        }
+      ],
+      "derivation": "Equal-prior equal-covariance classes centered at (.2,.2) and (.6,.2); query at second mean must have class 2.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteEndmemberDiscovery",
+      "fixture": "assets/expansion501-remote/GeoRemoteEndmemberDiscovery.json",
+      "expected": [
+        {
+          "artifact": "mixture-coefficients.csv",
+          "check": "valid_pixel_index=2 both coefficients",
+          "value": 0.5,
+          "atol": 1e-8
+        },
+        {
+          "artifact": "discovered-endmembers.csv",
+          "check": "maximum endpoint reflectance",
+          "value": 1,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "Orthogonal unit spectral rays are exact extreme vectors; midpoint=(.5,.5) has analytic coefficients .5,.5 regardless of endpoint ordering.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteClassSeparability",
+      "fixture": "assets/expansion501-remote/GeoRemoteClassSeparability.json",
+      "expected": [
+        {
+          "artifact": "separability.csv",
+          "check": "Bhattacharyya distance class1,class2",
+          "value": 1.5,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "Both four-corner classes have sample covariance (.04/3) I and mean difference (.4,0); D=(1/8)*.16/(.04/3)=1.5; log-determinant term is zero.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteDenseOpticalFlow",
+      "fixture": "assets/expansion501-remote/GeoRemoteDenseOpticalFlow.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "median band1 interior [12:36,12:36]",
+          "value": 1,
+          "atol": 0.35
+        },
+        {
+          "artifact": "result.tif",
+          "check": "median band2 interior [12:36,12:36]",
+          "value": 2,
+          "atol": 0.35
+        }
+      ],
+      "derivation": "Moving image analytically samples reference at (row-1,col-2), so reference-to-moving displacement is (1,2). Approximate variational convergence remains unverified.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteProjectiveTiePoints",
+      "fixture": "assets/expansion501-remote/GeoRemoteProjectiveTiePoints.json",
+      "expected": [
+        {
+          "artifact": "projected-points.csv",
+          "check": "query column",
+          "value": 6,
+          "atol": 1e-8
+        },
+        {
+          "artifact": "projected-points.csv",
+          "check": "query row",
+          "value": 3.5,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "Known homography [[1,0,2],[0,1,3],[.1,0,1]] maps (10,4) to (12/2,7/2).",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteTemplateLocate",
+      "fixture": "assets/expansion501-remote/GeoRemoteTemplateLocate.json",
+      "expected": [
+        {
+          "artifact": "peak-placement.csv",
+          "check": "top_row",
+          "value": 3,
+          "atol": 0
+        },
+        {
+          "artifact": "peak-placement.csv",
+          "check": "left_column",
+          "value": 4,
+          "atol": 0
+        },
+        {
+          "artifact": "peak-placement.csv",
+          "check": "normalized_correlation",
+          "value": 1,
+          "atol": 1e-7
+        }
+      ],
+      "derivation": "A nonconstant template is copied exactly at upper-left (3,4), hence normalized covariance correlation is one there.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteScaleSpaceBlobs",
+      "fixture": "assets/expansion501-remote/GeoRemoteScaleSpaceBlobs.json",
+      "expected": [
+        {
+          "artifact": "blobs.csv",
+          "check": "central feature row/column",
+          "value": 32,
+          "atol": 1
+        },
+        {
+          "artifact": "blobs.csv",
+          "check": "central sigma",
+          "value": 3,
+          "atol": 0.1
+        }
+      ],
+      "derivation": "Scale-normalized LoG response for a continuous 2-D Gaussian is extremal at its analytic sigma=3; center symmetry fixes (32,32). Discrete approximation unverified.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteHoughLineEvidence",
+      "fixture": "assets/expansion501-remote/GeoRemoteHoughLineEvidence.json",
+      "expected": [
+        {
+          "artifact": "hough-evidence.csv",
+          "check": "votes at rho=3 theta=0",
+          "value": 10,
+          "atol": 0
+        }
+      ],
+      "derivation": "Every one of ten edge points satisfies x cos(0)+y sin(0)=3; exactly ten votes.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteWaveletPyramid",
+      "fixture": "assets/expansion501-remote/GeoRemoteWaveletPyramid.json",
+      "expected": [
+        {
+          "artifact": "wavelet-coefficients.csv",
+          "check": "approximation coefficient",
+          "value": 2,
+          "atol": 1e-8
+        },
+        {
+          "artifact": "scale-energy.csv",
+          "check": "approximation squared energy",
+          "value": 4,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "The separable orthonormal Haar lowpass sums four ones with weight 1/2, yielding 2; squared energy=4.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoSARDopplerDeskew",
+      "fixture": "assets/expansion501-remote/GeoSARDopplerDeskew.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "all real-component cells",
+          "value": 2,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "Integral of constant .25 cycles/m is .25*r cycles; exp(-i*pi*r/2) cancels the input chirp 2 exp(i*pi*r/2).",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoSARSubaperture",
+      "fixture": "assets/expansion501-remote/GeoSARSubaperture.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "hypot(real,imag) all pixels",
+          "value": 2,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "The 8-point constant signal has FFT magnitude 16 at centered index 4; selected interval [2,6) places it at local bin2, inverse length8 produces amplitude2 and reindexed carrier.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteTOAReflectance",
+      "fixture": "assets/expansion501-remote/GeoRemoteTOAReflectance.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "TOA reflectance all pixels",
+          "value": 0.1,
+          "atol": 0.000001
+        }
+      ],
+      "derivation": "L=DN/gain+bias=2; rho=pi*L*d^2/(ESUN*sin(sun_elevation))=2*pi/(20*pi)=.1.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemotePansharpenFusion",
+      "fixture": "assets/expansion501-remote/GeoRemotePansharpenFusion.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "band1 interior",
+          "value": 0.2,
+          "atol": 1e-7
+        },
+        {
+          "artifact": "result.tif",
+          "check": "band2 interior",
+          "value": 0.6,
+          "atol": 1e-7
+        }
+      ],
+      "derivation": "Constant PAN divided by its normalized lowpass is one; RCS leaves constant reflectance bands unchanged.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoRemoteMADChange",
+      "fixture": "assets/expansion501-remote/GeoRemoteMADChange.json",
+      "expected": [
+        {
+          "artifact": "mad-sample-variance.csv",
+          "check": "larger sorted sample variance",
+          "value": 1.5,
+          "atol": 0.03
+        },
+        {
+          "artifact": "mad-sample-variance.csv",
+          "check": "smaller sorted sample variance",
+          "value": 1,
+          "atol": 0.03
+        }
+      ],
+      "derivation": "Independent orthogonal sign contrasts construct equal covariance and diagonal cross-correlations .5,.25. Unit-variance canonical differences have variance 2(1-rho), i.e.1 and1.5; no sign assertion.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoSARPolarimetricHAlpha",
+      "fixture": "assets/expansion501-remote/GeoSARPolarimetricHAlpha.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "interior entropy",
+          "value": 0.920619835714305,
+          "atol": 0.00001
+        },
+        {
+          "artifact": "result.tif",
+          "check": "interior alpha",
+          "value": 45,
+          "atol": 0.0001
+        },
+        {
+          "artifact": "result.tif",
+          "check": "interior anisotropy",
+          "value": 0.3333333333333333,
+          "atol": 0.00001
+        }
+      ],
+      "derivation": "Three repeated Pauli vectors (3,0,0),(0,sqrt6,0),(0,0,sqrt3) have 9x9 coherency diag(3,2,1), probabilities(1/2,1/3,1/6), H=.9206198357, mean alpha45deg, A=1/3 (upstream denominator stabilization tolerance).",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoSARPolarizationSynthesis",
+      "fixture": "assets/expansion501-remote/GeoSARPolarizationSynthesis.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "all HH synthesized power",
+          "value": 1,
+          "atol": 1e-7
+        }
+      ],
+      "derivation": "Identity scattering matrix and horizontal Jones transmit/receive vectors give |[1,0] S [1,0]^T|^2=1.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoInSARNetworkDisplacement",
+      "fixture": "assets/expansion501-remote/GeoInSARNetworkDisplacement.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "last date pixel[1,1]",
+          "value": 0.02,
+          "atol": 1e-8
+        },
+        {
+          "artifact": "network-quality.csv",
+          "check": "temporal coherence",
+          "value": 1,
+          "atol": 0.000001
+        }
+      ],
+      "derivation": "Triangle observations -1,-1,-2 rad imply phases0,-1,-2. Wavelength=4*pi*.01 m gives LOS displacement0,.01,.02 m and zero closure residual.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoInSARResidualDEM",
+      "fixture": "assets/expansion501-remote/GeoInSARResidualDEM.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "dem_height_error all pixels",
+          "value": 20,
+          "atol": 0.00001
+        },
+        {
+          "artifact": "result.tif",
+          "check": "corrected final-date displacement",
+          "value": 0.029979466119096514,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "Synthetic displacement=.01*t + baseline/(800000*sin30deg)*20. Independent noncollinear baseline design separates height20m from linear motion.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoInSARIonosphericDelay",
+      "fixture": "assets/expansion501-remote/GeoInSARIonosphericDelay.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "corrected last-date pixel[1,1]",
+          "value": 0.04,
+          "atol": 1e-8
+        },
+        {
+          "artifact": "ionospheric-los-delay.tif",
+          "check": "last-date pixel[1,1]",
+          "value": 0.02,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "Independent additive model measured=.06 m, split-spectrum ionospheric delay=.02 m from closed phase triangle; corrected=.04 m.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoInSARPlateFrameCorrection",
+      "fixture": "assets/expansion501-remote/GeoInSARPlateFrameCorrection.json",
+      "expected": [
+        {
+          "artifact": "plate-enu.tif",
+          "check": "east velocity at pixel[0,0] (lat=lon=0)",
+          "value": 0.030922080775909327,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "At equator/Greenwich on WGS84, rotation omega_z=1mas/year gives east speed a*omega_z, a=6378137m. Cartesian cross product independently determines positive east speed.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoInSARAscDescDecomposition",
+      "fixture": "assets/expansion501-remote/GeoInSARAscDescDecomposition.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "east band",
+          "value": 0.02,
+          "atol": 1e-8
+        },
+        {
+          "artifact": "result.tif",
+          "check": "up band",
+          "value": 0.03,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "Independent LOS projection d1=.5*.02+cos30*.03,d2=-.5*.02+cos30*.03. Sum/difference uniquely recover east.02m/up.03m.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoInSAREnvisatOscillatorCorrection",
+      "fixture": "assets/expansion501-remote/GeoInSAREnvisatOscillatorCorrection.json",
+      "expected": [
+        {
+          "artifact": "result.tif",
+          "check": "second date pixel[1,1]",
+          "value": 0.000613,
+          "atol": 1e-8
+        }
+      ],
+      "derivation": "MintPy decimal-year increment between Jan1 2005 and Jan1 2006 is one. Independent instrument model correction=1000m*3.87e-7/year=.000387m; .001-.000387=.000613.",
+      "executed": false
+    },
+    {
+      "tool_id": "GeoInSARCoherenceNetworkSelection",
+      "fixture": "assets/expansion501-remote/GeoInSARCoherenceNetworkSelection.json",
+      "expected": [
+        {
+          "artifact": "selected-network.csv",
+          "check": "sum of keep flags",
+          "value": 2,
+          "atol": 0
+        },
+        {
+          "artifact": "selected-network.csv",
+          "check": "keep flag for middle .8 coherence edge",
+          "value": 1,
+          "atol": 0
+        }
+      ],
+      "derivation": "Triangle inverse-coherence weights1/.9,1/.8,10 give the unique MST with first two edges; threshold.85 cannot remove required middle MST edge.",
+      "executed": false
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "fixture": "synthetic classic MODFLOW CBC; no model simulation executed",
+  "byte_order": "little",
+  "precision": "float32",
+  "shape": [
+    1,
+    1,
+    2
+  ],
+  "time_step_period_zero_based": [
+    0,
+    0
+  ],
+  "records": [
+    {
+      "term": "FLOW RIGHT FACE",
+      "values": [
+        3,
+        0
+      ]
+    },
+    {
+      "term": "FLOW FRONT FACE",
+      "values": [
+        0,
+        0
+      ]
+    },
+    {
+      "term": "FLOW LOWER FACE",
+      "values": [
+        0,
+        0
+      ]
+    },
+    {
+      "term": "WELLS",
+      "values": [
+        3,
+        -3
+      ]
+    }
+  ],
+  "units": "m3/s",
+  "expected": "Zone1 receives 3 from wells and exports 3 to zone2; zone2 receives 3 from zone1 and exports 3 to wells. Both residuals zero."
+}
+

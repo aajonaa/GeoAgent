@@ -1,0 +1,39 @@
+{
+  "crs": "EPSG:32631",
+  "origin_xy_m": [
+    500000,
+    1000
+  ],
+  "cell_size_m": 2,
+  "nodata_policy": "reject_missing",
+  "d8": [
+    [
+      1,
+      1,
+      0
+    ]
+  ],
+  "hand_m": [
+    [
+      3,
+      1,
+      0
+    ]
+  ],
+  "outlet_indices": [
+    2
+  ],
+  "stages_m": [
+    1,
+    2,
+    4
+  ],
+  "units": {
+    "origin_xy_m": "m",
+    "cell_size_m": "m",
+    "hand_m": "m",
+    "stages_m": "m",
+    "d8": "D8_code"
+  }
+}
+

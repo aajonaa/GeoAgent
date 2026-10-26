@@ -1,0 +1,65 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "extent_m": [
+    0,
+    1000,
+    0,
+    1000,
+    0,
+    1000
+  ],
+  "resolution": [
+    8,
+    8,
+    8
+  ],
+  "surface_names_youngest_first": [
+    "contact"
+  ],
+  "surface_points_xyz_m": [
+    [
+      100,
+      100,
+      500
+    ],
+    [
+      900,
+      100,
+      500
+    ],
+    [
+      100,
+      900,
+      500
+    ],
+    [
+      900,
+      900,
+      500
+    ]
+  ],
+  "point_surface_indices": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "orientation_xyz_m": [
+    [
+      500,
+      500,
+      500
+    ]
+  ],
+  "orientation_normals": [
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "orientation_surface_indices": [
+    0
+  ],
+  "coordinate_reference": "SYNTHETIC Cartesian XYZ in metres; Z up from local zero, not geographic coordinates."
+}

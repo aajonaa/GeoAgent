@@ -1,0 +1,30 @@
+{
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "cost_matrix": [
+      [
+        0,
+        2,
+        7
+      ],
+      [
+        2,
+        0,
+        5
+      ],
+      [
+        7,
+        5,
+        0
+      ]
+    ],
+    "cost_unit": "m",
+    "service_radius": 2,
+    "units": {
+      "cost_matrix": "m",
+      "service_radius": "m"
+    }
+  },
+  "numeric_oracle": "Hand enumeration: minimum cover with radius 2 needs facility 2 plus either 0 or 1, objective 2. All-positive cost matrix with radius 0 is infeasible."
+}

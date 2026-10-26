@@ -1,0 +1,5711 @@
+{
+  "group": "geology",
+  "status": "source_revised_unverified",
+  "sources": {
+    "spglib": {
+      "package": "spglib",
+      "version": "2.8.0",
+      "repo": "spglib/spglib",
+      "commit": "3ebd8ac3318793932baeee90b44f453a7c35b5b4",
+      "license": "BSD-3-Clause",
+      "license_file": "COPYING",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "spglib==2.8.0"
+      ],
+      "profile": "crystals"
+    },
+    "core": {
+      "package": "pymatgen-core",
+      "version": "2026.10.16",
+      "repo": "materialsproject/pymatgen-core",
+      "commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pymatgen-core==2026.10.16",
+        "spglib==2.8.0"
+      ],
+      "profile": "crystals"
+    },
+    "pymatgen": {
+      "package": "pymatgen",
+      "version": "2026.10.24",
+      "repo": "materialsproject/pymatgen",
+      "commit": "e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pymatgen==2026.10.24",
+        "pymatgen-core==2026.10.16",
+        "spglib==2.8.0"
+      ],
+      "profile": "crystals"
+    },
+    "pyrolite": {
+      "package": "pyrolite",
+      "version": "0.3.7",
+      "repo": "morganjwilliams/pyrolite",
+      "commit": "ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca",
+      "license": "LicenseRef-CSIRO-BSD-MIT",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pyrolite==0.3.7",
+        "periodictable==2.1.0",
+        "mpltern==1.0.5",
+        "sympy==1.14.0",
+        "mpmath==1.3.0"
+      ],
+      "profile": "chemistry"
+    },
+    "periodictable": {
+      "package": "periodictable",
+      "version": "2.1.0",
+      "repo": "python-periodictable/periodictable",
+      "commit": "83b643f4ca4c7d8cf5202c13e32921b572da9896",
+      "license": "Public-domain nsf.py; file-specific terms elsewhere",
+      "license_file": "LICENSE.txt",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "periodictable==2.1.0"
+      ],
+      "profile": "chemistry"
+    },
+    "porespy": {
+      "package": "porespy",
+      "version": "3.2.0",
+      "repo": "PMEAL/porespy",
+      "commit": "916fdc135bfb08d84b8d9173d6de9174ff217e5d",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "porespy==3.2.0",
+        "numba==0.68.0",
+        "scikit-image==0.26.0"
+      ],
+      "profile": "pores"
+    },
+    "geostatspy": {
+      "package": "geostatspy",
+      "version": "0.0.46",
+      "repo": "GeostatsGuy/GeostatsPy",
+      "commit": "45b2032a1e3f05de6cd0cb7f32ed43203399dbfa",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "source_mode": "immutable_source_archive",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "numba==0.68.0",
+        "geostatspy @ https://github.com/GeostatsGuy/GeostatsPy/archive/45b2032a1e3f05de6cd0cb7f32ed43203399dbfa.zip"
+      ],
+      "profile": "geostatspy",
+      "qualification": "Source __version__ is 0.0.46, not asserted to be PyPI 0.0.79. Requires direct_url.json archive identity."
+    },
+    "slope": {
+      "package": "pyslope",
+      "version": "1.4.0",
+      "repo": "JesseBonanno/PySlope",
+      "commit": "b50f46ac342b569e251890239560ec311c8015cb",
+      "license": "MIT",
+      "license_file": "LICENSE.txt",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pyslope==1.4.0"
+      ],
+      "profile": "slope",
+      "qualification": "Published package includes web/plot/test dependencies; numeric adapter does not start web services or export plots. Full transitive lock pending."
+    },
+    "melt": {
+      "package": "pyMelt",
+      "version": "2.3",
+      "repo": "simonwmatthews/pyMelt",
+      "commit": "53246591d796275b4d3c7e6102897a886b76d63a",
+      "license": "GPL-3.0 text; conflicting MIT setup classifier",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pyMelt==2.3"
+      ],
+      "profile": "mantle",
+      "qualification": "Authoritative LICENSE is GPLv3 while setup.py classifier says MIT. Distribution interpretation/approval pending; do not describe as plain MIT."
+    },
+    "gempy": {
+      "package": "gempy",
+      "version": "2026.0.3",
+      "repo": "gempy-project/gempy",
+      "commit": "4bc16d39edbba98804a43d4ff0a62262140cbffe",
+      "license": "EUPL-1.2",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "gempy==2026.0.3",
+        "gempy_engine==2026.0.3",
+        "pydantic==2.13.5",
+        "typing-extensions==4.16.0"
+      ],
+      "profile": "gempy",
+      "companion": {
+        "package": "gempy_engine",
+        "version": "2026.0.3",
+        "commit": "18a1f876d2816e1a953d14cdbfce28845c51c750",
+        "url": "https://github.com/gempy-project/gempy_engine",
+        "license": "EUPL-1.2",
+        "license_evidence": "https://github.com/gempy-project/gempy_engine/blob/18a1f876d2816e1a953d14cdbfce28845c51c750/LICENSE"
+      }
+    }
+  },
+  "operations": [
+    {
+      "id": "Geo500CrystalSpaceGroupAudit",
+      "fn": "crystal_space_group",
+      "source": "spglib",
+      "task": "Audit crystal space-group symmetry and atomic equivalence.",
+      "api": "python/spglib/spg.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "structure": {
+            "type": "object",
+            "properties": {
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2,
+                  "pattern": "^[A-Z][a-z]?$"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Fractional coordinate in [0,1).",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "exclusiveMaximum": 1
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          },
+          "symprec_angstrom": {
+            "type": "number",
+            "description": "Cartesian symmetry tolerance, angstrom.",
+            "minimum": 1e-7,
+            "maximum": 0.1
+          }
+        },
+        "required": [
+          "data_source",
+          "structure",
+          "symprec_angstrom"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "space_group_number": {
+          "type": "integer",
+          "description": "International space-group number.",
+          "minimum": 1,
+          "maximum": 230
+        },
+        "international_symbol": {
+          "type": "string",
+          "description": "Space-group symbol.",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "hall_symbol": {
+          "type": "string",
+          "description": "Hall symbol.",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "rotation_count": {
+          "type": "integer",
+          "description": "Symmetry operation count.",
+          "minimum": 1,
+          "maximum": 384
+        },
+        "wyckoff_letters": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Identifier.",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        },
+        "equivalent_atoms": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "description": "Original-site representative.",
+            "minimum": 0,
+            "maximum": 127
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        }
+      },
+      "units": {
+        "space_group_number": "1",
+        "rotation_count": "1",
+        "equivalent_atoms": "site_index"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "structure": {
+          "lattice_angstrom": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              4
+            ]
+          ],
+          "species": [
+            "Si"
+          ],
+          "fractional_coords": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "symprec_angstrom": 0.00001
+      },
+      "numeric_oracle": "Monatomic cubic cell: space group 221, 48 rotation operations, one equivalent site (independent cubic point group).",
+      "distinct_from_existing": "Field stereonets/APSG fabric eigenvectors do not determine atomic space groups.",
+      "limitations": [
+        "Ordered periodic atomic sites only; tolerance-dependent crystallographic classification."
+      ],
+      "skill": "crystal-symmetry"
+    },
+    {
+      "id": "Geo500IrreducibleReciprocalMesh",
+      "fn": "irreducible_reciprocal_mesh",
+      "source": "spglib",
+      "task": "Reduce a Gamma-centred reciprocal mesh by atomic symmetry and time reversal.",
+      "api": "python/spglib/kpoints.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "structure": {
+            "type": "object",
+            "properties": {
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2,
+                  "pattern": "^[A-Z][a-z]?$"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Fractional coordinate in [0,1).",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "exclusiveMaximum": 1
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          },
+          "mesh": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "description": "Mesh subdivisions.",
+              "minimum": 1,
+              "maximum": 32
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "symprec_angstrom": {
+            "type": "number",
+            "description": "Symmetry tolerance, angstrom.",
+            "minimum": 1e-7,
+            "maximum": 0.1
+          }
+        },
+        "required": [
+          "data_source",
+          "structure",
+          "mesh",
+          "symprec_angstrom"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "representative_grid_addresses": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite component.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 1,
+          "maxItems": 32768,
+          "description": "Rows in the declared coordinate/component order."
+        },
+        "weights": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "description": "Orbit multiplicity.",
+            "minimum": 1,
+            "maximum": 32768
+          },
+          "minItems": 1,
+          "maxItems": 32768,
+          "description": "Aligned bounded values."
+        },
+        "fractional_kpoints": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite component.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 1,
+          "maxItems": 32768,
+          "description": "Rows in the declared coordinate/component order."
+        },
+        "full_mesh_size": {
+          "type": "integer",
+          "description": "Full mesh size.",
+          "minimum": 1,
+          "maximum": 32768
+        },
+        "time_reversal": {
+          "type": "boolean",
+          "const": true,
+          "description": "Fixed scientific convention."
+        },
+        "gamma_centered": {
+          "type": "boolean",
+          "const": true,
+          "description": "Fixed scientific convention."
+        }
+      },
+      "units": {
+        "representative_grid_addresses": "reciprocal_mesh_integer",
+        "weights": "1",
+        "fractional_kpoints": "reciprocal_lattice_fraction"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "structure": {
+          "lattice_angstrom": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              4
+            ]
+          ],
+          "species": [
+            "Si"
+          ],
+          "fractional_coords": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "mesh": [
+          2,
+          2,
+          2
+        ],
+        "symprec_angstrom": 0.00001
+      },
+      "numeric_oracle": "Cubic 2x2x2 mesh: 4 symmetry orbits with sorted weights [1,1,3,3], summing to 8; direct cube-corner orbit enumeration.",
+      "distinct_from_existing": "Reciprocal Brillouin-zone quadrature is not real-space raster resampling or stereonet analysis.",
+      "limitations": [
+        "No magnetic symmetry or electronic-structure solver; time reversal fixed on."
+      ],
+      "skill": "crystal-symmetry"
+    },
+    {
+      "id": "Geo500PowderXRDPattern",
+      "fn": "powder_xrd_pattern",
+      "source": "pymatgen",
+      "task": "Calculate kinematic powder X-ray diffraction from supplied ordered atomic structures.",
+      "api": "src/pymatgen/analysis/diffraction/xrd.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "structure": {
+            "type": "object",
+            "properties": {
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2,
+                  "pattern": "^[A-Z][a-z]?$"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Fractional coordinate in [0,1).",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "exclusiveMaximum": 1
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          },
+          "wavelength_angstrom": {
+            "type": "number",
+            "description": "Monochromatic wavelength, angstrom.",
+            "minimum": 0.1,
+            "maximum": 3
+          },
+          "two_theta_min_degrees": {
+            "type": "number",
+            "description": "Lower two-theta bound, degrees.",
+            "minimum": 0,
+            "maximum": 170
+          },
+          "two_theta_max_degrees": {
+            "type": "number",
+            "description": "Upper two-theta bound, degrees.",
+            "minimum": 1,
+            "maximum": 175
+          }
+        },
+        "required": [
+          "data_source",
+          "structure",
+          "wavelength_angstrom",
+          "two_theta_min_degrees",
+          "two_theta_max_degrees"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "two_theta_degrees": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Peak two theta, degrees.",
+            "minimum": 0,
+            "maximum": 180
+          },
+          "minItems": 0,
+          "maxItems": 4096,
+          "description": "Aligned bounded values."
+        },
+        "d_spacings_angstrom": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "d spacing, angstrom.",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "minItems": 0,
+          "maxItems": 4096,
+          "description": "Aligned bounded values."
+        },
+        "relative_intensity": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Intensity normalized to strongest=100.",
+            "minimum": 0,
+            "maximum": 100.000001
+          },
+          "minItems": 0,
+          "maxItems": 4096,
+          "description": "Aligned bounded values."
+        },
+        "hkl_families": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "hkl": {
+                  "type": "array",
+                  "items": {
+                    "type": "integer",
+                    "description": "Miller component.",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  },
+                  "minItems": 3,
+                  "maxItems": 4,
+                  "description": "Aligned bounded values."
+                },
+                "multiplicity": {
+                  "type": "integer",
+                  "description": "Family multiplicity.",
+                  "minimum": 1,
+                  "maximum": 384
+                }
+              },
+              "required": [
+                "hkl",
+                "multiplicity"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 128,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 0,
+          "maxItems": 4096,
+          "description": "Aligned bounded values."
+        },
+        "wavelength_angstrom": {
+          "type": "number",
+          "description": "Wavelength, angstrom.",
+          "minimum": 0.1,
+          "maximum": 3
+        }
+      },
+      "units": {
+        "two_theta_degrees": "degree",
+        "d_spacings_angstrom": "angstrom",
+        "relative_intensity": "max_100",
+        "wavelength_angstrom": "angstrom"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "structure": {
+          "lattice_angstrom": [
+            [
+              4,
+              0,
+              0
+            ],
+            [
+              0,
+              4,
+              0
+            ],
+            [
+              0,
+              0,
+              4
+            ]
+          ],
+          "species": [
+            "Si"
+          ],
+          "fractional_coords": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "wavelength_angstrom": 1,
+        "two_theta_min_degrees": 5,
+        "two_theta_max_degrees": 40
+      },
+      "numeric_oracle": "Simple cubic a=4 angstrom, wavelength=1: (100) d=4 and 2theta=14.361511562916563 degrees by Bragg law, independent of XRDCalculator.",
+      "distinct_from_existing": "Optical mineral spectral-angle matching does not calculate diffraction from atomic coordinates.",
+      "limitations": [
+        "No texture, instrument broadening, extinction corrections or measured mineral identification."
+      ],
+      "skill": "crystal-symmetry"
+    },
+    {
+      "id": "Geo500MineralOxygenBasisFormula",
+      "fn": "mineral_oxygen_basis_formula",
+      "source": "pyrolite",
+      "task": "Recalculate measured simple-oxide mineral analyses to an explicit fixed oxygen basis.",
+      "api": "pyrolite/mineral/transform.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "oxides": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Explicit simple oxide.",
+              "enum": [
+                "SiO2",
+                "TiO2",
+                "Al2O3",
+                "FeO",
+                "Fe2O3",
+                "MnO",
+                "MgO",
+                "CaO",
+                "Na2O",
+                "K2O",
+                "Cr2O3",
+                "NiO"
+              ]
+            },
+            "minItems": 1,
+            "maxItems": 12,
+            "description": "Aligned bounded values."
+          },
+          "oxide_wt_percent": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Measured oxide wt%.",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "minItems": 1,
+            "maxItems": 12,
+            "description": "Aligned bounded values."
+          },
+          "oxygen_basis": {
+            "type": "integer",
+            "description": "Oxygen atoms per formula unit.",
+            "minimum": 1,
+            "maximum": 64
+          }
+        },
+        "required": [
+          "data_source",
+          "oxides",
+          "oxide_wt_percent",
+          "oxygen_basis"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "ion_labels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Identifier.",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        },
+        "apfu": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Atoms per formula unit.",
+            "minimum": 0,
+            "maximum": 256
+          },
+          "minItems": 1,
+          "maxItems": 24,
+          "description": "Aligned bounded values."
+        },
+        "input_total": {
+          "type": "number",
+          "description": "Original oxide sum, wt%.",
+          "minimum": 90,
+          "maximum": 102
+        },
+        "oxygen_basis": {
+          "type": "integer",
+          "description": "Oxygen basis.",
+          "minimum": 1,
+          "maximum": 64
+        },
+        "iron_redox_inferred": {
+          "type": "boolean",
+          "const": false,
+          "description": "Fixed scientific convention."
+        }
+      },
+      "units": {
+        "apfu": "atoms_per_formula_unit",
+        "input_total": "wt_percent",
+        "oxygen_basis": "atoms"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "oxides": [
+          "MgO",
+          "SiO2"
+        ],
+        "oxide_wt_percent": [
+          57.293630232496,
+          42.706369767504
+        ],
+        "oxygen_basis": 4
+      },
+      "numeric_oracle": "Forsterite stoichiometry 2MgO+SiO2, normalized to 4 oxygens: Mg=2, Si=1, O=4; tolerance must account for stated atomic-mass table and rounded wt% fixture.",
+      "distinct_from_existing": "Existing GeoGeochemOxideMoles returns oxide mol/100g, not ionic APFU. No CIPW normative-mineral kernel is used.",
+      "limitations": [
+        "Total 90..102 wt%; supplied FeO/Fe2O3 retained; no redox inference or missing-component imputation."
+      ],
+      "skill": "mineral-thermodynamics"
+    },
+    {
+      "id": "Geo500MineralReactionBalance",
+      "fn": "mineral_reaction_balance",
+      "source": "core",
+      "task": "Balance a unique mineral reaction without changing participant sides.",
+      "api": "src/pymatgen/analysis/reaction_calculator.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "reactants": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Simple elemental chemical formula, not an expression.",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^(?:[A-Z][a-z]?[0-9]*(?:\\.[0-9]+)?){1,16}$"
+            },
+            "minItems": 1,
+            "maxItems": 8,
+            "description": "Aligned bounded values."
+          },
+          "products": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Simple elemental chemical formula, not an expression.",
+              "minLength": 1,
+              "maxLength": 96,
+              "pattern": "^(?:[A-Z][a-z]?[0-9]*(?:\\.[0-9]+)?){1,16}$"
+            },
+            "minItems": 1,
+            "maxItems": 8,
+            "description": "Aligned bounded values."
+          }
+        },
+        "required": [
+          "data_source",
+          "reactants",
+          "products"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "formulas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Simple elemental chemical formula, not an expression.",
+            "minLength": 1,
+            "maxLength": 96,
+            "pattern": "^(?:[A-Z][a-z]?[0-9]*(?:\\.[0-9]+)?){1,16}$"
+          },
+          "minItems": 2,
+          "maxItems": 16,
+          "description": "Aligned bounded values."
+        },
+        "coefficients": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Signed molar coefficient.",
+            "minimum": -1000000000000,
+            "maximum": 1000000000000
+          },
+          "minItems": 2,
+          "maxItems": 16,
+          "description": "Aligned bounded values."
+        },
+        "elements": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Identifier.",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        },
+        "element_residuals": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Elemental balance residual.",
+            "minimum": -1e-8,
+            "maximum": 1e-8
+          },
+          "minItems": 1,
+          "maxItems": 32,
+          "description": "Aligned bounded values."
+        }
+      },
+      "units": {
+        "coefficients": "mol_per_mol_first_reactant",
+        "element_residuals": "mol_atoms"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "reactants": [
+          "Mg2SiO4",
+          "SiO2"
+        ],
+        "products": [
+          "MgSiO3"
+        ]
+      },
+      "numeric_oracle": "Mg2SiO4+SiO2 -> 2MgSiO3: coefficients [-1,-1,2]; Mg=2, Si=2, O=6 on each side by integer atom counting.",
+      "distinct_from_existing": "Oxide conversion and endmember fitting do not solve a conserved chemical reaction.",
+      "limitations": [
+        "Unique stoichiometric nullspace required; forbids omitted participants and upstream side swaps; no reaction kinetics or favorability inferred."
+      ],
+      "skill": "mineral-thermodynamics"
+    },
+    {
+      "id": "Geo500MineralPhaseHull",
+      "fn": "mineral_phase_hull",
+      "source": "core",
+      "task": "Evaluate decomposition and energy above a composition-energy convex hull.",
+      "api": "src/pymatgen/analysis/phase_diagram.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique phase id.",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "formula": {
+                  "type": "string",
+                  "description": "Simple elemental chemical formula, not an expression.",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^(?:[A-Z][a-z]?[0-9]*(?:\\.[0-9]+)?){1,16}$"
+                },
+                "energy_ev_per_formula": {
+                  "type": "number",
+                  "description": "Consistent thermodynamic energy, eV per stated formula.",
+                  "minimum": -1000000,
+                  "maximum": 1000000
+                }
+              },
+              "required": [
+                "id",
+                "formula",
+                "energy_ev_per_formula"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 3,
+            "maxItems": 64,
+            "description": "Aligned bounded values."
+          },
+          "target_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Input phase id.",
+              "minLength": 1,
+              "maxLength": 64
+            },
+            "minItems": 1,
+            "maxItems": 32,
+            "description": "Aligned bounded values."
+          },
+          "energy_reference": {
+            "type": "string",
+            "description": "Energy zero, thermodynamic convention and provenance.",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "data_source",
+          "entries",
+          "target_ids",
+          "energy_reference"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "phase_id": {
+                "type": "string",
+                "description": "Target phase id.",
+                "minLength": 1,
+                "maxLength": 64
+              },
+              "energy_above_hull_ev_per_atom": {
+                "type": "number",
+                "description": "Energy above hull.",
+                "minimum": -1e-7,
+                "maximum": 1000000
+              },
+              "decomposition": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "phase_id": {
+                      "type": "string",
+                      "description": "Hull phase id.",
+                      "minLength": 1,
+                      "maxLength": 64
+                    },
+                    "atomic_fraction": {
+                      "type": "number",
+                      "description": "Atomic decomposition fraction.",
+                      "minimum": 0,
+                      "maximum": 1.0000001
+                    }
+                  },
+                  "required": [
+                    "phase_id",
+                    "atomic_fraction"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 64,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "phase_id",
+              "energy_above_hull_ev_per_atom",
+              "decomposition"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 32,
+          "description": "Aligned bounded values."
+        },
+        "energy_reference": {
+          "type": "string",
+          "description": "Caller energy reference.",
+          "minLength": 1,
+          "maxLength": 1000
+        },
+        "stable_phase_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Identifier.",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        }
+      },
+      "units": {
+        "energy_above_hull_ev_per_atom": "eV/atom",
+        "atomic_fraction": "1"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "entries": [
+          {
+            "id": "Li",
+            "formula": "Li",
+            "energy_ev_per_formula": 0
+          },
+          {
+            "id": "O",
+            "formula": "O",
+            "energy_ev_per_formula": 0
+          },
+          {
+            "id": "LiO_low",
+            "formula": "LiO",
+            "energy_ev_per_formula": -2
+          },
+          {
+            "id": "LiO_high",
+            "formula": "LiO",
+            "energy_ev_per_formula": 0
+          }
+        ],
+        "target_ids": [
+          "LiO_high"
+        ],
+        "energy_reference": "SYNTHETIC common zero; arbitrary reference energies, not ab initio or measured data."
+      },
+      "numeric_oracle": "LiO=-2 eV/formula versus LiO polymorph=0 with zero elemental references: high polymorph 1 eV/atom above hull; decomposes 100% into low LiO.",
+      "distinct_from_existing": "Different from redox/open-H/O Pourbaix stability and existing compositional endmember unmixing.",
+      "limitations": [
+        "At most four elements; all elemental terminal references required by upstream; mixing incompatible energy references is forbidden."
+      ],
+      "skill": "mineral-thermodynamics"
+    },
+    {
+      "id": "Geo500CrystalCoordination",
+      "fn": "crystal_coordination",
+      "source": "core",
+      "task": "Determine geometric periodic coordination environments with fixed CrystalNN settings.",
+      "api": "src/pymatgen/core/local_env.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "structure": {
+            "type": "object",
+            "properties": {
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2,
+                  "pattern": "^[A-Z][a-z]?$"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Fractional coordinate in [0,1).",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "exclusiveMaximum": 1
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          },
+          "site_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "description": "Atomic site index.",
+              "minimum": 0,
+              "maximum": 127
+            },
+            "minItems": 1,
+            "maxItems": 16,
+            "description": "Aligned bounded values."
+          }
+        },
+        "required": [
+          "data_source",
+          "structure",
+          "site_indices"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "sites": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "site_index": {
+                "type": "integer",
+                "description": "Central site.",
+                "minimum": 0,
+                "maximum": 127
+              },
+              "coordination_number": {
+                "type": "integer",
+                "description": "Neighbor count.",
+                "minimum": 1,
+                "maximum": 128
+              },
+              "neighbors": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "site_index": {
+                      "type": "integer",
+                      "description": "Neighbor original site.",
+                      "minimum": 0,
+                      "maximum": 127
+                    },
+                    "image": {
+                      "type": "array",
+                      "items": {
+                        "type": "integer",
+                        "description": "Periodic image.",
+                        "minimum": -32,
+                        "maximum": 32
+                      },
+                      "minItems": 3,
+                      "maxItems": 3,
+                      "description": "Aligned bounded values."
+                    },
+                    "distance_angstrom": {
+                      "type": "number",
+                      "description": "Center to neighbor-image distance.",
+                      "minimum": 0,
+                      "maximum": 100
+                    }
+                  },
+                  "required": [
+                    "site_index",
+                    "image",
+                    "distance_angstrom"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "site_index",
+              "coordination_number",
+              "neighbors"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 16,
+          "description": "Aligned bounded values."
+        },
+        "interpretation": {
+          "type": "string",
+          "description": "Physical interpretation.",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "units": {
+        "coordination_number": "1",
+        "distance_angstrom": "angstrom"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "structure": {
+          "lattice_angstrom": [
+            [
+              5.64,
+              0,
+              0
+            ],
+            [
+              0,
+              5.64,
+              0
+            ],
+            [
+              0,
+              0,
+              5.64
+            ]
+          ],
+          "species": [
+            "Na",
+            "Na",
+            "Na",
+            "Na",
+            "Cl",
+            "Cl",
+            "Cl",
+            "Cl"
+          ],
+          "fractional_coords": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0,
+              0.5,
+              0
+            ],
+            [
+              0,
+              0,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5
+            ]
+          ]
+        },
+        "site_indices": [
+          0
+        ]
+      },
+      "numeric_oracle": "NaCl conventional a=5.64 angstrom: central Na has 6 geometric nearest Cl neighbors, each 2.82 angstrom, from octahedral lattice geometry.",
+      "distinct_from_existing": "Atomic neighbor topology differs from field-orientation tensors and spatial point nearest-neighbor lookup.",
+      "limitations": [
+        "Geometric-only CrystalNN weights; no oxidation-state constraints or inferred bond orders."
+      ],
+      "skill": "crystal-symmetry"
+    },
+    {
+      "id": "Geo500BondValenceOxidation",
+      "fn": "bond_valence_oxidation",
+      "source": "core",
+      "task": "Infer charge-neutral ordered-site oxidation states from bond valence.",
+      "api": "src/pymatgen/core/bond_valence.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "structure": {
+            "type": "object",
+            "properties": {
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2,
+                  "pattern": "^[A-Z][a-z]?$"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Fractional coordinate in [0,1).",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "exclusiveMaximum": 1
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "data_source",
+          "structure"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "inferred_valences": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Inferred charge in elementary-charge units.",
+            "minimum": -8,
+            "maximum": 8
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        },
+        "cell_charge": {
+          "type": "number",
+          "description": "Cell charge.",
+          "minimum": -0.000001,
+          "maximum": 0.000001
+        },
+        "measured_redox": {
+          "type": "boolean",
+          "const": false,
+          "description": "Fixed scientific convention."
+        },
+        "interpretation": {
+          "type": "string",
+          "description": "Model inference qualifier.",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "units": {
+        "inferred_valences": "elementary_charge",
+        "cell_charge": "elementary_charge"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "structure": {
+          "lattice_angstrom": [
+            [
+              4.21,
+              0,
+              0
+            ],
+            [
+              0,
+              4.21,
+              0
+            ],
+            [
+              0,
+              0,
+              4.21
+            ]
+          ],
+          "species": [
+            "Mg",
+            "Mg",
+            "Mg",
+            "Mg",
+            "O",
+            "O",
+            "O",
+            "O"
+          ],
+          "fractional_coords": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0,
+              0.5,
+              0
+            ],
+            [
+              0,
+              0,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5
+            ]
+          ]
+        }
+      },
+      "numeric_oracle": "Periclase rock-salt MgO: inferred Mg +2 and O -2, four of each in conventional cell; independent known ionic valence and neutrality. Not a measured-redox oracle.",
+      "distinct_from_existing": "Explicitly distinct from input FeO/Fe2O3 conversion: this is a model-based structural oxidation-state assignment.",
+      "limitations": [
+        "Finite search budget 10000; unsupported elements/ambiguous fits fail, not fabricated charges; no measured redox claim."
+      ],
+      "skill": "crystal-symmetry"
+    },
+    {
+      "id": "Geo500CrystalStructureEquivalence",
+      "fn": "crystal_structure_equivalence",
+      "source": "core",
+      "task": "Match periodic crystal structures under origin shift and site permutation.",
+      "api": "src/pymatgen/core/structure_matcher.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "left_structure": {
+            "type": "object",
+            "properties": {
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2,
+                  "pattern": "^[A-Z][a-z]?$"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Fractional coordinate in [0,1).",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "exclusiveMaximum": 1
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          },
+          "right_structure": {
+            "type": "object",
+            "properties": {
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2,
+                  "pattern": "^[A-Z][a-z]?$"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Fractional coordinate in [0,1).",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "exclusiveMaximum": 1
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "data_source",
+          "left_structure",
+          "right_structure"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "equivalent": {
+          "type": "boolean"
+        },
+        "rms_displacement": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Normalized RMS displacement.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "maximum_displacement": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Normalized maximum displacement.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "scale_allowed": {
+          "type": "boolean",
+          "const": false,
+          "description": "Fixed scientific convention."
+        },
+        "supercell_search": {
+          "type": "boolean",
+          "const": false,
+          "description": "Fixed scientific convention."
+        }
+      },
+      "units": {
+        "rms_displacement": "normalized_free_length",
+        "maximum_displacement": "normalized_free_length"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "left_structure": {
+          "lattice_angstrom": [
+            [
+              5.64,
+              0,
+              0
+            ],
+            [
+              0,
+              5.64,
+              0
+            ],
+            [
+              0,
+              0,
+              5.64
+            ]
+          ],
+          "species": [
+            "Na",
+            "Na",
+            "Na",
+            "Na",
+            "Cl",
+            "Cl",
+            "Cl",
+            "Cl"
+          ],
+          "fractional_coords": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0,
+              0.5,
+              0
+            ],
+            [
+              0,
+              0,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5
+            ]
+          ]
+        },
+        "right_structure": {
+          "lattice_angstrom": [
+            [
+              5.64,
+              0,
+              0
+            ],
+            [
+              0,
+              5.64,
+              0
+            ],
+            [
+              0,
+              0,
+              5.64
+            ]
+          ],
+          "species": [
+            "Cl",
+            "Cl",
+            "Cl",
+            "Cl",
+            "Na",
+            "Na",
+            "Na",
+            "Na"
+          ],
+          "fractional_coords": [
+            [
+              0.75,
+              0.75,
+              0.75
+            ],
+            [
+              0.25,
+              0.25,
+              0.75
+            ],
+            [
+              0.25,
+              0.75,
+              0.25
+            ],
+            [
+              0.75,
+              0.25,
+              0.25
+            ],
+            [
+              0.75,
+              0.75,
+              0.25
+            ],
+            [
+              0.75,
+              0.25,
+              0.75
+            ],
+            [
+              0.25,
+              0.75,
+              0.75
+            ],
+            [
+              0.25,
+              0.25,
+              0.25
+            ]
+          ]
+        }
+      },
+      "numeric_oracle": "Identical NaCl after site permutation and fractional origin translation: equivalent=true, RMS=0 and max=0; 8 atom identities retained.",
+      "distinct_from_existing": "Not remote image phase registration or chemical-composition equality; full periodic geometry and species are compared.",
+      "limitations": [
+        "Fixed matching tolerances; no scaling, anonymous chemical substitution or supercell search; nonmatches return explicit null distances."
+      ],
+      "skill": "crystal-symmetry"
+    },
+    {
+      "id": "Geo500WulffCrystalHabit",
+      "fn": "wulff_crystal_habit",
+      "source": "pymatgen",
+      "task": "Construct equilibrium crystal habit from indexed relative surface energies.",
+      "api": "src/pymatgen/analysis/wulff.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "lattice_angstrom": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "Finite component.",
+                "minimum": -1000000000000,
+                "maximum": 1000000000000
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Rows in the declared coordinate/component order."
+          },
+          "miller_indices": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "description": "Miller index.",
+                "minimum": -3,
+                "maximum": 3
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 3,
+            "maxItems": 24,
+            "description": "Aligned bounded values."
+          },
+          "surface_energies_j_m2": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Positive surface energy, J/m2.",
+              "minimum": 0.000001,
+              "maximum": 100
+            },
+            "minItems": 3,
+            "maxItems": 24,
+            "description": "Aligned bounded values."
+          }
+        },
+        "required": [
+          "data_source",
+          "lattice_angstrom",
+          "miller_indices",
+          "surface_energies_j_m2"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "facets": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "hkl": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "description": "Miller index.",
+                  "minimum": -3,
+                  "maximum": 3
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Aligned bounded values."
+              },
+              "area_fraction": {
+                "type": "number",
+                "description": "Facet-family area fraction.",
+                "minimum": 0,
+                "maximum": 1.0000001
+              }
+            },
+            "required": [
+              "hkl",
+              "area_fraction"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 24,
+          "description": "Aligned bounded values."
+        },
+        "shape_factor": {
+          "type": "number",
+          "description": "Area divided by volume^(2/3), dimensionless.",
+          "minimum": 0,
+          "maximum": 1000000
+        },
+        "weighted_surface_energy": {
+          "type": "number",
+          "description": "Area-weighted energy.",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "absolute_crystal_size_inferred": {
+          "type": "boolean",
+          "const": false,
+          "description": "Fixed scientific convention."
+        }
+      },
+      "units": {
+        "area_fraction": "1",
+        "shape_factor": "1",
+        "weighted_surface_energy": "J/m2"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "lattice_angstrom": [
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            0,
+            4,
+            0
+          ],
+          [
+            0,
+            0,
+            4
+          ]
+        ],
+        "miller_indices": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1
+          ]
+        ],
+        "surface_energies_j_m2": [
+          1,
+          2,
+          2
+        ]
+      },
+      "numeric_oracle": "Cubic gamma100=1, gamma110=gamma111=2: cube with {100} area fraction 1, shape factor 6, mean surface energy 1 J/m2; independent geometry.",
+      "distinct_from_existing": "Atomic surface free-energy habit differs from supplied-lattice slab terminations or geological stereonet planes.",
+      "limitations": [
+        "No absolute nanocrystal size or dimensional raw Wulff volume reported; nondegenerate indexed surface energies required."
+      ],
+      "skill": "crystal-interfaces"
+    },
+    {
+      "id": "Geo500PeriodicIonicLatticeEnergy",
+      "fn": "ionic_lattice_energy",
+      "source": "core",
+      "task": "Compute neutral three-dimensional periodic ionic Coulomb energy.",
+      "api": "src/pymatgen/core/ewald.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "structure": {
+            "type": "object",
+            "properties": {
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2,
+                  "pattern": "^[A-Z][a-z]?$"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Fractional coordinate in [0,1).",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "exclusiveMaximum": 1
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          },
+          "site_charges_e": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Explicit ionic point charge.",
+              "minimum": -8,
+              "maximum": 8
+            },
+            "minItems": 1,
+            "maxItems": 128,
+            "description": "Aligned bounded values."
+          }
+        },
+        "required": [
+          "data_source",
+          "structure",
+          "site_charges_e"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "total_energy_ev": {
+          "type": "number",
+          "description": "Point-charge electrostatic cell energy, eV.",
+          "minimum": -1000000000000,
+          "maximum": 1000000000000
+        },
+        "energy_per_atom_ev": {
+          "type": "number",
+          "description": "Point-charge energy per atom, eV.",
+          "minimum": -1000000000000,
+          "maximum": 1000000000000
+        },
+        "cell_charge": {
+          "type": "number",
+          "description": "Net cell charge.",
+          "minimum": -1e-10,
+          "maximum": 1e-10
+        },
+        "interpretation": {
+          "type": "string",
+          "description": "Hamiltonian limitation.",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "units": {
+        "total_energy_ev": "eV/cell",
+        "energy_per_atom_ev": "eV/atom",
+        "cell_charge": "elementary_charge"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "structure": {
+          "lattice_angstrom": [
+            [
+              5.64,
+              0,
+              0
+            ],
+            [
+              0,
+              5.64,
+              0
+            ],
+            [
+              0,
+              0,
+              5.64
+            ]
+          ],
+          "species": [
+            "Na",
+            "Na",
+            "Na",
+            "Na",
+            "Cl",
+            "Cl",
+            "Cl",
+            "Cl"
+          ],
+          "fractional_coords": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0.5,
+              0.5
+            ],
+            [
+              0.5,
+              0,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0
+            ],
+            [
+              0.5,
+              0,
+              0
+            ],
+            [
+              0,
+              0.5,
+              0
+            ],
+            [
+              0,
+              0,
+              0.5
+            ],
+            [
+              0.5,
+              0.5,
+              0.5
+            ]
+          ]
+        },
+        "site_charges_e": [
+          1,
+          1,
+          1,
+          1,
+          -1,
+          -1,
+          -1,
+          -1
+        ]
+      },
+      "numeric_oracle": "NaCl a=5.64 angstrom, charges +/-1: conventional-cell Madelung energy approximately -35.694057607611626 eV (M=1.7475645946331822); absolute magnitude 35.6940576 eV. Independent Madelung reference still requires acceptance citation freeze.",
+      "distinct_from_existing": "Not geophysical gravity, elastic moduli or fluid EOS; atomic electrostatic lattice energy.",
+      "limitations": [
+        "Neutral ordered 3D cells only; no implicit charge compensation, metallic screening or full formation-energy claim."
+      ],
+      "skill": "mineral-thermodynamics"
+    },
+    {
+      "id": "Geo500CoherentMineralInterfaceMatch",
+      "fn": "coherent_interface_match",
+      "source": "pymatgen",
+      "task": "Find the lowest-area coherent superlattice match between two mineral surface nets.",
+      "api": "src/pymatgen/analysis/interfaces/zsl.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "film_vectors_angstrom": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "Finite component.",
+                "minimum": -1000000000000,
+                "maximum": 1000000000000
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "Rows in the declared coordinate/component order."
+          },
+          "substrate_vectors_angstrom": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "Finite component.",
+                "minimum": -1000000000000,
+                "maximum": 1000000000000
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "Rows in the declared coordinate/component order."
+          },
+          "max_area_angstrom2": {
+            "type": "number",
+            "description": "Supercell area bound, angstrom2.",
+            "minimum": 1,
+            "maximum": 400
+          }
+        },
+        "required": [
+          "data_source",
+          "film_vectors_angstrom",
+          "substrate_vectors_angstrom",
+          "max_area_angstrom2"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "found": {
+          "type": "boolean"
+        },
+        "match_area": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "description": "Matched area, angstrom2.",
+          "minimum": 0,
+          "maximum": 400
+        },
+        "transformation": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite component.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Rows in the declared coordinate/component order."
+        },
+        "film_superlattice": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite component.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Rows in the declared coordinate/component order."
+        },
+        "substrate_superlattice": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite component.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Rows in the declared coordinate/component order."
+        }
+      },
+      "units": {
+        "match_area": "angstrom2",
+        "transformation": "1"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "film_vectors_angstrom": [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ]
+        ],
+        "substrate_vectors_angstrom": [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ]
+        ],
+        "max_area_angstrom2": 20
+      },
+      "numeric_oracle": "Identical square surface nets of side 2 angstrom: lowest matching area 4 angstrom2, identity deformation and unit stretches.",
+      "distinct_from_existing": "Unlike general crystal equivalence, solves integer coincidence superlattices for two surface nets.",
+      "limitations": [
+        "At most 25 primitive-cell area multiples; fixed mismatch tolerances; no claim of favorable interface energy."
+      ],
+      "skill": "crystal-interfaces"
+    },
+    {
+      "id": "Geo500MineralSurfaceTerminations",
+      "fn": "mineral_surface_terminations",
+      "source": "core",
+      "task": "Generate distinct unrelaxed crystal slab terminations for a Miller plane.",
+      "api": "src/pymatgen/core/surface.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "structure": {
+            "type": "object",
+            "properties": {
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2,
+                  "pattern": "^[A-Z][a-z]?$"
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Fractional coordinate in [0,1).",
+                    "minimum": 0,
+                    "maximum": 1,
+                    "exclusiveMaximum": 1
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 128,
+                "description": "Aligned bounded values."
+              }
+            },
+            "required": [
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          },
+          "miller_index": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "description": "Miller index.",
+              "minimum": -3,
+              "maximum": 3
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "minimum_slab_angstrom": {
+            "type": "number",
+            "description": "Minimum slab thickness, angstrom.",
+            "minimum": 1,
+            "maximum": 50
+          },
+          "minimum_vacuum_angstrom": {
+            "type": "number",
+            "description": "Minimum vacuum thickness, angstrom.",
+            "minimum": 1,
+            "maximum": 50
+          }
+        },
+        "required": [
+          "data_source",
+          "structure",
+          "miller_index",
+          "minimum_slab_angstrom",
+          "minimum_vacuum_angstrom"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "terminations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "shift_fraction": {
+                "type": "number",
+                "description": "Termination shift.",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "surface_area_angstrom2": {
+                "type": "number",
+                "description": "Slab surface-cell area.",
+                "minimum": 0,
+                "maximum": 1000000
+              },
+              "lattice_angstrom": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 3,
+                "maxItems": 3,
+                "description": "Rows in the declared coordinate/component order."
+              },
+              "species": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "description": "Element symbol.",
+                  "minLength": 1,
+                  "maxLength": 2
+                },
+                "minItems": 1,
+                "maxItems": 8192,
+                "description": "Aligned bounded values."
+              },
+              "fractional_coords": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "description": "Finite component.",
+                    "minimum": -1000000000000,
+                    "maximum": 1000000000000
+                  },
+                  "minItems": 3,
+                  "maxItems": 3,
+                  "description": "Aligned bounded values."
+                },
+                "minItems": 1,
+                "maxItems": 8192,
+                "description": "Rows in the declared coordinate/component order."
+              }
+            },
+            "required": [
+              "shift_fraction",
+              "surface_area_angstrom2",
+              "lattice_angstrom",
+              "species",
+              "fractional_coords"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 64,
+          "description": "Aligned bounded values."
+        },
+        "atomic_repair_applied": {
+          "type": "boolean",
+          "const": false,
+          "description": "Fixed scientific convention."
+        },
+        "surface_energy_calculated": {
+          "type": "boolean",
+          "const": false,
+          "description": "Fixed scientific convention."
+        }
+      },
+      "units": {
+        "shift_fraction": "1",
+        "surface_area_angstrom2": "angstrom2",
+        "lattice_angstrom": "angstrom",
+        "fractional_coords": "1"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "structure": {
+          "lattice_angstrom": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              2
+            ]
+          ],
+          "species": [
+            "Si"
+          ],
+          "fractional_coords": [
+            [
+              0,
+              0,
+              0
+            ]
+          ]
+        },
+        "miller_index": [
+          0,
+          0,
+          1
+        ],
+        "minimum_slab_angstrom": 8,
+        "minimum_vacuum_angstrom": 10
+      },
+      "numeric_oracle": "Monatomic cubic a=2 angstrom, (001), 8 angstrom slab: surface area 4 angstrom2 and four atomic layers, from lattice-plane counting.",
+      "distinct_from_existing": "Slab termination enumeration supplies atomic surfaces, not Wulff equilibrium shape or field-plane intersection.",
+      "limitations": [
+        "Input <=32 sites; output <=8192 atoms; no reconstruction, relaxation, bond repair or invented surface energies."
+      ],
+      "skill": "crystal-interfaces"
+    },
+    {
+      "id": "Geo500REEOrthogonalShape",
+      "fn": "ree_orthogonal_shape",
+      "source": "pyrolite",
+      "task": "Fit fixed O'Neill orthogonal shape coefficients to positive reference-normalized REE patterns.",
+      "api": "pyrolite/util/lambdas/__init__.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "ree_ppm": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "Measured REE concentration, ppm.",
+                "minimum": 1e-12,
+                "maximum": 1000000
+              },
+              "minItems": 13,
+              "maxItems": 13,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 1,
+            "maxItems": 128,
+            "description": "Aligned bounded values."
+          },
+          "reference_ppm": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Explicit positive reference concentration, ppm.",
+              "minimum": 1e-12,
+              "maximum": 1000000
+            },
+            "minItems": 13,
+            "maxItems": 13,
+            "description": "Aligned bounded values."
+          },
+          "reference_source": {
+            "type": "string",
+            "description": "Source of explicitly provided REE reference.",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "data_source",
+          "ree_ppm",
+          "reference_ppm",
+          "reference_source"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "coefficient_labels": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Coefficient label.",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "minItems": 4,
+          "maxItems": 4,
+          "description": "Aligned bounded values."
+        },
+        "lambda_coefficients": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite component.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 4,
+            "maxItems": 4,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Rows in the declared coordinate/component order."
+        },
+        "element_order": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "REE symbol.",
+            "minLength": 1,
+            "maxLength": 2
+          },
+          "minItems": 13,
+          "maxItems": 13,
+          "description": "Aligned bounded values."
+        },
+        "reference_source": {
+          "type": "string",
+          "description": "Unaltered caller reference source.",
+          "minLength": 1,
+          "maxLength": 1000
+        }
+      },
+      "units": {
+        "lambda_coefficients": "ONeill2016_orthogonal_log_ratio_basis"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "ree_ppm": [
+          [
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065,
+            7.38905609893065
+          ]
+        ],
+        "reference_ppm": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "reference_source": "SYNTHETIC unit reference, not chondrite measurements."
+      },
+      "numeric_oracle": "Constant log normalized REE=2: lambda0=2, lambda1..3=0 by orthogonality to constants; 13 positive supplied elements.",
+      "distinct_from_existing": "Existing REE plot and Eu anomaly do not infer orthogonal smooth-pattern shape coefficients; Eu/Pm excluded explicitly.",
+      "limitations": [
+        "Fixed element order La Ce Pr Nd Sm Gd Tb Dy Ho Er Tm Yb Lu; no missing-value filling, tetrad fits or reference downloads."
+      ],
+      "skill": "geochemical-patterns"
+    },
+    {
+      "id": "Geo500VolcanicTASClass",
+      "fn": "volcanic_tas_class",
+      "source": "pyrolite",
+      "task": "Classify anhydrous volcanic compositions in the fixed Middlemost TAS diagram.",
+      "api": "pyrolite/util/classification.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "anhydrous_sio2_na2o_k2o_wt_percent": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "Anhydrous oxide wt%.",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 1,
+            "maxItems": 128,
+            "description": "Aligned bounded values."
+          }
+        },
+        "required": [
+          "data_source",
+          "anhydrous_sio2_na2o_k2o_wt_percent"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "classifications": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "class_id": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Upstream TAS field id.",
+                "minLength": 1,
+                "maxLength": 32
+              },
+              "status": {
+                "type": "string",
+                "description": "Classification status.",
+                "enum": [
+                  "classified",
+                  "boundary_or_outside"
+                ]
+              }
+            },
+            "required": [
+              "class_id",
+              "status"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        },
+        "model": {
+          "type": "string",
+          "const": "Middlemost1994",
+          "description": "Fixed scientific convention."
+        },
+        "anhydrous_basis_confirmed": {
+          "type": "boolean",
+          "const": true,
+          "description": "Fixed scientific convention."
+        }
+      },
+      "units": {
+        "anhydrous_sio2_na2o_k2o_wt_percent": "wt_percent"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "anhydrous_sio2_na2o_k2o_wt_percent": [
+          [
+            50,
+            2,
+            1
+          ]
+        ]
+      },
+      "numeric_oracle": "SiO2=50 wt%, total alkali=3 wt% lies inside Bs (subalkalic basalt); alkali margin to the relevant upper line is positive (4.142857-3 wt%).",
+      "distinct_from_existing": "Volcanic rock nomenclature is not oxide-mole conversion, generic polygon selection or mineral spectroscopy.",
+      "limitations": [
+        "Only declared anhydrous volcanic chemistry; boundary/outside samples receive no forced class; not tectonic provenance or ore identification."
+      ],
+      "skill": "geochemical-patterns"
+    },
+    {
+      "id": "Geo500MineralNeutronContrast",
+      "fn": "mineral_neutron_contrast",
+      "source": "periodictable",
+      "task": "Compute tabulated neutron scattering contrast and macroscopic attenuation of mineral compositions.",
+      "api": "periodictable/nsf.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "formula": {
+            "type": "string",
+            "description": "Simple elemental chemical formula, not an expression.",
+            "minLength": 1,
+            "maxLength": 96,
+            "pattern": "^(?:[A-Z][a-z]?[0-9]*(?:\\.[0-9]+)?){1,16}$"
+          },
+          "density_g_cm3": {
+            "type": "number",
+            "description": "Measured/declared bulk density, g/cm3.",
+            "minimum": 0.01,
+            "maximum": 30
+          },
+          "wavelength_angstrom": {
+            "type": "number",
+            "description": "Neutron wavelength, angstrom.",
+            "minimum": 0.1,
+            "maximum": 20
+          }
+        },
+        "required": [
+          "data_source",
+          "formula",
+          "density_g_cm3",
+          "wavelength_angstrom"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "sld": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Finite vector.",
+            "minimum": -1000000000000,
+            "maximum": 1000000000000
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Finite vector."
+        },
+        "sld_order": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "SLD component.",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Aligned bounded values."
+        },
+        "macroscopic_cross_sections": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Macroscopic cross section, 1/cm.",
+            "minimum": 0,
+            "maximum": 1000000000
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Aligned bounded values."
+        },
+        "cross_section_order": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Cross-section component.",
+            "minLength": 1,
+            "maxLength": 32
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Aligned bounded values."
+        },
+        "penetration_depth": {
+          "type": "number",
+          "description": "1/e penetration depth, cm.",
+          "minimum": 0,
+          "maximum": 1000000000000
+        }
+      },
+      "units": {
+        "sld": "1e-6/angstrom2",
+        "macroscopic_cross_sections": "1/cm",
+        "penetration_depth": "cm"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "formula": "SiO2",
+        "density_g_cm3": 2.65,
+        "wavelength_angstrom": 1.798
+      },
+      "numeric_oracle": "Independent NIST/Sears bSi=4.1491 fm,bO=5.803 fm gives SiO2 SLD ~4.184719291694345e-6/angstrom2 at 2.65 g/cm3; tolerance 0.1% permits documented newer upstream table values, not an exact same-table oracle.",
+      "distinct_from_existing": "Neutron contrast is neither XRD peak prediction nor seismic/elastic rock response.",
+      "limitations": [
+        "Natural-isotope elemental formulas only; tabulated bound-atom approximation, not magnetic/thermal material-specific scattering."
+      ],
+      "skill": "mineral-thermodynamics"
+    },
+    {
+      "id": "Geo500PoreChordDistribution",
+      "fn": "pore_chord_distribution",
+      "source": "porespy",
+      "task": "Measure edge-censored pore chord-length distributions.",
+      "api": "src/porespy/filters/_funcs.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "shape": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "description": "Voxel count along explicit array axis.",
+              "minimum": 3,
+              "maximum": 64
+            },
+            "minItems": 2,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "pore_mask": {
+            "type": "array",
+            "items": {
+              "type": "boolean"
+            },
+            "minItems": 9,
+            "maxItems": 32768,
+            "description": "Aligned bounded values."
+          },
+          "voxel_size_m": {
+            "type": "number",
+            "description": "Isotropic voxel pitch, m.",
+            "minimum": 1e-10,
+            "maximum": 1
+          },
+          "axis": {
+            "type": "integer",
+            "description": "Array-axis direction; not an additional tool.",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "bin_edges_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Physical histogram edge, m.",
+              "minimum": 0,
+              "maximum": 64
+            },
+            "minItems": 2,
+            "maxItems": 129,
+            "description": "Aligned bounded values."
+          }
+        },
+        "required": [
+          "data_source",
+          "shape",
+          "pore_mask",
+          "voxel_size_m",
+          "axis",
+          "bin_edges_m"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "bin_centers_m": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Bin center, m.",
+            "minimum": 0,
+            "maximum": 64
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        },
+        "relative_frequency": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Count-normalized frequency.",
+            "minimum": 0,
+            "maximum": 1.0000001
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        },
+        "chord_lengths_m": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Complete chord length, m.",
+            "minimum": 0,
+            "maximum": 64
+          },
+          "minItems": 1,
+          "maxItems": 32768,
+          "description": "Aligned bounded values."
+        },
+        "chord_count": {
+          "type": "integer",
+          "description": "Complete chord count.",
+          "minimum": 1,
+          "maximum": 32768
+        },
+        "edge_censoring": {
+          "type": "boolean",
+          "const": true,
+          "description": "Fixed scientific convention."
+        }
+      },
+      "units": {
+        "bin_centers_m": "m",
+        "relative_frequency": "1",
+        "chord_lengths_m": "m"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "shape": [
+          8,
+          8
+        ],
+        "pore_mask": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "voxel_size_m": 0.01,
+        "axis": 0,
+        "bin_edges_m": [
+          0,
+          0.03,
+          0.05
+        ]
+      },
+      "numeric_oracle": "Two isolated interior chords of 2 and 4 voxels at 0.01 m pitch: 0.02 and 0.04 m lengths, relative frequencies 0.5/0.5 and mean 0.03 m by direct segment geometry.",
+      "distinct_from_existing": "Chord stereology is not generic region properties, skeletonization or pore-radius statistics.",
+      "limitations": [
+        "Binary physical pore mask, no segmentation; sampled lines separated by one voxel; boundary-touching chords removed."
+      ],
+      "skill": "porous-geometry"
+    },
+    {
+      "id": "Geo500PoreBodyRadiusDistribution",
+      "fn": "pore_body_radius_distribution",
+      "source": "porespy",
+      "task": "Measure maximal-sphere local pore radii and pore-volume radius distribution.",
+      "api": "src/porespy/filters/_lt_methods.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "shape": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "description": "Voxel count along explicit array axis.",
+              "minimum": 3,
+              "maximum": 64
+            },
+            "minItems": 2,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "pore_mask": {
+            "type": "array",
+            "items": {
+              "type": "boolean"
+            },
+            "minItems": 9,
+            "maxItems": 32768,
+            "description": "Aligned bounded values."
+          },
+          "voxel_size_m": {
+            "type": "number",
+            "description": "Isotropic voxel pitch, m.",
+            "minimum": 1e-10,
+            "maximum": 1
+          },
+          "bin_edges_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Physical radius histogram edge, m.",
+              "minimum": 0,
+              "maximum": 64
+            },
+            "minItems": 2,
+            "maxItems": 129,
+            "description": "Aligned bounded values."
+          }
+        },
+        "required": [
+          "data_source",
+          "shape",
+          "pore_mask",
+          "voxel_size_m",
+          "bin_edges_m"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "bin_centers_m": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Radius bin center, m.",
+            "minimum": 0,
+            "maximum": 64
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        },
+        "pore_volume_fraction": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Pore-voxel frequency.",
+            "minimum": 0,
+            "maximum": 1.0000001
+          },
+          "minItems": 1,
+          "maxItems": 128,
+          "description": "Aligned bounded values."
+        },
+        "radius_field_m": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Radius, zero for solid, m.",
+            "minimum": 0,
+            "maximum": 64
+          },
+          "minItems": 9,
+          "maxItems": 32768,
+          "description": "Aligned bounded values."
+        },
+        "shape": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "description": "Voxel count along explicit array axis.",
+            "minimum": 3,
+            "maximum": 64
+          },
+          "minItems": 2,
+          "maxItems": 3,
+          "description": "Aligned bounded values."
+        },
+        "radius_convention": {
+          "type": "string",
+          "description": "Discrete-radius convention.",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "units": {
+        "bin_centers_m": "m",
+        "pore_volume_fraction": "1",
+        "radius_field_m": "m"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "shape": [
+          7,
+          7,
+          7
+        ],
+        "pore_mask": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "voxel_size_m": 0.000001,
+        "bin_edges_m": [
+          0,
+          0.0000015,
+          0.0000025
+        ]
+      },
+      "numeric_oracle": "Central 3x3x3 pore in solid 7^3 volume: radius-2 smooth digital sphere covers all 27 pore centers (sqrt(3)<2); radius 2 micrometres at 1 micrometre pitch and upper-bin fraction 1.",
+      "distinct_from_existing": "Pointwise 3D maximal pore spheres differ from a single planar inscribed circle, chord lengths or invasion pressure.",
+      "limitations": [
+        "Solid exterior collar required; fixed integer radii, smooth=True, brute-force upstream method; radius not diameter."
+      ],
+      "skill": "porous-geometry"
+    },
+    {
+      "id": "Geo500QuasistaticCapillaryDrainage",
+      "fn": "quasistatic_capillary_drainage",
+      "source": "porespy",
+      "task": "Simulate inlet-accessible quasistatic drainage with explicit capillary pressure and defender trapping.",
+      "api": "src/porespy/simulations/_drainage.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "shape": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "description": "Voxel count along explicit array axis.",
+              "minimum": 3,
+              "maximum": 64
+            },
+            "minItems": 2,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "pore_mask": {
+            "type": "array",
+            "items": {
+              "type": "boolean"
+            },
+            "minItems": 9,
+            "maxItems": 32768,
+            "description": "Aligned bounded values."
+          },
+          "voxel_size_m": {
+            "type": "number",
+            "description": "Isotropic voxel pitch, m.",
+            "minimum": 1e-10,
+            "maximum": 1
+          },
+          "inlet_mask": {
+            "type": "array",
+            "items": {
+              "type": "boolean"
+            },
+            "minItems": 9,
+            "maxItems": 32768,
+            "description": "Aligned bounded values."
+          },
+          "outlet_mask": {
+            "type": "array",
+            "items": {
+              "type": "boolean"
+            },
+            "minItems": 9,
+            "maxItems": 32768,
+            "description": "Aligned bounded values."
+          },
+          "entry_pressure_pa": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Supplied entry pressure, Pa; solid may be zero.",
+              "minimum": 0,
+              "maximum": 1000000000
+            },
+            "minItems": 9,
+            "maxItems": 32768,
+            "description": "Aligned bounded values."
+          },
+          "pressure_steps_pa": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Applied pressure, Pa.",
+              "minimum": 0,
+              "maximum": 1000000000
+            },
+            "minItems": 2,
+            "maxItems": 64,
+            "description": "Aligned bounded values."
+          }
+        },
+        "required": [
+          "data_source",
+          "shape",
+          "pore_mask",
+          "voxel_size_m",
+          "inlet_mask",
+          "outlet_mask",
+          "entry_pressure_pa",
+          "pressure_steps_pa"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "shape": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "description": "Voxel count along explicit array axis.",
+            "minimum": 3,
+            "maximum": 64
+          },
+          "minItems": 2,
+          "maxItems": 3,
+          "description": "Aligned bounded values."
+        },
+        "invasion_pressure_pa": {
+          "type": "array",
+          "items": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Invaded pressure, Pa.",
+            "minimum": 0,
+            "maximum": 1000000000
+          },
+          "minItems": 9,
+          "maxItems": 32768,
+          "description": "Aligned bounded values."
+        },
+        "invaded_mask": {
+          "type": "array",
+          "items": {
+            "type": "boolean"
+          },
+          "minItems": 9,
+          "maxItems": 32768,
+          "description": "Aligned bounded values."
+        },
+        "applied_pressure_pa": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Applied pressure, Pa.",
+            "minimum": 0,
+            "maximum": 1000000000
+          },
+          "minItems": 2,
+          "maxItems": 64,
+          "description": "Aligned bounded values."
+        },
+        "nonwetting_saturation": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Invaded pore-volume fraction.",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "minItems": 2,
+          "maxItems": 64,
+          "description": "Aligned bounded values."
+        },
+        "trapping_enabled": {
+          "type": "boolean",
+          "const": true,
+          "description": "Fixed scientific convention."
+        },
+        "null_convention": {
+          "type": "string",
+          "description": "Meaning of excluded/uninvaded values.",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "units": {
+        "invasion_pressure_pa": "Pa",
+        "applied_pressure_pa": "Pa",
+        "nonwetting_saturation": "1"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "shape": [
+          7,
+          7
+        ],
+        "pore_mask": [
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false
+        ],
+        "voxel_size_m": 0.000001,
+        "inlet_mask": [
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false
+        ],
+        "outlet_mask": [
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false
+        ],
+        "entry_pressure_pa": [
+          0,
+          0,
+          0,
+          2000,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2000,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2000,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2000,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2000,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2000,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          2000,
+          0,
+          0,
+          0
+        ],
+        "pressure_steps_pa": [
+          1000,
+          3000
+        ]
+      },
+      "numeric_oracle": "Single connected inlet-outlet pore channel, all entry pressures 2000 Pa: no invasion at 1000 Pa and full saturation 1 at 3000 Pa, with reported step pressure 3000 Pa rather than fictitious exact 2000.",
+      "distinct_from_existing": "Accessible capillary invasion and trapping are not DEM depression filling, watershed segmentation or geophysical patchy-fluid elasticity.",
+      "limitations": [
+        "No generated Young-Laplace pressure or hidden surface tension; explicit pressure input. Infinity is represented by null plus masks, not silently replaced with a finite pressure."
+      ],
+      "skill": "porous-geometry"
+    },
+    {
+      "id": "Geo500MineralEhPHStability",
+      "fn": "mineral_eh_ph_stability",
+      "source": "pymatgen",
+      "task": "Evaluate single-metal solid/ion stability at explicit pH and SHE potential.",
+      "api": "src/pymatgen/analysis/pourbaix_diagram.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "element": {
+            "type": "string",
+            "description": "Non-H/O element symbol.",
+            "minLength": 1,
+            "maxLength": 2
+          },
+          "entries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "description": "Unique entry id.",
+                  "minLength": 1,
+                  "maxLength": 64
+                },
+                "formula": {
+                  "type": "string",
+                  "description": "Simple elemental chemical formula, not an expression.",
+                  "minLength": 1,
+                  "maxLength": 96,
+                  "pattern": "^(?:[A-Z][a-z]?[0-9]*(?:\\.[0-9]+)?){1,16}$"
+                },
+                "phase": {
+                  "type": "string",
+                  "description": "Thermodynamic phase.",
+                  "enum": [
+                    "solid",
+                    "ion"
+                  ]
+                },
+                "charge_e": {
+                  "type": "integer",
+                  "description": "Ion charge; solids zero.",
+                  "minimum": -8,
+                  "maximum": 8
+                },
+                "formation_energy_ev_per_formula": {
+                  "type": "number",
+                  "description": "Formation energy versus H2/O2 reference, eV/formula.",
+                  "minimum": -1000,
+                  "maximum": 1000
+                },
+                "concentration_mol_l": {
+                  "type": "number",
+                  "description": "Ion molarity consistent with metal concentration; solids unit activity marker.",
+                  "minimum": 1e-12,
+                  "maximum": 10
+                }
+              },
+              "required": [
+                "id",
+                "formula",
+                "phase",
+                "charge_e",
+                "formation_energy_ev_per_formula",
+                "concentration_mol_l"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 2,
+            "maxItems": 32,
+            "description": "Aligned bounded values."
+          },
+          "target_id": {
+            "type": "string",
+            "description": "Target entry id.",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "metal_concentration_mol_l": {
+            "type": "number",
+            "description": "Total elemental concentration convention, mol/L.",
+            "minimum": 1e-12,
+            "maximum": 10
+          },
+          "ph_eh_points": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "pH or potential; bounded separately by handler/schema.",
+                "minimum": -1000000000000,
+                "maximum": 1000000000000
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 1,
+            "maxItems": 256,
+            "description": "Aligned bounded values."
+          },
+          "energy_reference": {
+            "type": "string",
+            "description": "Formation-energy reference provenance.",
+            "minLength": 1,
+            "maxLength": 1000
+          }
+        },
+        "required": [
+          "data_source",
+          "element",
+          "entries",
+          "target_id",
+          "metal_concentration_mol_l",
+          "ph_eh_points",
+          "energy_reference"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "target_id": {
+          "type": "string",
+          "description": "Target id.",
+          "minLength": 1,
+          "maxLength": 64
+        },
+        "decomposition_energy_ev_per_atom": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Energy above Pourbaix hull, eV/atom.",
+            "minimum": -0.000001,
+            "maximum": 1000000
+          },
+          "minItems": 1,
+          "maxItems": 256,
+          "description": "Aligned bounded values."
+        },
+        "ph_eh_points": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite component.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 1,
+          "maxItems": 256,
+          "description": "Rows in the declared coordinate/component order."
+        },
+        "temperature_convention": {
+          "type": "string",
+          "description": "Fixed upstream thermodynamic convention.",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "energy_reference": {
+          "type": "string",
+          "description": "Energy reference.",
+          "minLength": 1,
+          "maxLength": 1000
+        }
+      },
+      "units": {
+        "decomposition_energy_ev_per_atom": "eV/atom",
+        "pH": "1",
+        "Eh": "V_vs_SHE"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "element": "Fe",
+        "entries": [
+          {
+            "id": "Fe_s",
+            "formula": "Fe",
+            "phase": "solid",
+            "charge_e": 0,
+            "formation_energy_ev_per_formula": 0,
+            "concentration_mol_l": 1
+          },
+          {
+            "id": "Fe_ion",
+            "formula": "Fe",
+            "phase": "ion",
+            "charge_e": 2,
+            "formation_energy_ev_per_formula": 1,
+            "concentration_mol_l": 1
+          }
+        ],
+        "target_id": "Fe_s",
+        "metal_concentration_mol_l": 1,
+        "ph_eh_points": [
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            1
+          ]
+        ],
+        "energy_reference": "SYNTHETIC formation energies versus H2/O2; not measured Fe thermochemistry."
+      },
+      "numeric_oracle": "Synthetic Fe(s)=0 eV/Fe and Fe2+(aq)=1 eV/Fe at 1 M: crossing Eh=0.5 V; Fe(s) is 1 eV/atom above the ion line at Eh=1 V by two-electron electrochemical work.",
+      "distinct_from_existing": "Distinct open-H/O/electron-reservoir stability from closed-composition phase hull; no CIPW or Fe redox measurement inference.",
+      "limitations": [
+        "Single-metal H/O systems only, room-temperature upstream PREFAC; no arbitrary temperature, database download, water-stability certification or kinetic persistence claim."
+      ],
+      "skill": "mineral-thermodynamics"
+    },
+    {
+      "id": "Geo500SpatialCellDeclustering",
+      "fn": "spatial_cell_declustering",
+      "source": "geostatspy",
+      "task": "Estimate sampling-density cell-declustering weights with explicit offset and scale search.",
+      "api": "geostatspy/geostats.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "coordinates_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "Finite component.",
+                "minimum": -1000000000000,
+                "maximum": 1000000000000
+              },
+              "minItems": 2,
+              "maxItems": 2,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 3,
+            "maxItems": 256,
+            "description": "Rows in the declared coordinate/component order."
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Measured concentration/property.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 3,
+            "maxItems": 256,
+            "description": "Aligned bounded values."
+          },
+          "value_unit": {
+            "type": "string",
+            "description": "Explicit sample property unit.",
+            "enum": [
+              "ppm",
+              "wt_percent",
+              "dimensionless"
+            ]
+          },
+          "cell_size_min_m": {
+            "type": "number",
+            "description": "Smallest cell side, m.",
+            "minimum": 0.001,
+            "maximum": 1000000
+          },
+          "cell_size_max_m": {
+            "type": "number",
+            "description": "Largest cell side, m.",
+            "minimum": 0.001,
+            "maximum": 1000000
+          },
+          "cell_size_steps": {
+            "type": "integer",
+            "description": "Cell-size increments.",
+            "minimum": 1,
+            "maximum": 32
+          },
+          "origin_offsets": {
+            "type": "integer",
+            "description": "Deterministic origin offsets.",
+            "minimum": 1,
+            "maximum": 16
+          }
+        },
+        "required": [
+          "data_source",
+          "coordinates_m",
+          "values",
+          "value_unit",
+          "cell_size_min_m",
+          "cell_size_max_m",
+          "cell_size_steps",
+          "origin_offsets"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "weights": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Normalized sample weight.",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "minItems": 3,
+          "maxItems": 256,
+          "description": "Aligned bounded values."
+        },
+        "declustered_mean": {
+          "type": "number",
+          "description": "Weighted mean in input units.",
+          "minimum": -1000000000000,
+          "maximum": 1000000000000
+        },
+        "tested_cell_sizes_m": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Tested cell sizes; first zero denotes naive mean.",
+            "minimum": 0,
+            "maximum": 1000000
+          },
+          "minItems": 3,
+          "maxItems": 34,
+          "description": "Aligned bounded values."
+        },
+        "tested_means": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Scale-search means.",
+            "minimum": -1000000000000,
+            "maximum": 1000000000000
+          },
+          "minItems": 3,
+          "maxItems": 34,
+          "description": "Aligned bounded values."
+        },
+        "selection_rule": {
+          "type": "string",
+          "description": "Actual source selection rule.",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "units": {
+        "weights": "1",
+        "declustered_mean": [
+          "ppm",
+          "wt_percent",
+          "dimensionless"
+        ],
+        "tested_cell_sizes_m": "m",
+        "tested_means": [
+          "ppm",
+          "wt_percent",
+          "dimensionless"
+        ]
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "coordinates_m": [
+          [
+            0.1,
+            0.1
+          ],
+          [
+            0.2,
+            0.2
+          ],
+          [
+            0.3,
+            0.3
+          ],
+          [
+            10.1,
+            10.1
+          ]
+        ],
+        "values": [
+          10,
+          10,
+          10,
+          2
+        ],
+        "value_unit": "ppm",
+        "cell_size_min_m": 5,
+        "cell_size_max_m": 5,
+        "cell_size_steps": 1,
+        "origin_offsets": 1
+      },
+      "numeric_oracle": "Three samples in one cell and one in a second equally represented cell: normalized weights [1/6,1/6,1/6,1/2], declustered mean 6 ppm versus naive 8 ppm, from equal cell representation.",
+      "distinct_from_existing": "Sampling-density weights are not CLR/ILR, geochemical background distance, kriging or conditional ensemble generation.",
+      "limitations": [
+        "Immutable archive required; source iminmax=1 selects minimum despite contradictory docstring; 2D isotropic cells; no ore grade imputation."
+      ],
+      "skill": "geochemical-patterns"
+    },
+    {
+      "id": "GeoSlopeLimitEquilibrium",
+      "fn": "slope_limit_equilibrium",
+      "source": "slope",
+      "task": "Search circular slope failures and report the lowest Bishop simplified safety factor.",
+      "api": "pyslope/pyslope.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "height_m": {
+            "type": "number",
+            "description": "Slope height, m.",
+            "minimum": 0.1,
+            "maximum": 100
+          },
+          "angle_degrees": {
+            "type": "number",
+            "description": "Slope face angle, degrees.",
+            "minimum": 5,
+            "maximum": 85
+          },
+          "materials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "unit_weight_kn_m3": {
+                  "type": "number",
+                  "description": "Unit weight, kN/m3.",
+                  "minimum": 1,
+                  "maximum": 40
+                },
+                "friction_degrees": {
+                  "type": "number",
+                  "description": "Effective friction angle, degrees.",
+                  "minimum": 0,
+                  "maximum": 60
+                },
+                "cohesion_kpa": {
+                  "type": "number",
+                  "description": "Effective cohesion, kPa.",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "depth_to_bottom_m": {
+                  "type": "number",
+                  "description": "Layer bottom depth below crest, m.",
+                  "minimum": 0.1,
+                  "maximum": 1000
+                }
+              },
+              "required": [
+                "unit_weight_kn_m3",
+                "friction_degrees",
+                "cohesion_kpa",
+                "depth_to_bottom_m"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 8,
+            "description": "Aligned bounded values."
+          },
+          "water_depth_m": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "description": "Water table depth below crest; null means dry, m.",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "uniform_loads": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "magnitude_kpa": {
+                  "type": "number",
+                  "description": "Uniform surface pressure, kPa.",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "offset_m": {
+                  "type": "number",
+                  "description": "Distance behind crest, m.",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "length_m": {
+                  "type": "number",
+                  "description": "Finite loaded length, m.",
+                  "minimum": 0.01,
+                  "maximum": 1000
+                }
+              },
+              "required": [
+                "magnitude_kpa",
+                "offset_m",
+                "length_m"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 8,
+            "description": "Aligned bounded values."
+          },
+          "line_loads": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "magnitude_kn_m": {
+                  "type": "number",
+                  "description": "Line load, kN/m.",
+                  "minimum": 0,
+                  "maximum": 1000
+                },
+                "offset_m": {
+                  "type": "number",
+                  "description": "Distance behind crest, m.",
+                  "minimum": 0,
+                  "maximum": 1000
+                }
+              },
+              "required": [
+                "magnitude_kn_m",
+                "offset_m"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 0,
+            "maxItems": 8,
+            "description": "Aligned bounded values."
+          },
+          "search_crest_distance_m": {
+            "type": "number",
+            "description": "Search distance behind crest, m.",
+            "minimum": 0.01,
+            "maximum": 100
+          },
+          "search_toe_distance_m": {
+            "type": "number",
+            "description": "Search distance beyond toe, m.",
+            "minimum": 0.01,
+            "maximum": 100
+          },
+          "slices": {
+            "type": "integer",
+            "description": "Slices per failure circle.",
+            "minimum": 10,
+            "maximum": 100
+          },
+          "search_iterations": {
+            "type": "integer",
+            "description": "Approximate number of searched circles.",
+            "minimum": 500,
+            "maximum": 5000
+          }
+        },
+        "required": [
+          "data_source",
+          "height_m",
+          "angle_degrees",
+          "materials",
+          "water_depth_m",
+          "uniform_loads",
+          "line_loads",
+          "search_crest_distance_m",
+          "search_toe_distance_m",
+          "slices",
+          "search_iterations"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "factor_of_safety": {
+          "type": "number",
+          "description": "Bishop minimum safety factor.",
+          "minimum": 0,
+          "maximum": 1000000
+        },
+        "critical_circle": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Finite vector.",
+            "minimum": -1000000000000,
+            "maximum": 1000000000000
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Finite vector."
+        },
+        "critical_endpoints": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite component.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Rows in the declared coordinate/component order."
+        },
+        "search_limits_m": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Finite vector.",
+            "minimum": -1000000000000,
+            "maximum": 1000000000000
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Finite vector."
+        },
+        "converged_surface_count": {
+          "type": "integer",
+          "description": "Surfaces retained with finite factor.",
+          "minimum": 1,
+          "maximum": 100000
+        },
+        "method": {
+          "type": "string",
+          "description": "Method and interpretation qualifier.",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "units": {
+        "factor_of_safety": "1",
+        "critical_circle": "m",
+        "critical_endpoints": "m",
+        "search_limits_m": "m"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "height_m": 3,
+        "angle_degrees": 30,
+        "materials": [
+          {
+            "unit_weight_kn_m3": 20,
+            "friction_degrees": 30,
+            "cohesion_kpa": 5,
+            "depth_to_bottom_m": 10
+          }
+        ],
+        "water_depth_m": null,
+        "uniform_loads": [],
+        "line_loads": [],
+        "search_crest_distance_m": 1,
+        "search_toe_distance_m": 1,
+        "slices": 30,
+        "search_iterations": 500
+      },
+      "numeric_oracle": "Independent dry limit-equilibrium scale invariance: multiply unit weights, cohesion and every load by 2 at fixed geometry/friction; expected safety-factor ratio=1. A separate published absolute-FOS benchmark remains acceptance_pending, not claimed verified.",
+      "distinct_from_existing": "Existing fracture traction/reactivation concerns one stress plane, not circular slip-surface slice equilibrium over a layered slope.",
+      "limitations": [
+        "Fixed Bishop simplified circular family and bounded search; minimum among searched surfaces is not certified global critical FOS or engineering approval."
+      ],
+      "skill": "slope-analysis"
+    },
+    {
+      "id": "GeoMantleMeltingPath",
+      "fn": "mantle_melting_path",
+      "source": "melt",
+      "task": "Integrate anhydrous two-lithology decompression melting with fixed published lithology laws.",
+      "api": "pyMelt/mantle_class.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "lithology_mass_fractions": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Katz lherzolite and Shorttle harzburgite mass fractions.",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "Aligned bounded values."
+          },
+          "potential_temperature_degc": {
+            "type": "number",
+            "description": "Mantle potential temperature, degC.",
+            "minimum": 800,
+            "maximum": 1800
+          },
+          "start_pressure_gpa": {
+            "type": "number",
+            "description": "Start pressure, GPa.",
+            "minimum": 0.05,
+            "maximum": 6
+          },
+          "end_pressure_gpa": {
+            "type": "number",
+            "description": "End pressure, GPa.",
+            "minimum": 0.01,
+            "maximum": 6
+          },
+          "steps": {
+            "type": "integer",
+            "description": "Pressure sample count.",
+            "minimum": 10,
+            "maximum": 2000
+          }
+        },
+        "required": [
+          "data_source",
+          "lithology_mass_fractions",
+          "potential_temperature_degc",
+          "start_pressure_gpa",
+          "end_pressure_gpa",
+          "steps"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "pressure_gpa": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Pressure, GPa.",
+            "minimum": 0.01,
+            "maximum": 6
+          },
+          "minItems": 10,
+          "maxItems": 2000,
+          "description": "Aligned bounded values."
+        },
+        "temperature_degc": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Temperature, degC.",
+            "minimum": 0,
+            "maximum": 3000
+          },
+          "minItems": 10,
+          "maxItems": 2000,
+          "description": "Aligned bounded values."
+        },
+        "melt_fractions": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Lithology melt fraction.",
+              "minimum": -1e-10,
+              "maximum": 1.0000000001
+            },
+            "minItems": 2,
+            "maxItems": 2,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 10,
+          "maxItems": 2000,
+          "description": "Aligned bounded values."
+        },
+        "bulk_melt_fraction": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Mass-weighted melt fraction.",
+            "minimum": -1e-10,
+            "maximum": 1.0000000001
+          },
+          "minItems": 10,
+          "maxItems": 2000,
+          "description": "Aligned bounded values."
+        },
+        "lithologies": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Fixed lithology.",
+            "minLength": 1,
+            "maxLength": 64
+          },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Aligned bounded values."
+        },
+        "model": {
+          "type": "string",
+          "description": "Thermodynamic assumptions.",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "units": {
+        "pressure_gpa": "GPa",
+        "temperature_degc": "degC",
+        "melt_fractions": "1",
+        "bulk_melt_fraction": "1"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "lithology_mass_fractions": [
+          0.8,
+          0.2
+        ],
+        "potential_temperature_degc": 1300,
+        "start_pressure_gpa": 4,
+        "end_pressure_gpa": 0.1,
+        "steps": 101
+      },
+      "numeric_oracle": "Pressure-grid endpoints are independently prescribed as 4 and 0.1 GPa with 101 points. Mass balance Fbulk=0.8Flherzolite+0.2Fharzburgite; mass-fraction sum=1. Independent published thermal/melt-path numeric benchmark remains pending (not an absolute melting-accuracy claim).",
+      "distinct_from_existing": "Path-dependent latent-heat decompression is neither fixed-condition chemical equilibrium nor statistical endmember unmixing.",
+      "limitations": [
+        "Fixed dry Katz2003 lherzolite plus Shorttle2014 harzburgite; no model/callback parameters; freezing allowed and pressure endpoints not shifted. GPL LICENSE conflicts with MIT packaging classifier; redistribution review pending."
+      ],
+      "skill": "mantle-processes"
+    },
+    {
+      "id": "GeoImplicitStructuralModel",
+      "fn": "implicit_structural_model",
+      "source": "gempy",
+      "task": "Reconstruct a bounded 3D stratigraphic stack from contact points and orientation constraints.",
+      "api": "gempy/API/compute_API.py",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "data_source": {
+            "type": "string",
+            "description": "Caller-declared input provenance; not independently authenticated.",
+            "minLength": 1,
+            "maxLength": 512
+          },
+          "extent_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite vector.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 6,
+            "maxItems": 6,
+            "description": "Finite vector."
+          },
+          "resolution": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "description": "Dense grid subdivisions.",
+              "minimum": 2,
+              "maximum": 32
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "surface_names_youngest_first": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "description": "Surface name.",
+              "minLength": 1,
+              "maxLength": 48,
+              "pattern": "^[A-Za-z][A-Za-z0-9_]{0,47}$"
+            },
+            "minItems": 1,
+            "maxItems": 8,
+            "description": "Aligned bounded values."
+          },
+          "surface_points_xyz_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "Finite component.",
+                "minimum": -1000000000000,
+                "maximum": 1000000000000
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 3,
+            "maxItems": 128,
+            "description": "Rows in the declared coordinate/component order."
+          },
+          "point_surface_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "description": "Surface index into declared order.",
+              "minimum": 0,
+              "maximum": 7
+            },
+            "minItems": 3,
+            "maxItems": 128,
+            "description": "Aligned bounded values."
+          },
+          "orientation_xyz_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "Finite component.",
+                "minimum": -1000000000000,
+                "maximum": 1000000000000
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 1,
+            "maxItems": 64,
+            "description": "Rows in the declared coordinate/component order."
+          },
+          "orientation_normals": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "description": "Finite component.",
+                "minimum": -1000000000000,
+                "maximum": 1000000000000
+              },
+              "minItems": 3,
+              "maxItems": 3,
+              "description": "Aligned bounded values."
+            },
+            "minItems": 1,
+            "maxItems": 64,
+            "description": "Rows in the declared coordinate/component order."
+          },
+          "orientation_surface_indices": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "description": "Surface index.",
+              "minimum": 0,
+              "maximum": 7
+            },
+            "minItems": 1,
+            "maxItems": 64,
+            "description": "Aligned bounded values."
+          },
+          "coordinate_reference": {
+            "type": "string",
+            "description": "Explicit local Cartesian frame, axes and vertical datum; no longitude/latitude.",
+            "minLength": 1,
+            "maxLength": 512
+          }
+        },
+        "required": [
+          "data_source",
+          "extent_m",
+          "resolution",
+          "surface_names_youngest_first",
+          "surface_points_xyz_m",
+          "point_surface_indices",
+          "orientation_xyz_m",
+          "orientation_normals",
+          "orientation_surface_indices",
+          "coordinate_reference"
+        ],
+        "additionalProperties": false
+      },
+      "output_properties": {
+        "lithology_labels": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "description": "Upstream lithology category.",
+            "minimum": 0,
+            "maximum": 2147483647
+          },
+          "minItems": 8,
+          "maxItems": 32768,
+          "description": "Aligned bounded values."
+        },
+        "scalar_fields": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite engine scalar.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 8,
+            "maxItems": 32768,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 1,
+          "maxItems": 8,
+          "description": "Aligned bounded values."
+        },
+        "grid_coordinates_m": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "description": "Finite component.",
+              "minimum": -1000000000000,
+              "maximum": 1000000000000
+            },
+            "minItems": 3,
+            "maxItems": 3,
+            "description": "Aligned bounded values."
+          },
+          "minItems": 8,
+          "maxItems": 32768,
+          "description": "Rows in the declared coordinate/component order."
+        },
+        "resolution": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "description": "Grid subdivisions.",
+            "minimum": 2,
+            "maximum": 32
+          },
+          "minItems": 3,
+          "maxItems": 3,
+          "description": "Aligned bounded values."
+        },
+        "extent_m": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "description": "Finite vector.",
+            "minimum": -1000000000000,
+            "maximum": 1000000000000
+          },
+          "minItems": 6,
+          "maxItems": 6,
+          "description": "Finite vector."
+        },
+        "coordinate_reference": {
+          "type": "string",
+          "description": "Caller coordinate reference.",
+          "minLength": 1,
+          "maxLength": 512
+        },
+        "surface_names_youngest_first": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "description": "Surface name.",
+            "minLength": 1,
+            "maxLength": 48
+          },
+          "minItems": 1,
+          "maxItems": 8,
+          "description": "Aligned bounded values."
+        },
+        "scope": {
+          "type": "string",
+          "description": "Supported structural relation and backend scope.",
+          "minLength": 1,
+          "maxLength": 512
+        }
+      },
+      "units": {
+        "lithology_labels": "category_id",
+        "scalar_fields": "engine_scalar",
+        "extent_m": "m",
+        "grid_coordinates_m": "m"
+      },
+      "example": {
+        "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+        "extent_m": [
+          0,
+          1000,
+          0,
+          1000,
+          0,
+          1000
+        ],
+        "resolution": [
+          8,
+          8,
+          8
+        ],
+        "surface_names_youngest_first": [
+          "contact"
+        ],
+        "surface_points_xyz_m": [
+          [
+            100,
+            100,
+            500
+          ],
+          [
+            900,
+            100,
+            500
+          ],
+          [
+            100,
+            900,
+            500
+          ],
+          [
+            900,
+            900,
+            500
+          ]
+        ],
+        "point_surface_indices": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "orientation_xyz_m": [
+          [
+            500,
+            500,
+            500
+          ]
+        ],
+        "orientation_normals": [
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "orientation_surface_indices": [
+          0
+        ],
+        "coordinate_reference": "SYNTHETIC Cartesian XYZ in metres; Z up from local zero, not geographic coordinates."
+      },
+      "numeric_oracle": "Horizontal contact z=500 m in a 1000 m cube with 8^3 centered cells gives 512 cells split into two geometric halves of 256; independent plane/grid geometry. Scalar sign/label identities are engine conventions, not assumed geological names.",
+      "distinct_from_existing": "APSG orientation fabrics do not interpolate volumetric stratigraphy; this does not duplicate resource conditional SRF ensembles.",
+      "limitations": [
+        "GemPy=2026.0.3 and engine=2026.0.3, explicit NumPy CPU backend, no GPU fallback. Single stack only; no faults or meshes. EUPL-1.2, not LGPL; publication/distribution approval pending."
+      ],
+      "skill": "implicit-geology"
+    }
+  ],
+  "blocked": [
+    {
+      "id": "Geo500PoreDiffusionTortuosity",
+      "reason": "PoreSpy tortuosity_fd requires OpenPNM 3.6.1, whose scipy>=1.16.2 and pandas>=2.3.2 conflict with the fixed scipy1.15.3/pandas2.3.0 baseline. A separately approved complete solver environment/native identity and flux-convergence acceptance are not available; no main-environment replacement or bridge placeholder authored.",
+      "blockers": [
+        "private_openpnm_solver_profile_unresolved",
+        "native_solver_identity_and_convergence_pending"
+      ],
+      "evidence": [
+        "https://github.com/PMEAL/OpenPNM/blob/a8b46807f4d4f61ec9a9f0c16fa5d37fc95c9337/pyproject.toml"
+      ]
+    },
+    {
+      "id": "Geo50026ConstrainedChemicalEquilibrium",
+      "reason": "Reaktoro v2.13.0 source commit 3c5838e7c0ed2931ad152176414cb786311dbe47 is established, but no fixed CPU binary/ABI lock plus licensed offline thermodynamic-database content hash has been supplied. An auditable fixed equilibrium database/model binding is mandatory; no arbitrary database fetch or unpinned native runner is registered.",
+      "blockers": [
+        "reaktoro_native_cpu_binary_identity",
+        "offline_thermodynamic_database_hash_and_license"
+      ],
+      "evidence": [
+        "https://github.com/reaktoro/reaktoro/tree/3c5838e7c0ed2931ad152176414cb786311dbe47",
+        "https://reaktoro.org/tutorials/equilibrium/equilibrium-specifying-constraints.html"
+      ]
+    },
+    {
+      "id": "Geo50026MineralReactionKinetics",
+      "reason": "Same Reaktoro native/database blockers as equilibrium, plus a version-bound built-in rate-law parameter database, mineral-area convention and independent kinetic reference are not frozen. User-supplied code callbacks or an authored replacement rate kernel are forbidden; no registered placeholder.",
+      "blockers": [
+        "reaktoro_native_cpu_binary_identity",
+        "offline_database_and_rate_law_binding_unresolved"
+      ],
+      "evidence": [
+        "https://reaktoro.org/api/classReaktoro_1_1KineticsSolver.html"
+      ]
+    },
+    {
+      "id": "Geo50026ReactiveColumnTransport",
+      "reason": "Official run_string and advection/RUN_CELLS workflow are known, but no pinned IPhreeqc native build/hash, compatible PhreeqPy source commit and licensed phreeqc.dat content identity are established. The existing JSON-only bridge does not supply those identities or bounded native lifecycle. Arbitrary PHREEQC/BASIC inputs remain prohibited.",
+      "blockers": [
+        "iphreeqc_binary_and_wrapper_source_pin_missing",
+        "database_content_hash_missing",
+        "fixed_native_lifecycle_not_implemented"
+      ],
+      "evidence": [
+        "https://phreeqpy.com/examples.html",
+        "https://www.phreeqpy.com/phreeqpy.pdf"
+      ]
+    },
+    {
+      "id": "GeoConditionedResourceEnsemble",
+      "reason": "Reviewed GSTools 1.7.0 CondSRF returns kriging mean plus pointwise variance-scaled unconditional field. That does not in general reproduce joint conditional covariance. For unit exponential covariance conditioned at x=0, target x=-1,+1 has true conditional cross-covariance zero, while pointwise rescaling yields exp(-2)*(1-exp(-2))>0. A resource uncertainty ensemble cannot be represented as exact joint conditional simulation without an independently validated maintained fix/alternative; no local kernel substitution.",
+      "blockers": [
+        "joint_conditional_covariance_not_preserved"
+      ],
+      "evidence": [
+        "https://github.com/GeoStat-Framework/GSTools/blob/v1.7.0/src/gstools/field/cond_srf.py"
+      ]
+    },
+    {
+      "id": "GeoGeobodyTopology",
+      "reason": "The authoritative tutorial imports the separate gempy_plugins topology module. Its current repository exists and declares EUPL-1.2, but a reviewed immutable plugin commit/release and a verified binding to the selected GemPy/engine 2026.0.3 model layout have not been established. Core GemPy's license/version cannot stand in for this plugin; generic voxel labels are not substituted for its geobody topology kernel.",
+      "blockers": [
+        "plugin_immutable_pin_and_model_layout_binding_unresolved"
+      ],
+      "evidence": [
+        "https://docs.gempy.org/tutorials/c_advanced/d04_topology.html",
+        "https://github.com/gempy-project/gempy_plugins"
+      ]
+    },
+    {
+      "id": "GeoCpxMeltThermobarometry",
+      "reason": "Thermobar v.1.0.75 commit c1978e87f073902778b5589bd2b3b6adfd6de695 has a nonstandard LICENSE.txt requiring written author permission for GUI use and additional citation/payment terms. This application must not label it ordinary MIT or presume wrapper/GUI permission. Calibration-domain acceptance and an independent published P-T reference also remain pending; not registered.",
+      "blockers": [
+        "upstream_gui_permission_and_nonstandard_license_review",
+        "calibration_domain_and_independent_reference_pending"
+      ],
+      "evidence": [
+        "https://github.com/PennyWieser/Thermobar/blob/c1978e87f073902778b5589bd2b3b6adfd6de695/LICENSE.txt"
+      ]
+    }
+  ],
+  "skills": {
+    "crystal-symmetry": "Atomic symmetry, diffraction and coordination",
+    "mineral-thermodynamics": "Mineral formula, reactions and thermodynamic evidence",
+    "crystal-interfaces": "Crystal habit, surfaces and coherent interfaces",
+    "geochemical-patterns": "Geochemical pattern interpretation and sampling bias",
+    "porous-geometry": "Pore geometry and capillary accessibility",
+    "slope-analysis": "Bounded circular slope-stability analysis",
+    "mantle-processes": "Anhydrous mantle decompression melting",
+    "implicit-geology": "Bounded implicit stratigraphic modelling"
+  },
+  "common_requirements": [
+    "numpy==2.1.3",
+    "scipy==1.15.3",
+    "pandas==2.3.0",
+    "matplotlib==3.10.7",
+    "jsonschema==4.25.1"
+  ],
+  "upstream_callables": {
+    "Geo500CrystalSpaceGroupAudit": "spglib.spg.get_symmetry_dataset",
+    "Geo500IrreducibleReciprocalMesh": "spglib.kpoints.get_ir_reciprocal_mesh",
+    "Geo500PowderXRDPattern": "pymatgen.analysis.diffraction.xrd.XRDCalculator.get_pattern",
+    "Geo500MineralOxygenBasisFormula": "pyrolite.mineral.transform.recalc_cations",
+    "Geo500MineralReactionBalance": "pymatgen.analysis.reaction_calculator.Reaction",
+    "Geo500MineralPhaseHull": "pymatgen.analysis.phase_diagram.PhaseDiagram.get_decomp_and_e_above_hull",
+    "Geo500CrystalCoordination": "pymatgen.core.local_env.CrystalNN.get_nn_info",
+    "Geo500BondValenceOxidation": "pymatgen.core.bond_valence.BVAnalyzer.get_valences",
+    "Geo500CrystalStructureEquivalence": "pymatgen.core.structure_matcher.StructureMatcher.get_rms_dist",
+    "Geo500WulffCrystalHabit": "pymatgen.analysis.wulff.WulffShape",
+    "Geo500PeriodicIonicLatticeEnergy": "pymatgen.core.ewald.EwaldSummation",
+    "Geo500CoherentMineralInterfaceMatch": "pymatgen.analysis.interfaces.zsl.ZSLGenerator.__call__",
+    "Geo500MineralSurfaceTerminations": "pymatgen.core.surface.SlabGenerator.get_slabs",
+    "Geo500REEOrthogonalShape": "pyrolite.util.lambdas.calc_lambdas",
+    "Geo500VolcanicTASClass": "pyrolite.util.classification.TAS.predict",
+    "Geo500MineralNeutronContrast": "periodictable.nsf.neutron_scattering",
+    "Geo500PoreChordDistribution": "porespy.filters.apply_chords + porespy.metrics.chord_length_distribution",
+    "Geo500PoreBodyRadiusDistribution": "porespy.filters.local_thickness + porespy.metrics.pore_size_distribution",
+    "Geo500QuasistaticCapillaryDrainage": "porespy.simulations.drainage",
+    "Geo500MineralEhPHStability": "pymatgen.analysis.pourbaix_diagram.PourbaixDiagram.get_decomposition_energy",
+    "Geo500SpatialCellDeclustering": "geostatspy.geostats.declus",
+    "GeoSlopeLimitEquilibrium": "pyslope.Slope.analyse_slope",
+    "GeoMantleMeltingPath": "pyMelt.mantle.adiabaticMelt",
+    "GeoImplicitStructuralModel": "gempy.compute_model"
+  },
+  "license_copy_paths": [
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/pyslope-1.4.0.txt",
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/thermobar-v1.0.75-blocked.txt",
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/pymelt-2.3.txt",
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/gempy-2026.0.3.txt",
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/gempy-engine-2026.0.3.txt"
+  ]
+}

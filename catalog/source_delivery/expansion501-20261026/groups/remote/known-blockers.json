@@ -1,0 +1,76 @@
+{
+  "operations": [
+    {
+      "id": "GeoSARSigma0Calibration",
+      "state": "blocked",
+      "reason": "OTB SARCalibration requires original sensor calibration/noise LUTs and product metadata not preserved by the bounded array interface.",
+      "blockers": [
+        "A closed SAFE/product dependency manifest, safe copied sidecars, and independently calibrated sigma0 fixture remain unauthored; DN-only scaling would substitute an invented kernel."
+      ],
+      "source_url": "https://github.com/orfeotoolbox/OTB/blob/154726b379fdb39b481ee8fd793fbd3d584884e6/Modules/SAR/Applications/app/otbSARCalibration.cxx"
+    },
+    {
+      "id": "GeoInSARClosureAmbiguityCorrection",
+      "state": "blocked",
+      "reason": "MintPy mutates an interferogram HDF stack and solves integer ambiguities with cvxopt/connected-component sampling.",
+      "blockers": [
+        "Safe operation-specific mutable HDF/component transport, cvxopt ABI lock and an independently identifiable multi-triangle ambiguity fixture are not authored."
+      ],
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/unwrap_error_phase_closure.py"
+    },
+    {
+      "id": "GeoInSARTroposphericDelay",
+      "state": "blocked",
+      "reason": "MintPy tropo_pyaps3 CLI includes weather acquisition; offline use needs calc_delay_timeseries plus validated local ERA5 GRIB.",
+      "blockers": [
+        "PyAPS3/GRIB native identity and local pressure-level temperature/humidity/geopotential product coverage for every acquisition UTC are unresolved; no downloads authorized."
+      ],
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/tropo_pyaps3.py"
+    },
+    {
+      "id": "GeoInSARSolidEarthTideCorrection",
+      "state": "blocked",
+      "reason": "Compiled PySolid kernel is required. Located v0.3.4 release does not yet close reviewed source/build/license identity.",
+      "blockers": [
+        "Need pinned licensed Fortran CPU build, acquisition UTC/tide references and independent nonzero tide oracle; no local replacement formula."
+      ],
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/solid_earth_tides.py"
+    },
+    {
+      "id": "GeoInSARMultilookClosureBias",
+      "state": "blocked",
+      "reason": "MintPy closure_phase_bias estimate path calls ISCE2/SNAPHU unwrapping; it is not a standalone Python kernel.",
+      "blockers": [
+        "No reviewed private ISCE2/SNAPHU identity/license/fixed nested-process transport, sequential-network contract or independent closure-bias fixture."
+      ],
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/closure_phase_bias.py"
+    },
+    {
+      "id": "GeoInSARSentinelInterplatformRangeBias",
+      "state": "blocked",
+      "reason": "Data-estimation path reads inputs/geometryRadar.h5, derives IW masks from nonzero height and maps SAFE acquisition identity to A/B dates.",
+      "blockers": [
+        "Need closed three-IW-swath/SAFE-date/radar-geometry transport and independent recoverable bias fixture; genuine zero elevation must not silently become missing swath evidence."
+      ],
+      "source_url": "https://github.com/insarlab/MintPy/blob/297aa16018b93ba0d247413a56855cf012b8a7bb/src/mintpy/s1ab_range_bias.py"
+    },
+    {
+      "id": "GeoRemoteAtmosphericRadiativeTransfer",
+      "state": "blocked",
+      "reason": "Py6S wraps an external 6S engine; reviewed matching native version/source/license/identity is not established.",
+      "blockers": [
+        "Confirm Py6S source/release correspondence and independently license/pin CPU 6S binary before fixed transport and oracle authoring."
+      ],
+      "source_url": "https://github.com/robintw/Py6S"
+    },
+    {
+      "id": "GeoRemoteCanopySoilRadiativeTransfer",
+      "state": "blocked",
+      "reason": "Inspected jgomezdans/prosail root and setup.py do not establish redistribution license.",
+      "blockers": [
+        "Explicit authoritative PROSAIL license and reviewed release/source identity are required; no invented license or replacement canopy formula."
+      ],
+      "source_url": "https://github.com/jgomezdans/prosail"
+    }
+  ]
+}

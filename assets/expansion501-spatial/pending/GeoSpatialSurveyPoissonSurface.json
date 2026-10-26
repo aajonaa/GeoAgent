@@ -1,0 +1,80 @@
+{
+  "tool_id": "GeoSpatialSurveyPoissonSurface",
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "points_xyz_m": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ],
+    "oriented_unit_normals": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        -1
+      ]
+    ],
+    "normals_consistently_oriented": true,
+    "crs": "EPSG:32631",
+    "vertical_reference": "synthetic_local_metre_datum",
+    "octree_depth": 5,
+    "units": {
+      "points_xyz_m": "m",
+      "normals": "dimensionless_unit_vectors"
+    }
+  },
+  "numeric_oracle": "Artifact-accounting oracle only: axis-aligned unit tetrahedron area=(3+sqrt(3))/2 and volume=1/6; open mesh volume must be null. Native Poisson shape accuracy has NO accepted tolerance/reference yet and remains a scientific acceptance blocker."
+}

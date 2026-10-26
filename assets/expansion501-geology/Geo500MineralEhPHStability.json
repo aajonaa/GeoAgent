@@ -1,0 +1,35 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "element": "Fe",
+  "entries": [
+    {
+      "id": "Fe_s",
+      "formula": "Fe",
+      "phase": "solid",
+      "charge_e": 0,
+      "formation_energy_ev_per_formula": 0,
+      "concentration_mol_l": 1
+    },
+    {
+      "id": "Fe_ion",
+      "formula": "Fe",
+      "phase": "ion",
+      "charge_e": 2,
+      "formation_energy_ev_per_formula": 1,
+      "concentration_mol_l": 1
+    }
+  ],
+  "target_id": "Fe_s",
+  "metal_concentration_mol_l": 1,
+  "ph_eh_points": [
+    [
+      7,
+      0
+    ],
+    [
+      7,
+      1
+    ]
+  ],
+  "energy_reference": "SYNTHETIC formation energies versus H2/O2; not measured Fe thermochemistry."
+}

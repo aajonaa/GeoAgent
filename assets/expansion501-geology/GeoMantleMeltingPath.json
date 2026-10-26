@@ -1,0 +1,11 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "lithology_mass_fractions": [
+    0.8,
+    0.2
+  ],
+  "potential_temperature_degc": 1300,
+  "start_pressure_gpa": 4,
+  "end_pressure_gpa": 0.1,
+  "steps": 101
+}

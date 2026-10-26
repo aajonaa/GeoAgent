@@ -1,0 +1,4 @@
+# Select a declared profile; never replace the shared main environment.
+-r requirements-core.txt
+# Exact additional direct pins: requirements-optical/sarpy/mintpy/otb.txt.
+# This is not a completed transitive resolver lock.

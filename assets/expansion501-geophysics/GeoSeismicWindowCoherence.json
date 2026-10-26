@@ -1,0 +1,33 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "inline_crossline_time_window": [
+    [
+      [
+        1.0,
+        2.0,
+        1.0,
+        -1.0
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        -1.0
+      ]
+    ],
+    [
+      [
+        1.0,
+        2.0,
+        1.0,
+        -1.0
+      ],
+      [
+        1.0,
+        2.0,
+        1.0,
+        -1.0
+      ]
+    ]
+  ]
+}

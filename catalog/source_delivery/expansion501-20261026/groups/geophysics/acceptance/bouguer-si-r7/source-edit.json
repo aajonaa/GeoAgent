@@ -1,0 +1,37 @@
+{
+  "tool_id": "GeoGravityBouguerSlab",
+  "function": "gravity_bouguer_slab",
+  "source_path": "geological_agent/geology/expansion501_geophysics.py",
+  "edited_call_line_before": 853,
+  "upstream_package": "harmonica",
+  "upstream_version": "0.7.0",
+  "requirements": [
+    "harmonica==0.7.0",
+    "numpy==2.1.3",
+    "scipy==1.15.3",
+    "jsonschema==4.25.1",
+    "pandas==2.3.0",
+    "numba==0.68.0",
+    "xarray==2026.9.0",
+    "scikit-learn==1.7.2",
+    "choclo==0.3.2",
+    "verde==1.8.1",
+    "xrft==1.0.1"
+  ],
+  "reviewed_source_commit": "b9f9c00b0999f470dcae971b19add28b055633c9",
+  "original_module_sha256": "44a66595b6059d5238e451d3c18e38521c5312013f5fbe01dc0d10c185297ee7",
+  "authored_module_sha256": "e9c1cc86efd396921fb7dbb035836bb621486a790e60608cde2ea25183064d5f",
+  "original_upstream_call_ast_sha256": "6ea359eaa985cd993bea68c437204822c0e2b47585e0aef101400e37724a2d62",
+  "original_upstream_call": "hm.bouguer_correction(h, density_crust=args[\"crust_density_kg_m3\"], density_water=args[\"water_density_kg_m3\"])",
+  "replacement": "(hm.bouguer_correction(h, density_crust=args[\"crust_density_kg_m3\"], density_water=args[\"water_density_kg_m3\"]) * 1e-5)",
+  "conversion": "mGal * 1e-5 -> existing declared m/s^2",
+  "upstream_arguments": "Byte-for-byte unchanged within the original call",
+  "source_evidence": "https://www.fatiando.org/harmonica/latest/api/generated/harmonica.bouguer_correction.html",
+  "independent_oracle": "Land: 2*pi*G*rho_crust*h. Ocean: 2*pi*G*(rho_water-rho_crust)*abs(h). G=6.67430e-11 SI.",
+  "existing_test_expectations_and_tolerances": "Not edited",
+  "new_boundary_tolerance": {
+    "relative": 1e-12,
+    "absolute_si": 1e-15
+  },
+  "scientific_execution": "not_run"
+}

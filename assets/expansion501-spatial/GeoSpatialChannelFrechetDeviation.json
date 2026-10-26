@@ -1,0 +1,10 @@
+{
+  "crs": "EPSG:32631",
+  "reference_wkt": "LINESTRING (0 0, 10 0)",
+  "survey_wkt": "LINESTRING (0 2, 10 2)",
+  "direction_policy": "input_order_preserved",
+  "units": {
+    "geometry_coordinates": "m"
+  }
+}
+

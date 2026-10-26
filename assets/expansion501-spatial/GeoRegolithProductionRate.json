@@ -1,0 +1,57 @@
+{
+  "crs": "EPSG:32631",
+  "origin_xy_m": [
+    500000,
+    1000
+  ],
+  "cell_size_m": 1,
+  "nodata_policy": "reject_missing",
+  "boundary": "fixed_value",
+  "soil_depth_m": [
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "maximum_rate_m_year": 0.01,
+  "decay_depth_m": 1,
+  "units": {
+    "origin_xy_m": "m",
+    "cell_size_m": "m",
+    "soil_depth_m": "m",
+    "maximum_rate_m_year": "m/year",
+    "decay_depth_m": "m"
+  }
+}
+

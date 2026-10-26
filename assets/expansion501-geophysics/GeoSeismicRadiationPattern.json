@@ -1,0 +1,37 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "moment_tensor_enu_nm": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "direction_enu": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ]
+}

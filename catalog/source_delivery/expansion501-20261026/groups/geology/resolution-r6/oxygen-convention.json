@@ -1,0 +1,39 @@
+{
+  "tool_id": "Geo500MineralOxygenBasisFormula",
+  "convention": "periodictable-2.1.0-elemental",
+  "atomic_masses_g_mol": {
+    "Mg": 24.305,
+    "Si": 28.085,
+    "O": 15.999
+  },
+  "oxide_molar_masses_g_mol": {
+    "MgO": 40.304,
+    "SiO2": 60.083
+  },
+  "original_wt_percent_preserved": [
+    57.293630232496,
+    42.706369767504
+  ],
+  "original_expected_apfu": {
+    "Mg": 1.9999704077834797,
+    "Si": 1.0000147961082602,
+    "O": 4
+  },
+  "absolute_tolerance_unchanged": 1e-06,
+  "relative_tolerance_unchanged": 0,
+  "ideal_fixture": "assets/expansion501-geology/Geo500MineralOxygenBasisFormula-ideal.json",
+  "ideal_expected_apfu": {
+    "Mg": 2,
+    "Si": 1,
+    "O": 4
+  },
+  "causes": [
+    "The original fixture is not exact 2MgO:SiO2 under the pinned elemental masses.",
+    "The previous oracle asserted ideal APFU without declaring a matching atomic-weight convention; dict and JSON failures share this cause, not two different kernels."
+  ],
+  "evidence": [
+    "https://github.com/python-periodictable/periodictable/blob/83b643f4ca4c7d8cf5202c13e32921b572da9896/periodictable/mass.py",
+    "https://github.com/morganjwilliams/pyrolite/blob/ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca/pyrolite/mineral/transform.py"
+  ],
+  "historical_failures": "All prior CPU logs and pre-resolution-r6 snapshots retained. This convention correction does not retroactively convert any historical failure into a pass."
+}

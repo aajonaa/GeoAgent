@@ -1,0 +1,59 @@
+{
+  "tool_id": "GeoSpatialRigidPointCloudRegistration",
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "reference_xyz_m": [
+      [
+        500000,
+        1000,
+        0
+      ],
+      [
+        500003,
+        1000,
+        0
+      ],
+      [
+        500000,
+        1004,
+        0
+      ],
+      [
+        500000,
+        1000,
+        5
+      ]
+    ],
+    "moving_xyz_m": [
+      [
+        500000,
+        1000,
+        0
+      ],
+      [
+        500003,
+        1000,
+        0
+      ],
+      [
+        500000,
+        1004,
+        0
+      ],
+      [
+        500000,
+        1000,
+        5
+      ]
+    ],
+    "crs": "EPSG:32631",
+    "vertical_reference": "synthetic_local_metre_datum",
+    "maximum_iterations": 40,
+    "units": {
+      "reference_xyz_m": "m",
+      "moving_xyz_m": "m"
+    }
+  },
+  "numeric_oracle": "Independent native oracle pending: identical asymmetric tetrahedra require identity transform and zero nearest-reference distance within 1e-6 m; small translated copy requires the inverse translation. Parser checks are not ICP acceptance."
+}

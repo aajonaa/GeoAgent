@@ -1,0 +1,10 @@
+test_original_upstream_arguments_unchanged (bouguer_si_r7_explicit_local_tests.UnitBoundaryRegression.test_original_upstream_arguments_unchanged) ... ok
+test_land_slab_si (bouguer_si_r7_explicit_local_tests.UnitBoundaryRegression.test_land_slab_si) ... ok
+test_ocean_density_difference_negative (bouguer_si_r7_explicit_local_tests.UnitBoundaryRegression.test_ocean_density_difference_negative) ... ok
+test_sea_level (bouguer_si_r7_explicit_local_tests.UnitBoundaryRegression.test_sea_level) ... ok
+test_equal_underwater_densities (bouguer_si_r7_explicit_local_tests.UnitBoundaryRegression.test_equal_underwater_densities) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

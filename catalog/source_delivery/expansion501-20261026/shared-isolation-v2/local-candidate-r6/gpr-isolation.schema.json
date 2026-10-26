@@ -1,0 +1,115 @@
+{
+  "type": "object",
+  "properties": {
+    "profile_id": {
+      "type": "string",
+      "const": "expansion501-geology-gpr-cpu-v2"
+    },
+    "profile_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "worker_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "python_version": {
+      "type": "string",
+      "pattern": "^3\\.12\\.[0-9]+$"
+    },
+    "python_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "build_receipt_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "installed_versions": {
+      "type": "object",
+      "properties": {
+        "scikit-learn": {
+          "type": "string",
+          "const": "1.7.2"
+        },
+        "numpy": {
+          "type": "string",
+          "const": "2.1.3"
+        },
+        "scipy": {
+          "type": "string",
+          "const": "1.15.3"
+        },
+        "pandas": {
+          "type": "string",
+          "const": "2.3.0"
+        },
+        "matplotlib": {
+          "type": "string",
+          "const": "3.10.7"
+        },
+        "jsonschema": {
+          "type": "string",
+          "const": "4.25.1"
+        }
+      },
+      "required": [
+        "scikit-learn",
+        "numpy",
+        "scipy",
+        "pandas",
+        "matplotlib",
+        "jsonschema"
+      ],
+      "additionalProperties": false
+    },
+    "spec_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "protocol": {
+      "type": "string",
+      "const": "geoagent-isolated-cpu-v2"
+    },
+    "native_projects": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    },
+    "gpu_requested": {
+      "type": "boolean",
+      "const": false
+    },
+    "runtime_install": {
+      "type": "boolean",
+      "const": false
+    },
+    "os_sandbox": {
+      "type": "boolean",
+      "const": false
+    },
+    "evidence_directory": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4096
+    }
+  },
+  "required": [
+    "profile_id",
+    "profile_sha256",
+    "worker_sha256",
+    "python_version",
+    "python_sha256",
+    "build_receipt_sha256",
+    "installed_versions",
+    "spec_sha256",
+    "protocol",
+    "native_projects",
+    "gpu_requested",
+    "runtime_install",
+    "os_sandbox",
+    "evidence_directory"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,9 @@
+{
+  "source_unchanged_after_tests": true,
+  "test_report_sha256": "f23adb222c9ee2d79299a38acdf77cf046e840815ae60a2c3c6e49a41435d1a7",
+  "test_log_sha256": "96db768529508e53be3c7825848b99d93fe28b24566956a79c0967f7b5211ee8",
+  "runner_sha256": "4ddbfdf7698e7e4be4b56fb40f5188c2307a63b67dc5513260ea7bd2421475be",
+  "source_status": "approved_deadline_boundary_repair_no_other_algorithm_changes",
+  "science_acceptance": "not_run",
+  "deployed": false
+}

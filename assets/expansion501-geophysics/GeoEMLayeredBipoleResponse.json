@@ -1,0 +1,43 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "interfaces_depth_m": [
+    0,
+    100
+  ],
+  "horizontal_resistivity_ohm_m": [
+    1000000000000.0,
+    100,
+    10
+  ],
+  "anisotropy_sqrt_rhov_rhoh": [
+    1,
+    1,
+    1
+  ],
+  "source_endpoints_end_m": [
+    [
+      0,
+      0,
+      10
+    ],
+    [
+      10,
+      0,
+      10
+    ]
+  ],
+  "receivers_end_azimuth_dip": [
+    [
+      100,
+      0,
+      10,
+      0,
+      0
+    ]
+  ],
+  "frequency_hz": [
+    1,
+    10
+  ],
+  "current_a": 1
+}

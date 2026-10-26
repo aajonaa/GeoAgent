@@ -1,0 +1,441 @@
+{
+  "status": "authored_acceptance_plan_not_executed",
+  "fixtures": "synthetic_only",
+  "operations": [
+    {
+      "id": "GeoSpatialFlowNetworkUpscaleIHU",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Synthetic 4x4 all-east-then-south network, scale 2: coarse east-then-south topology [[1,4],[1,0]], cell side 2 m; final outlet source index 15. Check routing to one terminal independently of upstream outlet choices.",
+      "negative_checks": [
+        "cycle",
+        "off-grid receiver",
+        "EPSG:4326",
+        "fractional scale",
+        "NoData 255"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialFloodplainStageStorage",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Synthetic cells with areas 4 m2 and HAND [3,1,0] draining to index 2: stages [1,2,4] give [4,12,32] m3 by sum(area*max(stage-HAND,0)).",
+      "negative_checks": [
+        "negative HAND",
+        "nonincreasing stage",
+        "outlet outside grid",
+        "nonzero HAND at outlet",
+        "wrong CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialCoverageSimplification",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Two adjacent unit squares stay a gap-free partition with total area 2 m2 and unchanged outer boundary; shared edge coordinates agree in both polygons.",
+      "negative_checks": [
+        "overlapping polygons",
+        "invalid ring",
+        "Z geometry",
+        "geographic CRS",
+        "negative tolerance"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialConservativeArealTransfer",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Totals 100 and 200 kg on two equal-area source rectangles, each bisected: target totals [50,50,100,100], global mass 300 kg.",
+      "negative_checks": [
+        "unequal footprints",
+        "overlapping targets",
+        "negative total",
+        "length mismatch",
+        "CRS in degrees"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialGroundwaterZoneBudget",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Synthetic two-cell budget: WELLS [+3,-3] m3/s and right-face flux [3,0]. Zone1 FROM_WELLS=3, TO_ZONE_2=3; Zone2 FROM_ZONE_1=3, TO_WELLS=3; both residuals 0.",
+      "negative_checks": [
+        "absolute path",
+        "symlink",
+        "negative NLAY compact header",
+        "truncation",
+        "shape mismatch",
+        "missing face term",
+        "wrong flow unit"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialDarcySpecificDischarge",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "dx=2 m, thickness=5 m: side areas 10 m2 and horizontal area 4 m2; Qeast=20,Qnorth=30,Qup=16 m3/s yield q=(2,3,4) m/s on all faces.",
+      "negative_checks": [
+        "nonpositive thickness",
+        "incorrect face dimension",
+        "dry saturation mode",
+        "bad flux convention",
+        "degree CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialScreenedTransmissivity",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Two 5 m saturated screened layers, K=[.01,.002] m/s: transmissivities [.05,.01] m2/s and total .06 m2/s; shortened 3 m first-layer interval gives .03 m2/s.",
+      "negative_checks": [
+        "screen outside model",
+        "screen inverted",
+        "nonpositive K",
+        "dry layer",
+        "index out of bounds"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialRPCGeolocation",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Synthetic linear RPC line=P,sample=L with all offsets zero and scales one: pixel centre row=col=0 at ellipsoid height 0 gives lon=lat=0. Off-centre sample explicitly checks GDAL pixel-centre convention.",
+      "negative_checks": [
+        "zero scale",
+        "zero denominator",
+        "orthometric height datum",
+        "query outside image",
+        "height outside calibration"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject nonellipsoidal height datum; output must be EPSG:4326.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialGCPGeoreferencing",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Affine-compatible controls x=100+2*col,y=200-3*row are reproduced exactly by TPS; row=col=5 -> (110,185) m.",
+      "negative_checks": [
+        "collinear controls",
+        "duplicate controls",
+        "query outside hull",
+        "geographic CRS",
+        "wrong coordinate width"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialLocalHeteroscedasticity",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Binary-weight four-node chain with y=[0,0,0,2]: local means [0,0,1,0], squared residuals [0,0,1,4], global mean 1.25; Hi=[0,.4,1.6,.8].",
+      "negative_checks": [
+        "constant values",
+        "island",
+        "asymmetric adjacency",
+        "nonfinite value",
+        "wrong CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialContiguousRegionalization",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Four-node chain features [0,1,10,11], two regions of at least two: only feasible connected split [0,0,1,1], within-region absolute deviations total 2.",
+      "negative_checks": [
+        "disconnected graph",
+        "zero-dissimilarity edge",
+        "infeasible floor",
+        "mixed units",
+        "asymmetric graph"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialKnoxSpaceTimeInteraction",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Three events at x=[0,1,10] and t=[0,1,10], thresholds 2: one of three unordered pairs is jointly close; independent-margin expected joint count=1/3.",
+      "negative_checks": [
+        "length mismatch",
+        "negative threshold",
+        "invalid time reference",
+        "degree CRS",
+        "nonfinite epoch"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialRipleyKObservedWindow",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Four unit-square corners, area=1,n=4: unordered pairs within [.5,1.1,1.5] are [0,4,6]; K=2*A*pairs/n^2=[0,.5,.75] m2.",
+      "negative_checks": [
+        "collinear cloud",
+        "duplicate points",
+        "custom window mode",
+        "nonincreasing radii",
+        "degree CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialRegionBoundarySilhouette",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Four-node chain with features [0,0,10,10], labels [0,0,1,1]: two boundary nodes have zero within and positive cross distance -> 1; two interior nodes -> upstream convention 0.",
+      "negative_checks": [
+        "singleton region",
+        "asymmetric graph",
+        "label length mismatch",
+        "nonfinite features",
+        "wrong units"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialLineworkPolygonTopology",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Four unit-square edges plus one spur: exactly one polygon of area 1 m2 and one dangle; no cut edges or invalid rings.",
+      "negative_checks": [
+        "empty line",
+        "Z line",
+        "polygon instead of line",
+        "invalid WKT",
+        "degree CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialChannelFrechetDeviation",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Parallel 10 m lines separated by 2 m have discrete Frechet=2 m; reversing the second line gives sqrt(104) m, establishing traversal-order sensitivity.",
+      "negative_checks": [
+        "empty lines",
+        "Z coordinates",
+        "polygon input",
+        "geographic CRS",
+        "nonfinite coordinates"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialEventKernelDensity",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "One event, bandwidth 2 m: origin density 1/(8*pi) m^-2; at x=2 density exp(-1/2)/(8*pi).",
+      "negative_checks": [
+        "nonpositive bandwidth",
+        "empty events",
+        "shape mismatch",
+        "degree CRS",
+        "NaN"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialDensityConnectedSiteClusters",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Sites x=[0,.5,10], epsilon=1,min_samples=2 -> labels [0,0,-1], one noise site; graph connectivity independently identifies cluster.",
+      "negative_checks": [
+        "duplicate sites",
+        "invalid min_samples",
+        "negative radius",
+        "geographic CRS",
+        "nonfinite XY"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialHillslopeDiffusionStep",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Synthetic z=x^2+y^2 on 1 m grid: central 2D Laplacian=4; K=.1 m2/s,dt=.1 s -> centre elevation increase .04 m. Fixed guard nodes unchanged.",
+      "negative_checks": [
+        "unstable dt",
+        "nonpositive K",
+        "nonfinite elevation",
+        "missing guard nodes",
+        "degree CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialStreamPowerErosionStep",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Synthetic one-core-node 3x3 DEM: centre z=1, west fixed outlet z=0, all other neighbors z=2, dx=1,A=1,K=.1,dt=1 -> implicit z_new=1/(1+.1)=10/11 m. Guard nodes unchanged.",
+      "negative_checks": [
+        "negative erodibility",
+        "wrong time unit",
+        "nonfinite DEM",
+        "boundary mode change",
+        "degree CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialChannelChiCoordinate",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Independent path integral: when all contributing path nodes have A=A0, chi increments equal physical path lengths; a two-link 1 m path is chi=2 m. Also chi scales as sqrt(A0) with fixed area/routing. Masks must exclude nonchannels rather than report them as valid zero.",
+      "negative_checks": [
+        "nonpositive A0",
+        "nonpositive channel threshold",
+        "nonfinite grid",
+        "degree CRS",
+        "wrong area unit"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialUnconfinedGroundwaterStep",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Flat closed aquifer with uniform 2 m head, base 0, land 10 and no recharge remains head=2 m and thickness=2 m exactly; no lateral gradient gives zero transport.",
+      "negative_checks": [
+        "base>=head",
+        "head>=surface",
+        "porosity>1",
+        "unstable timestep",
+        "degree CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSpatialOverlandFlowStep",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Flat closed wet grid h=.1 m, rainfall 1e-5 m/s, dt=.1 s: every core depth=.100001 m and every link q=0. Boundary guard values retained. Initial h_init=0 prevents hidden added water.",
+      "negative_checks": [
+        "dry cell",
+        "CFL violation",
+        "negative rain",
+        "Manning n outside domain",
+        "degree CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoMarineCarbonateAccretion",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Uniform 10 m water depth: rate=.01*tanh(5*exp(-1)) m/year; dt=1 gives that thickness at each core. Surface light=0 gives exactly zero accretion. Outer nodes unchanged.",
+      "negative_checks": [
+        "emergent node",
+        "step could emerge",
+        "zero saturating light",
+        "negative extinction",
+        "wrong time unit"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoRegolithProductionRate",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "At H=0, H=Hstar and H=2Hstar, rates W0, W0/e and W0/e^2; e.g. W0=.01 m/year, Hstar=1 m gives .0036787944117 at H=1.",
+      "negative_checks": [
+        "negative soil depth",
+        "zero decay depth",
+        "negative maximum rate",
+        "degree CRS",
+        "wrong rate unit"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoLithosphereFlexure",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Zero load produces exactly zero deflection. For a single point-cell force F=p*dx^2: centre w(0)=F/(8*rho*g*alpha^2), alpha=(D/(rho*g))^(1/4), D=E*Te^3/[12*(1-.25^2)]; verify alpha definition against pinned component and isotropic symmetry.",
+      "negative_checks": [
+        "nonpositive Te",
+        "nonpositive density",
+        "more than 256 nodes",
+        "negative load in this bounded interface",
+        "degree CRS"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    },
+    {
+      "id": "GeoSedimentTracerDiffusion",
+      "fixture": "explicitly_synthetic",
+      "numeric_oracle": "Flat terrain gives zero sediment flux. H=1,C=2,Cbed=3,R=.01 m/year,dt=.1 year: Hnew=1.001,Cnew=2.003/1.001; nine 1 m2 core cells mass increases by .027 kg. Nonflat closed domain must conserve tracer except prescribed source.",
+      "negative_checks": [
+        "nonzero boundary production",
+        "soil exhaustion dt",
+        "negative concentration",
+        "mismatched fields",
+        "wrong time unit"
+      ],
+      "units_check": "Change one required units literal: reject before upstream.",
+      "crs_check": "Reject geographic or non-metre/non-E,N CRS; retain supplied projected CRS without reprojection.",
+      "source_check": "Assert reviewed commit, exact distribution versions, fixed literal adapter entrypoint and shared input/implementation/output hashes.",
+      "status": "authored_acceptance_plan_not_executed"
+    }
+  ]
+}
+

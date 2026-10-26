@@ -1,0 +1,5 @@
+# Existing baseline; no installation performed.
+numpy==2.1.3
+scipy==1.15.3
+rasterio==1.4.3
+jsonschema==4.25.1

@@ -1,0 +1,6 @@
+-r requirements-core.txt
+scikit-image==0.26.0
+spectral==0.25
+PyWavelets==1.10.0
+pyspectral==0.14.3
+# Transitive resolver/native license acceptance still pending.

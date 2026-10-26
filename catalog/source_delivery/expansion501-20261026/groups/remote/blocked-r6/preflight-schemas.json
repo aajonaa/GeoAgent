@@ -1,0 +1,1380 @@
+{
+  "status": "unregistered_preflight_contracts_not_tool_registry",
+  "metadata_profile": "scientific",
+  "operations": [
+    {
+      "id": "GeoSARSigma0Calibration",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240,
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)(?!.*[\\\\:%?#]).+$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 268435456
+                },
+                "role": {
+                  "enum": [
+                    "manifest",
+                    "measurement",
+                    "annotation",
+                    "calibration",
+                    "noise",
+                    "support",
+                    "grib",
+                    "timeseries",
+                    "geometry",
+                    "mask",
+                    "stack",
+                    "components",
+                    "closure"
+                  ]
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "bytes",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 256
+          },
+          "acquisition": {
+            "type": "object",
+            "properties": {
+              "product_id": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 240
+              },
+              "sensor": {
+                "enum": [
+                  "S1A",
+                  "S1B"
+                ]
+              },
+              "start_utc": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+              },
+              "stop_utc": {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+              },
+              "polarization": {
+                "enum": [
+                  "VV",
+                  "VH",
+                  "HH",
+                  "HV"
+                ]
+              },
+              "manifest_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "coregistration_reference": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9_-]{1,80}$"
+              }
+            },
+            "required": [
+              "product_id",
+              "sensor",
+              "start_utc",
+              "stop_utc",
+              "polarization",
+              "manifest_sha256",
+              "coregistration_reference"
+            ],
+            "additionalProperties": false
+          },
+          "calibration": {
+            "const": "sigma0"
+          },
+          "remove_thermal_noise": {
+            "type": "boolean"
+          },
+          "input_unit": {
+            "const": "DN"
+          },
+          "output_unit": {
+            "const": "dimensionless"
+          },
+          "coordinate_system": {
+            "const": "original_sensor_radar"
+          }
+        },
+        "required": [
+          "files",
+          "acquisition",
+          "calibration",
+          "remove_thermal_noise",
+          "input_unit",
+          "output_unit",
+          "coordinate_system"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "const": "blocked"
+          },
+          "formal_eligible": {
+            "const": false
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "state",
+          "formal_eligible",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "output_scope": "preflight status only; not a fabricated scientific result"
+    },
+    {
+      "id": "GeoInSARClosureAmbiguityCorrection",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240,
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)(?!.*[\\\\:%?#]).+$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 268435456
+                },
+                "role": {
+                  "enum": [
+                    "manifest",
+                    "measurement",
+                    "annotation",
+                    "calibration",
+                    "noise",
+                    "support",
+                    "grib",
+                    "timeseries",
+                    "geometry",
+                    "mask",
+                    "stack",
+                    "components",
+                    "closure"
+                  ]
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "bytes",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 256
+          },
+          "acquisitions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "sensor": {
+                  "enum": [
+                    "S1A",
+                    "S1B"
+                  ]
+                },
+                "start_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "stop_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "polarization": {
+                  "enum": [
+                    "VV",
+                    "VH",
+                    "HH",
+                    "HV"
+                  ]
+                },
+                "manifest_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "coregistration_reference": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                }
+              },
+              "required": [
+                "product_id",
+                "sensor",
+                "start_utc",
+                "stop_utc",
+                "polarization",
+                "manifest_sha256",
+                "coregistration_reference"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 2,
+            "maxItems": 128
+          },
+          "phase_unit": {
+            "const": "rad"
+          },
+          "minimum_component_pixels": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65536
+          },
+          "samples_per_component": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 128
+          },
+          "coregistered": {
+            "const": true
+          }
+        },
+        "required": [
+          "files",
+          "acquisitions",
+          "phase_unit",
+          "minimum_component_pixels",
+          "samples_per_component",
+          "coregistered"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "const": "blocked"
+          },
+          "formal_eligible": {
+            "const": false
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "state",
+          "formal_eligible",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "output_scope": "preflight status only; not a fabricated scientific result"
+    },
+    {
+      "id": "GeoInSARTroposphericDelay",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240,
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)(?!.*[\\\\:%?#]).+$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 268435456
+                },
+                "role": {
+                  "enum": [
+                    "manifest",
+                    "measurement",
+                    "annotation",
+                    "calibration",
+                    "noise",
+                    "support",
+                    "grib",
+                    "timeseries",
+                    "geometry",
+                    "mask",
+                    "stack",
+                    "components",
+                    "closure"
+                  ]
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "bytes",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 256
+          },
+          "acquisitions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "sensor": {
+                  "enum": [
+                    "S1A",
+                    "S1B"
+                  ]
+                },
+                "start_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "stop_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "polarization": {
+                  "enum": [
+                    "VV",
+                    "VH",
+                    "HH",
+                    "HV"
+                  ]
+                },
+                "manifest_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "coregistration_reference": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                }
+              },
+              "required": [
+                "product_id",
+                "sensor",
+                "start_utc",
+                "stop_utc",
+                "polarization",
+                "manifest_sha256",
+                "coregistration_reference"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 2,
+            "maxItems": 128
+          },
+          "grid": {
+            "type": "object",
+            "properties": {
+              "crs": {
+                "type": "string",
+                "pattern": "^EPSG:[1-9]\\d{3,5}$"
+              },
+              "affine": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -1000000000,
+                  "maximum": 1000000000
+                },
+                "minItems": 6,
+                "maxItems": 6
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1024
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "mask": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "boolean"
+                  },
+                  "minItems": 1,
+                  "maxItems": 1024
+                },
+                "minItems": 1,
+                "maxItems": 1024
+              },
+              "nodata": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "crs",
+              "affine",
+              "shape",
+              "mask",
+              "nodata"
+            ],
+            "additionalProperties": false
+          },
+          "weather_provider": {
+            "const": "ECMWF_ERA5"
+          },
+          "weather_matching": {
+            "const": "exact_hour_no_interpolation"
+          },
+          "units": {
+            "const": {
+              "height": "m",
+              "incidence": "deg",
+              "delay": "m",
+              "temperature": "K",
+              "pressure": "hPa",
+              "specific_humidity": "kg/kg",
+              "geopotential": "m2/s2"
+            }
+          },
+          "network_required": {
+            "const": false
+          }
+        },
+        "required": [
+          "files",
+          "acquisitions",
+          "grid",
+          "weather_provider",
+          "weather_matching",
+          "units",
+          "network_required"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "const": "blocked"
+          },
+          "formal_eligible": {
+            "const": false
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "state",
+          "formal_eligible",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "output_scope": "preflight status only; not a fabricated scientific result"
+    },
+    {
+      "id": "GeoInSARSolidEarthTideCorrection",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240,
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)(?!.*[\\\\:%?#]).+$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 268435456
+                },
+                "role": {
+                  "enum": [
+                    "manifest",
+                    "measurement",
+                    "annotation",
+                    "calibration",
+                    "noise",
+                    "support",
+                    "grib",
+                    "timeseries",
+                    "geometry",
+                    "mask",
+                    "stack",
+                    "components",
+                    "closure"
+                  ]
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "bytes",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 256
+          },
+          "acquisitions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "sensor": {
+                  "enum": [
+                    "S1A",
+                    "S1B"
+                  ]
+                },
+                "start_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "stop_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "polarization": {
+                  "enum": [
+                    "VV",
+                    "VH",
+                    "HH",
+                    "HV"
+                  ]
+                },
+                "manifest_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "coregistration_reference": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                }
+              },
+              "required": [
+                "product_id",
+                "sensor",
+                "start_utc",
+                "stop_utc",
+                "polarization",
+                "manifest_sha256",
+                "coregistration_reference"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 2,
+            "maxItems": 128
+          },
+          "grid": {
+            "type": "object",
+            "properties": {
+              "crs": {
+                "type": "string",
+                "pattern": "^EPSG:[1-9]\\d{3,5}$"
+              },
+              "affine": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -1000000000,
+                  "maximum": 1000000000
+                },
+                "minItems": 6,
+                "maxItems": 6
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1024
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "mask": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "boolean"
+                  },
+                  "minItems": 1,
+                  "maxItems": 1024
+                },
+                "minItems": 1,
+                "maxItems": 1024
+              },
+              "nodata": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "crs",
+              "affine",
+              "shape",
+              "mask",
+              "nodata"
+            ],
+            "additionalProperties": false
+          },
+          "units": {
+            "const": {
+              "displacement": "m",
+              "angle": "deg",
+              "time": "UTC"
+            }
+          },
+          "reference_acquisition": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 127
+          },
+          "leap_table_policy": {
+            "const": "reject_at_or_after_2025-12-28T00:00:00Z"
+          }
+        },
+        "required": [
+          "files",
+          "acquisitions",
+          "grid",
+          "units",
+          "reference_acquisition",
+          "leap_table_policy"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "const": "blocked"
+          },
+          "formal_eligible": {
+            "const": false
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "state",
+          "formal_eligible",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "output_scope": "preflight status only; not a fabricated scientific result"
+    },
+    {
+      "id": "GeoInSARMultilookClosureBias",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240,
+                  "pattern": "^(?!/)(?!.*(?:^|/)\\.\\.?/)(?!.*[\\\\:%?#]).+$"
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 268435456
+                },
+                "role": {
+                  "enum": [
+                    "manifest",
+                    "measurement",
+                    "annotation",
+                    "calibration",
+                    "noise",
+                    "support",
+                    "grib",
+                    "timeseries",
+                    "geometry",
+                    "mask",
+                    "stack",
+                    "components",
+                    "closure"
+                  ]
+                }
+              },
+              "required": [
+                "path",
+                "sha256",
+                "bytes",
+                "role"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 256
+          },
+          "acquisitions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "sensor": {
+                  "enum": [
+                    "S1A",
+                    "S1B"
+                  ]
+                },
+                "start_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "stop_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "polarization": {
+                  "enum": [
+                    "VV",
+                    "VH",
+                    "HH",
+                    "HV"
+                  ]
+                },
+                "manifest_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "coregistration_reference": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                }
+              },
+              "required": [
+                "product_id",
+                "sensor",
+                "start_utc",
+                "stop_utc",
+                "polarization",
+                "manifest_sha256",
+                "coregistration_reference"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 2,
+            "maxItems": 128
+          },
+          "phase_unit": {
+            "const": "rad"
+          },
+          "wavelength_m": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 2
+          },
+          "bias_free_connection": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 64
+          },
+          "network_bandwidth": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64
+          },
+          "coregistered": {
+            "const": true
+          }
+        },
+        "required": [
+          "files",
+          "acquisitions",
+          "phase_unit",
+          "wavelength_m",
+          "bias_free_connection",
+          "network_bandwidth",
+          "coregistered"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "const": "blocked"
+          },
+          "formal_eligible": {
+            "const": false
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "state",
+          "formal_eligible",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "output_scope": "preflight status only; not a fabricated scientific result"
+    },
+    {
+      "id": "GeoInSARSentinelInterplatformRangeBias",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "acquisitions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "product_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 240
+                },
+                "sensor": {
+                  "enum": [
+                    "S1A",
+                    "S1B"
+                  ]
+                },
+                "start_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "stop_utc": {
+                  "type": "string",
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}Z$"
+                },
+                "polarization": {
+                  "enum": [
+                    "VV",
+                    "VH",
+                    "HH",
+                    "HV"
+                  ]
+                },
+                "manifest_sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "coregistration_reference": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_-]{1,80}$"
+                }
+              },
+              "required": [
+                "product_id",
+                "sensor",
+                "start_utc",
+                "stop_utc",
+                "polarization",
+                "manifest_sha256",
+                "coregistration_reference"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 2,
+            "maxItems": 128
+          },
+          "grid": {
+            "type": "object",
+            "properties": {
+              "crs": {
+                "type": "string",
+                "pattern": "^EPSG:[1-9]\\d{3,5}$"
+              },
+              "affine": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -1000000000,
+                  "maximum": 1000000000
+                },
+                "minItems": 6,
+                "maxItems": 6
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 1024
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "mask": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "boolean"
+                  },
+                  "minItems": 1,
+                  "maxItems": 1024
+                },
+                "minItems": 1,
+                "maxItems": 1024
+              },
+              "nodata": {
+                "type": "null"
+              }
+            },
+            "required": [
+              "crs",
+              "affine",
+              "shape",
+              "mask",
+              "nodata"
+            ],
+            "additionalProperties": false
+          },
+          "range_offsets": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "number",
+                    "minimum": -1000,
+                    "maximum": 1000
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 262144
+            },
+            "minItems": 2,
+            "maxItems": 128
+          },
+          "units": {
+            "const": {
+              "range_offsets": "m"
+            }
+          },
+          "representation": {
+            "const": "coregistered_range_offset_timeseries"
+          }
+        },
+        "required": [
+          "acquisitions",
+          "grid",
+          "range_offsets",
+          "units",
+          "representation"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "const": "blocked"
+          },
+          "formal_eligible": {
+            "const": false
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "state",
+          "formal_eligible",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "output_scope": "preflight status only; not a fabricated scientific result"
+    },
+    {
+      "id": "GeoRemoteAtmosphericRadiativeTransfer",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "wavelength_um": {
+            "type": "number",
+            "minimum": 0.25,
+            "maximum": 4
+          },
+          "solar_zenith_deg": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 80
+          },
+          "view_zenith_deg": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 80
+          },
+          "relative_azimuth_deg": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 180
+          },
+          "surface_reflectance": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "aerosol_optical_depth_550": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 2
+          },
+          "water_vapour_g_cm2": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "ozone_cm_atm": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "surface_altitude_km": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 8
+          },
+          "observation_date": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+          },
+          "network_required": {
+            "const": false
+          }
+        },
+        "required": [
+          "wavelength_um",
+          "solar_zenith_deg",
+          "view_zenith_deg",
+          "relative_azimuth_deg",
+          "surface_reflectance",
+          "aerosol_optical_depth_550",
+          "water_vapour_g_cm2",
+          "ozone_cm_atm",
+          "surface_altitude_km",
+          "observation_date",
+          "network_required"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "const": "blocked"
+          },
+          "formal_eligible": {
+            "const": false
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "state",
+          "formal_eligible",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "output_scope": "preflight status only; not a fabricated scientific result"
+    },
+    {
+      "id": "GeoRemoteCanopySoilRadiativeTransfer",
+      "input_schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "leaf_structure": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "chlorophyll": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "carotenoids": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 30
+          },
+          "brown_pigment": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "water_thickness": {
+            "type": "number",
+            "minimum": 0.000001,
+            "maximum": 0.1
+          },
+          "dry_mass": {
+            "type": "number",
+            "minimum": 0.000001,
+            "maximum": 0.05
+          },
+          "anthocyanins": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 40
+          },
+          "leaf_area_index": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 10
+          },
+          "hotspot": {
+            "type": "number",
+            "minimum": 0.000001,
+            "maximum": 1
+          },
+          "mean_leaf_angle": {
+            "type": "number",
+            "minimum": 1,
+            "maximum": 89
+          },
+          "solar_zenith": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 80
+          },
+          "view_zenith": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 80
+          },
+          "relative_azimuth": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 180
+          },
+          "diffuse_fraction": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "soil_reflectance": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "minItems": 2101,
+            "maxItems": 2101
+          },
+          "units": {
+            "const": {
+              "wavelength": "nm",
+              "pigment": "ug/cm2",
+              "water_thickness": "cm",
+              "dry_mass": "g/cm2",
+              "angle": "deg",
+              "reflectance": "dimensionless",
+              "leaf_area_index": "m2/m2"
+            }
+          }
+        },
+        "required": [
+          "leaf_structure",
+          "chlorophyll",
+          "carotenoids",
+          "brown_pigment",
+          "water_thickness",
+          "dry_mass",
+          "anthocyanins",
+          "leaf_area_index",
+          "hotspot",
+          "mean_leaf_angle",
+          "solar_zenith",
+          "view_zenith",
+          "relative_azimuth",
+          "diffuse_fraction",
+          "soil_reflectance",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "const": "blocked"
+          },
+          "formal_eligible": {
+            "const": false
+          },
+          "warnings": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1000
+            },
+            "minItems": 0,
+            "maxItems": 32
+          }
+        },
+        "required": [
+          "state",
+          "formal_eligible",
+          "warnings"
+        ],
+        "additionalProperties": false
+      },
+      "output_scope": "preflight status only; not a fabricated scientific result"
+    }
+  ]
+}

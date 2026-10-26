@@ -1,0 +1,33 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "max_iterations": 5,
+  "regularization_beta": 0.01,
+  "starting_conductivity_s_m": [
+    0.01,
+    0.02
+  ],
+  "conductivity_lower_s_m": 1e-05,
+  "conductivity_upper_s_m": 1,
+  "finite_layer_thickness_m": [
+    100
+  ],
+  "halfspace_regularization_length_m": 500,
+  "off_time_s": [
+    0.001,
+    0.003,
+    0.01
+  ],
+  "height_m": 1,
+  "loop_radius_m": 20,
+  "current_a": 1,
+  "dbdt_t_s": [
+    -1e-06,
+    -2e-07,
+    -1e-08
+  ],
+  "standard_deviation_t_s": [
+    1e-07,
+    2e-08,
+    1e-09
+  ]
+}

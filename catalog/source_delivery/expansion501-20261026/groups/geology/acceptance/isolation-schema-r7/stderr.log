@@ -1,0 +1,15 @@
+test_child_provenance_remains_valid_without_parent_evidence (__main__.IsolationSchemaTests.test_child_provenance_remains_valid_without_parent_evidence) ... ok
+test_every_inner_field_required (__main__.IsolationSchemaTests.test_every_inner_field_required) ... ok
+test_exact_dependency_pins (__main__.IsolationSchemaTests.test_exact_dependency_pins) ... ok
+test_fixed_protocol_and_profile (__main__.IsolationSchemaTests.test_fixed_protocol_and_profile) ... ok
+test_generated_catalog_matches_and_schema_is_valid (__main__.IsolationSchemaTests.test_generated_catalog_matches_and_schema_is_valid) ... ok
+test_hash_shape (__main__.IsolationSchemaTests.test_hash_shape) ... ok
+test_no_gpu_install_or_sandbox_claim (__main__.IsolationSchemaTests.test_no_gpu_install_or_sandbox_claim) ... ok
+test_no_runtime_profile_implicitly_enabled (__main__.IsolationSchemaTests.test_no_runtime_profile_implicitly_enabled) ... ok
+test_python_and_evidence_bounds (__main__.IsolationSchemaTests.test_python_and_evidence_bounds) ... ok
+test_unknown_fields_and_native_projects_rejected (__main__.IsolationSchemaTests.test_unknown_fields_and_native_projects_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.030s
+
+OK

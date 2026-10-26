@@ -1,0 +1,81 @@
+{
+  "tool_id": "GeoSpatialNavigationBasedLidarGeoreference",
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "scan_xyzt": [
+      [
+        0,
+        0,
+        0,
+        100.5
+      ],
+      [
+        0,
+        0,
+        10,
+        101
+      ]
+    ],
+    "trajectory": [
+      [
+        100,
+        3,
+        0,
+        1000,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        101,
+        3,
+        0,
+        1000,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "scan_to_imu": [
+      [
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "time_offset_s": 0,
+    "gps_time_basis": "same_continuous_GPS_seconds",
+    "trajectory_crs": "EPSG:4979",
+    "units": {
+      "scanner_xyz": "m",
+      "time": "s",
+      "trajectory_lon_lat": "degree",
+      "trajectory_height": "m_ellipsoidal",
+      "attitude": "radian",
+      "calibration_translation": "m"
+    }
+  },
+  "numeric_oracle": "Independent native oracle pending: stationary equatorial trajectory (lon 3 degrees, lat 0, height 1000 m), identity calibration and zero scanner vector give [3,0,1000]; NED down 10 m gives height 990 m. Require degree residual <=1e-9 and height <=1e-6 m. First-time query is a preserved negative, not clipped."
+}

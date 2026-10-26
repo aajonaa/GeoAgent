@@ -1,0 +1,45 @@
+{
+  "crs": "EPSG:32631",
+  "attributes": [
+    [
+      0
+    ],
+    [
+      0
+    ],
+    [
+      10
+    ],
+    [
+      10
+    ]
+  ],
+  "labels": [
+    0,
+    0,
+    1,
+    1
+  ],
+  "neighbors": [
+    [
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2
+    ]
+  ],
+  "attribute_unit": "1",
+  "units": {
+    "attributes": "1",
+    "labels": "region_id"
+  }
+}
+

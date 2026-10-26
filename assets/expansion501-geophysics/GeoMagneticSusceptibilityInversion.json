@@ -1,0 +1,97 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "x_edges_m": [
+    -100,
+    -20,
+    20,
+    100
+  ],
+  "y_edges_m": [
+    -100,
+    -20,
+    20,
+    100
+  ],
+  "z_edges_m": [
+    -100,
+    -40,
+    -10,
+    0
+  ],
+  "max_iterations": 5,
+  "regularization_beta": 0.01,
+  "observations_enu_m": [
+    [
+      -50,
+      -50,
+      50
+    ],
+    [
+      -50,
+      50,
+      50
+    ],
+    [
+      50,
+      -50,
+      50
+    ],
+    [
+      50,
+      50,
+      50
+    ],
+    [
+      0,
+      0,
+      50
+    ]
+  ],
+  "tmi_nt": [
+    1,
+    1,
+    1,
+    1,
+    2
+  ],
+  "standard_deviation_nt": [
+    0.1,
+    0.1,
+    0.1,
+    0.1,
+    0.1
+  ],
+  "starting_susceptibility_si": [
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001,
+    0.001
+  ],
+  "susceptibility_upper_si": 0.05,
+  "inducing_field_nt": 50000,
+  "inclination_deg": 60,
+  "declination_deg": 0
+}

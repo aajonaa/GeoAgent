@@ -1,0 +1,82 @@
+{
+  "operations": [
+    {
+      "id": "Geo50026ConstrainedChemicalEquilibrium",
+      "reason": "Reaktoro 2.13.0 source and a CPU py312 conda artifact are identified, but a complete native dependency lock, verified database raw-byte hash/license, fixed constrained-system contract and independent equilibrium reference are not delivered. No registered wrapper or fixed v2 binding.",
+      "blockers": [
+        "native_transitive_binary_lock_missing",
+        "database_raw_sha256_and_terms_pending",
+        "fixed_system_and_independent_equilibrium_reference_pending",
+        "v2_native_binding_pending"
+      ],
+      "evidence": [
+        "https://github.com/reaktoro/reaktoro/tree/3c5838e7c0ed2931ad152176414cb786311dbe47",
+        "https://reaktoro.org/tutorials/equilibrium/equilibrium-specifying-constraints.html"
+      ],
+      "previous_reason_preserved": "Reaktoro v2.13.0 source commit 3c5838e7c0ed2931ad152176414cb786311dbe47 is established, but no fixed CPU binary/ABI lock plus licensed offline thermodynamic-database content hash has been supplied. An auditable fixed equilibrium database/model binding is mandatory; no arbitrary database fetch or unpinned native runner is registered.",
+      "evidence_revision": "catalog/source_delivery/expansion501-20261026/groups/geology/resolution-r6/source-evidence.json"
+    },
+    {
+      "id": "Geo50026MineralReactionKinetics",
+      "reason": "The maintained Reaktoro Palandri-Kharaka workflow is confirmed, but its database, parameter bytes, mineral surface convention, native runtime lock and independent time-path reference are not frozen together. Equilibrium imports or endpoint conservation cannot certify this kinetic operation.",
+      "blockers": [
+        "native_transitive_binary_lock_missing",
+        "database_and_rate_parameter_identity_pending",
+        "surface_area_and_rate_domain_contract_pending",
+        "independent_time_path_oracle_pending",
+        "v2_native_binding_pending"
+      ],
+      "evidence": [
+        "https://reaktoro.org/api/classReaktoro_1_1KineticsSolver.html"
+      ],
+      "previous_reason_preserved": "Same Reaktoro native/database blockers as equilibrium, plus a version-bound built-in rate-law parameter database, mineral-area convention and independent kinetic reference are not frozen. User-supplied code callbacks or an authored replacement rate kernel are forbidden; no registered placeholder.",
+      "evidence_revision": "catalog/source_delivery/expansion501-20261026/groups/geology/resolution-r6/source-evidence.json"
+    },
+    {
+      "id": "Geo50026ReactiveColumnTransport",
+      "reason": "Maintained PhreeqPy 0.6.0 wrapper wheel is identified, but its bundled IPhreeqc binary's content identity and ABI, release-to-source correspondence, offline database rights/hash, fixed column template and lifecycle reference are not verified. Arbitrary PHREEQC input strings remain forbidden.",
+      "blockers": [
+        "iphreeqc_binary_sha256_abi_pending",
+        "wrapper_release_source_mapping_pending",
+        "database_identity_and_terms_pending",
+        "fixed_transport_template_oracle_pending",
+        "v2_native_binding_pending"
+      ],
+      "evidence": [
+        "https://phreeqpy.com/examples.html",
+        "https://www.phreeqpy.com/phreeqpy.pdf"
+      ],
+      "previous_reason_preserved": "Official run_string and advection/RUN_CELLS workflow are known, but no pinned IPhreeqc native build/hash, compatible PhreeqPy source commit and licensed phreeqc.dat content identity are established. The existing JSON-only bridge does not supply those identities or bounded native lifecycle. Arbitrary PHREEQC/BASIC inputs remain prohibited.",
+      "evidence_revision": "catalog/source_delivery/expansion501-20261026/groups/geology/resolution-r6/source-evidence.json"
+    },
+    {
+      "id": "GeoGeobodyTopology",
+      "reason": "gempy_plugins 2026.0.3 has a real compute_topology implementation, but its topology.py header declares GPL-3.0-or-later while repository metadata says EUPL-1.2. File-level obligations and fixed fault/lithology model binding are unresolved. The pinned core engine topology interface is empty and is not a substitute.",
+      "blockers": [
+        "file_level_license_interpretation_pending",
+        "fixed_fault_and_lithology_solution_binding_pending",
+        "independent_geobody_adjacency_reference_pending"
+      ],
+      "evidence": [
+        "https://docs.gempy.org/tutorials/c_advanced/d04_topology.html",
+        "https://github.com/gempy-project/gempy_plugins"
+      ],
+      "previous_reason_preserved": "The authoritative tutorial imports the separate gempy_plugins topology module. Its current repository exists and declares EUPL-1.2, but a reviewed immutable plugin commit/release and a verified binding to the selected GemPy/engine 2026.0.3 model layout have not been established. Core GemPy's license/version cannot stand in for this plugin; generic voxel labels are not substituted for its geobody topology kernel.",
+      "evidence_revision": "catalog/source_delivery/expansion501-20261026/groups/geology/resolution-r6/source-evidence.json"
+    },
+    {
+      "id": "GeoCpxMeltThermobarometry",
+      "reason": "The identified Thermobar 1.0.75 source retains custom GUI/permission/payment/citation conditions; permission for this delivery is not established. No confirmed maintained license-compatible paired clinopyroxene-melt replacement was found. Cpx-only thermometry, olivine primary melts and own equation rewrites are not accepted substitutes.",
+      "blockers": [
+        "original_license_use_not_authorized",
+        "maintained_compatible_equivalent_not_confirmed",
+        "paired_composition_calibration_and_oracle_pending"
+      ],
+      "evidence": [
+        "https://github.com/PennyWieser/Thermobar/blob/c1978e87f073902778b5589bd2b3b6adfd6de695/LICENSE.txt"
+      ],
+      "previous_reason_preserved": "Thermobar v.1.0.75 commit c1978e87f073902778b5589bd2b3b6adfd6de695 has a nonstandard LICENSE.txt requiring written author permission for GUI use and additional citation/payment terms. This application must not label it ordinary MIT or presume wrapper/GUI permission. Calibration-domain acceptance and an independent published P-T reference also remain pending; not registered.",
+      "evidence_revision": "catalog/source_delivery/expansion501-20261026/groups/geology/resolution-r6/source-evidence.json"
+    }
+  ]
+}

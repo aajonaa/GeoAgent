@@ -1,0 +1,35 @@
+{
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "cost_matrix": [
+      [
+        0,
+        2,
+        7
+      ],
+      [
+        2,
+        0,
+        5
+      ],
+      [
+        7,
+        5,
+        0
+      ]
+    ],
+    "cost_unit": "m",
+    "demand_weights": [
+      1,
+      2,
+      1
+    ],
+    "facility_count": 1,
+    "units": {
+      "cost_matrix": "m",
+      "demand_weights": "people"
+    }
+  },
+  "numeric_oracle": "For p=1, candidate objectives are [11,7,17] weighted metres; unique optimum is facility 1, objective 7. Stopped integer-feasible status is NOT an optimality certificate."
+}

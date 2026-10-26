@@ -1,0 +1,156 @@
+{
+  "operations": [
+    {
+      "id": "GeoSpatialDemandWeightedFacilitySiting",
+      "state": "blocked",
+      "reason": "spopt.PMedian requires a concrete supported PuLP/CBC solver build, executable digest, bounded solve/timeout status and tie policy; no reviewed native solver identity or fixed worker transport is available. No optimization placeholder registered.",
+      "blockers": [
+        "MILP worker"
+      ]
+    },
+    {
+      "id": "GeoSpatialMinimumCoverageFacilitySet",
+      "state": "blocked",
+      "reason": "spopt.LSCP requires the same missing pinned MILP solver execution contract plus infeasibility/optimality output handling. An unexecuted Python model build is not a facility-set result.",
+      "blockers": [
+        "MILP worker"
+      ]
+    },
+    {
+      "id": "GeoSpatialPointCloudGroundClassification",
+      "state": "blocked",
+      "reason": "Fixed SMRF pipeline still needs a pinned PDAL executable/plugin build and bounded LAS artifact transport; existing JSON-only native bridge cannot return the classified point cloud.",
+      "blockers": [
+        "PDAL"
+      ]
+    },
+    {
+      "id": "GeoSpatialPointCloudHeightAboveGround",
+      "state": "blocked",
+      "reason": "filters.hag_nn requires classified ground inputs and a fixed PDAL/plugin build; missing bounded LAS output transport/content checks, so no bridge placeholder.",
+      "blockers": [
+        "PDAL"
+      ]
+    },
+    {
+      "id": "GeoSpatialRigidPointCloudRegistration",
+      "state": "blocked",
+      "reason": "filters.icp needs pinned native registration build, convergence/transform convention and private two-cloud artifact transport; the accepted shared JSON bridge is not that transport.",
+      "blockers": [
+        "PDAL"
+      ]
+    },
+    {
+      "id": "GeoSpatialTerrainViewshed",
+      "state": "blocked",
+      "reason": "r.viewshed needs a pinned GRASS/GDAL build, private GIS mapset/region/CRS initialization and visibility-raster artifact transport; none is implemented here.",
+      "blockers": [
+        "GRASS"
+      ]
+    },
+    {
+      "id": "GeoSpatialTerrainSolarIrradiance",
+      "state": "blocked",
+      "reason": "r.sun requires pinned GRASS runtime, location/calendar/atmospheric parameter contract and raster artifact checks; native solar pipeline/transport remains unimplemented.",
+      "blockers": [
+        "GRASS"
+      ]
+    },
+    {
+      "id": "GeoSpatialSIMWESedimentTransport",
+      "state": "blocked",
+      "reason": "r.sim.sediment requires fixed native build, initialized mapset and seeded walker/time-unit control with erosion/deposition raster transport; no bounded native worker has been authored.",
+      "blockers": [
+        "GRASS"
+      ]
+    },
+    {
+      "id": "GeoSpatialAquiferSoluteTransport",
+      "state": "blocked",
+      "reason": "r.solute.transport needs explicit hydraulic boundary/concentration state, fixed solver/native build and gridded mass-balance output transport. No native worker or complete physical boundary schema is supplied.",
+      "blockers": [
+        "GRASS"
+      ]
+    },
+    {
+      "id": "GeoSpatialGeomorphonLandforms",
+      "state": "blocked",
+      "reason": "r.geomorphon is a real fixed stage but its pinned executable/plugin identity, mapset isolation and categorical raster output transport are absent.",
+      "blockers": [
+        "GRASS"
+      ]
+    },
+    {
+      "id": "GeoSpatialRainfallErosivityFactor",
+      "state": "blocked",
+      "reason": "r.usler is a real native rainfall-erosivity implementation; fixed climatic relation/unit applicability and pinned GRASS artifact-producing worker are not yet adapted. No empirical-mode alias registration.",
+      "blockers": [
+        "GRASS"
+      ]
+    },
+    {
+      "id": "GeoSpatialIndividualTreeSegmentation",
+      "state": "blocked",
+      "reason": "Tree segmentation depends on a concrete PDAL stage/plugin release and ground-normalized cloud with bounded labeled-cloud transport. The candidate's full pinned plugin/field contract is not established.",
+      "blockers": [
+        "PDAL"
+      ]
+    },
+    {
+      "id": "GeoSpatialLidarSensorTrajectoryRecovery",
+      "state": "blocked",
+      "reason": "Trajectory recovery needs pinned PDAL plugin identity and scan/time/return-channel conventions, plus a fixed output trajectory artifact contract; not supplied by JSON-only bridge.",
+      "blockers": [
+        "PDAL"
+      ]
+    },
+    {
+      "id": "GeoSpatialNavigationBasedLidarGeoreference",
+      "state": "blocked",
+      "reason": "Navigation georeferencing requires validated time synchronization, attitude/boresight/lever-arm convention, fixed native build and cloud artifact transport. These calibration and transport interfaces remain unimplemented.",
+      "blockers": [
+        "PDAL"
+      ]
+    },
+    {
+      "id": "GeoSpatialPointCloudMorphologyDescriptors",
+      "state": "blocked",
+      "reason": "Point-neighborhood morphology needs a reviewed fixed feature stage set and dimension units at a pinned PDAL/plugin build; bounded enriched-cloud artifact transport is missing.",
+      "blockers": [
+        "PDAL"
+      ]
+    },
+    {
+      "id": "GeoSpatialSurveyPoissonSurface",
+      "state": "blocked",
+      "reason": "Poisson reconstruction needs oriented normals, fixed native meshing dependencies and bounded mesh topology/artifact transport; no executable identity or mesh transport exists in this contribution.",
+      "blockers": [
+        "PDAL"
+      ]
+    },
+    {
+      "id": "GeoBedrockLandslideEvolution",
+      "state": "blocked",
+      "reason": "Pinned BedrockLandslider exists, but no bounded event/return-period/seed-and-routing state adapter with sediment export accounting has been authored. A deterministic single-step fa\u00e7ade would conceal stochastic event scheduling; not registered.",
+      "blockers": [
+        "Landlab state contract"
+      ]
+    },
+    {
+      "id": "GeoTidalCycleFlow",
+      "state": "blocked",
+      "reason": "Pinned TidalFlowCalculator exists, but explicit open-water boundary/marsh mask, tidal-cycle time averaging and wet/dry velocity/flux conventions have not been bound to a complete input/output adapter. No fake terrain-only entrypoint.",
+      "blockers": [
+        "Landlab state contract"
+      ]
+    },
+    {
+      "id": "GeoRiverSedimentParcelTransport",
+      "state": "blocked",
+      "reason": "NetworkSedimentTransporter requires coherent NetworkModelGrid, DataRecord parcel state, active layer and WilcockCrowe grain/hydraulic fields across time. A complete bounded parcel initialization/transport state contract has not been authored; no empty parcel or imported-class placeholder.",
+      "blockers": [
+        "Landlab state contract"
+      ]
+    }
+  ]
+}

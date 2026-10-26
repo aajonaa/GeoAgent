@@ -1,0 +1,109 @@
+{
+  "files": [
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\__init__.py",
+      "relative": "geological_agent/__init__.py",
+      "sha256": "8a3732aa39927ca84516fbd64fb30494293928c241765ae727a89c2b8a6e172e"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\geology\\__init__.py",
+      "relative": "geological_agent/geology/__init__.py",
+      "sha256": "6e566ea91d1b7ada96c3d838545a64bb03e138765f351ba63248219c15aeddcf"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\geology\\expansion501_geology.py",
+      "relative": "geological_agent/geology/expansion501_geology.py",
+      "sha256": "20830b7edd3a93aecc6a99f3cf69d9f8d256201c9a44aea6286dcc2480259376"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\geology\\collection_contracts.py",
+      "relative": "geological_agent/geology/collection_contracts.py",
+      "sha256": "25f805cf5531ff8bf1f8894f006dca40c6035efd44967507583c820dcc323fa9"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\legacy\\ToolsAgent\\ToolsFuns\\source_contracts.py",
+      "relative": "legacy/ToolsAgent/ToolsFuns/source_contracts.py",
+      "sha256": "10303dc89014564d4bcd7a00fbd22f1319c15c4d0a9393787c4327883b1e0d84"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\legacy\\ToolsAgent\\ToolsFuns\\GeoEval\\scientific_tools.py",
+      "relative": "legacy/ToolsAgent/ToolsFuns/GeoEval/scientific_tools.py",
+      "sha256": "c9b919809f660da7cdbd8cc71719c33dff5467f49d3a9ec5261d4265b548298f"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\skills.py",
+      "relative": "geological_agent/skills.py",
+      "sha256": "a54e266d37f1dc994efc8ad58dbd5fd829bdf3dcbd64a1dddb3ff95d50ae7959"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\tools.py",
+      "relative": "geological_agent/tools.py",
+      "sha256": "3f9aa6861f5ff01f31e04d342b8549c277e8fd8ccf1e68b1a35226aff445b6ae"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\contracts.py",
+      "relative": "geological_agent/contracts.py",
+      "sha256": "d59ca2612bb1b5280e92a9b9357d4ffddffcd0d841f4b7bea30713cba3638226"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\settings.py",
+      "relative": "geological_agent/settings.py",
+      "sha256": "a0c2144bfd5943b093be42c134dc823ddfe9d7a04983c8eaa60a5af1de461f88"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\tool_evidence.py",
+      "relative": "geological_agent/tool_evidence.py",
+      "sha256": "ff2b0a40b3b2161c71a870e904c2b61ffffcfbc485238dd0d013ff69bd7375d6"
+    },
+    {
+      "origin": "C:\\Users\\jona\\github\\expansion501-staging-20261026-r3\\payload\\geological_agent\\geology\\source_registry.py",
+      "relative": "geological_agent/geology/source_registry.py",
+      "sha256": "c107ec7ab91587122fcc77c9e02756ca2aa8800319407b5d7879e651362e3576"
+    }
+  ],
+  "catalog_scope": "private_group_only_one_entry_not_production_catalog",
+  "parent_whitelist_source": "C:\\Users\\jona\\github\\expansion501-staging-20261026-r3\\payload\\geological_agent\\geology\\source_registry.py",
+  "v2_main_runtime_dispatch": "not_tested",
+  "environment": {
+    "GEOAGENT_EXPANSION501_GEOLOGY_CPU": "expansion501-geology-cpu-v1",
+    "CUDA_VISIBLE_DEVICES": "",
+    "NVIDIA_VISIBLE_DEVICES": "void",
+    "HIP_VISIBLE_DEVICES": "",
+    "ROCR_VISIBLE_DEVICES": "",
+    "ZE_AFFINITY_MASK": "",
+    "JAX_PLATFORMS": "cpu",
+    "JAX_PLATFORM_NAME": "cpu",
+    "GEMPY_USE_GPU": "False",
+    "GEMPY_GPU_FALLBACK": "False",
+    "MPLBACKEND": "Agg",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "LANGCHAIN_TRACING_V2": "false",
+    "LANGSMITH_TRACING": "false",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "NUMEXPR_NUM_THREADS": "2",
+    "VECLIB_MAXIMUM_THREADS": "2",
+    "BLIS_NUM_THREADS": "2",
+    "HOME": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\home",
+    "USERPROFILE": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\home",
+    "XDG_CACHE_HOME": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\cache",
+    "TMPDIR": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\tmp",
+    "TEMP": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\tmp",
+    "TMP": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\tmp",
+    "MPLCONFIGDIR": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\mpl",
+    "NUMBA_CACHE_DIR": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\numba"
+  },
+  "installed_direct_pins": {
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
+    "pandas": "2.3.0",
+    "matplotlib": "3.10.7",
+    "jsonschema": "4.25.1",
+    "scikit-learn": "1.7.2",
+    "PyYAML": "6.0.3"
+  }
+}

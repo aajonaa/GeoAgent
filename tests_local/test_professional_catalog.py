@@ -59,10 +59,10 @@ def test_every_ready_source_executes_through_native_runtime(agent, examples, ass
 
 
 def test_all_registered_source_tools_are_discoverable(agent):
-    assert len(SPECS) == 346 and len(READY_SPECS) == 346
+    assert len(SPECS) == 376 and len(READY_SPECS) == 376
     reachable = {name for summary in agent.skills.registry.list() for name in agent.skills.load(summary.id).tool_names}
     assert {native_name(spec) for spec in READY_SPECS.values()} <= reachable
-    assert len(agent.skills.source_statuses) == len(catalog()["skills"]) == 70
+    assert len(agent.skills.source_statuses) == len(catalog()["skills"]) == 83
     assert len(agent.skills.unavailable_skills) == 0
     from geological_agent.imaging import SCHEMAS as IMAGE_SCHEMAS
     assert set(agent.tools._tools) - set(agent.base_tools) == {native_name(spec) for spec in READY_SPECS.values()} | set(IMAGE_SCHEMAS)

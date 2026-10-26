@@ -1,0 +1,47 @@
+{
+  "source_points": [
+    [
+      0,
+      0
+    ],
+    [
+      10,
+      0
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      10,
+      10
+    ]
+  ],
+  "target_points": [
+    [
+      2,
+      3
+    ],
+    [
+      6,
+      1.5
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      6,
+      6.5
+    ]
+  ],
+  "query_points": [
+    [
+      10,
+      4
+    ]
+  ],
+  "coordinate_unit": "pixel",
+  "source_frame": "SYNTHETIC source pixel centers",
+  "target_frame": "SYNTHETIC target pixel centers"
+}

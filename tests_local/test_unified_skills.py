@@ -22,15 +22,15 @@ def test_all_skills_are_catalogued_without_runtime_extras(monkeypatch, web_enabl
     monkeypatch.setenv("GEOTOOL_WEB_ENABLED", web_enabled)
     registry, loader, _ = build_registry(human_input=True)
     expected = {skill_id(spec) for spec in catalog()["skills"]}
-    assert len(expected) == 70
+    assert len(expected) == 83
     assert {s.id for s in loader.registry.list()} == expected
     assert set(loader.source_statuses) == expected
     library = LibraryCatalog(human_input=True)
     counts = library.summary()["counts"]
-    assert counts["skills"] == counts["catalog_skills"] == 70
+    assert counts["skills"] == counts["catalog_skills"] == 83
     runtime_count = 10 + (2 if web_enabled == "1" else 0)
-    assert counts["tools"] == counts["registered_tools"] == len(registry.names()) == 346 + runtime_count
-    assert counts["professional_tools"] == 346 and counts["runtime_tools"] == runtime_count
+    assert counts["tools"] == counts["registered_tools"] == len(registry.names()) == 376 + runtime_count
+    assert counts["professional_tools"] == 376 and counts["runtime_tools"] == runtime_count
     assert all(row["scope"] != "runtime" for row in library.skills.values())
 
 
@@ -65,7 +65,7 @@ def test_old_folder_is_not_a_registration_source(monkeypatch):
         raise AssertionError("Runtime must not scan the old skill directory")
     monkeypatch.setattr(SkillLoader, "from_directory", forbidden)
     _, loader, _ = build_registry()
-    assert len(loader.registry.list()) == 70
+    assert len(loader.registry.list()) == 83
 
 
 def test_removed_catalog_entry_is_not_silently_added_back(monkeypatch):
@@ -78,7 +78,7 @@ def test_removed_catalog_entry_is_not_silently_added_back(monkeypatch):
 
 def test_catalog_document_and_dependency_contracts():
     rows = check_assets(catalog(), source_registry.source_tools())
-    assert len(rows) == 70 and all(row["status"] == "passed" for row in rows), rows
+    assert len(rows) == 83 and all(row["status"] == "passed" for row in rows), rows
     root = Path(__file__).resolve().parents[1]
     assert not list((root / "geological_agent/geology/skills").glob("*/SKILL.md"))
 

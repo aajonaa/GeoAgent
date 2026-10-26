@@ -1,0 +1,31 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "current_electrodes_enu_m": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      30,
+      0,
+      0
+    ]
+  ],
+  "potential_pairs_enu_m": [
+    [
+      [
+        10,
+        0,
+        0
+      ],
+      [
+        20,
+        0,
+        0
+      ]
+    ]
+  ],
+  "resistivity_ohm_m": 100,
+  "current_a": 1
+}

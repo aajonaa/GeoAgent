@@ -1,0 +1,51 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "max_iterations": 5,
+  "regularization_beta": 0.01,
+  "starting_conductivity_s_m": [
+    0.01,
+    0.02
+  ],
+  "conductivity_lower_s_m": 1e-05,
+  "conductivity_upper_s_m": 1,
+  "finite_layer_thickness_m": [
+    100
+  ],
+  "halfspace_regularization_length_m": 500,
+  "frequency_hz": [
+    10,
+    100,
+    1000
+  ],
+  "offset_m": 100,
+  "height_m": 10,
+  "moment_a_m2": 1,
+  "secondary_h_real_imag_a_m": [
+    [
+      1e-08,
+      -1e-08
+    ],
+    [
+      2e-08,
+      -2e-08
+    ],
+    [
+      3e-08,
+      -3e-08
+    ]
+  ],
+  "standard_deviation_a_m": [
+    [
+      1e-09,
+      1e-09
+    ],
+    [
+      1e-09,
+      1e-09
+    ],
+    [
+      1e-09,
+      1e-09
+    ]
+  ]
+}

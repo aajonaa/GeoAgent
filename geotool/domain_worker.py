@@ -40,7 +40,12 @@ def original_call(name, params, output):
         if module != "legacy.ToolsAgent.ToolsFuns.Geo.geoscienceTools":
             raise ValueError("Unexpected original implementation module.")
         return getattr(importlib.import_module(module), function)(params, output_dir=output)
-    if spec["kind"] in {"github_first_batch", "github_minerals", "github_expansion_geophysics", "github_expansion_remote", "github_expansion_geology", "github_expansion_spatial"}:
+    if spec["kind"] in {"github_first_batch", "github_minerals", "github_expansion_geophysics", "github_expansion_remote", "github_expansion_geology", "github_expansion_spatial",
+        'expansion501_geophysics',
+        'expansion501_geology',
+        'expansion501_remote',
+        'expansion501_spatial',
+}:
         # First-batch adapters expose a JSON-shaped argument object through
         # the catalog entrypoint.  Resolve the callable from the catalog so
         # the worker follows the same registration path as source checks and
@@ -51,7 +56,12 @@ def original_call(name, params, output):
             raise ValueError("Invalid GitHub first-batch entrypoint.")
         module, function = callable_name.split(":", 1)
         expected_module = {"github_first_batch": "geological_agent.geology.github_first_batch",
-                           "github_minerals": "geological_agent.geology.github_minerals", "github_expansion_geophysics": "geological_agent.geology.github_expansion_geophysics", "github_expansion_remote": "geological_agent.geology.github_expansion_remote", "github_expansion_geology": "geological_agent.geology.github_expansion_geology", "github_expansion_spatial": "geological_agent.geology.github_expansion_spatial"}[spec["kind"]]
+                           "github_minerals": "geological_agent.geology.github_minerals", "github_expansion_geophysics": "geological_agent.geology.github_expansion_geophysics", "github_expansion_remote": "geological_agent.geology.github_expansion_remote", "github_expansion_geology": "geological_agent.geology.github_expansion_geology", "github_expansion_spatial": "geological_agent.geology.github_expansion_spatial",
+            'expansion501_geophysics': 'geological_agent.geology.expansion501_geophysics',
+            'expansion501_geology': 'geological_agent.geology.expansion501_geology',
+            'expansion501_remote': 'geological_agent.geology.expansion501_remote',
+            'expansion501_spatial': 'geological_agent.geology.expansion501_spatial',
+}[spec["kind"]]
         if module != expected_module:
             raise ValueError("Unexpected GitHub first-batch implementation module.")
         kwargs = dict(entry.get("bound_arguments", {}))

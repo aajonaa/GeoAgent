@@ -1,0 +1,5 @@
+{
+  "path": "geological_agent/geology/collection_contracts.py",
+  "sha256_before": "25f805cf5531ff8bf1f8894f006dca40c6035efd44967507583c820dcc323fa9",
+  "policy": "Refuse overlay unless target preimage matches exactly; after hash is in source-package-manifest.json."
+}

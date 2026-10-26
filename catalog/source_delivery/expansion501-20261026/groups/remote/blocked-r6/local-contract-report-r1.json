@@ -1,0 +1,43 @@
+{
+  "revision": "blocked-r6",
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "scope": "stdlib_preflight_contracts_only",
+  "source_sha256": {
+    "geological_agent/geology/expansion501_remote/blocked_support.py": "01050312fa2f0f21a5d3ed898851de404f819c6ba361549ec4f9efd2488cfde1",
+    "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/test_blocked_contracts.py": "cfd2c0b46cf4ec663327b3d4ca3bebca1d5be0c7f13cabf6e4646b8ea97fc8fd",
+    "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/run_local_flow.py": "06bb074514e0d437efe43ce7643b3e9ea16bce91ec039e8a3da18973817ffd27",
+    "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json": "0453072a99c2adbe73f9c8bab3c8025e90dd62ecbb8e37900a69236540799eb6",
+    "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/preflight-schemas.json": "00a88a285e9633667d87a6621ad58b670c53c85e299abd64bac74986152c4f99",
+    "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/sources.json": "05c519472cb6b04d2d9f52d4e82e4c415f7f26622afc3f0b0a6f3ced246df56f",
+    "assets/expansion501-remote/blocked-r6-synthetic.json": "4785122447b1f53b1357b71ff021198dc22c32924a3aae8b716842151431baf3"
+  },
+  "contract_tests": {
+    "executed": 45,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 45,
+    "successful": true,
+    "log": "test_absolute_path (remote_r6_contract_tests.ContractTests.test_absolute_path) ... ok\ntest_acquisition_coregistration_mismatch (remote_r6_contract_tests.ContractTests.test_acquisition_coregistration_mismatch) ... ok\ntest_acquisition_duplicate (remote_r6_contract_tests.ContractTests.test_acquisition_duplicate) ... ok\ntest_acquisition_polarization_mismatch (remote_r6_contract_tests.ContractTests.test_acquisition_polarization_mismatch) ... ok\ntest_acquisition_rgb_is_not_sar (remote_r6_contract_tests.ContractTests.test_acquisition_rgb_is_not_sar) ... ok\ntest_acquisition_sensor_mismatch (remote_r6_contract_tests.ContractTests.test_acquisition_sensor_mismatch) ... ok\ntest_acquisition_unsorted (remote_r6_contract_tests.ContractTests.test_acquisition_unsorted) ... ok\ntest_acquisitions_positive (remote_r6_contract_tests.ContractTests.test_acquisitions_positive) ... ok\ntest_bool_is_not_number (remote_r6_contract_tests.ContractTests.test_bool_is_not_number) ... ok\ntest_canopy_arbitrary_callable_rejected (remote_r6_contract_tests.ContractTests.test_canopy_arbitrary_callable_rejected) ... ok\ntest_canopy_negative_soil (remote_r6_contract_tests.ContractTests.test_canopy_negative_soil) ... ok\ntest_canopy_positive_contract (remote_r6_contract_tests.ContractTests.test_canopy_positive_contract) ... ok\ntest_canopy_wrong_spectrum_length (remote_r6_contract_tests.ContractTests.test_canopy_wrong_spectrum_length) ... ok\ntest_canopy_wrong_units (remote_r6_contract_tests.ContractTests.test_canopy_wrong_units) ... ok\ntest_finite_positive (remote_r6_contract_tests.ContractTests.test_finite_positive) ... ok\ntest_grid_empty_mask (remote_r6_contract_tests.ContractTests.test_grid_empty_mask) ... ok\ntest_grid_mask_must_be_boolean (remote_r6_contract_tests.ContractTests.test_grid_mask_must_be_boolean) ... ok\ntest_grid_no_crs (remote_r6_contract_tests.ContractTests.test_grid_no_crs) ... ok\ntest_grid_nodata_not_imputed (remote_r6_contract_tests.ContractTests.test_grid_nodata_not_imputed) ... ok\ntest_grid_positive (remote_r6_contract_tests.ContractTests.test_grid_positive) ... ok\ntest_grid_singular (remote_r6_contract_tests.ContractTests.test_grid_singular) ... ok\ntest_grid_unknown_key (remote_r6_contract_tests.ContractTests.test_grid_unknown_key) ... ok\ntest_infinity (remote_r6_contract_tests.ContractTests.test_infinity) ... ok\ntest_nan (remote_r6_contract_tests.ContractTests.test_nan) ... ok\ntest_percent_encoded_traversal (remote_r6_contract_tests.ContractTests.test_percent_encoded_traversal) ... ok\ntest_relative_path_positive (remote_r6_contract_tests.ContractTests.test_relative_path_positive) ... ok\ntest_safe_hash_mismatch (remote_r6_contract_tests.ContractTests.test_safe_hash_mismatch) ... ok\ntest_safe_hash_reference_preflight (remote_r6_contract_tests.ContractTests.test_safe_hash_reference_preflight) ... ok\ntest_safe_missing_noise (remote_r6_contract_tests.ContractTests.test_safe_missing_noise) ... ok\ntest_safe_reference_omission (remote_r6_contract_tests.ContractTests.test_safe_reference_omission) ... ok\ntest_tide_2026_rejected (remote_r6_contract_tests.ContractTests.test_tide_2026_rejected) ... ok\ntest_tide_expiry_rejected (remote_r6_contract_tests.ContractTests.test_tide_expiry_rejected) ... ok\ntest_tide_reviewed_interval (remote_r6_contract_tests.ContractTests.test_tide_reviewed_interval) ... ok\ntest_traversal (remote_r6_contract_tests.ContractTests.test_traversal) ... ok\ntest_utc_invalid_calendar (remote_r6_contract_tests.ContractTests.test_utc_invalid_calendar) ... ok\ntest_utc_offset_not_silently_converted (remote_r6_contract_tests.ContractTests.test_utc_offset_not_silently_converted) ... ok\ntest_utc_positive (remote_r6_contract_tests.ContractTests.test_utc_positive) ... ok\ntest_weather_descriptor_positive (remote_r6_contract_tests.ContractTests.test_weather_descriptor_positive) ... ok\ntest_weather_insufficient_coverage (remote_r6_contract_tests.ContractTests.test_weather_insufficient_coverage) ... ok\ntest_weather_time_mismatch (remote_r6_contract_tests.ContractTests.test_weather_time_mismatch) ... ok\ntest_weather_wrong_units (remote_r6_contract_tests.ContractTests.test_weather_wrong_units) ... ok\ntest_windows_drive (remote_r6_contract_tests.ContractTests.test_windows_drive) ... ok\ntest_xml_entities (remote_r6_contract_tests.ContractTests.test_xml_entities) ... ok\ntest_xml_malformed (remote_r6_contract_tests.ContractTests.test_xml_malformed) ... ok\ntest_xml_utf16 (remote_r6_contract_tests.ContractTests.test_xml_utf16) ... ok\n\n----------------------------------------------------------------------\nRan 45 tests in 0.142s\n\nOK\n",
+    "failure_details": []
+  },
+  "local_scientific_tests_executed": 0,
+  "remote_scientific_tests_executed": 0,
+  "new_registered_tools": 0,
+  "new_integrated_tools": 0,
+  "new_certified_tools": 0,
+  "remaining_blocked": [
+    "GeoSARSigma0Calibration",
+    "GeoInSARClosureAmbiguityCorrection",
+    "GeoInSARTroposphericDelay",
+    "GeoInSARSolidEarthTideCorrection",
+    "GeoInSARMultilookClosureBias",
+    "GeoInSARSentinelInterplatformRangeBias",
+    "GeoRemoteAtmosphericRadiativeTransfer",
+    "GeoRemoteCanopySoilRadiativeTransfer"
+  ],
+  "remote_policy": "prior_denial_not_retried",
+  "deployment": "not_deployed",
+  "submission": "not_submitted",
+  "model_workflow": "not_run"
+}

@@ -1,0 +1,10 @@
+{
+  "scope": "GPR isolation JSON schema only; no scientific computation",
+  "exit_code": 0,
+  "executed_tests": 10,
+  "passed": true,
+  "linux_science_executed": 0,
+  "runtime_profile_enabled": false,
+  "deployment": "not_deployed",
+  "gpu_used": false
+}

@@ -1,0 +1,23 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "observations_lon_lat_radius": [
+    [
+      0.5,
+      0.5,
+      6371000
+    ]
+  ],
+  "tesseroids_wesnbt": [
+    [
+      0,
+      1,
+      0,
+      1,
+      6300000,
+      6301000
+    ]
+  ],
+  "density_contrast_kg_m3": [
+    1000
+  ]
+}

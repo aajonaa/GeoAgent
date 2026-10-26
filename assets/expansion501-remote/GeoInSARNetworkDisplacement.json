@@ -1,0 +1,77 @@
+{
+  "grid": {
+    "crs": "EPSG:32650",
+    "affine": [
+      10,
+      0,
+      500000,
+      0,
+      -10,
+      3400000
+    ],
+    "nodata": null,
+    "mask": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "sar": {
+    "state": "coregistered_unwrapped_insar",
+    "processing_provenance": "SYNTHETIC analytic already-unwrapped/coregistered SAR fixture, not an RGB observation",
+    "wavelength_m": 0.12566370614359174,
+    "los_convention": "positive_toward_sensor"
+  },
+  "dates": [
+    "20200101",
+    "20200113",
+    "20200125"
+  ],
+  "pairs": [
+    "20200101_20200113",
+    "20200113_20200125",
+    "20200101_20200125"
+  ],
+  "reference_pixel": [
+    0,
+    0
+  ],
+  "phase_unit": "rad",
+  "unwrapped_phase": [
+    [
+      [
+        0,
+        -1
+      ],
+      [
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        0,
+        -1
+      ],
+      [
+        -1,
+        -1
+      ]
+    ],
+    [
+      [
+        0,
+        -2
+      ],
+      [
+        -2,
+        -2
+      ]
+    ]
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "evidence_path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\spatial\\acceptance\\local-continuation-r7-1792974429959564300",
+  "steps": {
+    "local_policy_gate": {
+      "state": "succeeded",
+      "value": {
+        "local_source_only": true,
+        "remote_preparation": false,
+        "native_execution": false
+      },
+      "error": null
+    },
+    "generate": {
+      "state": "succeeded",
+      "value": {
+        "exit_code": 0
+      },
+      "error": null
+    },
+    "local_contract_tests": {
+      "state": "succeeded",
+      "value": {
+        "scope": "local_artifact_accounting_and_source_contracts_only",
+        "tests_run": 12,
+        "failures": 0,
+        "errors": 0,
+        "skipped": 0,
+        "native_scientific_tests_run": 0,
+        "main_runtime_bridge_tests_run": 0,
+        "new_accepted": 0
+      },
+      "error": null
+    },
+    "source_handoff": {
+      "state": "succeeded",
+      "value": {
+        "source_stable": true,
+        "concrete_pending": 15,
+        "incomplete": 4,
+        "integration_blocked": 19,
+        "native_scientific_tests_run": 0,
+        "new_registered": 0,
+        "new_accepted": 0,
+        "new_deployed": 0
+      },
+      "error": null
+    }
+  }
+}

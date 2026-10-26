@@ -1,0 +1,80 @@
+{
+  "status": "source_revised_unverified",
+  "formal_eligible": false,
+  "legal_review": "Source evidence only; not a complete delivery-license determination.",
+  "records": [
+    {
+      "id": "GeoConditionedResourceEnsemble",
+      "candidate_provider": "GSTools",
+      "actual_provider": "scikit-learn",
+      "source_commit": "25dee604bae18205b01548348388baf7a1cdfe0e",
+      "api": "sklearn.gaussian_process.GaussianProcessRegressor.predict(return_cov=True) and sample_y",
+      "url": "https://github.com/scikit-learn/scikit-learn/blob/25dee604bae18205b01548348388baf7a1cdfe0e/sklearn/gaussian_process/_gpr.py",
+      "license_url": "https://github.com/scikit-learn/scikit-learn/blob/25dee604bae18205b01548348388baf7a1cdfe0e/COPYING"
+    },
+    {
+      "id": "Geo500PoreDiffusionTortuosity",
+      "api": "porespy.simulations.tortuosity_fd",
+      "url": "https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/simulations/_dns.py",
+      "dependency_evidence": "https://github.com/PMEAL/OpenPNM/blob/a8b46807f4d4f61ec9a9f0c16fa5d37fc95c9337/pyproject.toml",
+      "cleanup_api": "openpnm.Workspace.close_project",
+      "cleanup_url": "https://github.com/PMEAL/OpenPNM/blob/a8b46807f4d4f61ec9a9f0c16fa5d37fc95c9337/src/openpnm/utils/_workspace.py"
+    },
+    {
+      "ids": [
+        "Geo50026ConstrainedChemicalEquilibrium",
+        "Geo50026MineralReactionKinetics"
+      ],
+      "project": "Reaktoro",
+      "release": "2.13.0",
+      "source_commit": "3c5838e7c0ed2931ad152176414cb786311dbe47",
+      "license": "LGPL-2.1-or-later in source; conda metadata differs",
+      "license_url": "https://github.com/reaktoro/reaktoro/blob/3c5838e7c0ed2931ad152176414cb786311dbe47/LICENSE",
+      "artifact_url": "https://api.anaconda.org/download/conda-forge/reaktoro/2.13.0/linux-64/reaktoro-2.13.0-py312h0d7fa09_1.conda",
+      "artifact_sha256": "909ee85c9c077c363d9586ef00cc357a1c7d57440360a2388a37f7f60624d72d",
+      "artifact_identity_evidence": "https://api.anaconda.org/package/conda-forge/reaktoro",
+      "artifact_status": "metadata_identified_not_downloaded_not_locked_not_executed",
+      "database_url": "https://github.com/reaktoro/reaktoro/blob/3c5838e7c0ed2931ad152176414cb786311dbe47/embedded/databases/phreeqc/phreeqc.dat",
+      "database_git_blob_sha1_not_sha256": "9e69a1875801b8fe41c363030e9139bbb635a35c",
+      "rate_parameter_url": "https://github.com/reaktoro/reaktoro/blob/3c5838e7c0ed2931ad152176414cb786311dbe47/embedded/params/PalandriKharaka.yaml",
+      "rate_parameter_git_blob_sha1_not_sha256": "d53496171fb6af33c756ab7cb751b56376fbaa8f",
+      "api_evidence": [
+        "https://reaktoro.org/api/classReaktoro_1_1PhreeqcDatabase.html",
+        "https://reaktoro.org/tutorials/kinetics/kinetics-minerals-using-palandri-kharaka-model.html"
+      ]
+    },
+    {
+      "id": "Geo50026ReactiveColumnTransport",
+      "project": "PhreeqPy",
+      "release": "0.6.0",
+      "source_commit_reviewed_main_not_release_mapping": "3cc5fde5b2196491f239520715570d2a87e8f4d8",
+      "api": "phreeqpy.iphreeqc.phreeqc_dll.IPhreeqc.load_database_string/run_string/get_selected_output_array/destroy_iphreeqc",
+      "source_url": "https://github.com/hydrocomputing/phreeqpy/blob/3cc5fde5b2196491f239520715570d2a87e8f4d8/src/phreeqpy/iphreeqc/phreeqc_dll.py",
+      "license_url": "https://github.com/hydrocomputing/phreeqpy/blob/3cc5fde5b2196491f239520715570d2a87e8f4d8/LICENSE",
+      "wheel_url": "https://files.pythonhosted.org/packages/d6/34/aee229940fb5b264e7fc42f0a18c3ddf715ca0dbc21350ec10c29cf175fd/phreeqpy-0.6.0-py3-none-any.whl",
+      "wheel_sha256": "fc133d1ce9224f94a39633010026858f2dd0cdbe9dab6dad9ea8d47f4143cbda",
+      "identity_evidence": "https://pypi.org/pypi/phreeqpy/0.6.0/json",
+      "binary_path": "src/phreeqpy/iphreeqc/phreeqc3/libiphreeqc-3.7.3.so",
+      "binary_git_blob_sha1_not_sha256": "a837924a5e3a4141e30e5063656c7c3464f38761",
+      "qualification": "No binary was downloaded or executed; wrapper BSD evidence does not establish database or bundled-binary rights."
+    },
+    {
+      "id": "GeoGeobodyTopology",
+      "project": "gempy_plugins",
+      "release": "2026.0.3",
+      "source_commit": "647ae9eae821d7b8a02c9ae85f67f56cf42d8ffa",
+      "api": "gempy_plugins.topology_analysis.topology.compute_topology",
+      "source_url": "https://github.com/gempy-project/gempy_plugins/blob/647ae9eae821d7b8a02c9ae85f67f56cf42d8ffa/gempy_plugins/topology_analysis/topology.py",
+      "license_url": "https://github.com/gempy-project/gempy_plugins/blob/647ae9eae821d7b8a02c9ae85f67f56cf42d8ffa/LICENSE",
+      "qualification": "File header GPL-3.0-or-later versus repository EUPL-1.2 is not resolved by choosing the root license. GemPy engine 18a1f876d2816e1a953d14cdbfce28845c51c750 core topology interface is empty."
+    },
+    {
+      "id": "GeoCpxMeltThermobarometry",
+      "project": "Thermobar",
+      "release": "1.0.75",
+      "source_commit": "c1978e87f073902778b5589bd2b3b6adfd6de695",
+      "license_url": "https://github.com/PennyWieser/Thermobar/blob/c1978e87f073902778b5589bd2b3b6adfd6de695/LICENSE.txt",
+      "qualification": "Original not used. No maintained legally compatible exact replacement confirmed; no inferred permission."
+    }
+  ]
+}

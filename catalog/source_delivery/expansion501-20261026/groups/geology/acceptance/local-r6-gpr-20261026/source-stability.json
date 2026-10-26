@@ -1,0 +1,17 @@
+{
+  "unchanged": true,
+  "files": {
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\__init__.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\geology\\__init__.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\geology\\expansion501_geology.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\geology\\collection_contracts.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\legacy\\ToolsAgent\\ToolsFuns\\source_contracts.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\legacy\\ToolsAgent\\ToolsFuns\\GeoEval\\scientific_tools.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\skills.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\tools.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\contracts.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\settings.py": true,
+    "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\geological_agent\\tool_evidence.py": true,
+    "C:\\Users\\jona\\github\\expansion501-staging-20261026-r3\\payload\\geological_agent\\geology\\source_registry.py": true
+  }
+}

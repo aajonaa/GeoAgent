@@ -1,0 +1,241 @@
+{
+  "files": [
+    {
+      "sha256": "ab75bc075b50bdb9b9227e87b471b7b44e7836ca882a6120936c5087fd56e372",
+      "path": "assets/expansion501-geology/Geo500BondValenceOxidation.json"
+    },
+    {
+      "sha256": "a641f471c51f989319cdc377a76cb492a7b55b135c876190cb1d0a7c78ecea3a",
+      "path": "assets/expansion501-geology/Geo500CoherentMineralInterfaceMatch.json"
+    },
+    {
+      "sha256": "048afa4fdc3a4641b40e38fc9b0e8572eb42cb726da7a42f0c6ce7a025e107fd",
+      "path": "assets/expansion501-geology/Geo500CrystalCoordination.json"
+    },
+    {
+      "sha256": "0baa500bb6235c4a66d0156591d9fe45237094f08ec11f0a76d72be30d6643bc",
+      "path": "assets/expansion501-geology/Geo500CrystalSpaceGroupAudit.json"
+    },
+    {
+      "sha256": "9ab07609453843ce308866e0c89dfa067b585f20ffb6615f40de12a4c43855b3",
+      "path": "assets/expansion501-geology/Geo500CrystalStructureEquivalence.json"
+    },
+    {
+      "sha256": "87b7b0c81bc6fc073dd76b4cecb1729370e1558eb56284708403e4045cd6fbe2",
+      "path": "assets/expansion501-geology/Geo500IrreducibleReciprocalMesh.json"
+    },
+    {
+      "sha256": "11cb60d3683b36f49b24314bf16e59dfb9b9ef4251d17fa342919b9f09b24c7a",
+      "path": "assets/expansion501-geology/Geo500MineralEhPHStability.json"
+    },
+    {
+      "sha256": "318a1b3512bac8a27cd01d3282f926e4a21b6bc7919df9c6ef8a553c84b738fb",
+      "path": "assets/expansion501-geology/Geo500MineralNeutronContrast.json"
+    },
+    {
+      "sha256": "c7c6de007628e3136923c6041484fcb0072a3dad07b83d11b283460555e86e06",
+      "path": "assets/expansion501-geology/Geo500MineralOxygenBasisFormula.json"
+    },
+    {
+      "sha256": "86a81df871d4333e422750a5d36da9bbd35ff06af1ded337b5113748b7463e86",
+      "path": "assets/expansion501-geology/Geo500MineralPhaseHull.json"
+    },
+    {
+      "sha256": "36720f9c16cd517b2734624649367a52be97b28b143d2d26ece6d77a8d74eda4",
+      "path": "assets/expansion501-geology/Geo500MineralReactionBalance.json"
+    },
+    {
+      "sha256": "6c3e1acfc46ec8b7c65aa58eeb81a9a8388d8d5090273fa4f254633d7359815d",
+      "path": "assets/expansion501-geology/Geo500MineralSurfaceTerminations.json"
+    },
+    {
+      "sha256": "b118ab44304951fe89ac59287782a05f65584f18a37a3a41932b39e7ab491adf",
+      "path": "assets/expansion501-geology/Geo500PeriodicIonicLatticeEnergy.json"
+    },
+    {
+      "sha256": "804e1f509ddf17d9e92644e4b7165e07d985662a4656dfb0c1bccd43e80863af",
+      "path": "assets/expansion501-geology/Geo500PoreBodyRadiusDistribution.json"
+    },
+    {
+      "sha256": "e71ec073b104637532fd7bb76d2e67404b31ef5cd20857a8308ac3deea748390",
+      "path": "assets/expansion501-geology/Geo500PoreChordDistribution.json"
+    },
+    {
+      "sha256": "d1f8b1e33d49386e67c48dc4b1e3d8d51f621694871512f638568b43d1ba09b3",
+      "path": "assets/expansion501-geology/Geo500PowderXRDPattern.json"
+    },
+    {
+      "sha256": "bef2040a51949821fa6d0ecd5958a110c8507e5df8ab626fc479efc6d219cf06",
+      "path": "assets/expansion501-geology/Geo500QuasistaticCapillaryDrainage.json"
+    },
+    {
+      "sha256": "b63bd85d4ccabb24b534ee9d34a858de1d5a22a9d35bf2143b55b2e43c641b89",
+      "path": "assets/expansion501-geology/Geo500REEOrthogonalShape.json"
+    },
+    {
+      "sha256": "fd36c83afdccc6574795a2e0e4d1f24ef81917e60c066bcb3519a09a81f443f8",
+      "path": "assets/expansion501-geology/Geo500SpatialCellDeclustering.json"
+    },
+    {
+      "sha256": "0a38bb2734c797c83f2a25081f50fe73602df03cc5e48b77be1eb14e0e589420",
+      "path": "assets/expansion501-geology/Geo500VolcanicTASClass.json"
+    },
+    {
+      "sha256": "99c77f4481e04458f11c2c950e9bd4f7ed8ae98db6f835d0720988e22392edfd",
+      "path": "assets/expansion501-geology/Geo500WulffCrystalHabit.json"
+    },
+    {
+      "sha256": "a9da4d9a9168b0fe06c38234856597d226a6173325567f953c3c859c392450cc",
+      "path": "assets/expansion501-geology/GeoImplicitStructuralModel.json"
+    },
+    {
+      "sha256": "d10c2fc6cd3caff9a892c8404012094d904773a055769d7fce9bc46f7b36d738",
+      "path": "assets/expansion501-geology/GeoMantleMeltingPath.json"
+    },
+    {
+      "sha256": "300d2c81a527a8e471adb82771c9502bc822ea90560ec936e1210bddd1007da6",
+      "path": "assets/expansion501-geology/GeoSlopeLimitEquilibrium.json"
+    },
+    {
+      "sha256": "c52b46651077fba4c3803e64f10285ed24b6ed2139aa8aa6f81c352be1d218e4",
+      "path": "catalog/skills/expansion501-geology-crystal-interfaces/SKILL.md"
+    },
+    {
+      "sha256": "ce7726e7a0fc0e69f32c5e1c0e1426fb3df78f30cf1ef2beb6df547ce4134fb8",
+      "path": "catalog/skills/expansion501-geology-crystal-symmetry/SKILL.md"
+    },
+    {
+      "sha256": "ae5b424077f798ddb62f536321f30b8fd45289f73183bb151a6fe0f4090af2a4",
+      "path": "catalog/skills/expansion501-geology-geochemical-patterns/SKILL.md"
+    },
+    {
+      "sha256": "4490dd7fdbdf4b9ef960d79a28fa5243c805a24b94491e211e5fe4407619c87d",
+      "path": "catalog/skills/expansion501-geology-implicit-geology/SKILL.md"
+    },
+    {
+      "sha256": "ef8b55ba2211da0c20bcc511d5b5f8a5865fd6475670bd25eb880aba4fa83e6a",
+      "path": "catalog/skills/expansion501-geology-mantle-processes/SKILL.md"
+    },
+    {
+      "sha256": "563f91d39f478b9214439b3f7deee7eec46095faf379963e07f0acd37d18bc55",
+      "path": "catalog/skills/expansion501-geology-mineral-thermodynamics/SKILL.md"
+    },
+    {
+      "sha256": "ddaffedfec31a21039a38889e9c410460d6483922fa6bc4d1310718d10419b39",
+      "path": "catalog/skills/expansion501-geology-porous-geometry/SKILL.md"
+    },
+    {
+      "sha256": "155f3ff2936bcb8a2abb760dbc52694a53c2ed42490cc3966c9d866b44b33473",
+      "path": "catalog/skills/expansion501-geology-slope-analysis/SKILL.md"
+    },
+    {
+      "sha256": "65cead021609227b9c33c873d9ccf90bf06e841ef9c8f916174cf86c3a9d909d",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/adaptation-status.json"
+    },
+    {
+      "sha256": "4d92005d84358f5967565a6237916d995a42f1b537f66c4419eb8a80280e0f75",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/blocked-evidence.json"
+    },
+    {
+      "sha256": "eea279006a49809236e932f75b25ea1742ac16652facbb8815608ad4c9a5973c",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/build_contribution.py"
+    },
+    {
+      "sha256": "fc17fd070753fea70794b12359e718e4a7ef7b1dbc7a32f772c9409cbeb4655e",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/candidate-operations.json"
+    },
+    {
+      "sha256": "f694828af86c526dfae9b3bef744dca493094fde631eecc198741014bf67654d",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/catalog-additions.json"
+    },
+    {
+      "sha256": "516362cd486811f63d4c7c20414162ef85b107aed3b0c1fac12a678fa5c65099",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/contribution-spec.json"
+    },
+    {
+      "sha256": "d31bc3323ae89cfd094695d6a2dc19e2c796505d9eea67fd26c6f00ddf07f987",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/delivery-files.json"
+    },
+    {
+      "sha256": "774ed1d0545474ae8febe002fec1f6e01790b6a96e5914bf1f30fadf2297284e",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/examples-additions.json"
+    },
+    {
+      "sha256": "1950709e12973abc2fd0c370bec061992896427f559e5391aa9275788000f610",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/gempy-2026.0.3.txt"
+    },
+    {
+      "sha256": "94d296b37b5b0b88120f4458e9116ef0d84a243c6697b3d8f24c773a46c3a6bc",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/gempy-engine-2026.0.3.txt"
+    },
+    {
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/pymelt-2.3.txt"
+    },
+    {
+      "sha256": "d734d34bfb86f980630d0a70af0ffcfb2804329ac54a4a7cffe45facb860c50d",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/pyslope-1.4.0.txt"
+    },
+    {
+      "sha256": "28132fc4f126e08365a00dde893a8bddd64330c877a644f692655bce8c29a267",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/thermobar-v1.0.75-blocked.txt"
+    },
+    {
+      "sha256": "107613548991f40f13836982058aaa1e9e660908db44a0b890930efc358cf3fd",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/oracle-cases.json"
+    },
+    {
+      "sha256": "697c9b02f52ce278b6a80a1113c088dd0413b2d7d8d26c600d61d8092edafdf3",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/private-cpu-binding.json"
+    },
+    {
+      "sha256": "68e9b2a331021739fe8398a1768d0a67b0455954d87563090b86f52e9baba791",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/README.md"
+    },
+    {
+      "sha256": "27030a363fbbc751bbf17eda046f3f447326aebe9967c636257b240fd11cacc0",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-chemistry.txt"
+    },
+    {
+      "sha256": "1f6ee97ca305f6cd4673a3199df5ae8ce01fae8d8606409b05e3e9dca4942135",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-crystals.txt"
+    },
+    {
+      "sha256": "4281e105a56e7d7ed52961ba7558b92f8c771dd8d4a8e8943fe3e2c04fdb8bd0",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-gempy.txt"
+    },
+    {
+      "sha256": "778214cc418b2381d505346a1d23e3f14f1d6c473b0a1a35c29d58b428ec8403",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-geostatspy.txt"
+    },
+    {
+      "sha256": "e8c32532bd75a89030d393a640e7e770c70e946b925021f8ab476911c8a78ac9",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-mantle.txt"
+    },
+    {
+      "sha256": "764365bc50ddc4a9364064da6b7aeffbf43bcd6eed35d3efa209c15c3c00c964",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-pores.txt"
+    },
+    {
+      "sha256": "27b3f88fda3a9abc96d898b93cefb6a40dde921851946e196490619c40274799",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-slope.txt"
+    },
+    {
+      "sha256": "1cd9ed364072207543d5c4256c47b16446a16debd7264053f5676a74f1ebe78a",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements.txt"
+    },
+    {
+      "sha256": "acb98bced6283cd598fe6eab81565e9f4b2bd6f05e939cae39d1ed2003c14452",
+      "path": "catalog/source_delivery/expansion501-20261026/groups/geology/sources.json"
+    },
+    {
+      "sha256": "47837fa628194a8ad6ecb214525e28ad3abc178fd152012807a209b9aa6e8447",
+      "path": "geological_agent/geology/expansion501_geology.py"
+    },
+    {
+      "sha256": "d1947ca4f33422a65f504ad3453f2a707de3b55338f8ff1d25aa614585efd8d3",
+      "path": "tests/test_expansion501_geology.py"
+    }
+  ],
+  "status": "preserved_before_authorized_blocker_resolution"
+}

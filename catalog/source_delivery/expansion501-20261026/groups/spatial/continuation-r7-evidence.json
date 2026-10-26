@@ -1,0 +1,132 @@
+{
+  "status": "source_revised_unverified",
+  "operations": [
+    {
+      "id": "GeoSpatialRigidPointCloudRegistration",
+      "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "official_sources": [
+        "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.icp.md"
+      ],
+      "native_version": "2.9.1",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/LICENSE.txt",
+      "binary_sha256": null,
+      "native_license_closure_complete": false,
+      "artifact_rules": [
+        {
+          "glob": "registered.csv",
+          "validator_id": "csv"
+        },
+        {
+          "glob": "frame.json",
+          "validator_id": "json"
+        },
+        {
+          "glob": "icp.metadata.json",
+          "validator_id": "json"
+        }
+      ],
+      "source_authored": true,
+      "native_scientific_test_status": "not_run",
+      "formal_eligible": false
+    },
+    {
+      "id": "GeoSpatialNavigationBasedLidarGeoreference",
+      "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "official_sources": [
+        "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/filters/GeoreferenceFilter.cpp",
+        "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/filters/private/georeference/Trajectory.cpp",
+        "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/filters/private/georeference/LocalCartesian.cpp"
+      ],
+      "native_version": "2.9.1",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/LICENSE.txt",
+      "binary_sha256": null,
+      "native_license_closure_complete": false,
+      "artifact_rules": [
+        {
+          "glob": "georeferenced.csv",
+          "validator_id": "csv"
+        },
+        {
+          "glob": "frame.json",
+          "validator_id": "json"
+        }
+      ],
+      "source_authored": true,
+      "native_scientific_test_status": "not_run",
+      "formal_eligible": false
+    },
+    {
+      "id": "GeoSpatialSurveyPoissonSurface",
+      "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "official_sources": [
+        "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.poisson.md",
+        "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/writers.ply.md"
+      ],
+      "native_version": "2.9.1",
+      "license": "BSD-3-Clause",
+      "license_evidence_url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/LICENSE.txt",
+      "binary_sha256": null,
+      "native_license_closure_complete": false,
+      "artifact_rules": [
+        {
+          "glob": "mesh.ply",
+          "validator_id": "text_utf8"
+        },
+        {
+          "glob": "frame.json",
+          "validator_id": "json"
+        }
+      ],
+      "source_authored": true,
+      "native_scientific_test_status": "not_run",
+      "formal_eligible": false
+    },
+    {
+      "id": "GeoSpatialTerrainSolarIrradiance",
+      "source_commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+      "official_sources": [
+        "https://grass.osgeo.org/grass85/manuals/r.sun.html",
+        "https://github.com/OSGeo/grass/blob/8d6ceba290a2f0059a7301b9d4944455f313da72/raster/r.sun/main.c"
+      ],
+      "native_version": "8.5.0",
+      "license": "GPL-2.0-or-later",
+      "license_evidence_url": "https://github.com/OSGeo/grass/blob/8d6ceba290a2f0059a7301b9d4944455f313da72/COPYING",
+      "binary_sha256": null,
+      "native_license_closure_complete": false,
+      "artifact_rules": [
+        {
+          "glob": "beam.asc",
+          "validator_id": "text_utf8"
+        },
+        {
+          "glob": "diffuse.asc",
+          "validator_id": "text_utf8"
+        },
+        {
+          "glob": "reflected.asc",
+          "validator_id": "text_utf8"
+        },
+        {
+          "glob": "global.asc",
+          "validator_id": "text_utf8"
+        },
+        {
+          "glob": "frame.json",
+          "validator_id": "json"
+        }
+      ],
+      "source_authored": true,
+      "native_scientific_test_status": "not_run",
+      "formal_eligible": false
+    }
+  ],
+  "remote_uploads": 0,
+  "remote_environment_preparations": 0,
+  "native_scientific_tests_run": 0,
+  "remote_policy_gate": "denied_stop_no_alternate_transport",
+  "new_catalog_tools": 0,
+  "new_accepted": 0,
+  "new_deployed": 0
+}

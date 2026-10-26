@@ -1,0 +1,95 @@
+{
+  "crs": "EPSG:32631",
+  "origin_xy_m": [
+    500000,
+    1000
+  ],
+  "cell_size_m": 2,
+  "nodata_policy": "reject_missing",
+  "top_m": [
+    [
+      5,
+      5
+    ],
+    [
+      5,
+      5
+    ]
+  ],
+  "bottom_m": [
+    [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ]
+  ],
+  "saturation": "fully_saturated_active_cells",
+  "east_face_flux_m3_s": [
+    [
+      [
+        20,
+        20,
+        20
+      ],
+      [
+        20,
+        20,
+        20
+      ]
+    ]
+  ],
+  "north_face_flux_m3_s": [
+    [
+      [
+        30,
+        30
+      ],
+      [
+        30,
+        30
+      ],
+      [
+        30,
+        30
+      ]
+    ]
+  ],
+  "up_face_flux_m3_s": [
+    [
+      [
+        16,
+        16
+      ],
+      [
+        16,
+        16
+      ]
+    ],
+    [
+      [
+        16,
+        16
+      ],
+      [
+        16,
+        16
+      ]
+    ]
+  ],
+  "flux_convention": "extended_faces_positive_east_north_up",
+  "units": {
+    "origin_xy_m": "m",
+    "cell_size_m": "m",
+    "top_m": "m",
+    "bottom_m": "m",
+    "east_face_flux_m3_s": "m3/s",
+    "north_face_flux_m3_s": "m3/s",
+    "up_face_flux_m3_s": "m3/s"
+  }
+}
+

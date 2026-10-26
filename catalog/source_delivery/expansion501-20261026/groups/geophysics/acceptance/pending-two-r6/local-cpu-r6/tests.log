@@ -1,0 +1,40 @@
+test_actual_public_report_layout (__main__.LocalProtocolAndReference.test_actual_public_report_layout) ... ok
+test_bool_is_not_physical_number (__main__.LocalProtocolAndReference.test_bool_is_not_physical_number) ... ok
+test_duplicate_report_rejected (__main__.LocalProtocolAndReference.test_duplicate_report_rejected) ... ok
+test_fractional_iteration_rejected (__main__.LocalProtocolAndReference.test_fractional_iteration_rejected) ... ok
+test_independent_fraction_oracle_has_nonzero_coupling (__main__.LocalProtocolAndReference.test_independent_fraction_oracle_has_nonzero_coupling) ... ok
+test_iteration_overflow_rejected (__main__.LocalProtocolAndReference.test_iteration_overflow_rejected) ... ok
+test_limit_is_not_claimed_success (__main__.LocalProtocolAndReference.test_limit_is_not_claimed_success) ... ok
+test_missing_final_report_rejected (__main__.LocalProtocolAndReference.test_missing_final_report_rejected) ... ok
+test_nonfinite_rejected (__main__.LocalProtocolAndReference.test_nonfinite_rejected) ... ok
+test_request_duplicate_key_rejected (__main__.LocalProtocolAndReference.test_request_duplicate_key_rejected) ... ok
+test_request_nonfinite_rejected (__main__.LocalProtocolAndReference.test_request_nonfinite_rejected) ... ok
+test_request_requires_object (__main__.LocalProtocolAndReference.test_request_requires_object) ... ok
+test_request_size_bounded (__main__.LocalProtocolAndReference.test_request_size_bounded) ... ok
+test_request_valid_json (__main__.LocalProtocolAndReference.test_request_valid_json) ... ok
+test_rounded_norm_is_not_the_oracle (__main__.LocalProtocolAndReference.test_rounded_norm_is_not_the_oracle) ... ok
+test_solver_log_has_live_bound (__main__.LocalProtocolAndReference.test_solver_log_has_live_bound) ... ok
+test_two_layer_traveltime_oracle (__main__.LocalProtocolAndReference.test_two_layer_traveltime_oracle) ... ok
+test_worker_invalid_json_error_classification (__main__.LocalProtocolAndReference.test_worker_invalid_json_error_classification) ... FAIL
+test_zero_iterations_rejected (__main__.LocalProtocolAndReference.test_zero_iterations_rejected) ... ok
+test_marchenko_negative_receiver_shape (__main__.PendingScientificDirectCalls.test_marchenko_negative_receiver_shape) ... skipped 'Requires reviewed private Python 3.12 environment and parent-staged pending schemas'
+test_marchenko_nonzero_rational_coupled_reference (__main__.PendingScientificDirectCalls.test_marchenko_nonzero_rational_coupled_reference) ... skipped 'Requires reviewed private Python 3.12 environment and parent-staged pending schemas'
+test_tomography_heterogeneous_observation_reference (__main__.PendingScientificDirectCalls.test_tomography_heterogeneous_observation_reference) ... skipped 'Requires reviewed private Python 3.12 environment and parent-staged pending schemas'
+test_tomography_missing_error_rejected (__main__.PendingScientificDirectCalls.test_tomography_missing_error_rejected) ... skipped 'Requires reviewed private Python 3.12 environment and parent-staged pending schemas'
+
+======================================================================
+FAIL: test_worker_invalid_json_error_classification (__main__.LocalProtocolAndReference.test_worker_invalid_json_error_classification)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\Users\jona\github\GeoAgent-tools220-release\catalog\source_delivery\expansion501-20261026\groups\geophysics\acceptance\pending-two-r6\test_pending_two_r6.py", line 122, in test_worker_invalid_json_error_classification
+    self.assertEqual(json.loads(completed.stdout)["error"]["code"], "invalid_arguments")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'upstream_failure' != 'invalid_arguments'
+- upstream_failure
++ invalid_arguments
+
+
+----------------------------------------------------------------------
+Ran 23 tests in 0.131s
+
+FAILED (failures=1, skipped=4)

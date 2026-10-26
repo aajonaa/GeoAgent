@@ -1,0 +1,12 @@
+test_authored_fixed_entrypoints_and_blocked_exclusion (geology_r6_local_reference_tests.GeologyLocalReferences.test_authored_fixed_entrypoints_and_blocked_exclusion) ... ok
+test_contribution_assignment_and_closed_top_level (geology_r6_local_reference_tests.GeologyLocalReferences.test_contribution_assignment_and_closed_top_level) ... ok
+test_exponential_conditional_cross_covariance_counterexample (geology_r6_local_reference_tests.GeologyLocalReferences.test_exponential_conditional_cross_covariance_counterexample) ... ok
+test_ideal_oxygen_formula_is_separate_fixture (geology_r6_local_reference_tests.GeologyLocalReferences.test_ideal_oxygen_formula_is_separate_fixture) ... ok
+test_measurement_noise_preserves_nonzero_joint_covariance (geology_r6_local_reference_tests.GeologyLocalReferences.test_measurement_noise_preserves_nonzero_joint_covariance) ... ok
+test_original_oxygen_input_under_explicit_mass_table (geology_r6_local_reference_tests.GeologyLocalReferences.test_original_oxygen_input_under_explicit_mass_table) ... ok
+test_straight_channel_resistance_oracle (geology_r6_local_reference_tests.GeologyLocalReferences.test_straight_channel_resistance_oracle) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.032s
+
+OK

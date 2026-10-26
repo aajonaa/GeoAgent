@@ -1,0 +1,13 @@
+# Direct participating distribution pins only; NOT a complete transitive/binary lock.
+# Private CPU candidate environment; do not replace or downgrade the shared environment.
+numpy==2.1.3
+scipy==1.15.3
+pyproj==3.7.2
+jsonschema==4.25.1
+pointpats==2.6.0
+libpysal==4.15.0
+geopandas==1.1.2
+pandas==2.3.0
+matplotlib==3.10.7
+shapely==2.1.2
+

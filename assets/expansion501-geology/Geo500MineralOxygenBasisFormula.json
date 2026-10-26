@@ -1,0 +1,13 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "oxides": [
+    "MgO",
+    "SiO2"
+  ],
+  "oxide_wt_percent": [
+    57.293630232496,
+    42.706369767504
+  ],
+  "oxygen_basis": 4,
+  "atomic_weight_convention": "periodictable-2.1.0-elemental"
+}

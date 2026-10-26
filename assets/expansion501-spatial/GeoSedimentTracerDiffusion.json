@@ -1,0 +1,211 @@
+{
+  "crs": "EPSG:32631",
+  "origin_xy_m": [
+    500000,
+    1000
+  ],
+  "cell_size_m": 1,
+  "nodata_policy": "reject_missing",
+  "boundary": "closed",
+  "elevation_m": [
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  ],
+  "soil_depth_m": [
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "concentration_kg_m3": [
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  ],
+  "bedrock_concentration_kg_m3": [
+    [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    [
+      3,
+      3,
+      3,
+      3,
+      3
+    ]
+  ],
+  "production_m_year": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0.01,
+      0.01,
+      0.01,
+      0
+    ],
+    [
+      0,
+      0.01,
+      0.01,
+      0.01,
+      0
+    ],
+    [
+      0,
+      0.01,
+      0.01,
+      0.01,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "dt_years": 0.1,
+  "transport_velocity_m_year": 0.01,
+  "transport_decay_m": 1,
+  "units": {
+    "origin_xy_m": "m",
+    "cell_size_m": "m",
+    "elevation_m": "m",
+    "soil_depth_m": "m",
+    "concentration_kg_m3": "kg/m3",
+    "bedrock_concentration_kg_m3": "kg/m3",
+    "production_m_year": "m/year",
+    "dt_years": "year",
+    "transport_velocity_m_year": "m/year",
+    "transport_decay_m": "m"
+  }
+}
+

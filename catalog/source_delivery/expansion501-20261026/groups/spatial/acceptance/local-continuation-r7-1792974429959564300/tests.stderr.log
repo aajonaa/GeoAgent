@@ -1,0 +1,17 @@
+test_csv_identity_and_finite_negatives (__main__.ArtifactAccounting.test_csv_identity_and_finite_negatives) ... ok
+test_csv_point_identity_restoration (__main__.ArtifactAccounting.test_csv_point_identity_restoration) ... ok
+test_mesh_bad_indices_and_nonfinite_vertices (__main__.ArtifactAccounting.test_mesh_bad_indices_and_nonfinite_vertices) ... ok
+test_open_mesh_never_claims_enclosed_volume (__main__.ArtifactAccounting.test_open_mesh_never_claims_enclosed_volume) ... ok
+test_raster_extent_and_nodata_not_silently_changed (__main__.ArtifactAccounting.test_raster_extent_and_nodata_not_silently_changed) ... ok
+test_tetrahedron_independent_area_volume (__main__.ArtifactAccounting.test_tetrahedron_independent_area_volume) ... ok
+test_closed_schemas_no_arbitrary_dispatch (__main__.SourceContracts.test_closed_schemas_no_arbitrary_dispatch) ... ok
+test_counts_still_blocked_unregistered (__main__.SourceContracts.test_counts_still_blocked_unregistered) ... ok
+test_delivery_contains_no_fifth_helper (__main__.SourceContracts.test_delivery_contains_no_fifth_helper) ... ok
+test_exact_four_defined_entrypoints (__main__.SourceContracts.test_exact_four_defined_entrypoints) ... ok
+test_existing_eleven_numeric_contracts_preserved (__main__.SourceContracts.test_existing_eleven_numeric_contracts_preserved) ... ok
+test_native_units_and_null_identity_honest (__main__.SourceContracts.test_native_units_and_null_identity_honest) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.075s
+
+OK

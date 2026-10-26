@@ -1,0 +1,55 @@
+{
+  "status": "local_source_and_group_catalog_stable_for_parent_r4_cpu_not_yet_run",
+  "approved_fixes": [
+    "private_setuptools_pin",
+    "deghost_time_receiver_boundary_and_inverse_layout",
+    "instrument_output_bound_16384",
+    "explicit_total_electric_field",
+    "explicit_interval_frequency_fields_and_validity",
+    "square_loop_oracle_factor_two_correction"
+  ],
+  "tools": 42,
+  "blocked_adapters": 2,
+  "skills": 7,
+  "changed_files_sha256": {
+    "geological_agent/geology/expansion501_geophysics.py": "0b0f1a0e90d3452fa04a19d8a01293f9f27b82c41d640b8469c079026e6039f4",
+    "tests/test_expansion501_geophysics.py": "1b6e33b647ebefcccef8076de582f9af0a2fab3f10d3bd9bcea8d641a67d5277",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/build_contribution.py": "0d1f93490a7d60445095eee9600600ee09e8272cba1de785741dc7b271f636b1",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/catalog-additions.json": "bb3e4282958c458985764f4e00b2a01cf0ae0efcb2fa0799dea0620832f61668",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/requirements-obspy.txt": "d9a911501fe921f066b589e853565871953f4daa3aad382b2c99cfe33dc5f187",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/sources.json": "c48f0ce0daf1056aac934117d297e5e8c93dd2c3cc0a1031879cc85f7ecefaae",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/delivery-files.json": "8613d2a1758b153feb801188f4009cd65b87f2a6ceae28a45947e676e4d73599",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/dependency-compatibility-r2.json": "11cca533f93d9d33f45d0144bfb6df0c8a4a9c905ca62f785dc5755bf48d43c0",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/requirements-setuptools-compat-r2.txt": "4407136e1360434eed18a7e49134c8284fb9008c9a94cc4d99339d2cdb11e7b6",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/acceptance/run_cpu_acceptance_r2.py": "8603b664d49331b1a2dd96b2a8b60a1a1dccfe5357b50eb17c78cc044dfbf702"
+  },
+  "obspy_dependency_rows": [
+    "GeoSeismicInstrumentDeconvolution",
+    "GeoSeismicArrayBeamforming",
+    "GeoSeismicSTALTADetection",
+    "GeoSeismicTemplateDetection",
+    "GeoSeismicPolarization",
+    "GeoSeismicTauPRays",
+    "GeoSeismicArrayStrainRotation",
+    "GeoSeismicARPhasePick",
+    "GeoSeismicProbabilisticNoise",
+    "GeoSeismicWaveformTFMisfit",
+    "GeoSeismicRadiationPattern"
+  ],
+  "preserved_failures": [
+    "GeoGravityBouguerSlab",
+    "GeoPotentialEdgeAttributes",
+    "GeoGravityTesseroid",
+    "GeoSurfaceWaveEigenfunctions"
+  ],
+  "independent_oracle_gaps_retained": 13,
+  "frequency_expected_formula": "r1 sin(2*pi*k/n)/(2*pi*dt) retained; no unapproved numerical target change",
+  "old_evidence": "acceptance/cpu-r1-parent-r3",
+  "before_snapshot": "acceptance/approved-six-r2/before",
+  "cpu_execution_status": "not_run_this_revision",
+  "formal_registration": "await_parent_consolidated_r4",
+  "deployment": "not_deployed",
+  "submission": "not_submitted",
+  "model_workflow": "not_run",
+  "gpu": "not_used"
+}

@@ -1,0 +1,12 @@
+{
+  "status": "blocked",
+  "exception_type": "ValueError",
+  "message": "Unreviewed source module: geological_agent.geology.expansion501_spatial",
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\spatial\\acceptance\\metadata-r9\\run_checks.py\", line 206, in registry_attempt\n    registered = source_registry.register(registry)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\spatial\\acceptance\\metadata-r9\\private-source\\geological_agent\\geology\\source_registry.py\", line 233, in register\n    _handler(spec), pure=spec[\"source_interface\"].get(\"pure\", not spec[\"source_interface\"].get(\"path_fields\") and not spec[\"source_interface\"].get(\"network_required\", False)),\n    ^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\spatial\\acceptance\\metadata-r9\\private-source\\geological_agent\\geology\\source_registry.py\", line 118, in _handler\n    raise ValueError(\"Unreviewed source module: \" + module_name)\nValueError: Unreviewed source module: geological_agent.geology.expansion501_spatial\n",
+  "registered_tools": 0,
+  "source_registry_stubbed": false,
+  "allowlist_modified": false,
+  "scientific_calls": 0,
+  "main_catalog_modified": false,
+  "formal_eligible": false
+}

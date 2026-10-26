@@ -1,0 +1,54 @@
+{
+  "status": "source_identity_evidence_not_acceptance",
+  "records": [
+    {
+      "package": "pylops",
+      "version": "2.6.0",
+      "source_commit": "97992be198c66a489c945c3feff31f6ed7d9117b",
+      "source_url": "https://github.com/PyLops/pylops/blob/97992be198c66a489c945c3feff31f6ed7d9117b/pylops/waveeqprocessing/marchenko.py",
+      "license_evidence": "https://pypi.org/pypi/pylops/2.6.0/json",
+      "license": "LGPL-3.0",
+      "termination_evidence": "https://raw.githubusercontent.com/scipy/scipy/v1.15.3/scipy/sparse/linalg/_isolve/lsqr.py",
+      "residual_operator_evidence": "https://raw.githubusercontent.com/PyLops/pylops/97992be198c66a489c945c3feff31f6ed7d9117b/pylops/waveeqprocessing/mdd.py"
+    },
+    {
+      "package": "pygimli",
+      "version": "1.6.0",
+      "source_commit": "d598724a75cf0abbefcb354b8cd71bb48c232fc6",
+      "release_evidence": "https://github.com/gimli-org/pyGIMLi/releases/tag/v1.6.0",
+      "commit_evidence": "https://github.com/gimli-org/pyGIMLi/commit/d598724a75cf0abbefcb354b8cd71bb48c232fc6",
+      "license_evidence": "https://raw.githubusercontent.com/gimli-org/pyGIMLi/v1.6.0/LICENSE.md",
+      "license": "Apache-2.0 for pygimli source; NOT a statement about all pgcore bundled libraries",
+      "wheel_sha256": "8a471ce01c0c544335934ac2e98b24a9aca4829b2d37700fff61268cd9341ca1",
+      "source_wheel_correspondence": "release tag resolved; wheel _version.py has no embedded resolved full revision; native build correspondence not established"
+    },
+    {
+      "package": "pgcore",
+      "version": "1.6.0",
+      "wheel_sha256": "a2d2eb3238b14a1f75e2f6e30ec7e1c1ca06e7a2989910326893640663ae8a86",
+      "metadata_evidence": "https://pypi.org/pypi/pgcore/1.6.0/json",
+      "abi_advertised": "cp312-cp312-manylinux_2_27_x86_64 / manylinux_2_28_x86_64",
+      "abi_executed": "not_run",
+      "license_status": "Package metadata says Apache 2.0, but wheel bundles AMD/CAMD/CCOLAMD/CHOLMOD/COLAMD/UMFPACK/SuiteSparseConfig, Boost.Python, OpenBLAS, ATLAS and GCC runtime libraries. Component license/source/build closure remains blocked."
+    },
+    {
+      "package": "scooby",
+      "version": "0.11.2",
+      "metadata_evidence": "https://pypi.org/pypi/scooby/0.11.2/json",
+      "license": "MIT",
+      "wheel_sha256": "f34c36bbee749b2c55816a080521f216d88304e635017e911c12249607d38c49",
+      "requirements": "No base runtime dependency; do not request cpu extra or mkl."
+    },
+    {
+      "package": "setuptools",
+      "version": "80.9.0",
+      "evidence_record": "dependency-compatibility-r2.json",
+      "wheel_sha256": "062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922",
+      "license": "MIT",
+      "status": "previous reviewed compatibility pin unchanged"
+    }
+  ],
+  "static_inspection": "acceptance/pending-two-r6/wheel-static-identity.json",
+  "scientific_execution": "not_run",
+  "remote_setup_retry": false
+}

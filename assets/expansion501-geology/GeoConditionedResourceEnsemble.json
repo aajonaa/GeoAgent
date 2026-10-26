@@ -1,0 +1,31 @@
+{
+  "data_source": "SYNTHETIC analytic fixture; no measured resource, assay or engineering observation.",
+  "observation_coordinates_m": [
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  "observed_values_ppm": [
+    12
+  ],
+  "target_coordinates_m": [
+    [
+      -1,
+      0,
+      0
+    ],
+    [
+      1,
+      0,
+      0
+    ]
+  ],
+  "known_mean_ppm": 10,
+  "prior_variance_ppm2": 4,
+  "correlation_length_m": 1,
+  "measurement_noise_variance_ppm2": 0,
+  "realization_count": 64,
+  "random_seed": 50126
+}
