@@ -1,0 +1,31 @@
+{
+  "code_commit": "f4ebe1cfbc45c837701a846d6df0a658d31914d7",
+  "branch": "codex/tools121-release-20261026",
+  "github_code_push_confirmed": true,
+  "deployed": true,
+  "backend_accepted": true,
+  "browser_accepted": false,
+  "browser_blocker": "Browser Use rejected observation of http://127.0.0.1:18015/: saved permission or managed policy denies access. No alternate surface or bypass was used.",
+  "new_tools_published": 30,
+  "new_tools_excluded": 91,
+  "professional_tools": 376,
+  "runtime_tools": 12,
+  "skills": 83,
+  "scientific_acceptance": {
+    "passed": 50,
+    "failed": 14,
+    "blocked": 57
+  },
+  "production_excluded_after_scientific_pass": 20,
+  "mandatory_regressions": {
+    "executed": 55,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "gpu_used": false,
+  "other_user_changes_preserved": true,
+  "ai_lab_certified": false,
+  "legacy_document_diagnostics": "20 pre-existing Skill document diagnostics retained unchanged; not counted as newly passing.",
+  "deployment_receipt_sha256": "b514bb1b5f4e4c7525f0f7179646f56eaca9be58cdec0893f62f36e8371903a6"
+}
