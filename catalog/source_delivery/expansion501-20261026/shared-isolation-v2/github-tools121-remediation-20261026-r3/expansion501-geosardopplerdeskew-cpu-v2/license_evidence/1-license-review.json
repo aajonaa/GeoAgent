@@ -1,0 +1,14 @@
+{
+  "scope": "Pinned original primary upstream license files; original bytes, copyright notices and URLs retained in upstream-evidence.json. This is an evidence review, not a blanket distribution-compliance certification.",
+  "review_date": "2026-10-26",
+  "projects": {
+    "sarpy": {"sha256": "d18db0370b8f8b67c19aeae745be42c349f5877fbae5d404ef7cfe67b6b2f477", "license": "MIT", "reviewed": true, "obligation": "Retain NGA copyright and permission/warranty notices."},
+    "spectral": {"sha256": "51782ed932c75ef742be16756f35f58c880e17517d748e3b261235f32e92cc3d", "license": "MIT", "reviewed": true, "obligation": "Retain Thomas Boggs copyright and permission/warranty notices."},
+    "PyWavelets": {"sha256": "0c12e8ae3b54dd61072c5b97f97cab62755b893afb91e8e58bf9b9bbe2a2ec88", "license": "MIT", "reviewed": true, "obligation": "Retain Filip Wasilewski and PyWavelets developer notices; keep bundled component notices separately."},
+    "scikit-image": {"sha256": "611d3207504dcb4a808df209d2e7c9b4f2e89fe690f84735c0d548160966b527", "license": "BSD-3-Clause with component BSD-2-Clause and MIT notices", "reviewed": true, "obligation": "Retain the full component-specific copyright, redistribution, non-endorsement and warranty notices."},
+    "pyspectral": {"sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4", "license": "Apache-2.0", "reviewed": true, "obligation": "Retain license and applicable NOTICE/attribution files; mark modifications when distributing modified files."},
+    "OrfeoToolBox": {"sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30", "license": "Apache-2.0", "reviewed": true, "obligation": "Retain license and applicable NOTICE/attribution files; native dependency licenses remain separate identities."},
+    "mintpy": {"sha256": "2c786535db9cc27ea36a2a569498023ff087e724ace1ade9682382a2d9b12290", "license": "GPL-3.0-or-later", "reviewed": true, "obligation": "Original header explicitly permits version 3 or later. Retain notices and GPL text; redistribution requires the applicable corresponding-source and licensing obligations. Private use here does not establish approval of any future redistribution."}
+  },
+  "transitive_dependencies": "Original installed license files and metadata are hashed in the full environment lock. No blanket reviewed=true assertion is made for the entire transitive dependency graph."
+}

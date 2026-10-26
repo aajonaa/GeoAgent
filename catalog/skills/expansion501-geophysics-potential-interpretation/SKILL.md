@@ -1,93 +1,61 @@
 ---
 id: expansion501_geophysics_potential_interpretation
 name: "Potential-field continuation and source interpretation"
-description: "Distinguish field interpolation/continuation from ideal-source location and material-property inversion. Preserve spatial sampling, field/gradient units and magnetic directions. Compare diagnostic outputs and conditioning before interpreting any anomaly as a geological contact or body."
-when_to_use: "Potential-field continuation and source interpretation with supplied measurements/models and explicit units"
+description: "CPU-accepted scientific operations for Potential-field continuation and source interpretation"
 tools:
-- GeoPotentialEulerSourceLocation
-- GeoPotentialEquivalentSources
-- GeoPotentialUpwardContinuation
-- GeoMagneticReductionToPole
-- GeoPotentialEdgeAttributes
-- GeoMagneticSusceptibilityInversion
-required_inputs:
-- Strict tool JSON, explicit units, coordinate/component conventions and input_source
-constraints:
-- No invented calibration, uncertainty, grade or reserves
-- Preserve physical assumptions, support masks and convergence diagnostics
-- Private CPU environment only, no GPU or runtime installation
-expected_outputs:
-- Numeric JSON with units and shared provenance; artifacts is empty
+  - GeoPotentialEulerSourceLocation
+  - GeoPotentialEquivalentSources
+  - GeoPotentialUpwardContinuation
+  - GeoMagneticReductionToPole
+  - GeoPotentialEdgeAttributes
+  - GeoMagneticSusceptibilityInversion
 ---
 
 # Potential-field continuation and source interpretation
 
 ## When to use
 
-Distinguish field interpolation/continuation from ideal-source location and material-property inversion. Preserve spatial sampling, field/gradient units and magnetic directions. Compare diagnostic outputs and conditioning before interpreting any anomaly as a geological contact or body.
+Select only an available operation whose scientific assumptions match the task.
 
 ## Required inputs
 
-Each tool has a closed schema. Field names encode physical units and ordered axes. All bundled examples are SYNTHETIC and unexecuted; they are not geological observations or passing receipts.
+Use the closed native input schema, explicit units, source data, coordinate system and time conventions.
 
 ## Workflow
 
-Distinguish field interpolation/continuation from ideal-source location and material-property inversion. Preserve spatial sampling, field/gradient units and magnetic directions. Compare diagnostic outputs and conditioning before interpreting any anomaly as a geological contact or body.
+1. Inspect source provenance and scientific applicability.
+2. Call the selected native operation with its exact schema.
+3. Inspect numerical results, units, errors and source/input/output hashes.
+4. Deliver only actual validated results and their scientific limitations.
 
-## Tools and examples
+## Available operations
 
-### GeoPotentialEulerSourceLocation
+- `GeoPotentialEulerSourceLocation`: Estimate one ideal-source location and constant base level from field values and all three measured spatial derivatives.
+- `GeoPotentialEquivalentSources`: Fit damped equivalent sources to irregular-altitude harmonic field measurements and predict specified positions.
+- `GeoPotentialUpwardContinuation`: Continue a regular planar potential-field grid upward with the harmonic spectral transfer.
+- `GeoMagneticReductionToPole`: Transform a planar magnetic anomaly to pole-equivalent inducing-field and magnetization directions.
+- `GeoPotentialEdgeAttributes`: Compute bundled total-gradient amplitude and tilt of a complete planar potential-field anomaly grid.
+- `GeoMagneticSusceptibilityInversion`: Recover bounded induced-only scalar susceptibility from TMI anomalies using a supplied inducing field.
 
-Estimate one ideal-source location and constant base level from field values and all three measured spatial derivatives.
+## Constraints
 
-Example: `assets/expansion501-geophysics/GeoPotentialEulerSourceLocation.json`. Limitations: Single ideal homogeneous source per window; structural index conditions depth; no calibrated position uncertainty.
+Offline CPU-only execution. Never install packages, download data or substitute generated algorithms during a call.
+Fixed dependency environments retain the original upstream algorithms, exact versions and license notices.
+Do not infer mineral presence, grade or reserves from indirect imagery indices.
 
-### GeoPotentialEquivalentSources
+## Expected outputs
 
-Fit damped equivalent sources to irregular-altitude harmonic field measurements and predict specified positions.
-
-Example: `assets/expansion501-geophysics/GeoPotentialEquivalentSources.json`. Limitations: <=128 observations/predictions and 64 sources; below-plane restriction; no geological interpretation of source coefficients.
-
-### GeoPotentialUpwardContinuation
-
-Continue a regular planar potential-field grid upward with the harmonic spectral transfer.
-
-Example: `assets/expansion501-geophysics/GeoPotentialUpwardContinuation.json`. Limitations: No padding, terrain-following geometry or downward continuation.
-
-### GeoMagneticReductionToPole
-
-Transform a planar magnetic anomaly to pole-equivalent inducing-field and magnetization directions.
-
-Example: `assets/expansion501-geophysics/GeoMagneticReductionToPole.json`. Limitations: Ill-conditioned equatorial RTP explicitly unsupported; no invented stabilization.
-
-### GeoPotentialEdgeAttributes
-
-Compute bundled total-gradient amplitude and tilt of a complete planar potential-field anomaly grid.
-
-Example: `assets/expansion501-geophysics/GeoPotentialEdgeAttributes.json`. Limitations: Periodic grid and spectral edge effects; gradients do not establish geological contacts.
-
-### GeoMagneticSusceptibilityInversion
-
-Recover bounded induced-only scalar susceptibility from TMI anomalies using a supplied inducing field.
-
-Example: `assets/expansion501-geophysics/GeoMagneticSusceptibilityInversion.json`. Limitations: Fixed CPU SimPEG ProjectedGNCG, bounded mesh and iterations; no caller solver/callback/code. Convergence may be iteration_limit or uncertified stop. Conditional regularized estimate, not unique geology or posterior uncertainty. Private pinned environment and parent worker registration required; not run, deployed, submitted or AI-Lab certified.
+Schema-validated numerical JSON, declared units, original evidence and declared artifacts with content hashes.
 
 ## Source interface and delivery
 
-Fixed named functions in `geological_agent.geology.expansion501_geophysics` accept `args` dict or JSON-object string through `collection_contracts.operation`. Parent stages the catalog and fixed module allowlist. No `output_dir` or file artifacts; shared contracts add input/source hashes, installed pins, provenance and `artifacts=[]`. No arbitrary shell, module, function, callback or dependency installation.
+Use the native function input object. Standalone examples are in catalog/source_delivery/examples.json.
+Runtime profiles bind the source, interpreter, exact dependency lock and CPU execution evidence.
 
-## Expected outputs and interpretation
+### Current availability
 
-Read `values`, `units` and `diagnostics` together. Null means explicitly unsupported/undefined support, not a measured zero. A returned model or zero residual is not proof of uniqueness or convergence. Report the actual upstream stop/independent stationarity result and conditional uncertainty.
+`tool_candidates_available_workflow_unverified`
 
-## Dependencies and licensing
-
-Use the exact per-package requirements in `catalog/source_delivery/expansion501-20261026/groups/geophysics/requirements-*.txt` in a private CPU environment, retaining baseline pins. Native wheel/build identity and the full transitive distribution lock remain parent acceptance prerequisites. ObsPy/PyLops LGPL terms and all other upstream licenses remain in force; adapter redistribution license review is pending.
-
-## Failure and handoff
-
-Return native ScientificToolError failures, do not replace upstream kernels or silently fill missing physics. Parent owns scientific tests, shared dispatch/registry, transport approval and release. See adaptation-status.json for blocked assignments, which are not registered.
-
-## Validation and availability
-
-source_revised_unverified; formal_eligible=false; acceptance_pending. NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Availability: source_candidates_authored_acceptance_pending. Deployment status: not_deployed. Submission status: not_submitted. Workflow validation: not_run. Model workflow validation: not_run. Platform validation: not_run. Receiving AI Lab approval: pending. Internal schema conformance is NOT receiving AI Lab certification.
+The listed operations passed internal CPU acceptance; this is not model-driven workflow acceptance or AI Lab approval.
+Scientific platform validation: `not_run`. Lab submission: `not_submitted`.
+Deployment, Git and browser acceptance are recorded separately in release receipts.

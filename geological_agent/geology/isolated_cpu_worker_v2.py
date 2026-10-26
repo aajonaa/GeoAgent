@@ -13,6 +13,40 @@ import sys
 GPR_PROFILE_ID = "expansion501-geology-gpr-cpu-v2"
 _GEOLOGY_CPU_KEY = "GEOAGENT_EXPANSION501_GEOLOGY_CPU"
 _GEOLOGY_CPU_VALUE = "expansion501-geology-cpu-v1"
+_GEOLOGY_CPU_BINDINGS = {
+    "Geo500BondValenceOxidation": "bond_valence_oxidation",
+    "Geo500CoherentMineralInterfaceMatch": "coherent_interface_match",
+    "Geo500CrystalCoordination": "crystal_coordination",
+    "Geo500CrystalStructureEquivalence": "crystal_structure_equivalence",
+    "Geo500MineralEhPHStability": "mineral_eh_ph_stability",
+    "Geo500MineralPhaseHull": "mineral_phase_hull",
+    "Geo500MineralReactionBalance": "mineral_reaction_balance",
+    "Geo500MineralSurfaceTerminations": "mineral_surface_terminations",
+    "Geo500PeriodicIonicLatticeEnergy": "ionic_lattice_energy",
+    "Geo500PoreBodyRadiusDistribution": "pore_body_radius_distribution",
+    "Geo500PoreChordDistribution": "pore_chord_distribution",
+    "Geo500PoreDiffusionTortuosity": "pore_diffusion_tortuosity",
+    "Geo500PowderXRDPattern": "powder_xrd_pattern",
+    "Geo500QuasistaticCapillaryDrainage": "quasistatic_capillary_drainage",
+    "Geo500SpatialCellDeclustering": "spatial_cell_declustering",
+    "Geo500WulffCrystalHabit": "wulff_crystal_habit",
+    "GeoMantleMeltingPath": "mantle_melting_path",
+    "GeoSlopeLimitEquilibrium": "slope_limit_equilibrium",
+}
+_REMOTE_CPU_BINDINGS = {
+    "GeoInSARAscDescDecomposition": ("asc_desc_decomposition", "mintpy"),
+    "GeoInSARCoherenceNetworkSelection": ("coherence_network_selection", "mintpy"),
+    "GeoInSAREnvisatOscillatorCorrection": ("envisat_oscillator_correction", "mintpy"),
+    "GeoInSARIonosphericDelay": ("ionospheric_delay", "mintpy"),
+    "GeoInSARNetworkDisplacement": ("network_displacement", "mintpy"),
+    "GeoInSARPlateFrameCorrection": ("plate_frame_correction", "mintpy"),
+    "GeoInSARResidualDEM": ("residual_dem", "mintpy"),
+    "GeoRemoteMADChange": ("mad_change", "otb"),
+    "GeoRemotePansharpenFusion": ("pansharpen_fusion", "otb"),
+    "GeoRemoteTOAReflectance": ("toa_reflectance", "otb"),
+    "GeoSARPolarimetricHAlpha": ("polarimetric_halpha", "otb"),
+    "GeoSARPolarizationSynthesis": ("polarization_synthesis", "otb"),
+}
 
 
 @contextlib.contextmanager
@@ -29,6 +63,26 @@ def _scientific_cpu_policy(bridge, profile, profile_id):
                     profile["callable"] == "conditioned_resource_ensemble",
                     "GPR requires the reviewed fixed CPU profile and entrypoint.", "missing_dependency")
         environment = {_GEOLOGY_CPU_KEY: _GEOLOGY_CPU_VALUE}
+    if profile["tool"] in _GEOLOGY_CPU_BINDINGS:
+        bridge.need(profile_id == "expansion501-" + profile["tool"].lower() + "-cpu-v2" and
+                    profile["module"] == "geological_agent.geology.expansion501_geology" and
+                    profile["callable"] == _GEOLOGY_CPU_BINDINGS[profile["tool"]],
+                    "Geology requires the reviewed fixed CPU profile and entrypoint.", "missing_dependency")
+        environment[_GEOLOGY_CPU_KEY] = _GEOLOGY_CPU_VALUE
+    if profile["tool"] in _REMOTE_CPU_BINDINGS:
+        entrypoint, family = _REMOTE_CPU_BINDINGS[profile["tool"]]
+        bridge.need(profile_id == "expansion501-" + profile["tool"].lower() + "-cpu-v2" and
+                    profile["module"] == "geological_agent.geology.expansion501_remote" and
+                    profile["callable"] == entrypoint,
+                    "Remote sensing requires the reviewed fixed CPU profile and entrypoint.", "missing_dependency")
+        if family == "mintpy":
+            environment["EXPANSION501_REMOTE_PROFILE"] = "mintpy-1.6.4-cpu"
+        else:
+            native = profile.get("projects", {}).get("OTB")
+            bridge.need(isinstance(native, dict) and native.get("version") == "9.1.1" and
+                        isinstance(native.get("root"), str) and Path(native["root"]).is_absolute(),
+                        "OTB CPU policy requires the verified native project root.", "missing_dependency")
+            environment["EXPANSION501_OTB_ROOT"] = native["root"]
     previous = {name: os.environ.get(name) for name in environment}
     try:
         for name, value in environment.items():

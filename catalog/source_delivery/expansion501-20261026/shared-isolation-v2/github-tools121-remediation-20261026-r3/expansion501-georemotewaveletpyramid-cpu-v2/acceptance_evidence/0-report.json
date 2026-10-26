@@ -1,0 +1,307 @@
+{
+  "id": "GeoRemoteWaveletPyramid",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoRemoteWaveletPyramid",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoRemoteWaveletPyramid (remote_original_cases.RemoteCases.test_registry_GeoRemoteWaveletPyramid) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/direct_dict/result",
+        "artifacts": {
+          "scale-energy.csv": "d302c3933db28fbd3e28bacf404bb9f9f99e67020cce8b20fa0c49308981892f",
+          "wavelet-coefficients.csv": "eec6f6c6004fb1597389bc47fc1c319a4568593dd2e727af237842c0940597d3"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/direct_json/result",
+        "artifacts": {
+          "scale-energy.csv": "d302c3933db28fbd3e28bacf404bb9f9f99e67020cce8b20fa0c49308981892f",
+          "wavelet-coefficients.csv": "eec6f6c6004fb1597389bc47fc1c319a4568593dd2e727af237842c0940597d3"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_dict/results/25870f9c40ad493cadd2ba140ffa67fa",
+        "artifacts": {
+          "scale-energy.csv": "d302c3933db28fbd3e28bacf404bb9f9f99e67020cce8b20fa0c49308981892f",
+          "wavelet-coefficients.csv": "eec6f6c6004fb1597389bc47fc1c319a4568593dd2e727af237842c0940597d3"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_json/results/9e9a5c14dd1b43ee9c97bccd7cdb8178",
+        "artifacts": {
+          "scale-energy.csv": "d302c3933db28fbd3e28bacf404bb9f9f99e67020cce8b20fa0c49308981892f",
+          "wavelet-coefficients.csv": "eec6f6c6004fb1597389bc47fc1c319a4568593dd2e727af237842c0940597d3"
+        }
+      }
+    },
+    "nonconstant_haar_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_direct_dict/result",
+        "artifacts": {
+          "scale-energy.csv": "27c0aff47fd264132bb023b25fbe05a01c52f721e02f8fa898ca92413ba9698f",
+          "wavelet-coefficients.csv": "0b111b760a29a14868ca18107889db94035fae38996200a49bc4885012a96506"
+        }
+      }
+    },
+    "nonconstant_haar_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_direct_json/result",
+        "artifacts": {
+          "scale-energy.csv": "27c0aff47fd264132bb023b25fbe05a01c52f721e02f8fa898ca92413ba9698f",
+          "wavelet-coefficients.csv": "0b111b760a29a14868ca18107889db94035fae38996200a49bc4885012a96506"
+        }
+      }
+    },
+    "nonconstant_haar_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_runtime_dict/results/ce992b818f9d4475aa230be464795037",
+        "artifacts": {
+          "scale-energy.csv": "27c0aff47fd264132bb023b25fbe05a01c52f721e02f8fa898ca92413ba9698f",
+          "wavelet-coefficients.csv": "0b111b760a29a14868ca18107889db94035fae38996200a49bc4885012a96506"
+        }
+      }
+    },
+    "nonconstant_haar_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/nonconstant_haar_runtime_json/results/e57202e1a51942afbbc006681ce00359",
+        "artifacts": {
+          "scale-energy.csv": "27c0aff47fd264132bb023b25fbe05a01c52f721e02f8fa898ca92413ba9698f",
+          "wavelet-coefficients.csv": "0b111b760a29a14868ca18107889db94035fae38996200a49bc4885012a96506"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoRemoteWaveletPyramid",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoRemoteWaveletPyramid (remote_original_cases.RemoteCases.test_reject_extra_GeoRemoteWaveletPyramid) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoRemoteWaveletPyramid",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoRemoteWaveletPyramid (remote_original_cases.RemoteCases.test_reject_unit_GeoRemoteWaveletPyramid) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoRemoteWaveletPyramid",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoRemoteWaveletPyramid (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoRemoteWaveletPyramid) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoRemoteWaveletPyramid",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoRemoteWaveletPyramid (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoRemoteWaveletPyramid) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoRemoteWaveletPyramid",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoRemoteWaveletPyramid (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoRemoteWaveletPyramid) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoRemoteWaveletPyramid",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoRemoteWaveletPyramid (remote_original_cases.RemoteCases.test_reject_singular_GeoRemoteWaveletPyramid) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoRemoteWaveletPyramid",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoRemoteWaveletPyramid (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoRemoteWaveletPyramid) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemoteWaveletPyramid/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

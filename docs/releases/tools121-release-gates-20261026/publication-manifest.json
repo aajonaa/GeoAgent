@@ -1,0 +1,70 @@
+{
+  "status": "passed",
+  "gpu_used": false,
+  "controls_passed": 235,
+  "release_check_only": true,
+  "destination_prefix": "docs/releases/tools121-release-gates-20261026/",
+  "files": [
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/sources/seal_release.py",
+      "destination": "seal_release.py",
+      "sha256": "9c76d62c98de7494d4c3238fea7db203ea9b2585ad09121647b1ed3abb42f86b",
+      "bytes": 32914
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/sources/test_seal_release.py",
+      "destination": "test_seal_release.py",
+      "sha256": "6621ee7751ebfd1dd9cfe345671e6b65cfcec245fcc8f543a815318d6a2a5d25",
+      "bytes": 17382
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/sources/test_real_reports.py",
+      "destination": "test_real_reports.py",
+      "sha256": "1aa5bc6d4fb59ef696e13fb24095ad4e045d0ea72d8900db81e8ebbde7c0f8ba",
+      "bytes": 15631
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/sources/test_cold_cache_binding.py",
+      "destination": "test_cold_cache_binding.py",
+      "sha256": "8e9c6c5f0da500289554ebc33d6d30295f483735063daa0602db32e51f948c91",
+      "bytes": 7967
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/sources/check_sealer_only.py",
+      "destination": "check_sealer_only.py",
+      "sha256": "b8af110f86a5d456a4a2475a04e2c3bf2d41045e41fa72587c5d7f9f64dc0ae1",
+      "bytes": 4314
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-24.json",
+      "destination": "controls-24.json",
+      "sha256": "096d430847d76d58699dc4cebcdcb2111da40230e86242de09065a84ca950a5e",
+      "bytes": 54640
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/results.json",
+      "destination": "controls-real-198.json",
+      "sha256": "200fbc6c5ade619436d10fb4c8bcce9c3232ece5345fc452d251ce324f5a940b",
+      "bytes": 82595
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/results.json",
+      "destination": "controls-cold-13.json",
+      "sha256": "73374209cca803de7a5fc6af095b550c31ce5254eafafa16187f6c2151251d2b",
+      "bytes": 6819
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/check-final-r3.json",
+      "destination": "check-final-r3.json",
+      "sha256": "83ea77189c77ee3fde32d13b8e7859c2d4f555671291f2b58ac724267827c235",
+      "bytes": 18627
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/upload-receipt.json",
+      "destination": "upload-receipt.json",
+      "sha256": "1fb915955f1b99f2fadfecf5ffda52731398f4a9c3db8f85b289931dce79ac12",
+      "bytes": 895
+    }
+  ],
+  "stage_contract": "Original stage-receipt.json stays hash-stable; seal writes derived stage-receipt-sealed.json and acceptance-template.json."
+}

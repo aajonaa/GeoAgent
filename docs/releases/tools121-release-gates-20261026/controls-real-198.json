@@ -1,0 +1,1750 @@
+{
+  "gpu_used": false,
+  "test_only": true,
+  "application_executed": false,
+  "target_sha256": "9c76d62c98de7494d4c3238fea7db203ea9b2585ad09121647b1ed3abb42f86b",
+  "cases": [
+    {
+      "name": "geology/original_group_status",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed"
+    },
+    {
+      "name": "geology/original/Geo500BondValenceOxidation",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "86e943235cd026061d2d65ca9602baf1acc875c59cbeeeb220ffed3962850acf"
+    },
+    {
+      "name": "geology/original/Geo500CoherentMineralInterfaceMatch",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500CoherentMineralInterfaceMatch/result.json",
+      "report_sha256": "c46618c65e6bcdaa0a44cc51776e51374fa3279efdb271ef3eb2dddef63dbab3"
+    },
+    {
+      "name": "geology/original/Geo500CrystalCoordination",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500CrystalCoordination/result.json",
+      "report_sha256": "c78728f5df963a7f89453c7aab67cca9477c72dd75f849a116ee499c354d79c9"
+    },
+    {
+      "name": "geology/original/Geo500CrystalSpaceGroupAudit",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500CrystalSpaceGroupAudit/result.json",
+      "report_sha256": "727f1c9aec354a50fd9f0430b0d2eafbd4ae178c1b8b6b2b03a2bb13e83e1f13"
+    },
+    {
+      "name": "geology/original/Geo500CrystalStructureEquivalence",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500CrystalStructureEquivalence/result.json",
+      "report_sha256": "932d746e926f47e2446812ce95ee1b89d544edb5a49d02ddf469f9fc3d2ce6c7"
+    },
+    {
+      "name": "geology/original/Geo500IrreducibleReciprocalMesh",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500IrreducibleReciprocalMesh/result.json",
+      "report_sha256": "4c86401c56a6282e16c5f7ceccb1777551b0a5e73fe3e50cbdbcc37fcb5471fb"
+    },
+    {
+      "name": "geology/original/Geo500MineralEhPHStability",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500MineralEhPHStability/result.json",
+      "report_sha256": "e0731751d7d04cd9affc671953a096d97576a21ce7ac4d4957bed9c3dc99d9bc"
+    },
+    {
+      "name": "geology/original/Geo500MineralNeutronContrast",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500MineralNeutronContrast/result.json",
+      "report_sha256": "37652fc4ee8326f84e084c0931559046eda6ce85e9dcb83f542417b46c0797ae"
+    },
+    {
+      "name": "geology/original/Geo500MineralOxygenBasisFormula",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500MineralOxygenBasisFormula/result.json",
+      "report_sha256": "4fa3f87e3bec34c491c493fca80b8da3e531e41c8290ade7a24508588c70f16b"
+    },
+    {
+      "name": "geology/original/Geo500MineralPhaseHull",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500MineralPhaseHull/result.json",
+      "report_sha256": "760c1119862a356b8d0c1028c6ea1e9d9051da60462f5fd45f90eaf5a69f5df5"
+    },
+    {
+      "name": "geology/original/Geo500MineralReactionBalance",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500MineralReactionBalance/result.json",
+      "report_sha256": "a7c9f6b01059ffdbe3a1bd02360be54a8b011572da21c5bf65705037a45e1c7d"
+    },
+    {
+      "name": "geology/original/Geo500MineralSurfaceTerminations",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500MineralSurfaceTerminations/result.json",
+      "report_sha256": "31c02d47e8bf8e394b6c26e184ecd43440653bb5c50677df387fccb1bb9f9b3e"
+    },
+    {
+      "name": "geology/original/Geo500PeriodicIonicLatticeEnergy",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500PeriodicIonicLatticeEnergy/result.json",
+      "report_sha256": "6625bf50da295436b27d27ff14a1856e32ad707fd7e784e4410375c3164b3e38"
+    },
+    {
+      "name": "geology/original/Geo500PoreBodyRadiusDistribution",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500PoreBodyRadiusDistribution/result.json",
+      "report_sha256": "62840daa3a3063a75bb5dc9851f05f1de0e3f1a151abffc8ed21885dc2d2ce1c"
+    },
+    {
+      "name": "geology/original/Geo500PoreChordDistribution",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500PoreChordDistribution/result.json",
+      "report_sha256": "0c8136719185854eceb3f113a6c377e7ac9e177be380cfc8f9a35b0538e49509"
+    },
+    {
+      "name": "geology/original/Geo500PoreDiffusionTortuosity",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500PoreDiffusionTortuosity/result.json",
+      "report_sha256": "cfb561f9e6e54ac0972c9ce16ab1b4148647f77e7ab2ebd7f7bbdcebbe1d5657"
+    },
+    {
+      "name": "geology/original/Geo500PowderXRDPattern",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500PowderXRDPattern/result.json",
+      "report_sha256": "6eae8feedad6d8cd7ef612d00f15fcc2e54fc1c6679215df6c6d3949926eb779"
+    },
+    {
+      "name": "geology/original/Geo500QuasistaticCapillaryDrainage",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500QuasistaticCapillaryDrainage/result.json",
+      "report_sha256": "d84c7b6c06f8665e89009a58f2c6b1824173928007867ecc2b4583ec6781cde9"
+    },
+    {
+      "name": "geology/original/Geo500REEOrthogonalShape",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500REEOrthogonalShape/result.json",
+      "report_sha256": "4cc07a43d65846b92e129085acf13021bfbc2b65d5a9325218cfc424ee580b5a"
+    },
+    {
+      "name": "geology/original/Geo500SpatialCellDeclustering",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500SpatialCellDeclustering/result.json",
+      "report_sha256": "abd63fd8c6c8ce4969cd3c8d5ee8f8650d29e3c4d2e62945632d6448dc1d418d"
+    },
+    {
+      "name": "geology/original/Geo500VolcanicTASClass",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500VolcanicTASClass/result.json",
+      "report_sha256": "035ba15661a4f9e68030ff6c463e5826245388be3acda9fd160cfcff3bd35edd"
+    },
+    {
+      "name": "geology/original/Geo500WulffCrystalHabit",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500WulffCrystalHabit/result.json",
+      "report_sha256": "a0ffb3ef004f13fdc98a80eb1c30b13462143db23bf63d9d9b04b35a4c2d83ff"
+    },
+    {
+      "name": "geology/original/GeoConditionedResourceEnsemble",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/GeoConditionedResourceEnsemble/result.json",
+      "report_sha256": "8b6506ef9fc86bf575637c5ddf3eadeddfcc57000ac3a2c445c9ec642427a697"
+    },
+    {
+      "name": "geology/original/GeoImplicitStructuralModel",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/GeoImplicitStructuralModel/result.json",
+      "report_sha256": "e0db8eb1d9bcf17fb483e685d733fe7ef925014a1f20ca36910815e46d384748"
+    },
+    {
+      "name": "geology/original/GeoMantleMeltingPath",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/GeoMantleMeltingPath/result.json",
+      "report_sha256": "96bba81e3e97e2aa3b5f9a5d3c45ec972cc487f5a324d8856c0cf84679740acf"
+    },
+    {
+      "name": "geology/original/GeoSlopeLimitEquilibrium",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/GeoSlopeLimitEquilibrium/result.json",
+      "report_sha256": "535cc41cf9cc969ccae39e5c4f0871a8dd225649294a3af1ae07972be27ae74e"
+    },
+    {
+      "name": "remote/original_group_status",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed"
+    },
+    {
+      "name": "remote/original/GeoInSARAscDescDecomposition",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoInSARAscDescDecomposition.json",
+      "report_sha256": "31da72025bff2b2b25cf8f1fa26351a6604a51359f31c5c7f50cbc732b506c10"
+    },
+    {
+      "name": "remote/original/GeoInSARCoherenceNetworkSelection",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoInSARCoherenceNetworkSelection.json",
+      "report_sha256": "2b59381c4ead5c129b309094cf1f75c415036a5afb6d6b7598aa4a63f5d0ca89"
+    },
+    {
+      "name": "remote/original/GeoInSAREnvisatOscillatorCorrection",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoInSAREnvisatOscillatorCorrection.json",
+      "report_sha256": "191eb84811e30e3d25c9b8dceae950d003b66496560ca823d4e80ed8aadf89f0"
+    },
+    {
+      "name": "remote/original/GeoInSARIonosphericDelay",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoInSARIonosphericDelay.json",
+      "report_sha256": "38f61cd75a57336daa61e31dc7cc54e70a3fef3b25a6a56a5a829380c9cfc4a0"
+    },
+    {
+      "name": "remote/original/GeoInSARNetworkDisplacement",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoInSARNetworkDisplacement.json",
+      "report_sha256": "80050af51ad9662f851212274a3590efccf07b596f4049b463b3524072fd3b28"
+    },
+    {
+      "name": "remote/original/GeoInSARPlateFrameCorrection",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoInSARPlateFrameCorrection.json",
+      "report_sha256": "4b205451947bc6892d761bd9d9b34885ed8ac229762b50ee6b3a818c84057f81"
+    },
+    {
+      "name": "remote/original/GeoInSARResidualDEM",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoInSARResidualDEM.json",
+      "report_sha256": "8cb7e9ee5364cb62e7f0fdf0b63e3e906ec7bbb204d3c6e4873288112c6f3de8"
+    },
+    {
+      "name": "remote/original/GeoRemoteBrightnessTemperature",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteBrightnessTemperature.json",
+      "report_sha256": "97bbe6063e35b7bd84cf7c11ead3f964f385b4dd85a65be3b9e7347a632bc1ee"
+    },
+    {
+      "name": "remote/original/GeoRemoteClassSeparability",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteClassSeparability.json",
+      "report_sha256": "b9d0682f9dbfe321e1361e3dd5ff01f7b062f483ca32ff5fcde679fdb1fd338d"
+    },
+    {
+      "name": "remote/original/GeoRemoteDenseOpticalFlow",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteDenseOpticalFlow.json",
+      "report_sha256": "1a3c532cc3a633e2f69383f049d530269d99681eb1f21254a873e91811c09860"
+    },
+    {
+      "name": "remote/original/GeoRemoteEndmemberDiscovery",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteEndmemberDiscovery.json",
+      "report_sha256": "b8b28101a6950331bc732b0a4efb36d19f6e551fbb11191dfe287d5da25ab903"
+    },
+    {
+      "name": "remote/original/GeoRemoteGaussianClassify",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteGaussianClassify.json",
+      "report_sha256": "2e9afd0501f97698f576e6c53750756e5480195dbab1855adaff1143aecc2721"
+    },
+    {
+      "name": "remote/original/GeoRemoteHoughLineEvidence",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteHoughLineEvidence.json",
+      "report_sha256": "5f0d82489814a25c660a8246bc6cb95892d6e6a89ffeccfd9e1bbd68db685979"
+    },
+    {
+      "name": "remote/original/GeoRemoteMADChange",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteMADChange.json",
+      "report_sha256": "9352bc3a56a1b3fe1ab68d68490f2e2d514da7cc4eb38e4ad22c7cbab9cf3eaa"
+    },
+    {
+      "name": "remote/original/GeoRemotePansharpenFusion",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemotePansharpenFusion.json",
+      "report_sha256": "4c988f0cd3480f8f02d34afd8975d122cdd92a9fd6fb43f49897e47f8a698c22"
+    },
+    {
+      "name": "remote/original/GeoRemotePhaseUnwrap",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemotePhaseUnwrap.json",
+      "report_sha256": "d36d3c03929d4bc09179ea70ee68ea71023afcbf2994cb106106ebb6383b8156"
+    },
+    {
+      "name": "remote/original/GeoRemoteProjectiveTiePoints",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteProjectiveTiePoints.json",
+      "report_sha256": "b3a35d96c143a75ae1acf3bef2a25e8357d81f0d132fd7b9362f86667bad7480"
+    },
+    {
+      "name": "remote/original/GeoRemoteScaleSpaceBlobs",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteScaleSpaceBlobs.json",
+      "report_sha256": "8a2105974f4a279032779387c2f2c32c9d841dc868cc25e6b3fe0d7af5538988"
+    },
+    {
+      "name": "remote/original/GeoRemoteTOAReflectance",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteTOAReflectance.json",
+      "report_sha256": "1173b1e550ad296b7fefae97e34a159169bd81cbbcdc71994bc1701cf811fc8d"
+    },
+    {
+      "name": "remote/original/GeoRemoteTemplateLocate",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteTemplateLocate.json",
+      "report_sha256": "74c79efad18154c1e2b944ab89df8b33fbb871388ab36fa6cc192026edb481ea"
+    },
+    {
+      "name": "remote/original/GeoRemoteWaveletPyramid",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoRemoteWaveletPyramid.json",
+      "report_sha256": "b63253491e6aeb015b91b702856da68230feedbd4839507243e29d84eedee506"
+    },
+    {
+      "name": "remote/original/GeoSARCoherentChange",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoSARCoherentChange.json",
+      "report_sha256": "737caebd68e641298d9df42259826d089239bf456e2e7f732ee8d667ee0d1194"
+    },
+    {
+      "name": "remote/original/GeoSARDopplerDeskew",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoSARDopplerDeskew.json",
+      "report_sha256": "19cb4cdd5bfd374524333b99f9fbde7b77aed3f029b5620291ee7f10fab1da81"
+    },
+    {
+      "name": "remote/original/GeoSARPolarimetricHAlpha",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoSARPolarimetricHAlpha.json",
+      "report_sha256": "73d97121841fc2cae9ef28891cdd627b0f6c999a5ec0c38e96b379b76ca18be7"
+    },
+    {
+      "name": "remote/original/GeoSARPolarizationSynthesis",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoSARPolarizationSynthesis.json",
+      "report_sha256": "99a9039e860ab2c4820c13c62053a7acfee964d72cfbe71ff3f737dc0491c628"
+    },
+    {
+      "name": "remote/original/GeoSARSubaperture",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/tool-reports/GeoSARSubaperture.json",
+      "report_sha256": "219ae6ebd137b307af951ab7a183cad7c4296acb7a80fd598775e863cd7ec172"
+    },
+    {
+      "name": "geophysics/original_group_status",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Group receipt is not passed"
+    },
+    {
+      "name": "geophysics/original/GeoCrustAiryMoho",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoCrustAiryMoho.json",
+      "report_sha256": "ee7aee24410a60d7e4a4622ca06a7d71b04affd67571c08d06450a4b957acc53"
+    },
+    {
+      "name": "geophysics/original/GeoEMLayeredBipoleResponse",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoEMLayeredBipoleResponse.json",
+      "report_sha256": "9cd0b8767b98a5419e872eedac47b765eabd336cb0b5f7d4c37f80055c2af279",
+      "exception_type": "AssertionError",
+      "error": "Tool missing or not passed"
+    },
+    {
+      "name": "geophysics/original/GeoGravityBouguerSlab",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoGravityBouguerSlab.json",
+      "report_sha256": "bcfe1b457a1891c9a5aa57d3e289ee0e47ce67704a3fb80f02c00da9e0d23082"
+    },
+    {
+      "name": "geophysics/original/GeoGravityDensityInversion",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoGravityDensityInversion.json",
+      "report_sha256": "ab15d18ce2adf425d8679e5955f8291e502a724a80add41263248b73b9bdb2e6"
+    },
+    {
+      "name": "geophysics/original/GeoGravityTesseroid",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoGravityTesseroid.json",
+      "report_sha256": "477d0477fa9d03a3b7f09796101f0f03303fd3db17702de92882cb1ea8ecbf6e"
+    },
+    {
+      "name": "geophysics/original/GeoMagneticReductionToPole",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoMagneticReductionToPole.json",
+      "report_sha256": "ffa901d2bdaca60c94bf3110b79250ca6b9908989b0b0db35e01f58fb551fe75"
+    },
+    {
+      "name": "geophysics/original/GeoMagneticSusceptibilityInversion",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoMagneticSusceptibilityInversion.json",
+      "report_sha256": "33de50077571992347f6ce50bed80f5fa52c0d6265a184a38e4d78a3b4a2968e"
+    },
+    {
+      "name": "geophysics/original/GeoPotentialEdgeAttributes",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoPotentialEdgeAttributes.json",
+      "report_sha256": "bd8aabb99a5e0b7bd21f37fe25a8abad2d9f2bc065e16ff9007e05b364cb3f46"
+    },
+    {
+      "name": "geophysics/original/GeoPotentialEquivalentSources",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoPotentialEquivalentSources.json",
+      "report_sha256": "66c9233034b3fd159f1207a643b435f0084a1000910297a5955dcff413b7bf40"
+    },
+    {
+      "name": "geophysics/original/GeoPotentialEulerSourceLocation",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoPotentialEulerSourceLocation.json",
+      "report_sha256": "7d459fa77bf6ce2c1d2b0d7d82224856abcda64d032ac196f67803cea1a79f28"
+    },
+    {
+      "name": "geophysics/original/GeoPotentialUpwardContinuation",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoPotentialUpwardContinuation.json",
+      "report_sha256": "c7e9a5b6757c7aef50eab4bbd65a32133e03e9f2bf0e2252169ba89763031a40"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicArrayBeamforming",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicArrayBeamforming.json",
+      "report_sha256": "e985bcd48ef99ef620a255e2da7feb786a2e7b1d7388bf3fcd0304b58395a64b"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicComplexAttributes",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicComplexAttributes.json",
+      "report_sha256": "2cf5a6f48101a38ad8a11431e3a5ea7ba04c262b70d426ca0583e528cbcbdf7d"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicLeastSquaresMigration",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicLeastSquaresMigration.json",
+      "report_sha256": "00bb39cf190fd26a3c7afd78bdc29fddcd627cf963b5ee0327f971afca35d57b"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicMultidimensionalDeconvolution",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicMultidimensionalDeconvolution.json",
+      "report_sha256": "7094091ecbf90d01a86ddfb13c86ebf18330b6512119bd11f2c9723ba082a7d5"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicPoststackImpedanceInversion",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicPoststackImpedanceInversion.json",
+      "report_sha256": "7abfcf35686912d3794442bf0f111314e4ea7e87a94316b3aca75ceb494cc79a"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicProbabilisticNoise",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicProbabilisticNoise.json",
+      "report_sha256": "f37690f92374ab47ede9bce0fe75e19b0612dbc82650952686f190d07235a358"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicRadiationPattern",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicRadiationPattern.json",
+      "report_sha256": "8fdc7945c5d328ac8e3844bc43d8d8d084672102c29e444f2127fc5818f206b6"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicReceiverDeghosting",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicReceiverDeghosting.json",
+      "report_sha256": "1527dc41f96b52f1158a7412ec481ee8cce5f73796c761bdf11d25e85d480e4a"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicTemplateDetection",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicTemplateDetection.json",
+      "report_sha256": "5e11970b9d11967dba8358492c54f6b068c6af580621b74081b406921e972307"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicUpDownWavefieldSeparation",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicUpDownWavefieldSeparation.json",
+      "report_sha256": "0707c37eced02dce9ba99125753c69c638d283dc9f67078bfdca801913f17c88"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicWaveformTFMisfit",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicWaveformTFMisfit.json",
+      "report_sha256": "0d3a94812bdf29ee7b0376a6f57569608da61bfec714573d2d4251a37c18c023"
+    },
+    {
+      "name": "geophysics/original/GeoSurfaceWaveSensitivity",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSurfaceWaveSensitivity.json",
+      "report_sha256": "5e196464f55387299c0658ee075d9f44e0f068fa8f828a4d8b16984e79af7703",
+      "exception_type": "AssertionError",
+      "error": "Tool missing or not passed"
+    },
+    {
+      "name": "geophysics/original/GeoDCFourElectrodeResponse",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoDCFourElectrodeResponse.json",
+      "report_sha256": "2d0cbf11cd367ae38a5a670c04372503b5a55fb7c64e54c4f229f17babd2a19e"
+    },
+    {
+      "name": "geophysics/original/GeoGravityNormalEllipsoid",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoGravityNormalEllipsoid.json",
+      "report_sha256": "9dfbd13d2f73d06ade74223402af0d6a2f3ccb26b820f0d8b4e90e3bdbd40266"
+    },
+    {
+      "name": "geophysics/original/GeoMagneticWirePath",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoMagneticWirePath.json",
+      "report_sha256": "aeb37ccc9e3e11852ec9a3888568d6d296c2ab535b0a72036bc1fb06f9d9ed3e"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicArrayStrainRotation",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicArrayStrainRotation.json",
+      "report_sha256": "87dbf8cc75e57c0128eb2eb7e200691eb09d5d78ae276155e24de77b7bc3b316"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicInstrumentDeconvolution",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicInstrumentDeconvolution.json",
+      "report_sha256": "446322a3c3b00bf132127978aebb56b3c376076c4ce2961ff4dc4cbdc0d80fd9"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicNMO",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicNMO.json",
+      "report_sha256": "7541a776e3276a405c5a9677bd6b7224b062d0ad081c171bf2beaa666b27c655"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicSTALTADetection",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicSTALTADetection.json",
+      "report_sha256": "b3546c5d3200489102b3ceb48c52bd0f49f644b0d6fd810ab5491010c883856f"
+    },
+    {
+      "name": "geophysics/original/GeoSeismicWindowCoherence",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSeismicWindowCoherence.json",
+      "report_sha256": "8c8b56fc70c8b512a14096a2cda5a6b2e3cc9de7da7ebe0ce6b0438392d43084"
+    },
+    {
+      "name": "geophysics/original/GeoSurfaceWaveDispersion",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/tools/GeoSurfaceWaveDispersion.json",
+      "report_sha256": "63249e1a03dc4ed27830696ed4f167441bf7df8b98bf98e6ee20c5ea7b4b7174"
+    },
+    {
+      "name": "spatial/original_group_status",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed"
+    },
+    {
+      "name": "spatial/original/GeoLithosphereFlexure",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoLithosphereFlexure.json",
+      "report_sha256": "1a8632c6b1d3d568db0c131c57c42425a8bd688f01d95df32b8cab9dabe7c57c"
+    },
+    {
+      "name": "spatial/original/GeoMarineCarbonateAccretion",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoMarineCarbonateAccretion.json",
+      "report_sha256": "9187d0c32249df7fe430e8d63de563c38da49b16b8eb62805ac143bc4e9746ae"
+    },
+    {
+      "name": "spatial/original/GeoRegolithProductionRate",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoRegolithProductionRate.json",
+      "report_sha256": "77d65562778bfa11e46ac04882f59d04e689bf818580d8bc4b58879759b462f7"
+    },
+    {
+      "name": "spatial/original/GeoSedimentTracerDiffusion",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSedimentTracerDiffusion.json",
+      "report_sha256": "f75b166d15582ef0685723ab9ccbc2da5406104c24eb3e4ed87a245133049c30"
+    },
+    {
+      "name": "spatial/original/GeoSpatialChannelChiCoordinate",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialChannelChiCoordinate.json",
+      "report_sha256": "a1c13fb7148325b5e50004940598006da45d4b5cc1ca358e00f28cfc2defd8ec"
+    },
+    {
+      "name": "spatial/original/GeoSpatialChannelFrechetDeviation",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialChannelFrechetDeviation.json",
+      "report_sha256": "603910b4b1ee6b1517ac769670f2d465f432e502853ce2be72bc14026c0150d0"
+    },
+    {
+      "name": "spatial/original/GeoSpatialConservativeArealTransfer",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialConservativeArealTransfer.json",
+      "report_sha256": "2a04d7cb8cdab93753894e826dd78606f5565c60dfe5363deecd4c75f5ee1d4f"
+    },
+    {
+      "name": "spatial/original/GeoSpatialContiguousRegionalization",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialContiguousRegionalization.json",
+      "report_sha256": "61c921d4f5598d8cf135ac0ee6b68fb3f20ed1acef3bcc290830b05a9901bd96"
+    },
+    {
+      "name": "spatial/original/GeoSpatialCoverageSimplification",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialCoverageSimplification.json",
+      "report_sha256": "32fa24dbcffbd3e551ac8c126dee5dc3969c8af8e0feb2d549010991d165b019"
+    },
+    {
+      "name": "spatial/original/GeoSpatialDarcySpecificDischarge",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialDarcySpecificDischarge.json",
+      "report_sha256": "8b622364c4e322c289e3dbb2086230e0a1077a8fb40c2abadb0a3523b9348630"
+    },
+    {
+      "name": "spatial/original/GeoSpatialDensityConnectedSiteClusters",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialDensityConnectedSiteClusters.json",
+      "report_sha256": "4dedffd84396deedc8c3e98d55201534b54843dcdb62555658a1004cdd8d9b9d"
+    },
+    {
+      "name": "spatial/original/GeoSpatialEventKernelDensity",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialEventKernelDensity.json",
+      "report_sha256": "b82064c91d3be801d705b05a19f39d9cebba0e059d6b654ef396ddebb55649c4"
+    },
+    {
+      "name": "spatial/original/GeoSpatialFloodplainStageStorage",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialFloodplainStageStorage.json",
+      "report_sha256": "de32deafabe61593d2f47be2f69756a057d585bdac5251cc5a406bcd5dd7f01d"
+    },
+    {
+      "name": "spatial/original/GeoSpatialFlowNetworkUpscaleIHU",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialFlowNetworkUpscaleIHU.json",
+      "report_sha256": "2f6ca6018e80d5465d47f0083aa4e866d0c95ac2c3354b38289b8ea9e89b27ff"
+    },
+    {
+      "name": "spatial/original/GeoSpatialGCPGeoreferencing",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialGCPGeoreferencing.json",
+      "report_sha256": "506ac3bcfe0fd24250397337c89ae333fc7efd2aa02bd0faaff548d9574477dc"
+    },
+    {
+      "name": "spatial/original/GeoSpatialGroundwaterZoneBudget",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialGroundwaterZoneBudget.json",
+      "report_sha256": "ab5bf5757b124f6254d356ffbfdff88ae771481ded749b7cea47c8865f1233b8"
+    },
+    {
+      "name": "spatial/original/GeoSpatialHillslopeDiffusionStep",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialHillslopeDiffusionStep.json",
+      "report_sha256": "27030468c42145214eb2ffc80886d8f29d5bc1cecdb4a853f284e180bbea1b2c"
+    },
+    {
+      "name": "spatial/original/GeoSpatialKnoxSpaceTimeInteraction",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialKnoxSpaceTimeInteraction.json",
+      "report_sha256": "f26cdf0724f2e2fd2af06d96940a4903b881f31fc25e09bada9d91ef34deceb2"
+    },
+    {
+      "name": "spatial/original/GeoSpatialLineworkPolygonTopology",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialLineworkPolygonTopology.json",
+      "report_sha256": "a7e1e3290da0a4cf8a91dd69877f95f323520dc6fc6f714f89e69363688a42ea"
+    },
+    {
+      "name": "spatial/original/GeoSpatialLocalHeteroscedasticity",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialLocalHeteroscedasticity.json",
+      "report_sha256": "fcd2333b4785989d38c15c2ee9beacf958c9c4bd8bb2fe2e4ef35f220a1c4a08"
+    },
+    {
+      "name": "spatial/original/GeoSpatialOverlandFlowStep",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialOverlandFlowStep.json",
+      "report_sha256": "7a30f8a74dc1053cec93ec02b460d8046406871e8c0bcde3d7894b68a2b33972"
+    },
+    {
+      "name": "spatial/original/GeoSpatialRPCGeolocation",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialRPCGeolocation.json",
+      "report_sha256": "25efb5b10d6760db289896cf5c82b4b6e142bda6cf276d1d4c57b73dfa82ec02"
+    },
+    {
+      "name": "spatial/original/GeoSpatialRegionBoundarySilhouette",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialRegionBoundarySilhouette.json",
+      "report_sha256": "d9723a8dfbdda588582f95e7029f8d1f888f0ac9cc42d8f653d6511b78062e87"
+    },
+    {
+      "name": "spatial/original/GeoSpatialRipleyKObservedWindow",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialRipleyKObservedWindow.json",
+      "report_sha256": "75084a67cd26e6b492a3d7a012b35c9eb177db6df40d83008f5856eb5a591531"
+    },
+    {
+      "name": "spatial/original/GeoSpatialScreenedTransmissivity",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialScreenedTransmissivity.json",
+      "report_sha256": "51c725a46041e8b4f1bb8ee8b8295b868b7c3cb4272396f18178e0694ebf329e"
+    },
+    {
+      "name": "spatial/original/GeoSpatialStreamPowerErosionStep",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialStreamPowerErosionStep.json",
+      "report_sha256": "805645b9c12d41fd68cd4e8e290a41b3e8b4bf73a2b5e9e07e92070816dfc6ee"
+    },
+    {
+      "name": "spatial/original/GeoSpatialUnconfinedGroundwaterStep",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/results/GeoSpatialUnconfinedGroundwaterStep.json",
+      "report_sha256": "0dcaba1bf962bb0b895f995d156f90f64def57203a4b589348fedc0b12cc18e0"
+    },
+    {
+      "name": "geology/unchanged_private_copy",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-unchanged_private_copy/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "86e943235cd026061d2d65ca9602baf1acc875c59cbeeeb220ffed3962850acf"
+    },
+    {
+      "name": "geology/raw_failed_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-raw_failed_rehashed/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "ace09881d76cbcad8f9daa3bf580c9a847362603eadeb06807f21258a5712c2f",
+      "exception_type": "AssertionError",
+      "error": "Raw report identity/status"
+    },
+    {
+      "name": "geology/wrong_tool_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-wrong_tool_rehashed/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "f7abd3167c06d8378d07b74f5edae406b5f0d364ca9f76e93849faf9800e5a68",
+      "exception_type": "AssertionError",
+      "error": "Raw report identity/status"
+    },
+    {
+      "name": "geology/wrong_source_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-wrong_source_rehashed/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "44c2b2f1d9a1990a23fea1913da73121ddac96cbace07b955ca5aa546b95d68a",
+      "exception_type": "AssertionError",
+      "error": "Wrong raw source root"
+    },
+    {
+      "name": "geology/empty_execution_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-empty_execution_rehashed/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "4dfd0f9cf47f69793aa1c7a33f8b30152baf51b1a6c58c8026bfba022f2540f3",
+      "exception_type": "AssertionError",
+      "error": "Executed call count differs from receipt"
+    },
+    {
+      "name": "geology/count_inflated",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-count_inflated/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "86e943235cd026061d2d65ca9602baf1acc875c59cbeeeb220ffed3962850acf",
+      "exception_type": "AssertionError",
+      "error": "Executed call count differs from receipt"
+    },
+    {
+      "name": "geology/skipped_receipt",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-skipped_receipt/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "86e943235cd026061d2d65ca9602baf1acc875c59cbeeeb220ffed3962850acf",
+      "exception_type": "AssertionError",
+      "error": "Failed/skipped/empty receipt"
+    },
+    {
+      "name": "geology/failed_receipt_count",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-failed_receipt_count/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "86e943235cd026061d2d65ca9602baf1acc875c59cbeeeb220ffed3962850acf",
+      "exception_type": "AssertionError",
+      "error": "Failed/skipped/empty receipt"
+    },
+    {
+      "name": "geology/case_skipped",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-case_skipped/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "683b237fce1d776cc987030bf00e28ec88c58522ee5a9171ba5bba45a90e234b",
+      "exception_type": "AssertionError",
+      "error": "Failed/empty geology checks"
+    },
+    {
+      "name": "geology/duplicate_case",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-duplicate_case/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "e1ecbde7990c0877764782ceba335b5e74f646c9ee3a69d26b943e2fef79f098",
+      "exception_type": "AssertionError",
+      "error": "Executed call count differs from receipt"
+    },
+    {
+      "name": "geology/nested_wrong_tool",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-nested_wrong_tool/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "24f393e486bf6f61a8ffd64b6a9c7a3dac4e3937702197240fe7e89e52e7322a",
+      "exception_type": "AssertionError",
+      "error": "Wrong tool or cached-only execution"
+    },
+    {
+      "name": "geology/nested_cached_success",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-nested_cached_success/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "b7eae2f40a745e9e07cf140ec1e39b0843c369ec44c0d37e56cbeeb7f5c4aec2",
+      "exception_type": "AssertionError",
+      "error": "Wrong tool or cached-only execution"
+    },
+    {
+      "name": "geology/nested_no_execution",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-nested_no_execution/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "22acfcaa532b53d84e3bab8cd54dea2536e83025c909652ea2a4c0e8f1bb8c9f",
+      "exception_type": "AssertionError",
+      "error": "No successful execution"
+    },
+    {
+      "name": "geology/nested_import_only",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-nested_import_only/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "c907e84166fb523683ae28f49239eb59b405e22ed83f02878c6aefb5fc434756",
+      "exception_type": "AssertionError",
+      "error": "No scientific result"
+    },
+    {
+      "name": "geology/nested_wrong_source",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-nested_wrong_source/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "e5de32559b287a5423ab3aab835ccf25d1d2915278981b6211f10c94b729644e",
+      "exception_type": "AssertionError",
+      "error": "Wrong implementation source"
+    },
+    {
+      "name": "geology/nested_failed_positive",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-nested_failed_positive/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "307802c8ae05628a6f454ebbb4e97f5421fd4920628cecadcc5afe284abd2ecb",
+      "exception_type": "AssertionError",
+      "error": "Geology response mismatch"
+    },
+    {
+      "name": "geology/nested_hash_mismatch",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geology-nested_hash_mismatch/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "de4d78a4659ec4d67120c3cea469a7789b0031241ab27f9f9efd00fa623872be",
+      "exception_type": "AssertionError",
+      "error": "Evidence hash mismatch: /data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r3.bundle/results/Geo500BondValenceOxidation/0001-baseline-dict.response.json"
+    },
+    {
+      "name": "remote/unchanged_private_copy",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-unchanged_private_copy/raw.json",
+      "report_sha256": "31da72025bff2b2b25cf8f1fa26351a6604a51359f31c5c7f50cbc732b506c10"
+    },
+    {
+      "name": "remote/raw_failed_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-raw_failed_rehashed/raw.json",
+      "report_sha256": "8b941ebd9f34e38a01e6cba3d8ff9e68c5c1773a27f1965b9c0bdfbd3b7ab116",
+      "exception_type": "AssertionError",
+      "error": "Raw report identity/status"
+    },
+    {
+      "name": "remote/wrong_tool_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-wrong_tool_rehashed/raw.json",
+      "report_sha256": "a79cc08ad2f7666c20cad6f3f63e2ae66e66ecfd47be0afe8058804db5b1c60e",
+      "exception_type": "AssertionError",
+      "error": "Raw report identity/status"
+    },
+    {
+      "name": "remote/wrong_source_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-wrong_source_rehashed/raw.json",
+      "report_sha256": "e2983f0598efc3193e1aaf170fe681ec2e29203aa692336cff49b8e4f27e9340",
+      "exception_type": "AssertionError",
+      "error": "Wrong raw source root"
+    },
+    {
+      "name": "remote/empty_execution_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-empty_execution_rehashed/raw.json",
+      "report_sha256": "0696e1072f61078890880c4aec230a0a41e21a6f24ae5ab05bac5bf13dc61eab",
+      "exception_type": "AssertionError",
+      "error": "Executed call count differs from receipt"
+    },
+    {
+      "name": "remote/count_inflated",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-count_inflated/raw.json",
+      "report_sha256": "31da72025bff2b2b25cf8f1fa26351a6604a51359f31c5c7f50cbc732b506c10",
+      "exception_type": "AssertionError",
+      "error": "Raw/receipt count mismatch: passed_calls"
+    },
+    {
+      "name": "remote/skipped_receipt",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-skipped_receipt/raw.json",
+      "report_sha256": "31da72025bff2b2b25cf8f1fa26351a6604a51359f31c5c7f50cbc732b506c10",
+      "exception_type": "AssertionError",
+      "error": "Failed/skipped/empty receipt"
+    },
+    {
+      "name": "remote/failed_receipt_count",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-failed_receipt_count/raw.json",
+      "report_sha256": "31da72025bff2b2b25cf8f1fa26351a6604a51359f31c5c7f50cbc732b506c10",
+      "exception_type": "AssertionError",
+      "error": "Failed/skipped/empty receipt"
+    },
+    {
+      "name": "remote/case_skipped",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-case_skipped/raw.json",
+      "report_sha256": "b5eaf90ed244842f29b372c84e4bd09a59f038a29bdd226e84a1e742c34d1e00",
+      "exception_type": "AssertionError",
+      "error": "Remote failed/wrong case"
+    },
+    {
+      "name": "remote/duplicate_case",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-duplicate_case/raw.json",
+      "report_sha256": "0eb39f730c617f16bfd055a50fb48062021cd35b60565e397ec39930334187e0",
+      "exception_type": "AssertionError",
+      "error": "Executed call count differs from receipt"
+    },
+    {
+      "name": "remote/nested_wrong_tool",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-nested_wrong_tool/raw.json",
+      "report_sha256": "e1e92715da29af2a9bc2bbf39cc848c6130e0ef49557bd040e1283a1ac93fcf0",
+      "exception_type": "AssertionError",
+      "error": "Wrong tool or cached-only execution"
+    },
+    {
+      "name": "remote/nested_cached_success",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-nested_cached_success/raw.json",
+      "report_sha256": "e2310659d86fff37abfe1f7126f919e091d061f4d1131ad5a86ebfe3ef5709b3",
+      "exception_type": "AssertionError",
+      "error": "Wrong tool or cached-only execution"
+    },
+    {
+      "name": "remote/nested_no_execution",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-nested_no_execution/raw.json",
+      "report_sha256": "c9fa8477aed5ee5a6a1ceaad529b3bb22fe36415ce2d4af5a171ee7fe3949e45",
+      "exception_type": "AssertionError",
+      "error": "No successful execution"
+    },
+    {
+      "name": "remote/nested_import_only",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-nested_import_only/raw.json",
+      "report_sha256": "8d65d527990585262d50c054713143d072dbe6b0c3d71fdbdc1f42cb833f6272",
+      "exception_type": "AssertionError",
+      "error": "No scientific result"
+    },
+    {
+      "name": "remote/nested_wrong_source",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-nested_wrong_source/raw.json",
+      "report_sha256": "27137bd5ec52b4e8b63c6485368c32978d24e4b1b14a23732511f571d48414d8",
+      "exception_type": "AssertionError",
+      "error": "Wrong implementation source"
+    },
+    {
+      "name": "remote/nested_failed_positive",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-nested_failed_positive/raw.json",
+      "report_sha256": "6ed2452f86d93d979f17ca27f56c8932c915779c150869d0e0891be86bd9d8b7",
+      "exception_type": "AssertionError",
+      "error": "Unexpected API outcome"
+    },
+    {
+      "name": "remote/nested_hash_mismatch",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/remote-nested_hash_mismatch/raw.json",
+      "report_sha256": "a49f6f3b3d22c6d7b488b6e3b8d55bc52aa15e09b277c4e689bfe9d682ea5e9e",
+      "exception_type": "AssertionError",
+      "error": "Evidence hash mismatch: /data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/new-0-evidence/0000-GeoInSARAscDescDecomposition-runtime_dict.json"
+    },
+    {
+      "name": "geophysics/unchanged_private_copy",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-unchanged_private_copy/raw.json",
+      "report_sha256": "ee7aee24410a60d7e4a4622ca06a7d71b04affd67571c08d06450a4b957acc53"
+    },
+    {
+      "name": "geophysics/raw_failed_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-raw_failed_rehashed/raw.json",
+      "report_sha256": "a99c0e734fccc4c9647b309d721e8982b680185070702fcc6fd93081152cfde3",
+      "exception_type": "AssertionError",
+      "error": "Raw report identity/status"
+    },
+    {
+      "name": "geophysics/wrong_tool_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-wrong_tool_rehashed/raw.json",
+      "report_sha256": "e170841b758a794c118fa578c5632c6013ab1bb7327b2bc2a28615c5350074b3",
+      "exception_type": "AssertionError",
+      "error": "Raw report identity/status"
+    },
+    {
+      "name": "geophysics/wrong_source_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-wrong_source_rehashed/raw.json",
+      "report_sha256": "a10dcb0781534766c8d7a61d2a1aeff45973831bd0500d8fc83bfa86bd3e179c",
+      "exception_type": "AssertionError",
+      "error": "Wrong raw source root"
+    },
+    {
+      "name": "geophysics/empty_execution_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-empty_execution_rehashed/raw.json",
+      "report_sha256": "f09177cefabc266e8631c622fd9e5714d38ec22cb264cdd9386bbc4a8137d136",
+      "exception_type": "AssertionError",
+      "error": "Executed call count differs from receipt"
+    },
+    {
+      "name": "geophysics/count_inflated",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-count_inflated/raw.json",
+      "report_sha256": "ee7aee24410a60d7e4a4622ca06a7d71b04affd67571c08d06450a4b957acc53",
+      "exception_type": "AssertionError",
+      "error": "Raw/receipt count mismatch: passed_calls"
+    },
+    {
+      "name": "geophysics/skipped_receipt",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-skipped_receipt/raw.json",
+      "report_sha256": "ee7aee24410a60d7e4a4622ca06a7d71b04affd67571c08d06450a4b957acc53",
+      "exception_type": "AssertionError",
+      "error": "Failed/skipped/empty receipt"
+    },
+    {
+      "name": "geophysics/failed_receipt_count",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-failed_receipt_count/raw.json",
+      "report_sha256": "ee7aee24410a60d7e4a4622ca06a7d71b04affd67571c08d06450a4b957acc53",
+      "exception_type": "AssertionError",
+      "error": "Failed/skipped/empty receipt"
+    },
+    {
+      "name": "geophysics/case_skipped",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-case_skipped/raw.json",
+      "report_sha256": "27499296cb256cadab77fcf9dde4719403b0bd7d1fecf10fbde786f4d7c947c7",
+      "exception_type": "AssertionError",
+      "error": "Geophysics failed/wrong case"
+    },
+    {
+      "name": "geophysics/duplicate_case",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-duplicate_case/raw.json",
+      "report_sha256": "659c434c398e1a426f97ab7a619d5da829927c756995f845d77113747061e223",
+      "exception_type": "AssertionError",
+      "error": "Executed call count differs from receipt"
+    },
+    {
+      "name": "geophysics/nested_wrong_tool",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-nested_wrong_tool/raw.json",
+      "report_sha256": "6a75f2bba687dc4b9ee8d539d47329a006148dd457e5f5a73f037779192338e3",
+      "exception_type": "AssertionError",
+      "error": "Wrong tool or cached-only execution"
+    },
+    {
+      "name": "geophysics/nested_cached_success",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-nested_cached_success/raw.json",
+      "report_sha256": "3c74658567d7a234eddd255b65cabbe69980a72b17ef177d83f1b30810bfd6d5",
+      "exception_type": "AssertionError",
+      "error": "Wrong tool or cached-only execution"
+    },
+    {
+      "name": "geophysics/nested_no_execution",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-nested_no_execution/raw.json",
+      "report_sha256": "b2030e637d7faf101da2467bf999972441a5edf67b41a375fb62b3d0faeed914",
+      "exception_type": "AssertionError",
+      "error": "No successful execution"
+    },
+    {
+      "name": "geophysics/nested_import_only",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-nested_import_only/raw.json",
+      "report_sha256": "6392be0118c57295df64b858883f6f885a99cc1fc36b984aac7e4b804861b5c8",
+      "exception_type": "AssertionError",
+      "error": "No scientific result"
+    },
+    {
+      "name": "geophysics/nested_wrong_source",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-nested_wrong_source/raw.json",
+      "report_sha256": "1f818cf3448d294bc7a77234e842a65184003921b610ae1b2cac326c3ed081df",
+      "exception_type": "AssertionError",
+      "error": "Wrong implementation source"
+    },
+    {
+      "name": "geophysics/nested_failed_positive",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-nested_failed_positive/raw.json",
+      "report_sha256": "1783f57337d46a7ec7cdfd20b65a3cf90fb72554efd3fe088b57916294822a38",
+      "exception_type": "AssertionError",
+      "error": "Unexpected API outcome"
+    },
+    {
+      "name": "geophysics/nested_hash_mismatch",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/geophysics-nested_hash_mismatch/raw.json",
+      "report_sha256": "18cc0e259327b074574c161640fe0ffd389cf742c1442799a3314e19bf5f052d",
+      "exception_type": "AssertionError",
+      "error": "Evidence hash mismatch: /data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/ready23/call-00000/request.txt"
+    },
+    {
+      "name": "spatial/unchanged_private_copy",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-unchanged_private_copy/raw.json",
+      "report_sha256": "1a8632c6b1d3d568db0c131c57c42425a8bd688f01d95df32b8cab9dabe7c57c"
+    },
+    {
+      "name": "spatial/raw_failed_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-raw_failed_rehashed/raw.json",
+      "report_sha256": "7f871eee1179771fe10cdde7b8dc755dca3b5f29f778ddd4421510cf8d967ffe",
+      "exception_type": "AssertionError",
+      "error": "Raw report identity/status"
+    },
+    {
+      "name": "spatial/wrong_tool_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-wrong_tool_rehashed/raw.json",
+      "report_sha256": "d1887e55d94a286121df899e55731afbf56a864b78711881762753ca38e6ac1a",
+      "exception_type": "AssertionError",
+      "error": "Raw report identity/status"
+    },
+    {
+      "name": "spatial/wrong_source_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-wrong_source_rehashed/raw.json",
+      "report_sha256": "95dbeae020c2c05680945c80f5ee2b622592ce48765cb6442530f604a99aefe1",
+      "exception_type": "AssertionError",
+      "error": "Wrong raw source root"
+    },
+    {
+      "name": "spatial/empty_execution_rehashed",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-empty_execution_rehashed/raw.json",
+      "report_sha256": "11c4cca88d4a2eb6b52daf5eae138f90a0fdfd2864df56b2bbcc0737fe062fda",
+      "exception_type": "AssertionError",
+      "error": "Missing spatial positives"
+    },
+    {
+      "name": "spatial/count_inflated",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-count_inflated/raw.json",
+      "report_sha256": "1a8632c6b1d3d568db0c131c57c42425a8bd688f01d95df32b8cab9dabe7c57c",
+      "exception_type": "AssertionError",
+      "error": "Raw/receipt count mismatch: passed_calls"
+    },
+    {
+      "name": "spatial/skipped_receipt",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-skipped_receipt/raw.json",
+      "report_sha256": "1a8632c6b1d3d568db0c131c57c42425a8bd688f01d95df32b8cab9dabe7c57c",
+      "exception_type": "AssertionError",
+      "error": "Failed/skipped/empty receipt"
+    },
+    {
+      "name": "spatial/failed_receipt_count",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-failed_receipt_count/raw.json",
+      "report_sha256": "1a8632c6b1d3d568db0c131c57c42425a8bd688f01d95df32b8cab9dabe7c57c",
+      "exception_type": "AssertionError",
+      "error": "Failed/skipped/empty receipt"
+    },
+    {
+      "name": "spatial/case_skipped",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-case_skipped/raw.json",
+      "report_sha256": "32e1c8d131fc03db59cb04d07a6eda7c14bed3837a41e976ef27956a6c2b7001",
+      "exception_type": "AssertionError",
+      "error": "Spatial failed/invalid case"
+    },
+    {
+      "name": "spatial/duplicate_case",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-duplicate_case/raw.json",
+      "report_sha256": "811a52b3a85bddfb5d8a1756452529d27346bfcf3805446f8f5156b37b26da53",
+      "exception_type": "AssertionError",
+      "error": "Missing spatial positives"
+    },
+    {
+      "name": "spatial/nested_wrong_tool",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-nested_wrong_tool/raw.json",
+      "report_sha256": "ecb3c9db91256e32197e0e0a62ab3d5a09948430eff36454532fdd48ca322478",
+      "exception_type": "AssertionError",
+      "error": "Wrong tool or cached-only execution"
+    },
+    {
+      "name": "spatial/nested_cached_success",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-nested_cached_success/raw.json",
+      "report_sha256": "84f2952d7b2ad326d1832c624fbe97def7965a1e0203767a489440a7de1ca8ef",
+      "exception_type": "AssertionError",
+      "error": "Wrong tool or cached-only execution"
+    },
+    {
+      "name": "spatial/nested_no_execution",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-nested_no_execution/raw.json",
+      "report_sha256": "8113d2777ae5f0780506a71a67b8457b6c08880f05bc85ac444973418232cedd",
+      "exception_type": "AssertionError",
+      "error": "No successful execution"
+    },
+    {
+      "name": "spatial/nested_import_only",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-nested_import_only/raw.json",
+      "report_sha256": "3f68ede3e6dde8443a1542ef9217612e743ba1950ed47274eff5f6d4c3bcec9f",
+      "exception_type": "AssertionError",
+      "error": "No scientific result"
+    },
+    {
+      "name": "spatial/nested_wrong_source",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-nested_wrong_source/raw.json",
+      "report_sha256": "46fc8f52e2318af6b712bb7a2b19bfe26a6ff7089e7954d77c940610cf439e04",
+      "exception_type": "AssertionError",
+      "error": "Wrong implementation source"
+    },
+    {
+      "name": "spatial/nested_failed_positive",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-nested_failed_positive/raw.json",
+      "report_sha256": "4e1d0df828e6218f04b79e2753c1cae5c5ff4b40ec67edd8711c23a9e6cf9502",
+      "exception_type": "AssertionError",
+      "error": "Unexpected API outcome"
+    },
+    {
+      "name": "spatial/nested_hash_mismatch",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/spatial-nested_hash_mismatch/raw.json",
+      "report_sha256": "d2b4d188cfbadf3721e3ab163b6e5a39979ad1dd1ed4fe60fcda946215711c09",
+      "exception_type": "AssertionError",
+      "error": "Evidence hash mismatch: /data/wangjian/remediate121-20261026-r1/spatial/handoffs/spatial20-r3-v1/runs/r3/GeoLithosphereFlexure/result.json"
+    },
+    {
+      "name": "cohort/original_exact121",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed"
+    },
+    {
+      "name": "cohort/passed_duplicate",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Duplicate passed tool IDs"
+    },
+    {
+      "name": "cohort/excluded_duplicate",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Duplicate excluded tool IDs"
+    },
+    {
+      "name": "cohort/overlap",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Accepted and excluded cohorts overlap"
+    },
+    {
+      "name": "cohort/missing_tool",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Published cohort is not exactly replayed"
+    },
+    {
+      "name": "cohort/extra_tool",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Published cohort is not exactly replayed"
+    },
+    {
+      "name": "cohort/duplicate_exclusion_row",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Duplicate exclusion rows"
+    },
+    {
+      "name": "cohort/added_outside",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Added tool outside accepted cohort"
+    },
+    {
+      "name": "cohort/only120",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Cohort must contain exactly 121 unique IDs"
+    },
+    {
+      "name": "closure/matching_omitted_source",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed"
+    },
+    {
+      "name": "closure/wrong_profile_hash",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Staged closure source mismatch: closure.py"
+    },
+    {
+      "name": "closure/wrong_stage_hash",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Staged closure source mismatch: closure.py"
+    },
+    {
+      "name": "closure/changed_actual_bytes",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Evidence hash mismatch: /data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1/cases/closure-changed_actual_bytes/app/closure.py"
+    },
+    {
+      "name": "closure/missing_stage_entry",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Staged closure source mismatch: closure.py"
+    },
+    {
+      "name": "closure/escaping_path",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "exception_type": "AssertionError",
+      "error": "Unsafe closure source path"
+    }
+  ],
+  "python": "/data/wangjian/earth-python-coverage101-imports-20261022/venv/bin/python",
+  "python_prefix": "/data/wangjian/.local/share/geoagent/python312",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "command": [
+    "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/sources/test_real_reports.py",
+    "--sources",
+    "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/sources",
+    "--output",
+    "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/controls-r1"
+  ],
+  "source_root": "/data/wangjian/github-tools121-remediation-20261026-r2/app",
+  "group_receipts": {
+    "geology": {
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/final-r2/release-receipt.json",
+      "sha256": "e372a46fc40a1371db077c8cf07dc5b9cbe1587bb4165ccac5338d6a2d4aed66"
+    },
+    "remote": {
+      "path": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r2/release-receipt.json",
+      "sha256": "779b453956a10f252ecffc6cf0b59254333eaf7895280f9da49e23c10caad5eb"
+    },
+    "geophysics": {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/release-replay-r1/release-receipt.json",
+      "sha256": "7ed88654ecb4a56d83e998ccca11e91070feba6fb538851bb466b43310d8df69"
+    },
+    "spatial": {
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-all27-r1.d/release-receipt.json",
+      "sha256": "1384b8bb3053d06d68259064453bd5abdd3771b24b533d5cf807bcaa92daaabf"
+    }
+  },
+  "geophysics_projection": "Individual raw-tool validation only; failed original group receipt remains rejected.",
+  "status": "passed",
+  "original_files_unchanged": true,
+  "tests": 198,
+  "failed_tests": 0,
+  "validated_original_file_count": 5386
+}

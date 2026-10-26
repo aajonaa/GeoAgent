@@ -644,7 +644,7 @@ def _otb_identity(app):
     return root, root / launcher_name, manifest, _sha256_file(manifest_path)
 
 
-def _bounded_process(command, cwd, env, timeout=120):
+def _bounded_process(command, cwd, env, timeout=120, log_root=None):
     logs = {"stdout": bytearray(), "stderr": bytearray()}
     exceeded = threading.Event()
     process = subprocess.Popen(command, cwd=cwd, env=env, stdin=subprocess.DEVNULL,
@@ -686,6 +686,10 @@ def _bounded_process(command, cwd, env, timeout=120):
         code = process.wait()
         for t in threads:
             t.join(timeout=2)
+    if log_root is not None:
+        for key, value in logs.items():
+            (Path(log_root) / ("native-" + key + ".txt")).write_text(
+                bytes(value).decode("utf-8", errors="replace"), encoding="utf-8")
     if any(t.is_alive() for t in threads):
         reject("native process left open output pipes", "upstream_failure")
     if exceeded.is_set():
@@ -706,21 +710,47 @@ def _otb(app, args, root, grid, inputs, cli, expected_bands, auxiliaries=None, c
             _write_tiff(work / (name + ".tif"), data, grid)
         for name, content in (auxiliaries or {}).items():
             (work / name).write_text(content, encoding="ascii")
+        input_hashes = {p.name: _sha256_file(p) for p in work.iterdir() if p.is_file()}
         env = {"PATH": str(prefix / "bin") + ":/usr/bin:/bin", "HOME": str(work),
                "TMPDIR": str(work), "XDG_CACHE_HOME": str(work / "cache"),
-               "CUDA_VISIBLE_DEVICES": "", "OMP_NUM_THREADS": "1",
+               "CUDA_VISIBLE_DEVICES": "", "NVIDIA_VISIBLE_DEVICES": "void",
+               "HIP_VISIBLE_DEVICES": "", "ROCR_VISIBLE_DEVICES": "", "JAX_PLATFORMS": "cpu",
+               "MPLCONFIGDIR": str(work / "mpl"), "NUMBA_CACHE_DIR": str(work / "numba"),
+               "OMP_NUM_THREADS": "1",
                "OPENBLAS_NUM_THREADS": "1", "ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS": "1",
                "LD_LIBRARY_PATH": str(prefix / "lib"),
                "OTB_APPLICATION_PATH": str(prefix / "lib/otb/applications"),
                "PROJ_NETWORK": "OFF", "GDAL_DISABLE_READDIR_ON_OPEN": "EMPTY_DIR",
                "GDAL_DATA": str(prefix / "share/gdal"), "PROJ_DATA": str(prefix / "share/proj")}
         command = [str(launcher), app, str(prefix / "lib/otb/applications")] + cli
-        code, logs = _bounded_process(command, work, env)
+        code, logs = _bounded_process(command, work, env, log_root=root)
+        if any(_sha256_file(work / name) != digest for name, digest in input_hashes.items()):
+            reject("native operation changed a staged input", "invalid_output")
         output = work / "native.tif"
         if output.is_symlink() or not output.is_file() or not 0 < output.stat().st_size <= 32 * 1024 * 1024:
             reject("native raster missing, linked, empty, or oversized", "invalid_output")
         with rasterio.open(output) as ds:
-            if ds.driver != "GTiff" or ds.crs != grid["crs"] or ds.transform != grid["transform"]:
+            # OTB 9.1.1 MultiChannelsPolarimetricSynthesisFilter copies the
+            # pixel region/origin/spacing/direction but omits OTB CRS metadata.
+            # Its pixel-wise Jones projection does not resample. Restore only
+            # that missing CRS in the final wrapper raster, never a conflicting
+            # CRS or any changed affine/shape. See fixed commit 154726b379fd,
+            # Modules/FeaturesExtraction/Filtering/Polarimetry/include/
+            # otbMultiChannelsPolarimetricSynthesisFilter.hxx.
+            restore_crs = app == "SARPolarSynth" and ds.crs is None
+            transport = {"staged_input_sha256": input_hashes,
+                         "native_output_sha256": _sha256_file(output),
+                         "native_crs": ds.crs.to_string() if ds.crs else None,
+                         "native_affine": list(ds.transform)[:6],
+                         "native_shape": [ds.count, ds.height, ds.width],
+                         "native_dtypes": list(ds.dtypes),
+                         "crs_restored_from_input": restore_crs,
+                         "final_crs": grid["crs"].to_string()}
+            (Path(root) / "native-raster-transport.json").write_text(
+                json.dumps(transport, sort_keys=True, indent=2) + "\n", encoding="utf-8")
+            if ds.driver != "GTiff" or ds.transform != grid["transform"]:
+                reject("native output lost or changed CRS/affine", "invalid_output")
+            if ds.crs != grid["crs"] and not restore_crs:
                 reject("native output lost or changed CRS/affine", "invalid_output")
             if (ds.height, ds.width, ds.count) != (grid["height"], grid["width"], expected_bands):
                 reject("native output dimensions/bands mismatch", "invalid_output")
@@ -1081,7 +1111,12 @@ def coherence_network_selection(args, output_dir=None):
         reject("one mean coherence in (0,1] per actual interferogram")
     matrix = ifgramStack.get_design_matrix4timeseries(pairs, refDate=args["dates"][0])[0]
     _rank(matrix, len(dates) - 1, "input interferogram network")
-    mst, _ = get_mst_date12(True, coherence.tolist(), pairs, [], args["minimum_coherence"])
+    # MintPy 1.6.4 get_mst_date12 sorts date12_to_keep, but keeps par_to_keep
+    # in caller order. Align both sequences before calling that unchanged
+    # upstream MST implementation; preserve caller order in the output table.
+    ordered = sorted(zip(pairs, coherence.tolist()))
+    mst, _ = get_mst_date12(True, [v for _, v in ordered], [p for p, _ in ordered],
+                          [], args["minimum_coherence"])
     if any(p not in pairs for p in mst):
         reject("upstream MST returned a non-input pair", "invalid_output")
     keep = [p in mst or value >= args["minimum_coherence"] for p, value in zip(pairs, coherence)]

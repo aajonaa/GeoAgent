@@ -405,9 +405,13 @@ def screened_transmissivity(args):
 def _cbc_path_and_header(args, zones):
     np = _np()
     raw = Path(args["budget_path"])
-    if raw.is_absolute() or ".." in raw.parts:
-        reject("budget_path must be workspace-relative", "invalid_path")
     root = Path.cwd().resolve()
+    # source_registry._handler snapshots declared input files under this
+    # workspace directory and passes their absolute paths to the adapter.
+    # Accept only that runtime namespace; public direct inputs stay relative.
+    runtime_snapshot = raw.is_absolute() and raw.is_relative_to(root / ".agent/source-inputs")
+    if (raw.is_absolute() and not runtime_snapshot) or ".." in raw.parts:
+        reject("budget_path must be workspace-relative", "invalid_path")
     path = root / raw
     for part in (path, *path.parents):
         if part == root:
@@ -888,6 +892,13 @@ def unconfined_groundwater_step(args):
                                 regularization_f=.01,courant_coefficient=.5,
                                 vn_coefficient=.8).run_one_step(dt)
     final = np.asarray(_node(g,"water_table__elevation"))
+    if args["boundary"] == "closed":
+        # GroundwaterDupuitPercolator uses zero thickness at inactive closed
+        # guard nodes and reconstructs their internal head from the base.
+        # Preserve the caller's guard values in the raster serialization;
+        # these are excluded by core_mask and never change the upstream solve.
+        core = np.asarray(_core_mask(g))
+        final[~core] = head[~core]
     if np.any(final < base) or np.any(final > top):
         reject("water table left physical aquifer bounds", "upstream_failure")
     return _pack("landlab.GroundwaterDupuitPercolator_single_step",
@@ -936,7 +947,9 @@ def marine_carbonate_accretion(args):
     if np.any(z >= sea) or dt*rate >= float((sea-z).min()):
         reject("this fully submerged step must remain submerged; reduce dt or use a tidal/emergent model")
     _add_node(g,"topographic__elevation",z)
-    g.at_grid["sea_level__elevation"] = sea
+    # Landlab declares this grid field as float even when JSON supplied an
+    # exactly representable integer sea level (for example, zero metres).
+    g.at_grid["sea_level__elevation"] = float(sea)
     comp = CarbonateProducer(g,max_carbonate_production_rate=rate,
                              extinction_coefficient=args["extinction_m_inverse"],
                              surface_light=args["surface_light"],

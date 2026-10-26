@@ -1,0 +1,323 @@
+{
+  "id": "GeoInSARIonosphericDelay",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoInSARIonosphericDelay",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoInSARIonosphericDelay (remote_original_cases.RemoteCases.test_registry_GeoInSARIonosphericDelay) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "cdf82f94a5f670c912868ca0a81a384474f001b9adad2c121a5df8f26f370ecc",
+          "ionospheric-los-delay.tif": "47ab4602f2ccf9e1294a4c964339fc018e70c628b96862373940c4155f71d61f",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "e9ef4d831f7a6d2a27ee972f41995eb6b02707611f363e681a9b6ab4fca7f6cb"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "cdf82f94a5f670c912868ca0a81a384474f001b9adad2c121a5df8f26f370ecc",
+          "ionospheric-los-delay.tif": "47ab4602f2ccf9e1294a4c964339fc018e70c628b96862373940c4155f71d61f",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "e9ef4d831f7a6d2a27ee972f41995eb6b02707611f363e681a9b6ab4fca7f6cb"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_dict/results/719d5fa75c544484a90878983192b706",
+        "artifacts": {
+          "band-summary.csv": "cdf82f94a5f670c912868ca0a81a384474f001b9adad2c121a5df8f26f370ecc",
+          "ionospheric-los-delay.tif": "47ab4602f2ccf9e1294a4c964339fc018e70c628b96862373940c4155f71d61f",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "e9ef4d831f7a6d2a27ee972f41995eb6b02707611f363e681a9b6ab4fca7f6cb"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_json/results/3c0fb4e53a774e6791b86e31a251bd53",
+        "artifacts": {
+          "band-summary.csv": "cdf82f94a5f670c912868ca0a81a384474f001b9adad2c121a5df8f26f370ecc",
+          "ionospheric-los-delay.tif": "47ab4602f2ccf9e1294a4c964339fc018e70c628b96862373940c4155f71d61f",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "e9ef4d831f7a6d2a27ee972f41995eb6b02707611f363e681a9b6ab4fca7f6cb"
+        }
+      }
+    },
+    "independent_delay_subtraction_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "5a1fe3f56ced72dd82d394d8ba7315e6ac938fd594d62f46109b880cd7217022",
+          "ionospheric-los-delay.tif": "47ab4602f2ccf9e1294a4c964339fc018e70c628b96862373940c4155f71d61f",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "0806d717ab42a181c0d8bd487d027eadb1325aae99f22b71b3913fff6409737a"
+        }
+      }
+    },
+    "independent_delay_subtraction_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "5a1fe3f56ced72dd82d394d8ba7315e6ac938fd594d62f46109b880cd7217022",
+          "ionospheric-los-delay.tif": "47ab4602f2ccf9e1294a4c964339fc018e70c628b96862373940c4155f71d61f",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "0806d717ab42a181c0d8bd487d027eadb1325aae99f22b71b3913fff6409737a"
+        }
+      }
+    },
+    "independent_delay_subtraction_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_runtime_dict/results/dcd56b8453a24d6caba89e3185780778",
+        "artifacts": {
+          "band-summary.csv": "5a1fe3f56ced72dd82d394d8ba7315e6ac938fd594d62f46109b880cd7217022",
+          "ionospheric-los-delay.tif": "47ab4602f2ccf9e1294a4c964339fc018e70c628b96862373940c4155f71d61f",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "0806d717ab42a181c0d8bd487d027eadb1325aae99f22b71b3913fff6409737a"
+        }
+      }
+    },
+    "independent_delay_subtraction_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/independent_delay_subtraction_runtime_json/results/a3e7abe036d64736833eb129790b01e4",
+        "artifacts": {
+          "band-summary.csv": "5a1fe3f56ced72dd82d394d8ba7315e6ac938fd594d62f46109b880cd7217022",
+          "ionospheric-los-delay.tif": "47ab4602f2ccf9e1294a4c964339fc018e70c628b96862373940c4155f71d61f",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "0806d717ab42a181c0d8bd487d027eadb1325aae99f22b71b3913fff6409737a"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoInSARIonosphericDelay",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoInSARIonosphericDelay (remote_original_cases.RemoteCases.test_reject_extra_GeoInSARIonosphericDelay) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoInSARIonosphericDelay",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoInSARIonosphericDelay (remote_original_cases.RemoteCases.test_reject_unit_GeoInSARIonosphericDelay) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoInSARIonosphericDelay",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoInSARIonosphericDelay (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoInSARIonosphericDelay) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoInSARIonosphericDelay",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoInSARIonosphericDelay (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoInSARIonosphericDelay) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoInSARIonosphericDelay",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoInSARIonosphericDelay (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoInSARIonosphericDelay) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoInSARIonosphericDelay",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoInSARIonosphericDelay (remote_original_cases.RemoteCases.test_reject_singular_GeoInSARIonosphericDelay) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoInSARIonosphericDelay",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoInSARIonosphericDelay (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoInSARIonosphericDelay) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARIonosphericDelay/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

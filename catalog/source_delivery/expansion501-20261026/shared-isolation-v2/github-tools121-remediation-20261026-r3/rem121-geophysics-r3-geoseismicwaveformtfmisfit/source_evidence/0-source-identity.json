@@ -1,0 +1,24 @@
+{
+  "canonical_source_policy": "Original canonical public PyPI archive URLs/hashes and installed source hashes are retained in the referenced inventories.",
+  "frozen_adapter": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/geological_agent/geology/expansion501_geophysics.py",
+    "sha256": "d44695e4b89c010a379715794d740e6415f84a238b8201418b9eb1c9b7af79c2"
+  },
+  "full_environment_lock": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/environment-evidence/requirements-full.txt",
+    "sha256": "37833113b96c33f992fd4e29db672a5fe0133226ada76590b432f0b1aa3c7e94"
+  },
+  "installed_distribution_file_inventory": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/environment-evidence/dependency-lock.json",
+    "sha256": "dc510c5d3a9218041a0f5cdc169710f9aafa2bac66e1a9b67dbe8c1dafaeb571"
+  },
+  "patch_manifest": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/patch-manifest.json",
+    "sha256": "fe2d3ba6a01b5511b0afb7ec5f6540cc6793fc397ee956a0b49df82e1d5ccc9b"
+  },
+  "project_local_dynamic_imports": [],
+  "upstream_source_inventory": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/environment-evidence/sources.json",
+    "sha256": "a361288e88de5ca1585d11b10127cf9de576238fa7bab895a24a17045ce0c1ef"
+  }
+}

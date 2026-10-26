@@ -1,0 +1,65 @@
+{
+  "legal_certification_or_redistribution_approval": false,
+  "license_review_complete": true,
+  "reviewed_original_files": [
+    {
+      "distribution": "pymatgen",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/venv/lib/python3.12/site-packages/pymatgen-2026.10.24.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/licenses/pymatgen/pymatgen-2026.10.24.dist-info/licenses/LICENSE",
+      "review": "Read original pinned-wheel LICENSE: MIT, MIT and Regents of the University of California through Lawrence Berkeley National Laboratory, 2011-2012. Retain copyright/permission notice and warranty/liability disclaimer.",
+      "sha256": "7e8f24f9b40be59291c7d82819edb8e93fb344f1d53997880e7db80bbc4f5d89",
+      "version": "2026.10.24"
+    },
+    {
+      "distribution": "pymatgen-core",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/venv/lib/python3.12/site-packages/pymatgen_core-2026.10.16.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/licenses/pymatgen-core/pymatgen_core-2026.10.16.dist-info/licenses/LICENSE",
+      "review": "Read original pinned-wheel LICENSE: MIT, same original notice as pymatgen. Retain copyright/permission notice and warranty/liability disclaimer; actual wheel source hash remains separately recorded from reviewed repository commit.",
+      "sha256": "7e8f24f9b40be59291c7d82819edb8e93fb344f1d53997880e7db80bbc4f5d89",
+      "version": "2026.10.16"
+    },
+    {
+      "distribution": "spglib",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/venv/lib/python3.12/site-packages/spglib-2.8.0.dist-info/licenses/COPYING",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/licenses/spglib/spglib-2.8.0.dist-info/licenses/COPYING",
+      "review": "Read original pinned-wheel COPYING: BSD-3-Clause, Spglib team 2024. Retain notices and disclaimer in source/binary distribution, and observe no-endorsement condition. Original text contains organization/copyright-holder placeholders; preserved verbatim.",
+      "sha256": "9c4e602ce15bf48206dad105b666ddaeedba747eeda6465807106bc11f4f587f",
+      "version": "2.8.0"
+    },
+    {
+      "distribution": "spglib",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/venv/lib/python3.12/site-packages/spglib-2.8.0.dist-info/licenses/COPYING",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/licenses/spglib/spglib-2.8.0.dist-info/licenses/COPYING",
+      "qualification": "Original license shipped in the pinned published artifact. Reviewed repository commit is separately recorded; no wheel/commit byte-equivalence asserted. ",
+      "review": "Read original pinned-wheel COPYING: BSD-3-Clause, Spglib team 2024. Retain notices and disclaimer in source/binary distribution, and observe no-endorsement condition. Original text contains organization/copyright-holder placeholders; preserved verbatim.",
+      "sha256": "9c4e602ce15bf48206dad105b666ddaeedba747eeda6465807106bc11f4f587f",
+      "source_commit": "3ebd8ac3318793932baeee90b44f453a7c35b5b4",
+      "url": "https://files.pythonhosted.org/packages/ad/9f/4e6e0e177bd69425f7492dae3f45f49b657e435a38854ba3e42e7534cf23/spglib-2.8.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "version": "2.8.0"
+    },
+    {
+      "distribution": "pymatgen-core",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/venv/lib/python3.12/site-packages/pymatgen_core-2026.10.16.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/licenses/pymatgen-core/pymatgen_core-2026.10.16.dist-info/licenses/LICENSE",
+      "qualification": "Original license shipped in the pinned published artifact. Reviewed repository commit is separately recorded; no wheel/commit byte-equivalence asserted. ",
+      "review": "Read original pinned-wheel LICENSE: MIT, same original notice as pymatgen. Retain copyright/permission notice and warranty/liability disclaimer; actual wheel source hash remains separately recorded from reviewed repository commit.",
+      "sha256": "7e8f24f9b40be59291c7d82819edb8e93fb344f1d53997880e7db80bbc4f5d89",
+      "source_commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "url": "https://files.pythonhosted.org/packages/64/79/9bcd3970ff44148bd0951a41f327296f651d42db40a5f691d4150eb49bfe/pymatgen_core-2026.10.16-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "version": "2026.10.16"
+    },
+    {
+      "distribution": "pymatgen",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/venv/lib/python3.12/site-packages/pymatgen-2026.10.24.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/crystals/licenses/pymatgen/pymatgen-2026.10.24.dist-info/licenses/LICENSE",
+      "qualification": "Original license shipped in the pinned published artifact. Reviewed repository commit is separately recorded; no wheel/commit byte-equivalence asserted. ",
+      "review": "Read original pinned-wheel LICENSE: MIT, MIT and Regents of the University of California through Lawrence Berkeley National Laboratory, 2011-2012. Retain copyright/permission notice and warranty/liability disclaimer.",
+      "sha256": "7e8f24f9b40be59291c7d82819edb8e93fb344f1d53997880e7db80bbc4f5d89",
+      "source_commit": "e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26",
+      "url": "https://files.pythonhosted.org/packages/4a/f0/0207ab3a15f86200f4fe798eb0f05eab0237380d8574b0d9f1ee107bc875/pymatgen-2026.10.24-py3-none-any.whl",
+      "version": "2026.10.24"
+    }
+  ],
+  "scope": "Original frozen upstream files read; published wheels and reviewed commits are distinct identities. No legal certification or redistribution approval asserted.",
+  "tool_id": "Geo500WulffCrystalHabit"
+}

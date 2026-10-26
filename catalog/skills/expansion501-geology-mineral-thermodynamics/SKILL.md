@@ -1,52 +1,61 @@
 ---
 id: expansion501_geology_mineral_thermodynamics
 name: "Mineral formula, reactions and thermodynamic evidence"
-description: "CPU-accepted operations for Mineral formula, reactions and thermodynamic evidence; use only the listed available subset."
+description: "CPU-accepted scientific operations for Mineral formula, reactions and thermodynamic evidence"
 tools:
   - Geo500MineralOxygenBasisFormula
+  - Geo500MineralReactionBalance
+  - Geo500MineralPhaseHull
+  - Geo500PeriodicIonicLatticeEnergy
   - Geo500MineralNeutronContrast
+  - Geo500MineralEhPHStability
 ---
 
 # Mineral formula, reactions and thermodynamic evidence
 
 ## When to use
 
-Select one of the available scientific operations below. Do not substitute an unavailable operation.
+Select only an available operation whose scientific assumptions match the task.
 
 ## Required inputs
 
-Use each operation's closed input schema, declared units, source data and explicit spatial/temporal conventions.
+Use the closed native input schema, explicit units, source data, coordinate system and time conventions.
 
 ## Workflow
 
-1. Check the scientific assumptions, units and input provenance.
-2. Select the listed native tool and use its exact parameter schema.
-3. Inspect numeric outputs, uncertainty, artifact hashes and error state.
-4. Report only executed results; do not infer mineral presence, grade or reserves from image proxies.
+1. Inspect source provenance and scientific applicability.
+2. Call the selected native operation with its exact schema.
+3. Inspect numerical results, units, errors and source/input/output hashes.
+4. Deliver only actual validated results and their scientific limitations.
 
 ## Available operations
 
 - `Geo500MineralOxygenBasisFormula`: Recalculate measured simple-oxide mineral analyses to an explicit fixed oxygen basis.
+- `Geo500MineralReactionBalance`: Balance a unique mineral reaction without changing participant sides.
+- `Geo500MineralPhaseHull`: Evaluate decomposition and energy above a composition-energy convex hull.
+- `Geo500PeriodicIonicLatticeEnergy`: Compute neutral three-dimensional periodic ionic Coulomb energy.
 - `Geo500MineralNeutronContrast`: Compute tabulated neutron scattering contrast and macroscopic attenuation of mineral compositions.
+- `Geo500MineralEhPHStability`: Evaluate single-metal solid/ion stability at explicit pH and SHE potential.
 
 ## Constraints
 
-Offline CPU execution only. No downloads, package installation, arbitrary commands or generated algorithms during a tool call.
-Retain input/output schemas, upstream algorithms, dependency pins and explicit error handling.
+Offline CPU-only execution. Never install packages, download data or substitute generated algorithms during a call.
+Fixed dependency environments retain the original upstream algorithms, exact versions and license notices.
+Do not infer mineral presence, grade or reserves from indirect imagery indices.
 
 ## Expected outputs
 
-Schema-validated numeric JSON, declared units, file artifacts where applicable and source/input/output provenance.
+Schema-validated numerical JSON, declared units, original evidence and declared artifacts with content hashes.
 
 ## Source interface and delivery
 
-Call the native function with its declared input object. Standalone examples are in catalog/source_delivery/examples.json.
-The implementation and dependency lock remain bound to the recorded upstream source.
+Use the native function input object. Standalone examples are in catalog/source_delivery/examples.json.
+Runtime profiles bind the source, interpreter, exact dependency lock and CPU execution evidence.
 
 ### Current availability
 
 `tool_candidates_available_workflow_unverified`
 
-Only the operations listed above passed this release's internal CPU acceptance. This does not establish complete model-driven workflow validation or AI Lab approval.
+The listed operations passed internal CPU acceptance; this is not model-driven workflow acceptance or AI Lab approval.
 Scientific platform validation: `not_run`. Lab submission: `not_submitted`.
-Deployment and Git status are recorded separately in the release receipt.
+Deployment, Git and browser acceptance are recorded separately in release receipts.

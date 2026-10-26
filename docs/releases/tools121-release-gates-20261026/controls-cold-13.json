@@ -1,0 +1,146 @@
+{
+  "status": "passed",
+  "gpu_used": false,
+  "test_only": true,
+  "cases": [
+    {
+      "name": "complete_real_copy",
+      "expected": "accepted",
+      "actual": "accepted",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/complete_real_copy/raw.json",
+      "report_sha256": "afd14cc45afa28e989216c6cf24535512acd544986332e3fae4e87dbe1dfa7da"
+    },
+    {
+      "name": "wrong_directory",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/wrong_directory/raw.json",
+      "report_sha256": "5822b341822f03d71855b776b0c2686ba8dd42c76e501523b3eb65d871b7670e",
+      "exception_type": "AssertionError",
+      "error": "Cold-cache job differs from actual inner execution"
+    },
+    {
+      "name": "wrong_source_hash",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/wrong_source_hash/raw.json",
+      "report_sha256": "0366c3c572d35fc4d0fb814243b42f1ffed763670d7d585ab3d5d4179d3c5f2e",
+      "exception_type": "AssertionError",
+      "error": "Evidence hash mismatch: /data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/source-binding.json"
+    },
+    {
+      "name": "missing_field",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/missing_field/raw.json",
+      "report_sha256": "6f72e440947bd0420f7670fef315af41eb23d924a2984863dc41608d1bbd9522",
+      "exception_type": "AssertionError",
+      "error": "Missing or unexpected cold-cache evidence"
+    },
+    {
+      "name": "unknown_extra",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/unknown_extra/raw.json",
+      "report_sha256": "ae6fb094dac91a14d836cccad2480accd17f6763f822b0ec7a666f3f818757ac",
+      "exception_type": "AssertionError",
+      "error": "Unknown/incomplete cold-cache evidence"
+    },
+    {
+      "name": "unknown_case_extra",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/unknown_case_extra/raw.json",
+      "report_sha256": "fdde5d5b17f6fe5ee858e1f76180d68faea56dee85288bccc9d19272bb201b1b",
+      "exception_type": "AssertionError",
+      "error": "Nested replay check mismatch"
+    },
+    {
+      "name": "false_fresh_flag",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/false_fresh_flag/raw.json",
+      "report_sha256": "cff17c37b589c2c98a188d9288054cccdcb65aae386fb79810dc5a9ebc2ee2c7",
+      "exception_type": "AssertionError",
+      "error": "Worker job is not declared fresh"
+    },
+    {
+      "name": "missing_job_key",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/missing_job_key/raw.json",
+      "report_sha256": "dfac7c905291371ab55b7304cb1f71e6aff3ce5151464a1835c3d634e004671a",
+      "exception_type": "AssertionError",
+      "error": "Unknown/incomplete cold-cache evidence"
+    },
+    {
+      "name": "wrong_source_root",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/wrong_source_root/raw.json",
+      "report_sha256": "04d581fe44dbae8f75381e84d619580788903e962b87941429678d152e6caa6b",
+      "exception_type": "AssertionError",
+      "error": "Cold-cache source/CPU mismatch"
+    },
+    {
+      "name": "wrong_manifest_root",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/wrong_manifest_root/raw.json",
+      "report_sha256": "29f61d0745b723cf4199e1d3cf2ecd07bcdb63a2f7ba1728a272b1bcc09e815a",
+      "exception_type": "AssertionError",
+      "error": "Cold-cache baseline root mismatch"
+    },
+    {
+      "name": "preexisting_job",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/preexisting_job/raw.json",
+      "report_sha256": "661dc8b80bdf267a1dc8370d5303a6afafd92eb6a2ff41f22dff159f7e37cfa1",
+      "exception_type": "AssertionError",
+      "error": "Worker job existed before replay"
+    },
+    {
+      "name": "missing_manifest_tool",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/missing_manifest_tool/raw.json",
+      "report_sha256": "551f8f8fe9a483c282cecf36df6dfe256591da5b93906a4ab033acd1ce3a6491",
+      "exception_type": "KeyError",
+      "error": "'GeoCrustAiryMoho'"
+    },
+    {
+      "name": "wrong_registry_hash",
+      "expected": "rejected",
+      "actual": "rejected",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/cold-controls-r1/wrong_registry_hash/raw.json",
+      "report_sha256": "ee81fdb60be1706f499f6212a3e5b3aa75ea85494b343bdf7d9e159385ae4558",
+      "exception_type": "AssertionError",
+      "error": "Cold-cache registry mismatch"
+    }
+  ],
+  "source_root": "/data/wangjian/github-tools121-remediation-20261026-r3/app",
+  "sealer_sha256": "9c76d62c98de7494d4c3238fea7db203ea9b2585ad09121647b1ed3abb42f86b",
+  "receipt": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/release-receipt.json",
+  "receipt_sha256": "29a5340d5df33eec32bcd2d39942c75ed6662df37e0a6948b6db01e7daa5eb0c",
+  "raw_report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoCrustAiryMoho.json",
+  "raw_report_sha256": "afd14cc45afa28e989216c6cf24535512acd544986332e3fae4e87dbe1dfa7da",
+  "python": "/data/wangjian/earth-python-coverage101-imports-20261022/venv/bin/python",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "tests": 13,
+  "failed_tests": 0,
+  "original_files_unchanged": true
+}

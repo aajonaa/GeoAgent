@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "target": "/data/wangjian/remediate121-20261026-r1/parent/seal_release.py",
+  "previous_sha256": "0f030803936971b83460b262859e3d594bd40828741ff65cf7f1e1eea5a19edf",
+  "sha256": "9c76d62c98de7494d4c3238fea7db203ea9b2585ad09121647b1ed3abb42f86b",
+  "previous_copy": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/seal_release.before-0f030803936971b83460b262859e3d594bd40828741ff65cf7f1e1eea5a19edf.py",
+  "controls_passed": 235,
+  "real_config_check": "/data/wangjian/remediate121-20261026-r1/spatial/parent-review/sealer-repair-r4/check-final-r3.json",
+  "real_config_check_sha256": "83ea77189c77ee3fde32d13b8e7859c2d4f555671291f2b58ac724267827c235",
+  "tools": 111,
+  "passed_calls": 2894,
+  "failed_calls": 0,
+  "skipped_calls": 0,
+  "gpu_used": false,
+  "document_executed": false,
+  "seal_executed": false,
+  "app_modified": false
+}

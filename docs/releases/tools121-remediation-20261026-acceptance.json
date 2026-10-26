@@ -1,0 +1,2232 @@
+{
+  "state": "accepted_for_internal_release",
+  "source_root": "/data/wangjian/github-tools121-remediation-20261026-r3/app",
+  "professional_tools": 457,
+  "skills": 97,
+  "cohort_size": 121,
+  "accepted_cohort": 111,
+  "newly_accepted": 81,
+  "tools": [
+    {
+      "failed_calls": 0,
+      "id": "Geo500BondValenceOxidation",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500BondValenceOxidation/result.json",
+      "report_sha256": "d97390e5f14c260f48464ccf794a277236537ee08bc036fbedb7c8c4f38ec23e",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500CoherentMineralInterfaceMatch",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500CoherentMineralInterfaceMatch/result.json",
+      "report_sha256": "9a5e2e1616829bf2692ae36a84ce83ad6fb3201565e2f1b3bdb4521a362040fa",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500CrystalCoordination",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500CrystalCoordination/result.json",
+      "report_sha256": "f92f6776360f50276f963152b1eec86424f5d82eb74ae33eea0b8a799903f10d",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500CrystalSpaceGroupAudit",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500CrystalSpaceGroupAudit/result.json",
+      "report_sha256": "2114aa0a4aa9210e95e30da6721c5729233d22b8cfefa04bfe904ac729141626",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500CrystalStructureEquivalence",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500CrystalStructureEquivalence/result.json",
+      "report_sha256": "8484c3ab80289e30d986fec267c0d0d1f1ee75aaf2e9bcef08376a0da7878c19",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500IrreducibleReciprocalMesh",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500IrreducibleReciprocalMesh/result.json",
+      "report_sha256": "c457cb4d43200cf3caad682f4c0fcce0139d42e4852422c8d1fa26eb82dd3d13",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500MineralEhPHStability",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500MineralEhPHStability/result.json",
+      "report_sha256": "a372f71fff19edc3690f51982db0f8a9b30e141809b9eac2d21df5d285831cdf",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500MineralNeutronContrast",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500MineralNeutronContrast/result.json",
+      "report_sha256": "f5ad5e0b22337caf59f1ca553805cdb1252a23fc5dbe8dff29dc77dd2917db25",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500MineralOxygenBasisFormula",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500MineralOxygenBasisFormula/result.json",
+      "report_sha256": "d48b51338c9f1951198f7c625b0ae364b6d5f1e80ce49a9825a5383ef249c199",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500MineralPhaseHull",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500MineralPhaseHull/result.json",
+      "report_sha256": "5a2f5be4ca9444997355a3970bfcddebfebbbc3b3497605316b27edb9ebb6588",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500MineralReactionBalance",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500MineralReactionBalance/result.json",
+      "report_sha256": "f336dcdd88d2dd06120e81e0d7dcd0296d7150041538182d8da78bde853c9594",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500MineralSurfaceTerminations",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500MineralSurfaceTerminations/result.json",
+      "report_sha256": "de93112972799f618bf8507a4d9e34091fb6caf90b0e17d53e72168506efb6c6",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500PeriodicIonicLatticeEnergy",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500PeriodicIonicLatticeEnergy/result.json",
+      "report_sha256": "a4ef5f25cb5c24a24917709615b35105c9c16d03c0ff8ade2dfe5f341c852c2f",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500PoreBodyRadiusDistribution",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500PoreBodyRadiusDistribution/result.json",
+      "report_sha256": "c5b63cb1f8af21bdef120f318c5b571c3d49707f39320cf075fa9f122f2d8074",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500PoreChordDistribution",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500PoreChordDistribution/result.json",
+      "report_sha256": "dc5e5f61b69a8d118ac01a8f8eafdad56104424ac4f7d4b99d5b772f95849bdb",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500PoreDiffusionTortuosity",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500PoreDiffusionTortuosity/result.json",
+      "report_sha256": "124a2e59df4a5ee1e550c9656b6cf38602a7fcb79744dc6eb2acadbc49fb89f4",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500PowderXRDPattern",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500PowderXRDPattern/result.json",
+      "report_sha256": "57df8d3189d7b56899122c647328adc2305f1af6707ce76935680b0ea14187af",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500QuasistaticCapillaryDrainage",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500QuasistaticCapillaryDrainage/result.json",
+      "report_sha256": "f5f55d8ecd405e4cd2fd2762e300ccd177312f8fa60fc0aa22960f20aa7b8f10",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500REEOrthogonalShape",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500REEOrthogonalShape/result.json",
+      "report_sha256": "f74c17a6b2920a833ac1a0f65756805823669fc06584a6d6497316dbf1c1d7e2",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500SpatialCellDeclustering",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500SpatialCellDeclustering/result.json",
+      "report_sha256": "57be621fbc59957573aa1807d68c64de40f9df35439b8386eebd25e3d5c17150",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500VolcanicTASClass",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500VolcanicTASClass/result.json",
+      "report_sha256": "66502307c96a75ddb9be7917b9312d8ab9cb8c3747da5930b812ab848dead60d",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "Geo500WulffCrystalHabit",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/Geo500WulffCrystalHabit/result.json",
+      "report_sha256": "25cca68ed44d8e2542bbd556b594e3a2bd319bf891e46d998a1ff61557deaa74",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoConditionedResourceEnsemble",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/GeoConditionedResourceEnsemble/result.json",
+      "report_sha256": "02dfefd5d4cef0d77a5343ec16c50d9a85317d4e3c9478a95484d22a13fd11e3",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoCrustAiryMoho",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoCrustAiryMoho.json",
+      "report_sha256": "afd14cc45afa28e989216c6cf24535512acd544986332e3fae4e87dbe1dfa7da",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoDCFourElectrodeResponse",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoDCFourElectrodeResponse.json",
+      "report_sha256": "293f3c2a814c472d5357c6f386dd756ab1b0824af584e9d01874e3d1f2fae159",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoEMLayeredBipoleResponse",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoEMLayeredBipoleResponse.json",
+      "report_sha256": "5cc0080fbc5ad8faa38d5bf78f40cb4c38600d693489f7a62f2c4fc3cc2a0fb9",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoGravityBouguerSlab",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoGravityBouguerSlab.json",
+      "report_sha256": "72570e3cb807fc33bcf5e306539048cdfaafa156cc4d11471a344f737fc13394",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoGravityDensityInversion",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoGravityDensityInversion.json",
+      "report_sha256": "0e4af73678fe074eec85881b87cb298936392664f40feb07c6bb3970e06c8b08",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoGravityNormalEllipsoid",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoGravityNormalEllipsoid.json",
+      "report_sha256": "8acf3032d98a565e3d12f8ba76e639f1b880040f7088bba41eb5c44c624fe8c3",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoGravityTesseroid",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoGravityTesseroid.json",
+      "report_sha256": "567ba641580960a11c1ecec0825462390012d2681cbd0be3e13a2f6d08c79ec9",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoImplicitStructuralModel",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/GeoImplicitStructuralModel/result.json",
+      "report_sha256": "56b91dcc1b04c42a251bfb2b2dae41966c349b6e6bf84b78ed4068f184ed8642",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "id": "GeoInSARAscDescDecomposition",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoInSARAscDescDecomposition.json",
+      "report_sha256": "b88f9b3d9a09c2a4010cd5e1dfaccaa678103f4f940013294841f72ef5c36ff1"
+    },
+    {
+      "id": "GeoInSARCoherenceNetworkSelection",
+      "status": "passed",
+      "passed_calls": 29,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoInSARCoherenceNetworkSelection.json",
+      "report_sha256": "ac8642b1cec50e90cb7cb6bda4a75454f1d1a05eb4140fbc8fcecf165280e46a"
+    },
+    {
+      "id": "GeoInSAREnvisatOscillatorCorrection",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoInSAREnvisatOscillatorCorrection.json",
+      "report_sha256": "a1bf2442fe198b45a96c8667ad7bba35252580bd348ca4817db835a964af2b58"
+    },
+    {
+      "id": "GeoInSARIonosphericDelay",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoInSARIonosphericDelay.json",
+      "report_sha256": "4926c777594ec60468c987fdc00485a319fe2ac750d63c2001af1625386e1d96"
+    },
+    {
+      "id": "GeoInSARNetworkDisplacement",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoInSARNetworkDisplacement.json",
+      "report_sha256": "ebc126a9d29c09aedaf871de9057784ffb6a8f69a035d818e40f76ed9be859ac"
+    },
+    {
+      "id": "GeoInSARPlateFrameCorrection",
+      "status": "passed",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoInSARPlateFrameCorrection.json",
+      "report_sha256": "3e194253d622b6b2ec0c68b7129e3d34a43f1c31698768ac37fa22fafd9e7ca2"
+    },
+    {
+      "id": "GeoInSARResidualDEM",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoInSARResidualDEM.json",
+      "report_sha256": "02f5fc72775012c3a19cf1186c384a90d35e390c4e52e61257280a7c19938208"
+    },
+    {
+      "id": "GeoLithosphereFlexure",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoLithosphereFlexure.json",
+      "report_sha256": "55892747abc9af90aefc502708e7806fec7b642b46c8bf3b84cadcd0d3f4570d",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoMagneticReductionToPole",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoMagneticReductionToPole.json",
+      "report_sha256": "91b1c6c3de99c52337eb97310ffcf64d0dc5c83e20fe3481cb6cbb51841ebce8",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoMagneticSusceptibilityInversion",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoMagneticSusceptibilityInversion.json",
+      "report_sha256": "b7ca50b4f57a21264eb321e0be3173a9b97172f98eca0a19db689cfcc7b3885b",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoMagneticWirePath",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoMagneticWirePath.json",
+      "report_sha256": "9f09877f32c6b40a50ab12c173f78cf4d5dfd7118e34adeeb519620d30c000c0",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoMantleMeltingPath",
+      "passed_calls": 35,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/GeoMantleMeltingPath/result.json",
+      "report_sha256": "2afb5ddad677b0c3236f7d04a26d208ebf5ff782ab55792fa6e612d6b2e2222c",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "id": "GeoMarineCarbonateAccretion",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoMarineCarbonateAccretion.json",
+      "report_sha256": "2fd985fb323ddb595f8c7d697c5b3baf8de9c7cfd04aacf97172caf7963e53ef",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoPotentialEdgeAttributes",
+      "passed_calls": 28,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoPotentialEdgeAttributes.json",
+      "report_sha256": "d186fd2589bab9296601229176bb4bf840799e5a12298fd9834e6546f1875069",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoPotentialEquivalentSources",
+      "passed_calls": 28,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoPotentialEquivalentSources.json",
+      "report_sha256": "b3e99e3ad73dc35f64bf8a936611827d9af87c711ab68be0a8b8426bf8c9032d",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoPotentialEulerSourceLocation",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoPotentialEulerSourceLocation.json",
+      "report_sha256": "d782ef82f1e90d71875ceee65cd3338e00fe159675a7bc1c7e58060e8f824952",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoPotentialUpwardContinuation",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoPotentialUpwardContinuation.json",
+      "report_sha256": "583c99b31e46d7429cf9f380694377061192b5d79b7a96aadca2f8394cc76aff",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "id": "GeoRegolithProductionRate",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoRegolithProductionRate.json",
+      "report_sha256": "38e76f1a95252a96e104ac2a4d7b298ac3b4510e86356dbbe51510b88f92f407",
+      "passed_calls": 26,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteBrightnessTemperature",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteBrightnessTemperature.json",
+      "report_sha256": "21873c82c6d1c2093dd34aeb5670444b10288f79ebc97f47665ea24fa528ccc3"
+    },
+    {
+      "id": "GeoRemoteClassSeparability",
+      "status": "passed",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteClassSeparability.json",
+      "report_sha256": "8dbd9861b9dda13e9dcfd711a99909b1c207e2e93692fe0e65c008f6ee3d854f"
+    },
+    {
+      "id": "GeoRemoteDenseOpticalFlow",
+      "status": "passed",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteDenseOpticalFlow.json",
+      "report_sha256": "90ead7e17443a4f101194ca1ddfbf5f1b856c53725ee92a1cb80a5460481ba55"
+    },
+    {
+      "id": "GeoRemoteEndmemberDiscovery",
+      "status": "passed",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteEndmemberDiscovery.json",
+      "report_sha256": "d882e081d78361495bbd75a2ecde2156857b0f27bb55d2394892250de7a25c34"
+    },
+    {
+      "id": "GeoRemoteGaussianClassify",
+      "status": "passed",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteGaussianClassify.json",
+      "report_sha256": "0e1d9e67f79ebc3f4ac1f51ba1cee0c208c005e5f8f86ddf0d6463a428396265"
+    },
+    {
+      "id": "GeoRemoteHoughLineEvidence",
+      "status": "passed",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteHoughLineEvidence.json",
+      "report_sha256": "4683eb32049a37fd88a8b462c30a6aed35c16f5db680e603f180e5f9ac1e0e2d"
+    },
+    {
+      "id": "GeoRemoteMADChange",
+      "status": "passed",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteMADChange.json",
+      "report_sha256": "e8e98313ff87d732ebe618d97f2986e89c4661deb5d89b9c9c1a2e7d199a2b84"
+    },
+    {
+      "id": "GeoRemotePansharpenFusion",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemotePansharpenFusion.json",
+      "report_sha256": "aa06064aac1a941b4f2d857483baed7f7da42fd47d41b4fe3f945b89c75cf0d5"
+    },
+    {
+      "id": "GeoRemotePhaseUnwrap",
+      "status": "passed",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemotePhaseUnwrap.json",
+      "report_sha256": "a4edf54a73eda3ae0cc127ab76ea6877ee775769584451ba062ec055c776d192"
+    },
+    {
+      "id": "GeoRemoteProjectiveTiePoints",
+      "status": "passed",
+      "passed_calls": 13,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteProjectiveTiePoints.json",
+      "report_sha256": "84413bed526725c3fefc3ebfe23b9ec397e4490bba7ae5a91247e187038f57eb"
+    },
+    {
+      "id": "GeoRemoteScaleSpaceBlobs",
+      "status": "passed",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteScaleSpaceBlobs.json",
+      "report_sha256": "5960c2d5b4bcd883ddc5d240c7c3be2fcbf60064e1b608586cbd51fc1d9dafbe"
+    },
+    {
+      "id": "GeoRemoteTOAReflectance",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteTOAReflectance.json",
+      "report_sha256": "5033155ff7fc0cf51d21a4e7967c202a1f70ede9797f553a69dbcc30511a9bf8"
+    },
+    {
+      "id": "GeoRemoteTemplateLocate",
+      "status": "passed",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteTemplateLocate.json",
+      "report_sha256": "692382f9eea326ce89ab264004a20a35ecbfd4fb06ced09bad9628c96393bbeb"
+    },
+    {
+      "id": "GeoRemoteWaveletPyramid",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoRemoteWaveletPyramid.json",
+      "report_sha256": "a0525bec01750b745a6bc5550e89282889d6f20feb0e9db584d96e5e88768db3"
+    },
+    {
+      "id": "GeoSARCoherentChange",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoSARCoherentChange.json",
+      "report_sha256": "1f3abc54ef7a395bec74a7826bfd2f16a59634b4ccc3a2f59c4245de16b00f89"
+    },
+    {
+      "id": "GeoSARDopplerDeskew",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoSARDopplerDeskew.json",
+      "report_sha256": "b350e504c8402dec097ec8b7bc3a8edda27b68210bdfeae36caaa31975f437c3"
+    },
+    {
+      "id": "GeoSARPolarimetricHAlpha",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoSARPolarimetricHAlpha.json",
+      "report_sha256": "fd9ae91eac69c70ad69fb72d1efd33893b0c7ae6ae70344e5a0b7f148f93ebfc"
+    },
+    {
+      "id": "GeoSARPolarizationSynthesis",
+      "status": "passed",
+      "passed_calls": 25,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoSARPolarizationSynthesis.json",
+      "report_sha256": "c4de86a900057056d52a84d356fbedcd5d8f7edf86ec52b99e977f231181c4ba"
+    },
+    {
+      "id": "GeoSARSubaperture",
+      "status": "passed",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0,
+      "report": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/final-r3/tool-reports/GeoSARSubaperture.json",
+      "report_sha256": "b0d91964e5428dafb684fa7c398519645e60cf3ab7ec4ad2e06a871e95b02328"
+    },
+    {
+      "id": "GeoSedimentTracerDiffusion",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSedimentTracerDiffusion.json",
+      "report_sha256": "e29f2f2ec54d0be8d59e80872f94a1cea8e98862a823d3d481506a57707a67ab",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicArrayBeamforming",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicArrayBeamforming.json",
+      "report_sha256": "b83acbff181a1aef709647bc56efd7b2216968ffcefac6c5d8a9e4196ec93b4b",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicArrayStrainRotation",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicArrayStrainRotation.json",
+      "report_sha256": "81db29f83ae9d1696f150aa1650ece6c42fa23deba0e0f6ca07931a88a2f4552",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicComplexAttributes",
+      "passed_calls": 28,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicComplexAttributes.json",
+      "report_sha256": "f2f15c1ec580afbfd2c3e8cfc4b83f0472bad07993b117778fc052b6764d450d",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicInstrumentDeconvolution",
+      "passed_calls": 28,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicInstrumentDeconvolution.json",
+      "report_sha256": "1261986bc12326d5f0170ca02b3178767c7533d6ad3e8eebbb6c417e0084f360",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicLeastSquaresMigration",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicLeastSquaresMigration.json",
+      "report_sha256": "6565f9a01d2ff34199ce0808cb89fce2155a2f74acfc643074f1d49b88d1de62",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicMultidimensionalDeconvolution",
+      "passed_calls": 28,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicMultidimensionalDeconvolution.json",
+      "report_sha256": "7cca4644b3f7d10e5a471ea5ec34f6b84fe7415aa61dcc5c0075c473fce17752",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicNMO",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicNMO.json",
+      "report_sha256": "6d9c9cc9ce7755a7d248604835ac358ab022d3ee398c1e89e6b8287274b4726e",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicPoststackImpedanceInversion",
+      "passed_calls": 28,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicPoststackImpedanceInversion.json",
+      "report_sha256": "5515a4dd0b4e13f69196ceb42139a477ebfd0c0abc4979a96d20a26f8ed8df4b",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicProbabilisticNoise",
+      "passed_calls": 28,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicProbabilisticNoise.json",
+      "report_sha256": "2656cc8baa8c90a63ac26d6aa28fa1955bc2e65ecdc6571db9aeb034695a81bf",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicRadiationPattern",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicRadiationPattern.json",
+      "report_sha256": "2dd03adabadd5a2d4e7fb1d0a85a025d03331e4f5350cb5b0a0f805212b1166a",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicReceiverDeghosting",
+      "passed_calls": 28,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicReceiverDeghosting.json",
+      "report_sha256": "baefa1ee94df5569fbf3aa4cac76d40848322547587ae46d95d207b3ff9f6687",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicSTALTADetection",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicSTALTADetection.json",
+      "report_sha256": "db146cc2da20a529645c23e87b95deb2b88c3d58bc13231669163f98d7e0b74b",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicTemplateDetection",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicTemplateDetection.json",
+      "report_sha256": "803e3985e6dd7b6eab915fac617ce93537a36e51cfccf35d49c8763a44f1e91f",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicUpDownWavefieldSeparation",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicUpDownWavefieldSeparation.json",
+      "report_sha256": "051922a72b66a62ebb692675cdf9b203d7bce06b04dc821bea20fd0b9b0e1aba",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicWaveformTFMisfit",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicWaveformTFMisfit.json",
+      "report_sha256": "6131a0024c2b9722c121ba01cab2f62d0fa45532e38ef24e0f1e808749089de9",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSeismicWindowCoherence",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSeismicWindowCoherence.json",
+      "report_sha256": "053fc53f1c6807cf46f530310c0b15af2c9808a555e8909e2a8cb716a77f9825",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSlopeLimitEquilibrium",
+      "passed_calls": 41,
+      "report": "/data/wangjian/remediate121-20261026-r1/geology/parent-replay/freshfinal26-r4.bundle/results/GeoSlopeLimitEquilibrium/result.json",
+      "report_sha256": "a805d6964c67b0dbd5f5b45c32616823bc7e3d32f7a1e3fddcf4630e59ce441c",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "id": "GeoSpatialChannelChiCoordinate",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialChannelChiCoordinate.json",
+      "report_sha256": "9307259672620f02b650287c14c44555b43bb94c5e9bbe1e3588141fe76a12b6",
+      "passed_calls": 26,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialChannelFrechetDeviation",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialChannelFrechetDeviation.json",
+      "report_sha256": "25b86f17793eba74f3fd419c7a244eb50d2681374258ac3ed4a76e02e427da7b",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialConservativeArealTransfer",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialConservativeArealTransfer.json",
+      "report_sha256": "652c2143721423a7c6b376750d185e902ca33975b8687f294db4ec1fc7b41a27",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialContiguousRegionalization",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialContiguousRegionalization.json",
+      "report_sha256": "83eef6cac6a2bb2d33de94a6d37c1a4cd2d24487a118a08b992a65d044c08db5",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialCoverageSimplification",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialCoverageSimplification.json",
+      "report_sha256": "e7ce841cd9d876c7fb43e639b68370ffad23ae7c77fc97190f802197b39c70a3",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialDarcySpecificDischarge",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialDarcySpecificDischarge.json",
+      "report_sha256": "b070ef631db57509c183acc365a5f4f745e0b4d5221fcf9225ecc12c1f999fed",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialDensityConnectedSiteClusters",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialDensityConnectedSiteClusters.json",
+      "report_sha256": "e7a6e6950c032df4a3a5f5c917f1855e07e363ff9f610661e9f19bc0ab2026b7",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialEventKernelDensity",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialEventKernelDensity.json",
+      "report_sha256": "4a12d2d65df48e8af8df82a6576c396e522bdd6c85ba30dc623f3e5f1e972f02",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialFloodplainStageStorage",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialFloodplainStageStorage.json",
+      "report_sha256": "0df50acfe14b41fdb838d43658ad6028bc54af07f9e9208a9006c13398bac246",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialFlowNetworkUpscaleIHU",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialFlowNetworkUpscaleIHU.json",
+      "report_sha256": "2a7a364c7745ab6c052aa60a25781bed867044c59136bbe70eadbe2a993b21ee",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialGCPGeoreferencing",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialGCPGeoreferencing.json",
+      "report_sha256": "34d553e6920f6be3e3d523daa0030fdc23c55be5d00a092eb9d7dde0c3b2ea20",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialGroundwaterZoneBudget",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialGroundwaterZoneBudget.json",
+      "report_sha256": "a244f00f357a63e8ed2b866d320112daf85106d5f2e63ddd855f012c4693215b",
+      "passed_calls": 34,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialHillslopeDiffusionStep",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialHillslopeDiffusionStep.json",
+      "report_sha256": "370060dbf0dc84ac06fbba6ed225ff4a2f9b436861b8e380866558238021aeaf",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialKnoxSpaceTimeInteraction",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialKnoxSpaceTimeInteraction.json",
+      "report_sha256": "f52f1447b3f95de4b5b73fa9ea8a67901a5ad63e3a7be82d7d2c480a40246a3c",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialLineworkPolygonTopology",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialLineworkPolygonTopology.json",
+      "report_sha256": "c300bae40e80c84383935e3d327d9795073de929593c08b6a0c85afb638dbaa4",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialLocalHeteroscedasticity",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialLocalHeteroscedasticity.json",
+      "report_sha256": "46963c8b73070da0486826b4b7ff01c68fb76641e66b804d96f9a2a1583f06ef",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialOverlandFlowStep",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialOverlandFlowStep.json",
+      "report_sha256": "f04c0043afb095e76f426533be4a7ea0b3a3cd687312149e0f3b838e3d3fe797",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialRPCGeolocation",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialRPCGeolocation.json",
+      "report_sha256": "c9d063833a99df3e13c1e40987123fe20c6c3b0e38bc96cc1436d015f0d24f98",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialRegionBoundarySilhouette",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialRegionBoundarySilhouette.json",
+      "report_sha256": "cfff5349ae79951d3465b5e13a3f95eb64e1f796c73706930843ebe151594d7f",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialRipleyKObservedWindow",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialRipleyKObservedWindow.json",
+      "report_sha256": "8b5f52a9e562684484f123bdbb16fc4413c9b848ce2bc0aaca3898abadce09ce",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialScreenedTransmissivity",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialScreenedTransmissivity.json",
+      "report_sha256": "77660f0fe50f6142941e5652d26f88c969cb69335fd3328a93e63decd4ab7604",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialStreamPowerErosionStep",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialStreamPowerErosionStep.json",
+      "report_sha256": "9c43f4576c98a73fda5b022d002435f7cc003ffc68b450e74d3c55f89e9a796e",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialUnconfinedGroundwaterStep",
+      "status": "passed",
+      "report": "/data/wangjian/remediate121-20261026-r1/spatial/parent-replay/final457-r3-all27-r1.d/results/GeoSpatialUnconfinedGroundwaterStep.json",
+      "report_sha256": "661ffee991202310099e278f3a5773c6f6592e88c6494d2ccde2c6a3863b1b70",
+      "passed_calls": 26,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSurfaceWaveDispersion",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSurfaceWaveDispersion.json",
+      "report_sha256": "605779208c2320d13e24fa4b96989838ad23bb42fca3fbdc25f5e3da1feb2e89",
+      "skipped_calls": 0,
+      "status": "passed"
+    },
+    {
+      "failed_calls": 0,
+      "id": "GeoSurfaceWaveSensitivity",
+      "passed_calls": 24,
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/tools/GeoSurfaceWaveSensitivity.json",
+      "report_sha256": "44fb274e4fa1ba3c85f4284b9430b335f715877fe26e0ed83d27af4bd0ee338a",
+      "skipped_calls": 0,
+      "status": "passed"
+    }
+  ],
+  "excluded": [
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoDCResistivityInversion]: Independent heterogeneous DC inverse benchmark with the fixed mesh/boundary discretization, identifiable recovery target and uncertainty is missing.\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoDCResistivityInversion]: Independent heterogeneous DC inverse benchmark with the fixed mesh/boundary discretization, identifiable recovery target and uncertainty is missing.\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoDCResistivityInversion]: Independent heterogeneous DC inverse benchmark with the fixed mesh/boundary discretization, identifiable recovery target and uncertainty is missing.\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoDCResistivityInversion]: Independent heterogeneous DC inverse benchmark with the fixed mesh/boundary discretization, identifiable recovery target and uncertainty is missing.\n"
+        }
+      ],
+      "id": "GeoDCResistivityInversion",
+      "reason": "Independent nodal Robin-boundary inversion reference not yet complete.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoDCResistivityInversion/report.json",
+      "report_sha256": "41761363f36f2fb2be41ceab9eae72d6927afd5341ff4f93d9fece9d740f7538",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "not_passed",
+      "historical_reason": "Independent nodal Robin-boundary inversion reference not yet complete.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      }
+    },
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 620, in numeric\n    self.near(field(result, \"^total_electric_v_m$\", expected_shape=(2, 3)), [[0.25, 0, 0], [1.1875, 0, 0]], absolute=1e-10)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.9625; independent=1.1875; rel=1e-08; abs=1e-10\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 620, in numeric\n    self.near(field(result, \"^total_electric_v_m$\", expected_shape=(2, 3)), [[0.25, 0, 0], [1.1875, 0, 0]], absolute=1e-10)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.9625; independent=1.1875; rel=1e-08; abs=1e-10\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 620, in numeric\n    self.near(field(result, \"^total_electric_v_m$\", expected_shape=(2, 3)), [[0.25, 0, 0], [1.1875, 0, 0]], absolute=1e-10)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.9625; independent=1.1875; rel=1e-08; abs=1e-10\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 620, in numeric\n    self.near(field(result, \"^total_electric_v_m$\", expected_shape=(2, 3)), [[0.25, 0, 0], [1.1875, 0, 0]], absolute=1e-10)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.9625; independent=1.1875; rel=1e-08; abs=1e-10\n"
+        }
+      ],
+      "id": "GeoEMConductiveSphere",
+      "reason": "Geoana 0.9.0 exterior electric-field radial scaling disagrees with analytic conducting-sphere equation.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoEMConductiveSphere/report.json",
+      "report_sha256": "ea4a477468a5743c5a37d65684c71a09542d63af1c73328b19be0162e3f255c3",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "not_passed",
+      "historical_reason": "Geoana 0.9.0 exterior electric-field radial scaling disagrees with analytic conducting-sphere equation.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      }
+    },
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoFDEMConductivityInversion]: Independent complex secondary-H layered inverse benchmark is missing; the authoring fixture is not analytic truth.\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoFDEMConductivityInversion]: Independent complex secondary-H layered inverse benchmark is missing; the authoring fixture is not analytic truth.\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoFDEMConductivityInversion]: Independent complex secondary-H layered inverse benchmark is missing; the authoring fixture is not analytic truth.\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoFDEMConductivityInversion]: Independent complex secondary-H layered inverse benchmark is missing; the authoring fixture is not analytic truth.\n"
+        }
+      ],
+      "id": "GeoFDEMConductivityInversion",
+      "reason": "Independent Maxwell/Hankel quadrature forward reference agrees to 2.02e-8 relative; nonlinear inversion acceptance pending.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoFDEMConductivityInversion/report.json",
+      "report_sha256": "c2f68c58567ccab566ed7377ac355ad4bcf6cd77d97fd0eb521cef607abc24fc",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "not_passed",
+      "historical_reason": "Independent Maxwell/Hankel quadrature forward reference agrees to 2.02e-8 relative; nonlinear inversion acceptance pending.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      }
+    },
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoIPChargeabilityInversion]: Independent nonzero heterogeneous IP benchmark with DC background, apparent-chargeability normalization and recovery uncertainty is missing.\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoIPChargeabilityInversion]: Independent nonzero heterogeneous IP benchmark with DC background, apparent-chargeability normalization and recovery uncertainty is missing.\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoIPChargeabilityInversion]: Independent nonzero heterogeneous IP benchmark with DC background, apparent-chargeability normalization and recovery uncertainty is missing.\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoIPChargeabilityInversion]: Independent nonzero heterogeneous IP benchmark with DC background, apparent-chargeability normalization and recovery uncertainty is missing.\n"
+        }
+      ],
+      "id": "GeoIPChargeabilityInversion",
+      "reason": "Independent linearized DC/IP inversion reference not yet complete.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoIPChargeabilityInversion/report.json",
+      "report_sha256": "e81fa089fda946ce04c1224c0234005fd18bc14528ff1052d35cad533d972529",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "not_passed",
+      "historical_reason": "Independent linearized DC/IP inversion reference not yet complete.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      }
+    },
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals_v2.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals_v2.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/signal_oracle_cases_v2.py\", line 81, in numeric\n    self.near(float(out['s_onset_s']), 11.165, rel=0, absolute=.05)\n              ^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals_v2.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals_v2.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/signal_oracle_cases_v2.py\", line 81, in numeric\n    self.near(float(out['s_onset_s']), 11.165, rel=0, absolute=.05)\n              ^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals_v2.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals_v2.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/signal_oracle_cases_v2.py\", line 81, in numeric\n    self.near(float(out['s_onset_s']), 11.165, rel=0, absolute=.05)\n              ^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals_v2.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals_v2.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/signal_oracle_cases_v2.py\", line 81, in numeric\n    self.near(float(out['s_onset_s']), 11.165, rel=0, absolute=.05)\n              ^^^^^^^^^^^^^^^^^^^^^^^\nTypeError: float() argument must be a string or a real number, not 'NoneType'\n"
+        }
+      ],
+      "id": "GeoSeismicARPhasePick",
+      "reason": "Corrected field mapping; cropped external benchmark retains P but upstream S=0, wrapper S=null. Full 12000-sample benchmark exceeds 4096 cap.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/signals-v2-r3/GeoSeismicARPhasePick/report.json",
+      "report_sha256": "c4b4628a011e70795bac927f146289266e3369cc9355cccafe2d982bf6005bec",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "not_passed",
+      "historical_reason": "Corrected field mapping; cropped external benchmark retains P but upstream S=0, wrapper S=null. Full 12000-sample benchmark exceeds 4096 cap.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      },
+      "latest_private_replay": {
+        "id": "GeoSeismicARPhasePick",
+        "status": "unresolved",
+        "returncode": 0,
+        "report": "/data/wangjian/remediate121-20261026-r1/remote/remaining-phase-rays-r1/runs/GeoSeismicARPhasePick/report.json",
+        "report_sha256": "44cdcb4f960034b767beb81c69cd2f8b69806733c0dd9b27c6710f9ca6565cfa",
+        "passed_calls": 46,
+        "failed_calls": 4,
+        "skipped_calls": 0
+      }
+    },
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 64, in numeric\n    self.near(result['values']['rectilinearity'], 1., absolute=1e-8)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.9999999782967601; independent=1.0; rel=1e-08; abs=1e-08\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 64, in numeric\n    self.near(result['values']['rectilinearity'], 1., absolute=1e-8)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.9999999782967601; independent=1.0; rel=1e-08; abs=1e-08\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 64, in numeric\n    self.near(result['values']['rectilinearity'], 1., absolute=1e-8)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.9999999782967601; independent=1.0; rel=1e-08; abs=1e-08\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 64, in numeric\n    self.near(result['values']['rectilinearity'], 1., absolute=1e-8)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.9999999782967601; independent=1.0; rel=1e-08; abs=1e-08\n"
+        }
+      ],
+      "id": "GeoSeismicPolarization",
+      "reason": "Rank-one Flinn rectilinearity error 2.17e-8 exceeds unchanged 1e-8 gate.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoSeismicPolarization/report.json",
+      "report_sha256": "a7ef4cf22624bda6a33e5b9fa5a44ee646a4907125652cd8a59a4d73e90a7743",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "not_passed",
+      "historical_reason": "Rank-one Flinn rectilinearity error 2.17e-8 exceeds unchanged 1e-8 gate.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      }
+    },
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 133, in numeric\n    self.near(out['vp_vs_rho_si'], expected.tolist(), rel=1e-5, absolute=1e-3)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=3007.464800258929; independent=2999.9999999538436; rel=1e-05; abs=0.001\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 133, in numeric\n    self.near(out['vp_vs_rho_si'], expected.tolist(), rel=1e-5, absolute=1e-3)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=3007.464800258929; independent=2999.9999999538436; rel=1e-05; abs=0.001\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 133, in numeric\n    self.near(out['vp_vs_rho_si'], expected.tolist(), rel=1e-5, absolute=1e-3)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=3007.464800258929; independent=2999.9999999538436; rel=1e-05; abs=0.001\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 133, in numeric\n    self.near(out['vp_vs_rho_si'], expected.tolist(), rel=1e-5, absolute=1e-3)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 380, in near\n    self.near(a, e, rel, absolute)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=3007.464800258929; independent=2999.9999999538436; rel=1e-05; abs=0.001\n"
+        }
+      ],
+      "id": "GeoSeismicPrestackElasticInversion",
+      "reason": "Finite LSQR iterations do not match converged independent dense Aki-Richards inversion; damping/conditioning unresolved.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoSeismicPrestackElasticInversion/report.json",
+      "report_sha256": "e6515e911da23aede6b04e081daff6b73947bb38151d5ebd50c39d2fdc803d95",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "not_passed",
+      "historical_reason": "Finite LSQR iterations do not match converged independent dense Aki-Richards inversion; damping/conditioning unresolved.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      }
+    },
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 96, in numeric\n    self.near(float(path[:,2].max()),843.2,rel=0,absolute=.05)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=842.9177990823819; independent=843.2; rel=0; abs=0.05\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 96, in numeric\n    self.near(float(path[:,2].max()),843.2,rel=0,absolute=.05)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=842.9177990823819; independent=843.2; rel=0; abs=0.05\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 96, in numeric\n    self.near(float(path[:,2].max()),843.2,rel=0,absolute=.05)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=842.9177990823819; independent=843.2; rel=0; abs=0.05\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 96, in numeric\n    self.near(float(path[:,2].max()),843.2,rel=0,absolute=.05)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=842.9177990823819; independent=843.2; rel=0; abs=0.05\n"
+        },
+        {
+          "stage": "direct_dict_boundary",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/venv-cpu/lib/python3.12/site-packages/geological_agent/geology/collection_contracts.py\", line 115, in call\n    args = arguments(name, args)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/venv-cpu/lib/python3.12/site-packages/legacy/ToolsAgent/ToolsFuns/source_contracts.py\", line 66, in arguments\n    Draft202012Validator(spec[\"input_schema\"]).validate(value)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/venv-cpu/lib/python3.12/site-packages/jsonschema/validators.py\", line 451, in validate\n    raise error\njsonschema.exceptions.ValidationError: 0.0 is less than the minimum of 0.01\n\nFailed validating 'minimum' in schema['properties']['distance_deg']:\n    {'type': 'number',\n     'description': 'Source-receiver angular distance degrees.',\n     'minimum': 0.01,\n     'maximum': 180}\n\nOn instance['distance_deg']:\n    0.0\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 152, in <lambda>\n    stage(mode + '_boundary', lambda: helper.boundary(tool))\n                                      ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 112, in boundary\n    return super().boundary(tool)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 200, in boundary\n    out = self.call(tool,self.args(tool,source_depth_km=0.,distance_deg=0.,phases=['P']))['values']\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 86, in call\n    data = getattr(self.implementation, original.ENTRIES[name])(payload)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/venv-cpu/lib/python3.12/site-packages/geological_agent/geology/collection_contracts.py\", line 176, in call\n    reject(\"Arguments do not satisfy the input schema and declared operation constraints\")\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/venv-cpu/lib/python3.12/site-packages/geological_agent/geology/collection_contracts.py\", line 23, in reject\n    raise ScientificToolError(code, message)\nlegacy.ToolsAgent.ToolsFuns.GeoEval.scientific_tools.ScientificToolError: Arguments do not satisfy the input schema and declared operation constraints\n"
+        },
+        {
+          "stage": "direct_json_boundary",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 152, in <lambda>\n    stage(mode + '_boundary', lambda: helper.boundary(tool))\n                                      ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 112, in boundary\n    return super().boundary(tool)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 200, in boundary\n    out = self.call(tool,self.args(tool,source_depth_km=0.,distance_deg=0.,phases=['P']))['values']\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 73, in call\n    call_dir.mkdir()\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/pathlib.py\", line 1311, in mkdir\n    os.mkdir(self, mode)\nFileExistsError: [Errno 17] File exists: '/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoSeismicTauPRays/call-0009'\n"
+        },
+        {
+          "stage": "runtime_dict_boundary",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 152, in <lambda>\n    stage(mode + '_boundary', lambda: helper.boundary(tool))\n                                      ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 112, in boundary\n    return super().boundary(tool)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 200, in boundary\n    out = self.call(tool,self.args(tool,source_depth_km=0.,distance_deg=0.,phases=['P']))['values']\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 73, in call\n    call_dir.mkdir()\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/pathlib.py\", line 1311, in mkdir\n    os.mkdir(self, mode)\nFileExistsError: [Errno 17] File exists: '/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoSeismicTauPRays/call-0009'\n"
+        },
+        {
+          "stage": "runtime_json_boundary",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 152, in <lambda>\n    stage(mode + '_boundary', lambda: helper.boundary(tool))\n                                      ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 112, in boundary\n    return super().boundary(tool)\n           ^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 200, in boundary\n    out = self.call(tool,self.args(tool,source_depth_km=0.,distance_deg=0.,phases=['P']))['values']\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 73, in call\n    call_dir.mkdir()\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/pathlib.py\", line 1311, in mkdir\n    os.mkdir(self, mode)\nFileExistsError: [Errno 17] File exists: '/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoSeismicTauPRays/call-0009'\n"
+        }
+      ],
+      "id": "GeoSeismicTauPRays",
+      "reason": "Correct Java path reference binding passed 46 private direct/ToolExecutor checks with unchanged adapter and tolerance; production CPUv2 profile and merged-release acceptance are not yet performed. Excluded from this release.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoSeismicTauPRays/report.json",
+      "report_sha256": "967f898da9a09ddb01a3d184d6e5b77c6fc1240c6b0e1d7a9938fe282a56dd92",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "private_replay_passed_production_integration_pending",
+      "historical_reason": "Times pass; turning depth 842.917799 km differs from Java benchmark 843.2 km beyond 0.05 km gate.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      },
+      "latest_private_replay": {
+        "id": "GeoSeismicTauPRays",
+        "status": "fixed_harness_binding",
+        "returncode": 0,
+        "report": "/data/wangjian/remediate121-20261026-r1/remote/remaining-phase-rays-r1/runs/GeoSeismicTauPRays/report.json",
+        "report_sha256": "2b2761557c9df60f65cc3148d91ca4dbbc9e62d0d29f05c4de64823a3970f9e9",
+        "passed_calls": 46,
+        "failed_calls": 0,
+        "skipped_calls": 0
+      }
+    },
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 650, in numeric\n    self.near(u[1]/u[0], expected_ratio, rel=1e-4, absolute=1e-5)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.0; independent=0.16962254506209243; rel=0.0001; abs=1e-05\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 650, in numeric\n    self.near(u[1]/u[0], expected_ratio, rel=1e-4, absolute=1e-5)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.0; independent=0.16962254506209243; rel=0.0001; abs=1e-05\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 650, in numeric\n    self.near(u[1]/u[0], expected_ratio, rel=1e-4, absolute=1e-5)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.0; independent=0.16962254506209243; rel=0.0001; abs=1e-05\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 650, in numeric\n    self.near(u[1]/u[0], expected_ratio, rel=1e-4, absolute=1e-5)\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 385, in near\n    self.assertTrue(math.isclose(actual, expected, rel_tol=rel, abs_tol=absolute),\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 727, in assertTrue\n    raise self.failureException(msg)\nAssertionError: False is not true : actual=0.0; independent=0.16962254506209243; rel=0.0001; abs=1e-05\n"
+        }
+      ],
+      "id": "GeoSurfaceWaveEigenfunctions",
+      "reason": "Disba 0.7.0 Love eigenfunction halfspace initialization is zero rather than the analytic nonzero interface amplitude.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoSurfaceWaveEigenfunctions/report.json",
+      "report_sha256": "be8247fffef1e13c7082f4f162bb324befcc8d60afafe90e006fb7693df7eb09",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "not_passed",
+      "historical_reason": "Disba 0.7.0 Love eigenfunction halfspace initialization is zero rather than the analytic nonzero interface amplitude.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      }
+    },
+    {
+      "failed_checks": [
+        {
+          "stage": "direct_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoTDEMConductivityInversion]: Independent absolute loop step-off dB/dt inverse benchmark is missing; the late-time power-law slope alone is insufficient.\n"
+        },
+        {
+          "stage": "direct_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoTDEMConductivityInversion]: Independent absolute loop step-off dB/dt inverse benchmark is missing; the late-time power-law slope alone is insufficient.\n"
+        },
+        {
+          "stage": "runtime_dict_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoTDEMConductivityInversion]: Independent absolute loop step-off dB/dt inverse benchmark is missing; the late-time power-law slope alone is insufficient.\n"
+        },
+        {
+          "stage": "runtime_json_numerical",
+          "traceback": "Traceback (most recent call last):\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 99, in stage\n    fn()\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py\", line 115, in <lambda>\n    stage(mode + '_numerical', lambda: helper.numeric(tool))\n                                       ^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py\", line 49, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py\", line 102, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py\", line 46, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py\", line 185, in numeric\n    return super().numeric(tool)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/tests/test_expansion501_geophysics.py\", line 451, in numeric\n    self.fail(\"SCIENTIFIC_ORACLE_BLOCKED[\" + tool + \"]: \" + ORACLE_BLOCKERS[tool])\n  File \"/data/wangjian/.local/share/geoagent/python312/lib/python3.12/unittest/case.py\", line 715, in fail\n    raise self.failureException(msg)\nAssertionError: SCIENTIFIC_ORACLE_BLOCKED[GeoTDEMConductivityInversion]: Independent absolute loop step-off dB/dt inverse benchmark is missing; the late-time power-law slope alone is insufficient.\n"
+        }
+      ],
+      "id": "GeoTDEMConductivityInversion",
+      "reason": "Independent absolute-amplitude loop-decay and heterogeneous inversion reference pending.",
+      "report": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/full42-r3/GeoTDEMConductivityInversion/report.json",
+      "report_sha256": "02f1eae81f7d217097fbe6a9251e743c2070898d73fe559a084e5090c5cfaa0a",
+      "scope": "Excluded from the 457-tool candidate; no upstream formula or tolerance changed.",
+      "status": "not_passed",
+      "historical_reason": "Independent absolute-amplitude loop-decay and heterogeneous inversion reference pending.",
+      "original_exclusion_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r4/final-parent-r3/unpassed10.json",
+        "sha256": "fa298bc857190642b232dcb57567fc5d9ffc3663eb59eedff3835508b56359e7"
+      }
+    }
+  ],
+  "gpu_used": false,
+  "model_calls": false,
+  "deployment": "pending",
+  "git_push": "pending",
+  "browser_acceptance": "blocked_saved_site_permission",
+  "ai_lab_certified": false,
+  "historical_failures_retained": true,
+  "registry_validation": {
+    "state": "passed",
+    "checks": [
+      {
+        "check": "schemas_metadata_examples_and_native_registration",
+        "status": "passed",
+        "detail": {
+          "tools": 457,
+          "examples": 457,
+          "published_new": 111
+        }
+      },
+      {
+        "check": "skill_reachability_and_no_new_document_regressions",
+        "status": "passed",
+        "detail": {
+          "skills": 97,
+          "new_document_contract_failures": 0,
+          "unchanged_legacy_document_diagnostics": [
+            "github-geology-drillhole-logs",
+            "github-geology-geostat-validation",
+            "github-geology-mineral-chemistry",
+            "github-geology-strain-stress",
+            "github-geology-structural-fabrics",
+            "github-geophysics-effective-media",
+            "github-geophysics-fluid-effects",
+            "github-geophysics-grain-fracture",
+            "github-geophysics-potential-fields",
+            "github-geophysics-seismic-interpretation",
+            "github-remote-morphology",
+            "github-remote-radiometry",
+            "github-remote-segmentation",
+            "github-remote-spectral",
+            "github-remote-texture",
+            "github-spatial-gis-conversion",
+            "github-spatial-raster-access",
+            "github-spatial-site-association",
+            "github-spatial-survey-layout",
+            "github-spatial-terrain-drainage"
+          ],
+          "note": "Historical diagnostics retained; not counted as newly passing tests."
+        }
+      },
+      {
+        "check": "existing_package_versions_preserved",
+        "status": "passed",
+        "detail": {
+          "protected_effective_package_versions": 301,
+          "changed": 0
+        }
+      },
+      {
+        "check": "library_projection",
+        "status": "passed",
+        "detail": {
+          "skills": 97,
+          "tools": 467,
+          "professional_tools": 457,
+          "catalog_skills": 97,
+          "registered_tools": 467,
+          "runtime_tools": 10
+        }
+      },
+      {
+        "check": "mandatory_regressions",
+        "status": "passed",
+        "detail": {
+          "executed": 55,
+          "failed": 0,
+          "errors": 0,
+          "skipped": 0
+        }
+      }
+    ],
+    "source_root": "/data/wangjian/github-tools121-remediation-20261026-r3/app",
+    "gpu_used": false,
+    "science_runtime_replay": "separate_per_group_reports_required",
+    "browser_acceptance": "not_performed"
+  },
+  "new_control_tests": {
+    "returncode": 0,
+    "tests": 135,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 0,
+    "gpu_used": false,
+    "source_root": "/data/wangjian/github-tools121-remediation-20261026-r3/app"
+  },
+  "semantic_evidence_checks": [
+    {
+      "id": "GeoLithosphereFlexure",
+      "format": "spatial",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoMarineCarbonateAccretion",
+      "format": "spatial",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRegolithProductionRate",
+      "format": "spatial",
+      "passed_calls": 26,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSedimentTracerDiffusion",
+      "format": "spatial",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialChannelChiCoordinate",
+      "format": "spatial",
+      "passed_calls": 26,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialChannelFrechetDeviation",
+      "format": "spatial",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialConservativeArealTransfer",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialContiguousRegionalization",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialCoverageSimplification",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialDarcySpecificDischarge",
+      "format": "spatial",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialDensityConnectedSiteClusters",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialEventKernelDensity",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialFloodplainStageStorage",
+      "format": "spatial",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialFlowNetworkUpscaleIHU",
+      "format": "spatial",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialGCPGeoreferencing",
+      "format": "spatial",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialGroundwaterZoneBudget",
+      "format": "spatial",
+      "passed_calls": 34,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialHillslopeDiffusionStep",
+      "format": "spatial",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialKnoxSpaceTimeInteraction",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialLineworkPolygonTopology",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialLocalHeteroscedasticity",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialOverlandFlowStep",
+      "format": "spatial",
+      "passed_calls": 22,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialRPCGeolocation",
+      "format": "spatial",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialRegionBoundarySilhouette",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialRipleyKObservedWindow",
+      "format": "spatial",
+      "passed_calls": 20,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialScreenedTransmissivity",
+      "format": "spatial",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialStreamPowerErosionStep",
+      "format": "spatial",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSpatialUnconfinedGroundwaterStep",
+      "format": "spatial",
+      "passed_calls": 26,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoInSARAscDescDecomposition",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoInSARCoherenceNetworkSelection",
+      "format": "remote",
+      "passed_calls": 29,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoInSAREnvisatOscillatorCorrection",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoInSARIonosphericDelay",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoInSARNetworkDisplacement",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoInSARPlateFrameCorrection",
+      "format": "remote",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoInSARResidualDEM",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteBrightnessTemperature",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteClassSeparability",
+      "format": "remote",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteDenseOpticalFlow",
+      "format": "remote",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteEndmemberDiscovery",
+      "format": "remote",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteGaussianClassify",
+      "format": "remote",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteHoughLineEvidence",
+      "format": "remote",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteMADChange",
+      "format": "remote",
+      "passed_calls": 21,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemotePansharpenFusion",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemotePhaseUnwrap",
+      "format": "remote",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteProjectiveTiePoints",
+      "format": "remote",
+      "passed_calls": 13,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteScaleSpaceBlobs",
+      "format": "remote",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteTOAReflectance",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteTemplateLocate",
+      "format": "remote",
+      "passed_calls": 19,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoRemoteWaveletPyramid",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSARCoherentChange",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSARDopplerDeskew",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSARPolarimetricHAlpha",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSARPolarizationSynthesis",
+      "format": "remote",
+      "passed_calls": 25,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSARSubaperture",
+      "format": "remote",
+      "passed_calls": 23,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500BondValenceOxidation",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500CoherentMineralInterfaceMatch",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500CrystalCoordination",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500CrystalSpaceGroupAudit",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500CrystalStructureEquivalence",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500IrreducibleReciprocalMesh",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500MineralEhPHStability",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500MineralNeutronContrast",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500MineralOxygenBasisFormula",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500MineralPhaseHull",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500MineralReactionBalance",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500MineralSurfaceTerminations",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500PeriodicIonicLatticeEnergy",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500PoreBodyRadiusDistribution",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500PoreChordDistribution",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500PoreDiffusionTortuosity",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500PowderXRDPattern",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500QuasistaticCapillaryDrainage",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500REEOrthogonalShape",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500SpatialCellDeclustering",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500VolcanicTASClass",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "Geo500WulffCrystalHabit",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoConditionedResourceEnsemble",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoImplicitStructuralModel",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoMantleMeltingPath",
+      "format": "geology",
+      "passed_calls": 35,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSlopeLimitEquilibrium",
+      "format": "geology",
+      "passed_calls": 41,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoCrustAiryMoho",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoEMLayeredBipoleResponse",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoGravityBouguerSlab",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoGravityDensityInversion",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoGravityTesseroid",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoMagneticReductionToPole",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoMagneticSusceptibilityInversion",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoPotentialEdgeAttributes",
+      "format": "geophysics",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoPotentialEquivalentSources",
+      "format": "geophysics",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoPotentialEulerSourceLocation",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoPotentialUpwardContinuation",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicArrayBeamforming",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicComplexAttributes",
+      "format": "geophysics",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicLeastSquaresMigration",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicMultidimensionalDeconvolution",
+      "format": "geophysics",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicPoststackImpedanceInversion",
+      "format": "geophysics",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicProbabilisticNoise",
+      "format": "geophysics",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicRadiationPattern",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicReceiverDeghosting",
+      "format": "geophysics",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicTemplateDetection",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicUpDownWavefieldSeparation",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicWaveformTFMisfit",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSurfaceWaveSensitivity",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoDCFourElectrodeResponse",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoGravityNormalEllipsoid",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoMagneticWirePath",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicArrayStrainRotation",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicInstrumentDeconvolution",
+      "format": "geophysics",
+      "passed_calls": 28,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicNMO",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicSTALTADetection",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSeismicWindowCoherence",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    },
+    {
+      "id": "GeoSurfaceWaveDispersion",
+      "format": "geophysics",
+      "passed_calls": 24,
+      "failed_calls": 0,
+      "skipped_calls": 0
+    }
+  ]
+}

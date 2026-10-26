@@ -1,0 +1,11 @@
+choclo==0.3.2
+harmonica==0.7.0
+jsonschema==4.25.1
+numba==0.68.0
+numpy==2.1.3
+pandas==2.3.0
+scikit-learn==1.7.2
+scipy==1.15.3
+verde==1.8.1
+xarray==2026.9.0
+xrft==1.0.1

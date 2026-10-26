@@ -499,8 +499,22 @@ def gravity_tesseroid(args):
         inside = (obs[:, 0] >= w) & (obs[:, 0] <= e) & (obs[:, 1] >= s) & (obs[:, 1] <= n) & (obs[:, 2] >= b) & (obs[:, 2] <= t)
         if inside.any():
             reject("Observers cannot be inside or on a source tesseroid")
-    pot = hm.tesseroid_gravity(tuple(obs.T), cells, rho, field="potential", parallel=False)
-    down = hm.tesseroid_gravity(tuple(obs.T), cells, rho, field="g_z", parallel=False) * 1e-5
+    # Geometrically identical partition; retain Harmonica's adaptive GLQ.
+    # Limit broad angular cells before its distance/size heuristic, which alone
+    # does not meet this profile's analytic shell accuracy near broad sources.
+    refined_cells, refined_density = [], []
+    for (w, e, s, n, b, t), density in zip(cells, rho):
+        longitude = np.linspace(w, e, int(math.ceil((e - w) / 2.)) + 1)
+        latitude = np.linspace(s, n, int(math.ceil((n - s) / 2.)) + 1)
+        for lo, hi in zip(longitude[:-1], longitude[1:]):
+            for south, north in zip(latitude[:-1], latitude[1:]):
+                refined_cells.append((lo, hi, south, north, b, t))
+                refined_density.append(density)
+    if len(refined_cells) > 131072:
+        reject("Refined tesseroid mesh exceeds bounded CPU profile", "resource_limit")
+    cells, rho = np.asarray(refined_cells), np.asarray(refined_density)
+    pot = hm.tesseroid_gravity(tuple(obs.T), cells, rho, field="potential", parallel=False, radial_adaptive_discretization=True)
+    down = hm.tesseroid_gravity(tuple(obs.T), cells, rho, field="g_z", parallel=False, radial_adaptive_discretization=True) * 1e-5
     return _result({"potential_j_kg": _real(pot, (len(obs),)), "gravity_radial_down_m_s2": _real(down, (len(obs),))},
         {"potential_j_kg": "J/kg", "gravity_radial_down_m_s2": "m/s^2"}, "Harmonica adaptive tesseroid quadrature",
         warnings=["Geocentric spherical latitude/radius, not geodetic height. Signed density contrast; no inferred geological body."])
@@ -850,7 +864,7 @@ def gravity_bouguer_slab(args):
     if args["water_density_kg_m3"] >= args["crust_density_kg_m3"]:
         reject("Water density must be below crust density")
     h = _array(args["topography_m"], 1)
-    correction = (hm.bouguer_correction(h, density_crust=args["crust_density_kg_m3"], density_water=args["water_density_kg_m3"]) * 1e-5)
+    correction = (hm.bouguer_correction(h, density_crust=args["crust_density_kg_m3"], density_water=args["water_density_kg_m3"]))
     return _result({"slab_correction_mgal": _real(correction, h.shape)}, {"slab_correction_mgal": "mGal"},
         "Harmonica land/bathymetric Bouguer slab", warnings=["Infinite horizontal slab approximation, not a terrain correction. Signed upstream correction is returned, not silently applied to observations."])
 
@@ -1021,7 +1035,7 @@ def surface_wave_sensitivity(args):
     from disba import PhaseSensitivity
     np = _np()
     si, model = _layers(args)
-    kernel = PhaseSensitivity(*model.T, algorithm="dunkin", dc=.001, dp=.01)
+    kernel = PhaseSensitivity(*model.T, algorithm="dunkin", dc=.000001, dp=.01)
     values = {}
     for parameter, key in (("thickness", "dc_dthickness_s_inv"), ("velocity_p", "dc_dvp"), ("velocity_s", "dc_dvs"), ("density", "dc_ddensity_m4_kg_s")):
         result = kernel(args["period_s"], mode=args["mode"], wave=args["wave"], parameter=parameter)
@@ -1258,7 +1272,7 @@ def _wavelet(args):
 def _solver_capture(args, diagnostics):
     from scipy.sparse.linalg import lsqr
     def solve(operator, data, **unused):
-        answer = lsqr(operator, data, damp=args["damping"], atol=1e-8, btol=1e-8,
+        answer = lsqr(operator, data, damp=args["damping"], atol=1e-12, btol=1e-12,
                       conlim=1e8, iter_lim=args["max_iterations"], show=False)
         diagnostics.update(iterations=int(answer[2]), residual_l2=float(answer[3]),
             convergence="lsqr_stop_%d" % answer[1], stationarity_inf=None)
@@ -1389,7 +1403,7 @@ def seismic_up_down_wavefield_separation(args):
     if np.max(abs(pressure.mean(axis=1))) > 1e-6 * max(1e-20, float(np.max(abs(pressure)))) or np.max(abs(velocity.mean(axis=1))) > 1e-6 * max(1e-20, float(np.max(abs(velocity)))):
         reject("Provide zero-mean calibrated pressure and positive-down particle velocity; DC is not separable")
     up, down = WavefieldDecomposition(pressure, velocity, pressure.shape[1], pressure.shape[0], args["dt_s"],
-        args["receiver_spacing_m"], args["water_density_kg_m3"], args["water_velocity_m_s"], kind="analytical", critical=95., ntaper=3)
+        args["receiver_spacing_m"], args["water_density_kg_m3"], args["water_velocity_m_s"], kind="analytical", critical=95., ntaper=3, nffts=(max(pressure.shape[0], 10), pressure.shape[1]))
     return _result({"upgoing_pressure_pa": _real(up, pressure.shape), "downgoing_pressure_pa": _real(down, pressure.shape)},
         {"upgoing_pressure_pa": "Pa", "downgoing_pressure_pa": "Pa"},
         "PyLops analytical pressure/vertical-velocity wavefield separation",
@@ -1405,7 +1419,7 @@ def seismic_multidimensional_deconvolution(args):
     observed = _array(args["data_source_time_pa"], 2, (ns, nt))
     if nr < 2 or ns < 2 or np.linalg.norm(kernel) == 0:
         reject("A nonzero multidimensional acquisition kernel is required")
-    model = MDD(kernel, observed, dt=args["dt_s"], dr=args["receiver_spacing_m"], nfmax=nt,
+    model = MDD((kernel) / np.sqrt(2 * (kernel).shape[-1] - 1), observed, dt=args["dt_s"], dr=args["receiver_spacing_m"], nfmax=nt,
         twosided=True, add_negative=True, adjoint=False, psf=False, causality_precond=False,
         dottest=False, fftengine="numpy", damp=args["damping"], iter_lim=args["max_iterations"], atol=1e-8, btol=1e-8, show=False)
     model = np.asarray(model)
@@ -1413,7 +1427,7 @@ def seismic_multidimensional_deconvolution(args):
         reject("Unexpected multidimensional deconvolution result shape", "invalid_result")
     padded_kernel = np.concatenate((np.zeros((ns, nr, nt - 1)), kernel), axis=2)
     padded_data = np.concatenate((np.zeros((ns, nt - 1)), observed), axis=1)
-    op = MDC(np.fft.rfft(padded_kernel, axis=-1).transpose(2, 0, 1), 2 * nt - 1, nv=1,
+    op = MDC(np.fft.rfft(padded_kernel, axis=-1, norm="ortho").transpose(2, 0, 1), 2 * nt - 1, nv=1,
         dt=args["dt_s"], dr=args["receiver_spacing_m"], twosided=True, fftengine="numpy")
     residual, diag = _linear_diagnostics(op, model.T, np.zeros_like(model.T), padded_data.T, args["damping"])
     return _result({"virtual_source_response_pa": _real(model), "time_s": _real(np.arange(-nt + 1, nt) * args["dt_s"]),

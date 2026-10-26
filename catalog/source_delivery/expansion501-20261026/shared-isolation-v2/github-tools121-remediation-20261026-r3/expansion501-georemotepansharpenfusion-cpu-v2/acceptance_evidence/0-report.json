@@ -1,0 +1,347 @@
+{
+  "id": "GeoRemotePansharpenFusion",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoRemotePansharpenFusion",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoRemotePansharpenFusion (remote_original_cases.RemoteCases.test_registry_GeoRemotePansharpenFusion) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "18fec2af4cd33c80364317b16b336c9bd8fb099ecfdf55affcb43005c269637a",
+          "native-execution.csv": "1edad0d9ac724204a3bd54049bb204acbd85a2652554a2f58ae6d5c2c49869b9",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "7b9c650bd92959cad1d1bcd6285b239c4af548e30d23440066b21cdc6f1211ee",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "567313a0834ab8c2ad54fcb7dc3eaf88406b421868ea77754ba83ad14c4b24a1",
+          "result.tif": "ce5f576fbacce8c96bf19107ff401f5c5b4961785b0903a692b5c578955ed9ad"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "18fec2af4cd33c80364317b16b336c9bd8fb099ecfdf55affcb43005c269637a",
+          "native-execution.csv": "1edad0d9ac724204a3bd54049bb204acbd85a2652554a2f58ae6d5c2c49869b9",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "7b9c650bd92959cad1d1bcd6285b239c4af548e30d23440066b21cdc6f1211ee",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "567313a0834ab8c2ad54fcb7dc3eaf88406b421868ea77754ba83ad14c4b24a1",
+          "result.tif": "ce5f576fbacce8c96bf19107ff401f5c5b4961785b0903a692b5c578955ed9ad"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_dict/results/7d9b196691fb4ab9a90225a0b9db5843",
+        "artifacts": {
+          "band-summary.csv": "18fec2af4cd33c80364317b16b336c9bd8fb099ecfdf55affcb43005c269637a",
+          "native-execution.csv": "1edad0d9ac724204a3bd54049bb204acbd85a2652554a2f58ae6d5c2c49869b9",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "7b9c650bd92959cad1d1bcd6285b239c4af548e30d23440066b21cdc6f1211ee",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "d48df260008ba8a25f18a0e0717a5cdde3e2b4fe5d0b95ae13136b27439765e9",
+          "result.tif": "ce5f576fbacce8c96bf19107ff401f5c5b4961785b0903a692b5c578955ed9ad"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_json/results/c1427a659d7144fb9e45b7ed0c010438",
+        "artifacts": {
+          "band-summary.csv": "18fec2af4cd33c80364317b16b336c9bd8fb099ecfdf55affcb43005c269637a",
+          "native-execution.csv": "1edad0d9ac724204a3bd54049bb204acbd85a2652554a2f58ae6d5c2c49869b9",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "7b9c650bd92959cad1d1bcd6285b239c4af548e30d23440066b21cdc6f1211ee",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "d48df260008ba8a25f18a0e0717a5cdde3e2b4fe5d0b95ae13136b27439765e9",
+          "result.tif": "ce5f576fbacce8c96bf19107ff401f5c5b4961785b0903a692b5c578955ed9ad"
+        }
+      }
+    },
+    "pan_gain_invariance_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "18fec2af4cd33c80364317b16b336c9bd8fb099ecfdf55affcb43005c269637a",
+          "native-execution.csv": "1edad0d9ac724204a3bd54049bb204acbd85a2652554a2f58ae6d5c2c49869b9",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "9763fb77756719323efc661357a6a808743b3f435204b726583c4755d4d0e7ea",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "d48df260008ba8a25f18a0e0717a5cdde3e2b4fe5d0b95ae13136b27439765e9",
+          "result.tif": "ce5f576fbacce8c96bf19107ff401f5c5b4961785b0903a692b5c578955ed9ad"
+        }
+      }
+    },
+    "pan_gain_invariance_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "18fec2af4cd33c80364317b16b336c9bd8fb099ecfdf55affcb43005c269637a",
+          "native-execution.csv": "1edad0d9ac724204a3bd54049bb204acbd85a2652554a2f58ae6d5c2c49869b9",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "9763fb77756719323efc661357a6a808743b3f435204b726583c4755d4d0e7ea",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "d48df260008ba8a25f18a0e0717a5cdde3e2b4fe5d0b95ae13136b27439765e9",
+          "result.tif": "ce5f576fbacce8c96bf19107ff401f5c5b4961785b0903a692b5c578955ed9ad"
+        }
+      }
+    },
+    "pan_gain_invariance_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_runtime_dict/results/b0fef41d14444e1d9b11b3a8c67a79d4",
+        "artifacts": {
+          "band-summary.csv": "18fec2af4cd33c80364317b16b336c9bd8fb099ecfdf55affcb43005c269637a",
+          "native-execution.csv": "1edad0d9ac724204a3bd54049bb204acbd85a2652554a2f58ae6d5c2c49869b9",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "9763fb77756719323efc661357a6a808743b3f435204b726583c4755d4d0e7ea",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "1d0606d58671312598477abc8c65145dad3056afac5e72efa74b5a6ec9838f65",
+          "result.tif": "ce5f576fbacce8c96bf19107ff401f5c5b4961785b0903a692b5c578955ed9ad"
+        }
+      }
+    },
+    "pan_gain_invariance_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/pan_gain_invariance_runtime_json/results/b2f3012ed1804f91b03d2641de6fc725",
+        "artifacts": {
+          "band-summary.csv": "18fec2af4cd33c80364317b16b336c9bd8fb099ecfdf55affcb43005c269637a",
+          "native-execution.csv": "1edad0d9ac724204a3bd54049bb204acbd85a2652554a2f58ae6d5c2c49869b9",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "9763fb77756719323efc661357a6a808743b3f435204b726583c4755d4d0e7ea",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "1d0606d58671312598477abc8c65145dad3056afac5e72efa74b5a6ec9838f65",
+          "result.tif": "ce5f576fbacce8c96bf19107ff401f5c5b4961785b0903a692b5c578955ed9ad"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoRemotePansharpenFusion",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoRemotePansharpenFusion (remote_original_cases.RemoteCases.test_reject_extra_GeoRemotePansharpenFusion) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoRemotePansharpenFusion",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoRemotePansharpenFusion (remote_original_cases.RemoteCases.test_reject_unit_GeoRemotePansharpenFusion) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoRemotePansharpenFusion",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoRemotePansharpenFusion (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoRemotePansharpenFusion) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoRemotePansharpenFusion",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoRemotePansharpenFusion (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoRemotePansharpenFusion) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoRemotePansharpenFusion",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoRemotePansharpenFusion (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoRemotePansharpenFusion) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoRemotePansharpenFusion",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoRemotePansharpenFusion (remote_original_cases.RemoteCases.test_reject_singular_GeoRemotePansharpenFusion) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoRemotePansharpenFusion",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoRemotePansharpenFusion (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoRemotePansharpenFusion) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoRemotePansharpenFusion/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

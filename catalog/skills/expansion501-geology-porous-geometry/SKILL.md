@@ -1,98 +1,57 @@
 ---
 id: expansion501_geology_porous_geometry
 name: "Pore geometry and capillary accessibility"
-description: "Measure edge-censored pore chord-length distributions. Measure maximal-sphere local pore radii and pore-volume radius distribution. Simulate inlet-accessible quasistatic drainage with explicit capillary pressure and defender trapping. Solve steady normalized pore diffusion and derive effective diffusivity, formation factor and tortuosity from a face-connected binary voxel geometry."
-when_to_use: "Use only for this documented scientific task."
+description: "CPU-accepted scientific operations for Pore geometry and capillary accessibility"
 tools:
-- Geo500PoreChordDistribution
-- Geo500PoreBodyRadiusDistribution
-- Geo500QuasistaticCapillaryDrainage
-- Geo500PoreDiffusionTortuosity
-required_inputs:
-- Explicit data, units, assumptions and data_source
-constraints:
-- No imputed grade, arbitrary code, network fetch or runtime installation
-- Preserve uncertainty and native provenance
-expected_outputs:
-- Finite scientific JSON with units and hashes
+  - Geo500PoreChordDistribution
+  - Geo500PoreBodyRadiusDistribution
+  - Geo500QuasistaticCapillaryDrainage
+  - Geo500PoreDiffusionTortuosity
 ---
 
 # Pore geometry and capillary accessibility
 
 ## When to use
 
-Measure edge-censored pore chord-length distributions. Measure maximal-sphere local pore radii and pore-volume radius distribution. Simulate inlet-accessible quasistatic drainage with explicit capillary pressure and defender trapping. Solve steady normalized pore diffusion and derive effective diffusivity, formation factor and tortuosity from a face-connected binary voxel geometry.
+Select only an available operation whose scientific assumptions match the task.
 
 ## Required inputs
 
-Read the chosen complete schema and limitations. Supply measurements or explicitly identified model inputs, units, source and assumptions. Never fill missing field observations from synthetic examples.
+Use the closed native input schema, explicit units, source data, coordinate system and time conventions.
 
-## Procedure
+## Workflow
 
-1. Choose the operation matching the scientific question.
-2. Confirm physical domain, component order, units and provenance.
-3. Have the parent bind its fixed private CPU environment; never install or fetch at call time.
-4. Invoke the named function with args as a dictionary or JSON-object string after staging.
-5. Preserve units/hashes and interpret within the declared assumptions.
+1. Inspect source provenance and scientific applicability.
+2. Call the selected native operation with its exact schema.
+3. Inspect numerical results, units, errors and source/input/output hashes.
+4. Deliver only actual validated results and their scientific limitations.
 
-## Tools and synthetic examples
+## Available operations
 
-### Geo500PoreChordDistribution
+- `Geo500PoreChordDistribution`: Measure edge-censored pore chord-length distributions.
+- `Geo500PoreBodyRadiusDistribution`: Measure maximal-sphere local pore radii and pore-volume radius distribution.
+- `Geo500QuasistaticCapillaryDrainage`: Simulate inlet-accessible quasistatic drainage with explicit capillary pressure and defender trapping.
+- `Geo500PoreDiffusionTortuosity`: Solve steady normalized pore diffusion and derive effective diffusivity, formation factor and tortuosity from a face-connected binary voxel geometry.
 
-Measure edge-censored pore chord-length distributions.
+## Constraints
 
-Entrypoint: geological_agent.geology.expansion501_geology:pore_chord_distribution. Example: assets/expansion501-geology/Geo500PoreChordDistribution.json (SYNTHETIC).
+Offline CPU-only execution. Never install packages, download data or substitute generated algorithms during a call.
+Fixed dependency environments retain the original upstream algorithms, exact versions and license notices.
+Do not infer mineral presence, grade or reserves from indirect imagery indices.
 
-Binary physical pore mask, no segmentation; sampled lines separated by one voxel; boundary-touching chords removed.
+## Expected outputs
 
-[Reviewed upstream implementation](https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/filters/_funcs.py).
-
-### Geo500PoreBodyRadiusDistribution
-
-Measure maximal-sphere local pore radii and pore-volume radius distribution.
-
-Entrypoint: geological_agent.geology.expansion501_geology:pore_body_radius_distribution. Example: assets/expansion501-geology/Geo500PoreBodyRadiusDistribution.json (SYNTHETIC).
-
-Solid exterior collar required; fixed integer radii, smooth=True, brute-force upstream method; radius not diameter.
-
-[Reviewed upstream implementation](https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/filters/_lt_methods.py).
-
-### Geo500QuasistaticCapillaryDrainage
-
-Simulate inlet-accessible quasistatic drainage with explicit capillary pressure and defender trapping.
-
-Entrypoint: geological_agent.geology.expansion501_geology:quasistatic_capillary_drainage. Example: assets/expansion501-geology/Geo500QuasistaticCapillaryDrainage.json (SYNTHETIC).
-
-No generated Young-Laplace pressure or hidden surface tension; explicit pressure input. Infinity is represented by null plus masks, not silently replaced with a finite pressure.
-
-[Reviewed upstream implementation](https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/simulations/_drainage.py).
-
-### Geo500PoreDiffusionTortuosity
-
-Solve steady normalized pore diffusion and derive effective diffusivity, formation factor and tortuosity from a face-connected binary voxel geometry.
-
-Entrypoint: geological_agent.geology.expansion501_geology:pore_diffusion_tortuosity. Example: assets/expansion501-geology/Geo500PoreDiffusionTortuosity.json (SYNTHETIC).
-
-PoreSpy 3.2.0 calls OpenPNM 3.6.1 and its fixed PyAMG solver; no local replacement diffusion solver. Dedicated profile requires SciPy 1.16.2 and pandas 2.3.2. Never install this profile over the existing pores or main environment. 2D means unit out-of-plane thickness; isotropic voxel spacing cancels from the relative diffusivity. Boundary distance is (shape[axis]-1)*spacing. Both solid and void required; face-connected spanning pores required. Nonspanning pores are removed by upstream and both original/effective porosities are returned. Fixed residual tolerance 1e-10 and relative inlet/outlet flux-balance tolerance 1e-6. No arbitrary solver, executable, convergence loosening or GPU. Concentration is meaningful only where retained_pore_mask is true; zeros elsewhere are upstream solid/dropped-void sentinels, not measurements. Full binary lock, including OpenPNM's Linux x86_64 pypardiso dependency, remains pending. Only CPU PyAMG is explicitly selected.
-
-[Reviewed upstream implementation](https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/simulations/_dns.py).
-
-## Interpretation and constraints
-
-No result certifies ore grade, reserves, mineral identity, engineering safety or real-event prediction. No GPU, arbitrary callable, serialized class, shell command, database fetch or hidden missing-value replacement is exposed. Failures return errors, never local substitute kernels.
-
-## Native errors
-
-ScientificToolError carries code, message and retryable through collection_contracts.operation. Missing/incompatible dependencies need parent-controlled preparation. Do not invent data to bypass a rejected domain.
+Schema-validated numerical JSON, declared units, original evidence and declared artifacts with content hashes.
 
 ## Source interface and delivery
 
-Kind: expansion501_geology. Module: geological_agent.geology.expansion501_geology. Explicit decorated functions accept args and return JSON only. No output_dir or generated artifact. Shared contracts provide input, implementation and contract hashes plus empty artifact hashes. Existing native bridge profiles are unchanged. Full paths are in catalog/source_delivery/expansion501-20261026/groups/geology/delivery-files.json.
+Use the native function input object. Standalone examples are in catalog/source_delivery/examples.json.
+Runtime profiles bind the source, interpreter, exact dependency lock and CPU execution evidence.
 
-## Availability and handoff
+### Current availability
 
-source_revised_unverified; acceptance_pending; formal_eligible=false. NOT TESTED. Deployment: not_deployed. Submission: not_submitted. Unit, model workflow, Skill workflow and platform validation: not_run. Receiving AI Lab certification is not established. Parent owns registry/kind allowlisting, private CPU binding, tests, acceptance and release.
+`tool_candidates_available_workflow_unverified`
 
-## Acceptance evidence
-
-This revised source has not completed upstream scientific acceptance. Historical CPU journals, including failures, remain under acceptance/ and do not certify this revision. Local reference/source checks are not upstream or main-runtime acceptance. Complete transitive/native identities, outstanding absolute benchmarks, license/distribution review and lab approval remain pending. Blocked assignments are excluded from this Skill and catalog-additions.json; see adaptation-status.json and blocked-evidence.json.
+The listed operations passed internal CPU acceptance; this is not model-driven workflow acceptance or AI Lab approval.
+Scientific platform validation: `not_run`. Lab submission: `not_submitted`.
+Deployment, Git and browser acceptance are recorded separately in release receipts.

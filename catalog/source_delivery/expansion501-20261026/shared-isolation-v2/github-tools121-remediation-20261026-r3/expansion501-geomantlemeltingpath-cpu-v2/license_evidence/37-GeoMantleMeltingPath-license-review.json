@@ -1,0 +1,27 @@
+{
+  "legal_certification_or_redistribution_approval": false,
+  "license_review_complete": true,
+  "reviewed_original_files": [
+    {
+      "distribution": "pyMelt",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/mantle/venv/lib/python3.12/site-packages/pyMelt-2.3.dist-info/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/mantle/licenses/pymelt/pyMelt-2.3.dist-info/LICENSE",
+      "review": "Read frozen original LICENSE including GPLv3 sections 4-6. Authoritative license text is GPL-3.0, despite a conflicting MIT setup classifier. Preserve notices and GPL text and provide corresponding source when conveying covered object code. No conclusion about combining licenses or external redistribution approval is asserted.",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "version": "2.3"
+    },
+    {
+      "distribution": "pyMelt",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/mantle/venv/lib/python3.12/site-packages/pyMelt-2.3.dist-info/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/mantle/licenses/pymelt/pyMelt-2.3.dist-info/LICENSE",
+      "qualification": "Original license shipped in the pinned published artifact. Reviewed repository commit is separately recorded; no wheel/commit byte-equivalence asserted. Authoritative LICENSE is GPLv3 while setup.py classifier says MIT. Distribution interpretation/approval pending; do not describe as plain MIT.",
+      "review": "Read frozen original LICENSE including GPLv3 sections 4-6. Authoritative license text is GPL-3.0, despite a conflicting MIT setup classifier. Preserve notices and GPL text and provide corresponding source when conveying covered object code. No conclusion about combining licenses or external redistribution approval is asserted.",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "source_commit": "53246591d796275b4d3c7e6102897a886b76d63a",
+      "url": "https://files.pythonhosted.org/packages/58/18/c77c5a2c8fda0e9ad9b1a9b3667dc0fe61cdcb518042fdd46457fb63c4de/pyMelt-2.3-py3-none-any.whl",
+      "version": "2.3"
+    }
+  ],
+  "scope": "Original frozen upstream files read; published wheels and reviewed commits are distinct identities. No legal certification or redistribution approval asserted.",
+  "tool_id": "GeoMantleMeltingPath"
+}

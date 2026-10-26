@@ -853,6 +853,7 @@ def _runtime_test(tool_id, kind):
                 "GeoImplicitStructuralModel": "gempy",
                 "GeoConditionedResourceEnsemble": "scikit-learn",
                 "Geo500PoreDiffusionTortuosity": "porespy",
+                "Geo500SpatialCellDeclustering": "numpy",
             }.get(tool_id)
             if expected_dependency is None:
                 # Unexecuted GeoStatsPy case retains its prior assertion.

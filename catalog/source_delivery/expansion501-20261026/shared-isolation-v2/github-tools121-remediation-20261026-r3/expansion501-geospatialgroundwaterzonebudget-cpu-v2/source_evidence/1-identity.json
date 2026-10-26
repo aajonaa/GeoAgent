@@ -1,0 +1,486 @@
+{
+  "dependency_lock": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/dependency-lock.json",
+  "dependency_lock_sha256": "9bf3dcc1b666f81f3e45be13aadaac73169c5ae80146c150ae8ee2ad9db85984",
+  "install_report": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/install-report.json",
+  "install_report_sha256": "d942aa4d8dbffdfaee8f189cc160ddb2b8735849c2c1b929cddecca9e8d0afcd",
+  "interpreter_sha256": "edffa803e5c4d73a1357f7f2c6c9fd38e9693712b2c06793e6a5e5cc1090d03a",
+  "isolated_flag": 1,
+  "license_evidence": [
+    {
+      "distribution": "attrs",
+      "distribution_sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "distribution_url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/attrs-26.1.0.dist-info/licenses/LICENSE",
+      "original_sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/attrs-26.1.0/attrs-26.1.0.dist-info/licenses/LICENSE",
+      "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f",
+      "version": "26.1.0"
+    },
+    {
+      "distribution": "certifi",
+      "distribution_sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+      "distribution_url": "https://files.pythonhosted.org/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "original_sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/certifi-2026.10.23/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "version": "2026.10.23"
+    },
+    {
+      "distribution": "contourpy",
+      "distribution_sha256": "875f42444c9cf48d56f724f2637e60d0f73b3b12c9041e1484580a233edf9591",
+      "distribution_url": "https://files.pythonhosted.org/packages/78/f9/b6831508960d559581c448532ba4df312217072975486dbf2b24fcc5b76f/contourpy-1.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/contourpy-1.4.0.dist-info/licenses/LICENSE",
+      "original_sha256": "11401c428c7014a75728e8679f9c000aacf262015aaba65a760d41aa1130b3af",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/contourpy-1.4.0/contourpy-1.4.0.dist-info/licenses/LICENSE",
+      "sha256": "11401c428c7014a75728e8679f9c000aacf262015aaba65a760d41aa1130b3af",
+      "version": "1.4.0"
+    },
+    {
+      "distribution": "cycler",
+      "distribution_sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30",
+      "distribution_url": "https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/cycler-0.12.1.dist-info/LICENSE",
+      "original_sha256": "f1218143d766da3fea66f13396b7f15df46a83303f29bf96ba6e98eb4d42f408",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/cycler-0.12.1/cycler-0.12.1.dist-info/LICENSE",
+      "sha256": "f1218143d766da3fea66f13396b7f15df46a83303f29bf96ba6e98eb4d42f408",
+      "version": "0.12.1"
+    },
+    {
+      "distribution": "flopy",
+      "distribution_sha256": "2bfb9cab252d729eebc760f0b3b0bf1dbe8826e5a5026ef38a77afa18fb1302e",
+      "distribution_url": "https://files.pythonhosted.org/packages/ba/40/cb8a31ba76cb2914bb2b45c78d252f3b9f84fd1b475613559ab18a9fb084/flopy-3.11.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/flopy-3.11.0.dist-info/licenses/LICENSE.md",
+      "original_sha256": "35df50fd460e77a10e5969fc390de5ad6596ce15ce78b0b201dee13a96a1a065",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/flopy-3.11.0/flopy-3.11.0.dist-info/licenses/LICENSE.md",
+      "sha256": "35df50fd460e77a10e5969fc390de5ad6596ce15ce78b0b201dee13a96a1a065",
+      "version": "3.11.0"
+    },
+    {
+      "distribution": "fonttools",
+      "distribution_sha256": "eb3c98cac93aac4b9f6e3ce2008325340b234cc9b0338ca6b513f31962a1e278",
+      "distribution_url": "https://files.pythonhosted.org/packages/c1/e0/ec9e4cc868c514deb02233aa1047a6aeb9350d3ee012862f58eec10ef834/fonttools-4.67.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/fonttools-4.67.0.dist-info/licenses/LICENSE",
+      "original_sha256": "6787208f83f659ccbc2223b2fde952ffa6f7e8aca62f1a8a2bf5bc51bb1b2383",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/fonttools-4.67.0/fonttools-4.67.0.dist-info/licenses/LICENSE",
+      "sha256": "6787208f83f659ccbc2223b2fde952ffa6f7e8aca62f1a8a2bf5bc51bb1b2383",
+      "version": "4.67.0"
+    },
+    {
+      "distribution": "fonttools",
+      "distribution_sha256": "eb3c98cac93aac4b9f6e3ce2008325340b234cc9b0338ca6b513f31962a1e278",
+      "distribution_url": "https://files.pythonhosted.org/packages/c1/e0/ec9e4cc868c514deb02233aa1047a6aeb9350d3ee012862f58eec10ef834/fonttools-4.67.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/fonttools-4.67.0.dist-info/licenses/LICENSE.external",
+      "original_sha256": "94a83aaee0729a0f302d34acc4acecbd9d58366f262429075fe557e4a54b2e69",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/fonttools-4.67.0/fonttools-4.67.0.dist-info/licenses/LICENSE.external",
+      "sha256": "94a83aaee0729a0f302d34acc4acecbd9d58366f262429075fe557e4a54b2e69",
+      "version": "4.67.0"
+    },
+    {
+      "distribution": "jsonschema",
+      "distribution_sha256": "3fba0169e345c7175110351d456342c364814cfcf3b964ba4587f22915230a63",
+      "distribution_url": "https://files.pythonhosted.org/packages/bf/9c/8c95d856233c1f82500c2450b8c68576b4cf1c871db3afac5c34ff84e6fd/jsonschema-4.25.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/jsonschema-4.25.1.dist-info/licenses/COPYING",
+      "original_sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/jsonschema-4.25.1/jsonschema-4.25.1.dist-info/licenses/COPYING",
+      "sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439",
+      "version": "4.25.1"
+    },
+    {
+      "distribution": "jsonschema-specifications",
+      "distribution_sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "distribution_url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING",
+      "original_sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/jsonschema-specifications-2025.9.1/jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING",
+      "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "version": "2025.9.1"
+    },
+    {
+      "distribution": "kiwisolver",
+      "distribution_sha256": "34633ecf50d16187ab8e5528b7a2530f2feb4e23f300db4672538b51cfc5cd38",
+      "distribution_url": "https://files.pythonhosted.org/packages/fc/f4/dadfec469313c7f428efa7e84b4aba9732f813c13ea7131a24b7b008ef57/kiwisolver-1.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/kiwisolver-1.5.1.dist-info/licenses/LICENSE",
+      "original_sha256": "529c40e5f67f2f88904657a9f7879ae2f8dc76bc9bfef9cb10d988b48804ed61",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/kiwisolver-1.5.1/kiwisolver-1.5.1.dist-info/licenses/LICENSE",
+      "sha256": "529c40e5f67f2f88904657a9f7879ae2f8dc76bc9bfef9cb10d988b48804ed61",
+      "version": "1.5.1"
+    },
+    {
+      "distribution": "matplotlib",
+      "distribution_sha256": "d5f256d49fea31f40f166a5e3131235a5d2f4b7f44520b1cf0baf1ce568ccff0",
+      "distribution_url": "https://files.pythonhosted.org/packages/7d/18/95ae2e242d4a5c98bd6e90e36e128d71cf1c7e39b0874feaed3ef782e789/matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/matplotlib-3.10.7.dist-info/LICENSE",
+      "original_sha256": "5a1a81ea301728c8bba2933da832c0cd62229daf20893a024ab3d53244468dbc",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/matplotlib-3.10.7/matplotlib-3.10.7.dist-info/LICENSE",
+      "sha256": "5a1a81ea301728c8bba2933da832c0cd62229daf20893a024ab3d53244468dbc",
+      "version": "3.10.7"
+    },
+    {
+      "distribution": "matplotlib",
+      "distribution_sha256": "d5f256d49fea31f40f166a5e3131235a5d2f4b7f44520b1cf0baf1ce568ccff0",
+      "distribution_url": "https://files.pythonhosted.org/packages/7d/18/95ae2e242d4a5c98bd6e90e36e128d71cf1c7e39b0874feaed3ef782e789/matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/LICENSE_DEJAVU",
+      "original_sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/matplotlib-3.10.7/matplotlib/mpl-data/fonts/ttf/LICENSE_DEJAVU",
+      "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e",
+      "version": "3.10.7"
+    },
+    {
+      "distribution": "matplotlib",
+      "distribution_sha256": "d5f256d49fea31f40f166a5e3131235a5d2f4b7f44520b1cf0baf1ce568ccff0",
+      "distribution_url": "https://files.pythonhosted.org/packages/7d/18/95ae2e242d4a5c98bd6e90e36e128d71cf1c7e39b0874feaed3ef782e789/matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/LICENSE_STIX",
+      "original_sha256": "bab3d31dfef07f483624f2f65f2711e76065b8e7273278b1c071ede1041c9959",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/matplotlib-3.10.7/matplotlib/mpl-data/fonts/ttf/LICENSE_STIX",
+      "sha256": "bab3d31dfef07f483624f2f65f2711e76065b8e7273278b1c071ede1041c9959",
+      "version": "3.10.7"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/numpy-2.1.3.dist-info/LICENSE.txt",
+      "original_sha256": "c002bd26de7dc7aa464250a0de063d58fe55974452e4389e5c21c350a820bf06",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/numpy-2.1.3/numpy-2.1.3.dist-info/LICENSE.txt",
+      "sha256": "c002bd26de7dc7aa464250a0de063d58fe55974452e4389e5c21c350a820bf06",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/numpy/_core/include/numpy/random/LICENSE.txt",
+      "original_sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/numpy-2.1.3/numpy/_core/include/numpy/random/LICENSE.txt",
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/numpy/ma/LICENSE",
+      "original_sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/numpy-2.1.3/numpy/ma/LICENSE",
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/numpy/random/LICENSE.md",
+      "original_sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/numpy-2.1.3/numpy/random/LICENSE.md",
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "packaging",
+      "distribution_sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "distribution_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/packaging-26.3.dist-info/licenses/LICENSE",
+      "original_sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/packaging-26.3/packaging-26.3.dist-info/licenses/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "version": "26.3"
+    },
+    {
+      "distribution": "packaging",
+      "distribution_sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "distribution_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "original_sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/packaging-26.3/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "version": "26.3"
+    },
+    {
+      "distribution": "packaging",
+      "distribution_sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "distribution_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "original_sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/packaging-26.3/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "version": "26.3"
+    },
+    {
+      "distribution": "pandas",
+      "distribution_sha256": "ba24af48643b12ffe49b27065d3babd52702d95ab70f50e1b34f71ca703e2c0d",
+      "distribution_url": "https://files.pythonhosted.org/packages/01/a5/931fc3ad333d9d87b10107d948d757d67ebcfc33b1988d5faccc39c6845c/pandas-2.3.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/pandas-2.3.0.dist-info/LICENSE",
+      "original_sha256": "1dea2e80ed1cbd0233f84cee4486b29689f133babaccf4d295e51c43051f3216",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/pandas-2.3.0/pandas-2.3.0.dist-info/LICENSE",
+      "sha256": "1dea2e80ed1cbd0233f84cee4486b29689f133babaccf4d295e51c43051f3216",
+      "version": "2.3.0"
+    },
+    {
+      "distribution": "pillow",
+      "distribution_sha256": "42d63be3af4f9b951b199b0a9d23365d37ab14687e6d77b74940432c8515c4ca",
+      "distribution_url": "https://files.pythonhosted.org/packages/e6/99/fdf65cc539e266ab93546c261bdf98411fe165c6e4e13f9dbf597097192b/pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "original_sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/pillow-13.0.0/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "version": "13.0.0"
+    },
+    {
+      "distribution": "pip",
+      "distribution_sha256": "c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f",
+      "distribution_url": "https://files.pythonhosted.org/packages/c9/bc/b7db44f5f39f9d0494071bddae6880eb645970366d0a200022a1a93d57f5/pip-25.0.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/pip-25.0.1.dist-info/LICENSE.txt",
+      "original_sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/pip-25.0.1/pip-25.0.1.dist-info/LICENSE.txt",
+      "sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104",
+      "version": "25.0.1"
+    },
+    {
+      "distribution": "pyparsing",
+      "distribution_sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4",
+      "distribution_url": "https://files.pythonhosted.org/packages/38/bb/d215ee7c73b61497b28a5503f9f53523f294fcc936762b7caf90e0c1c2b5/pyparsing-3.3.3-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/pyparsing-3.3.3.dist-info/licenses/LICENSE",
+      "original_sha256": "a5425f9dc14ac74d4c5f0b679e941f2442e32cca7452a4418d5b1a49893ebe4e",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/pyparsing-3.3.3/pyparsing-3.3.3.dist-info/licenses/LICENSE",
+      "sha256": "a5425f9dc14ac74d4c5f0b679e941f2442e32cca7452a4418d5b1a49893ebe4e",
+      "version": "3.3.3"
+    },
+    {
+      "distribution": "pyproj",
+      "distribution_sha256": "1edc34266c0c23ced85f95a1ee8b47c9035eae6aca5b6b340327250e8e281630",
+      "distribution_url": "https://files.pythonhosted.org/packages/b8/be/212882c450bba74fc8d7d35cbd57e4af84792f0a56194819d98106b075af/pyproj-3.7.2-cp312-cp312-manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/pyproj-3.7.2.dist-info/licenses/LICENSE",
+      "original_sha256": "a652687151814d4c4715445912fcb49e7e58f5b248d47a1a88b859a8815e0822",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/pyproj-3.7.2/pyproj-3.7.2.dist-info/licenses/LICENSE",
+      "sha256": "a652687151814d4c4715445912fcb49e7e58f5b248d47a1a88b859a8815e0822",
+      "version": "3.7.2"
+    },
+    {
+      "distribution": "pyproj",
+      "distribution_sha256": "1edc34266c0c23ced85f95a1ee8b47c9035eae6aca5b6b340327250e8e281630",
+      "distribution_url": "https://files.pythonhosted.org/packages/b8/be/212882c450bba74fc8d7d35cbd57e4af84792f0a56194819d98106b075af/pyproj-3.7.2-cp312-cp312-manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/pyproj-3.7.2.dist-info/licenses/LICENSE_proj",
+      "original_sha256": "ac9caff7979c906774d756815d1d473145284ba7ba9a5ef1c5fa77e6a30cef82",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/pyproj-3.7.2/pyproj-3.7.2.dist-info/licenses/LICENSE_proj",
+      "sha256": "ac9caff7979c906774d756815d1d473145284ba7ba9a5ef1c5fa77e6a30cef82",
+      "version": "3.7.2"
+    },
+    {
+      "distribution": "python-dateutil",
+      "distribution_sha256": "3c79630202e4152c6add678446984236efe4f57e84d8e892aab0637bab82e9fd",
+      "distribution_url": "https://files.pythonhosted.org/packages/5a/17/cebee01d1c0c1441174cf0456ddc91b280d79acb65340c05e41d77866ee8/python_dateutil-3.0.0-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/python_dateutil-3.0.0.dist-info/licenses/LICENSE",
+      "original_sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/python-dateutil-3.0.0/python_dateutil-3.0.0.dist-info/licenses/LICENSE",
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "version": "3.0.0"
+    },
+    {
+      "distribution": "pytz",
+      "distribution_sha256": "e658af3757f9e26a9d25dd2aff38335acd92bc9104f890a894b2c1ba28311b03",
+      "distribution_url": "https://files.pythonhosted.org/packages/4f/ef/c66110d46fb800dda0bf33164182dfadabe26a90e4476844d502a23dca8e/pytz-2026.5-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/pytz-2026.5.dist-info/LICENSE.txt",
+      "original_sha256": "be8b1a37ebe26c592a90f6c0eb33103a7f383ce2f4d7498c0af9a526990a07b8",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/pytz-2026.5/pytz-2026.5.dist-info/LICENSE.txt",
+      "sha256": "be8b1a37ebe26c592a90f6c0eb33103a7f383ce2f4d7498c0af9a526990a07b8",
+      "version": "2026.5"
+    },
+    {
+      "distribution": "PyYAML",
+      "distribution_sha256": "ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc",
+      "distribution_url": "https://files.pythonhosted.org/packages/8b/9d/b3589d3877982d4f2329302ef98a8026e7f4443c765c46cfecc8858c6b4b/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "original_sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/pyyaml-6.0.3/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "version": "6.0.3"
+    },
+    {
+      "distribution": "referencing",
+      "distribution_sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "distribution_url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/referencing-0.37.0.dist-info/licenses/COPYING",
+      "original_sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/referencing-0.37.0/referencing-0.37.0.dist-info/licenses/COPYING",
+      "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "version": "0.37.0"
+    },
+    {
+      "distribution": "rpds-py",
+      "distribution_sha256": "addeda51556dac7c1a2f14cda62db8b621cd12afba3091d03a96c72932387eab",
+      "distribution_url": "https://files.pythonhosted.org/packages/1d/6d/b26eb1e75395925b3a142ed351cbed2ec8212f5c9d937aee3df32c701baa/rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/rpds_py-2026.9.1.dist-info/licenses/LICENSE",
+      "original_sha256": "314e4e91be3baa93c0fb4bccc9e4e97cd643eb839b065af921782c2175fe9909",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/rpds-py-2026.9.1/rpds_py-2026.9.1.dist-info/licenses/LICENSE",
+      "sha256": "314e4e91be3baa93c0fb4bccc9e4e97cd643eb839b065af921782c2175fe9909",
+      "version": "2026.9.1"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/scipy-1.15.3.dist-info/LICENSE.txt",
+      "original_sha256": "828cb9a7369c0a9f633ce7c10023f8d822f0f76b54ce25c723361d45b088879a",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/scipy-1.15.3/scipy-1.15.3.dist-info/LICENSE.txt",
+      "sha256": "828cb9a7369c0a9f633ce7c10023f8d822f0f76b54ce25c723361d45b088879a",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/scipy/_lib/_uarray/LICENSE",
+      "original_sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/scipy-1.15.3/scipy/_lib/_uarray/LICENSE",
+      "sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/scipy/fft/_pocketfft/LICENSE.md",
+      "original_sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/scipy-1.15.3/scipy/fft/_pocketfft/LICENSE.md",
+      "sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/scipy/sparse/linalg/_eigen/arpack/COPYING",
+      "original_sha256": "0926566f9f406178d1214f8cc796e166b1213dd7c05e0c5b461a8b8ac9e50bbe",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/scipy-1.15.3/scipy/sparse/linalg/_eigen/arpack/COPYING",
+      "sha256": "0926566f9f406178d1214f8cc796e166b1213dd7c05e0c5b461a8b8ac9e50bbe",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/scipy/spatial/qhull_src/COPYING.txt",
+      "original_sha256": "34db0c0c4f931861d720555c9cd7a2e228d1290ba29af0f2ee80c41bb2038afb",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/scipy-1.15.3/scipy/spatial/qhull_src/COPYING.txt",
+      "sha256": "34db0c0c4f931861d720555c9cd7a2e228d1290ba29af0f2ee80c41bb2038afb",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "six",
+      "distribution_sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "distribution_url": "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/six-1.17.0.dist-info/LICENSE",
+      "original_sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/six-1.17.0/six-1.17.0.dist-info/LICENSE",
+      "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "version": "1.17.0"
+    },
+    {
+      "distribution": "typing_extensions",
+      "distribution_sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "distribution_url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "original_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/typing-extensions-4.16.0/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "version": "4.16.0"
+    },
+    {
+      "distribution": "tzdata",
+      "distribution_sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+      "distribution_url": "https://files.pythonhosted.org/packages/94/21/1e5995a1c920cce14e4bffae20c665ec10e7ed03ab25e006cd741092b718/tzdata-2026.5-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/tzdata-2026.5.dist-info/licenses/LICENSE",
+      "original_sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/tzdata-2026.5/tzdata-2026.5.dist-info/licenses/LICENSE",
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "version": "2026.5"
+    },
+    {
+      "distribution": "tzdata",
+      "distribution_sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+      "distribution_url": "https://files.pythonhosted.org/packages/94/21/1e5995a1c920cce14e4bffae20c665ec10e7ed03ab25e006cd741092b718/tzdata-2026.5-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages/tzdata-2026.5.dist-info/licenses/licenses/LICENSE_APACHE",
+      "original_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/licenses/tzdata-2026.5/tzdata-2026.5.dist-info/licenses/licenses/LICENSE_APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "version": "2026.5"
+    }
+  ],
+  "missing_original_license_files": [],
+  "pth_files": [],
+  "python": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "requirements": [
+    "attrs==26.1.0",
+    "certifi==2026.10.23",
+    "contourpy==1.4.0",
+    "cycler==0.12.1",
+    "flopy==3.11.0",
+    "fonttools==4.67.0",
+    "jsonschema==4.25.1",
+    "jsonschema-specifications==2025.9.1",
+    "kiwisolver==1.5.1",
+    "matplotlib==3.10.7",
+    "numpy==2.1.3",
+    "packaging==26.3",
+    "pandas==2.3.0",
+    "pillow==13.0.0",
+    "pip==25.0.1",
+    "pyparsing==3.3.3",
+    "pyproj==3.7.2",
+    "python-dateutil==3.0.0",
+    "pytz==2026.5",
+    "PyYAML==6.0.3",
+    "referencing==0.37.0",
+    "rpds-py==2026.9.1",
+    "scipy==1.15.3",
+    "six==1.17.0",
+    "typing_extensions==4.16.0",
+    "tzdata==2026.5"
+  ],
+  "requirements_lock": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/requirements-lock.txt",
+  "requirements_lock_sha256": "6bef4e430aaf8b26f2fc7afe9898a0f3078f6066bc87d7701e926d7ec0f02d4f",
+  "sitecustomize": false,
+  "source_evidence": [
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "flopy",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/pypi/flopy-3.11.0.json",
+        "sha256": "3137e788951a525ea325b7abe449f456fd5616fd5cd525dae7ee76ca1f47041e",
+        "url": "https://pypi.org/pypi/flopy/3.11.0/json"
+      },
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/upstream/flopy-3.11.0.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/flopy/upstream/flopy-reviewed-LICENSE",
+        "sha256": "35df50fd460e77a10e5969fc390de5ad6596ce15ce78b0b201dee13a96a1a065",
+        "url": "https://raw.githubusercontent.com/modflowpy/flopy/a43f79127d0383e5328a602e72faf9a9730c7d61/LICENSE.md"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "CC0-1.0",
+        "license_evidence_url": "https://github.com/modflowpy/flopy/blob/a43f79127d0383e5328a602e72faf9a9730c7d61/LICENSE.md",
+        "package": "flopy",
+        "release_evidence_url": "https://pypi.org/project/flopy/3.11.0/",
+        "repository": "https://github.com/modflowpy/flopy",
+        "source_commit": "a43f79127d0383e5328a602e72faf9a9730c7d61",
+        "source_url": "https://github.com/modflowpy/flopy/tree/a43f79127d0383e5328a602e72faf9a9730c7d61",
+        "version": "3.11.0"
+      },
+      "sha256": "b68006f33956b2c86f263084fddf3e5d39b7e57021a600b48350c5ebafe1fac8",
+      "url": "https://files.pythonhosted.org/packages/6c/93/5a54cd9e927754b274bd2c076ac1a99e9802faa46d296d97c48d7651bdf1/flopy-3.11.0.tar.gz",
+      "version": "3.11.0"
+    }
+  ],
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/spatial/envs/flopy/lib/python3.12/site-packages"
+  ],
+  "usercustomize": false
+}

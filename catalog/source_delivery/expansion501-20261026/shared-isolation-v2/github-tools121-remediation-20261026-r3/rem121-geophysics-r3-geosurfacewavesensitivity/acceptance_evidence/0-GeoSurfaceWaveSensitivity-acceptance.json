@@ -1,0 +1,155 @@
+{
+  "checks": [
+    {
+      "stage": "source_registration",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_example",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_numerical",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_example",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_numerical",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_example",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_numerical",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_example",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_numerical",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_negative_extra",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_negative_physical",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_negative_nonfinite",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_negative_extra",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_negative_physical",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_negative_nonfinite",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_negative_extra",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_negative_physical",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_negative_nonfinite",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_negative_extra",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_negative_physical",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_negative_nonfinite",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_boundary",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_boundary",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_boundary",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_boundary",
+      "status": "pass"
+    }
+  ],
+  "frozen_adapter": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/geological_agent/geology/expansion501_geophysics.py",
+    "sha256": "d44695e4b89c010a379715794d740e6415f84a238b8201418b9eb1c9b7af79c2"
+  },
+  "gpu_used": false,
+  "import_only_acceptance": false,
+  "raw_report": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/precision-r3/GeoSurfaceWaveSensitivity/report.json",
+    "sha256": "f7a0032c8183bb28c43ffad25f0a69eeef4f40fa024562f2ca0dd19e20b25d4e"
+  },
+  "reference_files": [
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_cases.py",
+      "sha256": "70326816500c8e4bd63ae4456e21ca7f0840ecbc368b8cb74f7ee1e90307e51e"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_advanced.py",
+      "sha256": "eeccd3f5893abc197b51760dadabd27d483e8e9e233e17341261fe11ad581de1"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_potential.py",
+      "sha256": "19310d7c3ad49fda3ee10522b15b840bafa3acc6a0ffd806558db27cf685b60b"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py",
+      "sha256": "72fd1e538a3cef445afae9f0da0126a1bf108ff662c23570565a7be597ce1821"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py",
+      "sha256": "d586941706d0380d7c36f7eeee102ad64954eef2317e6b67b36b57b85710f221"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py",
+      "sha256": "352fc45311ba090db54db7478445cd033c0ae1ce0d45aa8e1303dc4eadaf2d0a"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py",
+      "sha256": "2018afcabcd0347084ab18f2246a26334fb9ad2cb9e2d3a39684649aeb0926db"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/signal_oracle_cases.py",
+      "sha256": "b220f7231d23499c970d2025f89a0c72c60bce4c2fb9dfcdaaaadc74b393ffe1"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals.py",
+      "sha256": "96e57ba2a65f10e2eb4b3fe0bd5787319e423976656d679a176ade14fa89e03c"
+    }
+  ],
+  "scientific_acceptance": "passed",
+  "test_production_bridge": "not claimed; parent end-to-end replay is required",
+  "tool": "GeoSurfaceWaveSensitivity"
+}

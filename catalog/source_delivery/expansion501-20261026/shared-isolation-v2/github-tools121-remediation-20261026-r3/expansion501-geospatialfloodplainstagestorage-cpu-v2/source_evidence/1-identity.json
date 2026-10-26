@@ -1,0 +1,336 @@
+{
+  "dependency_lock": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/dependency-lock.json",
+  "dependency_lock_sha256": "4cb0561466a829da1f5ed60fca670b8b8e5397650f9584bf80296eac3c81186a",
+  "install_report": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/install-report.json",
+  "install_report_sha256": "dd78fd66823af46758161061e6c425eff60c741da9958a888fcce37ad451ec5a",
+  "interpreter_sha256": "edffa803e5c4d73a1357f7f2c6c9fd38e9693712b2c06793e6a5e5cc1090d03a",
+  "isolated_flag": 1,
+  "license_evidence": [
+    {
+      "distribution": "affine",
+      "distribution_sha256": "cda3b303325e7bf2bf34817e68753a0d1c4cacbdd451fe67c4878dc2ecbaa540",
+      "distribution_url": "https://files.pythonhosted.org/packages/3d/87/e62f55c956b583380e7d2a71705dfd431ee32dd1689d50491ba0c610fc11/affine-3.0.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/affine-3.0.1.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "fc3636b54ff4072cf4b013ed9893c171ed25f88dae2b32722050499c1878cd6e",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/affine-3.0.1/affine-3.0.1.dist-info/licenses/LICENSE.txt",
+      "sha256": "fc3636b54ff4072cf4b013ed9893c171ed25f88dae2b32722050499c1878cd6e",
+      "version": "3.0.1"
+    },
+    {
+      "distribution": "attrs",
+      "distribution_sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "distribution_url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/attrs-26.1.0.dist-info/licenses/LICENSE",
+      "original_sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/attrs-26.1.0/attrs-26.1.0.dist-info/licenses/LICENSE",
+      "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f",
+      "version": "26.1.0"
+    },
+    {
+      "distribution": "certifi",
+      "distribution_sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+      "distribution_url": "https://files.pythonhosted.org/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "original_sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/certifi-2026.10.23/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "version": "2026.10.23"
+    },
+    {
+      "distribution": "jsonschema",
+      "distribution_sha256": "3fba0169e345c7175110351d456342c364814cfcf3b964ba4587f22915230a63",
+      "distribution_url": "https://files.pythonhosted.org/packages/bf/9c/8c95d856233c1f82500c2450b8c68576b4cf1c871db3afac5c34ff84e6fd/jsonschema-4.25.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/jsonschema-4.25.1.dist-info/licenses/COPYING",
+      "original_sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/jsonschema-4.25.1/jsonschema-4.25.1.dist-info/licenses/COPYING",
+      "sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439",
+      "version": "4.25.1"
+    },
+    {
+      "distribution": "jsonschema-specifications",
+      "distribution_sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "distribution_url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING",
+      "original_sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/jsonschema-specifications-2025.9.1/jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING",
+      "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "version": "2025.9.1"
+    },
+    {
+      "distribution": "llvmlite",
+      "distribution_sha256": "d501e5103076b9a14be885d2574dc2f6793171aa54a853d1244e011d476f1399",
+      "distribution_url": "https://files.pythonhosted.org/packages/4c/72/22b6449e15bec4cc86c62b659e6c625ab777d01e87aaec717ecef440f87a/llvmlite-0.50.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/llvmlite-0.50.0.dist-info/licenses/LICENSE",
+      "original_sha256": "5d0772f4dc4cb16e6bee2419bfa57c0a129808400e341b87fd9f87cbe6a5963d",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/llvmlite-0.50.0/llvmlite-0.50.0.dist-info/licenses/LICENSE",
+      "sha256": "5d0772f4dc4cb16e6bee2419bfa57c0a129808400e341b87fd9f87cbe6a5963d",
+      "version": "0.50.0"
+    },
+    {
+      "distribution": "llvmlite",
+      "distribution_sha256": "d501e5103076b9a14be885d2574dc2f6793171aa54a853d1244e011d476f1399",
+      "distribution_url": "https://files.pythonhosted.org/packages/4c/72/22b6449e15bec4cc86c62b659e6c625ab777d01e87aaec717ecef440f87a/llvmlite-0.50.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/llvmlite-0.50.0.dist-info/licenses/LICENSE.thirdparty",
+      "original_sha256": "dc527293cfc2e4b4d59042e0b204667162845d8548651932f5a9d2f4adfc928b",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/llvmlite-0.50.0/llvmlite-0.50.0.dist-info/licenses/LICENSE.thirdparty",
+      "sha256": "dc527293cfc2e4b4d59042e0b204667162845d8548651932f5a9d2f4adfc928b",
+      "version": "0.50.0"
+    },
+    {
+      "distribution": "numba",
+      "distribution_sha256": "51fe913a70fe9a7a0b193757ff977a9e96c82ae936ae388aec8990814fffdf9d",
+      "distribution_url": "https://files.pythonhosted.org/packages/6f/40/2211b4ff48cccfb21d4c38fb56788d7a975189883efb8d549be9d51aba7d/numba-0.68.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/numba-0.68.0.dist-info/licenses/LICENSE",
+      "original_sha256": "3a70e0a21cad03147246f6363d07bf76fae216c72779707f4ae5db06bcacf067",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/numba-0.68.0/numba-0.68.0.dist-info/licenses/LICENSE",
+      "sha256": "3a70e0a21cad03147246f6363d07bf76fae216c72779707f4ae5db06bcacf067",
+      "version": "0.68.0"
+    },
+    {
+      "distribution": "numba",
+      "distribution_sha256": "51fe913a70fe9a7a0b193757ff977a9e96c82ae936ae388aec8990814fffdf9d",
+      "distribution_url": "https://files.pythonhosted.org/packages/6f/40/2211b4ff48cccfb21d4c38fb56788d7a975189883efb8d549be9d51aba7d/numba-0.68.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/numba-0.68.0.dist-info/licenses/LICENSES.third-party",
+      "original_sha256": "fdc60ca21d827beb3835ffc6b7a99bda14a5cfcb379d0c82c05e3c1ff4a482f2",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/numba-0.68.0/numba-0.68.0.dist-info/licenses/LICENSES.third-party",
+      "sha256": "fdc60ca21d827beb3835ffc6b7a99bda14a5cfcb379d0c82c05e3c1ff4a482f2",
+      "version": "0.68.0"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/numpy-2.1.3.dist-info/LICENSE.txt",
+      "original_sha256": "c002bd26de7dc7aa464250a0de063d58fe55974452e4389e5c21c350a820bf06",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/numpy-2.1.3/numpy-2.1.3.dist-info/LICENSE.txt",
+      "sha256": "c002bd26de7dc7aa464250a0de063d58fe55974452e4389e5c21c350a820bf06",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/numpy/_core/include/numpy/random/LICENSE.txt",
+      "original_sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/numpy-2.1.3/numpy/_core/include/numpy/random/LICENSE.txt",
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/numpy/ma/LICENSE",
+      "original_sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/numpy-2.1.3/numpy/ma/LICENSE",
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/numpy/random/LICENSE.md",
+      "original_sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/numpy-2.1.3/numpy/random/LICENSE.md",
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "pip",
+      "distribution_sha256": "c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f",
+      "distribution_url": "https://files.pythonhosted.org/packages/c9/bc/b7db44f5f39f9d0494071bddae6880eb645970366d0a200022a1a93d57f5/pip-25.0.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/pip-25.0.1.dist-info/LICENSE.txt",
+      "original_sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/pip-25.0.1/pip-25.0.1.dist-info/LICENSE.txt",
+      "sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104",
+      "version": "25.0.1"
+    },
+    {
+      "distribution": "pyflwdir",
+      "distribution_sha256": "0e1b292fb6671b32d502f0c1425b5205b4bce73aee9c0f49c8b664accd615438",
+      "distribution_url": "https://files.pythonhosted.org/packages/ad/8b/0382a28d88e48b4788bca131c86de9447e6bd34f9bc14e1884917a18786e/pyflwdir-0.5.12-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/pyflwdir-0.5.12.dist-info/licenses/LICENSE",
+      "original_sha256": "c5e25ded8122aaa072198ccd0ddad7968a5a5f630ad114efba5a5667feef423b",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/pyflwdir-0.5.12/pyflwdir-0.5.12.dist-info/licenses/LICENSE",
+      "sha256": "c5e25ded8122aaa072198ccd0ddad7968a5a5f630ad114efba5a5667feef423b",
+      "version": "0.5.12"
+    },
+    {
+      "distribution": "pyproj",
+      "distribution_sha256": "1edc34266c0c23ced85f95a1ee8b47c9035eae6aca5b6b340327250e8e281630",
+      "distribution_url": "https://files.pythonhosted.org/packages/b8/be/212882c450bba74fc8d7d35cbd57e4af84792f0a56194819d98106b075af/pyproj-3.7.2-cp312-cp312-manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/pyproj-3.7.2.dist-info/licenses/LICENSE",
+      "original_sha256": "a652687151814d4c4715445912fcb49e7e58f5b248d47a1a88b859a8815e0822",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/pyproj-3.7.2/pyproj-3.7.2.dist-info/licenses/LICENSE",
+      "sha256": "a652687151814d4c4715445912fcb49e7e58f5b248d47a1a88b859a8815e0822",
+      "version": "3.7.2"
+    },
+    {
+      "distribution": "pyproj",
+      "distribution_sha256": "1edc34266c0c23ced85f95a1ee8b47c9035eae6aca5b6b340327250e8e281630",
+      "distribution_url": "https://files.pythonhosted.org/packages/b8/be/212882c450bba74fc8d7d35cbd57e4af84792f0a56194819d98106b075af/pyproj-3.7.2-cp312-cp312-manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/pyproj-3.7.2.dist-info/licenses/LICENSE_proj",
+      "original_sha256": "ac9caff7979c906774d756815d1d473145284ba7ba9a5ef1c5fa77e6a30cef82",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/pyproj-3.7.2/pyproj-3.7.2.dist-info/licenses/LICENSE_proj",
+      "sha256": "ac9caff7979c906774d756815d1d473145284ba7ba9a5ef1c5fa77e6a30cef82",
+      "version": "3.7.2"
+    },
+    {
+      "distribution": "PyYAML",
+      "distribution_sha256": "ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc",
+      "distribution_url": "https://files.pythonhosted.org/packages/8b/9d/b3589d3877982d4f2329302ef98a8026e7f4443c765c46cfecc8858c6b4b/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "original_sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/pyyaml-6.0.3/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "version": "6.0.3"
+    },
+    {
+      "distribution": "referencing",
+      "distribution_sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "distribution_url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/referencing-0.37.0.dist-info/licenses/COPYING",
+      "original_sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/referencing-0.37.0/referencing-0.37.0.dist-info/licenses/COPYING",
+      "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "version": "0.37.0"
+    },
+    {
+      "distribution": "rpds-py",
+      "distribution_sha256": "addeda51556dac7c1a2f14cda62db8b621cd12afba3091d03a96c72932387eab",
+      "distribution_url": "https://files.pythonhosted.org/packages/1d/6d/b26eb1e75395925b3a142ed351cbed2ec8212f5c9d937aee3df32c701baa/rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/rpds_py-2026.9.1.dist-info/licenses/LICENSE",
+      "original_sha256": "314e4e91be3baa93c0fb4bccc9e4e97cd643eb839b065af921782c2175fe9909",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/rpds-py-2026.9.1/rpds_py-2026.9.1.dist-info/licenses/LICENSE",
+      "sha256": "314e4e91be3baa93c0fb4bccc9e4e97cd643eb839b065af921782c2175fe9909",
+      "version": "2026.9.1"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/scipy-1.15.3.dist-info/LICENSE.txt",
+      "original_sha256": "828cb9a7369c0a9f633ce7c10023f8d822f0f76b54ce25c723361d45b088879a",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/scipy-1.15.3/scipy-1.15.3.dist-info/LICENSE.txt",
+      "sha256": "828cb9a7369c0a9f633ce7c10023f8d822f0f76b54ce25c723361d45b088879a",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/scipy/_lib/_uarray/LICENSE",
+      "original_sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/scipy-1.15.3/scipy/_lib/_uarray/LICENSE",
+      "sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/scipy/fft/_pocketfft/LICENSE.md",
+      "original_sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/scipy-1.15.3/scipy/fft/_pocketfft/LICENSE.md",
+      "sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/scipy/sparse/linalg/_eigen/arpack/COPYING",
+      "original_sha256": "0926566f9f406178d1214f8cc796e166b1213dd7c05e0c5b461a8b8ac9e50bbe",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/scipy-1.15.3/scipy/sparse/linalg/_eigen/arpack/COPYING",
+      "sha256": "0926566f9f406178d1214f8cc796e166b1213dd7c05e0c5b461a8b8ac9e50bbe",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/scipy/spatial/qhull_src/COPYING.txt",
+      "original_sha256": "34db0c0c4f931861d720555c9cd7a2e228d1290ba29af0f2ee80c41bb2038afb",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/scipy-1.15.3/scipy/spatial/qhull_src/COPYING.txt",
+      "sha256": "34db0c0c4f931861d720555c9cd7a2e228d1290ba29af0f2ee80c41bb2038afb",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "typing_extensions",
+      "distribution_sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "distribution_url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "original_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/licenses/typing-extensions-4.16.0/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "version": "4.16.0"
+    }
+  ],
+  "missing_original_license_files": [],
+  "pth_files": [],
+  "python": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "requirements": [
+    "affine==3.0.1",
+    "attrs==26.1.0",
+    "certifi==2026.10.23",
+    "jsonschema==4.25.1",
+    "jsonschema-specifications==2025.9.1",
+    "llvmlite==0.50.0",
+    "numba==0.68.0",
+    "numpy==2.1.3",
+    "pip==25.0.1",
+    "pyflwdir==0.5.12",
+    "pyproj==3.7.2",
+    "PyYAML==6.0.3",
+    "referencing==0.37.0",
+    "rpds-py==2026.9.1",
+    "scipy==1.15.3",
+    "typing_extensions==4.16.0"
+  ],
+  "requirements_lock": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/requirements-lock.txt",
+  "requirements_lock_sha256": "06aa028caf23d55d0d4b5139a0666334def47c6b8bf3706ac4b38045ccd2a58e",
+  "sitecustomize": false,
+  "source_evidence": [
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "pyflwdir",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/pypi/pyflwdir-0.5.12.json",
+        "sha256": "26819ce3e1ad307192a7848a77d55bd26e5d6808ec135c920371e5d243ba22f4",
+        "url": "https://pypi.org/pypi/pyflwdir/0.5.12/json"
+      },
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/upstream/pyflwdir-0.5.12.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/pyflwdir/upstream/pyflwdir-reviewed-LICENSE",
+        "sha256": "c5e25ded8122aaa072198ccd0ddad7968a5a5f630ad114efba5a5667feef423b",
+        "url": "https://raw.githubusercontent.com/Deltares/pyflwdir/4e598e77611232bbf5fc620919d914de5bfd2cdb/LICENSE"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "MIT",
+        "license_evidence_url": "https://github.com/Deltares/pyflwdir/blob/4e598e77611232bbf5fc620919d914de5bfd2cdb/LICENSE",
+        "package": "pyflwdir",
+        "release_evidence_url": "https://pypi.org/project/pyflwdir/0.5.12/",
+        "repository": "https://github.com/Deltares/pyflwdir",
+        "source_commit": "4e598e77611232bbf5fc620919d914de5bfd2cdb",
+        "source_url": "https://github.com/Deltares/pyflwdir/tree/4e598e77611232bbf5fc620919d914de5bfd2cdb",
+        "version": "0.5.12"
+      },
+      "sha256": "b7ac69ee90f09626a827a3db3648bf28781400171ec8ed432c46020cf048c32a",
+      "url": "https://files.pythonhosted.org/packages/8a/4f/745448e062d51fda4f2879ef18a16b1ad7afffc3bab2a5d66dc803353f52/pyflwdir-0.5.12.tar.gz",
+      "version": "0.5.12"
+    }
+  ],
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/spatial/envs/pyflwdir/lib/python3.12/site-packages"
+  ],
+  "usercustomize": false
+}

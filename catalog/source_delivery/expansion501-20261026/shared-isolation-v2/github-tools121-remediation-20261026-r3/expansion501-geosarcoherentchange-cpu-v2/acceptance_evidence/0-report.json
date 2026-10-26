@@ -1,0 +1,496 @@
+{
+  "id": "GeoSARCoherentChange",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoSARCoherentChange",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoSARCoherentChange (remote_original_cases.RemoteCases.test_registry_GeoSARCoherentChange) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "9479458ad04c7d3e87e4b5bc083d224e9eb696d7ffe188975592e19bf9520a6d",
+          "result.tif": "dc4d4f0db05b86efd0690f03b19d1cde2092b6fc459cd1944d8fd12b229f8ee2"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "9479458ad04c7d3e87e4b5bc083d224e9eb696d7ffe188975592e19bf9520a6d",
+          "result.tif": "dc4d4f0db05b86efd0690f03b19d1cde2092b6fc459cd1944d8fd12b229f8ee2"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_dict/results/aec8b3773bc0458296dc11b2c1903d56",
+        "artifacts": {
+          "band-summary.csv": "9479458ad04c7d3e87e4b5bc083d224e9eb696d7ffe188975592e19bf9520a6d",
+          "result.tif": "dc4d4f0db05b86efd0690f03b19d1cde2092b6fc459cd1944d8fd12b229f8ee2"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_json/results/9120386df87f42739a7119c176749d0d",
+        "artifacts": {
+          "band-summary.csv": "9479458ad04c7d3e87e4b5bc083d224e9eb696d7ffe188975592e19bf9520a6d",
+          "result.tif": "dc4d4f0db05b86efd0690f03b19d1cde2092b6fc459cd1944d8fd12b229f8ee2"
+        }
+      }
+    },
+    "independent_window_complex_sum_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "b735443a4f8bdda81935b69934190b4569725064d6c066cf83c500234900a286",
+          "result.tif": "9d5bc12b8aa6146215ecf975ce71a84ed72e4de102b0f284faf04b6064b6e750"
+        }
+      }
+    },
+    "independent_window_complex_sum_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "b735443a4f8bdda81935b69934190b4569725064d6c066cf83c500234900a286",
+          "result.tif": "9d5bc12b8aa6146215ecf975ce71a84ed72e4de102b0f284faf04b6064b6e750"
+        }
+      }
+    },
+    "independent_window_complex_sum_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_runtime_dict/results/6cc18fddaee349f58e45be34bfa12b1a",
+        "artifacts": {
+          "band-summary.csv": "b735443a4f8bdda81935b69934190b4569725064d6c066cf83c500234900a286",
+          "result.tif": "9d5bc12b8aa6146215ecf975ce71a84ed72e4de102b0f284faf04b6064b6e750"
+        }
+      }
+    },
+    "independent_window_complex_sum_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/independent_window_complex_sum_runtime_json/results/3849cd9858b3499f9e8e1893742ce091",
+        "artifacts": {
+          "band-summary.csv": "b735443a4f8bdda81935b69934190b4569725064d6c066cf83c500234900a286",
+          "result.tif": "9d5bc12b8aa6146215ecf975ce71a84ed72e4de102b0f284faf04b6064b6e750"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoSARCoherentChange",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoSARCoherentChange (remote_original_cases.RemoteCases.test_reject_extra_GeoSARCoherentChange) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoSARCoherentChange",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoSARCoherentChange (remote_original_cases.RemoteCases.test_reject_unit_GeoSARCoherentChange) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARCoherentChange",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoSARCoherentChange (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARCoherentChange) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARCoherentChange",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoSARCoherentChange (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARCoherentChange) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARCoherentChange",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoSARCoherentChange (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARCoherentChange) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoSARCoherentChange",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoSARCoherentChange (remote_original_cases.RemoteCases.test_reject_singular_GeoSARCoherentChange) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARCoherentChange",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoSARCoherentChange (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARCoherentChange) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARCoherentChange/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "ccd_nonperfect_complex_coherence": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_nonperfect_complex_coherence",
+            "category": "ccd_independent_numeric_artifact",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_ccd_nonperfect_complex_coherence (remote_original_cases.RemoteCases.test_ccd_nonperfect_complex_coherence) ... ok\n"
+      }
+    },
+    "ccd_negative_phase_and_gain_invariance": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_negative_phase_and_gain_invariance",
+            "category": "ccd_independent_numeric_artifact",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_ccd_negative_phase_and_gain_invariance (remote_original_cases.RemoteCases.test_ccd_negative_phase_and_gain_invariance) ... ok\n"
+      }
+    },
+    "ccd_nodata_metadata_and_full_window_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_nodata_metadata_and_full_window_mask",
+            "category": "ccd_artifact_contract",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_ccd_nodata_metadata_and_full_window_mask (remote_original_cases.RemoteCases.test_ccd_nodata_metadata_and_full_window_mask) ... ok\n"
+      }
+    },
+    "ccd_shape_and_physical_rejections": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections",
+            "category": "negative_input_subcases",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections",
+            "subcase": "test_ccd_shape_and_physical_rejections (remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections) (case='misaligned_array')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections",
+            "subcase": "test_ccd_shape_and_physical_rejections (remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections) (case='zero_complex_amplitude')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections",
+            "subcase": "test_ccd_shape_and_physical_rejections (remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections) (case='even_window')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections",
+            "subcase": "test_ccd_shape_and_physical_rejections (remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections) (case='oversize_window')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections",
+            "subcase": "test_ccd_shape_and_physical_rejections (remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections) (case='incomplete_neighborhood')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections",
+            "subcase": "test_ccd_shape_and_physical_rejections (remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections) (case='identical_acquisition_ids')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections",
+            "subcase": "test_ccd_shape_and_physical_rejections (remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections) (case='not_complex_SAR')",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "log": "test_ccd_shape_and_physical_rejections (remote_original_cases.RemoteCases.test_ccd_shape_and_physical_rejections) ... ok\n"
+      }
+    },
+    "ccd_upstream_result_contract_fault_injection": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection",
+            "category": "upstream_contract_fault_injection",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection",
+            "subcase": "test_ccd_upstream_result_contract_fault_injection (remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection) (case='wrong_ccd_shape')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection",
+            "subcase": "test_ccd_upstream_result_contract_fault_injection (remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection) (case='wrong_phase_shape')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection",
+            "subcase": "test_ccd_upstream_result_contract_fault_injection (remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection) (case='nonfinite_ccd')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection",
+            "subcase": "test_ccd_upstream_result_contract_fault_injection (remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection) (case='nonfinite_phase')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection",
+            "subcase": "test_ccd_upstream_result_contract_fault_injection (remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection) (case='complex_phase')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection",
+            "subcase": "test_ccd_upstream_result_contract_fault_injection (remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection) (case='magnitude_above_one')",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "log": "test_ccd_upstream_result_contract_fault_injection (remote_original_cases.RemoteCases.test_ccd_upstream_result_contract_fault_injection) ... ok\n"
+      }
+    },
+    "ccd_nonfinite_input": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_nonfinite_input",
+            "category": "negative_input_subcases",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_nonfinite_input",
+            "subcase": "test_ccd_nonfinite_input (remote_original_cases.RemoteCases.test_ccd_nonfinite_input) (case='nan')",
+            "state": "passed",
+            "detail": null
+          },
+          {
+            "test": "remote_original_cases.RemoteCases.test_ccd_nonfinite_input",
+            "subcase": "test_ccd_nonfinite_input (remote_original_cases.RemoteCases.test_ccd_nonfinite_input) (case='infinity')",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "log": "test_ccd_nonfinite_input (remote_original_cases.RemoteCases.test_ccd_nonfinite_input) ... ok\n"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

@@ -1,0 +1,307 @@
+{
+  "id": "GeoSARSubaperture",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoSARSubaperture",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoSARSubaperture (remote_original_cases.RemoteCases.test_registry_GeoSARSubaperture) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "53cd903f3150d8bd71ee7e8c3f875de621e0f410d5119dc693a85f83a8d7bb39",
+          "result.tif": "f7f6f16cd2c2f12401db7a282996403971830b1595ea34d0d7e7707081960b37"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "53cd903f3150d8bd71ee7e8c3f875de621e0f410d5119dc693a85f83a8d7bb39",
+          "result.tif": "f7f6f16cd2c2f12401db7a282996403971830b1595ea34d0d7e7707081960b37"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_dict/results/071e8cfb9af248a6a6374309934c4e92",
+        "artifacts": {
+          "band-summary.csv": "53cd903f3150d8bd71ee7e8c3f875de621e0f410d5119dc693a85f83a8d7bb39",
+          "result.tif": "f7f6f16cd2c2f12401db7a282996403971830b1595ea34d0d7e7707081960b37"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_json/results/0feb338dca3847e69c6a454c4af01789",
+        "artifacts": {
+          "band-summary.csv": "53cd903f3150d8bd71ee7e8c3f875de621e0f410d5119dc693a85f83a8d7bb39",
+          "result.tif": "f7f6f16cd2c2f12401db7a282996403971830b1595ea34d0d7e7707081960b37"
+        }
+      }
+    },
+    "rejected_frequency_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "97bc61925402e3a59accc0d09787756e7c4945b72d8d18a1d51a3b4368369228",
+          "result.tif": "f4d867cb630fc11ba21c58c49c1af6a54d048502fc13ab1d3a521b1a48d7a6e1"
+        }
+      }
+    },
+    "rejected_frequency_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "97bc61925402e3a59accc0d09787756e7c4945b72d8d18a1d51a3b4368369228",
+          "result.tif": "f4d867cb630fc11ba21c58c49c1af6a54d048502fc13ab1d3a521b1a48d7a6e1"
+        }
+      }
+    },
+    "rejected_frequency_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_runtime_dict/results/8a48f5e079e248e08aefc12754404f05",
+        "artifacts": {
+          "band-summary.csv": "97bc61925402e3a59accc0d09787756e7c4945b72d8d18a1d51a3b4368369228",
+          "result.tif": "f4d867cb630fc11ba21c58c49c1af6a54d048502fc13ab1d3a521b1a48d7a6e1"
+        }
+      }
+    },
+    "rejected_frequency_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/rejected_frequency_runtime_json/results/7596386f19aa421b9a8692a6cdda5220",
+        "artifacts": {
+          "band-summary.csv": "97bc61925402e3a59accc0d09787756e7c4945b72d8d18a1d51a3b4368369228",
+          "result.tif": "f4d867cb630fc11ba21c58c49c1af6a54d048502fc13ab1d3a521b1a48d7a6e1"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoSARSubaperture",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoSARSubaperture (remote_original_cases.RemoteCases.test_reject_extra_GeoSARSubaperture) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoSARSubaperture",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoSARSubaperture (remote_original_cases.RemoteCases.test_reject_unit_GeoSARSubaperture) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARSubaperture",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoSARSubaperture (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARSubaperture) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARSubaperture",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoSARSubaperture (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARSubaperture) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARSubaperture",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoSARSubaperture (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARSubaperture) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoSARSubaperture",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoSARSubaperture (remote_original_cases.RemoteCases.test_reject_singular_GeoSARSubaperture) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARSubaperture",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoSARSubaperture (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARSubaperture) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARSubaperture/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

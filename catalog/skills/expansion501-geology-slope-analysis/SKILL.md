@@ -1,65 +1,51 @@
 ---
 id: expansion501_geology_slope_analysis
 name: "Bounded circular slope-stability analysis"
-description: "Search circular slope failures and report the lowest Bishop simplified safety factor."
-when_to_use: "Use only for this documented scientific task."
+description: "CPU-accepted scientific operations for Bounded circular slope-stability analysis"
 tools:
-- GeoSlopeLimitEquilibrium
-required_inputs:
-- Explicit data, units, assumptions and data_source
-constraints:
-- No imputed grade, arbitrary code, network fetch or runtime installation
-- Preserve uncertainty and native provenance
-expected_outputs:
-- Finite scientific JSON with units and hashes
+  - GeoSlopeLimitEquilibrium
 ---
 
 # Bounded circular slope-stability analysis
 
 ## When to use
 
-Search circular slope failures and report the lowest Bishop simplified safety factor.
+Select only an available operation whose scientific assumptions match the task.
 
 ## Required inputs
 
-Read the chosen complete schema and limitations. Supply measurements or explicitly identified model inputs, units, source and assumptions. Never fill missing field observations from synthetic examples.
+Use the closed native input schema, explicit units, source data, coordinate system and time conventions.
 
-## Procedure
+## Workflow
 
-1. Choose the operation matching the scientific question.
-2. Confirm physical domain, component order, units and provenance.
-3. Have the parent bind its fixed private CPU environment; never install or fetch at call time.
-4. Invoke the named function with args as a dictionary or JSON-object string after staging.
-5. Preserve units/hashes and interpret within the declared assumptions.
+1. Inspect source provenance and scientific applicability.
+2. Call the selected native operation with its exact schema.
+3. Inspect numerical results, units, errors and source/input/output hashes.
+4. Deliver only actual validated results and their scientific limitations.
 
-## Tools and synthetic examples
+## Available operations
 
-### GeoSlopeLimitEquilibrium
+- `GeoSlopeLimitEquilibrium`: Search circular slope failures and report the lowest Bishop simplified safety factor.
 
-Search circular slope failures and report the lowest Bishop simplified safety factor.
+## Constraints
 
-Entrypoint: geological_agent.geology.expansion501_geology:slope_limit_equilibrium. Example: assets/expansion501-geology/GeoSlopeLimitEquilibrium.json (SYNTHETIC).
+Offline CPU-only execution. Never install packages, download data or substitute generated algorithms during a call.
+Fixed dependency environments retain the original upstream algorithms, exact versions and license notices.
+Do not infer mineral presence, grade or reserves from indirect imagery indices.
 
-Fixed Bishop simplified circular family and bounded search; minimum among searched surfaces is not certified global critical FOS or engineering approval.
+## Expected outputs
 
-[Reviewed upstream implementation](https://github.com/JesseBonanno/PySlope/blob/b50f46ac342b569e251890239560ec311c8015cb/pyslope/pyslope.py).
-
-## Interpretation and constraints
-
-No result certifies ore grade, reserves, mineral identity, engineering safety or real-event prediction. No GPU, arbitrary callable, serialized class, shell command, database fetch or hidden missing-value replacement is exposed. Failures return errors, never local substitute kernels.
-
-## Native errors
-
-ScientificToolError carries code, message and retryable through collection_contracts.operation. Missing/incompatible dependencies need parent-controlled preparation. Do not invent data to bypass a rejected domain.
+Schema-validated numerical JSON, declared units, original evidence and declared artifacts with content hashes.
 
 ## Source interface and delivery
 
-Kind: expansion501_geology. Module: geological_agent.geology.expansion501_geology. Explicit decorated functions accept args and return JSON only. No output_dir or generated artifact. Shared contracts provide input, implementation and contract hashes plus empty artifact hashes. Existing native bridge profiles are unchanged. Full paths are in catalog/source_delivery/expansion501-20261026/groups/geology/delivery-files.json.
+Use the native function input object. Standalone examples are in catalog/source_delivery/examples.json.
+Runtime profiles bind the source, interpreter, exact dependency lock and CPU execution evidence.
 
-## Availability and handoff
+### Current availability
 
-source_revised_unverified; acceptance_pending; formal_eligible=false. NOT TESTED. Deployment: not_deployed. Submission: not_submitted. Unit, model workflow, Skill workflow and platform validation: not_run. Receiving AI Lab certification is not established. Parent owns registry/kind allowlisting, private CPU binding, tests, acceptance and release.
+`tool_candidates_available_workflow_unverified`
 
-## Acceptance evidence
-
-This revised source has not completed upstream scientific acceptance. Historical CPU journals, including failures, remain under acceptance/ and do not certify this revision. Local reference/source checks are not upstream or main-runtime acceptance. Complete transitive/native identities, outstanding absolute benchmarks, license/distribution review and lab approval remain pending. Blocked assignments are excluded from this Skill and catalog-additions.json; see adaptation-status.json and blocked-evidence.json.
+The listed operations passed internal CPU acceptance; this is not model-driven workflow acceptance or AI Lab approval.
+Scientific platform validation: `not_run`. Lab submission: `not_submitted`.
+Deployment, Git and browser acceptance are recorded separately in release receipts.

@@ -1,0 +1,490 @@
+{
+  "status": "passed",
+  "gpu_used": false,
+  "test_only": true,
+  "cases": [
+    {
+      "name": "complete_fixture",
+      "expected": "accepted",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\complete_fixture\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\complete_fixture\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\complete_fixture.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "returncode": 0,
+      "actual": "accepted",
+      "sealed_path": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\complete_fixture\\github-tools121-remediation-fixture-only\\SEALED.json",
+      "sealed_sha256": "0f6ba06419077704a6cd329cf813b810f14ce8424062a31d5fb6ec92a70fbd37",
+      "status": "passed"
+    },
+    {
+      "name": "unadapted_production_anchor",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\unadapted_production_anchor\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\unadapted_production_anchor\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": false,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\unadapted_production_anchor.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 376, in main\n    assert root.parent == Path('/data/wangjian') and root.name.startswith('github-tools121-remediation-')\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "wrong_root_prefix",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\wrong_root_prefix\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\wrong_root_prefix\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\wrong_root_prefix.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 376, in main\n    assert root.parent == Path('/data/wangjian') and root.name.startswith('github-tools121-remediation-')\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "candidate_source_mutated",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\candidate_source_mutated\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\candidate_source_mutated\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\candidate_source_mutated.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "828092436119a2bb1f39a167f274196a96fd68a3f31b75e3a54feb776c4a266d",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 380, in check\n    assert source_hashes(app) == stage['source_files'], 'Candidate changed after staging'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Candidate changed after staging\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "candidate_source_added",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\candidate_source_added\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\candidate_source_added\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\candidate_source_added.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "unreviewed.py": "7ec0f6ea0f3dd34080c1f8709babe64e76f259f49d6f1a587dc59f0679026222",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 380, in check\n    assert source_hashes(app) == stage['source_files'], 'Candidate changed after staging'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Candidate changed after staging\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "candidate_source_removed",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\candidate_source_removed\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\candidate_source_removed\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\candidate_source_removed.log",
+      "before_candidate_hashes": {
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 380, in check\n    assert source_hashes(app) == stage['source_files'], 'Candidate changed after staging'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Candidate changed after staging\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "live_source_mutated",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\live_source_mutated\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\live_source_mutated\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\live_source_mutated.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 381, in check\n    assert source_hashes(Path(stage['live_root'])) == stage['live_files'], 'Live baseline changed'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Live baseline changed\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "receipt_source_digest_bad",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\receipt_source_digest_bad\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\receipt_source_digest_bad\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\receipt_source_digest_bad.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 397, in check\n    assert stage['source_files'][relative] == digest, relative\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: fixture_operation.py\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "missing_tool",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\missing_tool\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\missing_tool\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\missing_tool.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 412, in check\n    assert set(tools) == set(stage['passed_tool_ids']), 'Published cohort is not exactly replayed'\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Published cohort is not exactly replayed\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "failed_receipt_status",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\failed_receipt_status\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\failed_receipt_status\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\failed_receipt_status.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 403, in check\n    assert row['status'] == 'passed' and row['passed_calls'] > 0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "zero_calls_receipt",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\zero_calls_receipt\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\zero_calls_receipt\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\zero_calls_receipt.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 403, in check\n    assert row['status'] == 'passed' and row['passed_calls'] > 0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "failed_calls_receipt",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\failed_calls_receipt\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\failed_calls_receipt\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\failed_calls_receipt.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 404, in check\n    assert row['failed_calls'] == 0 and row['skipped_calls'] == 0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "skipped_calls_receipt",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\skipped_calls_receipt\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\skipped_calls_receipt\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\skipped_calls_receipt.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 404, in check\n    assert row['failed_calls'] == 0 and row['skipped_calls'] == 0\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "evidence_digest_bad",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\evidence_digest_bad\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\evidence_digest_bad\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\evidence_digest_bad.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 405, in check\n    assert sha(row['report']) == row['report_sha256']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "evidence_bytes_changed",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\evidence_bytes_changed\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\evidence_bytes_changed\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\evidence_bytes_changed.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 405, in check\n    assert sha(row['report']) == row['report_sha256']\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "registry_failed",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\registry_failed\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\registry_failed\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\registry_failed.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 385, in check\n    assert all(row['status'] == 'passed' for row in registry['checks'])\n           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "controls_skipped",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\controls_skipped\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\controls_skipped\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\controls_skipped.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 389, in check\n    assert all(controls[key] == 0 for key in ('failed', 'errors', 'skipped'))\n           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "raw_report_failed_valid_hash",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_failed_valid_hash\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_failed_valid_hash\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\raw_report_failed_valid_hash.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 406, in check\n    semantic_checks.append(validator.tool(row))\n                           ~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 221, in tool\n    require(raw.get('tool_id', raw.get('id')) == tool and raw['status'] == 'passed', 'Raw report identity/status')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 32, in require\n    raise AssertionError(message)\nAssertionError: Raw report identity/status\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "raw_report_skipped_valid_hash",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_skipped_valid_hash\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_skipped_valid_hash\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\raw_report_skipped_valid_hash.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 406, in check\n    semantic_checks.append(validator.tool(row))\n                           ~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 221, in tool\n    require(raw.get('tool_id', raw.get('id')) == tool and raw['status'] == 'passed', 'Raw report identity/status')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 32, in require\n    raise AssertionError(message)\nAssertionError: Raw report identity/status\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "raw_report_wrong_source_valid_hash",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_wrong_source_valid_hash\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_wrong_source_valid_hash\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\raw_report_wrong_source_valid_hash.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 406, in check\n    semantic_checks.append(validator.tool(row))\n                           ~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 226, in tool\n    require(raw['source_root'] == str(self.app), 'Wrong raw source root')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 32, in require\n    raise AssertionError(message)\nAssertionError: Wrong raw source root\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "raw_report_no_execution_valid_hash",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_no_execution_valid_hash\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_no_execution_valid_hash\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\raw_report_no_execution_valid_hash.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 406, in check\n    semantic_checks.append(validator.tool(row))\n                           ~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 231, in tool\n    require(count(raw[key]) == expected, 'Raw/receipt count mismatch: ' + key)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 32, in require\n    raise AssertionError(message)\nAssertionError: Raw/receipt count mismatch: passed_calls\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "raw_report_wrong_tool_valid_hash",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_wrong_tool_valid_hash\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\raw_report_wrong_tool_valid_hash\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\raw_report_wrong_tool_valid_hash.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 406, in check\n    semantic_checks.append(validator.tool(row))\n                           ~~~~~~~~~~~~~~^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 221, in tool\n    require(raw.get('tool_id', raw.get('id')) == tool and raw['status'] == 'passed', 'Raw report identity/status')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 32, in require\n    raise AssertionError(message)\nAssertionError: Raw report identity/status\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "cohort_overlap",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\cohort_overlap\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\cohort_overlap\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\cohort_overlap.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 417, in check\n    validate_cohort(stage, tools, exclusions)\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 49, in validate_cohort\n    require(not passed & excluded, 'Accepted and excluded cohorts overlap')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 32, in require\n    raise AssertionError(message)\nAssertionError: Accepted and excluded cohorts overlap\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    },
+    {
+      "name": "excluded_duplicates",
+      "expected": "rejected",
+      "config": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\excluded_duplicates\\config.json",
+      "fixture_root": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\cases\\excluded_duplicates\\github-tools121-remediation-fixture-only",
+      "root_anchor_mapped": true,
+      "log": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\logs\\excluded_duplicates.log",
+      "before_candidate_hashes": {
+        "fixture_operation.py": "680df8de3e5c095d92660cec6dbc7bc25af0ccd1151d6666441cca6f1d19a725",
+        "catalog/registry.json": "3fe5096d64a083fe1d2392756e1174690d925b033ad63157b5d2cbb831e92a39",
+        "geological_agent/geology/collection_contracts.py": "f9ef66e1e4b8494899ce3dcd682cbad7fc772521b000332b2f7abc4bb42125be"
+      },
+      "exception_type": "AssertionError",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\test_seal_release.py\", line 265, in run_case\n    code = subject.main(f['config_path'])\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 498, in main\n    raise step.error\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\flowing.py\", line 277, in _run_step\n    value = td.fn(**kwargs)\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 417, in check\n    validate_cohort(stage, tools, exclusions)\n    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 48, in validate_cohort\n    excluded = unique(stage['excluded_tool_ids'], 'excluded tool IDs')\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 42, in unique\n    require(len(values) == len(set(values)), 'Duplicate ' + label)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-review\\runs\\seal-gates-r4\\sources\\seal_release.py\", line 32, in require\n    raise AssertionError(message)\nAssertionError: Duplicate excluded tool IDs\n",
+      "actual": "rejected",
+      "sealed_path": null,
+      "sealed_sha256": null,
+      "status": "passed"
+    }
+  ],
+  "target": "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\parent\\seal_release.py",
+  "target_sha256": "9c76d62c98de7494d4c3238fea7db203ea9b2585ad09121647b1ed3abb42f86b",
+  "original_hashes": {
+    "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\parent\\seal_release.py": "9c76d62c98de7494d4c3238fea7db203ea9b2585ad09121647b1ed3abb42f86b",
+    "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\parent\\stage_remediation.py": "344da9b64387883222e4f573d4bf09bbbefb1d56ad1ab38563c3e69b94ed0aea",
+    "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\handoffs\\spatial20-r3-v1\\flowing.py": "a732c519278d411c952d7996f49eae656e51e2ed87e81bb1d3cd803652bad244",
+    "C:\\Users\\jona\\g121fix1\\tests_local\\remediate121\\spatial\\parent-replay\\handoffs\\final434-spatial27-r1-v1\\release-receipt.json": "698a29fdd1d54d7862c6f69458a31b2f313488f272e2db57193a1253725812e9"
+  },
+  "python": "C:\\Python314\\python.exe",
+  "python_version": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "isolated": 1,
+  "no_site": 1,
+  "optimization": 0,
+  "scope": "Bounded real-file gate tests; never edit a parent script or release candidate.\n\nThe only test seam replaces seal_release.Path('/data/wangjian') with the\ncurrent private fixture parent. All other Path calls, source_hashes, sha,\nFlow tasks, archive generation, and sealing are the original implementations.\nAn additional case runs without the seam and verifies root rejection.\n",
+  "source_locations": {
+    "assert sha(row['report'])": 405,
+    "assert set(tools)": 412,
+    "assert len(tools)": 413,
+    "assert {row['id'] for row in exclusions}": 415,
+    "for relative, digest in receipt": 396,
+    "assert source_hashes(app)": 380
+  },
+  "test_count": 24,
+  "passed_tests": 24,
+  "failed_tests": 0,
+  "unexpected_acceptances": [],
+  "originals_unchanged": true,
+  "preserved_612_receipt_sha256": "698a29fdd1d54d7862c6f69458a31b2f313488f272e2db57193a1253725812e9"
+}
