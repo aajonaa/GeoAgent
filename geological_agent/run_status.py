@@ -26,6 +26,10 @@ def issue_for_event(event, fields):
     category = "review_format" if review else "model_protocol"
     if event in ("completion_rejected", "knowledge_semantic_checked"):
         category = "answer_validation"
+    elif event == "completion_review_recovery" and fields.get("phase") in {
+        "answer_revision", "review:answer_revision",
+    }:
+        category = "answer_validation"
     elif event == "completion_check_error":
         category = "verification_error"
     elif event == "model_failed" or error.startswith((
@@ -67,7 +71,8 @@ def task_outcome(fields, last_issue=None):
             issue = issue_for_event("model_protocol_recovery" if phase == "intent" else "completion_review_recovery", {
                 "phase": phase, "error": pending.get("reason") or fields.get("error", ""),
             })
-            category = (last_issue or issue or {}).get("category")
+            current_issue = issue if phase in {"answer_revision", "review:answer_revision"} else (last_issue or issue)
+            category = (current_issue or {}).get("category")
             business = "review_blocked" if (
                 phase == "knowledge_semantics" or category in {
                     "review_evidence", "review_format", "answer_validation", "verification_error",

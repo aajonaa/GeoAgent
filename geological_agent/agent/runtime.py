@@ -23,6 +23,7 @@ from .human_review import human_review_request, parse_human_review
 from .intent_review import intent_request, parse_intent
 from .compact_review import compact_review_request, parse_compact_review
 from .delivery_contract import parse_covered_review, delivery_issues
+from .answer_constraints import answer_length_issues, constrain_answer_request
 from .execution_contract import requested_execution_issues
 from .graph import build_graph
 from .review_policy import combined_review_request
@@ -248,14 +249,22 @@ class AgentRuntime:
             if checkpoint_path is None and self.context_store is None:
                 return {**updated, "status": "incomplete", "answer": ""}
             chinese = bool(re.search(r"[\u3400-\u9fff]", state["task"]))
+            revision = phase == "review:answer_revision"
             return ask_human(updated, {
-                "question": (
+                "question": ((
+                    "答案多次修订后仍未通过内容或来源核验，任务已暂停。"
+                    "草稿、文件和原始证据已保留。可继续修订并重新审核；未通过内容不会作为结果交付。"
+                    if chinese else
+                    "The revised answer still fails content or source checks. The task is paused; "
+                    "the draft, files and original evidence are retained. Continue answer revision and "
+                    "reassessment without rerunning successful tools or publishing unchecked claims."
+                ) if revision else (
                     "审核模型重复返回无效审核，已暂停审核而不是重跑工具。草稿、文件和原始证据已保留。"
                     "可重试当前模型，或调整模型配置后继续同一审核；未通过内容不会作为结果交付。"
                     if chinese else
                     "The reviewer repeated an invalid assessment. Only the assessment is paused; "
                     "the candidate, files and original evidence are retained. Retry or update the model "
-                    "to continue this assessment, without rerunning successful tools or publishing unchecked claims."),
+                    "to continue this assessment, without rerunning successful tools or publishing unchecked claims.")),
                 "reason": error, "missing": [], "reason_type": "model_protocol",
                 "recovery_origin": "runtime", "recovery_phase": phase,
                 "options": (["重试审核", "已调整模型配置，继续审核"] if chinese else
@@ -400,6 +409,7 @@ class AgentRuntime:
                 def assemble(current):
                     built = (final_answer_request(current, self.context, self.settings, defer_compaction=True)
                              if answer_only else replace(self.context.build(current, defer_compaction=True), tool_choice=tool_choice))
+                    built = constrain_answer_request(built, current)
                     if tool_choice == "none" and not answer_only:
                         built = replace(built, tools=())
                     if current["metadata"].get("requirement_coverage"):
@@ -915,6 +925,7 @@ class AgentRuntime:
                 checking_answer = combined or state["metadata"].get("final_answer_composed") or not self.settings.verify_completion
                 issues = artifact_issues(state if checking_answer else {**state, "answer": ""}, execution)
                 if checking_answer:
+                    issues.extend(answer_length_issues(state))
                     if state["metadata"].get("requirement_coverage"):
                         issues.extend(delivery_issues(state))
                     for check in self.completion_checks:
@@ -992,6 +1003,7 @@ class AgentRuntime:
                         return record({"status": "budget_exhausted", "answer": "", "last_error": "Model-turn budget exhausted before final-answer composition; the draft was not published",
                                        "model_turns": state["model_turns"], "metadata": state["metadata"]}, state)
                     request = final_answer_request(state, self.context, self.settings, defer_compaction=True)
+                    request = constrain_answer_request(request, state)
                     request = prepare_request(request, state, "final_answer")
                     turn = state["model_turns"] + 1
                     state = {**state, "model_turns": turn}
@@ -1020,6 +1032,9 @@ class AgentRuntime:
                         issues.extend(check(state))
                     if issues:
                         return reject_final(state, issues)
+                length_issues = answer_length_issues(state)
+                if length_issues:
+                    return reject_final(state, length_issues)
                 review = assess("answer")
                 if review is None:
                     return record(state, state)
@@ -1088,3 +1103,4 @@ class AgentRuntime:
                    answer=result["answer"], artifacts=result["artifacts"], metadata=result["metadata"], model_turns=result["model_turns"])
         return RunResult(run_id, result["status"], result["answer"], tuple(result["artifacts"]),
                          result["last_error"], result["model_turns"], result)
+

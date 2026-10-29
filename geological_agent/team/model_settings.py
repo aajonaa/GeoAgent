@@ -44,6 +44,12 @@ class ModelProfile:
     def identity(self):
         return {"source": self.source, "base_url": self.base_url, "model": self.model}
 
+    def run_snapshot(self):
+        """Credential-free parameters from the immutable profile used by this run."""
+        settings = self.runtime_settings()
+        return {**self.identity(), **{key: settings[key] for key in
+                ("context_window_tokens", "max_output_tokens")}}
+
     def public(self):
         return {**self.identity(), "has_token": bool(self.api_token), "storage": self.storage,
                 "profile_id": self.profile_id, "name": self.name, "revision": self.revision,

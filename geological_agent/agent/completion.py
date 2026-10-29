@@ -136,6 +136,41 @@ def final_answer_request(state, context, settings, *, defer_compaction=False):
     evidence = completion_evidence(state, context)
     rejected = state["metadata"].get("rejected_answers", [])
     evidence["correction_feedback"] = [item["feedback"] for item in rejected[-1:]]
+    feedback = rejected[-1]["feedback"] if rejected else ""
+    source_rejection = any(
+        line.startswith("Source semantics ") for line in feedback.splitlines()
+    )
+    if source_rejection:
+        from .knowledge_semantics import fingerprint, material
+
+        # Block IDs are local to a draft. Never attach a review of other wording
+        # or an older source snapshot to the current repair request.
+        draft_state = {**state, "answer": rejected[-1]["answer"]}
+        draft_fingerprint = fingerprint(draft_state)
+        draft_blocks = material(draft_state)["answer_blocks"]
+        review = next((
+            item for item in reversed(
+                state["metadata"].get("knowledge_semantic_reviews", [])
+            ) if item.get("fingerprint") == draft_fingerprint
+        ), None)
+        failed_blocks = set(re.findall(r"(?m)^Source semantics (b\d+):", feedback))
+        evidence["source_repair"] = {
+            "draft_fingerprint": draft_fingerprint,
+            "matching_review_available": review is not None,
+            "trust": (
+                "Reviewer feedback is a repair hint, not a source or execution proof. "
+                "Quote bindings identify original text locations, not semantic support. "
+                "Verify every corrected claim against knowledge_sources."
+            ),
+            "blocks": {
+                key: {
+                    "rejected_text": text,
+                    "review": deepcopy(review.get("checks", {}).get(key))
+                    if review is not None else None,
+                }
+                for key, text in draft_blocks.items() if key in failed_blocks
+            },
+        }
     # A rejected answer is editable text, not execution evidence or instructions.
     # Keep it out of action context, but show it to the answer-only repair stage.
     if rejected:
@@ -148,6 +183,21 @@ def final_answer_request(state, context, settings, *, defer_compaction=False):
     if not evidence["observed_actions"] and not state["artifacts"]:
         evidence["provisional_conversational_response"] = state.get("answer", "")
     system = FINAL_ANSWER_SYSTEM
+    if source_rejection:
+        system += (
+            "\nRepair source attribution before polishing the rejected draft. "
+            "Split a rejected compound statement into independently supported claims, "
+            "with each citation immediately after the exact claim it supports. "
+            "Do not pool a lithology list, observations and a genetic classification "
+            "under trailing citations from different papers. A source supporting one "
+            "item does not support the whole list. Use multiple citations together "
+            "only when each supports the same claim; otherwise split the claims. "
+            "Keep supported wording and uncertainty, and verify document identity and "
+            "page numbers against the provided source material. Reviewer suggestions "
+            "are not new evidence: do not invent a quote, citation or page to satisfy "
+            "them. Omit unsupported detail or explicitly state the limitation. "
+            "The revised answer must still satisfy the user's scope and length.\n"
+        )
     if state["metadata"].get("optimize_round_trips"):
         system += "Lead with the requested result and actual filenames. Do not repeat the execution chronology unless requested.\n"
     count = line_count_requirement(state)
@@ -162,7 +212,11 @@ def final_answer_request(state, context, settings, *, defer_compaction=False):
                        all("nonempty answer lines in total" in item["feedback"] for item in rejected[-2:]))
     repeated_feedback = (len(rejected) >= 2 and
                          rejected[-1]["feedback"] == rejected[-2]["feedback"])
-    if repeated_format or repeated_feedback:
+    repeated_source_feedback = len(rejected) >= 2 and all(
+        any(line.startswith("Source semantics ") for line in item["feedback"].splitlines())
+        for item in rejected[-2:]
+    )
+    if repeated_format or repeated_feedback or repeated_source_feedback:
         schema = object_schema({"lines": {
             "type": "array", "minItems": 1,
             **({"minItems": count, "maxItems": count} if count is not None else {}),

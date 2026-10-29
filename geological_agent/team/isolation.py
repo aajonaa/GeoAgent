@@ -32,6 +32,7 @@ class Cancelled(Exception):
 
 class SandboxRunner:
     isolated = True
+    memory_snapshot_enabled = True
     description = 'isolated Linux job'
 
     def __init__(self, runtime=None, limits=None):
@@ -80,7 +81,7 @@ class SandboxRunner:
             subprocess.run(['systemctl', '--user', 'stop', 'geotoolagent-job-' + rid + '.service'],
                            stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=12, check=False)
 
-    def run(self, rid, query, files, cancel, model_call, on_trace, *, settings=None, mode='agent', diagnostics=None):
+    def run(self, rid, query, files, cancel, model_call, on_trace, *, settings=None, mode='agent', diagnostics=None, memory_records=()):
         unit, command = self.command(rid)
         incoming, reader_done = queue.Queue(maxsize=32), Event()
         # Credentials stay in the broker and are not inherited even by systemd-run.
@@ -149,7 +150,10 @@ class SandboxRunner:
         diagnostics_thread.start()
         Thread(target=watch_cancel, daemon=True).start()
         try:
-            proc.stdin.write(dumps({'query': query, 'files': [file_packet(k, v) for k, v in files.items()], 'settings': settings or {}, 'mode': mode}))
+            from ..memory import SnapshotMemoryStore
+            SnapshotMemoryStore.from_payload(memory_records)
+            proc.stdin.write(dumps({'query': query, 'files': [file_packet(k, v) for k, v in files.items()], 'settings': settings or {}, 'mode': mode,
+                                   'memory_records': list(memory_records)}))
             proc.stdin.flush()
             while True:
                 if cancel.is_set():

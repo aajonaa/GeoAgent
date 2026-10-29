@@ -17,6 +17,7 @@ import uuid
 from urllib.parse import urlsplit
 
 import httpx
+from geological_agent.rag.limits import account_limits
 from fastapi import HTTPException, Request
 from fastapi.responses import FileResponse
 from starlette.concurrency import run_in_threadpool
@@ -120,13 +121,31 @@ class ParserClient:
             raise ParserError("Could not download parsed output; try refreshing the task") from None
 
 
+def active_coordinator(job):
+    value = job.get("coordinator")
+    if (not isinstance(value, dict) or value.get("kind") != "private-literature-batch-v1"
+            or type(value.get("pid")) is not int or value["pid"] < 1):
+        return False
+    try:
+        folder = Path("/proc") / str(value["pid"])
+        if folder.stat().st_uid != os.getuid():
+            return False
+        fields = (folder / "stat").read_text().rsplit(")", 1)[1].split()
+        return fields[19] == value.get("start_ticks")
+    except (OSError, AttributeError, IndexError):
+        return False
+
+
 class PdfImports:
-    def __init__(self, root):
+    def __init__(self, root, *, recover=True):
         self.root = Path(root) / "knowledge-pdf"
         self.config_path = Path(os.environ.get("GEOTOOL_PDF_PARSER_CONFIG", str(Path(root) / "pdf-parser.json")))
         self._locks = {}
         self._guard = Lock()
         self._ready = False
+        # A separate batch coordinator must not recover the live ASGI worker's
+        # upload/index transitions merely by opening the same job database.
+        self.recover = recover
 
     def configuration(self):
         try:
@@ -157,8 +176,10 @@ class PdfImports:
                 db.execute("CREATE INDEX IF NOT EXISTS pdf_job_owner ON jobs(owner, updated)")
                 # This app runs one ASGI worker. On a new worker, recover only
                 # local in-flight steps; never resubmit GPU jobs automatically.
-                for row in db.execute("SELECT id, data FROM jobs").fetchall():
+                for row in (db.execute("SELECT id, data FROM jobs").fetchall() if self.recover else ()):
                     job = json.loads(row[1])
+                    if active_coordinator(job):
+                        continue
                     state = job.get("state")
                     if state == "receiving":
                         job.update(state="failed", error="Upload was interrupted by a service restart. Retained bytes have not been validated; create a new import to retry.")
@@ -208,12 +229,13 @@ class PdfImports:
 
     def listing(self, owner):
         with self.database() as db:
-            rows = db.execute("SELECT data FROM jobs WHERE owner=? ORDER BY updated DESC LIMIT 100", (owner,)).fetchall()
+            capacity = account_limits(owner)["max_pdf_imports"]
+            rows = db.execute("SELECT data FROM jobs WHERE owner=? ORDER BY updated DESC LIMIT ?", (owner, capacity)).fetchall()
         return [self.public(json.loads(row["data"])) for row in rows]
 
     def public(self, job):
         return {key: value for key, value in job.items()
-                if key not in {"owner", "upload_token_hash", "remote_upload", "remote_file", "remote_job"}}
+                if key not in {"owner", "upload_token_hash", "remote_upload", "remote_file", "remote_job", "coordinator"}}
 
     def create(self, owner, value):
         self.client()
@@ -233,8 +255,9 @@ class PdfImports:
         job["updated_at"] = job["created_at"]
         with self.database() as db:
             db.execute("BEGIN IMMEDIATE")
-            if db.execute("SELECT count(*) FROM jobs WHERE owner=?", (owner,)).fetchone()[0] >= 100:
-                raise ValueError("PDF pilot quota: 100 imports per account")
+            capacity = account_limits(owner)["max_pdf_imports"]
+            if db.execute("SELECT count(*) FROM jobs WHERE owner=?", (owner,)).fetchone()[0] >= capacity:
+                raise ValueError(f"PDF capacity: {capacity} imports per account")
             db.execute("INSERT INTO jobs VALUES(?,?,?,?)", (job["id"], owner, job["updated_at"], json.dumps(job)))
         self.folder(job["id"]).mkdir(mode=0o700)
         return {**self.public(job), "upload_token": token}
@@ -353,34 +376,58 @@ class PdfImports:
         finally:
             lock.release()
 
+    def prepare(self, job):
+        from geological_agent.team.pdf_content import load_content, ContentError
+        try:
+            text, record, folder = load_content(self.folder(job["id"]), job)
+        except (OSError, ValueError, UnicodeError, ContentError):
+            raise ParserError("Could not prepare validated PDF content; originals retained, no indexing performed") from None
+        job["prepared"] = {key: record[key] for key in ("version", "key", "sha256", "raw_sha256",
+                           "characters", "raw_characters", "inline_image_characters", "quality_status")}
+        job["prepared"]["images"] = len(record["assets"])
+        job["prepared"]["derived_transcriptions"] = len(record["derived"])
+        job["can_index"] = len(text) <= MAX_PREVIEW
+        job["index_note"] = "" if job["can_index"] else "Prepared text exceeds the current 120,000-character indexing limit. Originals retained; split the document without truncation."
+        return text, record, folder
+
     def preview(self, owner, job_id):
-        job = self.get(owner, job_id)
-        if "markdown" not in job["artifacts"]:
-            raise HTTPException(409, "Parsed output is not ready")
-        text = (self.folder(job_id) / "parsed.md").read_text(encoding="utf-8")
-        return {"job": self.public(job), "text": text[:MAX_PREVIEW],
-                "preview_truncated": len(text) > MAX_PREVIEW, "total_characters": len(text)}
+        with self.lock(job_id):
+            job = self.get(owner, job_id)
+            if "markdown" not in job["artifacts"]:
+                raise HTTPException(409, "Parsed output is not ready")
+            text, record, folder = self.prepare(job)
+            self.save(job)
+            return {"job": self.public(job), "text": text[:MAX_PREVIEW],
+                    "text_sha256": record["sha256"], "raw_characters": record["raw_characters"],
+                    "images": len(record["assets"]), "derived_transcriptions": len(record["derived"]),
+                    "preview_truncated": len(text) > MAX_PREVIEW, "total_characters": len(text)}
 
     def ingest(self, owner, job_id, factory):
         with self.lock(job_id):
             job = self.get(owner, job_id)
             if job["state"] == "indexed":
                 return self.public(job)
-            if job["state"] != "parsed" or not job.get("can_index"):
+            if job["state"] != "parsed":
                 raise HTTPException(409, "Preview a complete supported document before indexing")
+            try:
+                text, content_record, prepared_folder = self.prepare(job)
+            except ParserError:
+                job["error"] = "Content provenance or preparation failed; original retained and indexing refused."
+                self.save(job)
+                return self.public(job)
+            if not job["can_index"]:
+                self.save(job)
+                raise HTTPException(409, "Prepared text exceeds the supported indexing limit")
             job.update(state="indexing", error="")
             self.save(job)
             try:
-                text = (self.folder(job_id) / "parsed.md").read_text(encoding="utf-8")
-                if hashlib.sha256(text.encode()).hexdigest() != job["text_sha256"]:
-                    raise ParserError("Parsed source hash changed; indexing refused")
                 source = job["source"] + "; PDF SHA256=" + job["sha256"] + "; parsed by MinerU; filename=" + job["filename"]
                 if len(source) > 1000:
                     raise ValueError("Source metadata exceeds the current indexing limit")
                 result = factory({"id": owner}).ingest(job["title"], text, source)
                 if not result.get("chunks"):
                     raise ParserError("Existing document has no chunks; indexing has not completed")
-                job.update(state="indexed", index=result, error="")
+                job.update(state="indexed", index=result, index_text_sha256=content_record["sha256"], error="")
             except Exception:
                 job.update(state="parsed", error="Indexing did not complete. Parser output is preserved; inspect the knowledge service before retrying.")
             self.save(job)

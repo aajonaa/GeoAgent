@@ -661,6 +661,12 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     install_library_routes(app, auth, human_input=bool(getattr(runner, 'hitl_enabled', False)))
     from .knowledge import install_knowledge_routes
     install_knowledge_routes(app, auth, body)
+    from .data_inventory import install_data_inventory_routes
+    install_data_inventory_routes(app, auth, store.root)
+    from .knowledge_corpus import install_corpus_routes
+    install_corpus_routes(app, auth)
+    from .knowledge_graph import install_graph_routes
+    install_graph_routes(app, auth)
     from .images import install_image_routes
     install_image_routes(app, auth, store)
     from .presentation import install_presentation_routes

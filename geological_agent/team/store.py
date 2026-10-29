@@ -220,6 +220,7 @@ class Store:
             self.db.execute("INSERT INTO events(rid,data) VALUES (?,?)", (rid, json.dumps({
                 "kind": "finished", "status": status, "answer": answer, "reason": reason or "",
                 "generation": generation, "turns": turns, "elapsed_seconds": elapsed,
+                "created": row["created"] if row else None, "finished_at": row["finished_at"] if row else None,
             }, ensure_ascii=False)))
 
     def event(self, rid, data):

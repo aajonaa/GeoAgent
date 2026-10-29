@@ -205,6 +205,16 @@
     box.append(grid);
     return box;
   }
+  function recordedProfile(data) {
+    const profile = {...data.profile}, budget = data.context_budget;
+    // Legacy events recorded these values in the same event's budget.
+    // Never consult today's model settings or infer unrecorded parameters.
+    if (typeof budget?.tokenizer_model === 'string' && budget.tokenizer_model === profile.model) {
+      profile.context_window_tokens ??= budget.context_window_tokens;
+      profile.max_output_tokens ??= budget.output_reserve_tokens;
+    }
+    return profile;
+  }
   function model(profile) {
     const anchor = document.querySelector('.model-profile-picker');
     if (!anchor || !profile || !state.me) return;
@@ -330,7 +340,7 @@
     if (data.kind === 'diagnostic') { view.issue = data; if (!ui.finished) view.action = issueAction(data.category); }
     if (data.kind === 'review_result' && data.passed === true) { view.issue = null; if (!ui.finished) view.action = {title:'来源审核已通过',detail:'准备交付已核对的答复'}; }
     if (data.kind === 'run_outcome') view.outcome = data;
-    if (data.kind === 'model_config') view.body.replaceChildren(metadata(data.profile, '本轮实际使用 · 执行事件快照'));
+    if (data.kind === 'model_config') view.body.replaceChildren(metadata(recordedProfile(data), '本轮实际使用 · 执行事件快照'));
     if (data.kind === 'status') {
       if (!ui.finished) view.action = stageAction(data, view);
       if (Number.isSafeInteger(data.turn)) view.turn = Math.max(view.turn, data.turn);

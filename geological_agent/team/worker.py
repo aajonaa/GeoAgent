@@ -117,7 +117,9 @@ def main():
             result = {"status": "completed", "answer": json.dumps(isolation_probe()), "reason": "", "turns": 0}
         else:
             settings = Settings(**initial.get('settings', {}))
-            agent = create_agent(BrokerModel(), settings=settings, trace_factory=lambda *args: BrokerTrace())
+            from ..memory import SnapshotMemoryStore
+            agent = create_agent(BrokerModel(), settings=settings, trace_factory=lambda *args: BrokerTrace(),
+                                 memory=SnapshotMemoryStore.from_payload(initial.get('memory_records', [])))
             outcome = agent.run(initial['query'], workspace=root)
             result = {"status": outcome.status, "answer": outcome.answer, "reason": outcome.reason or "", "turns": outcome.model_turns}
         # Publish files and completion together; the host commits a complete snapshot.

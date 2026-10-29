@@ -209,7 +209,7 @@ function setRunMessageTimes(ui, run) {
 
 function renderRun(run) {
   const turn = element('article', undefined, 'turn'); turn.dataset.run = run.id;
-  const user = element('div', run.query, 'user-message'); const label = element('div', 'GeoAgent', 'assistant-label');
+  const user = element('div', run.query, 'user-message'); const label = element('div', '璞鉴智能体（OreSage）', 'assistant-label');
   const activity = element('details', undefined, 'activity'); const summary = element('summary', '查看执行详情'); const list = element('div', undefined, 'tool-list'); activity.append(summary, list);
   const answer = element('div', undefined, 'answer'); markdown(answer, run.answer); const reason = element('div', run.reason || '', 'run-reason');
   const elapsed = element('div', undefined, 'run-elapsed');
@@ -237,7 +237,7 @@ function handleEvent(rid, data, eventId, historical = false) {
     ui.lastEventSequence = sequence;
   }
   const wasNearEnd = $('messages').scrollHeight - $('messages').scrollTop - $('messages').clientHeight < 130;
-  if (data.kind === 'model_config') { ui.turn.querySelector('.assistant-label').textContent = 'GeoAgent · ' + data.profile.model; }
+  if (data.kind === 'model_config') { ui.turn.querySelector('.assistant-label').textContent = '璞鉴智能体（OreSage） · ' + data.profile.model; }
   if (data.kind === 'finished') setRunMessageTimes(ui, data);
   if (data.kind === 'finished' && !historical) {
     setRunElapsed(ui, data); ui.finished = true; ui.answerText = data.answer || ''; markdown(ui.answer, ui.answerText, ui.artifactContext); ui.summary.textContent = '查看执行详情'; ui.reason.textContent = data.reason || '';

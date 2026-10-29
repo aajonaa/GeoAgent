@@ -12,6 +12,7 @@ from .worker import snapshot
 
 class TrustedLocalRunner:
     isolated = False
+    memory_snapshot_enabled = True
     provenance_enabled = True
     description = 'service Python environment; OS sandbox disabled'
 
@@ -72,6 +73,9 @@ class TrustedLocalRunner:
             if not isinstance(scope, dict) or set(scope) != {"owner_id", "conversation_id"}:
                 raise ValueError("The authenticated broker must supply the context ownership scope")
             agent_options["context_store"] = PostgresContextStore(private_dsn(self.context_dsn_file), ContextScope(**scope))
+        if "memory_records" in kwargs:
+            from ..memory import SnapshotMemoryStore
+            agent_options["memory"] = SnapshotMemoryStore.from_payload(kwargs["memory_records"])
         agent = create_agent(NativeModel(), settings=Settings(**(settings or {})),
                              trace_factory=lambda *args: NativeTrace(), **agent_options)
         run_options = {}
