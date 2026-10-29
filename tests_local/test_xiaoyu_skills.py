@@ -1,5 +1,6 @@
 """Real registry and source-bundle checks; no model calls or scientific execution."""
 from collections import Counter
+from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
@@ -41,10 +42,16 @@ def test_all_original_packages_and_duplicate_occurrences_accounted():
     assert Counter(Path(x['local']).suffix for x in INDEX['capture_manifest']['files'])=={'.zip':110,'.json':110,'.xlsx':1,'.pdf':1}
     assert REPORT['deployed'] is False and REPORT['scientific_workflow_validation']=='not_run'
 
-def test_existing_catalog_entries_are_unmodified():
+def test_existing_catalog_entries_preserved_except_explicit_availability_repair():
     current=catalog()
     assert sha(canonical(current['tools']))==REPORT['original_tools_sha256']
-    assert sha(canonical(current['skills'][:97]))==REPORT['original_skills_sha256']
+    original_skills=deepcopy(current['skills'][:97])
+    repaired=next(s for s in original_skills if s['id']=='github-geophysics-grain-fracture')
+    assert repaired['delivery']['availability_status']=='partially_blocked'
+    assert repaired['delivery']['unavailable_references']==['GeoRockStressAnisotropy']
+    assert 'GeoRockStressAnisotropy' not in repaired['tool_references']
+    repaired['delivery']['availability_status']='tool_candidates_available_workflow_unverified'
+    assert sha(canonical(original_skills))==REPORT['original_skills_sha256']
     assert len(current['tools'])==457 and len(current['skills'])==187
     assert {s['id'] for s in current['skills'][97:]}=={x['id'] for x in REPORT['skills']}
 
@@ -136,7 +143,7 @@ def test_pagination_and_native_schema_reject_incomplete_read(runtime,tmp_path):
     e=ToolExecutor(registry).execute(ToolCall('bad','SkillReadResource',{'skill_id':IDS[0],'action':'read'}),ctx(tmp_path))
     assert e.status=='error' and e.error.code=='invalid_arguments'
 
-def test_new_delivery_contracts_and_unchanged_baseline_failures():
+def test_new_and_repaired_legacy_delivery_contracts():
     from source_asset_checks.run import check_assets
     from geological_agent.geology.source_registry import source_tools
     rows=check_assets(catalog(),source_tools())
@@ -144,7 +151,8 @@ def test_new_delivery_contracts_and_unchanged_baseline_failures():
     assert len(new)==90 and all(r['status']=='passed' for r in new)
     legacy=[r for r in rows if not r['skill'].startswith('xiaoyu-') and r['status']!='passed']
     baseline=json.loads((IMPORTS/'baseline-diagnostics.json').read_text(encoding='utf-8'))
-    assert legacy==baseline['skill_document_failures']
+    assert len(baseline['skill_document_failures'])==20  # Preserve historical failure evidence.
+    assert legacy==[], legacy  # Repaired old documents must now pass; no grandfathered failures.
 
 def test_actual_library_routes_with_isolated_authentication():
     from fastapi import FastAPI,HTTPException

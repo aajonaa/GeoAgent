@@ -109,3 +109,25 @@ Positive independent analytic oracles, per-operation negative constraints and pr
 ## Current availability
 
 Source authored and generated metadata only. NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Unit, workflow, model-workflow and platform validation: not_run. Receiving-lab approval and adapter license: pending. Bingham axial confidence and CIPW normative mineralogy are blocked and excluded from all five active Skills; see the group blocked-operations.json. Parent owns fixed module whitelist, worker dispatch, registry integration and CPU acceptance. Existing online229 is unchanged.
+
+### Native call bindings
+
+Use the registered native operation with its declared JSON input schema. The following bindings come from catalog/registry.json; use catalog/source_delivery/examples.json for exact accepted argument examples. Do not substitute guessed arguments, units or scientific algorithms.
+
+| Native tool | Source callable |
+| --- | --- |
+| `GeoAPSGPairFabricTensor` | `geological_agent.geology.github_expansion_geology:paired_fabric_tensor` |
+| `GeoAPSGFoldAxis` | `geological_agent.geology.github_expansion_geology:cylindrical_fold_axis` |
+| `GeoAPSGFisherDirectionalConfidence` | `geological_agent.geology.github_expansion_geology:fisher_directional_confidence` |
+| `GeoAPSGMarkerStrainEstimate` | `geological_agent.geology.github_expansion_geology:marker_strain_estimate` |
+| `GeoAPSGFaultKinematicAxes` | `geological_agent.geology.github_expansion_geology:fault_kinematic_axes` |
+
+Parameter constraints, units, result schema, artifact references and structured error semantics are defined by each tool in the registry. Pure numeric operations return their declared JSON result; operations with output files must preserve their artifact paths, sizes and hashes. Missing dependencies must remain explicit errors. Do not install packages or alter shared environments during execution.
+
+### Current availability
+
+tool_candidates_available_workflow_unverified
+
+The native references resolve in the deployed OreSage registry. This documentation repair adds the missing handoff sections; it does not certify full Skill workflows, external data services or AI Lab acceptance. `workflow_validation=not_run` and `platform_validation=not_run` remain unchanged.
+
+Earlier status statements in this source document are historical source-authoring records. Current deployment evidence is recorded in docs/releases/xiaoyu-skills-20261029.md; historical NOT DEPLOYED statements must not be read as the current runtime status. Upstream licenses, scientific limitations and prior failed records remain unchanged.

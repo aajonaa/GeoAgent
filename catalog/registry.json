@@ -9581,7 +9581,7 @@
         "unavailable_references": [
           "GeoRockStressAnisotropy"
         ],
-        "availability_status": "tool_candidates_available_workflow_unverified",
+        "availability_status": "partially_blocked",
         "workflow_validation": "not_run",
         "deployment_status": "not_deployed",
         "submission_status": "not_submitted",

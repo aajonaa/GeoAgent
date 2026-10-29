@@ -218,3 +218,27 @@ Pins: numpy==2.1.3, scipy==1.15.3, jsonschema==4.25.1, pandas==2.3.0, matplotlib
 ## Validation and availability
 
 R2 NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. source_authored_unverified. R1 basic30 passed according to parent, but counterexamples block promotion and that result is not r2 acceptance. Historical reports remain unchanged. GeoRockStressAnisotropy is blocked, not registered or counted. Unit, workflow, model and platform acceptance not_run; receiving lab pending. Existing online229 unchanged. Test source: tests_local/test_github_expansion_geophysics.py. Parent owns additive registry merge, fixed dispatch and CPU acceptance.
+
+## Source interface and delivery
+
+Use the registered native operation with its declared JSON input schema. The following bindings come from catalog/registry.json; use catalog/source_delivery/examples.json for exact accepted argument examples. Do not substitute guessed arguments, units or scientific algorithms.
+
+| Native tool | Source callable |
+| --- | --- |
+| `GeoRockVRHBounds` | `geological_agent.geology.github_expansion_geophysics:rock_vrh_bounds` |
+| `GeoRockHashinShtrikman` | `geological_agent.geology.github_expansion_geophysics:rock_hashin_shtrikman` |
+| `GeoRockCriticalPorosity` | `geological_agent.geology.github_expansion_geophysics:rock_critical_porosity` |
+| `GeoRockSphericalPores` | `geological_agent.geology.github_expansion_geophysics:rock_spherical_pores` |
+| `GeoRockSelfConsistent` | `geological_agent.geology.github_expansion_geophysics:rock_self_consistent` |
+| `GeoRockRandomCracks` | `geological_agent.geology.github_expansion_geophysics:rock_random_cracks` |
+| `GeoRockMoriTanaka` | `geological_agent.geology.github_expansion_geophysics:rock_mori_tanaka` |
+
+Parameter constraints, units, result schema, artifact references and structured error semantics are defined by each tool in the registry. Pure numeric operations return their declared JSON result; operations with output files must preserve their artifact paths, sizes and hashes. Missing dependencies must remain explicit errors. Do not install packages or alter shared environments during execution.
+
+### Current availability
+
+tool_candidates_available_workflow_unverified
+
+The native references resolve in the deployed OreSage registry. This documentation repair adds the missing handoff sections; it does not certify full Skill workflows, external data services or AI Lab acceptance. `workflow_validation=not_run` and `platform_validation=not_run` remain unchanged.
+
+Earlier status statements in this source document are historical source-authoring records. Current deployment evidence is recorded in docs/releases/xiaoyu-skills-20261029.md; historical NOT DEPLOYED statements must not be read as the current runtime status. Upstream licenses, scientific limitations and prior failed records remain unchanged.

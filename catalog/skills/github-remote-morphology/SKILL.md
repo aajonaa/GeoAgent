@@ -161,3 +161,26 @@ Fixed module: geological_agent.geology.github_expansion_remote. source_interface
 ## Current availability
 
 NOT TESTED / NOT DEPLOYED / NOT SUBMITTED for r2. Historical r1 CPU reports are preserved and are not r2 acceptance evidence. Source authored only. Contract, CPU, model-workflow and platform acceptance for r2: not_run. Receiving lab approval and adapter license: pending. Existing deployed 229-tool catalog is unchanged by this contribution.
+
+### Native call bindings
+
+Use the registered native operation with its declared JSON input schema. The following bindings come from catalog/registry.json; use catalog/source_delivery/examples.json for exact accepted argument examples. Do not substitute guessed arguments, units or scientific algorithms.
+
+| Native tool | Source callable |
+| --- | --- |
+| `GeoRemoteWhiteTophat` | `geological_agent.geology.github_expansion_remote:white_tophat_features` |
+| `GeoRemoteSeedReconstruction` | `geological_agent.geology.github_expansion_remote:seeded_reconstruction` |
+| `GeoRemoteSkeleton` | `geological_agent.geology.github_expansion_remote:binary_skeleton` |
+| `GeoRemoteRemoveSmallObjects` | `geological_agent.geology.github_expansion_remote:remove_small_objects` |
+| `GeoRemoteFillSmallHoles` | `geological_agent.geology.github_expansion_remote:fill_small_holes` |
+| `GeoRemoteHMaxima` | `geological_agent.geology.github_expansion_remote:prominence_maxima` |
+
+Parameter constraints, units, result schema, artifact references and structured error semantics are defined by each tool in the registry. Pure numeric operations return their declared JSON result; operations with output files must preserve their artifact paths, sizes and hashes. Missing dependencies must remain explicit errors. Do not install packages or alter shared environments during execution.
+
+### Current availability
+
+tool_candidates_available_workflow_unverified
+
+The native references resolve in the deployed OreSage registry. This documentation repair adds the missing handoff sections; it does not certify full Skill workflows, external data services or AI Lab acceptance. `workflow_validation=not_run` and `platform_validation=not_run` remain unchanged.
+
+Earlier status statements in this source document are historical source-authoring records. Current deployment evidence is recorded in docs/releases/xiaoyu-skills-20261029.md; historical NOT DEPLOYED statements must not be read as the current runtime status. Upstream licenses, scientific limitations and prior failed records remain unchanged.

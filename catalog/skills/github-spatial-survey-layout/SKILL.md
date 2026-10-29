@@ -158,3 +158,26 @@ availability_status: tool_candidates_available_workflow_unverified
 workflow_validation: not_run; model_workflow_validation: not_run; platform_validation: not_run; deployment_status: not_deployed; submission_status: not_submitted; receiving_lab_approval: pending.
 
 Parent must merge the additive catalog/examples, register the fixed module and worker kind, run the authored CPU tests against the pinned environment, and record fresh acceptance evidence. Existing skill_find/skill_load remains unchanged.
+
+## Source interface and delivery
+
+Use the registered native operation with its declared JSON input schema. The following bindings come from catalog/registry.json; use catalog/source_delivery/examples.json for exact accepted argument examples. Do not substitute guessed arguments, units or scientific algorithms.
+
+| Native tool | Source callable |
+| --- | --- |
+| `GeoSpatialEllipsoidalPolygonArea` | `geological_agent.geology.github_expansion_spatial:ellipsoidal_polygon_area` |
+| `GeoSpatialGeodesicTransect` | `geological_agent.geology.github_expansion_spatial:geodesic_transect` |
+| `GeoSpatialProjectionDistortion` | `geological_agent.geology.github_expansion_spatial:projection_distortion` |
+| `GeoSpatialMaximumInscribedCircle` | `geological_agent.geology.github_expansion_spatial:maximum_inscribed_circle` |
+| `GeoSpatialSiteVoronoi` | `geological_agent.geology.github_expansion_spatial:site_voronoi` |
+| `GeoSpatialSiteParcelSplit` | `geological_agent.geology.github_expansion_spatial:site_parcel_split` |
+
+Parameter constraints, units, result schema, artifact references and structured error semantics are defined by each tool in the registry. Pure numeric operations return their declared JSON result; operations with output files must preserve their artifact paths, sizes and hashes. Missing dependencies must remain explicit errors. Do not install packages or alter shared environments during execution.
+
+### Current availability
+
+tool_candidates_available_workflow_unverified
+
+The native references resolve in the deployed OreSage registry. This documentation repair adds the missing handoff sections; it does not certify full Skill workflows, external data services or AI Lab acceptance. `workflow_validation=not_run` and `platform_validation=not_run` remain unchanged.
+
+Earlier status statements in this source document are historical source-authoring records. Current deployment evidence is recorded in docs/releases/xiaoyu-skills-20261029.md; historical NOT DEPLOYED statements must not be read as the current runtime status. Upstream licenses, scientific limitations and prior failed records remain unchanged.
