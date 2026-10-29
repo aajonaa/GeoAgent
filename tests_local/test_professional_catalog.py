@@ -62,10 +62,10 @@ def test_all_registered_source_tools_are_discoverable(agent):
     assert len(SPECS) == 457 and len(READY_SPECS) == 457
     reachable = {name for summary in agent.skills.registry.list() for name in agent.skills.load(summary.id).tool_names}
     assert {native_name(spec) for spec in READY_SPECS.values()} <= reachable
-    assert len(agent.skills.source_statuses) == len(catalog()["skills"]) == 97
+    assert len(agent.skills.source_statuses) == len(catalog()["skills"]) == 97 + 90
     assert len(agent.skills.unavailable_skills) == 0
     from geological_agent.imaging import SCHEMAS as IMAGE_SCHEMAS
-    assert set(agent.tools._tools) - set(agent.base_tools) == {native_name(spec) for spec in READY_SPECS.values()} | set(IMAGE_SCHEMAS)
+    assert set(agent.tools._tools) - set(agent.base_tools) == {native_name(spec) for spec in READY_SPECS.values()} | set(IMAGE_SCHEMAS) | {'SkillReadResource'}
     for spec in SPECS.values():
         if spec.get("source_interface", {}).get("status") != READY:
             # Blocked placeholders may lack a native function definition.

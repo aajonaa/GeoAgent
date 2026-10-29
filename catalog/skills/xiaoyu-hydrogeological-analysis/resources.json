@@ -1,0 +1,66 @@
+{
+  "skill_id": "xiaoyu_hydrogeological_analysis",
+  "archive_sha256": "501f0ea46be42457a72f57e3aaf9f6faca25d0cfeed78e10102ad434b941d443",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 45,
+          "archive_sha256": "c4d77e622a20ce7d7792c06d5ff535fb89ab15cd0eae5274a51cbae28c478401",
+          "member": "hydrogeological-analysis/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 845,
+      "sha256": "d5d273a7764329c522c72ccc521204616a01d485b1a7e0efbf84347fbfe16d6a",
+      "origins": [
+        {
+          "package_number": 45,
+          "archive_sha256": "c4d77e622a20ce7d7792c06d5ff535fb89ab15cd0eae5274a51cbae28c478401",
+          "member": "hydrogeological-analysis/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 7036,
+      "sha256": "9157802f9cc9b468444a1a456116b52fae5f0eac15f1b0d59a3b6a23ec3c65a9",
+      "origins": [
+        {
+          "package_number": 45,
+          "archive_sha256": "c4d77e622a20ce7d7792c06d5ff535fb89ab15cd0eae5274a51cbae28c478401",
+          "member": "hydrogeological-analysis/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/field_case.md",
+      "bytes": 5923,
+      "sha256": "b59c6522e9b7a3c2db33c6a9ee67d7a78e8a53ea5cae030db376913fb407e2ba",
+      "origins": [
+        {
+          "package_number": 45,
+          "archive_sha256": "c4d77e622a20ce7d7792c06d5ff535fb89ab15cd0eae5274a51cbae28c478401",
+          "member": "hydrogeological-analysis/references/field_case.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/run_pastas_workflow.py",
+      "bytes": 14314,
+      "sha256": "8c012e5c2eac4df4583886e3e4e9e421fc9df1748bf98fe87a23e32df649fb9e",
+      "origins": [
+        {
+          "package_number": 45,
+          "archive_sha256": "c4d77e622a20ce7d7792c06d5ff535fb89ab15cd0eae5274a51cbae28c478401",
+          "member": "hydrogeological-analysis/scripts/run_pastas_workflow.py"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+{
+  "skill_id": "xiaoyu_pastas",
+  "archive_sha256": "981745707a9a3c02ea0534df7c5bd3e2a4f2877e94ca5a3764ca427e825348c5",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 29,
+          "archive_sha256": "3511260389fe0913d00bbc2ac96c5abd958675a7a7ab222d8702faefb77fc2e3",
+          "member": "pastas/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 741,
+      "sha256": "9b9da7a056f94843c1e9723379fa348a3d497b8b47b3e0b7b258fb99b5f2c2da",
+      "origins": [
+        {
+          "package_number": 29,
+          "archive_sha256": "3511260389fe0913d00bbc2ac96c5abd958675a7a7ab222d8702faefb77fc2e3",
+          "member": "pastas/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 6597,
+      "sha256": "8898388347819158978536d5a38f7039152ede8e14a6af409d97dbd1df48325f",
+      "origins": [
+        {
+          "package_number": 29,
+          "archive_sha256": "3511260389fe0913d00bbc2ac96c5abd958675a7a7ab222d8702faefb77fc2e3",
+          "member": "pastas/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/response_functions.md",
+      "bytes": 2769,
+      "sha256": "3d461010ef507efe1636b061aaf97cbcae48e162b9655ae0307831bfb8612e51",
+      "origins": [
+        {
+          "package_number": 29,
+          "archive_sha256": "3511260389fe0913d00bbc2ac96c5abd958675a7a7ab222d8702faefb77fc2e3",
+          "member": "pastas/references/response_functions.md"
+        }
+      ]
+    },
+    {
+      "path": "references/stress_models.md",
+      "bytes": 2718,
+      "sha256": "3d4ef39a815b7f519fee4246bc21c51372001a4955445c11af4511c3a422d73e",
+      "origins": [
+        {
+          "package_number": 29,
+          "archive_sha256": "3511260389fe0913d00bbc2ac96c5abd958675a7a7ab222d8702faefb77fc2e3",
+          "member": "pastas/references/stress_models.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/groundwater_model.py",
+      "bytes": 6365,
+      "sha256": "797b9ac92bb96037ef8f5d9ee6938657e0ebe94e2b705280dd08e3b2200e2878",
+      "origins": [
+        {
+          "package_number": 29,
+          "archive_sha256": "3511260389fe0913d00bbc2ac96c5abd958675a7a7ab222d8702faefb77fc2e3",
+          "member": "pastas/scripts/groundwater_model.py"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "skill_id": "xiaoyu_climate_dashboard",
+  "archive_sha256": "3a7bcf2326567b7d53d2bfe2642fc547ba58666c5682b4875878c03f304ebe29",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 12087,
+      "sha256": "600caac774b1076a4a3a00debf38370248a3dcd3302ea6639d1392fa2d7253ae",
+      "origins": [
+        {
+          "package_number": 57,
+          "archive_sha256": "91f6d582fc6ca92595b19ff5973f6b15a53248c76a40f5f1b1a9aa33fcc5bff1",
+          "member": "skill57ú║╞°║≥╩²╛▌╥╟▒φ┼╠-climate-dashboard/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "assets/template.html",
+      "bytes": 6593,
+      "sha256": "848176eb5f2600483ecb1fa3515400182e1db33bd58a0e5ce1e2ba04cf342992",
+      "origins": [
+        {
+          "package_number": 57,
+          "archive_sha256": "91f6d582fc6ca92595b19ff5973f6b15a53248c76a40f5f1b1a9aa33fcc5bff1",
+          "member": "skill57ú║╞°║≥╩²╛▌╥╟▒φ┼╠-climate-dashboard/assets/template.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "skill_id": "xiaoyu_geological_modelling",
+  "archive_sha256": "58ba071c389fbd51ac689143c3cb387e04477955f38721da6c87899d1ff93473",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 42,
+          "archive_sha256": "077a50b99556dc0d77aae23e3b7a30ca73218862fb1c894e2464cfc151050c47",
+          "member": "geological-modelling/LICENSE"
+        },
+        {
+          "package_number": 88,
+          "archive_sha256": "e10aa338994fd10630a8d4fa293548209f076eb9c76cd38a8370f3c64acaaf0d",
+          "member": "geological-modelling/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 814,
+      "sha256": "ccd039d5125a9afd1672a22d00de6347e2eb48ff6f13abba6ea950b17d8295c1",
+      "origins": [
+        {
+          "package_number": 42,
+          "archive_sha256": "077a50b99556dc0d77aae23e3b7a30ca73218862fb1c894e2464cfc151050c47",
+          "member": "geological-modelling/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 11251,
+      "sha256": "337b5afae33b1bfe7d2142f003c70a91f818bd0f13da7235ae3b0ea626276c35",
+      "origins": [
+        {
+          "package_number": 42,
+          "archive_sha256": "077a50b99556dc0d77aae23e3b7a30ca73218862fb1c894e2464cfc151050c47",
+          "member": "geological-modelling/SKILL.md"
+        },
+        {
+          "package_number": 88,
+          "archive_sha256": "e10aa338994fd10630a8d4fa293548209f076eb9c76cd38a8370f3c64acaaf0d",
+          "member": "geological-modelling/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

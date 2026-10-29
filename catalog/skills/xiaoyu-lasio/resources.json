@@ -1,0 +1,161 @@
+{
+  "skill_id": "xiaoyu_lasio",
+  "archive_sha256": "1f07561595c07945102074256e4efd3be00c9e5b01fa8576e7626a6857ce1fdd",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 7,
+          "archive_sha256": "d44bb7008a9418e0a3c63b3e2acaf2cf24b1a0b603b6a4fcf33240ba65ba42d3",
+          "member": "lasio/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 615,
+      "sha256": "543d62983b674ce9db58bf91b85fb98561118dbdd864f7012c98fc969e9a75bf",
+      "origins": [
+        {
+          "package_number": 7,
+          "archive_sha256": "d44bb7008a9418e0a3c63b3e2acaf2cf24b1a0b603b6a4fcf33240ba65ba42d3",
+          "member": "lasio/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5015,
+      "sha256": "e722b61473ff9df2416f88094c91352179d7e49986fd4a68d4f2720a13b57cbe",
+      "origins": [
+        {
+          "package_number": 7,
+          "archive_sha256": "d44bb7008a9418e0a3c63b3e2acaf2cf24b1a0b603b6a4fcf33240ba65ba42d3",
+          "member": "lasio/SKILL.md"
+        },
+        {
+          "package_number": 99,
+          "archive_sha256": "cfe8455bbe12cd89c82903c508319f0461402d763ae7c47ce624d6581b083b16",
+          "member": "lasio/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 99,
+          "archive_sha256": "cfe8455bbe12cd89c82903c508319f0461402d763ae7c47ce624d6581b083b16",
+          "member": "lasio/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/curve_mnemonics.md",
+      "bytes": 2865,
+      "sha256": "d8b15be83493ff9172115456c0ca770d7ae29816433b72de582c46af8779cd11",
+      "origins": [
+        {
+          "package_number": 7,
+          "archive_sha256": "d44bb7008a9418e0a3c63b3e2acaf2cf24b1a0b603b6a4fcf33240ba65ba42d3",
+          "member": "lasio/references/curve_mnemonics.md"
+        },
+        {
+          "package_number": 99,
+          "archive_sha256": "cfe8455bbe12cd89c82903c508319f0461402d763ae7c47ce624d6581b083b16",
+          "member": "lasio/references/curve_mnemonics.md"
+        }
+      ]
+    },
+    {
+      "path": "references/file_structure.md",
+      "bytes": 4840,
+      "sha256": "dc53fd455d6c889be58d701f16a2e75ce219594ecffb8872842a0683569c7f24",
+      "origins": [
+        {
+          "package_number": 7,
+          "archive_sha256": "d44bb7008a9418e0a3c63b3e2acaf2cf24b1a0b603b6a4fcf33240ba65ba42d3",
+          "member": "lasio/references/file_structure.md"
+        },
+        {
+          "package_number": 99,
+          "archive_sha256": "cfe8455bbe12cd89c82903c508319f0461402d763ae7c47ce624d6581b083b16",
+          "member": "lasio/references/file_structure.md"
+        }
+      ]
+    },
+    {
+      "path": "references/troubleshooting.md",
+      "bytes": 4709,
+      "sha256": "75a3162f996610210ba841a69e054843ceeef31141c33f276b4bd11a399dd66c",
+      "origins": [
+        {
+          "package_number": 7,
+          "archive_sha256": "d44bb7008a9418e0a3c63b3e2acaf2cf24b1a0b603b6a4fcf33240ba65ba42d3",
+          "member": "lasio/references/troubleshooting.md"
+        },
+        {
+          "package_number": 99,
+          "archive_sha256": "cfe8455bbe12cd89c82903c508319f0461402d763ae7c47ce624d6581b083b16",
+          "member": "lasio/references/troubleshooting.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/las_to_csv.py",
+      "bytes": 3023,
+      "sha256": "7525e5d426bdd5d1dab416f238651227ace0ad407d3dfd615ee736d54f654ee1",
+      "origins": [
+        {
+          "package_number": 7,
+          "archive_sha256": "d44bb7008a9418e0a3c63b3e2acaf2cf24b1a0b603b6a4fcf33240ba65ba42d3",
+          "member": "lasio/scripts/las_to_csv.py"
+        },
+        {
+          "package_number": 99,
+          "archive_sha256": "cfe8455bbe12cd89c82903c508319f0461402d763ae7c47ce624d6581b083b16",
+          "member": "lasio/scripts/las_to_csv.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/merge_curves.py",
+      "bytes": 7527,
+      "sha256": "b747ca82b67af16f658ae4e7f43a80196c2d45fe8b5bad5811be21c524b224d6",
+      "origins": [
+        {
+          "package_number": 7,
+          "archive_sha256": "d44bb7008a9418e0a3c63b3e2acaf2cf24b1a0b603b6a4fcf33240ba65ba42d3",
+          "member": "lasio/scripts/merge_curves.py"
+        },
+        {
+          "package_number": 99,
+          "archive_sha256": "cfe8455bbe12cd89c82903c508319f0461402d763ae7c47ce624d6581b083b16",
+          "member": "lasio/scripts/merge_curves.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/validate_las.py",
+      "bytes": 4673,
+      "sha256": "a833cfa21f7b106d396371b7516783dfb3788cf129bc3c167820de1796d7718c",
+      "origins": [
+        {
+          "package_number": 7,
+          "archive_sha256": "d44bb7008a9418e0a3c63b3e2acaf2cf24b1a0b603b6a4fcf33240ba65ba42d3",
+          "member": "lasio/scripts/validate_las.py"
+        },
+        {
+          "package_number": 99,
+          "archive_sha256": "cfe8455bbe12cd89c82903c508319f0461402d763ae7c47ce624d6581b083b16",
+          "member": "lasio/scripts/validate_las.py"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "skill_id": "xiaoyu_pyvista",
+  "archive_sha256": "8dcfe984c63d11be136b3b67839c8d4f08eb34a76a9e374c67d47b0812aee41c",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 36,
+          "archive_sha256": "cc5e5d6ca2a0e29f55a4b7af43ec671be8e490f2ad90521b39e3fdb83a39415f",
+          "member": "pyvista/LICENSE"
+        },
+        {
+          "package_number": 78,
+          "archive_sha256": "82ee42c5762d5ae4e2f599726bf4a29fab5af2c1b7c2e4db91aa88b6d74c1da8",
+          "member": "pyvista/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 723,
+      "sha256": "69fe66f6716e86c8cc130f3aaadf3539feab6d22c353409af32e06818b8fd7a9",
+      "origins": [
+        {
+          "package_number": 36,
+          "archive_sha256": "cc5e5d6ca2a0e29f55a4b7af43ec671be8e490f2ad90521b39e3fdb83a39415f",
+          "member": "pyvista/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5431,
+      "sha256": "5ce3a6fa7385dc75a2d61c7dfb71038b5e9100fc9d5ef8e1e2c2c72a34b2afc3",
+      "origins": [
+        {
+          "package_number": 36,
+          "archive_sha256": "cc5e5d6ca2a0e29f55a4b7af43ec671be8e490f2ad90521b39e3fdb83a39415f",
+          "member": "pyvista/SKILL.md"
+        },
+        {
+          "package_number": 78,
+          "archive_sha256": "82ee42c5762d5ae4e2f599726bf4a29fab5af2c1b7c2e4db91aa88b6d74c1da8",
+          "member": "pyvista/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/mesh_types.md",
+      "bytes": 5875,
+      "sha256": "ff8d263fa1a4fb4b1dac8dfe571789c111b5454640e4cb9a6aa8cc9564fbdb71",
+      "origins": [
+        {
+          "package_number": 36,
+          "archive_sha256": "cc5e5d6ca2a0e29f55a4b7af43ec671be8e490f2ad90521b39e3fdb83a39415f",
+          "member": "pyvista/references/mesh_types.md"
+        },
+        {
+          "package_number": 78,
+          "archive_sha256": "82ee42c5762d5ae4e2f599726bf4a29fab5af2c1b7c2e4db91aa88b6d74c1da8",
+          "member": "pyvista/references/mesh_types.md"
+        }
+      ]
+    },
+    {
+      "path": "references/plotting_options.md",
+      "bytes": 7457,
+      "sha256": "7697fdbd6a0e270934c70e687dc0cdf02afac7f50e8b753e8ed8c0aa219e0f77",
+      "origins": [
+        {
+          "package_number": 36,
+          "archive_sha256": "cc5e5d6ca2a0e29f55a4b7af43ec671be8e490f2ad90521b39e3fdb83a39415f",
+          "member": "pyvista/references/plotting_options.md"
+        },
+        {
+          "package_number": 78,
+          "archive_sha256": "82ee42c5762d5ae4e2f599726bf4a29fab5af2c1b7c2e4db91aa88b6d74c1da8",
+          "member": "pyvista/references/plotting_options.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/visualize_surface.py",
+      "bytes": 4797,
+      "sha256": "94f84fe5609223d6bc84d8feda2f92d024349e4e0baa5bf8a60d17120e2e8109",
+      "origins": [
+        {
+          "package_number": 36,
+          "archive_sha256": "cc5e5d6ca2a0e29f55a4b7af43ec671be8e490f2ad90521b39e3fdb83a39415f",
+          "member": "pyvista/scripts/visualize_surface.py"
+        },
+        {
+          "package_number": 78,
+          "archive_sha256": "82ee42c5762d5ae4e2f599726bf4a29fab5af2c1b7c2e4db91aa88b6d74c1da8",
+          "member": "pyvista/scripts/visualize_surface.py"
+        }
+      ]
+    }
+  ]
+}

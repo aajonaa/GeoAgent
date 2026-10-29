@@ -1,0 +1,52 @@
+{
+  "skill_id": "xiaoyu_geophysical_inversion",
+  "archive_sha256": "f9a134aef740f439cf05e87f9997be85f9f4d92b6bf46e9781a2e3e2160b1eb6",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 43,
+          "archive_sha256": "5681ea7c3ac3dc39bab0e2f16905516afc9916c02df13925af7423b6355e18c0",
+          "member": "geophysical-inversion/LICENSE"
+        },
+        {
+          "package_number": 87,
+          "archive_sha256": "128dc5b44207f080af78bfb2df081581b354bdc47ccbedddb4b1dad9f2a23f3e",
+          "member": "geophysical-inversion/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 821,
+      "sha256": "b946d22c8d075ead609f27460ec9bf4520868152b4d1cfea7450f8209078260f",
+      "origins": [
+        {
+          "package_number": 43,
+          "archive_sha256": "5681ea7c3ac3dc39bab0e2f16905516afc9916c02df13925af7423b6355e18c0",
+          "member": "geophysical-inversion/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 13032,
+      "sha256": "0754eb136f3098a0fe566b0ce8bb98b76f584570c3f5b1ac161562abd313df8b",
+      "origins": [
+        {
+          "package_number": 43,
+          "archive_sha256": "5681ea7c3ac3dc39bab0e2f16905516afc9916c02df13925af7423b6355e18c0",
+          "member": "geophysical-inversion/SKILL.md"
+        },
+        {
+          "package_number": 87,
+          "archive_sha256": "128dc5b44207f080af78bfb2df081581b354bdc47ccbedddb4b1dad9f2a23f3e",
+          "member": "geophysical-inversion/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

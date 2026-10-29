@@ -1,0 +1,52 @@
+{
+  "skill_id": "xiaoyu_discretize",
+  "archive_sha256": "a14562688a8ee4c7f9f84743b6565f0ea2974314af3f4a5d58b054a7630b9677",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 12,
+          "archive_sha256": "9b0dbc85b145c3f4800f4142be8c556df33b038c30de93a92240cdc0e53192e6",
+          "member": "discretize/LICENSE"
+        },
+        {
+          "package_number": 81,
+          "archive_sha256": "1a134e9a1ab23381f28eb11bcc16b1b4ae30eb88d49d0d61d6dfc483fdde7fa0",
+          "member": "discretize/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 748,
+      "sha256": "3040f5141c6a53fdb94bec1308398d2571a392a347ff16606d610b5fd8c2c95c",
+      "origins": [
+        {
+          "package_number": 12,
+          "archive_sha256": "9b0dbc85b145c3f4800f4142be8c556df33b038c30de93a92240cdc0e53192e6",
+          "member": "discretize/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 2910,
+      "sha256": "770b225b3814b45d9d2644de9b26a17aed7b0bc99b2125160d36b9ad7353c41f",
+      "origins": [
+        {
+          "package_number": 12,
+          "archive_sha256": "9b0dbc85b145c3f4800f4142be8c556df33b038c30de93a92240cdc0e53192e6",
+          "member": "discretize/SKILL.md"
+        },
+        {
+          "package_number": 81,
+          "archive_sha256": "1a134e9a1ab23381f28eb11bcc16b1b4ae30eb88d49d0d61d6dfc483fdde7fa0",
+          "member": "discretize/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

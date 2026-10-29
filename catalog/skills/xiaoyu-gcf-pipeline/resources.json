@@ -1,0 +1,30 @@
+{
+  "skill_id": "xiaoyu_gcf_pipeline",
+  "archive_sha256": "1c9d1179c98fcd196aba5c86d5d0f87f6f99ddd4eb47893a37e514de26ed2882",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 8296,
+      "sha256": "7b50c461f5ee3e550472c5a69e7e39990227bb87b7cbf4c6a31e2cbab56cedbe",
+      "origins": [
+        {
+          "package_number": 58,
+          "archive_sha256": "37dfa605a5e8f189dbf308de97e5ff2e3e2ea37ab47d0cdd659e21f983e54ab3",
+          "member": "gcf-pipeline/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/evals.json",
+      "bytes": 4859,
+      "sha256": "244294855be6988307daf2abae0528c20deeaf76e22839a10400c498bdf1a52e",
+      "origins": [
+        {
+          "package_number": 58,
+          "archive_sha256": "37dfa605a5e8f189dbf308de97e5ff2e3e2ea37ab47d0cdd659e21f983e54ab3",
+          "member": "gcf-pipeline/references/evals.json"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "skill_id": "xiaoyu_scientific_writing",
+  "archive_sha256": "7a00fe821e31c8b6c755625b4911a8bc5f31c23214d016c989a7f6e18ad03932",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 34600,
+      "sha256": "ffc9f5195f77392ba1d295c046e4f92a84f8fca239fb98cd2c62c9285a639d7d",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/1b96e4dc50-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pptx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/8e53b12f75-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/docx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/9c8ca586d5-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/xlsx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/d594664132-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pdf/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "assets/REPORT_FORMATTING_GUIDE.md",
+      "bytes": 14173,
+      "sha256": "55ed2581203a85b54c0d1cfbab7c8f58d4b58b9ae87eaddb846bc6375a79cbff",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/assets/REPORT_FORMATTING_GUIDE.md"
+        }
+      ]
+    },
+    {
+      "path": "assets/scientific_report.sty",
+      "bytes": 16643,
+      "sha256": "d6b4a186ef1dfa49737e084925339ed62a1b35c9fab634ff91ffdd5487383f91",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/assets/scientific_report.sty"
+        }
+      ]
+    },
+    {
+      "path": "assets/scientific_report_template.tex",
+      "bytes": 15638,
+      "sha256": "aac8fe86e6d61d7b02bc9d23c6380184b1e4127b4b58a005d7f4ae45b1a4932f",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/assets/scientific_report_template.tex"
+        }
+      ]
+    },
+    {
+      "path": "references/citation_styles.md",
+      "bytes": 23705,
+      "sha256": "23e4e2d07858d8a73f8c4168fbc74436cfbee4b484a2fa38a6d3d72c09eeaaa9",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/references/citation_styles.md"
+        }
+      ]
+    },
+    {
+      "path": "references/figures_tables.md",
+      "bytes": 27883,
+      "sha256": "fdbd4a65f624c0582fb9ee07ede8279e05955bcf1ac1eeaa7c03baf5288f30e3",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/references/figures_tables.md"
+        }
+      ]
+    },
+    {
+      "path": "references/imrad_structure.md",
+      "bytes": 26135,
+      "sha256": "b70f52f1b0bcd969fbbb66f712a5d88bd564d42e231d7aec7550b01a3ffcd124",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/references/imrad_structure.md"
+        }
+      ]
+    },
+    {
+      "path": "references/professional_report_formatting.md",
+      "bytes": 20620,
+      "sha256": "d51abc2ab9dd9fbb155fcbcd5a7c949a2f039e0f0cfa3f6351846f4e040e670f",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/references/professional_report_formatting.md"
+        }
+      ]
+    },
+    {
+      "path": "references/reporting_guidelines.md",
+      "bytes": 25012,
+      "sha256": "02a58157e8e7fe54e241fedb6bc7721c435c16399bdfad62200c1124c766f43c",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/references/reporting_guidelines.md"
+        }
+      ]
+    },
+    {
+      "path": "references/writing_principles.md",
+      "bytes": 27593,
+      "sha256": "c786f9fe6f21b346fe3e43da20c4fa19206e93e5488ba9600d45a3b34b8c6c40",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scientific-writing/references/writing_principles.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "skill_id": "xiaoyu_verde",
+  "archive_sha256": "28dbc95c715e5d33cfe545054bd0d3e5f73d5b4a43f7b6b93d42cf7f4ba5da43",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 26,
+          "archive_sha256": "1fad3494353091de33b59889971bfa9cad505698b95d9e4704fd922e3c24a497",
+          "member": "verde/LICENSE"
+        },
+        {
+          "package_number": 73,
+          "archive_sha256": "b0009be06bc23c9962acefa1a1073a0b7a52d640aaef5ffe2200458123bc77d7",
+          "member": "verde/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 734,
+      "sha256": "5bf5b56da2fbd1847f255e33ee6cd71bfb67f2e34aed3841288d283cd15025b7",
+      "origins": [
+        {
+          "package_number": 26,
+          "archive_sha256": "1fad3494353091de33b59889971bfa9cad505698b95d9e4704fd922e3c24a497",
+          "member": "verde/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 6552,
+      "sha256": "9cd782c3af01d05b160dc081b9b0a21b8f01843895ce144105c5569000358235",
+      "origins": [
+        {
+          "package_number": 26,
+          "archive_sha256": "1fad3494353091de33b59889971bfa9cad505698b95d9e4704fd922e3c24a497",
+          "member": "verde/SKILL.md"
+        },
+        {
+          "package_number": 73,
+          "archive_sha256": "b0009be06bc23c9962acefa1a1073a0b7a52d640aaef5ffe2200458123bc77d7",
+          "member": "verde/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/cross_validation.md",
+      "bytes": 5839,
+      "sha256": "556532ec224bec7ca12fad42eb1d7ba683d0c7b10c2e6c36ac9ea0b1d9f48e97",
+      "origins": [
+        {
+          "package_number": 26,
+          "archive_sha256": "1fad3494353091de33b59889971bfa9cad505698b95d9e4704fd922e3c24a497",
+          "member": "verde/references/cross_validation.md"
+        },
+        {
+          "package_number": 73,
+          "archive_sha256": "b0009be06bc23c9962acefa1a1073a0b7a52d640aaef5ffe2200458123bc77d7",
+          "member": "verde/references/cross_validation.md"
+        }
+      ]
+    },
+    {
+      "path": "references/gridders.md",
+      "bytes": 5559,
+      "sha256": "9c5fb331ac875fc71ff9fe7fc4d0ca53d7f56290b1deeddb42f58733630a1590",
+      "origins": [
+        {
+          "package_number": 26,
+          "archive_sha256": "1fad3494353091de33b59889971bfa9cad505698b95d9e4704fd922e3c24a497",
+          "member": "verde/references/gridders.md"
+        },
+        {
+          "package_number": 73,
+          "archive_sha256": "b0009be06bc23c9962acefa1a1073a0b7a52d640aaef5ffe2200458123bc77d7",
+          "member": "verde/references/gridders.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/grid_data.py",
+      "bytes": 7993,
+      "sha256": "260dcc00db44b91fc79a30b0b3a829be9c931e906909844accf1307132a73764",
+      "origins": [
+        {
+          "package_number": 26,
+          "archive_sha256": "1fad3494353091de33b59889971bfa9cad505698b95d9e4704fd922e3c24a497",
+          "member": "verde/scripts/grid_data.py"
+        },
+        {
+          "package_number": 73,
+          "archive_sha256": "b0009be06bc23c9962acefa1a1073a0b7a52d640aaef5ffe2200458123bc77d7",
+          "member": "verde/scripts/grid_data.py"
+        }
+      ]
+    }
+  ]
+}

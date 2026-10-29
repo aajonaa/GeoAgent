@@ -1,0 +1,135 @@
+{
+  "skill_id": "xiaoyu_pygimli",
+  "archive_sha256": "66a19133002a09ecdd89c661547f670d12b7f152146db029ce0afc325b4e90a6",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 24,
+          "archive_sha256": "1a63b75950e8419b6403eb9d9b76621ba165010983272995fe116600bc0df0b2",
+          "member": "pygimli/LICENSE"
+        },
+        {
+          "package_number": 67,
+          "archive_sha256": "56ec5d02ab9ecfcd102f5d8f59ee7b438ede5616ce80b1277d93ee8994a3b2c3",
+          "member": "pygimli/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 739,
+      "sha256": "70bf4f6685702b64d25b7984881fc385f4cc180366e54a6e59875a0d906dd79a",
+      "origins": [
+        {
+          "package_number": 24,
+          "archive_sha256": "1a63b75950e8419b6403eb9d9b76621ba165010983272995fe116600bc0df0b2",
+          "member": "pygimli/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5134,
+      "sha256": "bcb7423864c98dcacb8bd58048872e582aa4238abc66fe95496d945e7c25177c",
+      "origins": [
+        {
+          "package_number": 24,
+          "archive_sha256": "1a63b75950e8419b6403eb9d9b76621ba165010983272995fe116600bc0df0b2",
+          "member": "pygimli/SKILL.md"
+        },
+        {
+          "package_number": 67,
+          "archive_sha256": "56ec5d02ab9ecfcd102f5d8f59ee7b438ede5616ce80b1277d93ee8994a3b2c3",
+          "member": "pygimli/SKILL.md"
+        },
+        {
+          "package_number": 101,
+          "archive_sha256": "6f692150a576e3ed79d5347baf9ef6bb98d79a84cf71836e56999099e9f05580",
+          "member": "pygimli/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 101,
+          "archive_sha256": "6f692150a576e3ed79d5347baf9ef6bb98d79a84cf71836e56999099e9f05580",
+          "member": "pygimli/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/mesh.md",
+      "bytes": 7064,
+      "sha256": "9ab1e1b15ef0346143519f77c7dd5881f119dfc8e542f2c42ce97b8410736b95",
+      "origins": [
+        {
+          "package_number": 24,
+          "archive_sha256": "1a63b75950e8419b6403eb9d9b76621ba165010983272995fe116600bc0df0b2",
+          "member": "pygimli/references/mesh.md"
+        },
+        {
+          "package_number": 67,
+          "archive_sha256": "56ec5d02ab9ecfcd102f5d8f59ee7b438ede5616ce80b1277d93ee8994a3b2c3",
+          "member": "pygimli/references/mesh.md"
+        },
+        {
+          "package_number": 101,
+          "archive_sha256": "6f692150a576e3ed79d5347baf9ef6bb98d79a84cf71836e56999099e9f05580",
+          "member": "pygimli/references/mesh.md"
+        }
+      ]
+    },
+    {
+      "path": "references/methods.md",
+      "bytes": 6123,
+      "sha256": "2b0d13d12aaff6e10a35310d173ecf7ef39340efc906eabadc68090ee292fa7f",
+      "origins": [
+        {
+          "package_number": 24,
+          "archive_sha256": "1a63b75950e8419b6403eb9d9b76621ba165010983272995fe116600bc0df0b2",
+          "member": "pygimli/references/methods.md"
+        },
+        {
+          "package_number": 67,
+          "archive_sha256": "56ec5d02ab9ecfcd102f5d8f59ee7b438ede5616ce80b1277d93ee8994a3b2c3",
+          "member": "pygimli/references/methods.md"
+        },
+        {
+          "package_number": 101,
+          "archive_sha256": "6f692150a576e3ed79d5347baf9ef6bb98d79a84cf71836e56999099e9f05580",
+          "member": "pygimli/references/methods.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/ert_inversion.py",
+      "bytes": 6684,
+      "sha256": "2ceb8f0c3e61d9d84c8e1461d1d25874b8f0a29905a8890754b1e00d8ef44ca0",
+      "origins": [
+        {
+          "package_number": 24,
+          "archive_sha256": "1a63b75950e8419b6403eb9d9b76621ba165010983272995fe116600bc0df0b2",
+          "member": "pygimli/scripts/ert_inversion.py"
+        },
+        {
+          "package_number": 67,
+          "archive_sha256": "56ec5d02ab9ecfcd102f5d8f59ee7b438ede5616ce80b1277d93ee8994a3b2c3",
+          "member": "pygimli/scripts/ert_inversion.py"
+        },
+        {
+          "package_number": 101,
+          "archive_sha256": "6f692150a576e3ed79d5347baf9ef6bb98d79a84cf71836e56999099e9f05580",
+          "member": "pygimli/scripts/ert_inversion.py"
+        }
+      ]
+    }
+  ]
+}

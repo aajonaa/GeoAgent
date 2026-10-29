@@ -1,0 +1,157 @@
+{
+  "skill_id": "xiaoyu_segyio",
+  "archive_sha256": "549ff08a82941d008978e7e9ace280dffbe987e8260ea34151a33bff8079e1aa",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 13,
+          "archive_sha256": "be35c32c2cd70a9ccd79c6c249bfab1a0743cae5e48dc2086e7133e8b9ae895f",
+          "member": "segyio/LICENSE"
+        },
+        {
+          "package_number": 83,
+          "archive_sha256": "9f5e283dbdb7f93cd4d68ea2c821e890fca52304182967ebeacfe8f3c81d1a86",
+          "member": "segyio/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 727,
+      "sha256": "868cf2804688fc0c66571656bb84aeb2c8e9592c553521c06c845560a2fd11a7",
+      "origins": [
+        {
+          "package_number": 13,
+          "archive_sha256": "be35c32c2cd70a9ccd79c6c249bfab1a0743cae5e48dc2086e7133e8b9ae895f",
+          "member": "segyio/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5828,
+      "sha256": "7d46ac492f7e69f8f5f9ada98bd889701cbd2a37f3f871344c9f9efad6b5a2bb",
+      "origins": [
+        {
+          "package_number": 13,
+          "archive_sha256": "be35c32c2cd70a9ccd79c6c249bfab1a0743cae5e48dc2086e7133e8b9ae895f",
+          "member": "segyio/SKILL.md"
+        },
+        {
+          "package_number": 83,
+          "archive_sha256": "9f5e283dbdb7f93cd4d68ea2c821e890fca52304182967ebeacfe8f3c81d1a86",
+          "member": "segyio/SKILL.md"
+        },
+        {
+          "package_number": 106,
+          "archive_sha256": "f0cc209f926d88f38fe9eb567af70ed1ff5b4029e4ff715dae18152447d4fc38",
+          "member": "segyio/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 106,
+          "archive_sha256": "f0cc209f926d88f38fe9eb567af70ed1ff5b4029e4ff715dae18152447d4fc38",
+          "member": "segyio/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/header_fields.md",
+      "bytes": 6981,
+      "sha256": "9b2a24ee5b1697895d7fba15d7548aeebbf57f222f8dec2586fe270e815def85",
+      "origins": [
+        {
+          "package_number": 13,
+          "archive_sha256": "be35c32c2cd70a9ccd79c6c249bfab1a0743cae5e48dc2086e7133e8b9ae895f",
+          "member": "segyio/references/header_fields.md"
+        },
+        {
+          "package_number": 83,
+          "archive_sha256": "9f5e283dbdb7f93cd4d68ea2c821e890fca52304182967ebeacfe8f3c81d1a86",
+          "member": "segyio/references/header_fields.md"
+        },
+        {
+          "package_number": 106,
+          "archive_sha256": "f0cc209f926d88f38fe9eb567af70ed1ff5b4029e4ff715dae18152447d4fc38",
+          "member": "segyio/references/header_fields.md"
+        }
+      ]
+    },
+    {
+      "path": "references/troubleshooting.md",
+      "bytes": 8739,
+      "sha256": "f4cd840e84169f2d1ce8d2316d37f56e8182198de234d2afcf096251bf7a1453",
+      "origins": [
+        {
+          "package_number": 13,
+          "archive_sha256": "be35c32c2cd70a9ccd79c6c249bfab1a0743cae5e48dc2086e7133e8b9ae895f",
+          "member": "segyio/references/troubleshooting.md"
+        },
+        {
+          "package_number": 83,
+          "archive_sha256": "9f5e283dbdb7f93cd4d68ea2c821e890fca52304182967ebeacfe8f3c81d1a86",
+          "member": "segyio/references/troubleshooting.md"
+        },
+        {
+          "package_number": 106,
+          "archive_sha256": "f0cc209f926d88f38fe9eb567af70ed1ff5b4029e4ff715dae18152447d4fc38",
+          "member": "segyio/references/troubleshooting.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/extract_subset.py",
+      "bytes": 9315,
+      "sha256": "07e4b1738ef86c7f6160c5499d7a2f0ab3eab9020278dfb80d577b9c60380579",
+      "origins": [
+        {
+          "package_number": 13,
+          "archive_sha256": "be35c32c2cd70a9ccd79c6c249bfab1a0743cae5e48dc2086e7133e8b9ae895f",
+          "member": "segyio/scripts/extract_subset.py"
+        },
+        {
+          "package_number": 83,
+          "archive_sha256": "9f5e283dbdb7f93cd4d68ea2c821e890fca52304182967ebeacfe8f3c81d1a86",
+          "member": "segyio/scripts/extract_subset.py"
+        },
+        {
+          "package_number": 106,
+          "archive_sha256": "f0cc209f926d88f38fe9eb567af70ed1ff5b4029e4ff715dae18152447d4fc38",
+          "member": "segyio/scripts/extract_subset.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/inspect_segy.py",
+      "bytes": 7944,
+      "sha256": "14b7e264f95c9a2f18d929d2d000a5efa8bf0634d5bd70bc579422e8712b67ae",
+      "origins": [
+        {
+          "package_number": 13,
+          "archive_sha256": "be35c32c2cd70a9ccd79c6c249bfab1a0743cae5e48dc2086e7133e8b9ae895f",
+          "member": "segyio/scripts/inspect_segy.py"
+        },
+        {
+          "package_number": 83,
+          "archive_sha256": "9f5e283dbdb7f93cd4d68ea2c821e890fca52304182967ebeacfe8f3c81d1a86",
+          "member": "segyio/scripts/inspect_segy.py"
+        },
+        {
+          "package_number": 106,
+          "archive_sha256": "f0cc209f926d88f38fe9eb567af70ed1ff5b4029e4ff715dae18152447d4fc38",
+          "member": "segyio/scripts/inspect_segy.py"
+        }
+      ]
+    }
+  ]
+}

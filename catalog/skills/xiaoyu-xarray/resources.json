@@ -1,0 +1,103 @@
+{
+  "skill_id": "xiaoyu_xarray",
+  "archive_sha256": "dbad8161a603adf54d71b455e2dbde061df6b0e061569de22f7f12c397a2d081",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 34,
+          "archive_sha256": "5de40fcbbf8c5a4f293ad22d175e409e4ef3ca22395dd12d0c8cdd23dc54b43e",
+          "member": "xarray/LICENSE"
+        },
+        {
+          "package_number": 80,
+          "archive_sha256": "1ae7e186ddcc7db0424987616f3c5ed9488e3f4a79e74eeac16fd8c69453790e",
+          "member": "xarray/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 732,
+      "sha256": "bf9ee428aad11a963d566a0ac9686d30a5188b63950f7034f689fa4344bc1303",
+      "origins": [
+        {
+          "package_number": 34,
+          "archive_sha256": "5de40fcbbf8c5a4f293ad22d175e409e4ef3ca22395dd12d0c8cdd23dc54b43e",
+          "member": "xarray/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5862,
+      "sha256": "1e22e65bbc9dd01eea027255e109d5aa15d1fdd12643e956564c6616e83b0bef",
+      "origins": [
+        {
+          "package_number": 34,
+          "archive_sha256": "5de40fcbbf8c5a4f293ad22d175e409e4ef3ca22395dd12d0c8cdd23dc54b43e",
+          "member": "xarray/SKILL.md"
+        },
+        {
+          "package_number": 80,
+          "archive_sha256": "1ae7e186ddcc7db0424987616f3c5ed9488e3f4a79e74eeac16fd8c69453790e",
+          "member": "xarray/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/computation.md",
+      "bytes": 8493,
+      "sha256": "7dffcc018fe6cd14bf14b1789358edeecafff72ce426124de49521e197de887c",
+      "origins": [
+        {
+          "package_number": 34,
+          "archive_sha256": "5de40fcbbf8c5a4f293ad22d175e409e4ef3ca22395dd12d0c8cdd23dc54b43e",
+          "member": "xarray/references/computation.md"
+        },
+        {
+          "package_number": 80,
+          "archive_sha256": "1ae7e186ddcc7db0424987616f3c5ed9488e3f4a79e74eeac16fd8c69453790e",
+          "member": "xarray/references/computation.md"
+        }
+      ]
+    },
+    {
+      "path": "references/io_formats.md",
+      "bytes": 6243,
+      "sha256": "db7e88a1965bc9e86a2ab4ec3002fcd4eaab23131abd6e60ac2a5077073c25d7",
+      "origins": [
+        {
+          "package_number": 34,
+          "archive_sha256": "5de40fcbbf8c5a4f293ad22d175e409e4ef3ca22395dd12d0c8cdd23dc54b43e",
+          "member": "xarray/references/io_formats.md"
+        },
+        {
+          "package_number": 80,
+          "archive_sha256": "1ae7e186ddcc7db0424987616f3c5ed9488e3f4a79e74eeac16fd8c69453790e",
+          "member": "xarray/references/io_formats.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/climate_analysis.py",
+      "bytes": 8163,
+      "sha256": "4db0100172c66a9f90caff3705a287b0856be6fdfebaa4cd0a41f5a08b582de9",
+      "origins": [
+        {
+          "package_number": 34,
+          "archive_sha256": "5de40fcbbf8c5a4f293ad22d175e409e4ef3ca22395dd12d0c8cdd23dc54b43e",
+          "member": "xarray/scripts/climate_analysis.py"
+        },
+        {
+          "package_number": 80,
+          "archive_sha256": "1ae7e186ddcc7db0424987616f3c5ed9488e3f4a79e74eeac16fd8c69453790e",
+          "member": "xarray/scripts/climate_analysis.py"
+        }
+      ]
+    }
+  ]
+}

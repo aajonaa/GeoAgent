@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_plot_global_zonal_profile",
+  "archive_sha256": "5a6c01b8aef3094f9194ec89cb1c351f342853cc22f7878d1494617edbe152e3",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 5444,
+      "sha256": "42bee6e115268d6cf5ef04b8a8e5049648f85cec1a98ff247e70645230c0746f",
+      "origins": [
+        {
+          "package_number": 10,
+          "archive_sha256": "fe9c68c8d1148b474aed08d237ef914156c2c1cf093df52f657c5ff22656040a",
+          "member": "skill2-plot-global-data-codex-text-link-main/plot-global-zonal-profile/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 256,
+      "sha256": "cec08552106ec78a91a33d9776b064e2beaf7144ee5369d07cecd628a66f48f0",
+      "origins": [
+        {
+          "package_number": 10,
+          "archive_sha256": "fe9c68c8d1148b474aed08d237ef914156c2c1cf093df52f657c5ff22656040a",
+          "member": "skill2-plot-global-data-codex-text-link-main/plot-global-zonal-profile/agents/openai.yaml"
+        }
+      ]
+    },
+    {
+      "path": "scripts/plot_global_zonal_profile.py",
+      "bytes": 16751,
+      "sha256": "2679ebebb25ca3bc773fb25f011f31526ffdab0763d11120ac3afb00b651db94",
+      "origins": [
+        {
+          "package_number": 10,
+          "archive_sha256": "fe9c68c8d1148b474aed08d237ef914156c2c1cf093df52f657c5ff22656040a",
+          "member": "skill2-plot-global-data-codex-text-link-main/plot-global-zonal-profile/scripts/plot_global_zonal_profile.py"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "skill_id": "xiaoyu_geostatspy",
+  "archive_sha256": "fd54609fc95022e8088378ec05b18a5b10e2b86ef62ed07d4ac6a289aad01134",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 4,
+          "archive_sha256": "39adaac032d433c9a4306366bc3f76ef2f50e45bf8565b89462aaeb8741067a8",
+          "member": "geostatspy/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 632,
+      "sha256": "065f64fdd598a38fd7f3f5bdf7434a36a03dd2d4b0a4ec3a599245548c5ce2df",
+      "origins": [
+        {
+          "package_number": 4,
+          "archive_sha256": "39adaac032d433c9a4306366bc3f76ef2f50e45bf8565b89462aaeb8741067a8",
+          "member": "geostatspy/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 7441,
+      "sha256": "35ed786310a8178055b75e2c0d0542918642392305f87f94b1060193199a6c8c",
+      "origins": [
+        {
+          "package_number": 4,
+          "archive_sha256": "39adaac032d433c9a4306366bc3f76ef2f50e45bf8565b89462aaeb8741067a8",
+          "member": "geostatspy/SKILL.md"
+        },
+        {
+          "package_number": 97,
+          "archive_sha256": "043d0d230dc8dbdc48fe2a0ec3653f8309ea450cf8eba35cd6c900022d124175",
+          "member": "geostatspy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 97,
+          "archive_sha256": "043d0d230dc8dbdc48fe2a0ec3653f8309ea450cf8eba35cd6c900022d124175",
+          "member": "geostatspy/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/gslib_programs.md",
+      "bytes": 7767,
+      "sha256": "b09ef6f0a84c8d3791d7469339d310c8a7073cebd5c50d916e3fa9b15d5fb8e7",
+      "origins": [
+        {
+          "package_number": 4,
+          "archive_sha256": "39adaac032d433c9a4306366bc3f76ef2f50e45bf8565b89462aaeb8741067a8",
+          "member": "geostatspy/references/gslib_programs.md"
+        },
+        {
+          "package_number": 97,
+          "archive_sha256": "043d0d230dc8dbdc48fe2a0ec3653f8309ea450cf8eba35cd6c900022d124175",
+          "member": "geostatspy/references/gslib_programs.md"
+        }
+      ]
+    },
+    {
+      "path": "references/simulation_methods.md",
+      "bytes": 8186,
+      "sha256": "ca98f9fd7b5b083d663039ba6ef028adce2ead7890ad2e453f412190dfd7982f",
+      "origins": [
+        {
+          "package_number": 4,
+          "archive_sha256": "39adaac032d433c9a4306366bc3f76ef2f50e45bf8565b89462aaeb8741067a8",
+          "member": "geostatspy/references/simulation_methods.md"
+        },
+        {
+          "package_number": 97,
+          "archive_sha256": "043d0d230dc8dbdc48fe2a0ec3653f8309ea450cf8eba35cd6c900022d124175",
+          "member": "geostatspy/references/simulation_methods.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/kriging_example.py",
+      "bytes": 9967,
+      "sha256": "b1ec701df05ae6a30ca78436880c78e2cb4c73172735810e220c38027257089f",
+      "origins": [
+        {
+          "package_number": 4,
+          "archive_sha256": "39adaac032d433c9a4306366bc3f76ef2f50e45bf8565b89462aaeb8741067a8",
+          "member": "geostatspy/scripts/kriging_example.py"
+        },
+        {
+          "package_number": 97,
+          "archive_sha256": "043d0d230dc8dbdc48fe2a0ec3653f8309ea450cf8eba35cd6c900022d124175",
+          "member": "geostatspy/scripts/kriging_example.py"
+        }
+      ]
+    }
+  ]
+}

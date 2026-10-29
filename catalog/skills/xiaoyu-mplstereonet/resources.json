@@ -1,0 +1,110 @@
+{
+  "skill_id": "xiaoyu_mplstereonet",
+  "archive_sha256": "fb3ab9b6916323d7c90617d747ae43fff9954b5081358643faff4c5dea4ff4a9",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 6,
+          "archive_sha256": "f23cb0c10c672326f96e963c1a8f25a8990cc861f4843ab4be020a14604dbe1d",
+          "member": "mplstereonet/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 634,
+      "sha256": "427e737363393a233ec79e625b60572dcedb11d984a5b912ee0464a7ff9eea67",
+      "origins": [
+        {
+          "package_number": 6,
+          "archive_sha256": "f23cb0c10c672326f96e963c1a8f25a8990cc861f4843ab4be020a14604dbe1d",
+          "member": "mplstereonet/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 6239,
+      "sha256": "92ede9b419e86334b38680c63d0803d97586268b8c391ca3fe73f9a4c3ccf1b8",
+      "origins": [
+        {
+          "package_number": 6,
+          "archive_sha256": "f23cb0c10c672326f96e963c1a8f25a8990cc861f4843ab4be020a14604dbe1d",
+          "member": "mplstereonet/SKILL.md"
+        },
+        {
+          "package_number": 91,
+          "archive_sha256": "dba698840650de0efbe13a937dbedcaef60237a207e15d893ebd7ee553a489f7",
+          "member": "mplstereonet/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 91,
+          "archive_sha256": "dba698840650de0efbe13a937dbedcaef60237a207e15d893ebd7ee553a489f7",
+          "member": "mplstereonet/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/plotting_options.md",
+      "bytes": 7390,
+      "sha256": "455dd3c7cb33b2eb8b708cfd3499e7abb05bd70abc902273dabb5ee29cd39e2b",
+      "origins": [
+        {
+          "package_number": 6,
+          "archive_sha256": "f23cb0c10c672326f96e963c1a8f25a8990cc861f4843ab4be020a14604dbe1d",
+          "member": "mplstereonet/references/plotting_options.md"
+        },
+        {
+          "package_number": 91,
+          "archive_sha256": "dba698840650de0efbe13a937dbedcaef60237a207e15d893ebd7ee553a489f7",
+          "member": "mplstereonet/references/plotting_options.md"
+        }
+      ]
+    },
+    {
+      "path": "references/projections.md",
+      "bytes": 4353,
+      "sha256": "e9aa2f6639b4fae77bd43494da21ea50524abc3e2eba75a7e53c86fb6e0aafd3",
+      "origins": [
+        {
+          "package_number": 6,
+          "archive_sha256": "f23cb0c10c672326f96e963c1a8f25a8990cc861f4843ab4be020a14604dbe1d",
+          "member": "mplstereonet/references/projections.md"
+        },
+        {
+          "package_number": 91,
+          "archive_sha256": "dba698840650de0efbe13a937dbedcaef60237a207e15d893ebd7ee553a489f7",
+          "member": "mplstereonet/references/projections.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/structural_analysis.py",
+      "bytes": 8778,
+      "sha256": "f198f88a1a6b4640c0c1b5b3878c58e5f2a46f5cd97f7f03d0f7148285f8caa9",
+      "origins": [
+        {
+          "package_number": 6,
+          "archive_sha256": "f23cb0c10c672326f96e963c1a8f25a8990cc861f4843ab4be020a14604dbe1d",
+          "member": "mplstereonet/scripts/structural_analysis.py"
+        },
+        {
+          "package_number": 91,
+          "archive_sha256": "dba698840650de0efbe13a937dbedcaef60237a207e15d893ebd7ee553a489f7",
+          "member": "mplstereonet/scripts/structural_analysis.py"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_pyleoclim",
+  "archive_sha256": "84326b8a37cd3817ee9f4b7afb8c10d314b7ab8cf7f3d9427201ee635ada0a24",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 35,
+          "archive_sha256": "d673dc61bd64b222f03fd992574098a7e78414d0338151717a4a11e880ef7ebe",
+          "member": "pyleoclim/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 750,
+      "sha256": "1eddd17de28835cd34931e8d72e65d2ad0ebdcbf73daf5f91354fad4fb89dc46",
+      "origins": [
+        {
+          "package_number": 35,
+          "archive_sha256": "d673dc61bd64b222f03fd992574098a7e78414d0338151717a4a11e880ef7ebe",
+          "member": "pyleoclim/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 3632,
+      "sha256": "23f292b0dea80d440aca37473c7325ce42e3f4f6ea6d82ae1a945915eb53d289",
+      "origins": [
+        {
+          "package_number": 35,
+          "archive_sha256": "d673dc61bd64b222f03fd992574098a7e78414d0338151717a4a11e880ef7ebe",
+          "member": "pyleoclim/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

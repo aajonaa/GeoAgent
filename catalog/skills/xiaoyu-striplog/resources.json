@@ -1,0 +1,135 @@
+{
+  "skill_id": "xiaoyu_striplog",
+  "archive_sha256": "7a457b7fcaad9424889b97c77fa6f984a03271b07db787c3c449e2c1881f6692",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 20,
+          "archive_sha256": "4a95984d25d64d4ee91e3ee552a8c8d5b7a3400e4f53b8f8ae5776ad93b30dc0",
+          "member": "striplog/LICENSE"
+        },
+        {
+          "package_number": 77,
+          "archive_sha256": "a55e576ec23292e199ef8974127fd50a583eb471506d489c2df3d87e88fc5e2a",
+          "member": "striplog/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 716,
+      "sha256": "c831879f4dbd712d3a0afeb4c8790b266b82af08bbfcb7bb60f4b48769649066",
+      "origins": [
+        {
+          "package_number": 20,
+          "archive_sha256": "4a95984d25d64d4ee91e3ee552a8c8d5b7a3400e4f53b8f8ae5776ad93b30dc0",
+          "member": "striplog/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5373,
+      "sha256": "b75193c3e70fcef86c5eb7e4e1c75512165bb6e031f0cb3de89092e42af6c41a",
+      "origins": [
+        {
+          "package_number": 20,
+          "archive_sha256": "4a95984d25d64d4ee91e3ee552a8c8d5b7a3400e4f53b8f8ae5776ad93b30dc0",
+          "member": "striplog/SKILL.md"
+        },
+        {
+          "package_number": 77,
+          "archive_sha256": "a55e576ec23292e199ef8974127fd50a583eb471506d489c2df3d87e88fc5e2a",
+          "member": "striplog/SKILL.md"
+        },
+        {
+          "package_number": 100,
+          "archive_sha256": "f5b8d1fd0d32862c5113aa2c6afc6dfea45130965e5fb2d893a27a0d241334dd",
+          "member": "striplog/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 100,
+          "archive_sha256": "f5b8d1fd0d32862c5113aa2c6afc6dfea45130965e5fb2d893a27a0d241334dd",
+          "member": "striplog/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/components.md",
+      "bytes": 6156,
+      "sha256": "e22e42b34c39e3a683463e939b0c6387e3e2021bfe9122f966b8bc6e7b27bb7c",
+      "origins": [
+        {
+          "package_number": 20,
+          "archive_sha256": "4a95984d25d64d4ee91e3ee552a8c8d5b7a3400e4f53b8f8ae5776ad93b30dc0",
+          "member": "striplog/references/components.md"
+        },
+        {
+          "package_number": 77,
+          "archive_sha256": "a55e576ec23292e199ef8974127fd50a583eb471506d489c2df3d87e88fc5e2a",
+          "member": "striplog/references/components.md"
+        },
+        {
+          "package_number": 100,
+          "archive_sha256": "f5b8d1fd0d32862c5113aa2c6afc6dfea45130965e5fb2d893a27a0d241334dd",
+          "member": "striplog/references/components.md"
+        }
+      ]
+    },
+    {
+      "path": "references/lexicon.md",
+      "bytes": 4910,
+      "sha256": "18adf6b33059804d17d048787abe6812f899a281fe3d59d02f18e6e3e4c82d54",
+      "origins": [
+        {
+          "package_number": 20,
+          "archive_sha256": "4a95984d25d64d4ee91e3ee552a8c8d5b7a3400e4f53b8f8ae5776ad93b30dc0",
+          "member": "striplog/references/lexicon.md"
+        },
+        {
+          "package_number": 77,
+          "archive_sha256": "a55e576ec23292e199ef8974127fd50a583eb471506d489c2df3d87e88fc5e2a",
+          "member": "striplog/references/lexicon.md"
+        },
+        {
+          "package_number": 100,
+          "archive_sha256": "f5b8d1fd0d32862c5113aa2c6afc6dfea45130965e5fb2d893a27a0d241334dd",
+          "member": "striplog/references/lexicon.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/create_striplog.py",
+      "bytes": 5835,
+      "sha256": "8f3d1a79c5ce3eb0d7cfa25ceef2847553f129c53fb01f2131ab22e78cbac5f8",
+      "origins": [
+        {
+          "package_number": 20,
+          "archive_sha256": "4a95984d25d64d4ee91e3ee552a8c8d5b7a3400e4f53b8f8ae5776ad93b30dc0",
+          "member": "striplog/scripts/create_striplog.py"
+        },
+        {
+          "package_number": 77,
+          "archive_sha256": "a55e576ec23292e199ef8974127fd50a583eb471506d489c2df3d87e88fc5e2a",
+          "member": "striplog/scripts/create_striplog.py"
+        },
+        {
+          "package_number": 100,
+          "archive_sha256": "f5b8d1fd0d32862c5113aa2c6afc6dfea45130965e5fb2d893a27a0d241334dd",
+          "member": "striplog/scripts/create_striplog.py"
+        }
+      ]
+    }
+  ]
+}

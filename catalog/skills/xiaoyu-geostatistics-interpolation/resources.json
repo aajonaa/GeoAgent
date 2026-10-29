@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_geostatistics_interpolation",
+  "archive_sha256": "ea1274fbcefc0d029ff4abde42345766119240a438c8c903b1927c30f17547b8",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 6333,
+      "sha256": "f5d39feca5fa35beb6ffece505e1b2b4fbba023213ddf0ea453b9aa2633e33ec",
+      "origins": [
+        {
+          "package_number": 62,
+          "archive_sha256": "96b3288d3c585c48e0d3163a52f559135106455f2128d1d583a747f98e9e687d",
+          "member": "geostatistics-interpolation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 231,
+      "sha256": "f423a20aa7213b56e74483af9c00d921197d35748a70229b55bef368bebd8cc8",
+      "origins": [
+        {
+          "package_number": 62,
+          "archive_sha256": "96b3288d3c585c48e0d3163a52f559135106455f2128d1d583a747f98e9e687d",
+          "member": "geostatistics-interpolation/agents/openai.yaml"
+        }
+      ]
+    },
+    {
+      "path": "references/authoritative-sources.md",
+      "bytes": 800,
+      "sha256": "7abdd8884f7ce97ed8121ecce8b00e31ee30121dfb220eb345ddbdbbeb0fb552",
+      "origins": [
+        {
+          "package_number": 62,
+          "archive_sha256": "96b3288d3c585c48e0d3163a52f559135106455f2128d1d583a747f98e9e687d",
+          "member": "geostatistics-interpolation/references/authoritative-sources.md"
+        }
+      ]
+    }
+  ]
+}

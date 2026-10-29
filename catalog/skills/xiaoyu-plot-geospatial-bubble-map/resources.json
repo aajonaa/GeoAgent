@@ -1,0 +1,66 @@
+{
+  "skill_id": "xiaoyu_plot_geospatial_bubble_map",
+  "archive_sha256": "0b0bd224278dc21a92b17eaf3434b0ac2b60c7d5d904ff4eaa108919fd777d4e",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2110,
+      "sha256": "7651d5602715ead47590c88a1202f8d51e1e715e27fa1831003bd22bc94d2807",
+      "origins": [
+        {
+          "package_number": 1,
+          "archive_sha256": "c068bceac1955f2614111ac1629f9069dea440e57c8a78bb386a7aff2cfde468",
+          "member": "skill3-geospatial-bubble-map-main/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5727,
+      "sha256": "6bc157b9d83562465040c6a975aa482255a65b5285229eef81c1bb22d28ee433",
+      "origins": [
+        {
+          "package_number": 1,
+          "archive_sha256": "c068bceac1955f2614111ac1629f9069dea440e57c8a78bb386a7aff2cfde468",
+          "member": "skill3-geospatial-bubble-map-main/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 272,
+      "sha256": "5a2ee1e596f5de6498c3b5d5fa0a81f9dfd8792cf950e61c9b835a2998efff7e",
+      "origins": [
+        {
+          "package_number": 1,
+          "archive_sha256": "c068bceac1955f2614111ac1629f9069dea440e57c8a78bb386a7aff2cfde468",
+          "member": "skill3-geospatial-bubble-map-main/agents/openai.yaml"
+        }
+      ]
+    },
+    {
+      "path": "references/formats.md",
+      "bytes": 1879,
+      "sha256": "3bbad64b97e8230892795a7a4936d42e811a5808dd51b04ec7d139d61911c941",
+      "origins": [
+        {
+          "package_number": 1,
+          "archive_sha256": "c068bceac1955f2614111ac1629f9069dea440e57c8a78bb386a7aff2cfde468",
+          "member": "skill3-geospatial-bubble-map-main/references/formats.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/plot_bubble_map.py",
+      "bytes": 24969,
+      "sha256": "67ff1729b98ee96cc573287b47a0e7bd4285842239af7fac6d109ed6908be685",
+      "origins": [
+        {
+          "package_number": 1,
+          "archive_sha256": "c068bceac1955f2614111ac1629f9069dea440e57c8a78bb386a7aff2cfde468",
+          "member": "skill3-geospatial-bubble-map-main/scripts/plot_bubble_map.py"
+        }
+      ]
+    }
+  ]
+}

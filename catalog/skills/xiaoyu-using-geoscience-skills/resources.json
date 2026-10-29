@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_using_geoscience_skills",
+  "archive_sha256": "121a5a60de089353036f208e6d5def898d2ed84d52f383594fa557e359176a28",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 48,
+          "archive_sha256": "8a618078d0e779265e4e0d7c2ea99ba707b4c9b68eaa177533305b87a86493b7",
+          "member": "using-geoscience-skills/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 806,
+      "sha256": "c5950cb283efc0397ac3790da08c2cc6abbd95983e029b4b7874175438647b39",
+      "origins": [
+        {
+          "package_number": 48,
+          "archive_sha256": "8a618078d0e779265e4e0d7c2ea99ba707b4c9b68eaa177533305b87a86493b7",
+          "member": "using-geoscience-skills/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 8355,
+      "sha256": "bb6dd6c9eefadfff9c77ae16c01edb842af9d9bf8987ebbd7a9579b8fcc601b5",
+      "origins": [
+        {
+          "package_number": 48,
+          "archive_sha256": "8a618078d0e779265e4e0d7c2ea99ba707b4c9b68eaa177533305b87a86493b7",
+          "member": "using-geoscience-skills/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

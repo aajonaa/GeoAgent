@@ -1,0 +1,110 @@
+{
+  "skill_id": "xiaoyu_bruges",
+  "archive_sha256": "47c0486a9600ddf6a6575808a5d1773749229bf35e36b2188c8841b1190a4761",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 8,
+          "archive_sha256": "a99779575040b62adc6f19f5d7ae7ac8f62f4765dee25d70f8583d24ec2ee51b",
+          "member": "bruges/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 619,
+      "sha256": "35089083b59a5cce24ce9901bd8022b23cdc4105e6f04d0b6b903f67e2c37fb7",
+      "origins": [
+        {
+          "package_number": 8,
+          "archive_sha256": "a99779575040b62adc6f19f5d7ae7ac8f62f4765dee25d70f8583d24ec2ee51b",
+          "member": "bruges/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5683,
+      "sha256": "c1228036ff20a0aeac6ee2a0cd0ef0eb50e303a2c182a6871f049d87dc8869dd",
+      "origins": [
+        {
+          "package_number": 8,
+          "archive_sha256": "a99779575040b62adc6f19f5d7ae7ac8f62f4765dee25d70f8583d24ec2ee51b",
+          "member": "bruges/SKILL.md"
+        },
+        {
+          "package_number": 105,
+          "archive_sha256": "6d245c7952bcfbbfda5f5d065f9ef22dc8ee4a01d7d0021f32eb16e10ff2acd3",
+          "member": "bruges/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 105,
+          "archive_sha256": "6d245c7952bcfbbfda5f5d065f9ef22dc8ee4a01d7d0021f32eb16e10ff2acd3",
+          "member": "bruges/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/rock_physics.md",
+      "bytes": 4444,
+      "sha256": "42cfd4e4066d61bfa765c60f2493cbd5d9d14c53696d4d66ed61ad20ea350062",
+      "origins": [
+        {
+          "package_number": 8,
+          "archive_sha256": "a99779575040b62adc6f19f5d7ae7ac8f62f4765dee25d70f8583d24ec2ee51b",
+          "member": "bruges/references/rock_physics.md"
+        },
+        {
+          "package_number": 105,
+          "archive_sha256": "6d245c7952bcfbbfda5f5d065f9ef22dc8ee4a01d7d0021f32eb16e10ff2acd3",
+          "member": "bruges/references/rock_physics.md"
+        }
+      ]
+    },
+    {
+      "path": "references/wavelets.md",
+      "bytes": 3366,
+      "sha256": "2adeb8daaa260b2591060b6c609caeca94cc87aba997088280e960d0cde9a0df",
+      "origins": [
+        {
+          "package_number": 8,
+          "archive_sha256": "a99779575040b62adc6f19f5d7ae7ac8f62f4765dee25d70f8583d24ec2ee51b",
+          "member": "bruges/references/wavelets.md"
+        },
+        {
+          "package_number": 105,
+          "archive_sha256": "6d245c7952bcfbbfda5f5d065f9ef22dc8ee4a01d7d0021f32eb16e10ff2acd3",
+          "member": "bruges/references/wavelets.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/avo_analysis.py",
+      "bytes": 11941,
+      "sha256": "58eced188f7b3e4477d5cd67a6e2a68b164bf0e4c4474ec4199b994af71e22ec",
+      "origins": [
+        {
+          "package_number": 8,
+          "archive_sha256": "a99779575040b62adc6f19f5d7ae7ac8f62f4765dee25d70f8583d24ec2ee51b",
+          "member": "bruges/scripts/avo_analysis.py"
+        },
+        {
+          "package_number": 105,
+          "archive_sha256": "6d245c7952bcfbbfda5f5d065f9ef22dc8ee4a01d7d0021f32eb16e10ff2acd3",
+          "member": "bruges/scripts/avo_analysis.py"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,135 @@
+{
+  "skill_id": "xiaoyu_scikit_gstat",
+  "archive_sha256": "cfc7034f0c7ea3d16e21638fa21d0709ee0090d2fda43e48c1ca93ee9116f923",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 27,
+          "archive_sha256": "32d9ed5778110705ffd7d86c1e1fc1d28a8b16a689c9f622335a3edc2b13bd71",
+          "member": "scikit-gstat/LICENSE"
+        },
+        {
+          "package_number": 72,
+          "archive_sha256": "10505e377556b0ac9f914a6f975dd2a38489ffa2659f36700e68a4779f2340f3",
+          "member": "scikit-gstat/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 762,
+      "sha256": "2e89d4c74a94138db90376775b4488c3ac45c270b330ddbe3b4963a62ac89231",
+      "origins": [
+        {
+          "package_number": 27,
+          "archive_sha256": "32d9ed5778110705ffd7d86c1e1fc1d28a8b16a689c9f622335a3edc2b13bd71",
+          "member": "scikit-gstat/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 6979,
+      "sha256": "b71bc23fe038858f740177aa802749dd16253207eeb782b0f9d20acb32327044",
+      "origins": [
+        {
+          "package_number": 27,
+          "archive_sha256": "32d9ed5778110705ffd7d86c1e1fc1d28a8b16a689c9f622335a3edc2b13bd71",
+          "member": "scikit-gstat/SKILL.md"
+        },
+        {
+          "package_number": 72,
+          "archive_sha256": "10505e377556b0ac9f914a6f975dd2a38489ffa2659f36700e68a4779f2340f3",
+          "member": "scikit-gstat/SKILL.md"
+        },
+        {
+          "package_number": 98,
+          "archive_sha256": "f5f6acc25bbe9e156a03852e5cca6008b13839ebaa84e6eef077610518ce46b7",
+          "member": "scikit-gstat/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 98,
+          "archive_sha256": "f5f6acc25bbe9e156a03852e5cca6008b13839ebaa84e6eef077610518ce46b7",
+          "member": "scikit-gstat/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/kriging_methods.md",
+      "bytes": 6459,
+      "sha256": "f54a8f843076630aae2eabcac32bec01dbbbc382b473c391a8acee13e7ab019b",
+      "origins": [
+        {
+          "package_number": 27,
+          "archive_sha256": "32d9ed5778110705ffd7d86c1e1fc1d28a8b16a689c9f622335a3edc2b13bd71",
+          "member": "scikit-gstat/references/kriging_methods.md"
+        },
+        {
+          "package_number": 72,
+          "archive_sha256": "10505e377556b0ac9f914a6f975dd2a38489ffa2659f36700e68a4779f2340f3",
+          "member": "scikit-gstat/references/kriging_methods.md"
+        },
+        {
+          "package_number": 98,
+          "archive_sha256": "f5f6acc25bbe9e156a03852e5cca6008b13839ebaa84e6eef077610518ce46b7",
+          "member": "scikit-gstat/references/kriging_methods.md"
+        }
+      ]
+    },
+    {
+      "path": "references/variogram_models.md",
+      "bytes": 5211,
+      "sha256": "1231e35f352f5b2809d77778e591bcf46ac44dacdf83977c7b65a98fefe02fb5",
+      "origins": [
+        {
+          "package_number": 27,
+          "archive_sha256": "32d9ed5778110705ffd7d86c1e1fc1d28a8b16a689c9f622335a3edc2b13bd71",
+          "member": "scikit-gstat/references/variogram_models.md"
+        },
+        {
+          "package_number": 72,
+          "archive_sha256": "10505e377556b0ac9f914a6f975dd2a38489ffa2659f36700e68a4779f2340f3",
+          "member": "scikit-gstat/references/variogram_models.md"
+        },
+        {
+          "package_number": 98,
+          "archive_sha256": "f5f6acc25bbe9e156a03852e5cca6008b13839ebaa84e6eef077610518ce46b7",
+          "member": "scikit-gstat/references/variogram_models.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/variogram_analysis.py",
+      "bytes": 10553,
+      "sha256": "3065e0f2aa6f2a04ef352f12535e530238cbd8a8e5ce5ecc9ee5a14b6c34ddfb",
+      "origins": [
+        {
+          "package_number": 27,
+          "archive_sha256": "32d9ed5778110705ffd7d86c1e1fc1d28a8b16a689c9f622335a3edc2b13bd71",
+          "member": "scikit-gstat/scripts/variogram_analysis.py"
+        },
+        {
+          "package_number": 72,
+          "archive_sha256": "10505e377556b0ac9f914a6f975dd2a38489ffa2659f36700e68a4779f2340f3",
+          "member": "scikit-gstat/scripts/variogram_analysis.py"
+        },
+        {
+          "package_number": 98,
+          "archive_sha256": "f5f6acc25bbe9e156a03852e5cca6008b13839ebaa84e6eef077610518ce46b7",
+          "member": "scikit-gstat/scripts/variogram_analysis.py"
+        }
+      ]
+    }
+  ]
+}

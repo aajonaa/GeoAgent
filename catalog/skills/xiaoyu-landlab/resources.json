@@ -1,0 +1,78 @@
+{
+  "skill_id": "xiaoyu_landlab",
+  "archive_sha256": "5bcfb5ca105ff9bb9210a9c863c2e7a18886e0164c64af4d9e35667fbdfb3b1c",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 31,
+          "archive_sha256": "a15c9b37a263d4671c07ca1e405ced49ae944f2906821dbb0e8562114a21be97",
+          "member": "landlab/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 724,
+      "sha256": "d67fc56c4850519e83c58512747b5ecf75f56734f91fb061171a4d492405f7b3",
+      "origins": [
+        {
+          "package_number": 31,
+          "archive_sha256": "a15c9b37a263d4671c07ca1e405ced49ae944f2906821dbb0e8562114a21be97",
+          "member": "landlab/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 7121,
+      "sha256": "106e8ba646f98ec7ae4e3a3c81e29641d9f65859feb8971b423020bc6dd1bb16",
+      "origins": [
+        {
+          "package_number": 31,
+          "archive_sha256": "a15c9b37a263d4671c07ca1e405ced49ae944f2906821dbb0e8562114a21be97",
+          "member": "landlab/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/components.md",
+      "bytes": 7511,
+      "sha256": "87caaae636729f664e9fc50ca3ba58776d4a38e1c0d3e1115eed3b4c73ae7e57",
+      "origins": [
+        {
+          "package_number": 31,
+          "archive_sha256": "a15c9b37a263d4671c07ca1e405ced49ae944f2906821dbb0e8562114a21be97",
+          "member": "landlab/references/components.md"
+        }
+      ]
+    },
+    {
+      "path": "references/grids.md",
+      "bytes": 7703,
+      "sha256": "5ceff72695bc390f0a9001c371b83498eeea783428ceed9c4d4bba925ffb8030",
+      "origins": [
+        {
+          "package_number": 31,
+          "archive_sha256": "a15c9b37a263d4671c07ca1e405ced49ae944f2906821dbb0e8562114a21be97",
+          "member": "landlab/references/grids.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/erosion_model.py",
+      "bytes": 7937,
+      "sha256": "8129f4cdc0498579b50b8320edca81caa5a6b17de19e1d1da0e8387a1c501bbf",
+      "origins": [
+        {
+          "package_number": 31,
+          "archive_sha256": "a15c9b37a263d4671c07ca1e405ced49ae944f2906821dbb0e8562114a21be97",
+          "member": "landlab/scripts/erosion_model.py"
+        }
+      ]
+    }
+  ]
+}

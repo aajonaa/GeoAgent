@@ -1,0 +1,135 @@
+{
+  "skill_id": "xiaoyu_gemgis",
+  "archive_sha256": "ac47f3d04d444629f2fb676187127c70c1e7758f8a8a3267e12decd5f0628d3f",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 22,
+          "archive_sha256": "66ee69b12a9b2af44cf6fa868eccede7c09d30d08652813dd54c4e67459e5592",
+          "member": "gemgis/LICENSE"
+        },
+        {
+          "package_number": 71,
+          "archive_sha256": "7e699202236f58c7bf9692e02d95f9fd684c4e11f12c79a00f396513106324a6",
+          "member": "gemgis/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 729,
+      "sha256": "f528c22ba3c1911cf1db13a1df43646490c5863cb261ff7b4afbdd85f866d29d",
+      "origins": [
+        {
+          "package_number": 22,
+          "archive_sha256": "66ee69b12a9b2af44cf6fa868eccede7c09d30d08652813dd54c4e67459e5592",
+          "member": "gemgis/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5462,
+      "sha256": "c616d5d4f84723308cb46b6128ef8bdfb0e7c4acce59437bedd5f6f052ab7448",
+      "origins": [
+        {
+          "package_number": 22,
+          "archive_sha256": "66ee69b12a9b2af44cf6fa868eccede7c09d30d08652813dd54c4e67459e5592",
+          "member": "gemgis/SKILL.md"
+        },
+        {
+          "package_number": 71,
+          "archive_sha256": "7e699202236f58c7bf9692e02d95f9fd684c4e11f12c79a00f396513106324a6",
+          "member": "gemgis/SKILL.md"
+        },
+        {
+          "package_number": 94,
+          "archive_sha256": "8fe270ac1b7f4494b5a701d487db5dbfd5addff58c589236e8b7f6fb58531669",
+          "member": "gemgis/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 94,
+          "archive_sha256": "8fe270ac1b7f4494b5a701d487db5dbfd5addff58c589236e8b7f6fb58531669",
+          "member": "gemgis/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/data_extraction.md",
+      "bytes": 2724,
+      "sha256": "c40d6a22be2e8114b4c917947003676288c1d1a17ba106ac408c492135702ce3",
+      "origins": [
+        {
+          "package_number": 22,
+          "archive_sha256": "66ee69b12a9b2af44cf6fa868eccede7c09d30d08652813dd54c4e67459e5592",
+          "member": "gemgis/references/data_extraction.md"
+        },
+        {
+          "package_number": 71,
+          "archive_sha256": "7e699202236f58c7bf9692e02d95f9fd684c4e11f12c79a00f396513106324a6",
+          "member": "gemgis/references/data_extraction.md"
+        },
+        {
+          "package_number": 94,
+          "archive_sha256": "8fe270ac1b7f4494b5a701d487db5dbfd5addff58c589236e8b7f6fb58531669",
+          "member": "gemgis/references/data_extraction.md"
+        }
+      ]
+    },
+    {
+      "path": "references/vector_raster.md",
+      "bytes": 2394,
+      "sha256": "62470d9b1e5c0605fd75b0df200d80360c7fee5fb54e46e41913ed009f9e6a7b",
+      "origins": [
+        {
+          "package_number": 22,
+          "archive_sha256": "66ee69b12a9b2af44cf6fa868eccede7c09d30d08652813dd54c4e67459e5592",
+          "member": "gemgis/references/vector_raster.md"
+        },
+        {
+          "package_number": 71,
+          "archive_sha256": "7e699202236f58c7bf9692e02d95f9fd684c4e11f12c79a00f396513106324a6",
+          "member": "gemgis/references/vector_raster.md"
+        },
+        {
+          "package_number": 94,
+          "archive_sha256": "8fe270ac1b7f4494b5a701d487db5dbfd5addff58c589236e8b7f6fb58531669",
+          "member": "gemgis/references/vector_raster.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/prepare_gempy_data.py",
+      "bytes": 10554,
+      "sha256": "378701c2b82c85661fb9290eac1c6aef8c1fbfef2073a498c62377d820f61499",
+      "origins": [
+        {
+          "package_number": 22,
+          "archive_sha256": "66ee69b12a9b2af44cf6fa868eccede7c09d30d08652813dd54c4e67459e5592",
+          "member": "gemgis/scripts/prepare_gempy_data.py"
+        },
+        {
+          "package_number": 71,
+          "archive_sha256": "7e699202236f58c7bf9692e02d95f9fd684c4e11f12c79a00f396513106324a6",
+          "member": "gemgis/scripts/prepare_gempy_data.py"
+        },
+        {
+          "package_number": 94,
+          "archive_sha256": "8fe270ac1b7f4494b5a701d487db5dbfd5addff58c589236e8b7f6fb58531669",
+          "member": "gemgis/scripts/prepare_gempy_data.py"
+        }
+      ]
+    }
+  ]
+}

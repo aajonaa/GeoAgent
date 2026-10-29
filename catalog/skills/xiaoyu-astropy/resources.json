@@ -1,0 +1,150 @@
+{
+  "skill_id": "xiaoyu_astropy",
+  "archive_sha256": "99c828748d0802a651c811db9e0c09b967110c9904ddbfd809e5d0e7700f8c3f",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 12353,
+      "sha256": "d93dbf9ef0037c60febfc8b45bfb44923a1639067c984eb9a9cbb43c97fe7f93",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/astropy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/1b96e4dc50-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pptx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/8e53b12f75-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/docx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/9c8ca586d5-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/xlsx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/d594664132-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pdf/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "references/coordinates.md",
+      "bytes": 7111,
+      "sha256": "1fa1b5a1591742e1bc95226c7483424fc3d161c5cb31b300adc52d1f80bb2041",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/astropy/references/coordinates.md"
+        }
+      ]
+    },
+    {
+      "path": "references/cosmology.md",
+      "bytes": 6482,
+      "sha256": "100c0ad197f95258384dc10cbf884ff03ef7f1fdae6603b2747d7b9b57b50a09",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/astropy/references/cosmology.md"
+        }
+      ]
+    },
+    {
+      "path": "references/fits.md",
+      "bytes": 8670,
+      "sha256": "f1a50bc99417179a583b0786f2852080c49c31ea2c9c587b19bfe822f10500e3",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/astropy/references/fits.md"
+        }
+      ]
+    },
+    {
+      "path": "references/tables.md",
+      "bytes": 9385,
+      "sha256": "5ac8009a606d356eb6d46f8fe18f333e8ddec54b2d864f2e514d65b49e7f6c3e",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/astropy/references/tables.md"
+        }
+      ]
+    },
+    {
+      "path": "references/time.md",
+      "bytes": 9083,
+      "sha256": "d49c60d47f6bb5f64c8f422140bad70db1859a8852cc70d5edce0f1c3eb743a6",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/astropy/references/time.md"
+        }
+      ]
+    },
+    {
+      "path": "references/units.md",
+      "bytes": 3766,
+      "sha256": "ec3d108772f9c0f2242ede6b8499f846d21d53bfc1c255fb3306bdf685139a8e",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/astropy/references/units.md"
+        }
+      ]
+    },
+    {
+      "path": "references/wcs_and_other_modules.md",
+      "bytes": 8515,
+      "sha256": "6b75b190f165511b0f6905bba4499c5ac94486c5b55bf0905cb3f95ffa1b97dc",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/astropy/references/wcs_and_other_modules.md"
+        }
+      ]
+    }
+  ]
+}

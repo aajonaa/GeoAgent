@@ -1,0 +1,186 @@
+{
+  "skill_id": "xiaoyu_study_area_map",
+  "archive_sha256": "d2015b14e03c6638e9e86b09d51c9175b04fb09875cc295081f035a533fed2f3",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 41,
+      "sha256": "0af58fd62cc47a605ffe3bd16d6ce06572447fd1b8d0412bc57e2ecdd09dd575",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/.gitignore"
+        }
+      ]
+    },
+    {
+      "path": "LICENSE",
+      "bytes": 1064,
+      "sha256": "11d6c8526ff5c509431a5ed34ffa1e8fcd08c096643a311daa06e1a691261aa0",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 9086,
+      "sha256": "fee4172a9d2df005e21f1f98ec080a0c20c88e8ba7bcb18a459700e485c3f5ed",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 31677,
+      "sha256": "ea6b9ac41bd3bbc6af673b44e882946ea26e7b2fe7747195f4e76cff30500bd6",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "example/hypso_preview.png",
+      "bytes": 1031760,
+      "sha256": "4be5ed7b3ed38f7e9c26bd104002a08a76e0689713fd226952183e71210cf83c",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/example/hypso_preview.png"
+        }
+      ]
+    },
+    {
+      "path": "example/taiyuan_locator.R",
+      "bytes": 7930,
+      "sha256": "c8a6e6f4b270d40159a97f2d386c8034cfe416ede6ac428a56a69fea038accbb",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/example/taiyuan_locator.R"
+        }
+      ]
+    },
+    {
+      "path": "example/taiyuan_locator.png",
+      "bytes": 2727673,
+      "sha256": "79909b21a88b4a2ae1761e9022e3444b4665cc0b4df120c076d118b11c5f18b3",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/example/taiyuan_locator.png"
+        }
+      ]
+    },
+    {
+      "path": "example/taiyuan_locator_preview.png",
+      "bytes": 895112,
+      "sha256": "91989d09800b31a4bceaf602f40b9fa898e592ea347a1445bce45665c9e5f150",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/example/taiyuan_locator_preview.png"
+        }
+      ]
+    },
+    {
+      "path": "example/taiyuan_three_level.R",
+      "bytes": 15305,
+      "sha256": "41ac085f3e86a293856e4c6e174d49dfecf2aeb70bfbb2ea290548851847279a",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/example/taiyuan_three_level.R"
+        }
+      ]
+    },
+    {
+      "path": "example/taiyuan_three_level.png",
+      "bytes": 2826222,
+      "sha256": "004219d43aeaa34978268096e3a75be677c35e8a238b179384cbbecbbff6a2f4",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/example/taiyuan_three_level.png"
+        }
+      ]
+    },
+    {
+      "path": "example/taiyuan_three_level_inset.png",
+      "bytes": 2809123,
+      "sha256": "f6da9dd23a096317ae4734e074ef5aa71c66ea7a6dae6e609550fd8abc6ae8e8",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/example/taiyuan_three_level_inset.png"
+        }
+      ]
+    },
+    {
+      "path": "example/taiyuan_three_level_inset_preview.png",
+      "bytes": 904474,
+      "sha256": "304100409825d20817d1de51bf7c46e72de8e4aaa176b12cacb33d0716080c9a",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/example/taiyuan_three_level_inset_preview.png"
+        }
+      ]
+    },
+    {
+      "path": "example/taiyuan_three_level_preview.png",
+      "bytes": 906734,
+      "sha256": "7247917fedbc88340e7eb4904aa7c2611f6fce82149b0d1553983626a2796d2b",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/example/taiyuan_three_level_preview.png"
+        }
+      ]
+    },
+    {
+      "path": "reference/palettes.R",
+      "bytes": 9026,
+      "sha256": "b3dbaaa75846ab372d910c402b53b29631ef039e4724dd5fa08aac76ef9b2d1d",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/reference/palettes.R"
+        }
+      ]
+    },
+    {
+      "path": "reference/relief_basemap.R",
+      "bytes": 27934,
+      "sha256": "465b30eaa853939cf72f45e78823db963969b6695c8abacda66a3ab79b5dd3f3",
+      "origins": [
+        {
+          "package_number": 51,
+          "archive_sha256": "c178f9c9e64eef450095d070aed598587fa3b8ce6eb2d892310a4f2724fedc0c",
+          "member": "study-area-map.skill-main/reference/relief_basemap.R"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "skill_id": "xiaoyu_petropy",
+  "archive_sha256": "9ffbb3862d8a77fa8d12bfc46422ba31470390f0173ed440238a44eb77ffbad8",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 19,
+          "archive_sha256": "eca6519e6029ec93d2757f88d28dfa822d17e16c79f44fbfe6b242be449f4997",
+          "member": "petropy/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 736,
+      "sha256": "4cdec75dbf02ee05888543de602677561282f8b2f249cd39cdc4f038c060097e",
+      "origins": [
+        {
+          "package_number": 19,
+          "archive_sha256": "eca6519e6029ec93d2757f88d28dfa822d17e16c79f44fbfe6b242be449f4997",
+          "member": "petropy/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5520,
+      "sha256": "d6d460cb64d6e1ebcab05482595cab860df4fc0555635f58f116d5b58825e0af",
+      "origins": [
+        {
+          "package_number": 19,
+          "archive_sha256": "eca6519e6029ec93d2757f88d28dfa822d17e16c79f44fbfe6b242be449f4997",
+          "member": "petropy/SKILL.md"
+        },
+        {
+          "package_number": 110,
+          "archive_sha256": "38a95e68ce29cc456d5e16519d23fd696a5b89bd49f078bb6ee1baacbf6ab7c4",
+          "member": "petropy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 110,
+          "archive_sha256": "38a95e68ce29cc456d5e16519d23fd696a5b89bd49f078bb6ee1baacbf6ab7c4",
+          "member": "petropy/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/calculations.md",
+      "bytes": 3089,
+      "sha256": "4e3cd2795f71cf3c6316ab2ab844d556f5f7aff826f79d06b4da65b666889c53",
+      "origins": [
+        {
+          "package_number": 19,
+          "archive_sha256": "eca6519e6029ec93d2757f88d28dfa822d17e16c79f44fbfe6b242be449f4997",
+          "member": "petropy/references/calculations.md"
+        },
+        {
+          "package_number": 110,
+          "archive_sha256": "38a95e68ce29cc456d5e16519d23fd696a5b89bd49f078bb6ee1baacbf6ab7c4",
+          "member": "petropy/references/calculations.md"
+        }
+      ]
+    },
+    {
+      "path": "references/example_config.json",
+      "bytes": 1035,
+      "sha256": "12a70cd5dba08352a58c7707f72fef62f46b34d2b00aaad6328f32eb1ab718dc",
+      "origins": [
+        {
+          "package_number": 19,
+          "archive_sha256": "eca6519e6029ec93d2757f88d28dfa822d17e16c79f44fbfe6b242be449f4997",
+          "member": "petropy/references/example_config.json"
+        },
+        {
+          "package_number": 110,
+          "archive_sha256": "38a95e68ce29cc456d5e16519d23fd696a5b89bd49f078bb6ee1baacbf6ab7c4",
+          "member": "petropy/references/example_config.json"
+        }
+      ]
+    },
+    {
+      "path": "references/fluid_properties.md",
+      "bytes": 2357,
+      "sha256": "7b241e8cd54e267c848269d97408ec8bb0acc7a6887ce56324caec19efd606fc",
+      "origins": [
+        {
+          "package_number": 19,
+          "archive_sha256": "eca6519e6029ec93d2757f88d28dfa822d17e16c79f44fbfe6b242be449f4997",
+          "member": "petropy/references/fluid_properties.md"
+        },
+        {
+          "package_number": 110,
+          "archive_sha256": "38a95e68ce29cc456d5e16519d23fd696a5b89bd49f078bb6ee1baacbf6ab7c4",
+          "member": "petropy/references/fluid_properties.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/formation_evaluation.py",
+      "bytes": 10410,
+      "sha256": "9cd383fb607d78425c6def26d1617fb81585d1b09f23baf47f287b80a99074cb",
+      "origins": [
+        {
+          "package_number": 19,
+          "archive_sha256": "eca6519e6029ec93d2757f88d28dfa822d17e16c79f44fbfe6b242be449f4997",
+          "member": "petropy/scripts/formation_evaluation.py"
+        },
+        {
+          "package_number": 110,
+          "archive_sha256": "38a95e68ce29cc456d5e16519d23fd696a5b89bd49f078bb6ee1baacbf6ab7c4",
+          "member": "petropy/scripts/formation_evaluation.py"
+        }
+      ]
+    }
+  ]
+}

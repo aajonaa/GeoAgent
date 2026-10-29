@@ -22,6 +22,8 @@ def build_registry(*, human_input=False):
     from .scientific_imaging import register_scientific_image_tools
     register_scientific_image_tools(registry)
     professional = register_professional(registry)
+    from .skill_resources import register_skill_resources
+    register_skill_resources(registry)
     skills = load_source_skills(SkillLoader(SkillRegistry()), professional, runtime_registry=registry)
     for summary in skills.registry.list():
         for name in skills.load(summary.id).tool_names:

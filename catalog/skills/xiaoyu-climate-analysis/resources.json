@@ -1,0 +1,66 @@
+{
+  "skill_id": "xiaoyu_climate_analysis",
+  "archive_sha256": "fda8a076297b43918e8148fb960a6aca21c886f2ef55f09bb35cdc6e5573f607",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 47,
+          "archive_sha256": "7b715eb064ccf568876e17e2c990ec091c9c7a156dba879c442e2206ffe109ad",
+          "member": "climate-analysis/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 816,
+      "sha256": "04677f483b39c4576af8dc6bb08446ad75c14943de137508b15d53708a1306a8",
+      "origins": [
+        {
+          "package_number": 47,
+          "archive_sha256": "7b715eb064ccf568876e17e2c990ec091c9c7a156dba879c442e2206ffe109ad",
+          "member": "climate-analysis/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 6328,
+      "sha256": "881d19e0c462a17530a1f0c4041a7a949e26813ae3066fe87e133bc877524c1a",
+      "origins": [
+        {
+          "package_number": 47,
+          "archive_sha256": "7b715eb064ccf568876e17e2c990ec091c9c7a156dba879c442e2206ffe109ad",
+          "member": "climate-analysis/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/validated-station-case.md",
+      "bytes": 3624,
+      "sha256": "33cf5791e444b40638095084493dae2e10fd51abb2220d1d920d07870cdb27b1",
+      "origins": [
+        {
+          "package_number": 47,
+          "archive_sha256": "7b715eb064ccf568876e17e2c990ec091c9c7a156dba879c442e2206ffe109ad",
+          "member": "climate-analysis/references/validated-station-case.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/station_pipeline.py",
+      "bytes": 22171,
+      "sha256": "a9b65c1fdc5103dd594ef7316c4027ecf7072b7d69b3f7db1376505032c1777c",
+      "origins": [
+        {
+          "package_number": 47,
+          "archive_sha256": "7b715eb064ccf568876e17e2c990ec091c9c7a156dba879c442e2206ffe109ad",
+          "member": "climate-analysis/scripts/station_pipeline.py"
+        }
+      ]
+    }
+  ]
+}

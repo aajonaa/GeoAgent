@@ -1,0 +1,86 @@
+{
+  "skill_id": "xiaoyu_gprpy",
+  "archive_sha256": "36e695f828eced1a37d34e93ff672e370bea6dc24e614442d7c84cce8ca2d2cd",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 32,
+          "archive_sha256": "709d2babfac1728dbafac9e71a78be68ec8ceb8ca06d517b80963664d858fc51",
+          "member": "gprpy/LICENSE"
+        },
+        {
+          "package_number": 69,
+          "archive_sha256": "bdfad86a9d7d06c4550ed7de78acd755ea325f4936090227b2fdf523b3344c73",
+          "member": "gprpy/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 743,
+      "sha256": "6760727f3372ad026a9cb9b30c8fdc04b4a88bb2699737741ecdfb5fec3c53f1",
+      "origins": [
+        {
+          "package_number": 32,
+          "archive_sha256": "709d2babfac1728dbafac9e71a78be68ec8ceb8ca06d517b80963664d858fc51",
+          "member": "gprpy/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5123,
+      "sha256": "27c74dc3a05dfb792887e561ff364266f5e97409c1f13bfd03031dbbf02b89dd",
+      "origins": [
+        {
+          "package_number": 32,
+          "archive_sha256": "709d2babfac1728dbafac9e71a78be68ec8ceb8ca06d517b80963664d858fc51",
+          "member": "gprpy/SKILL.md"
+        },
+        {
+          "package_number": 69,
+          "archive_sha256": "bdfad86a9d7d06c4550ed7de78acd755ea325f4936090227b2fdf523b3344c73",
+          "member": "gprpy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/processing_steps.md",
+      "bytes": 4517,
+      "sha256": "1c72bf45b1737a690a4b6b437a8267dd53f6e3cc4377e67858b47868ffa6473e",
+      "origins": [
+        {
+          "package_number": 32,
+          "archive_sha256": "709d2babfac1728dbafac9e71a78be68ec8ceb8ca06d517b80963664d858fc51",
+          "member": "gprpy/references/processing_steps.md"
+        },
+        {
+          "package_number": 69,
+          "archive_sha256": "bdfad86a9d7d06c4550ed7de78acd755ea325f4936090227b2fdf523b3344c73",
+          "member": "gprpy/references/processing_steps.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/process_gpr.py",
+      "bytes": 10488,
+      "sha256": "fcdfa134893ac4b2ecc8ccfec4d57f5e9b8af21d25182b9d2ebd25469bd1eaa2",
+      "origins": [
+        {
+          "package_number": 32,
+          "archive_sha256": "709d2babfac1728dbafac9e71a78be68ec8ceb8ca06d517b80963664d858fc51",
+          "member": "gprpy/scripts/process_gpr.py"
+        },
+        {
+          "package_number": 69,
+          "archive_sha256": "bdfad86a9d7d06c4550ed7de78acd755ea325f4936090227b2fdf523b3344c73",
+          "member": "gprpy/scripts/process_gpr.py"
+        }
+      ]
+    }
+  ]
+}

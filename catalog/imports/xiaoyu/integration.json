@@ -1,0 +1,1908 @@
+{
+  "source_packages": 110,
+  "source_skill_documents": 132,
+  "unique_skills": 90,
+  "duplicate_occurrences": 42,
+  "baseline_catalog_sha256": "965420832ee27ac670244e9db5da4f1026a0d71c9fae6b9d7050a3a0bda5872e",
+  "baseline_skills": 97,
+  "total_skills": 187,
+  "professional_tools": 457,
+  "new_runtime_tools": [
+    "SkillReadResource"
+  ],
+  "gpu_used": false,
+  "model_called": false,
+  "scientific_workflow_validation": "not_run",
+  "deployed": false,
+  "skills": [
+    {
+      "id": "xiaoyu-plot-geospatial-bubble-map",
+      "runtime_id": "xiaoyu_plot_geospatial_bubble_map",
+      "name": "Geospatial Bubble Map",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        1
+      ],
+      "source_skill_sha256": "6bc157b9d83562465040c6a975aa482255a65b5285229eef81c1bb22d28ee433",
+      "resource_count": 5,
+      "resource_bytes": 34957,
+      "related_native_tools": [
+        "GeoCartopyPointMap"
+      ],
+      "licenses": [
+        "NOASSERTION"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-gempy",
+      "runtime_id": "xiaoyu_gempy",
+      "name": "三维地质建模（gempy）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        2,
+        92
+      ],
+      "source_skill_sha256": "22ccb76a33e46cbf158ff2cef7340f59d030a33bdd1369968f651ce08dc5ca49",
+      "resource_count": 9,
+      "resource_bytes": 47209,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pyrolite",
+      "runtime_id": "xiaoyu_pyrolite",
+      "name": "地球化学分析与绘图（pyrolite）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        3,
+        90
+      ],
+      "source_skill_sha256": "a42e8661332bd33f1337924f0d111f2e37ef61c7b7514696d0b5ae2782817aa0",
+      "resource_count": 7,
+      "resource_bytes": 31935,
+      "related_native_tools": [
+        "GeoGeochemCLR",
+        "GeoGeochemOxideMoles",
+        "GeoGeochemREEPattern",
+        "GeoPyroliteALR",
+        "GeoPyroliteILR"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-geostatspy",
+      "runtime_id": "xiaoyu_geostatspy",
+      "name": "地质统计与克里金插值（geostatspy）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        4,
+        97
+      ],
+      "source_skill_sha256": "35ed786310a8178055b75e2c0d0542918642392305f87f94b1060193199a6c8c",
+      "resource_count": 7,
+      "resource_bytes": 36105,
+      "related_native_tools": [
+        "GeoOrdinaryKrigingGrid",
+        "Geo500SpatialCellDeclustering"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-harmonica",
+      "runtime_id": "xiaoyu_harmonica",
+      "name": "重磁数据处理与正演建模（harmonica）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        5,
+        96
+      ],
+      "source_skill_sha256": "ff6f17e4faa7c21ddc9425bfc79177f1fc2dd1de47f988a310e5f4f0d9907e9d",
+      "resource_count": 7,
+      "resource_bytes": 31790,
+      "related_native_tools": [
+        "GeoPointMassGravity",
+        "GeoPrismGravity",
+        "GeoGravityTesseroid",
+        "GeoGravityBouguerSlab",
+        "GeoMagneticReductionToPole"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-mplstereonet",
+      "runtime_id": "xiaoyu_mplstereonet",
+      "name": "构造产状赤平投影（mplstereonet）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        6,
+        91
+      ],
+      "source_skill_sha256": "92ede9b419e86334b38680c63d0803d97586268b8c391ca3fe73f9a4c3ccf1b8",
+      "resource_count": 7,
+      "resource_bytes": 29506,
+      "related_native_tools": [
+        "GeoStereonetAnalysis",
+        "GeoStructuralPlaneIntersection"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-lasio",
+      "runtime_id": "xiaoyu_lasio",
+      "name": "钻孔测井文件读取与整理（lasio）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        7,
+        99
+      ],
+      "source_skill_sha256": "e722b61473ff9df2416f88094c91352179d7e49986fd4a68d4f2720a13b57cbe",
+      "resource_count": 10,
+      "resource_bytes": 35379,
+      "related_native_tools": [
+        "GeoLasioLogAudit"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-bruges",
+      "runtime_id": "xiaoyu_bruges",
+      "name": "岩石物理与地震反射分析（bruges）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        8,
+        105
+      ],
+      "source_skill_sha256": "c1228036ff20a0aeac6ee2a0cd0ef0eb50e303a2c182a6871f049d87dc8869dd",
+      "resource_count": 7,
+      "resource_bytes": 28165,
+      "related_native_tools": [
+        "SeismicReflectivity",
+        "GeoSeismicElasticImpedance",
+        "GeoSeismicWindowCoherence"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-plot-global-data-distribution",
+      "runtime_id": "xiaoyu_plot_global_data_distribution",
+      "name": "Plot Global Data Distribution",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        9
+      ],
+      "source_skill_sha256": "0ed59760b4c015eda1e34d992a0290ace2a0cd720f6f1545d52d19b7c13e19e4",
+      "resource_count": 3,
+      "resource_bytes": 6520,
+      "related_native_tools": [],
+      "licenses": [
+        "NOASSERTION"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-plot-global-zonal-profile",
+      "runtime_id": "xiaoyu_plot_global_zonal_profile",
+      "name": "Plot Global Zonal Profile",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        10
+      ],
+      "source_skill_sha256": "42bee6e115268d6cf5ef04b8a8e5049648f85cec1a98ff247e70645230c0746f",
+      "resource_count": 3,
+      "resource_bytes": 22451,
+      "related_native_tools": [],
+      "licenses": [
+        "NOASSERTION"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-boule",
+      "runtime_id": "xiaoyu_boule",
+      "name": "参考椭球与正常重力计算（boule）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        11,
+        85
+      ],
+      "source_skill_sha256": "553fe1229ff2c1951547673f5ce59950ee549b19b213769417fcf55a4e68c81b",
+      "resource_count": 3,
+      "resource_bytes": 4392,
+      "related_native_tools": [
+        "GeoGravityNormalEllipsoid"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-discretize",
+      "runtime_id": "xiaoyu_discretize",
+      "name": "有限体积网格与离散算子（discretize）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        12,
+        81
+      ],
+      "source_skill_sha256": "770b225b3814b45d9d2644de9b26a17aed7b0bc99b2125160d36b9ad7353c41f",
+      "resource_count": 3,
+      "resource_bytes": 4714,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-segyio",
+      "runtime_id": "xiaoyu_segyio",
+      "name": "SEG-Y 道头检查与子集提取（segyio）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        13,
+        83,
+        106
+      ],
+      "source_skill_sha256": "7d46ac492f7e69f8f5f9ada98bd889701cbd2a37f3f871344c9f9efad6b5a2bb",
+      "resource_count": 8,
+      "resource_bytes": 41646,
+      "related_native_tools": [
+        "SeismicSegySummary"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-segysak",
+      "runtime_id": "xiaoyu_segysak",
+      "name": "带坐标标签的地震数据立方体（segysak）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        14,
+        84
+      ],
+      "source_skill_sha256": "4f9b1006469b3ecedc98720d293ffc666a96c64ef0e580ca6714cc42ea0df487",
+      "resource_count": 3,
+      "resource_bytes": 4780,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-obspy",
+      "runtime_id": "xiaoyu_obspy",
+      "name": "地震波形处理与仪器响应校正（obspy）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        15
+      ],
+      "source_skill_sha256": "86b5e688bc581e7644ac77272f20d5f4cfdbfc8d00a4985b46d2d0a58dd1d183",
+      "resource_count": 8,
+      "resource_bytes": 44524,
+      "related_native_tools": [
+        "SeismicObsPyBandpass",
+        "GeoSeismicSTALTADetection",
+        "GeoSeismicInstrumentDeconvolution"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-disba",
+      "runtime_id": "xiaoyu_disba",
+      "name": "层状介质面波频散计算（disba）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        16
+      ],
+      "source_skill_sha256": "13f12b3d88c347fba5cade3c2699abf6703b7ba1ec718e47fce42effe763e39e",
+      "resource_count": 6,
+      "resource_bytes": 31679,
+      "related_native_tools": [
+        "GeoSurfaceWaveDispersion",
+        "GeoSurfaceWaveSensitivity"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-dlisio",
+      "runtime_id": "xiaoyu_dlisio",
+      "name": "DLIS 测井文件读取与通道整理（dlisio）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        17,
+        75,
+        103
+      ],
+      "source_skill_sha256": "f2bd27cbdca68d7c7b8259b82063b273464030ecdf08b90d381390aaf7e7643c",
+      "resource_count": 7,
+      "resource_bytes": 23926,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-welly",
+      "runtime_id": "xiaoyu_welly",
+      "name": "测井曲线质量控制与重采样（welly）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        18,
+        76,
+        104
+      ],
+      "source_skill_sha256": "9f9af9dfb803dd09f8b6db7e114387641e2e60e969b2fdb8ad1f65affd11d3a0",
+      "resource_count": 8,
+      "resource_bytes": 34926,
+      "related_native_tools": [
+        "GeoWellyMinimumCurvature",
+        "GeoWellyLogResample",
+        "GeoWellyLogDespike",
+        "GeoWellyLogFaciesBlock"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-petropy",
+      "runtime_id": "xiaoyu_petropy",
+      "name": "储层物性与矿物组分评价（petropy）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        19,
+        110
+      ],
+      "source_skill_sha256": "d6d460cb64d6e1ebcab05482595cab860df4fc0555635f58f116d5b58825e0af",
+      "resource_count": 8,
+      "resource_bytes": 25259,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-striplog",
+      "runtime_id": "xiaoyu_striplog",
+      "name": "岩性区间整理与柱状图（striplog）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        20,
+        77,
+        100
+      ],
+      "source_skill_sha256": "b75193c3e70fcef86c5eb7e4e1c75512165bb6e031f0cb3de89092e42af6c41a",
+      "resource_count": 7,
+      "resource_bytes": 25102,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-loopstructural",
+      "runtime_id": "xiaoyu_loopstructural",
+      "name": "褶皱与隐式地质面建模（loopstructural）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        21,
+        70,
+        93
+      ],
+      "source_skill_sha256": "8b34a0fe8c23e6e80dd1f5f57c56feab15eb883b3479a9f46fe3f6522042a124",
+      "resource_count": 7,
+      "resource_bytes": 20132,
+      "related_native_tools": [
+        "GeoImplicitStructuralModel"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-gemgis",
+      "runtime_id": "xiaoyu_gemgis",
+      "name": "GIS 地质数据与建模输入整理（gemgis）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        22,
+        71,
+        94
+      ],
+      "source_skill_sha256": "c616d5d4f84723308cb46b6128ef8bdfb0e7c4acce59437bedd5f6f052ab7448",
+      "resource_count": 7,
+      "resource_bytes": 23975,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-simpeg",
+      "runtime_id": "xiaoyu_simpeg",
+      "name": "地球物理物性反演（simpeg）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        23,
+        66,
+        95
+      ],
+      "source_skill_sha256": "53d3b2d0507b3fda6f72aa5b545169aaa99086ae14c4fd29f9477271561eae9b",
+      "resource_count": 7,
+      "resource_bytes": 33120,
+      "related_native_tools": [
+        "GeoGravityDensityInversion",
+        "GeoMagneticSusceptibilityInversion"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pygimli",
+      "runtime_id": "xiaoyu_pygimli",
+      "name": "电阻率成像与近地表反演（pygimli）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        24,
+        67,
+        101
+      ],
+      "source_skill_sha256": "bcb7423864c98dcacb8bd58048872e582aa4238abc66fe95496d945e7c25177c",
+      "resource_count": 7,
+      "resource_bytes": 27856,
+      "related_native_tools": [
+        "GeoDCFourElectrodeResponse"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pylops",
+      "runtime_id": "xiaoyu_pylops",
+      "name": "线性算子与逆问题求解（pylops）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        25,
+        82
+      ],
+      "source_skill_sha256": "43beab2433f8b581503007daefe6d8f0663ca387418c44f06ddc92cb38b1126d",
+      "resource_count": 6,
+      "resource_bytes": 33251,
+      "related_native_tools": [
+        "GeoSeismicNMO",
+        "GeoSeismicPoststackImpedanceInversion",
+        "GeoSeismicUpDownWavefieldSeparation"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-verde",
+      "runtime_id": "xiaoyu_verde",
+      "name": "空间散点插值与规则网格（verde）",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        26,
+        73
+      ],
+      "source_skill_sha256": "9cd782c3af01d05b160dc081b9b0a21b8f01843895ce144105c5569000358235",
+      "resource_count": 6,
+      "resource_bytes": 27733,
+      "related_native_tools": [
+        "GeoVerdeGrid"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-scikit-gstat",
+      "runtime_id": "xiaoyu_scikit_gstat",
+      "name": "实验变异函数与模型拟合（scikit-gstat）",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        27,
+        72,
+        98
+      ],
+      "source_skill_sha256": "b71bc23fe038858f740177aa802749dd16253207eeb782b0f9d20acb32327044",
+      "resource_count": 7,
+      "resource_bytes": 32076,
+      "related_native_tools": [
+        "GeoSKGstatRobustVariogram",
+        "GeoSKGstatSpaceTimeVariogram"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-gnnwr",
+      "runtime_id": "xiaoyu_gnnwr",
+      "name": "地理神经网络加权回归（gnnwr）",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        28,
+        74
+      ],
+      "source_skill_sha256": "654970a253e8a8c26132743c0d1978bc588b594b87241be76f1bccd816d84670",
+      "resource_count": 5,
+      "resource_bytes": 16523,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pastas",
+      "runtime_id": "xiaoyu_pastas",
+      "name": "地下水位时间序列响应分析（pastas）",
+      "category": "水文与地表过程",
+      "package_numbers": [
+        29
+      ],
+      "source_skill_sha256": "8898388347819158978536d5a38f7039152ede8e14a6af409d97dbd1df48325f",
+      "resource_count": 6,
+      "resource_bytes": 20246,
+      "related_native_tools": [
+        "EarthHydroPastasExponentialImpulse"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-flopy",
+      "runtime_id": "xiaoyu_flopy",
+      "name": "MODFLOW 地下水流模拟（flopy）",
+      "category": "水文与地表过程",
+      "package_numbers": [
+        30
+      ],
+      "source_skill_sha256": "5f10cc466ec02441bab40357b5c9f07721eaff0cc2dc10e3e0e786fc8bd3e288",
+      "resource_count": 4,
+      "resource_bytes": 8633,
+      "related_native_tools": [
+        "EarthFlopyWaterTable",
+        "GeoSpatialGroundwaterZoneBudget",
+        "GeoSpatialScreenedTransmissivity"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-landlab",
+      "runtime_id": "xiaoyu_landlab",
+      "name": "地貌演化与地表过程模拟（landlab）",
+      "category": "水文与地表过程",
+      "package_numbers": [
+        31
+      ],
+      "source_skill_sha256": "106e8ba646f98ec7ae4e3a3c81e29641d9f65859feb8971b423020bc6dd1bb16",
+      "resource_count": 6,
+      "resource_bytes": 32052,
+      "related_native_tools": [
+        "EarthLandlabFlowDirections",
+        "GeoSpatialHillslopeDiffusionStep",
+        "GeoSpatialStreamPowerErosionStep"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-gprpy",
+      "runtime_id": "xiaoyu_gprpy",
+      "name": "探地雷达剖面读取与去直流处理（gprpy）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        32,
+        69
+      ],
+      "source_skill_sha256": "27c74dc3a05dfb792887e561ff364266f5e97409c1f13bfd03031dbbf02b89dd",
+      "resource_count": 5,
+      "resource_bytes": 21927,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-mtpy",
+      "runtime_id": "xiaoyu_mtpy",
+      "name": "大地电磁阻抗与响应分析（mtpy）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        33,
+        68,
+        102
+      ],
+      "source_skill_sha256": "23bcd9bf5c47e9b76e7bb78a772f1fd4c39f62c4747f15c1ee516c3a0391b7eb",
+      "resource_count": 7,
+      "resource_bytes": 22032,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-xarray",
+      "runtime_id": "xiaoyu_xarray",
+      "name": "多维地学数组与气候统计（xarray）",
+      "category": "气候与多维数据",
+      "package_numbers": [
+        34,
+        80
+      ],
+      "source_skill_sha256": "1e22e65bbc9dd01eea027255e109d5aa15d1fdd12643e956564c6616e83b0bef",
+      "resource_count": 6,
+      "resource_bytes": 30549,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pyleoclim",
+      "runtime_id": "xiaoyu_pyleoclim",
+      "name": "古气候不等间隔时间序列频谱（pyleoclim）",
+      "category": "气候与多维数据",
+      "package_numbers": [
+        35
+      ],
+      "source_skill_sha256": "23f292b0dea80d440aca37473c7325ce42e3f4f6ea6d82ae1a945915eb53d289",
+      "resource_count": 3,
+      "resource_bytes": 5438,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pyvista",
+      "runtime_id": "xiaoyu_pyvista",
+      "name": "三维网格读取与科研可视化（pyvista）",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        36,
+        78
+      ],
+      "source_skill_sha256": "5ce3a6fa7385dc75a2d61c7dfb71038b5e9100fc9d5ef8e1e2c2c72a34b2afc3",
+      "resource_count": 6,
+      "resource_bytes": 25339,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pygmt",
+      "runtime_id": "xiaoyu_pygmt",
+      "name": "地图投影与 GMT 制图（pygmt）",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        37,
+        79
+      ],
+      "source_skill_sha256": "7bc093aba475dd06e0574a410c2d463d6d72718e887abfbc86adc83361c40be6",
+      "resource_count": 3,
+      "resource_bytes": 4469,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pooch",
+      "runtime_id": "xiaoyu_pooch",
+      "name": "科研数据下载缓存与校验（pooch）",
+      "category": "科学计算与数据管理",
+      "package_numbers": [
+        38,
+        86
+      ],
+      "source_skill_sha256": "4592936ad4f4711b5d43957968e3d8aa34eaec799f0b34b919a749b632f1a8a3",
+      "resource_count": 5,
+      "resource_bytes": 15751,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-ensaio",
+      "runtime_id": "xiaoyu_ensaio",
+      "name": "地学公开数据集版本化获取（ensaio）",
+      "category": "科学计算与数据管理",
+      "package_numbers": [
+        39
+      ],
+      "source_skill_sha256": "b4952b1c8f768f99b4dd33685d8e98574323c43734129feae17f0caba07f93c2",
+      "resource_count": 3,
+      "resource_bytes": 4431,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-seismic-interpretation",
+      "runtime_id": "xiaoyu_seismic_interpretation",
+      "name": "地震数据处理与解释流程（seismic-interpretation）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        40
+      ],
+      "source_skill_sha256": "180b528488c7fe9c8cf3dd2e8921f1530eeabcaff517e8f0f1a4312333b55cd3",
+      "resource_count": 3,
+      "resource_bytes": 15444,
+      "related_native_tools": [
+        "SeismicSegySummary",
+        "SeismicObsPyBandpass",
+        "GeoSeismicNMO",
+        "GeoSeismicComplexAttributes"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-well-log-evaluation",
+      "runtime_id": "xiaoyu_well_log_evaluation",
+      "name": "测井质量控制与储层评价流程（well-log-evaluation）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        41
+      ],
+      "source_skill_sha256": "93c064c88fff560aa1819a0f858c623c279c2f9fe2324d7dfda22c093704e786",
+      "resource_count": 3,
+      "resource_bytes": 13931,
+      "related_native_tools": [
+        "GeoLasioLogAudit",
+        "GeoWellyLogResample",
+        "GeoWellyLogDespike"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-geological-modelling",
+      "runtime_id": "xiaoyu_geological_modelling",
+      "name": "三维地质建模与模型导出流程（geological-modelling）",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        42,
+        88
+      ],
+      "source_skill_sha256": "337b5afae33b1bfe7d2142f003c70a91f818bd0f13da7235ae3b0ea626276c35",
+      "resource_count": 3,
+      "resource_bytes": 13121,
+      "related_native_tools": [
+        "GeoImplicitStructuralModel",
+        "GeoPandasSpatialJoin"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-geophysical-inversion",
+      "runtime_id": "xiaoyu_geophysical_inversion",
+      "name": "物性反演、网格化与可视化流程（geophysical-inversion）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        43,
+        87
+      ],
+      "source_skill_sha256": "0754eb136f3098a0fe566b0ce8bb98b76f584570c3f5b1ac161562abd313df8b",
+      "resource_count": 3,
+      "resource_bytes": 14909,
+      "related_native_tools": [
+        "GeoGravityDensityInversion",
+        "GeoMagneticSusceptibilityInversion",
+        "GeoDCFourElectrodeResponse"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-rock-physics-avo",
+      "runtime_id": "xiaoyu_rock_physics_avo",
+      "name": "岩石物理、流体替换与合成记录流程（rock-physics-avo）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        44
+      ],
+      "source_skill_sha256": "2b6b16ea4818a2c5c1440ba335f42056168033e45f4f22f8d64dce6d3b25096e",
+      "resource_count": 3,
+      "resource_bytes": 13710,
+      "related_native_tools": [
+        "SeismicReflectivity",
+        "GeoRockVRHBounds",
+        "GeoRockHashinShtrikman"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-hydrogeological-analysis",
+      "runtime_id": "xiaoyu_hydrogeological_analysis",
+      "name": "地下水动态与含水层假设分析流程（hydrogeological-analysis）",
+      "category": "水文与地表过程",
+      "package_numbers": [
+        45
+      ],
+      "source_skill_sha256": "9157802f9cc9b468444a1a456116b52fae5f0eac15f1b0d59a3b6a23ec3c65a9",
+      "resource_count": 5,
+      "resource_bytes": 29174,
+      "related_native_tools": [
+        "EarthHydroPastasExponentialImpulse",
+        "EarthFlopyWaterTable",
+        "EarthTimmlSteadyWellHeads"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-near-surface-geophysics",
+      "runtime_id": "xiaoyu_near_surface_geophysics",
+      "name": "近地表地球物理处理与诊断流程（near-surface-geophysics）",
+      "category": "地球物理与地震",
+      "package_numbers": [
+        46,
+        89
+      ],
+      "source_skill_sha256": "d9367dab735ecbbe04cc47140edd9a3f615fd13020d90792e43de2cde653709b",
+      "resource_count": 5,
+      "resource_bytes": 25084,
+      "related_native_tools": [
+        "GeoDCFourElectrodeResponse",
+        "GeoSurfaceWaveDispersion"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-climate-analysis",
+      "runtime_id": "xiaoyu_climate_analysis",
+      "name": "气候站点统计与空间网格分析流程（climate-analysis）",
+      "category": "气候与多维数据",
+      "package_numbers": [
+        47
+      ],
+      "source_skill_sha256": "881d19e0c462a17530a1f0c4041a7a949e26813ae3066fe87e133bc877524c1a",
+      "resource_count": 5,
+      "resource_bytes": 33995,
+      "related_native_tools": [
+        "RemoteSensingMannKendallTest",
+        "EarthERA5LocalMonthlyClimate"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-using-geoscience-skills",
+      "runtime_id": "xiaoyu_using_geoscience_skills",
+      "name": "地学任务选型与流程衔接（using-geoscience-skills）",
+      "category": "科学计算与数据管理",
+      "package_numbers": [
+        48
+      ],
+      "source_skill_sha256": "bb6dd6c9eefadfff9c77ae16c01edb842af9d9bf8987ebbd7a9579b8fcc601b5",
+      "resource_count": 3,
+      "resource_bytes": 10217,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-create-multilevel-sankey",
+      "runtime_id": "xiaoyu_create_multilevel_sankey",
+      "name": "Create Multilevel Sankey",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        49
+      ],
+      "source_skill_sha256": "1025af293947d729c8f4091e62f25b24c1bc45abb5294afea77d73bb4d0afd12",
+      "resource_count": 5,
+      "resource_bytes": 33719,
+      "related_native_tools": [],
+      "licenses": [
+        "NOASSERTION"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-astropy",
+      "runtime_id": "xiaoyu_astropy",
+      "name": "astropy",
+      "category": "气候与多维数据",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "d93dbf9ef0037c60febfc8b45bfb44923a1639067c984eb9a9cbb43c97fe7f93",
+      "resource_count": 12,
+      "resource_bytes": 71233,
+      "related_native_tools": [],
+      "licenses": [
+        "BSD-3-Clause license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-citation-management",
+      "runtime_id": "xiaoyu_citation_management",
+      "name": "citation-management",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "9653a4eb8144a3594d42239b3bc124f807796f8d64471f26dee758bd0620c155",
+      "resource_count": 18,
+      "resource_bytes": 225988,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT License"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-dask",
+      "runtime_id": "xiaoyu_dask",
+      "name": "dask",
+      "category": "气候与多维数据",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "9f4030854b157f47187551cecb843267b5e1177f2f057d078e91342298669611",
+      "resource_count": 11,
+      "resource_bytes": 82967,
+      "related_native_tools": [],
+      "licenses": [
+        "BSD-3-Clause license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-docx",
+      "runtime_id": "xiaoyu_docx",
+      "name": "docx",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "80180632e83c8e3c11474ceb846b46811ae74cb5897ea26689a34f8148a3e159",
+      "resource_count": 62,
+      "resource_bytes": 1192505,
+      "related_native_tools": [],
+      "licenses": [
+        "Proprietary. LICENSE.txt has complete terms"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pdf",
+      "runtime_id": "xiaoyu_pdf",
+      "name": "pdf",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "aac690847982c5adb514a4f7f636c28bf51ee808dc4d56ed333e31c85c528854",
+      "resource_count": 15,
+      "resource_bytes": 70751,
+      "related_native_tools": [],
+      "licenses": [
+        "Proprietary. LICENSE.txt has complete terms"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pptx",
+      "runtime_id": "xiaoyu_pptx",
+      "name": "pptx",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "0ce1396f545b67bcbeca44b4fb0af943570a30bf677473cd4b9ac291cba92111",
+      "resource_count": 59,
+      "resource_bytes": 1236523,
+      "related_native_tools": [],
+      "licenses": [
+        "Proprietary. LICENSE.txt has complete terms"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-xlsx",
+      "runtime_id": "xiaoyu_xlsx",
+      "name": "xlsx",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "1003d4e7df97e04f810c6c8e683ce694b2a299787fdccf8ac18a11c22f10b7c2",
+      "resource_count": 6,
+      "resource_bytes": 24932,
+      "related_native_tools": [],
+      "licenses": [
+        "Proprietary. LICENSE.txt has complete terms"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-geopandas",
+      "runtime_id": "xiaoyu_geopandas",
+      "name": "geopandas",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "f21c64a3f05fd9954d24b02f1be0b38fad8827e51b2e5cf6c91016f4705623c6",
+      "resource_count": 11,
+      "resource_bytes": 38381,
+      "related_native_tools": [
+        "GeoPandasSpatialJoin",
+        "GeoFionaDatasetInfo",
+        "GeoShapelyGeometry"
+      ],
+      "licenses": [
+        "BSD-3-Clause license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-literature-review",
+      "runtime_id": "xiaoyu_literature_review",
+      "name": "literature-review",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "c316d46b899e76d45bd6d9b312722c56124fc600ad8e2d7a796980864240bac7",
+      "resource_count": 11,
+      "resource_bytes": 86557,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-markitdown",
+      "runtime_id": "xiaoyu_markitdown",
+      "name": "markitdown",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "da728536d517de8a5f4ddf8addb0fbdcd84d50a80eae47b8b31d9d22bf2dcc4a",
+      "resource_count": 11,
+      "resource_bytes": 70559,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-matplotlib",
+      "runtime_id": "xiaoyu_matplotlib",
+      "name": "matplotlib",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "0c20cceb3a05f09bf057c2f6952df3e7dc20796fbeed38d9101f28941e5a9bd9",
+      "resource_count": 11,
+      "resource_bytes": 92904,
+      "related_native_tools": [],
+      "licenses": [
+        "https://github.com/matplotlib/matplotlib/tree/main/LICENSE"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-networkx",
+      "runtime_id": "xiaoyu_networkx",
+      "name": "networkx",
+      "category": "科学计算与数据管理",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "1aac65cf38eeea5ea9a2a64bfcf9d845d20697ecbae0bf623b70e10e85f7af9d",
+      "resource_count": 10,
+      "resource_bytes": 64843,
+      "related_native_tools": [],
+      "licenses": [
+        "3-clause BSD license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-openalex-database",
+      "runtime_id": "xiaoyu_openalex_database",
+      "name": "openalex-database",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "2e727022570ddf8c9b30fdf6bebf6b23e8aba9cd52d0176edaa92ca94532fdd8",
+      "resource_count": 9,
+      "resource_bytes": 57122,
+      "related_native_tools": [],
+      "licenses": [
+        "Unknown"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-plotly",
+      "runtime_id": "xiaoyu_plotly",
+      "name": "plotly",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "12069a99e3e61283c63a515904d3bbf620da46460c5ecf33ae4a20803fad41d0",
+      "resource_count": 10,
+      "resource_bytes": 51860,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pubchem-database",
+      "runtime_id": "xiaoyu_pubchem_database",
+      "name": "pubchem-database",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "5821c6858329f0ac09a8c5eb19273406971066f8c793324521be5ef72e7b47a3",
+      "resource_count": 8,
+      "resource_bytes": 51878,
+      "related_native_tools": [],
+      "licenses": [
+        "Unknown"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-pymatgen",
+      "runtime_id": "xiaoyu_pymatgen",
+      "name": "pymatgen",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "bd866be0aac3f2e5ba3a6a5cd008d3d1bd5cd84b1f606cbe93ede5c4b9a25db2",
+      "resource_count": 13,
+      "resource_bytes": 110188,
+      "related_native_tools": [
+        "Geo500CrystalSpaceGroupAudit",
+        "Geo500CrystalCoordination",
+        "Geo500MineralPhaseHull"
+      ],
+      "licenses": [
+        "MIT license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-rdkit",
+      "runtime_id": "xiaoyu_rdkit",
+      "name": "rdkit",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "e8e63381a9b52fe8fa4cb71efb3ffb8a993688f69560e523853a7908bd192f17",
+      "resource_count": 11,
+      "resource_bytes": 93074,
+      "related_native_tools": [],
+      "licenses": [
+        "BSD-3-Clause license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-scientific-slides",
+      "runtime_id": "xiaoyu_scientific_slides",
+      "name": "scientific-slides",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "51b743733ef4c6f1bb737f40b330da875cf80219cfdddc56045631de34b72b13",
+      "resource_count": 21,
+      "resource_bytes": 332572,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-scientific-writing",
+      "runtime_id": "xiaoyu_scientific_writing",
+      "name": "scientific-writing",
+      "category": "文献与办公文档",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "ffc9f5195f77392ba1d295c046e4f92a84f8fca239fb98cd2c62c9285a639d7d",
+      "resource_count": 14,
+      "resource_bytes": 237870,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-scikit-learn",
+      "runtime_id": "xiaoyu_scikit_learn",
+      "name": "scikit-learn",
+      "category": "科学计算与数据管理",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "b7de6b8d95a2674a0dea43fdf2537a8d193ba1a04b8cc0ad9ddcdc33f09372e6",
+      "resource_count": 13,
+      "resource_bytes": 124446,
+      "related_native_tools": [],
+      "licenses": [
+        "BSD-3-Clause license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-seaborn",
+      "runtime_id": "xiaoyu_seaborn",
+      "name": "seaborn",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "a7e0cff7fd1f60008c79b7e08251c16b15781cd0b3dd4b0e597bb7a5b5cfce53",
+      "resource_count": 8,
+      "resource_bytes": 89328,
+      "related_native_tools": [],
+      "licenses": [
+        "BSD-3-Clause license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-statsmodels",
+      "runtime_id": "xiaoyu_statsmodels",
+      "name": "statsmodels",
+      "category": "科学计算与数据管理",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "da2754e05c3daa42b3ec4a9d924dbcee3911861a0a5253b7e1c43b3fc8ff8ce1",
+      "resource_count": 10,
+      "resource_bytes": 112568,
+      "related_native_tools": [],
+      "licenses": [
+        "BSD-3-Clause license"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-sympy",
+      "runtime_id": "xiaoyu_sympy",
+      "name": "sympy",
+      "category": "科学计算与数据管理",
+      "package_numbers": [
+        50
+      ],
+      "source_skill_sha256": "abe14a6dbbf9a917ce27b284975c9283545f0981ef8ef65f9c740fa61ca909c7",
+      "resource_count": 10,
+      "resource_bytes": 75159,
+      "related_native_tools": [],
+      "licenses": [
+        "https://github.com/sympy/sympy/blob/master/LICENSE"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-study-area-map",
+      "runtime_id": "xiaoyu_study_area_map",
+      "name": "Study Area Map",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        51
+      ],
+      "source_skill_sha256": "ea6b9ac41bd3bbc6af673b44e882946ea26e7b2fe7747195f4e76cff30500bd6",
+      "resource_count": 15,
+      "resource_bytes": 12203161,
+      "related_native_tools": [
+        "GeoCartopyPointMap",
+        "DeepTimeRenderMap"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-climate-data-download",
+      "runtime_id": "xiaoyu_climate_data_download",
+      "name": "Climate Data Download",
+      "category": "气候与多维数据",
+      "package_numbers": [
+        52
+      ],
+      "source_skill_sha256": "05f3ba4893bf19a02e40da16ceb8dcf5037ffed326e1ed546311d63844d43a45",
+      "resource_count": 3,
+      "resource_bytes": 48021,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-soil-data-download",
+      "runtime_id": "xiaoyu_soil_data_download",
+      "name": "Soil Data Download",
+      "category": "水文与地表过程",
+      "package_numbers": [
+        53
+      ],
+      "source_skill_sha256": "dffada1f287850fac407fdc8385ba34c02fe46be1a2e143351ba9ae72d111777",
+      "resource_count": 3,
+      "resource_bytes": 22724,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-geospatial-cube-processor",
+      "runtime_id": "xiaoyu_geospatial_cube_processor",
+      "name": "Geospatial Cube Processor",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        54
+      ],
+      "source_skill_sha256": "6d33cac900ddd3321f8a38a85775dd38c979f101d730a04296913892b82ccfae",
+      "resource_count": 2,
+      "resource_bytes": 14670,
+      "related_native_tools": [
+        "GeoRasterioWindow",
+        "GeoRasterIndexAnalysis"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-spatial-crop-modeler",
+      "runtime_id": "xiaoyu_spatial_crop_modeler",
+      "name": "Spatial Crop Modeler",
+      "category": "水文与地表过程",
+      "package_numbers": [
+        55
+      ],
+      "source_skill_sha256": "2a84bc2e704c264a09d80d84cdadb4b8eec3c54714a6356a570502740b90a195",
+      "resource_count": 4,
+      "resource_bytes": 39782,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-notebook-plots",
+      "runtime_id": "xiaoyu_notebook_plots",
+      "name": "Notebook Plots",
+      "category": "科研制图与展示",
+      "package_numbers": [
+        56
+      ],
+      "source_skill_sha256": "211425909ee69ea56076fcfacd64a6ca565e1cb4722c300144e4e2223fb1fe2e",
+      "resource_count": 2,
+      "resource_bytes": 12835,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-climate-dashboard",
+      "runtime_id": "xiaoyu_climate_dashboard",
+      "name": "Climate Dashboard",
+      "category": "气候与多维数据",
+      "package_numbers": [
+        57
+      ],
+      "source_skill_sha256": "600caac774b1076a4a3a00debf38370248a3dcd3302ea6639d1392fa2d7253ae",
+      "resource_count": 2,
+      "resource_bytes": 18680,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-gcf-pipeline",
+      "runtime_id": "xiaoyu_gcf_pipeline",
+      "name": "GCF Pipeline",
+      "category": "气候与多维数据",
+      "package_numbers": [
+        58
+      ],
+      "source_skill_sha256": "7b50c461f5ee3e550472c5a69e7e39990227bb87b7cbf4c6a31e2cbab56cedbe",
+      "resource_count": 2,
+      "resource_bytes": 13155,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-cdh-metadata",
+      "runtime_id": "xiaoyu_cdh_metadata",
+      "name": "CDH Metadata",
+      "category": "气候与多维数据",
+      "package_numbers": [
+        59
+      ],
+      "source_skill_sha256": "2dea8ccca710145bc9d64f134881140454380988c4611bfcebca75319b6f7146",
+      "resource_count": 3,
+      "resource_bytes": 83928,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-global-geochemical-atlas",
+      "runtime_id": "xiaoyu_global_geochemical_atlas",
+      "name": "Global Geochemical Atlas",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        60
+      ],
+      "source_skill_sha256": "5fd7a88ca7afb74cbf598117d492b5bb5beb192a6110024f48984d339cab2e08",
+      "resource_count": 740,
+      "resource_bytes": 53058140,
+      "related_native_tools": [
+        "GeoGeochemCLR",
+        "GeoGeochemREEPattern"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-working-with-wyvern-data",
+      "runtime_id": "xiaoyu_working_with_wyvern_data",
+      "name": "Working with Wyvern Data",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        61
+      ],
+      "source_skill_sha256": "16c7e0a1c0129235da45e7421c71f76ea96de039f146a3705d9194e9405e2d8d",
+      "resource_count": 7,
+      "resource_bytes": 69159,
+      "related_native_tools": [
+        "GeoImageInspect",
+        "GeoRasterPreview",
+        "GeoRasterIndexAnalysis"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-geostatistics-interpolation",
+      "runtime_id": "xiaoyu_geostatistics_interpolation",
+      "name": "Geostatistics Interpolation",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        62
+      ],
+      "source_skill_sha256": "f5d39feca5fa35beb6ffece505e1b2b4fbba023213ddf0ea453b9aa2633e33ec",
+      "resource_count": 3,
+      "resource_bytes": 7364,
+      "related_native_tools": [
+        "GeoOrdinaryKrigingGrid",
+        "GeoSKGstatRobustVariogram",
+        "GeoVerdeGrid"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-point-cloud-lidar",
+      "runtime_id": "xiaoyu_point_cloud_lidar",
+      "name": "Point Cloud LiDAR",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        63
+      ],
+      "source_skill_sha256": "312980ba13d9c9b0be735c3244490017ae48f04d219838c745789b7dbd7a16f2",
+      "resource_count": 3,
+      "resource_bytes": 10419,
+      "related_native_tools": [],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-geo-data-engineering",
+      "runtime_id": "xiaoyu_geo_data_engineering",
+      "name": "Geo Data Engineering",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        64
+      ],
+      "source_skill_sha256": "f1c004afc1558361a71a1a7d8567d9a6822cfa989477b23932619626264b7d26",
+      "resource_count": 4,
+      "resource_bytes": 10445,
+      "related_native_tools": [
+        "GeoFionaDatasetInfo",
+        "GeoRasterioWindow",
+        "GeoSpatialRasterReproject"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-feature-db-client",
+      "runtime_id": "xiaoyu_feature_db_client",
+      "name": "Feature DB Client",
+      "category": "空间分析与遥感",
+      "package_numbers": [
+        65
+      ],
+      "source_skill_sha256": "6129ef31552f724456cf9a3e526e5a15ab4d203831a96ec81954f3f5963bea30",
+      "resource_count": 5,
+      "resource_bytes": 23997,
+      "related_native_tools": [],
+      "licenses": [
+        "CC-BY-4.0"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-mineralogist",
+      "runtime_id": "xiaoyu_mineralogist",
+      "name": "矿物鉴定的多证据审查与分析规划",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        107
+      ],
+      "source_skill_sha256": "4f2c9c760f009578c78fc8d87acb2345de6c19998fdfc96906542b285e15ef17",
+      "resource_count": 2,
+      "resource_bytes": 19120,
+      "related_native_tools": [
+        "GeoSpectralAngleMatch",
+        "Geo500PowderXRDPattern"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-xrd-annotation",
+      "runtime_id": "xiaoyu_xrd_annotation",
+      "name": "矿物相 XRD 衍射图特征峰标注",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        108
+      ],
+      "source_skill_sha256": "8e86e8d7250eaf32fe3d6ad85c007c0900d8153ba08ce04fa13be412142795ef",
+      "resource_count": 5,
+      "resource_bytes": 23907,
+      "related_native_tools": [
+        "Geo500PowderXRDPattern"
+      ],
+      "licenses": [
+        "MIT"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    },
+    {
+      "id": "xiaoyu-ai-for-mineralogy",
+      "runtime_id": "xiaoyu_ai_for_mineralogy",
+      "name": "矿物光谱与显微图像分类流程设计",
+      "category": "地质矿产与测井",
+      "package_numbers": [
+        109
+      ],
+      "source_skill_sha256": "f9b0b8876264a0ef727115642776ec8748ccd4f6c94393aa3db95141bac45a8c",
+      "resource_count": 1,
+      "resource_bytes": 2574,
+      "related_native_tools": [
+        "GeoSpectralAngleMatch",
+        "GeoRemoteGaussianClassify"
+      ],
+      "licenses": [
+        "NOASSERTION"
+      ],
+      "status": "registered_in_local_candidate",
+      "workflow_validation": "not_run",
+      "deployment": "not_run"
+    }
+  ],
+  "original_tools_sha256": "a03f984574b61c47286db700243be764ca7f0000bfb0b062574a972cacbac79e",
+  "original_skills_sha256": "11ba3635ba25d8244e800d27bab9b08b631267a3260df91772a6dac416576dc7"
+}

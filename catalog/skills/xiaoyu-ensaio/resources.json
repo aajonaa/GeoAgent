@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_ensaio",
+  "archive_sha256": "086bce1da4c2e67490a2bba61be9d0cc5d8df054aca998f3f4a0f7dbd5d57cfa",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 39,
+          "archive_sha256": "385b2f4af84be05bcfaaed897d816935bea87fd3e82175395f5153c9a89e634b",
+          "member": "ensaio/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 745,
+      "sha256": "558a78e62970871a571ad2269f9eae07a7a82adc07ee68768fa7f375f13a5a83",
+      "origins": [
+        {
+          "package_number": 39,
+          "archive_sha256": "385b2f4af84be05bcfaaed897d816935bea87fd3e82175395f5153c9a89e634b",
+          "member": "ensaio/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 2630,
+      "sha256": "b4952b1c8f768f99b4dd33685d8e98574323c43734129feae17f0caba07f93c2",
+      "origins": [
+        {
+          "package_number": 39,
+          "archive_sha256": "385b2f4af84be05bcfaaed897d816935bea87fd3e82175395f5153c9a89e634b",
+          "member": "ensaio/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

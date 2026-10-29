@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_cdh_metadata",
+  "archive_sha256": "f6033edba7388b974761724fbd2ca1044f3c3df16ac08e4fee13f22b323d1194",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 41346,
+      "sha256": "2dea8ccca710145bc9d64f134881140454380988c4611bfcebca75319b6f7146",
+      "origins": [
+        {
+          "package_number": 59,
+          "archive_sha256": "f1151d8914c9ec23a6e06fd907bf9be106979e3b8be5540386bf1d9e94bfaede",
+          "member": "skill59ú║╡╪└φ┐╒╝Σ╩²╛▌╘¬╩²╛▌╔·│╔-cdh-metadata/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "evals/evals.json",
+      "bytes": 11016,
+      "sha256": "c050c838b47710c9c4941d3c73fae31121507e8c6cfb0a3f882ef5225e731748",
+      "origins": [
+        {
+          "package_number": 59,
+          "archive_sha256": "f1151d8914c9ec23a6e06fd907bf9be106979e3b8be5540386bf1d9e94bfaede",
+          "member": "skill59ú║╡╪└φ┐╒╝Σ╩²╛▌╘¬╩²╛▌╔·│╔-cdh-metadata/evals/evals.json"
+        }
+      ]
+    },
+    {
+      "path": "references/cdh-annotated-template.md",
+      "bytes": 31566,
+      "sha256": "7c6132e9a84899cbd8e7a992379d74fff03894eb4beaee4a958dfa48e2672be6",
+      "origins": [
+        {
+          "package_number": 59,
+          "archive_sha256": "f1151d8914c9ec23a6e06fd907bf9be106979e3b8be5540386bf1d9e94bfaede",
+          "member": "skill59ú║╡╪└φ┐╒╝Σ╩²╛▌╘¬╩²╛▌╔·│╔-cdh-metadata/references/cdh-annotated-template.md"
+        }
+      ]
+    }
+  ]
+}

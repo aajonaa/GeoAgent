@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_point_cloud_lidar",
+  "archive_sha256": "3f03a79990a33d317cca6fd1304b08a851912774f35817b03e0e761116560598",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 9431,
+      "sha256": "312980ba13d9c9b0be735c3244490017ae48f04d219838c745789b7dbd7a16f2",
+      "origins": [
+        {
+          "package_number": 63,
+          "archive_sha256": "78f3d91ffda28b490dc5703e5dbed0b009442cc02cc48ff79574bdd8fcc6834c",
+          "member": "point-cloud-lidar/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 207,
+      "sha256": "7db2a8b5034b60dd88cdc3cc043ebdde5f1b4cb54f27ee624411d3235fc2799c",
+      "origins": [
+        {
+          "package_number": 63,
+          "archive_sha256": "78f3d91ffda28b490dc5703e5dbed0b009442cc02cc48ff79574bdd8fcc6834c",
+          "member": "point-cloud-lidar/agents/openai.yaml"
+        }
+      ]
+    },
+    {
+      "path": "references/authoritative-sources.md",
+      "bytes": 781,
+      "sha256": "4fe53c49f84c4fdc1b6b5722c3fe2af64e3f9ecc103c6e4dd1501f654014ca31",
+      "origins": [
+        {
+          "package_number": 63,
+          "archive_sha256": "78f3d91ffda28b490dc5703e5dbed0b009442cc02cc48ff79574bdd8fcc6834c",
+          "member": "point-cloud-lidar/references/authoritative-sources.md"
+        }
+      ]
+    }
+  ]
+}
