@@ -354,11 +354,13 @@ class Store:
     def event(self, rid, data):
         with self.lock, self.db:
             self.db.execute("INSERT INTO events(rid,data) VALUES (?,?)", (rid, json.dumps(data, ensure_ascii=False)))
-            if data.get("kind") in ("stage_timing", "model_config", "tool_start", "skill_selected", "skill_loaded", "run_mode"):
+            if data.get("kind") in ("stage_timing", "model_config", "tool_start", "skill_selected", "skill_loaded", "run_mode", "plan_confirmed"):
                 row = self.db.execute("SELECT data FROM run_activity WHERE rid=?", (rid,)).fetchone()
                 summary = json.loads(row[0]) if row else {}
                 if data["kind"] == "stage_timing":
                     summary["timing"] = data
+                elif data["kind"] == "plan_confirmed":
+                    summary["plan"] = data.get("plan")
                 elif data["kind"] == "model_config":
                     summary["profile"] = data.get("profile", {})
                 elif data["kind"] == "run_mode":

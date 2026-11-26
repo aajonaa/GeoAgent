@@ -136,6 +136,31 @@ class _TaskStartupError(HTTPException):
 
 
 
+_PLAN_TEXT_LIMITS = {'objective': 500, 'scope': 1000, 'materials': 1000, 'tools': 500, 'deliverables': 1000}
+
+
+def _confirmed_research_plan(value):
+    if value is None:
+        return None
+    if not isinstance(value, dict) or set(value) != {*_PLAN_TEXT_LIMITS, 'acceptance'}:
+        raise HTTPException(400, 'Invalid confirmed research plan')
+    plan = {}
+    for field, limit in _PLAN_TEXT_LIMITS.items():
+        text = value[field]
+        if not isinstance(text, str) or not text.strip() or len(text.strip()) > limit:
+            raise HTTPException(400, 'Invalid confirmed research plan')
+        plan[field] = text.strip()
+    acceptance = value['acceptance']
+    if not isinstance(acceptance, list) or not 1 <= len(acceptance) <= 5:
+        raise HTTPException(400, 'Invalid confirmed acceptance criteria')
+    plan['acceptance'] = []
+    for item in acceptance:
+        if not isinstance(item, str) or not item.strip() or len(item.strip()) > 300:
+            raise HTTPException(400, 'Invalid confirmed acceptance criteria')
+        plan['acceptance'].append(item.strip())
+    return plan
+
+
 _LEGACY_DEADLINE_REASON = 'TimeoutError: Managed task execution deadline exceeded'
 _MANAGED_DEADLINE_REASON = '任务已达到执行时限。完整调研报告未完成。'
 
@@ -1244,14 +1269,17 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         if fatal_error is not None:
             raise fatal_error
 
-    def launch(uid, cid, query, profile, *, expected_input=None, skill_id=None, mode='agent'):
+    def launch(uid, cid, query, profile, *, expected_input=None, skill_id=None, mode='agent', plan=None):
         store.conversation(uid, cid)
         if not isinstance(query, str) or not query.strip() or len(query) > 20000:
             raise HTTPException(400, 'Provide a task of 1 to 20,000 characters')
         if mode not in ('ask', 'agent'):
             raise HTTPException(400, 'Choose Ask or Agent mode')
-        if mode == 'ask' and skill_id is not None:
-            raise HTTPException(400, 'Switch to Agent mode to use a skill')
+        plan = _confirmed_research_plan(plan)
+        if mode == 'ask' and (skill_id is not None or plan is not None):
+            raise HTTPException(400, 'Switch to Agent mode to use a skill or confirmed plan')
+        if expected_input is not None and plan is not None:
+            raise HTTPException(400, 'A confirmed plan applies only to a new task')
         require_recovery_admission()
         if expected_input is None:
             reconcile_startups(uid)
@@ -1299,13 +1327,18 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             try:
                 recovery.prepare(uid, cid, rid)
                 store.begin(uid, cid, query.strip(), expected_input=expected_input, _rid=rid)
+                if plan is not None:
+                    store.event(rid, {'kind': 'plan_confirmed', 'plan': plan})
                 store.event(rid, {'kind': 'model_config', 'profile': profile.run_snapshot(), 'context_budget': profile.context_budget()})
                 store.event(rid, {'kind':'run_mode', 'mode':mode})
                 if skill:
                     store.event(rid, {'kind': 'skill_selected', 'skill': skill})
+                execution_query = query.strip()
+                if plan is not None:
+                    execution_query += '\n\n用户已确认的研究计划与验收标准：\n' + json.dumps(plan, ensure_ascii=False)
                 conversation_memory.capture(uid, cid, rid)
                 cancel = Event()
-                thread = Thread(target=execute, args=(uid, cid, rid, query.strip(), cancel, profile, startup, skill, mode), daemon=True)
+                thread = Thread(target=execute, args=(uid, cid, rid, execution_query, cancel, profile, startup, skill, mode), daemon=True)
                 jobs[rid] = {'uid': uid, 'cid': cid, 'cancel': cancel, 'thread': thread, 'startup': startup}
                 shutdown.track_worker(rid, uid, cancel, thread, startup)
                 try:
@@ -1341,7 +1374,8 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         data = await body(request)
         profile = await run_in_threadpool(model_settings.get, request.cookies.get(COOKIE, ''))
         return await run_in_threadpool(launch, user['id'], cid, data.get('query', ''), profile,
-                                       skill_id=data.get('skill_id'), mode=data.get('mode', 'agent'))
+                                       skill_id=data.get('skill_id'), mode=data.get('mode', 'agent'),
+                                       plan=data.get('plan'))
 
     def pending_input(uid, request_id, cid, rid):
         if not all(isinstance(value, str) and value for value in (request_id, cid, rid)):
@@ -1525,7 +1559,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
 
     @app.get('/assets/{name}')
     def asset(name: str):
-        if name not in ('password-auth.js', 'admin-usage.js', 'admin-usage.css', 'shared-knowledge.js', 'shared-knowledge.css', 'admin-users.js', 'admin-users.css', 'email-auth.js', 'profile.js', 'profile.css', 'registration.js', 'registration.css', 'app.js', 'drafts.js', 'style.css', 'defaults.js', 'defaults.css', 'memorax.js', 'memorax.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css', 'citations.js', 'citations.css', 'bogao-wordmark.svg', 'bogao-symbol.svg'):
+        if name not in ('password-auth.js', 'admin-usage.js', 'admin-usage.css', 'shared-knowledge.js', 'shared-knowledge.css', 'admin-users.js', 'admin-users.css', 'email-auth.js', 'profile.js', 'profile.css', 'registration.js', 'registration.css', 'app.js', 'drafts.js', 'research-plan.js', 'style.css', 'defaults.js', 'defaults.css', 'memorax.js', 'memorax.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css', 'citations.js', 'citations.css', 'bogao-wordmark.svg', 'bogao-symbol.svg'):
             raise HTTPException(404)
         return FileResponse(assets / name)
 

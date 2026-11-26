@@ -16,14 +16,15 @@
   <script src="/assets/profile.js?v=invite50-profile-20261110-r1" defer></script>
   <title>OreBOGAO</title>
   <link rel="icon" href="/assets/bogao-symbol.svg" type="image/svg+xml" sizes="any">
-  <link rel="stylesheet" href="/assets/style.css?v=20261127-task-summary"><link rel="stylesheet" href="/assets/library.css?v=20261124-skill-picker"><link rel="stylesheet" href="/assets/model-profiles.css?v=20261003-context1"><link rel="stylesheet" href="/assets/knowledge.css?v=20261004-pdf2">
+  <link rel="stylesheet" href="/assets/style.css?v=20261127-plan-confirm"><link rel="stylesheet" href="/assets/library.css?v=20261124-skill-picker"><link rel="stylesheet" href="/assets/model-profiles.css?v=20261003-context1"><link rel="stylesheet" href="/assets/knowledge.css?v=20261004-pdf2">
   <link rel="stylesheet" href="/assets/images.css?v=20261004-experience1">
   <link rel="stylesheet" href="/assets/presentation.css?v=20261003-rich1">
   <link rel="stylesheet" href="/assets/citations.css?v=20261125-clay">
   <script src="/assets/citations.js?v=20261124-chat-redesign" defer></script>
   <script src="/assets/timeline.js?v=20261127-task-summary" defer></script>
-<script src="/assets/drafts.js?v=20261126-global-state" defer></script>
-<script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261126-global-state-draftfix" defer></script><script src="/assets/images.js?v=20261127-task-summary" defer></script>
+<script src="/assets/drafts.js?v=20261127-plan-confirm" defer></script>
+<script src="/assets/research-plan.js?v=20261127-plan-confirm" defer></script>
+<script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261127-plan-confirm" defer></script><script src="/assets/images.js?v=20261127-task-summary" defer></script>
   <script src="/assets/defaults.js?v=20261124-settings-anchor" defer></script>
 <script src="/assets/memorax.js?v=20261024-live3" defer></script>
 <link rel="stylesheet" href="/assets/timeline.css?v=20261127-task-summary">
@@ -160,6 +161,27 @@
       <p id="execution-note" class="composer-mode-note" role="status"></p>
     </div>
   </main>
+  <dialog id="plan-dialog" class="plan-dialog" aria-labelledby="plan-title">
+    <form id="plan-form" novalidate>
+      <header class="plan-dialog-header">
+        <div><p class="eyebrow">执行前确认</p><h2 id="plan-title">研究计划与验收标准</h2></div>
+        <p>确认后才会开始执行；计划会随本次运行和结果保留。</p>
+      </header>
+      <div class="plan-fields">
+        <label class="plan-field plan-field-wide">研究目标<input id="plan-objective" name="objective" maxlength="500" required></label>
+        <label class="plan-field">研究范围<input id="plan-scope" name="scope" maxlength="1000" required></label>
+        <label class="plan-field">资料与数据<input id="plan-materials" name="materials" maxlength="1000" required></label>
+        <label class="plan-field">工具与技能<input id="plan-tools" name="tools" maxlength="500" required></label>
+        <label class="plan-field plan-field-wide">预期成果<input id="plan-deliverables" name="deliverables" maxlength="1000" required></label>
+        <label class="plan-field plan-field-wide">验收标准（每行一条，最多 5 条）<textarea id="plan-acceptance" name="acceptance" rows="4" required></textarea></label>
+      </div>
+      <p id="plan-error" class="plan-error" role="alert"></p>
+      <footer class="plan-dialog-actions">
+        <button id="plan-cancel" type="button" class="quiet">返回修改</button>
+        <button id="plan-confirm" type="submit" class="primary">确认并执行</button>
+      </footer>
+    </form>
+  </dialog>
   <aside id="artifact-preview" class="artifact-preview" aria-labelledby="artifact-preview-title" hidden>
     <header class="artifact-preview-header">
       <div class="artifact-preview-title">

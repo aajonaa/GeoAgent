@@ -45,7 +45,7 @@
     try { return localStorage.getItem(key(scope, field)) || ''; } catch (_) { return ''; }
   }
   function clear(scope) {
-    for (const field of ['text', 'option']) remove(scope, field);
+    for (const field of ['text', 'option', 'plan']) remove(scope, field);
     for (const target of pending.keys()) if (target.startsWith(prefix(scope) + ':')) { clearTimeout(pending.get(target).timer); pending.delete(target); }
     if (!uid || !available) return Promise.resolve();
     return transaction('readwrite', store => {

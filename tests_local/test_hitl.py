@@ -236,11 +236,16 @@ def test_global_state_assets_are_served_and_loaded(web_group):
     script = owner.get("/assets/drafts.js")
     assert script.status_code == 200
     assert "indexedDB" in script.text and "orebogao:draft:v1:" in script.text
+    plan_script = owner.get("/assets/research-plan.js")
+    assert plan_script.status_code == 200
+    assert "window.GeoAgentPlan" in plan_script.text and "acceptance" in plan_script.text
     page = owner.get("/").text
-    assert "/assets/drafts.js?v=20261126-global-state" in page
-    assert "/assets/app.js?v=20261126-global-state-draftfix" in page
+    assert "/assets/drafts.js?v=20261127-plan-confirm" in page
+    assert "/assets/research-plan.js?v=20261127-plan-confirm" in page
+    assert "/assets/app.js?v=20261127-plan-confirm" in page
     assert "/assets/hitl.js?v=20261126-global-state" in page
-    assert "/assets/style.css?v=20261127-task-summary" in page
+    assert "/assets/style.css?v=20261127-plan-confirm" in page
+    assert 'id="plan-dialog"' in page
     for asset in ('timeline.js', 'timeline.css', 'images.js'):
         response = owner.get('/assets/' + asset)
         assert response.status_code == 200

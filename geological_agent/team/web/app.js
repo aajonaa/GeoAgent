@@ -34,7 +34,7 @@ async function api(path, options = {}) {
   if (!response.ok) { if (response.status === 401 && state.me) showLogin(); const error = new Error(result.detail === 'CSRF validation failed' ? '登录校验未通过，请刷新页面后重试。' : result.detail || `HTTP ${response.status}`); error.status = response.status; error.code = result.code; error.activeConversation = response.headers.get('X-Active-Conversation'); error.retryAfter = Number(response.headers.get('Retry-After')) || null; throw error; }
   return result;
 }
-function showLogin() { $('admin-releases-dialog').close(); $('admin-releases-open').hidden = true; $('admin-releases-content').replaceChildren(); $('auth-submit').disabled = false; window.OreSageEmail?.showLogin(); window.OreSageProfile?.clear(); window.OreSagePassword?.clear(); window.OreSageAdminUsers?.clear(); window.OreSageAdminUsage?.clear(); window.OreSageSharedKnowledge?.clear(); window.GeoAgentCases?.clear(); window.GeoAgentDefaults?.clear(); window.GeoAgentImages?.clear(); window.OreSageDrafts?.reset(); stopRunElapsedClock(); submissionFeedback(); state.runs.clear(); state.activeTasks = []; state.inputRequests = []; renderGlobalTask(); window.GeoToolLibrary?.reset(); window.GeoToolHITL?.reset(); state.view++; state.cid = null; state.me = null; modelSettings = null; $('model-token').value = ''; $('model-dialog').close(); for (const source of state.sources.values()) source.close(); state.sources.clear(); $('app').hidden = true; $('auth-screen').hidden = false; }
+function showLogin() { $('admin-releases-dialog').close(); $('admin-releases-open').hidden = true; $('admin-releases-content').replaceChildren(); $('auth-submit').disabled = false; window.OreSageEmail?.showLogin(); window.OreSageProfile?.clear(); window.OreSagePassword?.clear(); window.OreSageAdminUsers?.clear(); window.OreSageAdminUsage?.clear(); window.OreSageSharedKnowledge?.clear(); window.GeoAgentCases?.clear(); window.GeoAgentDefaults?.clear(); window.GeoAgentImages?.clear(); window.GeoAgentPlan?.reset(); window.OreSageDrafts?.reset(); stopRunElapsedClock(); submissionFeedback(); state.runs.clear(); state.activeTasks = []; state.inputRequests = []; renderGlobalTask(); window.GeoToolLibrary?.reset(); window.GeoToolHITL?.reset(); state.view++; state.cid = null; state.me = null; modelSettings = null; $('model-token').value = ''; $('model-dialog').close(); for (const source of state.sources.values()) source.close(); state.sources.clear(); $('app').hidden = true; $('auth-screen').hidden = false; }
 function notice(message = '') { $('notice').textContent = message; }
 function submissionFeedback(message = '', conversationId = '') {
   const box = $('submission-feedback'), label = $('submission-status'), open = $('active-task-open');
@@ -193,7 +193,7 @@ async function openConversation(cid) {
   window.GeoToolLibrary?.close({focus:false});
   if (state.cid && state.cid !== cid) window.GeoToolLibrary?.clearSelection();
   if (!submittingRun) submissionFeedback();
-  window.OreSageDrafts?.flush(); window.GeoAgentImages?.clear(); closeStreams(); state.cid = cid; const view = ++state.view; state.runs.clear(); $('messages').replaceChildren(); notice(); busy(null); restoreComposerDraft();
+  window.OreSageDrafts?.flush(); window.GeoAgentImages?.clear(); window.GeoAgentPlan?.selectConversation(cid); closeStreams(); state.cid = cid; const view = ++state.view; state.runs.clear(); $('messages').replaceChildren(); notice(); busy(null); restoreComposerDraft();
   window.GeoToolHITL?.selectConversation(cid);
   const conversation = await api(`/api/conversations/${cid}`); if (state.cid !== cid || state.view !== view) return; $('chat-title').textContent = conversation.title;
   if (!conversation.runs.length) $('messages').append(welcome);
@@ -342,16 +342,18 @@ function renderRun(run) {
   const skillReceipt = element('div', undefined, 'run-skill'); skillReceipt.hidden = true;
   const modeReceipt = element('span', undefined, 'run-mode'); modeReceipt.hidden = true;
   const settingsReceipt = element('div', undefined, 'run-settings');
+  const planSlot = element('div', undefined, 'run-plan-slot');
   settingsReceipt.append(modeReceipt, skillReceipt);
-  userGroup.append(user, settingsReceipt, userTime.box);
+  userGroup.append(user, settingsReceipt, planSlot, userTime.box);
   const timeSeparator = element('div', undefined, 'message-time-separator'); timeSeparator.append(element('time')); timeSeparator.hidden = true;
   turn.append(timeSeparator, userGroup, label, elapsed, activity, answer, reason, answerTime.box); $('messages').append(turn);
-  const ui = {userTime, answerTime, timeSeparator, skillReceipt, modeReceipt, sentAt:null, finishedAt:null, mode:run.activity?.mode,
+  const ui = {userTime, answerTime, timeSeparator, skillReceipt, modeReceipt, planSlot, sentAt:null, finishedAt:null, mode:run.activity?.mode,
     hasExtendedProgress:Boolean(run.activity?.skill || run.activity?.tool_count || run.activity?.timing?.totals_seconds?.retrieval), elapsed, elapsedBase:0, elapsedAnchor:performance.now(), elapsedKnown:runIsWorking(run.status), status:run.status, turn, activity, summary, list, answer, answerText:run.answer || '', reason, tools:new Map(), finished:!['running','stopping'].includes(run.status)};
   ui.replyActions = replyActions(ui);
   reason.before(ui.replyActions);
   state.runs.set(run.id, ui); setRunElapsed(ui, run); window.GeoToolHITL?.attachCards(); window.GeoAgentExperience?.attach(run.id, ui); window.GeoAgentTimeline?.attach(run.id, ui); window.GeoAgentPresentation?.attach(run.id, ui);
   if (run.activity?.mode) handleEvent(run.id, {kind:'run_mode', mode:run.activity.mode}, null, true);
+  if (run.activity?.plan) handleEvent(run.id, {kind:'plan_confirmed', plan:run.activity.plan}, null, true);
   if (run.activity?.skill) handleEvent(run.id, {kind:'skill_selected', skill:run.activity.skill}, null, true);
   for (const receipt of Object.values(run.activity?.loaded_skills || {})) window.GeoAgentTimeline?.event(run.id, receipt);
   if (run.activity?.profile) handleEvent(run.id, {kind:'model_config', profile:run.activity.profile}, null, true);
@@ -376,6 +378,10 @@ function handleEvent(rid, data, eventId, historical = false) {
     ui.modeReceipt.textContent = data.mode === 'ask' ? '询问' : '执行';
     ui.modeReceipt.dataset.mode = data.mode;
     ui.modeReceipt.hidden = false;
+  }
+  if (data.kind === 'plan_confirmed' && data.plan && !ui.planReceipt) {
+    ui.planReceipt = window.GeoAgentPlan?.receipt(data.plan);
+    if (ui.planReceipt) ui.planSlot.append(ui.planReceipt);
   }
   if (data.kind === 'skill_selected' && data.skill) {
     const {name, id, revision, instructions_sha256: digest} = data.skill;
@@ -483,6 +489,8 @@ $('composer').addEventListener('submit', async event => {
   if (!query) return;
   const mode = composerMode();
   const skillId = mode === 'agent' ? window.GeoToolLibrary?.selectedId() : null;
+  const confirmedPlan = mode === 'agent' ? window.GeoAgentPlan?.consume(query, skillId) : null;
+  if (mode === 'agent' && !confirmedPlan && window.GeoAgentPlan?.open(query, skillId)) return;
   const identity = state.me?.id, draftScope = composerDraftScope();
   let view = state.view, cid = state.cid;
   submittingRun = true;
@@ -499,12 +507,13 @@ $('composer').addEventListener('submit', async event => {
       cid = conversation.id;
     }
     if (state.cid !== cid || state.view !== view || state.me?.id !== identity) return;
-    const run = await api(`/api/conversations/${cid}/runs`, {method:'POST', body:{query, mode, ...(skillId ? {skill_id:skillId} : {})}});
+    const run = await api(`/api/conversations/${cid}/runs`, {method:'POST', body:{query, mode, ...(skillId ? {skill_id:skillId} : {}), ...(confirmedPlan ? {plan:confirmedPlan} : {})}});
     if (state.cid !== cid || state.view !== view || state.me?.id !== identity) return;
     if (prompt.value === draft) { prompt.value = ''; window.OreSageDrafts?.clear(composerDraftScope()); }
     if (draftScope !== composerDraftScope()) window.OreSageDrafts?.clear(draftScope);
     window.GeoToolLibrary?.clearSelection();
-    renderRun({id:run.id,query,status:'running',answer:'',activity:{mode}});
+    if (confirmedPlan) window.GeoAgentPlan?.committed();
+    renderRun({id:run.id,query,status:'running',answer:'',activity:{mode, ...(confirmedPlan ? {plan:confirmedPlan} : {})}});
     submissionFeedback();
     busy(run.id); subscribe(run.id); refreshActiveTasks().catch(() => {}); scrollEnd(); await loadConversations();
   } catch (error) {
