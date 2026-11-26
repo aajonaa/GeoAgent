@@ -12,6 +12,17 @@ SQL_ROOT = Path(__file__).with_name('migration_sql')
 VERSION = '001_identity_activity_expand'
 DESCRIPTION = 'Add optional profiles, SMS storage, invitation usage and account events'
 NEW_TABLES = {'schema_migrations', 'user_profiles', 'sms_verifications', 'invite_uses', 'business_events'}
+RUNTIME_TABLES = {'generation_audit'}
+GENERATION_AUDIT_SQL = """
+CREATE TABLE IF NOT EXISTS generation_audit(
+ cid TEXT REFERENCES conversations(id),
+ generation TEXT,
+ action TEXT NOT NULL,
+ source_generation TEXT,
+ created REAL NOT NULL,
+ PRIMARY KEY(cid,generation)
+);
+"""
 
 
 class MigrationError(RuntimeError):
@@ -36,10 +47,22 @@ def canonical(sql):
                     re.findall(r"'(?:''|[^'])*'|\"(?:\"\"|[^\"])*\"|[A-Za-z_][A-Za-z_0-9]*|\d+|[^\s]", sql or ''))
 
 
-def schema(connection):
+def schema(connection, *, include_runtime=False):
+    # Runtime tables remain outside the explicit migration contract.
     return {row[0]: {'type': row[1], 'table': row[2], 'sql': canonical(row[3])}
             for row in connection.execute("SELECT name,type,tbl_name,sql FROM sqlite_master "
-                                          "WHERE name NOT LIKE 'sqlite_%' ORDER BY name")}
+                                          "WHERE name NOT LIKE 'sqlite_%' ORDER BY name")
+            if include_runtime or row[0] not in RUNTIME_TABLES}
+
+
+def validate_runtime_schema(connection):
+    with closing(sqlite3.connect(':memory:')) as reference:
+        reference.execute(GENERATION_AUDIT_SQL)
+        expected = schema(reference, include_runtime=True)
+    actual = {name: value for name, value in schema(connection, include_runtime=True).items()
+              if name in RUNTIME_TABLES}
+    if any(name not in expected or value != expected[name] for name, value in actual.items()):
+        raise MigrationError('Unknown runtime schema')
 
 
 def definition():
@@ -84,6 +107,7 @@ def transaction(connection):
 
 def status(connection):
     """Read-only status; description lives in code, not an unapproved ledger column."""
+    validate_runtime_schema(connection)
     _, expected = contracts()
     _, _, checksum = definition()
     if 'schema_migrations' not in schema(connection):

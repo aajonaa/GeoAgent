@@ -37,7 +37,7 @@ def test_safe_path_rejects_escape(tmp_path,name):
 def test_input_tamper_cannot_be_loaded(tmp_path):
     original=CaseCatalog();shutil.copytree(original.root,tmp_path/'library')
     lib=CaseCatalog(tmp_path/'library');item=next(i for i in lib.items.values() if i['skill']=='ore-geodesic')
-    name=next(iter(item['input_files']));p=lib.root/'inputs'/item['storage']/name;p.write_bytes(b'changed')
+    name=next(iter(item['input_files']));p=lib.root/'inputs'/item['storage']/name;p.chmod(p.stat().st_mode|0o200);p.write_bytes(b'changed')
     with pytest.raises(ValueError,match='校验失败'):lib.files(item)
 
 def test_deferred_argument_needs_real_predecessor():
@@ -68,6 +68,21 @@ def test_generic_load_original_bytes_and_no_auto_run(group):
     assert info['case']==item['id'] and info['check_available'] is False
     assert c.post('/api/conversations/'+cid+'/case/check',headers={'x-csrf-token':csrf}).status_code==409
     assert c.post('/api/cases/curve-linear-v1/load',**kwargs).status_code==409
+
+def test_post_snapshot_error_removes_generation_audit(group,monkeypatch):
+    _,store,c,csrf,uid=group;lib=group[0].state.case_catalog
+    item=next(i for i in lib.items.values() if i['skill']=='ore-geodesic')
+    before=len(store.conversations(uid));audit_before=store.db.execute('SELECT count(*) FROM generation_audit').fetchone()[0]
+    original=store.snapshot
+    def fail_after(*args,**kwargs):
+        original(*args,**kwargs)
+        raise ValueError('post-snapshot failure test')
+    monkeypatch.setattr(store,'snapshot',fail_after)
+    response=c.post('/api/cases/'+item['id']+'/load',json={'request_id':uuid.uuid4().hex},headers={'x-csrf-token':csrf})
+    assert response.status_code==400
+    assert len(store.conversations(uid))==before
+    assert store.db.execute('SELECT count(*) FROM generation_audit').fetchone()[0]==audit_before
+
 
 def test_blocked_load_never_creates_conversation(group):
     app,store,c,csrf,uid=group

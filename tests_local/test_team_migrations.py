@@ -105,6 +105,30 @@ def test_T04_process_exit_before_after_commit(tmp_path,point,applied):
         assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
 
 
+def test_runtime_generation_audit_restart_contract(tmp_path):
+    from geological_agent.team import email_migration as email
+    from geological_agent.team import invite_profile_migration as invite
+    from geological_agent.team.store import Store
+
+    store=Store(tmp_path/'runtime-store')
+    try:
+        assert store.db.execute("SELECT 1 FROM sqlite_master WHERE name='generation_audit'").fetchone()
+        m.validate_runtime_schema(store.db)
+    finally:store.db.close()
+    with closing(connect(tmp_path/'runtime-restart.sqlite3')) as c:
+        legacy(c)
+        c.execute(m.GENERATION_AUDIT_SQL)
+        assert m.migrate(c)['result']=='applied'
+        email.migrate(c)
+        invite.migrate(c)
+        state=m.status(c)
+        assert {row['version'] for row in state['extensions']}=={email.VERSION,invite.VERSION}
+        assert m.migrate(c)['result']=='already_applied'
+        c.execute('ALTER TABLE generation_audit ADD COLUMN unexpected TEXT')
+        with pytest.raises(m.MigrationError):m.status(c)
+        with pytest.raises(m.MigrationError):m.migrate(c)
+
+
 def test_version_checksum_and_structure_drift(tmp_path):
     with closing(connect(tmp_path/'drift.sqlite3')) as c:
         m.migrate(c)

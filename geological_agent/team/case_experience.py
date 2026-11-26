@@ -199,6 +199,7 @@ def install_case_routes(app, auth, body, store, guard, jobs):
                         db.execute('INSERT INTO loads(uid,token,cid,version,case_id) VALUES (?,?,?,?,?)',(uid,token,cid,item['version'],case_id))
                 except Exception:
                     with store.lock,store.db:
+                        store.db.execute('DELETE FROM generation_audit WHERE cid=?',(cid,))
                         store.db.execute('DELETE FROM file_origins WHERE cid=?',(cid,))
                         store.db.execute('DELETE FROM files WHERE cid=?',(cid,))
                         store.db.execute('DELETE FROM conversations WHERE id=? AND uid=?',(cid,uid))
@@ -260,6 +261,7 @@ def install_case_routes(app, auth, body, store, guard, jobs):
                 except Exception:
                     # Only roll back the newly created, never-run empty case conversation.
                     with store.lock, store.db:
+                        store.db.execute('DELETE FROM generation_audit WHERE cid=?', (cid,))
                         store.db.execute('DELETE FROM file_origins WHERE cid=?', (cid,))
                         store.db.execute('DELETE FROM files WHERE cid=?', (cid,))
                         store.db.execute('DELETE FROM conversations WHERE id=? AND uid=?', (cid, uid))

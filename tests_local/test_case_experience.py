@@ -172,6 +172,20 @@ def test_snapshot_error_rolls_back_new_case(group,monkeypatch):
     assert len(store.conversations(uid))==before
 
 
+def test_post_snapshot_error_removes_generation_audit(group,monkeypatch):
+    _,store,users=group;c,csrf,uid=users[0]
+    before=len(store.conversations(uid));audit_before=store.db.execute('SELECT count(*) FROM generation_audit').fetchone()[0]
+    original=store.snapshot
+    def fail_after(*args,**kwargs):
+        original(*args,**kwargs)
+        raise ValueError('post-snapshot failure test')
+    monkeypatch.setattr(store,'snapshot',fail_after)
+    response=c.post('/api/cases/'+ce.CASE_ID+'/load',json={'request_id':uuid.uuid4().hex},headers={'x-csrf-token':csrf})
+    assert response.status_code==400
+    assert len(store.conversations(uid))==before
+    assert store.db.execute('SELECT count(*) FROM generation_audit').fetchone()[0]==audit_before
+
+
 def test_truth_not_served(group):
     c=group[2][0][0]
     assert c.get('/case-assets/truth.json').status_code==404

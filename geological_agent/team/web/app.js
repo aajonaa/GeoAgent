@@ -622,6 +622,7 @@ async function loadFiles() {
   }
   if (!result.files.length) $('files-list').append(element('p','尚无文件。可添加材料，或让 Agent 生成文件。','muted'));
   window.GeoAgentImages?.render(result, cid);
+  window.GeoAgentVersions?.render(result, cid);
 }
 for (const id of ['attach','upload-button']) $(id).addEventListener('click',()=>$('upload').click());
 $('upload').addEventListener('change',async()=>{const file=$('upload').files[0]; if(!file)return; try{const cid=await ensureConversation();await api(`/api/conversations/${cid}/upload?name=${encodeURIComponent(file.name)}`,{method:'POST',body:file,headers:{'Content-Type':'application/octet-stream'}}); await loadFiles(); $('files-panel').hidden=false; notice('文件已加入当前对话。');}catch(e){notice(e.message);}finally{$('upload').value='';}});

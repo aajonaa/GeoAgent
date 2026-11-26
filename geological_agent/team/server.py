@@ -810,7 +810,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             current[name] = raw
             generation = store.snapshot(uid, cid, current, origins={
                 name: {"origin": "user_supplied", "sha256": hashlib.sha256(raw).hexdigest(),
-                       "scope": "uploaded by the authenticated caller; not independently verified"}})
+                       "scope": "uploaded by the authenticated caller; not independently verified"}}, action='upload')
         return {'ok': True, 'generation': generation}
 
     def model_call(request, cancel, profile, progress, *, uid=None, rid=None):
@@ -1514,7 +1514,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             current[name] = raw
             generation = store.snapshot(uid, cid, current, origins={
                 name: {"origin": "user_supplied", "sha256": hashlib.sha256(raw).hexdigest(),
-                       "scope": "uploaded by the authenticated caller; not independently verified"}})
+                       "scope": "uploaded by the authenticated caller; not independently verified"}}, action='upload')
         return {'ok': True, 'name': name, 'generation': generation}
 
     @app.get('/api/runs/{rid}')
@@ -1677,7 +1677,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
 
     @app.get('/assets/{name}')
     def asset(name: str):
-        if name not in ('password-auth.js', 'admin-usage.js', 'admin-usage.css', 'shared-knowledge.js', 'shared-knowledge.css', 'admin-users.js', 'admin-users.css', 'email-auth.js', 'profile.js', 'profile.css', 'registration.js', 'registration.css', 'app.js', 'drafts.js', 'research-plan.js', 'recovery.js', 'style.css', 'defaults.js', 'defaults.css', 'memorax.js', 'memorax.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css', 'citations.js', 'citations.css', 'bogao-wordmark.svg', 'bogao-symbol.svg'):
+        if name not in ('password-auth.js', 'admin-usage.js', 'admin-usage.css', 'shared-knowledge.js', 'shared-knowledge.css', 'admin-users.js', 'admin-users.css', 'email-auth.js', 'profile.js', 'profile.css', 'registration.js', 'registration.css', 'app.js', 'drafts.js', 'research-plan.js', 'recovery.js', 'versions.js', 'versions.css', 'style.css', 'defaults.js', 'defaults.css', 'memorax.js', 'memorax.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css', 'citations.js', 'citations.css', 'bogao-wordmark.svg', 'bogao-symbol.svg'):
             raise HTTPException(404)
         return FileResponse(assets / name)
 
@@ -1710,6 +1710,8 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     install_image_routes(app, auth, store)
     from .presentation import install_presentation_routes
     install_presentation_routes(app, auth, store)
+    from .versions import install_generation_routes
+    install_generation_routes(app, auth, store, guard, jobs)
     from .memorax import install_memory_routes
     memory_service = install_memory_routes(app, auth, body, store, client_factory=memory_client_factory)
     from .conversation_memory import ConversationMemory

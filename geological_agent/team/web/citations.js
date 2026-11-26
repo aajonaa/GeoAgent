@@ -113,6 +113,7 @@
       const excerpt = make('details', undefined, 'citation-excerpt');
       excerpt.open = id === selectedId;
       excerpt.append(make('summary', pages(ref) + ' · 原文片段'), make('blockquote', ref.text, 'citation-quote'));
+      excerpt.append(make('p', '关系：仅保存原文引用；支持或反驳需人工判断。', 'citation-meta'));
       if (ref.quality_status === 'manual_review_required') excerpt.append(make('p', '解析质量标记：待人工复核', 'citation-meta'));
       if (ref.reused) excerpt.append(make('p', '沿用此对话先前保存的检索片段', 'citation-meta'));
       excerpt.append(disclosure('技术详情', JSON.stringify({citation_id:id, document_id:ref.document_id,
@@ -140,7 +141,7 @@
     if (ctx.unknown.size) {
       content.append(make('p', ctx.pending ? '正在读取已保存的引用记录…' : '部分引用无法关联到唯一的来源记录。', 'citation-warning'));
     }
-    content.append(disclosure('查看原始答复', ctx.original, 'citation-original'));
+    content.append(disclosure('结论上下文 · 原始答复', ctx.original, 'citation-original'));
     modal('参考资料', content, {panel:true, trigger});
     selectedCard?.querySelector('.citation-excerpt[open]')?.scrollIntoView({block:'nearest'});
   }
@@ -158,7 +159,7 @@
     target.append(root);
   }
   function clear() { for (const dialog of [...dialogs]) dialog.close(); }
-  window.GeoAgentCitations = {context, mark, finish, clear};
+  window.GeoAgentCitations = {context, mark, finish, clear, openDocument};
   // The auth screen is the existing logout/expiry boundary. No account state is cached.
   document.addEventListener('DOMContentLoaded', () => {
     const auth = document.getElementById('auth-screen');

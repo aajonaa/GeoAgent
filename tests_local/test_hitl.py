@@ -242,11 +242,14 @@ def test_global_state_assets_are_served_and_loaded(web_group):
     page = owner.get("/").text
     assert "/assets/drafts.js?v=20261127-plan-confirm" in page
     assert "/assets/research-plan.js?v=20261127-plan-confirm" in page
-    assert "/assets/app.js?v=20261127-terminal-recovery-r2" in page
-    assert "/assets/recovery.js?v=20261127-terminal-recovery-r2" in page
+    assert "/assets/app.js?v=20261127-evidence-versions-r2" in page
+    assert "/assets/recovery.js?v=20261127-evidence-versions-r2" in page
     assert "window.GeoAgentRecovery" in owner.get("/assets/recovery.js").text
+    assert "/assets/versions.js?v=20261127-evidence-versions-r2" in page
+    assert "window.GeoAgentVersions" in owner.get("/assets/versions.js").text
+    assert owner.get("/assets/versions.css").status_code == 200
     assert "/assets/hitl.js?v=20261126-global-state" in page
-    assert "/assets/style.css?v=20261127-terminal-recovery-r2" in page
+    assert "/assets/style.css?v=20261127-evidence-versions-r2" in page
     assert 'id="plan-dialog"' in page
     for asset in ('timeline.js', 'timeline.css'):
         response = owner.get('/assets/' + asset)
@@ -254,5 +257,5 @@ def test_global_state_assets_are_served_and_loaded(web_group):
         assert '/assets/' + asset + '?v=20261127-task-summary' in page
     response = owner.get('/assets/images.js')
     assert response.status_code == 200
-    assert '/assets/images.js?v=20261127-terminal-recovery-r2' in page
+    assert '/assets/images.js?v=20261127-evidence-versions-r2' in page
     assert 'id="global-task"' in page

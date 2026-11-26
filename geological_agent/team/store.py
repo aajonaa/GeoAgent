@@ -61,6 +61,8 @@ class Store:
           content BLOB NOT NULL, sha256 TEXT, PRIMARY KEY(cid,generation,name));
         CREATE TABLE IF NOT EXISTS file_origins(cid TEXT, generation TEXT, name TEXT,
           sha256 TEXT NOT NULL, record TEXT NOT NULL, PRIMARY KEY(cid,generation,name));
+        CREATE TABLE IF NOT EXISTS generation_audit(cid TEXT REFERENCES conversations(id), generation TEXT,
+          action TEXT NOT NULL, source_generation TEXT, created REAL NOT NULL, PRIMARY KEY(cid,generation));
         CREATE TABLE IF NOT EXISTS runs(id TEXT PRIMARY KEY, cid TEXT REFERENCES conversations(id), query TEXT,
           status TEXT, answer TEXT DEFAULT '', reason TEXT DEFAULT '', generation TEXT DEFAULT '', created REAL, turns INTEGER DEFAULT 0);
         CREATE TABLE IF NOT EXISTS events(seq INTEGER PRIMARY KEY AUTOINCREMENT, rid TEXT REFERENCES runs(id), data TEXT);
@@ -348,7 +350,7 @@ class Store:
                 return row['status']
             if self.conversation(uid, cid)['generation'] != base_generation:
                 raise ValueError("Conversation files changed before result publication")
-            generation = self.snapshot(uid, cid, files, origins=origins, _transaction=True)
+            generation = self.snapshot(uid, cid, files, origins=origins, _transaction=True, action='run')
             return self.finish(rid, generation=generation, **outcome)
 
     def event(self, rid, data):
@@ -434,7 +436,73 @@ class Store:
             "origin": "unknown", "sha256": row[1], "scope": "legacy file; acquisition not recorded"}
                 for row in rows}
 
-    def snapshot(self, uid, cid, files, *, origins=None, _transaction=False):
+    def generations(self, uid, cid):
+        conv = self.conversation(uid, cid)
+        with self.lock:
+            rows = self.db.execute("""
+                WITH snapshots AS (
+                  SELECT generation,name,length(content) AS bytes FROM files WHERE cid=?
+                  UNION ALL SELECT ?, '', 0
+                  UNION ALL SELECT generation,'',0 FROM generation_audit WHERE cid=?
+                  UNION ALL SELECT generation,'',0 FROM runs WHERE cid=? AND generation IS NOT NULL AND generation<>''
+                ), totals AS (
+                  SELECT generation,count(NULLIF(name,'')) AS file_count,sum(bytes) AS bytes FROM snapshots GROUP BY generation
+                )
+                SELECT t.generation,t.file_count,t.bytes,a.action,a.source_generation,
+                  COALESCE(a.created,min(r.created)) AS created,r.id AS run_id
+                FROM totals t
+                LEFT JOIN generation_audit a ON a.cid=? AND a.generation=t.generation
+                LEFT JOIN runs r ON r.cid=? AND r.generation=t.generation
+                GROUP BY t.generation ORDER BY COALESCE(COALESCE(a.created,min(r.created)),0) DESC,t.generation
+                """, (cid, conv['generation'], cid, cid, cid, cid)).fetchall()
+        return [{**dict(row), 'current': row['generation'] == conv['generation'],
+                 'created_known': row['created'] is not None} for row in rows]
+
+    def generation(self, uid, cid, generation):
+        conv = self.conversation(uid, cid)
+        if not self.generation_exists(uid, cid, generation):
+            raise KeyError('Generation not found')
+        with self.lock:
+            row = self.db.execute("""
+                SELECT a.action,a.source_generation,
+                  COALESCE(a.created,(SELECT min(created) FROM runs WHERE cid=? AND generation=?)) AS created,
+                  (SELECT id FROM runs WHERE cid=? AND generation=? ORDER BY created LIMIT 1) AS run_id
+                FROM (SELECT 1) LEFT JOIN generation_audit a
+                  ON a.cid=? AND a.generation=?
+                """, (cid, generation, cid, generation, cid, generation)).fetchone()
+        return {**dict(row), 'generation': generation, 'file_count': None, 'bytes': None,
+                'current': generation == conv['generation'], 'created_known': row['created'] is not None}
+
+    def generation_exists(self, uid, cid, generation):
+        conv = self.conversation(uid, cid)
+        if not isinstance(generation, str) or not re.fullmatch(r'[a-f0-9]{32}', generation):
+            return False
+        if generation == conv['generation']:
+            return True
+        with self.lock:
+            return self.db.execute("SELECT 1 FROM generation_audit WHERE cid=? AND generation=? "
+                                   "UNION ALL SELECT 1 FROM files WHERE cid=? AND generation=? "
+                                   "UNION ALL SELECT 1 FROM runs WHERE cid=? AND generation=? LIMIT 1",
+                                   (cid, generation, cid, generation, cid, generation)).fetchone() is not None
+
+    def restore(self, uid, cid, generation):
+        if not self.generation_exists(uid, cid, generation):
+            raise KeyError('Generation not found')
+        with self.lock, self.db:
+            if not self.db.in_transaction:
+                self.db.execute('BEGIN IMMEDIATE')
+            if self.db.execute("SELECT 1 FROM runs JOIN conversations ON cid=conversations.id "
+                               "WHERE conversations.id=? AND uid=? AND status IN ('running','stopping')",
+                               (cid, uid)).fetchone():
+                raise ValueError('Wait for your active task before restoring files')
+            files = self.files(uid, cid, generation)
+            origins = self.file_origins(uid, cid, generation)
+            for record in origins.values():
+                record['restored_from'] = generation
+            return self.snapshot(uid, cid, files, origins=origins, _transaction=True,
+                                 action='restore', source_generation=generation)
+
+    def snapshot(self, uid, cid, files, *, origins=None, _transaction=False, action='snapshot', source_generation=None):
         self.conversation(uid, cid)
         total = 0
         if len(files) > 1024:
@@ -464,6 +532,8 @@ class Store:
                 raise ValueError("User storage quota exceeded; snapshot was not committed")
             self.db.executemany("INSERT INTO files VALUES (?,?,?,?,?)", [(cid, generation, name, data, hashlib.sha256(data).hexdigest()) for name, data in files.items()])
             self.db.executemany("INSERT INTO file_origins VALUES (?,?,?,?,?)", records)
+            self.db.execute("INSERT INTO generation_audit VALUES (?,?,?,?,?)",
+                            (cid, generation, action, source_generation, time.time()))
             self.db.execute("UPDATE conversations SET generation=?,updated=? WHERE id=?", (generation, time.time(), cid))
         return generation
 
