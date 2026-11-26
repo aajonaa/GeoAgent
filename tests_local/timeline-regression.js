@@ -6,6 +6,7 @@ class Node {
   get textContent(){return this._text+this.children.map(n=>n.textContent).join('');}
   set textContent(text){this.replaceChildren();this._text=String(text);}
   append(...nodes){for(const n of nodes){n.remove();n.parent=this;this.children.push(n);}}
+  prepend(...nodes){for(const n of nodes){n.remove();n.parent=this;}this.children.unshift(...nodes);}
   remove(){if(this.parent){this.parent.children=this.parent.children.filter(x=>x!==this);this.parent=null;}}
   replaceChildren(...nodes){for(const n of [...this.children])n.remove();this._text='';this.append(...nodes);}
   setAttribute(key,value){this.attributes[key]=String(value);}
@@ -18,7 +19,7 @@ vm.runInNewContext(fs.readFileSync(path.join(__dirname,'../geological_agent/team
 const timeline=sandbox.window.GeoAgentTimeline;
 function make(id,finished=false){const activity=element('details'),summary=element('summary'),list=element('div');activity.append(summary,list);const ui={activity,summary,list,tools:new Map(),finished};state.runs.set(id,ui);timeline.attach(id,ui);return ui;}
 const ui=make('run');let seq=0;const send=data=>timeline.event('run',data,String(++seq));
-assert.equal(ui.activity.open,true);
+assert.equal(ui.activity.open,false,'Execution disclosures start closed');
 send({kind:'status',message:'Model is working',phase:'execution',turn:1});
 assert.equal(ui.list.children.length,1);
 send({kind:'model_process',phase:'execution',turn:1,source:'provider_reasoning_content',verified:false,text:'<script>unsafe()</script> Provider text, not proof.'});
@@ -53,6 +54,18 @@ send({kind:'tool_start',id:'index',name:'GeoRasterIndexAnalysis',arguments:{inde
 assert.equal(ui.tools.get('index').status.textContent,'已完成','Replayed starts never downgrade a result');
 send({kind:'tool_result',id:'failed',name:'OtherTool',result:{status:'error',error:{message:'Missing dataset'}}});
 assert.equal(ui.tools.get('failed').status.textContent,'未完成');assert(ui.tools.get('failed').details.textContent.includes('Missing dataset'));
+const groups=ui.timeline.toolGroups;
+assert.equal(groups.root.open,false,'Tool groups start collapsed');
+assert.equal(groups.byName.size,3,'Repeated calls are grouped by exact tool name');
+assert.equal(groups.domains.size,3,'Tools are also grouped by observed source domain');
+assert.equal(groups.domains.get('公开网页来源').state.textContent,'1 次');
+assert(groups.domains.get('通用与研究工具').state.textContent.includes('1 未完成'));
+assert.equal(groups.byName.get('GeoRasterIndexAnalysis').rows.length,1,'Individual calls remain in their group');
+assert.equal(groups.byName.get('OtherTool').state.textContent,'1 未完成');
+assert(groups.state.textContent.includes('3 次'));
+assert(ui.summary.textContent.includes('1 未完成'));
+groups.root.open=true;groups.byName.get('OtherTool').details.open=true;ui.tools.get('failed').details.open=true;
+assert(all(ui.tools.get('failed').details).some(n=>n.tag==='a'&&n.href==='/api/runs/run/receipts/failed'),'Full failed receipts remain accessible');
 ui.summary.events.click();ui.activity.open=true;
 send({kind:'finished',status:'completed'});
 assert.equal(ui.activity.open,true,'Completion must not override an explicit disclosure choice');
@@ -68,7 +81,7 @@ const nativeEvent={kind:'tool_start',id:'native-index',name:'GeoRasterIndexAnaly
 const nativeBefore=JSON.stringify(nativeEvent);
 nativeSend(nativeEvent);
 const nativeRow=nativeUI.tools.get('native-index');
-assert.equal(nativeRow.label.textContent,'计算 NDVI');
+assert.equal(nativeRow.label.textContent,'GeoRasterIndexAnalysis · 计算 NDVI');
 assert(nativeRow.description.textContent.includes('jiapigou-sentinel-rgbnir.tif'));
 assert(all(nativeRow.content).filter(n=>n.tag==='dt').some(n=>n.textContent==='index'));
 assert(!all(nativeRow.content).filter(n=>n.tag==='dt').some(n=>/^\d+$/.test(n.textContent)),'JSON arguments must not become character fields');
@@ -81,10 +94,10 @@ assert.equal(nativeRow.status.textContent,'已完成');assert(nativeRow.details.
 assert(nativeRow.content.textContent.includes('jilin-ndvi/values.tif'));
 assert.equal(JSON.stringify(nativeEvent),nativeBefore,'Display decoding must not mutate native evidence');
 nativeSend({kind:'tool_start',id:'native-search',name:'web_search',arguments:'{"query":"Sentinel-2 sources","api_key":"search-secret"}'});
-assert.equal(nativeUI.tools.get('native-search').label.textContent,'搜索资料 · Sentinel-2 sources');
+assert.equal(nativeUI.tools.get('native-search').label.textContent,'web_search · 搜索资料 · Sentinel-2 sources');
 assert(!nativeUI.tools.get('native-search').body.textContent.includes('search-secret'));
 nativeSend({kind:'tool_start',id:'native-fetch',name:'web_fetch',arguments:'{"url":"https://www.usgs.gov/"}'});
-assert.equal(nativeUI.tools.get('native-fetch').label.textContent,'读取网页 · www.usgs.gov');
+assert.equal(nativeUI.tools.get('native-fetch').label.textContent,'web_fetch · 读取网页 · www.usgs.gov');
 for(const [i,args] of ['{"api_token":"malformed-secret"', '[1,2]', 'null', '7', '"text"', '', null, [], 7].entries()) {
   nativeSend({kind:'tool_start',id:'invalid-'+i,name:'UnknownTool',arguments:args});
   const row=nativeUI.tools.get('invalid-'+i);
@@ -110,3 +123,9 @@ assert.equal(JSON.stringify(repairEvent),repairBefore,'Issue presentation never 
 repairSend({kind:'finished',status:'completed'});
 assert.equal(repairUI.activity.open,false);
 console.log('Typed diagnostic timeline: evidence repairs, retained recovered errors and native ordering passed');
+const partialUI=make('partial');let partialSeq=0;
+timeline.event('partial',{kind:'tool_start',id:'pending',name:'GeoRasterIndexAnalysis',arguments:{index:'NDVI'}},String(++partialSeq));
+timeline.event('partial',{kind:'finished',status:'needs_input'},String(++partialSeq));
+assert.equal(partialUI.timeline.toolGroups.byName.get('GeoRasterIndexAnalysis').state.textContent,'1 未完成','Missing receipts are not shown as still running after termination');
+assert(partialUI.summary.textContent.includes('1 未完成'));
+console.log('Partial termination: missing tool receipts remain visibly incomplete passed');

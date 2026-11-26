@@ -5,6 +5,7 @@ class Node {
   get textContent(){return this._text+this.children.map(x=>x.textContent).join('');}
   set textContent(x){this._text=String(x);this.children=[];}
   append(...xs){this.children.push(...xs);}
+  prepend(...xs){this.children.unshift(...xs);}
   after(x){this.sibling=x;}
   replaceChildren(...xs){this._text='';this.children=xs;}
   setAttribute(k,v){this.attributes[k]=v;}

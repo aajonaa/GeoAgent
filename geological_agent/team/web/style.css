@@ -1157,6 +1157,25 @@
   font-size: 12px;
   line-height: 1.5;
 }
+#app .run-summary-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px 12px;
+  margin-top: 8px;
+  color: var(--chat-muted, var(--muted));
+  font-size: 11px;
+  line-height: 1.6;
+}
+#app .run-current-stage { color: var(--chat-jade); }
+#app .run-open-items { margin-top: 8px; font-size: 12px; }
+#app .run-open-items[hidden] { display: none; }
+#app .run-open-items > summary { cursor: pointer; color: #8a642d; line-height: 1.7; overflow-wrap: anywhere; }
+#app .run-open-items ul { margin: 6px 0 2px; padding-inline-start: 20px; color: var(--chat-muted, var(--muted)); line-height: 1.7; }
+#app .run-open-items li { overflow-wrap: anywhere; }
+#app .turn .run-overview[data-layout=compact] .run-summary-meta,
+#app .turn .run-overview[data-layout=compact] .run-open-items { grid-column: 1 / -1; }
+#app .turn .run-overview[data-layout=compact] .run-summary-meta { margin-top: 2px; }
+#app .turn .run-overview[data-layout=compact] .run-open-items { margin-top: 3px; }
 #app .turn .run-overview[data-layout=compact] {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;

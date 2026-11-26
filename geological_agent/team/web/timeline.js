@@ -46,11 +46,63 @@
   function disclosure(label, text) {
     const details=el('details',undefined,'timeline-raw'); details.append(el('summary',label),el('pre',text)); return details;
   }
+  function toolDomain(name) {
+    if (name === 'web_search' || name === 'web_fetch') return '公开网页来源';
+    if (/^(?:Geo|RemoteSensing|MineralResources|DeepEarth)/.test(name)) return '地质与遥感工具';
+    return '通用与研究工具';
+  }
+  function groupTool(ui, view, row) {
+    if (!view.toolGroups) {
+      const root=el('details',undefined,'timeline-tool-groups'), summary=el('summary'); root.open=false;
+      const state=el('span','','timeline-state'), arrow=el('span','','timeline-chevron'); arrow.setAttribute('aria-hidden','true');
+      summary.append(el('span','工具调用','timeline-label'),state,arrow);
+      const body=el('div',undefined,'timeline-tool-groups-body');
+      root.append(summary,body,el('p','按来源域和工具名称分组；每次调用和完整回执分别保留。','timeline-note'));
+      ui.list.append(root); view.toolGroups={root,state,body,byName:new Map(),domains:new Map()};
+    }
+    const groups=view.toolGroups.byName, domainName=toolDomain(row.name);
+    let domain=view.toolGroups.domains.get(domainName);
+    if (!domain) {
+      const details=el('details',undefined,'timeline-tool-domain'), summary=el('summary'); details.open=false;
+      const state=el('span','','timeline-state'), arrow=el('span','','timeline-chevron'); arrow.setAttribute('aria-hidden','true');
+      summary.append(el('span',domainName,'timeline-label'),state,arrow);
+      const list=el('div',undefined,'timeline-domain-tools'); details.append(summary,list);
+      domain={details,state,list,rows:[]}; view.toolGroups.domains.set(domainName,domain); view.toolGroups.body.append(details);
+    }
+    let group=groups.get(row.name);
+    if (!group) {
+      const details=el('details',undefined,'timeline-tool-group'), summary=el('summary'); details.open=false;
+      const state=el('span','','timeline-state'), arrow=el('span','','timeline-chevron'); arrow.setAttribute('aria-hidden','true');
+      summary.append(el('span',row.name,'timeline-label'),state,arrow);
+      const list=el('div',undefined,'timeline-tool-group-list'); details.append(summary,list);
+      group={details,state,list,rows:[],domain}; groups.set(row.name,group); domain.list.append(details);
+    }
+    if (!group.rows.includes(row)) { group.rows.push(row); group.list.append(row.details); domain.rows.push(row); }
+    paintToolGroups(view);
+  }
+  function paintToolGroups(view) {
+    if (!view.toolGroups) return;
+    let errors=0, running=0;
+    for (const group of view.toolGroups.byName.values()) {
+      const failed=group.rows.filter(row => (row.result && row.result.status!=='ok') || row.details.dataset.state==='unknown').length;
+      const active=group.rows.filter(row => !row.result && row.details.dataset.state!=='unknown').length;
+      errors+=failed; running+=active;
+      group.state.textContent=(failed?failed+' 未完成':active?active+' 执行中':'已完成');
+      group.details.dataset.state=failed?'error':active?'running':'done';
+    }
+    for (const domain of view.toolGroups.domains.values()) {
+      const failed=domain.rows.filter(row => (row.result && row.result.status!=='ok') || row.details.dataset.state==='unknown').length;
+      const active=domain.rows.filter(row => !row.result && row.details.dataset.state!=='unknown').length;
+      domain.state.textContent=domain.rows.length+' 次'+(failed?' · '+failed+' 未完成':active?' · '+active+' 执行中':'');
+      domain.details.dataset.state=failed?'error':active?'running':'done';
+    }
+    view.toolGroups.state.textContent=view.rows.size+' 次'+(errors?' · '+errors+' 未完成':running?' · '+running+' 执行中':'');
+  }
   function attach(rid,ui) {
     if (ui.timeline) return ui.timeline;
     ui.activity.classList.add('activity-timeline'); ui.list.classList.add('timeline-list');
     ui.summary.textContent='查看执行详情';
-    const view={rid,rows:new Map(),loadedSkills:new Set(),stages:new Map(),streams:new Map(),lastStage:null,sequence:-1,userToggled:false}; ui.timeline=view;
+    const view={rid,rows:new Map(),loadedSkills:new Set(),stages:new Map(),streams:new Map(),lastStage:null,sequence:-1,userToggled:false,toolGroups:null}; ui.timeline=view;
     // Programmatic open/close must not be mistaken for a user's preference.
     ui.summary.addEventListener('click',()=>{view.userToggled=true;});
     ui.summary.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key))view.userToggled=true;});
@@ -146,7 +198,7 @@
       row.description=el('p','','timeline-object'); row.content=el('div',undefined,'timeline-tool-content');
       row.raw=el('details',undefined,'timeline-raw'); row.raw.addEventListener('toggle',()=>{if(row.raw.open&&row.result)row.output.textContent=JSON.stringify(row.result,null,2);}); row.raw.append(el('summary','调用参数与完整返回值（凭证已遮蔽）'),row.input,row.output);
       row.body.append(row.description,row.content,row.raw);
-      view.rows.set(id,row);ui.tools.set(id,row);ui.list.append(row.details);
+      view.rows.set(id,row);ui.tools.set(id,row);groupTool(ui,view,row);
     }
     if(data.kind==='tool_start') {
       row.arguments=displayArguments(data.arguments);
@@ -157,6 +209,7 @@
       row.description.textContent=name==='web_search'?str(args.query):description?.detail||name;
       row.input.textContent=JSON.stringify({tool:name,arguments:row.arguments??'[参数无法安全结构化显示；原始记录已保留]',...(typeof data.arguments==='string'&&row.arguments?{display_note:'JSON 字符串参数已展开显示，原始执行记录未修改。'}:{})},null,2);
       if(!row.result)row.content.replaceChildren(params(row.arguments),el('p','等待工具返回。','timeline-note'));
+      paintToolGroups(view);
       return;
     }
     const receipt=clean(data.result||{}); row.result=receipt;
@@ -193,6 +246,7 @@
     row.content.prepend(el('p', elapsed ? '工具耗时 ' + elapsed : '工具耗时未记录', 'timeline-tool-elapsed'));
     const download=el('a','下载执行记录','timeline-receipt');
     download.href='/api/runs/'+encodeURIComponent(view.rid)+'/receipts/'+encodeURIComponent(id);download.download='tool-result.json';row.content.append(download);
+    paintToolGroups(view);
   }
   function duration(seconds) {
     seconds=Math.max(0,Number(seconds)||0);
@@ -318,8 +372,10 @@
       if(ui.timing?.snapshot){ui.timing.snapshot.active=null;tick(ui);}
       for(const row of view.rows.values())if(!row.result){row.status.textContent='未记录结果';row.details.dataset.state='unknown';}
       if(view.knowledge){view.knowledge.status.textContent='未记录结果';view.knowledge.details.dataset.state='unknown';view.knowledge=null;}
+      paintToolGroups(view);
     }
-    ui.summary.textContent='查看执行详情'+(view.rows.size?' · '+view.rows.size+' 次工具调用':'');
+    const incomplete=[...view.rows.values()].filter(row=>!row.result||row.result.status!=='ok').length;
+    ui.summary.textContent='查看执行详情'+(view.rows.size?' · '+view.rows.size+' 次工具调用':'')+(incomplete?' · '+incomplete+' 未完成':'');
   }
   window.GeoAgentTimeline={attach,event,tick,sourceURL:safeURL};
 })();
