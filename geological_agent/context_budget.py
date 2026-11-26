@@ -4,8 +4,29 @@ import base64
 import io
 import json
 import math
+import os
+from pathlib import Path
 
 from .model_context import native_context
+
+
+def _pin_tokenizer_cache():
+    """Give tiktoken a cache that outlives one run. Its default is TMPDIR, and a
+    managed worker gets a fresh tmpfs there, so every run re-downloaded the vocab."""
+    if "TIKTOKEN_CACHE_DIR" in os.environ:  # operator value, including "", wins.
+        return
+    home = os.environ.get("HOME") or ""
+    if not home:
+        return
+    candidate = Path(home) / ".cache" / "geotool-tiktoken"
+    try:
+        candidate.mkdir(parents=True, exist_ok=True)
+        probe = candidate / ".write-probe"
+        probe.touch()
+        probe.unlink()
+    except OSError:
+        return  # A read-only HOME must not turn a cold cache into a failed run.
+    os.environ["TIKTOKEN_CACHE_DIR"] = str(candidate)
 
 
 @lru_cache(maxsize=64)
@@ -14,6 +35,7 @@ def _encodings(model):
         import tiktoken
     except ImportError:
         raise RuntimeError("Token budgeting requires the context-tokenizers dependency") from None
+    _pin_tokenizer_cache()
     try:
         return (tiktoken.encoding_for_model(model),)
     except KeyError:
