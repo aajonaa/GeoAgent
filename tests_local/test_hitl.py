@@ -194,3 +194,51 @@ def test_notification_javascript_is_served_and_loaded(web_group):
     assert script.status_code == 200
     assert "/api/hitl/requests" in script.text
     assert "/assets/hitl.js" in owner.get("/").text
+
+
+def test_active_tasks_require_authentication(web_group):
+    app, owner, other = web_group
+    with TestClient(app, base_url="http://127.0.0.1") as anonymous:
+        assert anonymous.get("/api/active-tasks").status_code == 401
+
+
+def test_active_tasks_are_owner_scoped_and_exclude_terminal_runs(web_group):
+    app, owner, other = web_group
+    store = app.state.store
+    uid = store.user("owner")["id"]
+    other_uid = store.user("other")["id"]
+    cid = store.create_conversation(uid)["id"]
+    other_cid = store.create_conversation(other_uid)["id"]
+    rid = store.begin(uid, cid, "正在执行的地质任务")
+    other_rid = store.begin(other_uid, other_cid, "其他账号的任务")
+    response = owner.get("/api/active-tasks")
+    assert response.status_code == 200
+    tasks = response.json()["tasks"]
+    assert [(task["id"], task["cid"], task["title"]) for task in tasks] == [(rid, cid, "正在执行的地质任务")]
+    assert set(tasks[0]) == {"id", "cid", "title", "query", "status", "created", "elapsed_seconds"}
+    assert other.get("/api/active-tasks").json()["tasks"][0]["id"] == other_rid
+    store.finish(rid, status="completed", answer="done")
+    store.finish(other_rid, status="completed", answer="done")
+    assert owner.get("/api/active-tasks").json()["tasks"] == []
+
+
+def test_active_tasks_include_pending_input_without_leaking_other_accounts(web_group):
+    app, owner, other = web_group
+    _, cid, rid, payload = pending_fixture(app.state.store)
+    result = owner.get("/api/active-tasks").json()
+    assert result["tasks"] == []
+    assert [(item["id"], item["cid"], item["rid"]) for item in result["requests"]] == [(payload["id"], cid, rid)]
+    assert other.get("/api/active-tasks").json() == {"tasks": [], "requests": []}
+
+
+def test_global_state_assets_are_served_and_loaded(web_group):
+    app, owner, other = web_group
+    script = owner.get("/assets/drafts.js")
+    assert script.status_code == 200
+    assert "indexedDB" in script.text and "orebogao:draft:v1:" in script.text
+    page = owner.get("/").text
+    assert "/assets/drafts.js?v=20261126-global-state" in page
+    assert "/assets/app.js?v=20261126-global-state-draftfix" in page
+    assert "/assets/hitl.js?v=20261126-global-state" in page
+    assert "/assets/style.css?v=20261126-global-state" in page
+    assert 'id="global-task"' in page

@@ -252,6 +252,17 @@ class Store:
             now = time.time()
             return [self._run_view(r, now) for r in self.db.execute("SELECT runs.*,run_activity.data AS activity FROM runs LEFT JOIN run_activity ON run_activity.rid=runs.id WHERE cid=? ORDER BY created", (cid,))]
 
+    def active_runs(self, uid):
+        with self.lock:
+            now = time.time()
+            rows = self.db.execute(
+                "SELECT runs.*,conversations.title,run_activity.data AS activity "
+                "FROM runs JOIN conversations ON conversations.id=runs.cid "
+                "LEFT JOIN run_activity ON run_activity.rid=runs.id "
+                "WHERE conversations.uid=? AND runs.status IN ('running','stopping') "
+                "ORDER BY runs.created", (uid,)).fetchall()
+            return [{**self._run_view(row, now), "title": row["title"]} for row in rows]
+
     def begin(self, uid, cid, query, *, expected_input=None, _rid=None):
         self.conversation(uid, cid)
         rid = _rid or uuid.uuid4().hex

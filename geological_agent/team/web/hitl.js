@@ -8,7 +8,7 @@
   hint.hidden = true; hint.setAttribute('role', 'status'); $('composer').before(hint);
 
   function draftFor(id) {
-    if (!drafts.has(id)) drafts.set(id, {text:'', option:'', files:[], sending:false});
+    if (!drafts.has(id)) drafts.set(id, {text:window.OreSageDrafts?.text('hitl:' + id) || '', option:window.OreSageDrafts?.text('hitl:' + id, 'option') || '', files:[], sending:false});
     return drafts.get(id);
   }
   function pendingHere() { return entries.some(item => item.state === 'pending'); }
@@ -70,6 +70,7 @@
       choice.setAttribute('aria-pressed', String(draft.option === value));
       choice.addEventListener('click', () => {
         draft.option = draft.option === value ? '' : value;
+        window.OreSageDrafts?.save('hitl:' + item.id, 'option', draft.option);
         for (const [control, option] of optionButtons) control.setAttribute('aria-pressed', String(draft.option === option));
       });
       optionButtons.push([choice, value]); options.append(choice);
@@ -79,7 +80,7 @@
     const input = element('textarea'); input.rows = 3; input.maxLength = 20000;
     input.id = 'hitl-text-' + item.id; label.htmlFor = input.id;
     input.placeholder = recovery ? '无需补充研究资料，可直接选择恢复选项…' : '输入你的回答，或添加所需材料…'; input.value = draft.text;
-    input.addEventListener('input', () => { draft.text = input.value; });
+    input.addEventListener('input', () => { draft.text = input.value; window.OreSageDrafts?.save('hitl:' + item.id, 'text', draft.text); });
     form.append(label, input);
     const files = element('div', undefined, 'hitl-files');
     files.setAttribute('aria-label', '本次补充的附件');
@@ -104,28 +105,54 @@
       files.replaceChildren();
       for (const record of draft.files) {
         const row = element('div', undefined, 'hitl-file');
-        row.append(element('span', record.file.name + (record.uploaded ? ' · 已加入任务' : ' · 待上传')));
+        row.append(element('span', record.file.name + (record.uploaded ? ' · 已加入任务' : record.persisted ? ' · 已保存到本机' : ' · 待上传')));
         if (!record.uploaded) {
           const remove = button('移除', 'quiet');
           remove.setAttribute('aria-label', '移除附件 ' + record.file.name);
           remove.disabled = draft.sending;
-          remove.addEventListener('click', () => { draft.files = draft.files.filter(value => value !== record); drawFiles(); });
+          remove.addEventListener('click', async () => {
+            remove.disabled = true;
+            try {
+              await window.OreSageDrafts?.removeFile('hitl:' + item.id, record.file.name);
+              draft.files = draft.files.filter(value => value !== record); drawFiles();
+            } catch (e) { error.textContent = '无法移除本机附件草稿：' + e.message; remove.disabled = false; }
+          });
           row.append(remove);
         }
         files.append(row);
       }
     }
+    async function restoreFiles() {
+      const scope = 'hitl:' + item.id;
+      if (!window.OreSageDrafts) return;
+      try {
+        const saved = await window.OreSageDrafts.files(scope);
+        for (const file of saved || []) if (!draft.files.some(record => record.file.name === file.name)) draft.files.push({file, uploaded:false, persisted:true});
+        drawFiles();
+      } catch (e) { error.textContent = '无法读取本机附件草稿：' + e.message; }
+    }
     add.addEventListener('click', () => picker.click());
-    picker.addEventListener('change', () => {
+    picker.addEventListener('change', async () => {
       error.textContent = '';
+      const selected = [];
       for (const file of picker.files) {
         if (file.size > 8 * 1024 * 1024) { error.textContent = '单个附件不能超过 8 MiB：' + file.name; continue; }
-        if (draft.files.some(record => record.file.name === file.name)) {
+        if (draft.files.some(record => record.file.name === file.name) || selected.some(record => record.file.name === file.name)) {
           error.textContent = '已有同名附件，请先移除后再选择：' + file.name; continue;
         }
-        draft.files.push({file, uploaded:false});
+        selected.push(file);
       }
-      picker.value = ''; drawFiles();
+      picker.value = '';
+      if (!selected.length) return;
+      picker.disabled = true; add.disabled = true; status.textContent = '正在保存附件草稿…';
+      try {
+        for (const file of selected) {
+          await window.OreSageDrafts?.putFile('hitl:' + item.id, file);
+          draft.files.push({file, uploaded:false, persisted:true});
+        }
+        drawFiles();
+      } catch (e) { error.textContent = '附件未能保存到本机，刷新后可能丢失：' + e.message; drawFiles(); }
+      finally { picker.disabled = false; add.disabled = false; status.textContent = ''; }
     });
     cancel.addEventListener('click', () => { confirmation.hidden = false; confirm.focus(); });
     back.addEventListener('click', () => { confirmation.hidden = true; cancel.focus(); });
@@ -134,7 +161,7 @@
       draft.sending = true; controls(true); error.textContent = ''; status.textContent = '正在结束此任务…';
       try {
         await api('/api/hitl/requests/' + encodeURIComponent(item.id) + '/cancel', {method:'POST'});
-        drafts.delete(item.id);
+        drafts.delete(item.id); window.OreSageDrafts?.clear('hitl:' + item.id);
         if (validView(item, v)) await openConversation(item.cid);
       } catch (e) { error.textContent = e.message; status.textContent = ''; }
       finally { draft.sending = false; controls(false); if (validView(item, v)) refresh(); }
@@ -155,19 +182,19 @@
           const path = '/api/hitl/requests/' + encodeURIComponent(item.id) + '/upload?cid=' +
             encodeURIComponent(item.cid) + '&rid=' + encodeURIComponent(item.rid) + '&name=' + encodeURIComponent(record.file.name);
           await api(path, {method:'POST', body:record.file, headers:{'Content-Type':'application/octet-stream'}});
-          record.uploaded = true; drawFiles();
+          record.uploaded = true; record.persisted = false; await window.OreSageDrafts?.removeFile('hitl:' + item.id, record.file.name).catch(() => {}); drawFiles();
         }
         status.textContent = '正在提交回复…';
         await api('/api/hitl/requests/' + encodeURIComponent(item.id) + '/reply',
           {method:'POST', body:{cid:item.cid, rid:item.rid, text}});
-        status.textContent = '已回复，正在继续任务。'; drafts.delete(item.id);
+        status.textContent = '已回复，正在继续任务。'; drafts.delete(item.id); window.OreSageDrafts?.clear('hitl:' + item.id);
         if (validView(item, v)) await openConversation(item.cid);
       } catch (e) {
         error.textContent = e.message + '。未发送的回答仍保留；如提交结果不确定，请刷新此对话查看状态。';
         status.textContent = '';
       } finally { draft.sending = false; controls(false); if (validView(item, v)) refresh(); }
     });
-    drawFiles(); controls(draft.sending);
+    drawFiles(); controls(draft.sending); restoreFiles();
     return {node, item};
   }
   function attachCards() {

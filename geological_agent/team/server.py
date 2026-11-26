@@ -641,6 +641,13 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     def conversations(request: Request):
         return store.conversations(auth(request)['id'])
 
+    @app.get('/api/active-tasks')
+    def active_tasks(request: Request):
+        uid = auth(request)['id']
+        tasks = [{key: run[key] for key in ('id', 'cid', 'title', 'query', 'status', 'created', 'elapsed_seconds')}
+                 for run in store.active_runs(uid)]
+        return {'tasks': tasks, 'requests': store.pending_inputs(uid)}
+
     @app.post('/api/conversations')
     def new_conversation(request: Request):
         return store.create_conversation(auth(request, mutate=True)['id'])
@@ -1518,7 +1525,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
 
     @app.get('/assets/{name}')
     def asset(name: str):
-        if name not in ('password-auth.js', 'admin-usage.js', 'admin-usage.css', 'shared-knowledge.js', 'shared-knowledge.css', 'admin-users.js', 'admin-users.css', 'email-auth.js', 'profile.js', 'profile.css', 'registration.js', 'registration.css', 'app.js', 'style.css', 'defaults.js', 'defaults.css', 'memorax.js', 'memorax.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css', 'citations.js', 'citations.css', 'bogao-wordmark.svg', 'bogao-symbol.svg'):
+        if name not in ('password-auth.js', 'admin-usage.js', 'admin-usage.css', 'shared-knowledge.js', 'shared-knowledge.css', 'admin-users.js', 'admin-users.css', 'email-auth.js', 'profile.js', 'profile.css', 'registration.js', 'registration.css', 'app.js', 'drafts.js', 'style.css', 'defaults.js', 'defaults.css', 'memorax.js', 'memorax.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css', 'citations.js', 'citations.css', 'bogao-wordmark.svg', 'bogao-symbol.svg'):
             raise HTTPException(404)
         return FileResponse(assets / name)
 

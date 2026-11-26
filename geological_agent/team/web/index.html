@@ -16,13 +16,14 @@
   <script src="/assets/profile.js?v=invite50-profile-20261110-r1" defer></script>
   <title>OreBOGAO</title>
   <link rel="icon" href="/assets/bogao-symbol.svg" type="image/svg+xml" sizes="any">
-  <link rel="stylesheet" href="/assets/style.css?v=20261126-chat-findings"><link rel="stylesheet" href="/assets/library.css?v=20261124-skill-picker"><link rel="stylesheet" href="/assets/model-profiles.css?v=20261003-context1"><link rel="stylesheet" href="/assets/knowledge.css?v=20261004-pdf2">
+  <link rel="stylesheet" href="/assets/style.css?v=20261126-global-state"><link rel="stylesheet" href="/assets/library.css?v=20261124-skill-picker"><link rel="stylesheet" href="/assets/model-profiles.css?v=20261003-context1"><link rel="stylesheet" href="/assets/knowledge.css?v=20261004-pdf2">
   <link rel="stylesheet" href="/assets/images.css?v=20261004-experience1">
   <link rel="stylesheet" href="/assets/presentation.css?v=20261003-rich1">
   <link rel="stylesheet" href="/assets/citations.css?v=20261125-clay">
   <script src="/assets/citations.js?v=20261124-chat-redesign" defer></script>
   <script src="/assets/timeline.js?v=20261126-chat-findings" defer></script>
-<script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261126-chat-findings" defer></script><script src="/assets/images.js?v=20261126-preview-retry" defer></script>
+<script src="/assets/drafts.js?v=20261126-global-state" defer></script>
+<script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261126-global-state-draftfix" defer></script><script src="/assets/images.js?v=20261126-preview-retry" defer></script>
   <script src="/assets/defaults.js?v=20261124-settings-anchor" defer></script>
 <script src="/assets/memorax.js?v=20261024-live3" defer></script>
 <link rel="stylesheet" href="/assets/timeline.css?v=20261004-timeline1">
@@ -70,6 +71,7 @@
 <div id="app" class="shell" hidden>
   <aside id="sidebar" class="sidebar"><a class="brand" href="/" aria-label="OreBOGAO"><img class="brand-mark small bogao-symbol" src="/assets/bogao-symbol.svg" width="39" height="39" alt=""><span class="brand-name">OreBOGAO</span></a><button id="new-chat" class="new-chat">＋ 新对话</button><button id="library-open" class="library-nav" type="button" aria-pressed="false"><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1M3 12h18M8 10.5v3M16 10.5v3"/></svg>技能与工具</button><button id="shared-open" class="library-nav" type="button" aria-haspopup="dialog" aria-controls="shared-dialog" aria-expanded="false" hidden><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>共享知识库</button><button id="knowledge-open" class="library-nav" type="button"><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6.5C9.7 4.8 6.8 4.2 3 5v14c3.8-.8 6.7-.2 9 1.5 2.3-1.7 5.2-2.3 9-1.5V5c-3.8-.8-6.7-.2-9 1.5Z"/><path d="M12 6.5v14"/></svg>个人资料库</button><p class="section-label">最近对话</p><nav id="conversation-list" aria-label="对话历史"></nav><div class="account"><strong id="account-name"></strong><span id="account-role"></span><button id="invite-button" hidden>邀请成员</button><button id="admin-usage-open" type="button" hidden>使用统计 / 日志</button><button id="admin-users-open" type="button" hidden>注册用户后台</button><button id="admin-releases-open" type="button" aria-haspopup="dialog" hidden>版本记录</button><button id="profile-open" type="button">个人资料</button><button id="password-button">设置 / 修改密码</button><button id="logout">退出登录</button></div></aside>
   <main class="main"><header class="topbar"><button id="menu-button" class="quiet mobile-only" aria-label="打开导航菜单">☰</button><div><span id="chat-title">新的研究问题</span></div><div class="top-actions"><span id="connection" class="badge">已连接</span><button id="files-toggle" class="quiet">文件 <span id="file-count">0</span></button></div></header>
+    <div id="global-task" class="global-task" role="region" aria-label="跨会话任务状态" hidden><span class="global-task-dot" aria-hidden="true"></span><div class="global-task-copy"><strong id="global-task-title"></strong><span id="global-task-detail"></span></div><button id="global-task-open" class="quiet" type="button">返回任务</button></div>
     <section id="library-view" class="library-view" aria-labelledby="library-title" hidden>
       <div class="library-topline"><span class="eyebrow">RESEARCH LIBRARY</span><button id="library-back" class="quiet" type="button">返回对话</button></div>
       <header class="library-hero"><div><p class="library-kicker">技能与工具库</p><h1 id="library-title">找到方法，<br>开始你的研究。</h1><p class="library-intro">从专业方法到具体计算，查看输入、输出与适用边界。<br>与 Agent 共用一份注册表，不是另一个工具清单。</p></div><div id="library-stats" class="library-stats" aria-label="目录概览"></div></header>
@@ -241,7 +243,7 @@
     <p class="model-help">测试会向所选服务发送两次简短请求，可能产生费用，不会发送对话或执行真实工具。通过测试不代表所有 Agent 任务都能成功。</p>
   </form>
 </dialog>
-<script src="/assets/hitl.js" defer></script>
+<script src="/assets/hitl.js?v=20261126-global-state" defer></script>
 <dialog id="library-detail" class="library-drawer" aria-labelledby="library-detail-title">
   <header class="library-drawer-top"><button id="library-detail-back" type="button" class="quiet" hidden>返回上一个条目</button><span class="eyebrow">ASSET DETAILS</span><button id="library-detail-close" type="button" class="quiet" aria-label="关闭条目详情">关闭</button></header>
   <div id="library-detail-body" class="library-detail-body"></div>
