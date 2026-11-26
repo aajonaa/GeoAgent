@@ -354,7 +354,7 @@
     && context?.conversation_id === state.cid && typeof context.generation === 'string' && context.generation);
   const url = (ctx, file, kind = 'download') => '/api/conversations/' + encodeURIComponent(ctx.conversation_id)
     + '/' + kind + '?name=' + encodeURIComponent(file.name) + '&generation=' + encodeURIComponent(ctx.generation);
-  const terminal = status => ({completed:'已完成',needs_input:'等待补充信息',stopped:'已停止',failed:'执行失败',paused:'已暂停',stopping:'正在停止',budget_exhausted:'运行预算已耗尽',incomplete:'尚未完成'})[status] || '状态待确认';
+  const terminal = status => ({completed:'已完成',needs_input:'等待补充信息',stopped:'已停止',cancelled:'已停止',failed:'执行失败',paused:'已暂停',stopping:'正在停止',budget_exhausted:'运行预算已耗尽',incomplete:'尚未完成',interrupted:'执行中断'})[status] || '状态待确认';
   function classifyIssue(reason) {
     if (typeof reason !== 'string') return null;
     if (reason.startsWith('Invalid source review blocks: ')) {

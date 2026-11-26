@@ -1,7 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const AGENT_NAME = 'OreBOGAO';
-const state = {me: null, cid: null, view: 0, runs: new Map(), sources: new Map(), busy: null, activeTasks: [], inputRequests: []};
+const state = {me: null, cid: null, view: 0, runs: new Map(), sources: new Map(), busy: null, activeTasks: [], inputRequests: [], recovery: null};
 function element(tag, text, className) { const node = document.createElement(tag); if (text !== undefined) node.textContent = text; if (className) node.className = className; return node; }
 async function api(path, options = {}) {
   const {timeoutMs, ...fetchOptions} = options; options = fetchOptions;
@@ -34,7 +34,7 @@ async function api(path, options = {}) {
   if (!response.ok) { if (response.status === 401 && state.me) showLogin(); const error = new Error(result.detail === 'CSRF validation failed' ? '登录校验未通过，请刷新页面后重试。' : result.detail || `HTTP ${response.status}`); error.status = response.status; error.code = result.code; error.activeConversation = response.headers.get('X-Active-Conversation'); error.retryAfter = Number(response.headers.get('Retry-After')) || null; throw error; }
   return result;
 }
-function showLogin() { $('admin-releases-dialog').close(); $('admin-releases-open').hidden = true; $('admin-releases-content').replaceChildren(); $('auth-submit').disabled = false; window.OreSageEmail?.showLogin(); window.OreSageProfile?.clear(); window.OreSagePassword?.clear(); window.OreSageAdminUsers?.clear(); window.OreSageAdminUsage?.clear(); window.OreSageSharedKnowledge?.clear(); window.GeoAgentCases?.clear(); window.GeoAgentDefaults?.clear(); window.GeoAgentImages?.clear(); window.GeoAgentPlan?.reset(); window.OreSageDrafts?.reset(); stopRunElapsedClock(); submissionFeedback(); state.runs.clear(); state.activeTasks = []; state.inputRequests = []; renderGlobalTask(); window.GeoToolLibrary?.reset(); window.GeoToolHITL?.reset(); state.view++; state.cid = null; state.me = null; modelSettings = null; $('model-token').value = ''; $('model-dialog').close(); for (const source of state.sources.values()) source.close(); state.sources.clear(); $('app').hidden = true; $('auth-screen').hidden = false; }
+function showLogin() { $('admin-releases-dialog').close(); $('admin-releases-open').hidden = true; $('admin-releases-content').replaceChildren(); $('auth-submit').disabled = false; window.OreSageEmail?.showLogin(); window.OreSageProfile?.clear(); window.OreSagePassword?.clear(); window.OreSageAdminUsers?.clear(); window.OreSageAdminUsage?.clear(); window.OreSageSharedKnowledge?.clear(); window.GeoAgentCases?.clear(); window.GeoAgentDefaults?.clear(); window.GeoAgentImages?.clear(); window.GeoAgentPlan?.reset(); window.GeoAgentRecovery?.reset(); window.OreSageDrafts?.reset(); stopRunElapsedClock(); submissionFeedback(); state.runs.clear(); state.recovery = null; state.activeTasks = []; state.inputRequests = []; renderGlobalTask(); window.GeoToolLibrary?.reset(); window.GeoToolHITL?.reset(); state.view++; state.cid = null; state.me = null; modelSettings = null; $('model-token').value = ''; $('model-dialog').close(); for (const source of state.sources.values()) source.close(); state.sources.clear(); $('app').hidden = true; $('auth-screen').hidden = false; }
 function notice(message = '') { $('notice').textContent = message; }
 function submissionFeedback(message = '', conversationId = '') {
   const box = $('submission-feedback'), label = $('submission-status'), open = $('active-task-open');
@@ -188,12 +188,12 @@ async function loadConversations() {
   for (const conversation of conversations) { const button = element('button', conversation.title, conversation.id === state.cid ? 'selected' : ''); button.title = conversation.title; button.addEventListener('click', () => openConversation(conversation.id).catch(e => notice(e.message))); $('conversation-list').append(button); }
 }
 function closeStreams() { window.GeoAgentCitations?.clear(); stopRunElapsedClock(); for (const source of state.sources.values()) source.close(); state.sources.clear(); }
-function busy(rid) { state.busy = rid; $('composer-mode').disabled = Boolean(rid); $('send').disabled = Boolean(rid); $('stop').hidden = !rid; $('attach').disabled = Boolean(rid); $('upload-button').disabled = Boolean(rid); window.GeoToolHITL?.syncComposer(); }
+function busy(rid) { state.busy = rid; $('composer-mode').disabled = Boolean(rid); $('send').disabled = Boolean(rid); $('stop').hidden = !rid; $('attach').disabled = Boolean(rid); $('upload-button').disabled = Boolean(rid); window.GeoToolHITL?.syncComposer(); window.GeoAgentRecovery?.sync(); }
 async function openConversation(cid) {
   window.GeoToolLibrary?.close({focus:false});
   if (state.cid && state.cid !== cid) window.GeoToolLibrary?.clearSelection();
   if (!submittingRun) submissionFeedback();
-  window.OreSageDrafts?.flush(); window.GeoAgentImages?.clear(); window.GeoAgentPlan?.selectConversation(cid); closeStreams(); state.cid = cid; const view = ++state.view; state.runs.clear(); $('messages').replaceChildren(); notice(); busy(null); restoreComposerDraft();
+  window.OreSageDrafts?.flush(); window.GeoAgentImages?.clear(); window.GeoAgentPlan?.selectConversation(cid); window.GeoAgentRecovery?.reset(); state.recovery = null; closeStreams(); state.cid = cid; const view = ++state.view; state.runs.clear(); $('messages').replaceChildren(); notice(); busy(null); restoreComposerDraft();
   window.GeoToolHITL?.selectConversation(cid);
   const conversation = await api(`/api/conversations/${cid}`); if (state.cid !== cid || state.view !== view) return; $('chat-title').textContent = conversation.title;
   if (!conversation.runs.length) $('messages').append(welcome);
@@ -309,6 +309,24 @@ function setRunMessageTimes(ui, run) {
 }
 // End message timestamp helpers.
 
+async function prepareTerminalRecovery(rid, action) {
+  const ui = state.runs.get(rid), cid = state.cid, view = state.view, identity = state.me?.id;
+  if (!ui || state.busy || quickSwitching || submittingRun) throw new Error('当前有其他任务或视图正在切换，请稍后再试。');
+  const prepared = await api(`/api/runs/${encodeURIComponent(rid)}/recovery`, {method:'POST', body:{action}});
+  if (state.cid !== cid || state.view !== view || state.me?.id !== identity || state.runs.get(rid) !== ui) return false;
+  if (prepared.source_run_id !== rid || prepared.conversation_id !== cid || prepared.action !== action ||
+      prepared.mode !== 'agent' || prepared.execution !== 'new_run' || typeof prepared.query !== 'string' || !prepared.query.trim() || prepared.query.length > 20000) {
+    throw new Error('恢复草稿标识或格式不一致，未填入输入框。');
+  }
+  setComposerMode('agent');
+  state.recovery = {source_run_id:rid, action, conversation_id:cid};
+  $('prompt').value = prepared.query;
+  $('prompt').dispatchEvent(new Event('input'));
+  $('prompt').focus();
+  notice(prepared.message || '已准备续写草稿；请编辑后确认研究计划并发送。');
+  return true;
+}
+
 function replyActions(ui) {
   const box = element('div', undefined, 'reply-actions');
   const copy = element('button', '复制答复', 'quiet');
@@ -352,6 +370,16 @@ function renderRun(run) {
   ui.replyActions = replyActions(ui);
   reason.before(ui.replyActions);
   state.runs.set(run.id, ui); setRunElapsed(ui, run); window.GeoToolHITL?.attachCards(); window.GeoAgentExperience?.attach(run.id, ui); window.GeoAgentTimeline?.attach(run.id, ui); window.GeoAgentPresentation?.attach(run.id, ui);
+  window.GeoAgentRecovery?.attach(run.id, ui, {
+    blocked:() => Boolean(state.busy || quickSwitching || submittingRun),
+    compose:prepareTerminalRecovery,
+    inspect:current => {
+      if (state.runs.get(run.id) !== current) return;
+      current.activity.open = true;
+      if (current.overview?.openItems) current.overview.openItems.open = true;
+      current.overview?.openItems?.scrollIntoView?.({block:'nearest'});
+    }
+  });
   if (run.activity?.mode) handleEvent(run.id, {kind:'run_mode', mode:run.activity.mode}, null, true);
   if (run.activity?.plan) handleEvent(run.id, {kind:'plan_confirmed', plan:run.activity.plan}, null, true);
   if (run.activity?.skill) handleEvent(run.id, {kind:'skill_selected', skill:run.activity.skill}, null, true);
@@ -401,6 +429,7 @@ function handleEvent(rid, data, eventId, historical = false) {
     const source = state.sources.get(rid); if (source) source.close(); state.sources.delete(rid); if (state.busy === rid) busy(null); window.GeoToolHITL?.refresh(data.status === 'needs_input'); refreshActiveTasks().catch(() => {}); loadFiles().catch(e => notice(e.message)); loadConversations().catch(e => notice(e.message));
   }
   window.GeoAgentExperience?.event(rid, data, eventId);
+  window.GeoAgentRecovery?.event(rid);
   if (!historical || data.kind !== 'stage_timing' || !ui.timing) window.GeoAgentTimeline?.event(rid, data, eventId);
   if (!historical) window.GeoAgentPresentation?.event(rid, data);
   if (wasNearEnd && !historical && !replacingDraft) scrollEnd();
@@ -488,6 +517,7 @@ $('composer').addEventListener('submit', async event => {
   const prompt = $('prompt'), draft = prompt.value, query = draft.trim();
   if (!query) return;
   const mode = composerMode();
+  const recovery = state.recovery;
   const skillId = mode === 'agent' ? window.GeoToolLibrary?.selectedId() : null;
   const confirmedPlan = mode === 'agent' ? window.GeoAgentPlan?.consume(query, skillId) : null;
   if (mode === 'agent' && !confirmedPlan && window.GeoAgentPlan?.open(query, skillId)) return;
@@ -507,8 +537,11 @@ $('composer').addEventListener('submit', async event => {
       cid = conversation.id;
     }
     if (state.cid !== cid || state.view !== view || state.me?.id !== identity) return;
-    const run = await api(`/api/conversations/${cid}/runs`, {method:'POST', body:{query, mode, ...(skillId ? {skill_id:skillId} : {}), ...(confirmedPlan ? {plan:confirmedPlan} : {})}});
+    const recoveryPayload = recovery && recovery.conversation_id === cid && mode === 'agent'
+      ? {source_run_id:recovery.source_run_id, recovery_action:recovery.action} : {};
+    const run = await api(`/api/conversations/${cid}/runs`, {method:'POST', body:{query, mode, ...(skillId ? {skill_id:skillId} : {}), ...(confirmedPlan ? {plan:confirmedPlan} : {}), ...recoveryPayload}});
     if (state.cid !== cid || state.view !== view || state.me?.id !== identity) return;
+    state.recovery = null;
     if (prompt.value === draft) { prompt.value = ''; window.OreSageDrafts?.clear(composerDraftScope()); }
     if (draftScope !== composerDraftScope()) window.OreSageDrafts?.clear(draftScope);
     window.GeoToolLibrary?.clearSelection();
@@ -538,6 +571,7 @@ window.GeoAgentCaseBridge = {
   load: async loaded => {
     await openConversation(loaded.conversation_id);
     if (state.cid !== loaded.conversation_id) return;
+    state.recovery = null;
     setComposerMode('agent');
     $('prompt').value = loaded.prompt;
     $('prompt').dispatchEvent(new Event('input'));
@@ -553,6 +587,7 @@ function composerMode() {
   return $('composer').elements.namedItem('mode').value;
 }
 function setComposerMode(mode) {
+  if (mode === 'ask') state.recovery = null;
   $('composer').elements.namedItem('mode').value = mode;
   const ask = mode === 'ask';
   $('skill-picker-button').hidden = ask;
@@ -564,6 +599,7 @@ function setComposerMode(mode) {
 $('composer-mode').addEventListener('change', event => setComposerMode(event.target.value));
 window.GeoAgentComposer = {mode: composerMode, useAgent: () => setComposerMode('agent')};
 for (const button of welcome.querySelectorAll('[data-prompt]')) button.addEventListener('click', () => {
+  state.recovery = null;
   setComposerMode(button.dataset.mode);
   $('prompt').value = button.dataset.prompt;
   $('prompt').dispatchEvent(new Event('input'));
