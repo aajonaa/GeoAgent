@@ -4,7 +4,7 @@ title: 前端科研工作台交互升级
 status: In Progress
 assignee: []
 created_date: '2026-11-26 14:52'
-updated_date: '2026-11-26 15:58'
+updated_date: '2026-11-27'
 labels:
   - frontend ux
 dependencies: []
@@ -27,7 +27,7 @@ ordinal: 21000
 ## Implementation Notes
 
 <!-- SECTION:NOTES:BEGIN -->
-GEO-21.1 已完成编码、定向验证和 0.22 部署，正在完成本项 Git 提交与推送；GEO-21.1 推送回执补齐后开始 GEO-21.2。
+GEO-21.1 已完成：0.22 / 77af4e8905bf，功能提交 3a7fdd9 已推送且远端尖端一致。
 
-GEO-21.1 已完成：0.22 / 77af4e8905bf，功能提交 3a7fdd9 已推送且远端尖端一致；开始 GEO-21.2。
+GEO-21.2 已完成：0.23 / 7ef321a0dc12，候选与安装后定向测试、桌面/手机候选及公网回放通过；功能提交 89f176c 已推送且远端尖端一致。下一步开始 GEO-21.3 研究计划与验收标准确认。
 <!-- SECTION:NOTES:END -->
