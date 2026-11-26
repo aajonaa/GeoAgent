@@ -1,9 +1,11 @@
 ---
 id: GEO-21.2
 title: 长任务执行摘要与阶段分组
-status: To Do
-assignee: []
+status: In Progress
+assignee:
+  - '@QoderCN'
 created_date: '2026-11-26 14:52'
+updated_date: '2026-11-26 15:58'
 labels:
   - frontend ux
 dependencies: []

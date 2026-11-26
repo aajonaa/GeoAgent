@@ -1,11 +1,11 @@
 ---
 id: GEO-21.1
 title: 全局任务状态与草稿持久化
-status: In Progress
+status: Done
 assignee:
   - '@QoderCN'
 created_date: '2026-11-26 14:52'
-updated_date: '2026-11-26 15:55'
+updated_date: '2026-11-26 15:58'
 labels:
   - frontend ux
   - release-0.22
@@ -14,6 +14,7 @@ references:
   - 'deployed-build:77af4e8905bf'
   - >-
     C:/Users/jona/OneDrive/Documentos/ChatGPT/新一代人工智能项目/output/orebogao-ux-global-state-draftfix-20261126/verification.json
+  - 'git-commit:3a7fdd92d722aa6f30d35bde528781532904b84a'
 modified_files:
   - geological_agent/team/store.py
   - geological_agent/team/server.py
@@ -57,4 +58,12 @@ ordinal: 22000
 
 <!-- SECTION:NOTES:BEGIN -->
 已编码并验证：账号级活动任务/待回复接口、全局任务条、按账号与对话或请求隔离的文本草稿、IndexedDB 未上传附件草稿。A100 候选与安装后定向测试均为 6 passed/7 deselected；1440 与 390 Playwright 覆盖跨会话返回、刷新恢复、HITL 文本/选项/附件、账号隔离、新对话首次提交清理、无横向溢出和无页面错误。已发布 0.21（1ae0f73f7c5e）及修复首次新对话草稿重复的 0.22（77af4e8905bf），公网资产哈希、安装后测试与两档公网回放通过。回滚备份 /data/wangjian/oresage-retrieval-release-20261114/ux-global-state-draftfix-6a6cc9688b。定向测试范围之外的完整 test_hitl.py 未声明全绿，详见 verification.json。Git 提交与推送待执行。
+
+Git 完成：功能与测试提交 3a7fdd92d722aa6f30d35bde528781532904b84a，已推送 origin/codex/orebogao-geo-ux-global-state；git ls-remote 核对远端尖端一致。本条完成回执随后通过独立 Backlog 文档提交推送。
 <!-- SECTION:NOTES:END -->
+
+## Final Summary
+
+<!-- SECTION:FINAL_SUMMARY:BEGIN -->
+GEO-21.1 已完成并上线 0.22：跨会话任务状态、普通/HITL 文本草稿和本机附件草稿均通过定向接口测试与桌面/手机公网回放；功能提交 3a7fdd9 已推送，旧构建回滚备份保留。
+<!-- SECTION:FINAL_SUMMARY:END -->
