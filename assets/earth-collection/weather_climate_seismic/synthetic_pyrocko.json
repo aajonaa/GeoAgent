@@ -1,0 +1,8 @@
+{
+  "dip_deg": 90,
+  "fixture_id": "synthetic_pyrocko",
+  "rake_deg": 0,
+  "scalar_moment_nm": 1000000000000000,
+  "strike_deg": 0,
+  "synthetic": true
+}

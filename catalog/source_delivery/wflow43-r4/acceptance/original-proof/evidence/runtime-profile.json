@@ -1,0 +1,48 @@
+{
+  "interpreter": "/data/wangjian/earth-python-all-20261022-r4/venv/bin/python",
+  "packages": {
+    "numba": {
+      "version": "0.68.0",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "METADATA_sha256": "b3bbd7c095b9d0b410d778176e2824ea5be21e982e63e8d4fc7c8fdb82f98df7"
+    },
+    "llvmlite": {
+      "version": "0.50.0",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "METADATA_sha256": "8f1269fc707c42d99b010322f95da3fc46a9ad3c542080fa0bc6d9deab6a9c05"
+    },
+    "numpy": {
+      "version": "2.1.3",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "METADATA_sha256": "7c07741da49dc3af378a7d22b554a7c3815a0784e6e4adccf6b715a2ece644de"
+    },
+    "jsonschema": {
+      "version": "4.25.1",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "METADATA_sha256": "31f83c1579e46e1af62269cefa5d83534ef155f3ee21914f7881bbd544bc125c"
+    },
+    "pydantic": {
+      "version": "2.13.5",
+      "root": "/data/wangjian/geotoolagent-team-20260930-r1/.venv/lib/python3.12/site-packages",
+      "METADATA_sha256": "0685830d13647bd6f3f05526043d32a8b2a221d86b53773053d6c52bb17a9c07"
+    },
+    "typing-extensions": {
+      "version": "4.16.0",
+      "root": "/data/wangjian/earth-python-intake-20261021-wave1-r1/venv/lib/python3.12/site-packages",
+      "METADATA_sha256": "b05084ca1d50879865178d9fff9fabeab61bdfb1f361bfbde95421ffc8f9be46"
+    }
+  },
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "NVIDIA_VISIBLE_DEVICES": "none",
+    "PROJ_NETWORK": "OFF",
+    "MPLCONFIGDIR": "/data/wangjian/earth-python-approved-replacements-20261022/wflow43-collection-native-r4/original-proof/cache/acceptance/matplotlib",
+    "NUMBA_CACHE_DIR": "/data/wangjian/earth-python-approved-replacements-20261022/wflow43-collection-native-r4/original-proof/cache/acceptance/numba",
+    "XDG_CACHE_HOME": "/data/wangjian/earth-python-approved-replacements-20261022/wflow43-collection-native-r4/original-proof/cache/acceptance/xdg",
+    "NUMBA_NUM_THREADS": "1",
+    "OMP_NUM_THREADS": "1"
+  },
+  "worker_bridge_used": false,
+  "runtime_installs": false,
+  "parent_latest_interpreter_checked": false
+}

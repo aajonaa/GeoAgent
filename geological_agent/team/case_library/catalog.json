@@ -1,0 +1,4960 @@
+{
+  "schema": "oresage.case-library/v1",
+  "categories": [
+    "矿产资源与找矿",
+    "地质与岩石物理",
+    "地震与InSAR",
+    "水文与地下水",
+    "遥感与影像",
+    "空间分析与制图",
+    "气候与海洋",
+    "能源",
+    "灾害与风险",
+    "统计与分块计算"
+  ],
+  "items": [
+    {
+      "id": "ore-cresource-example-v1",
+      "skill": "ore-cresource",
+      "source_skill_title": "条件资源分析",
+      "title": "观测约束下的资源情景",
+      "description": "用已有观测约束空间随机场，比较不确定性。",
+      "category": "矿产资源与找矿",
+      "icon": "ore",
+      "input_label": "坐标与浓度",
+      "output_label": "情景统计",
+      "version": "1.0.1-review1",
+      "case_id": "CR01",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "GeoConditionedResourceEnsemble"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "情景统计"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "bfa10014cfa0f9cba2834b931aeb7b9b0c1494f3b26ed7a1bb5e1c92549cc11f",
+          "bytes": 1036,
+          "source": "ore-cresource-1.0.1-review1/tests/in/CR01.json"
+        },
+        "request.json": {
+          "sha256": "5c013dbf4ff4e11c507efc64e9618fcbb0f582c9fc08e202bd73bb59c69ddf84",
+          "bytes": 1487,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "ed972913afdce5257a916f0e3df3f5d66f34164ab6448470ec68375f62cb7467",
+          "bytes": 524,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-cresource",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoConditionedResourceEnsemble",
+          "arguments": {
+            "data_source": "SYNTHETIC controlled tracer X; ppm mass/mass dry basis; local Cartesian east,north,up metres on arbitrary common datum. Not field assays, mineral presence or resource evidence.",
+            "observation_coordinates_m": [
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "observed_values_ppm": [
+              12
+            ],
+            "target_coordinates_m": [
+              [
+                -1,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                1,
+                0,
+                0
+              ]
+            ],
+            "known_mean_ppm": 10,
+            "prior_variance_ppm2": 4,
+            "correlation_length_m": 1,
+            "measurement_noise_variance_ppm2": 1,
+            "realization_count": 4096,
+            "random_seed": 20261031
+          }
+        }
+      ],
+      "scope_notes": "需 Linux CPU 隔离／监督器；测试为合成条件资源情景。",
+      "source_request": "ore-cresource-1.0.1-review1/tests/in/CR01.json",
+      "source_request_sha256": "bfa10014cfa0f9cba2834b931aeb7b9b0c1494f3b26ed7a1bb5e1c92549cc11f",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-deposits-example-v1",
+      "skill": "ore-deposits",
+      "source_skill_title": "矿点检索与详情",
+      "title": "查询矿点与查看详情",
+      "description": "在随附目录中筛选矿点，并核对记录身份。",
+      "category": "矿产资源与找矿",
+      "icon": "ore",
+      "input_label": "矿点 CSV",
+      "output_label": "矿点清单",
+      "version": "1.0.1",
+      "case_id": "DEP-26",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "MineralResourcesGetDeposit",
+        "MineralResourcesSearchDeposits"
+      ],
+      "operation_count": 2,
+      "inputs": [
+        "tests/data/catalog.csv",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "矿点清单"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "tests/data/catalog.csv": {
+          "sha256": "4bd0aa1cc94f5a464701f86d71c6408e1125d41ae9d3417188d44aa26bb2af46",
+          "bytes": 709,
+          "source": "ore-deposits-1.0.1/tests/data/catalog.csv"
+        },
+        "request.original.json": {
+          "sha256": "01d9dfaa7a7d67d1a989d75f9e4c2f1c0fe385b979b48f117c15163ddfac5be5",
+          "bytes": 521,
+          "source": "ore-deposits-1.0.1/tests/inputs/DEP-26.json"
+        },
+        "request.json": {
+          "sha256": "7d2eeacde58175436a35b6be2d51bee4e7e1a665128a6e8f8d6bb22e7f7de456",
+          "bytes": 1099,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "94c56cd9186b31584816f1de2e02df221a1c39da8195faaeaf9abad068e5070f",
+          "bytes": 525,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-deposits",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "MineralResourcesGetDeposit",
+          "arguments": {
+            "dataset_path": "tests/data/catalog.csv",
+            "dep_id": 55
+          }
+        },
+        {
+          "operation_id": "op2",
+          "tool": "MineralResourcesSearchDeposits",
+          "arguments": {
+            "dataset_path": "tests/data/catalog.csv",
+            "country": "中国"
+          }
+        }
+      ],
+      "scope_notes": "按提供的目录查询；旧 55 项条件未全量复跑，超 2^53 整数的 JavaScript 互通未验。",
+      "source_request": "ore-deposits-1.0.1/tests/inputs/DEP-26.json",
+      "source_request_sha256": "01d9dfaa7a7d67d1a989d75f9e4c2f1c0fe385b979b48f117c15163ddfac5be5",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-bruges-example-v1",
+      "skill": "ore-bruges",
+      "source_skill_title": "岩石物理分析",
+      "title": "从岩性参数到地震响应",
+      "description": "串联弹性阻抗、反射系数与窗口相干分析。",
+      "category": "地质与岩石物理",
+      "icon": "seismic",
+      "input_label": "速度与密度",
+      "output_label": "岩石物理指标",
+      "version": "1.0.1",
+      "case_id": "BRG-50",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "GeoSeismicElasticImpedance",
+        "GeoSeismicWindowCoherence",
+        "SeismicReflectivity"
+      ],
+      "operation_count": 3,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "岩石物理指标"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "120039d3cf5ca60421a1d988d5d8f23de69484b9989d9573ffe89a4d6e2746c9",
+          "bytes": 1367,
+          "source": "ore-bruges-1.0.1/tests/inputs/BRG-50.json"
+        },
+        "request.json": {
+          "sha256": "c452fb8dcfa3bc60352525035b001e1bc797e0f0ee12de9467b3944db8fbed86",
+          "bytes": 1580,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "5723f430d8168820d358ecd4b12a8209c65376ae6efdad4fd0a296891fbec3ff",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-bruges",
+      "operations": [
+        {
+          "operation_id": "ei",
+          "tool": "GeoSeismicElasticImpedance",
+          "arguments": {
+            "input_source": "synthetic:layer-logs-v1",
+            "vp_m_s": [
+              2000,
+              3000,
+              2500
+            ],
+            "vs_m_s": [
+              1000,
+              1500,
+              1250
+            ],
+            "density_kg_m3": [
+              2000,
+              2400,
+              2200
+            ],
+            "incidence_degrees": [
+              0,
+              20
+            ],
+            "shear_p_ratio": 0.5
+          }
+        },
+        {
+          "operation_id": "r",
+          "tool": "SeismicReflectivity",
+          "arguments": {
+            "vp": [
+              2000,
+              3000,
+              2500
+            ],
+            "density": [
+              2.0,
+              2.4,
+              2.2
+            ]
+          }
+        },
+        {
+          "operation_id": "c",
+          "window_from": "r",
+          "trace_gains": [
+            1,
+            1,
+            2
+          ],
+          "tool": "GeoSeismicWindowCoherence",
+          "arguments": {
+            "input_source": "synthetic:layer-logs-v1/reflectivity"
+          }
+        }
+      ],
+      "scope_notes": "完整复测补充已归并；原报告只含子集，测试启动器差异须保留。",
+      "source_request": "ore-bruges-1.0.1/tests/inputs/BRG-50.json",
+      "source_request_sha256": "120039d3cf5ca60421a1d988d5d8f23de69484b9989d9573ffe89a4d6e2746c9",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-deepearth-example-v1",
+      "skill": "ore-deepearth",
+      "source_skill_title": "地球深部数据查询",
+      "title": "查询地球内部的结构",
+      "description": "按位置与层位，查询随附模型表中的结构参数。",
+      "category": "地质与岩石物理",
+      "icon": "layers",
+      "input_label": "模型表与坐标",
+      "output_label": "层位参数",
+      "version": "1.0.0",
+      "case_id": "DEE-056",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "DeepEarthQueryLITHO1",
+        "DeepEarthQuerySEMUCB"
+      ],
+      "operation_count": 3,
+      "inputs": [
+        "tests/data/litho.csv",
+        "tests/data/semucb.csv",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "层位参数"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "tests/data/litho.csv": {
+          "sha256": "86b80cdff0088631e0937d6e061d6954c101cfc53ea11bf912e33b24d7475d26",
+          "bytes": 116,
+          "source": "ore-deepearth-1.0.0/tests/data/litho.csv"
+        },
+        "tests/data/semucb.csv": {
+          "sha256": "33759051cd8e66d2a0463e8ab9174f31bbb6e4b4396a65826f1ea677cf459827",
+          "bytes": 125,
+          "source": "ore-deepearth-1.0.0/tests/data/semucb.csv"
+        },
+        "request.original.json": {
+          "sha256": "2c39a6d54afcfba04c58924046777003ad6f2f8b3ee88e8327778a39b079486a",
+          "bytes": 941,
+          "source": "ore-deepearth-1.0.0/tests/inputs/DEE-056.json"
+        },
+        "request.json": {
+          "sha256": "6e8537226814f587b31bb9d712d2488e16aa8da2d170a25b3760947166d10842",
+          "bytes": 1590,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "fb4c24d3cafb168bb6f3406be1324de2aa1d725c2ee0d572b3f129792f381489",
+          "bytes": 527,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-deepearth",
+      "operations": [
+        {
+          "operation_id": "moho",
+          "tool": "DeepEarthQueryLITHO1",
+          "arguments": {
+            "dataset_path": "tests/data/litho.csv",
+            "dataset_version": "synthetic-deepearth-20261031-v1",
+            "latitude": 0,
+            "longitude": 0,
+            "layer": "CRUST3-BOTTOM"
+          }
+        },
+        {
+          "operation_id": "lab",
+          "tool": "DeepEarthQueryLITHO1",
+          "arguments": {
+            "dataset_path": "tests/data/litho.csv",
+            "dataset_version": "synthetic-deepearth-20261031-v1",
+            "latitude": 0,
+            "longitude": 0,
+            "layer": "LAB"
+          }
+        },
+        {
+          "operation_id": "vs",
+          "tool": "DeepEarthQuerySEMUCB",
+          "arguments": {
+            "dataset_path": "tests/data/semucb.csv",
+            "dataset_version": "synthetic-deepearth-20261031-v1",
+            "latitude": 0,
+            "longitude": 0,
+            "depth_km": 100
+          }
+        }
+      ],
+      "scope_notes": "验证调用方提供的模型表查询；未认证全球模型真实性。",
+      "source_request": "ore-deepearth-1.0.0/tests/inputs/DEE-056.json",
+      "source_request_sha256": "2c39a6d54afcfba04c58924046777003ad6f2f8b3ee88e8327778a39b079486a",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-structure-example-v1",
+      "skill": "ore-structure",
+      "source_skill_title": "构造地质分析",
+      "title": "读懂岩层的空间产状",
+      "description": "用产状观测做赤平投影与构造统计。",
+      "category": "地质与岩石物理",
+      "icon": "layers",
+      "input_label": "产状 JSON",
+      "output_label": "构造统计图",
+      "version": "1.0.2",
+      "case_id": "SR001",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoStereonetAnalysis"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "SR001.json",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "构造统计图"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "SR001.json": {
+          "sha256": "6143025b45acb822679fbbb078dd41a2084e1efae4fe48ce91deef122ba6b03f",
+          "bytes": 321,
+          "source": "ore-structure-1.0.2/tests/d/SR001.json"
+        },
+        "request.original.json": {
+          "sha256": "49f696cac4ae15ac41345e8d91a08526a34a7895631b464703758c9baf7272e8",
+          "bytes": 149,
+          "source": "ore-structure-1.0.2/tests/q/SR001.json"
+        },
+        "request.json": {
+          "sha256": "3706971a40a5e6f7a7892e1f2f1ac02784b0774d45c98b33eff216ca458bf18b",
+          "bytes": 513,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "89b948245557b3bfcc613fbe966c7bfe13fb025832663384eeb3d6cd3988f0ab",
+          "bytes": 525,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-structure",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoStereonetAnalysis",
+          "arguments": {
+            "data_path": "SR001.json"
+          }
+        }
+      ],
+      "scope_notes": "保留已披露数值算法修订和源码差异；角度单位及构造约定需明确。",
+      "source_request": "ore-structure-1.0.2/tests/q/SR001.json",
+      "source_request_sha256": "49f696cac4ae15ac41345e8d91a08526a34a7895631b464703758c9baf7272e8",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-icorr-example-v1",
+      "skill": "ore-icorr",
+      "source_skill_title": "InSAR 改正与分解",
+      "title": "分析 InSAR 高程残差",
+      "description": "按已处理的雷达观测和网格约定估计残差。",
+      "category": "地震与InSAR",
+      "icon": "satellite",
+      "input_label": "雷达数组与网格",
+      "output_label": "残差分析",
+      "version": "1.0.1",
+      "case_id": "IC028",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "GeoInSARResidualDEM"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "残差分析"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "eefd6167162d3d3571c645c83426211137f7c2932cbeae8d6f2d552e6116f103",
+          "bytes": 4814,
+          "source": "ore-icorr-1.0.1/tests/requests/IC028.json"
+        },
+        "request.json": {
+          "sha256": "9952b6e4b9fd1e18165b33302868196a129f29ca01fc12d0d1355fdf7e84855d",
+          "bytes": 6031,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "f5230bc060c39dc70d3e99d2f4c97de1cc9976863fd9a5c8d205e165f069657b",
+          "bytes": 521,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-icorr",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoInSARResidualDEM",
+          "arguments": {
+            "grid": {
+              "crs": "EPSG:4326",
+              "affine": [
+                0.02,
+                0,
+                119,
+                0,
+                -0.025,
+                37
+              ],
+              "mask": [
+                [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                [
+                  true,
+                  true,
+                  true,
+                  true
+                ],
+                [
+                  true,
+                  true,
+                  true,
+                  true
+                ]
+              ],
+              "nodata": null
+            },
+            "sar": {
+              "state": "coregistered_unwrapped_insar",
+              "processing_provenance": "Independent synthetic processed/co-registered LOS metres; no raw RGB/SLC calibration or field provenance claim",
+              "wavelength_m": 0.056,
+              "los_convention": "positive_toward_sensor"
+            },
+            "dates": [
+              "20030101",
+              "20030607",
+              "20040229",
+              "20040911",
+              "20050603",
+              "20060101"
+            ],
+            "displacement_unit": "m",
+            "los_displacement_m": [
+              [
+                [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              ],
+              [
+                [
+                  -0.007359451614320278,
+                  -0.00388585333712399,
+                  -0.000412408378906548,
+                  0.0030608833767473698
+                ],
+                [
+                  -0.006947042886167765,
+                  -0.00347344484180212,
+                  0.0,
+                  0.003473291639238596
+                ],
+                [
+                  -0.006534290034323931,
+                  -0.0030606917571276426,
+                  0.0004127530555706471,
+                  0.0038860447239130735
+                ]
+              ],
+              [
+                [
+                  -0.018993526697158813,
+                  -0.011375829577445984,
+                  -0.0037580281496047974,
+                  0.003859875025227666
+                ],
+                [
+                  -0.01523549947887659,
+                  -0.007617800496518612,
+                  0.0,
+                  0.00761790294200182
+                ],
+                [
+                  -0.011477700434625149,
+                  -0.0038600026164203882,
+                  0.003757798345759511,
+                  0.011375701986253262
+                ]
+              ],
+              [
+                [
+                  -0.028332708403468132,
+                  -0.016003776341676712,
+                  -0.0036750456783920527,
+                  0.008653479628264904
+                ],
+                [
+                  -0.024657662957906723,
+                  -0.012328729033470154,
+                  0.0,
+                  0.012328525073826313
+                ],
+                [
+                  -0.020982157438993454,
+                  -0.00865322444587946,
+                  0.0036755052860826254,
+                  0.016004031524062157
+                ]
+              ],
+              [
+                [
+                  -0.0400509238243103,
+                  -0.02326638251543045,
+                  -0.00648189103230834,
+                  0.010302549228072166
+                ],
+                [
+                  -0.03356903791427612,
+                  -0.016784492880105972,
+                  0.0,
+                  0.016784442588686943
+                ],
+                [
+                  -0.027087029069662094,
+                  -0.010302485898137093,
+                  0.006482006050646305,
+                  0.023266447708010674
+                ]
+              ],
+              [
+                [
+                  -0.04926403611898422,
+                  -0.029237911105155945,
+                  -0.009211620315909386,
+                  0.01081483531743288
+                ],
+                [
+                  -0.04005241394042969,
+                  -0.02002628892660141,
+                  0.0,
+                  0.02002645656466484
+                ],
+                [
+                  -0.030841168016195297,
+                  -0.01081504300236702,
+                  0.009211246855556965,
+                  0.02923770435154438
+                ]
+              ]
+            ],
+            "perpendicular_baseline_m": [
+              0,
+              120,
+              -80,
+              160,
+              40,
+              -130
+            ],
+            "incidence_deg": [
+              [
+                34,
+                34,
+                34,
+                34
+              ],
+              [
+                34,
+                34,
+                34,
+                34
+              ],
+              [
+                34,
+                34,
+                34,
+                34
+              ]
+            ],
+            "slant_range_m": [
+              [
+                819580,
+                819700,
+                819820,
+                819940
+              ],
+              [
+                819760,
+                819880,
+                820000,
+                820120
+              ],
+              [
+                819940,
+                820060,
+                820180,
+                820300
+              ]
+            ]
+          }
+        }
+      ],
+      "scope_notes": "四项 InSAR 操作；原始 IPC 输入帧缺失，不宣称逐帧完整通信证明。",
+      "source_request": "ore-icorr-1.0.1/tests/requests/IC028.json",
+      "source_request_sha256": "eefd6167162d3d3571c645c83426211137f7c2932cbeae8d6f2d552e6116f103",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-obspy-example-v1",
+      "skill": "ore-obspy",
+      "source_skill_title": "ObsPy 地震波形分析",
+      "title": "从波形提取地震信号",
+      "description": "处理传感器响应、带通与事件触发信息。",
+      "category": "地震与InSAR",
+      "icon": "seismic",
+      "input_label": "波形与仪器参数",
+      "output_label": "波形指标",
+      "version": "1.0.2-r2",
+      "case_id": "OBSP-59",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "GeoSeismicInstrumentDeconvolution",
+        "GeoSeismicSTALTADetection",
+        "SeismicObsPyBandpass"
+      ],
+      "operation_count": 3,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "波形指标"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "dff17a37cfc426004259ff3200e5fa9fddc8e30d93591ad77d306179899ffb4f",
+          "bytes": 9082,
+          "source": "ore-obspy-1.0.2-r2/tests/inputs/OBSP-59.json"
+        },
+        "request.json": {
+          "sha256": "3b2b5003f8f364b7fd53184b75e29f46f2f771e149574a03a60996f9e62e05a3",
+          "bytes": 9291,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "8ba3feb12145987274ac8754f6efd5fb5a1b6c06d091527ad7bf150c72f5361d",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-obspy",
+      "operations": [
+        {
+          "operation_id": "vel",
+          "tool": "GeoSeismicInstrumentDeconvolution",
+          "arguments": {
+            "input_source": "synthetic:flat-velocity-sensor-v1",
+            "counts": [
+              0.0,
+              0.03826834323650898,
+              0.07071067811865477,
+              0.09238795325112868,
+              0.1,
+              0.09238795325112868,
+              0.07071067811865477,
+              0.03826834323650899,
+              1.2246467991473533e-17,
+              -0.03826834323650897,
+              -0.07071067811865475,
+              -0.09238795325112865,
+              -0.1,
+              -0.09238795325112867,
+              -0.07071067811865477,
+              -0.038268343236509045,
+              -2.4492935982947065e-17,
+              0.038268343236508996,
+              0.07071067811865474,
+              0.09238795325112865,
+              0.1,
+              0.09238795325112868,
+              0.07071067811865483,
+              0.03826834323650905,
+              3.6739403974420595e-17,
+              -0.03826834323650899,
+              -0.0707106781186548,
+              -0.09238795325112864,
+              -0.1,
+              -0.09238795325112868,
+              -0.07071067811865485,
+              -0.038268343236509066,
+              -4.898587196589413e-17,
+              0.038268343236508975,
+              0.07071067811865478,
+              0.09238795325112864,
+              0.1,
+              0.0923879532511287,
+              0.07071067811865486,
+              0.03826834323650907,
+              6.123233995736766e-17,
+              -0.038268343236508795,
+              -0.07071067811865477,
+              -0.09238795325112864,
+              -0.1,
+              -0.0923879532511287,
+              -0.07071067811865488,
+              -0.03826834323650893,
+              -7.347880794884119e-17,
+              0.03826834323650879,
+              0.07071067811865477,
+              0.09238795325112864,
+              0.1,
+              0.0923879532511287,
+              0.07071067811865488,
+              0.038268343236508934,
+              8.572527594031473e-17,
+              -0.038268343236508774,
+              -0.07071067811865477,
+              -0.09238795325112864,
+              -0.1,
+              -0.0923879532511287,
+              -0.07071067811865488,
+              -0.03826834323650895,
+              -9.797174393178826e-17,
+              0.03826834323650877,
+              0.07071067811865475,
+              0.09238795325112863,
+              0.1,
+              0.0923879532511287,
+              0.07071067811865489,
+              0.03826834323650896,
+              1.1021821192326179e-16,
+              -0.03826834323650875,
+              -0.07071067811865474,
+              -0.09238795325112863,
+              -0.1,
+              -0.09238795325112871,
+              -0.0707106781186549,
+              -0.03826834323650897,
+              -1.2246467991473532e-16,
+              0.03826834323650874,
+              0.07071067811865449,
+              0.09238795325112875,
+              0.1,
+              0.09238795325112871,
+              0.0707106781186549,
+              0.03826834323650931,
+              4.899825157862589e-16,
+              -0.03826834323650906,
+              -0.07071067811865471,
+              -0.09238795325112861,
+              -0.1,
+              -0.09238795325112886,
+              -0.07071067811865467,
+              -0.03826834323650899,
+              -3.0861099338513298e-15,
+              0.8036352079666831,
+              1.4849242404917435,
+              1.9401470182737035,
+              2.1,
+              1.940147018273703,
+              1.4849242404917533,
+              0.8036352079666959,
+              -4.117412963808778e-15,
+              -0.8036352079666897,
+              -1.4849242404917486,
+              -1.9401470182737006,
+              -2.1,
+              -1.9401470182737062,
+              -1.4849242404917482,
+              -0.8036352079666893,
+              -3.600461589493218e-15,
+              0.8036352079666826,
+              1.484924240491743,
+              1.9401470182737033,
+              2.1,
+              1.9401470182737033,
+              1.484924240491754,
+              0.8036352079666964,
+              1.1318336142795214e-14,
+              -0.8036352079666893,
+              -1.4849242404917482,
+              -1.9401470182737004,
+              -2.1,
+              -1.9401470182737062,
+              -1.4849242404917486,
+              -0.8036352079666897,
+              -1.9594348786357652e-16,
+              0.03826834323650868,
+              0.07071067811865443,
+              0.09238795325112872,
+              0.1,
+              0.09238795325112875,
+              0.07071067811865496,
+              0.03826834323650938,
+              -1.4708141202500006e-16,
+              -0.03826834323650899,
+              -0.07071067811865467,
+              -0.09238795325112859,
+              -0.1,
+              -0.09238795325112888,
+              -0.07071067811865471,
+              -0.03826834323650906,
+              -2.2043642384652358e-16,
+              0.038268343236508656,
+              0.0707106781186544,
+              0.09238795325112871,
+              0.1,
+              0.09238795325112875,
+              0.07071067811865499,
+              0.0382683432365094,
+              5.879542597180472e-16,
+              -0.03826834323650897,
+              -0.07071067811865465,
+              -0.09238795325112857,
+              -0.1,
+              -0.09238795325112889,
+              -0.07071067811865474,
+              -0.03826834323650908,
+              -2.4492935982947064e-16,
+              0.03826834323650863,
+              0.07071067811865439,
+              0.09238795325112843,
+              0.1,
+              0.09238795325112903,
+              0.07071067811865449,
+              0.03826834323650877,
+              -9.809554005910593e-17,
+              -0.03826834323650895,
+              -0.07071067811865464,
+              -0.09238795325112857,
+              -0.1,
+              -0.0923879532511289,
+              -0.07071067811865527,
+              -0.038268343236509766,
+              -9.799650315725178e-16,
+              0.03826834323650927,
+              0.07071067811865488,
+              0.0923879532511287,
+              0.1,
+              0.09238795325112877,
+              0.07071067811865502,
+              0.03826834323650944,
+              6.369401316839414e-16,
+              -0.03826834323650827,
+              -0.07071067811865411,
+              -0.09238795325112882,
+              -0.1,
+              -0.09238795325112864,
+              -0.07071067811865477,
+              -0.03826834323650913,
+              -2.9391523179536476e-16,
+              0.03826834323650859,
+              0.07071067811865436,
+              0.09238795325112842,
+              0.1,
+              0.09238795325112904,
+              0.07071067811865453,
+              0.03826834323650881,
+              -4.91096680932118e-17,
+              -0.038268343236508906,
+              -0.0707106781186546,
+              -0.09238795325112854,
+              -0.1,
+              -0.09238795325112892,
+              -0.07071067811865529,
+              -0.03826834323650981,
+              3.9213456798178836e-16,
+              0.03826834323650922,
+              0.07071067811865483,
+              0.09238795325112868,
+              0.1,
+              0.0923879532511288,
+              0.07071067811865504,
+              0.03826834323650949,
+              6.859260036498355e-16,
+              -0.03826834323650822,
+              -0.07071067811865409,
+              -0.09238795325112881,
+              -0.1,
+              -0.09238795325112865,
+              -0.07071067811865481,
+              -0.03826834323650917,
+              -3.4290110376125893e-16,
+              0.03826834323650854,
+              0.07071067811865432,
+              0.09238795325112839,
+              0.1,
+              0.09238795325112907,
+              0.07071067811865457,
+              0.03826834323650885,
+              -1.2379612731767154e-19,
+              -0.03826834323650885,
+              -0.07071067811865457,
+              -0.09238795325112853,
+              -0.1,
+              -0.09238795325112893,
+              -0.07071067811865532,
+              -0.03826834323650985,
+              -1.0779367755043063e-15,
+              0.03826834323650918,
+              0.07071067811865482,
+              0.09238795325112865,
+              0.1,
+              0.09238795325112881,
+              0.07071067811865508,
+              0.03826834323650954,
+              7.349118756157296e-16,
+              -0.03826834323650818,
+              -0.07071067811865404,
+              -0.0923879532511288,
+              -0.1,
+              -0.09238795325112868,
+              -0.07071067811865483,
+              -0.03826834323650922
+            ],
+            "dt_s": 0.0625,
+            "record_start_s": 1577836800,
+            "epoch_start_s": 1577836799,
+            "epoch_end_s": 1577836820,
+            "poles_rad_s": [],
+            "zeros_rad_s": [],
+            "normalization_factor": 1,
+            "sensitivity_counts_per_m_s": 2,
+            "reference_frequency_hz": 1,
+            "prefilter_hz": [
+              0.125,
+              0.25,
+              4,
+              7
+            ],
+            "water_level_db": 60
+          }
+        },
+        {
+          "operation_id": "band",
+          "waveform_from": "vel",
+          "tool": "SeismicObsPyBandpass",
+          "arguments": {
+            "format": "MSEED",
+            "freqmin_hz": 0.5,
+            "freqmax_hz": 3,
+            "corners": 2,
+            "data_unit": "m/s"
+          }
+        },
+        {
+          "operation_id": "detect",
+          "amplitude_from": "band",
+          "tool": "GeoSeismicSTALTADetection",
+          "arguments": {
+            "input_source": "synthetic:corrected-filtered-velocity",
+            "sta_samples": 4,
+            "lta_samples": 32,
+            "on_ratio": 2.5,
+            "off_ratio": 1.2
+          }
+        }
+      ],
+      "scope_notes": "使用独立 STA/LTA 修订；不代表原 C 核完整认证。",
+      "source_request": "ore-obspy-1.0.2-r2/tests/inputs/OBSP-59.json",
+      "source_request_sha256": "dff17a37cfc426004259ff3200e5fa9fddc8e30d93591ad77d306179899ffb4f",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-quake-energy-example-v1",
+      "skill": "ore-quake-energy",
+      "source_skill_title": "地震能量估算",
+      "title": "估算一次地震的能量",
+      "description": "从给定矩震级计算经验能量和 TNT 当量。",
+      "category": "地震与InSAR",
+      "icon": "seismic",
+      "input_label": "矩震级",
+      "output_label": "能量与当量",
+      "version": "1.1.0",
+      "case_id": "N01",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoMagnitudeToEnergy"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "能量与当量"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "237dc956824d79650719c73b705cfc3f3de88683149f6efb795ab0eb56194a3f",
+          "bytes": 64,
+          "source": "ore-quake-energy-1.1.0/tests/requests/N01.json"
+        },
+        "request.json": {
+          "sha256": "56030fde0889b474546450a6ae8ba7a4b9d78c57bad273fe16c581eaece43dc9",
+          "bytes": 384,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "5bb40e5a519c84a1b8800f744f0c7acaf6d827bbdc42e60625540d2596d22ef7",
+          "bytes": 526,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-quake-energy",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoMagnitudeToEnergy",
+          "arguments": {
+            "mw": -3
+          }
+        }
+      ],
+      "scope_notes": "按矩震级经验式估算；区分 J 与公吨 TNT，不等于实测能量或风险保证。",
+      "source_request": "ore-quake-energy-1.1.0/tests/requests/N01.json",
+      "source_request_sha256": "237dc956824d79650719c73b705cfc3f3de88683149f6efb795ab0eb56194a3f",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-sympy-travel-example-v1",
+      "skill": "ore-sympy-travel",
+      "source_skill_title": "双层符号走时",
+      "title": "推导双层介质走时",
+      "description": "按显式表达式和单位求解走时与参数。",
+      "category": "地震与InSAR",
+      "icon": "math",
+      "input_label": "层厚与速度",
+      "output_label": "符号推导结果",
+      "version": "1.0.0-r3",
+      "case_id": "KP001",
+      "data_kind": "验证样例",
+      "tools": [],
+      "operation_count": 0,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "符号推导结果"
+      ],
+      "load_issues": [
+        "独立脚本／组合流程尚需绑定到当前运行时入口"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "6c314c5f06856f93965e6cad0a616be150b5d079d87475d81da60505fc45c7f7",
+          "bytes": 438,
+          "source": "ore-sympy-travel-1.0.0-r3/tests/requests/KP001.json"
+        },
+        "request.json": {
+          "sha256": "a41fcf37f5765afc2cd6271276be9693d1eae23aca6deaed110b0649db88b3c3",
+          "bytes": 717,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "ee76402336c0af7443dcf705113dfef663a209cfe8503e06106dc59d8f4dc311",
+          "bytes": 528,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-sympy-travel",
+      "operations": [],
+      "scope_notes": "限定两层、正入射走时；元数据侧车完整语义尚未判定。",
+      "source_request": "ore-sympy-travel-1.0.0-r3/tests/requests/KP001.json",
+      "source_request_sha256": "6c314c5f06856f93965e6cad0a616be150b5d079d87475d81da60505fc45c7f7",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-drain-example-v1",
+      "skill": "ore-drain",
+      "source_skill_title": "地形排水分析",
+      "title": "识别并填充地形洼地",
+      "description": "在保留掩膜和网格约定下处理数字高程。",
+      "category": "水文与地下水",
+      "icon": "water",
+      "input_label": "高程网格",
+      "output_label": "填洼结果",
+      "version": "1.0.1-review1",
+      "case_id": "c001",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoSpatialDepressionFill"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "data/b114f4b008-c001.json",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "填洼结果"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "data/b114f4b008-c001.json": {
+          "sha256": "b114f4b0083d2f26d6197047dbf156bbc54a8b08bb4fccc169f852aa9546ec9f",
+          "bytes": 626,
+          "source": "ore-drain-1.0.1-review1/tests/data/c001.json"
+        },
+        "request.original.json": {
+          "sha256": "500516f2fd546e7ac6676fdaaba4b9f472ab3e592a4da7b3842deb64b8193ca4",
+          "bytes": 115,
+          "source": "ore-drain-1.0.1-review1/tests/in/c001.json"
+        },
+        "request.json": {
+          "sha256": "c49c187cecf9f1adad7bc7e8b01bf703f118868390c1a41f99890a86e6cb5bb6",
+          "bytes": 645,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "94b872228815c7f37ddd5f9fff5d7f36aef8cd38e8a951875c48328da4c180de",
+          "bytes": 520,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-drain",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoSpatialDepressionFill",
+          "arguments": {
+            "data_path": "data/b114f4b008-c001.json"
+          }
+        }
+      ],
+      "scope_notes": "限定六项已声明排水／地形操作；其他 24 项空间操作未验，需保留逐字段比较。",
+      "source_request": "ore-drain-1.0.1-review1/tests/in/c001.json",
+      "source_request_sha256": "500516f2fd546e7ac6676fdaaba4b9f472ab3e592a4da7b3842deb64b8193ca4",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-ecdata-example-v1",
+      "skill": "ore-ecdata",
+      "source_skill_title": "水文数据处理与评估",
+      "title": "统计河流流量超越率",
+      "description": "根据提供的流量序列分析阈值超越情况。",
+      "category": "水文与地下水",
+      "icon": "water",
+      "input_label": "流量序列",
+      "output_label": "超越率统计",
+      "version": "1.0.0-review2",
+      "case_id": "c001",
+      "data_kind": "验证样例",
+      "tools": [
+        "EarthHydroHyRiverFlowExceedance"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "超越率统计"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "2146389a1a543d15d8e9621c2a3e5461678ad905faf7a0c9db5e5ab86d799319",
+          "bytes": 211,
+          "source": "ore-ecdata-1.0.0-review2/tests/in/c001.json"
+        },
+        "request.json": {
+          "sha256": "dbc85b39c761c45e2892a9aea2f76b7430dcbffd75e08f8e021712667ff36933",
+          "bytes": 533,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "571499885e8bb0de191aceaf40b94332bd8f45a8434fd25ae0dab9c3cc72c27a",
+          "bytes": 521,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-ecdata",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "EarthHydroHyRiverFlowExceedance",
+          "arguments": {
+            "discharge_m3_s": [
+              0,
+              1,
+              2,
+              2,
+              4
+            ],
+            "threshold_m3_s": 0.001
+          }
+        }
+      ],
+      "scope_notes": "16 项已声明操作；旧 27 项控制未在归档轮次重跑，不计当前分母。",
+      "source_request": "ore-ecdata-1.0.0-review2/tests/in/c001.json",
+      "source_request_sha256": "2146389a1a543d15d8e9621c2a3e5461678ad905faf7a0c9db5e5ab86d799319",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-flopy-example-v1",
+      "skill": "ore-flopy",
+      "source_skill_title": "FloPy 地下水模拟",
+      "title": "模拟地下水水头",
+      "description": "使用 FloPy 与求解器开展地下水情景计算。",
+      "category": "水文与地下水",
+      "icon": "water",
+      "input_label": "模型与观测",
+      "output_label": "水头与诊断图",
+      "version": "1.0.0-review1",
+      "case_id": "FLO-001",
+      "data_kind": "验证样例",
+      "tools": [],
+      "operation_count": 0,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "水头与诊断图"
+      ],
+      "load_issues": [
+        "独立脚本／组合流程尚需绑定到当前运行时入口"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "3b72adaad868eb5c502705383a26177aa288d44cda7d4991d98a1849c3bcaebb",
+          "bytes": 537,
+          "source": "ore-flopy-1.0.0-review1/tests/inputs/FLO-001.json"
+        },
+        "request.json": {
+          "sha256": "f86b0e25cb631923f6a0c93efa56c9b119dcd765bd473f5a05f2fbeb7aed5dae",
+          "bytes": 813,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "7e277d89d0e9c133950df629360737d3bb4063ae97ef5633998556d7c70d12bd",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-flopy",
+      "operations": [],
+      "scope_notes": "需匹配 MODFLOW6 求解器和 CPU 环境；三项可选辅助工具未执行。",
+      "source_request": "ore-flopy-1.0.0-review1/tests/inputs/FLO-001.json",
+      "source_request_sha256": "3b72adaad868eb5c502705383a26177aa288d44cda7d4991d98a1849c3bcaebb",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-hydro-repl-example-v1",
+      "skill": "ore-hydro-repl",
+      "source_skill_title": "水文频谱与季节流量替代计算",
+      "title": "分析地下水频率响应",
+      "description": "检查给定时间序列的频域响应。",
+      "category": "水文与地下水",
+      "icon": "water",
+      "input_label": "时间与信号",
+      "output_label": "频率响应",
+      "version": "1.0.1",
+      "case_id": "HR-01",
+      "data_kind": "验证样例",
+      "tools": [
+        "ScipyGroundwaterFrequencyResponse"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "频率响应"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "39034e814911219b0b1016dd24d7c84f4abc08c7538a5e4c62ee48553a6023ca",
+          "bytes": 9170,
+          "source": "ore-hydro-repl-1.0.1/tests/inputs/HR-01.json"
+        },
+        "request.json": {
+          "sha256": "89003e24ddfa6d7254513a848c97a69f4ea1be5c1c93db84d9b4acd6a318a1c3",
+          "bytes": 9408,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "3c9e28ed84de2a335c9b2efded29901271ffdbfa3c3794836e3e07101aaad5c2",
+          "bytes": 526,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-hydro-repl",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "ScipyGroundwaterFrequencyResponse",
+          "arguments": {
+            "times_seconds": [
+              0,
+              2,
+              4,
+              6,
+              8,
+              10,
+              12,
+              14,
+              16,
+              18,
+              20,
+              22,
+              24,
+              26,
+              28,
+              30,
+              32,
+              34,
+              36,
+              38,
+              40,
+              42,
+              44,
+              46,
+              48,
+              50,
+              52,
+              54,
+              56,
+              58,
+              60,
+              62,
+              64,
+              66,
+              68,
+              70,
+              72,
+              74,
+              76,
+              78,
+              80,
+              82,
+              84,
+              86,
+              88,
+              90,
+              92,
+              94,
+              96,
+              98,
+              100,
+              102,
+              104,
+              106,
+              108,
+              110,
+              112,
+              114,
+              116,
+              118,
+              120,
+              122,
+              124,
+              126,
+              128,
+              130,
+              132,
+              134,
+              136,
+              138,
+              140,
+              142,
+              144,
+              146,
+              148,
+              150,
+              152,
+              154,
+              156,
+              158,
+              160,
+              162,
+              164,
+              166,
+              168,
+              170,
+              172,
+              174,
+              176,
+              178,
+              180,
+              182,
+              184,
+              186,
+              188,
+              190,
+              192,
+              194,
+              196,
+              198,
+              200,
+              202,
+              204,
+              206,
+              208,
+              210,
+              212,
+              214,
+              216,
+              218,
+              220,
+              222,
+              224,
+              226,
+              228,
+              230,
+              232,
+              234,
+              236,
+              238,
+              240,
+              242,
+              244,
+              246,
+              248,
+              250,
+              252,
+              254
+            ],
+            "pressure_head_m": [
+              1.0,
+              0.7071067811865476,
+              6.123233995736766e-17,
+              -0.7071067811865475,
+              -1.0,
+              -0.7071067811865477,
+              -1.8369701987210297e-16,
+              0.7071067811865474,
+              1.0,
+              0.7071067811865477,
+              3.061616997868383e-16,
+              -0.7071067811865467,
+              -1.0,
+              -0.7071067811865471,
+              -4.286263797015736e-16,
+              0.7071067811865466,
+              1.0,
+              0.7071067811865472,
+              5.51091059616309e-16,
+              -0.7071067811865465,
+              -1.0,
+              -0.7071067811865474,
+              -2.4499125789312946e-15,
+              0.7071067811865464,
+              1.0,
+              0.7071067811865475,
+              -9.803364199544708e-16,
+              -0.7071067811865464,
+              -1.0,
+              -0.7071067811865476,
+              -2.6948419387607653e-15,
+              0.7071067811865462,
+              1.0,
+              0.7071067811865476,
+              -7.354070601250002e-16,
+              -0.7071067811865461,
+              -1.0,
+              -0.7071067811865477,
+              -2.939771298590236e-15,
+              0.707106781186546,
+              1.0,
+              0.7071067811865503,
+              -4.904777002955296e-16,
+              -0.7071067811865459,
+              -1.0,
+              -0.7071067811865479,
+              -3.1847006584197066e-15,
+              0.7071067811865483,
+              1.0,
+              0.7071067811865505,
+              -2.45548340466059e-16,
+              -0.7071067811865458,
+              -1.0,
+              -0.707106781186548,
+              -3.4296300182491773e-15,
+              0.7071067811865482,
+              1.0,
+              0.7071067811865507,
+              -6.189806365883577e-19,
+              -0.7071067811865457,
+              -1.0,
+              -0.7071067811865482,
+              -3.674559378078648e-15,
+              0.707106781186548,
+              1.0,
+              0.7071067811865508,
+              2.443103791928823e-16,
+              -0.7071067811865455,
+              -1.0,
+              -0.7071067811865483,
+              -3.919488737908119e-15,
+              0.7071067811865479,
+              1.0,
+              0.707106781186551,
+              4.892397390223529e-16,
+              -0.7071067811865452,
+              -1.0,
+              -0.7071067811865486,
+              -4.164418097737589e-15,
+              0.7071067811865477,
+              1.0,
+              0.7071067811865511,
+              7.839596456452825e-15,
+              -0.7071067811865501,
+              -1.0,
+              -0.7071067811865488,
+              -4.40934745756706e-15,
+              0.7071067811865425,
+              1.0,
+              0.7071067811865464,
+              9.790984586812941e-16,
+              -0.7071067811865449,
+              -1.0,
+              -0.7071067811865539,
+              2.4511505402044715e-15,
+              0.7071067811865474,
+              1.0,
+              0.7071067811865516,
+              8.329455176111767e-15,
+              -0.7071067811865498,
+              -1.0,
+              -0.7071067811865491,
+              -4.899206177226001e-15,
+              0.7071067811865421,
+              1.0,
+              0.7071067811865467,
+              1.4689571783402355e-15,
+              -0.7071067811865446,
+              -1.0,
+              -0.7071067811865542,
+              1.96129182054553e-15,
+              0.707106781186547,
+              1.0,
+              0.7071067811865518,
+              8.819313895770708e-15,
+              -0.7071067811865495,
+              -1.0,
+              -0.7071067811865495,
+              -5.389064896884942e-15,
+              0.7071067811865418,
+              1.0,
+              0.707106781186547,
+              1.9588158979991767e-15,
+              -0.7071067811865442,
+              -1.0,
+              -0.7071067811865546,
+              1.471433100886589e-15,
+              0.7071067811865467
+            ],
+            "groundwater_head_m": [
+              2.0,
+              1.4142135623730951,
+              1.2246467991473532e-16,
+              -1.414213562373095,
+              -2.0,
+              -1.4142135623730954,
+              -3.6739403974420594e-16,
+              1.4142135623730947,
+              2.0,
+              1.4142135623730954,
+              6.123233995736766e-16,
+              -1.4142135623730934,
+              -2.0,
+              -1.4142135623730943,
+              -8.572527594031472e-16,
+              1.4142135623730931,
+              2.0,
+              1.4142135623730945,
+              1.102182119232618e-15,
+              -1.414213562373093,
+              -2.0,
+              -1.4142135623730947,
+              -4.899825157862589e-15,
+              1.4142135623730927,
+              2.0,
+              1.414213562373095,
+              -1.9606728399089416e-15,
+              -1.4142135623730927,
+              -2.0,
+              -1.4142135623730951,
+              -5.3896838775215305e-15,
+              1.4142135623730925,
+              2.0,
+              1.4142135623730951,
+              -1.4708141202500005e-15,
+              -1.4142135623730923,
+              -2.0,
+              -1.4142135623730954,
+              -5.879542597180472e-15,
+              1.414213562373092,
+              2.0,
+              1.4142135623731007,
+              -9.809554005910593e-16,
+              -1.4142135623730918,
+              -2.0,
+              -1.4142135623730958,
+              -6.369401316839413e-15,
+              1.4142135623730967,
+              2.0,
+              1.414213562373101,
+              -4.91096680932118e-16,
+              -1.4142135623730916,
+              -2.0,
+              -1.414213562373096,
+              -6.859260036498355e-15,
+              1.4142135623730965,
+              2.0,
+              1.4142135623731014,
+              -1.2379612731767154e-18,
+              -1.4142135623730914,
+              -2.0,
+              -1.4142135623730965,
+              -7.349118756157295e-15,
+              1.414213562373096,
+              2.0,
+              1.4142135623731016,
+              4.886207583857646e-16,
+              -1.414213562373091,
+              -2.0,
+              -1.4142135623730967,
+              -7.838977475816237e-15,
+              1.4142135623730958,
+              2.0,
+              1.414213562373102,
+              9.784794780447059e-16,
+              -1.4142135623730905,
+              -2.0,
+              -1.4142135623730971,
+              -8.328836195475178e-15,
+              1.4142135623730954,
+              2.0,
+              1.4142135623731023,
+              1.567919291290565e-14,
+              -1.4142135623731003,
+              -2.0,
+              -1.4142135623730976,
+              -8.81869491513412e-15,
+              1.414213562373085,
+              2.0,
+              1.4142135623730927,
+              1.9581969173625882e-15,
+              -1.4142135623730898,
+              -2.0,
+              -1.4142135623731078,
+              4.902301080408943e-15,
+              1.4142135623730947,
+              2.0,
+              1.4142135623731031,
+              1.6658910352223535e-14,
+              -1.4142135623730996,
+              -2.0,
+              -1.4142135623730983,
+              -9.798412354452001e-15,
+              1.4142135623730843,
+              2.0,
+              1.4142135623730934,
+              2.937914356680471e-15,
+              -1.4142135623730892,
+              -2.0,
+              -1.4142135623731085,
+              3.92258364109106e-15,
+              1.414213562373094,
+              2.0,
+              1.4142135623731036,
+              1.7638627791541416e-14,
+              -1.414213562373099,
+              -2.0,
+              -1.414213562373099,
+              -1.0778129793769884e-14,
+              1.4142135623730836,
+              2.0,
+              1.414213562373094,
+              3.917631795998353e-15,
+              -1.4142135623730885,
+              -2.0,
+              -1.4142135623731091,
+              2.942866201773178e-15,
+              1.4142135623730934
+            ],
+            "samples_per_segment": 32
+          }
+        }
+      ],
+      "scope_notes": "仅两个功能替代；1.0.1 与旧协议标签通过哈希对应，不代表完整原应用。",
+      "source_request": "ore-hydro-repl-1.0.1/tests/inputs/HR-01.json",
+      "source_request_sha256": "39034e814911219b0b1016dd24d7c84f4abc08c7538a5e4c62ee48553a6023ca",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-theis-example-v1",
+      "skill": "ore-theis",
+      "source_skill_title": "地下水 Theis 分析",
+      "title": "计算抽水引起的降深",
+      "description": "从时间、距离和含水层参数计算 Theis 响应。",
+      "category": "水文与地下水",
+      "icon": "water",
+      "input_label": "抽水与含水层参数",
+      "output_label": "降深结果",
+      "version": "1.0.1",
+      "case_id": "PT-01",
+      "data_kind": "验证样例",
+      "tools": [
+        "HydroAnaFlowTheis"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "降深结果"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "bced6bd6326861e0c763504529664898d66781bcfe0c41cd679f4b28dc4c0480",
+          "bytes": 143,
+          "source": "ore-theis-1.0.1/tests/b/inputs/PT-01.json"
+        },
+        "request.json": {
+          "sha256": "d2332764443b7f7317b1c4180622169d3f7ea3cecba488a1f0c027bb5eb4e4ca",
+          "bytes": 688,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "0731cd65256facce7a66a62b8971b177b17d6ca71e869f1920ad746ea764e339",
+          "bytes": 521,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-theis",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "HydroAnaFlowTheis",
+          "arguments": {
+            "time_s": [
+              100
+            ],
+            "radius_m": [
+              20
+            ],
+            "storativity": 0.001,
+            "transmissivity_m2_s": 0.001,
+            "pumping_rate_m3_s": 0.01
+          }
+        }
+      ],
+      "scope_notes": "极近时间 PNG 刻度精度有限；精确时间以 CSV 为准。",
+      "source_request": "ore-theis-1.0.1/tests/b/inputs/PT-01.json",
+      "source_request_sha256": "bced6bd6326861e0c763504529664898d66781bcfe0c41cd679f4b28dc4c0480",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-change-example-v1",
+      "skill": "ore-change",
+      "source_skill_title": "遥感变化检测",
+      "title": "发现遥感指标的变化",
+      "description": "从栅格和阈值出发，比较变化与热点。",
+      "category": "遥感与影像",
+      "icon": "satellite",
+      "input_label": "时相栅格",
+      "output_label": "变化图与统计",
+      "version": "1.0.0-r3",
+      "case_id": "CHG-034",
+      "data_kind": "验证样例",
+      "tools": [
+        "RemoteSensingArgmax",
+        "RemoteSensingBatchHotspotPercentage",
+        "RemoteSensingBatchHotspotRaster",
+        "RemoteSensingCountAboveThreshold",
+        "RemoteSensingExtremeSnowLossPercentage",
+        "RemoteSensingFireIncreaseMap",
+        "RemoteSensingMaxValueAndIndex",
+        "RemoteSensingMinValueAndIndex",
+        "RemoteSensingPercentageChange"
+      ],
+      "operation_count": 9,
+      "inputs": [
+        "tests/data/snow.tif",
+        "tests/data/scene-a.tif",
+        "tests/data/scene-b.tif",
+        "tests/data/change.tif",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "变化图与统计"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "tests/data/snow.tif": {
+          "sha256": "3c57bb2dc75907bdec911a4d88e3e9713fba46fc51823a4e04fa3b84477cc3a8",
+          "bytes": 1073,
+          "source": "ore-change-1.0.0-r3/tests/data/snow.tif"
+        },
+        "tests/data/scene-a.tif": {
+          "sha256": "299fef561980617de5c6e257fba8a1c6f3d6ad62d680d5e3c6ceee5deed07f40",
+          "bytes": 1286,
+          "source": "ore-change-1.0.0-r3/tests/data/scene-a.tif"
+        },
+        "tests/data/scene-b.tif": {
+          "sha256": "98f1238dd8d34ca98df8501e24665ddcf362eb738d3104a43ebcd23e5035017c",
+          "bytes": 1286,
+          "source": "ore-change-1.0.0-r3/tests/data/scene-b.tif"
+        },
+        "tests/data/change.tif": {
+          "sha256": "e6c1d6c8a50f07f971ef5d411ff71dfc85baafbfaf4c0c02a218172ede089e2e",
+          "bytes": 1046,
+          "source": "ore-change-1.0.0-r3/tests/data/change.tif"
+        },
+        "request.original.json": {
+          "sha256": "696477a2a02c037d2e61d37079efd42f832a52bce24e04bcb2a674b0f3fb130d",
+          "bytes": 2083,
+          "source": "ore-change-1.0.0-r3/tests/inputs/CHG-034.json"
+        },
+        "request.json": {
+          "sha256": "f8a89f7842e65eb35206f2731066823c69cfd1373980b359da9edfa65a40cf97",
+          "bytes": 3421,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "3d1592227a2718215f8cc6e202b5744654092afa86c1cc6c974f45927fdb23a8",
+          "bytes": 524,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-change",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "value_unit": "SYN-unit",
+          "tool": "RemoteSensingPercentageChange",
+          "arguments": {
+            "a": 100,
+            "b": 125
+          }
+        },
+        {
+          "operation_id": "op2",
+          "value_unit": "1",
+          "tool": "RemoteSensingExtremeSnowLossPercentage",
+          "arguments": {
+            "binary_map_path": "tests/data/snow.tif"
+          }
+        },
+        {
+          "operation_id": "op3",
+          "value_unit": "SYN-unit",
+          "tool": "RemoteSensingBatchHotspotPercentage",
+          "arguments": {
+            "file_list": [
+              "tests/data/scene-a.tif",
+              "tests/data/scene-b.tif"
+            ],
+            "threshold": 2
+          }
+        },
+        {
+          "operation_id": "op4",
+          "value_unit": "SYN-unit",
+          "tool": "RemoteSensingCountAboveThreshold",
+          "arguments": {
+            "file_path": "tests/data/scene-a.tif",
+            "threshold": 2
+          }
+        },
+        {
+          "operation_id": "op5",
+          "value_unit": "SYN-unit",
+          "tool": "RemoteSensingBatchHotspotRaster",
+          "arguments": {
+            "file_list": [
+              "tests/data/scene-a.tif",
+              "tests/data/scene-b.tif"
+            ],
+            "threshold": 2
+          }
+        },
+        {
+          "operation_id": "op6",
+          "value_unit": "SYN-unit",
+          "tool": "RemoteSensingFireIncreaseMap",
+          "arguments": {
+            "change_image_path": "tests/data/change.tif",
+            "threshold": 0
+          }
+        },
+        {
+          "operation_id": "op7",
+          "value_unit": "SYN-unit",
+          "tool": "RemoteSensingMaxValueAndIndex",
+          "arguments": {
+            "x": [
+              3,
+              7,
+              7,
+              -2
+            ]
+          }
+        },
+        {
+          "operation_id": "op8",
+          "value_unit": "SYN-unit",
+          "tool": "RemoteSensingMinValueAndIndex",
+          "arguments": {
+            "x": [
+              3,
+              -2,
+              -2,
+              7
+            ]
+          }
+        },
+        {
+          "operation_id": "op9",
+          "value_unit": "SYN-unit",
+          "tool": "RemoteSensingArgmax",
+          "arguments": {
+            "x": [
+              0,
+              -1,
+              0
+            ]
+          }
+        }
+      ],
+      "scope_notes": "保留前一步 TIFF 到下一步的真实来源绑定；197 次执行中含 96 次重复。",
+      "source_request": "ore-change-1.0.0-r3/tests/inputs/CHG-034.json",
+      "source_request_sha256": "696477a2a02c037d2e61d37079efd42f832a52bce24e04bcb2a674b0f3fb130d",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-colors-example-v1",
+      "skill": "ore-colors",
+      "source_skill_title": "地图颜色候选提取",
+      "title": "提取地图中的指定颜色",
+      "description": "限定分析区域，提取用户指定的颜色类别。",
+      "category": "遥感与影像",
+      "icon": "satellite",
+      "input_label": "图片与 RGB",
+      "output_label": "颜色掩膜与统计",
+      "version": "1.0.0",
+      "case_id": "legend-outside-roi",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoMapColorExtract"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "image.png",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "颜色掩膜与统计"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "image.png": {
+          "sha256": "b2d5bfcf624e0fb9410b420aaece4382706194fc9705daec3505b75dd12182eb",
+          "bytes": 116,
+          "source": "ore-colors-1.0.0/tests/in/c01/image.png"
+        },
+        "request.original.json": {
+          "sha256": "551e3a8f69ade6e696d79fc72d546dea61102bfb6ce8e1af7ecc016c7fac96e8",
+          "bytes": 532,
+          "source": "ore-colors-1.0.0/tests/in/c01/request.json"
+        },
+        "request.json": {
+          "sha256": "038092640433ba247f4842706c84f36bfab3f45108d744a0f934c645efbcc703",
+          "bytes": 1081,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "a32c841aee936e79d5b1d7b057be773beb22e559e7f2cdc01ac11dd7725b9b82",
+          "bytes": 535,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-colors",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoMapColorExtract",
+          "arguments": {
+            "path": "image.png",
+            "output_dir": "out",
+            "roi": [
+              1,
+              1,
+              31,
+              19
+            ],
+            "classes": [
+              {
+                "label": "User label A",
+                "rgb": [
+                  200,
+                  20,
+                  20
+                ],
+                "tolerance": 0
+              },
+              {
+                "label": "User label B",
+                "rgb": [
+                  20,
+                  20,
+                  200
+                ],
+                "tolerance": 0
+              }
+            ],
+            "minimum_pixels": 1
+          }
+        }
+      ],
+      "scope_notes": "需显式 RGB／ROI；颜色候选提取不代表地质身份识别。",
+      "source_request": "ore-colors-1.0.0/tests/in/c01/request.json",
+      "source_request_sha256": "551e3a8f69ade6e696d79fc72d546dea61102bfb6ce8e1af7ecc016c7fac96e8",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "curve-linear-v1",
+      "skill": "ore-curve",
+      "source_skill_title": "图表曲线数字化",
+      "title": "把图中的曲线变成数据",
+      "description": "按坐标标定提取曲线，保留歧义与缺失列。",
+      "category": "遥感与影像",
+      "icon": "curve",
+      "input_label": "图片与坐标标定",
+      "output_label": "重建图与 CSV",
+      "version": "1.0.0",
+      "case_id": "linear-calibrated",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "GeoPlotDigitize"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "image.png",
+        "request.json"
+      ],
+      "outputs": [
+        "重建图与 CSV"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "image.png": {
+          "sha256": "ac28b179d858d44bb367bc9d2a28be99672e9acda8773f809840fbef40dce285",
+          "bytes": 124,
+          "source": "ore-curve-1.0.0/tests/in/c01/image.png"
+        },
+        "request.json": {
+          "sha256": "24d3381419aaae67bf86b5748facb1f4a460b19e844e083b966d97126599040b",
+          "bytes": 629,
+          "source": "ore-curve-1.0.0/tests/in/c01/request.json"
+        }
+      },
+      "storage": "ore-curve",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoPlotDigitize",
+          "arguments": {
+            "path": "image.png",
+            "output_dir": "out",
+            "roi": [
+              2,
+              1,
+              12,
+              11
+            ],
+            "rgb": [
+              180,
+              20,
+              40
+            ],
+            "tolerance": 0,
+            "x_axis": {
+              "pixel_start": 2,
+              "pixel_end": 11,
+              "value_start": 100,
+              "value_end": 1000,
+              "scale": "linear",
+              "unit": "Ma"
+            },
+            "y_axis": {
+              "pixel_start": 1,
+              "pixel_end": 10,
+              "value_start": 10,
+              "value_end": 1,
+              "scale": "linear",
+              "unit": "mg/kg"
+            }
+          }
+        }
+      ],
+      "scope_notes": "需显式坐标轴、单位、RGB／ROI；像素数字化不是作者原始观测，线宽不是统计置信区间。",
+      "source_request": "ore-curve-1.0.0/tests/in/c01/request.json",
+      "source_request_sha256": "24d3381419aaae67bf86b5748facb1f4a460b19e844e083b966d97126599040b",
+      "independent_check": true,
+      "prior_agent_record": true
+    },
+    {
+      "id": "ore-morph-example-v1",
+      "skill": "ore-morph",
+      "source_skill_title": "影像形态学",
+      "title": "清理影像里的小斑块",
+      "description": "在前序产物上做形态学处理。",
+      "category": "遥感与影像",
+      "icon": "satellite",
+      "input_label": "二值影像",
+      "output_label": "处理后的影像",
+      "version": "1.0.1",
+      "case_id": "MO042",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoRemoteRemoveSmallObjects"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "处理后的影像"
+      ],
+      "load_issues": [
+        "需要前序工具产物绑定：ACTUAL_PARENT/result.tif",
+        "需要先执行父案例 MO041"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "0dd965b47240fdf4a06246b7d39367d8bb42a99b1a6d179c09a1871d9a9d580b",
+          "bytes": 242,
+          "source": "ore-morph-1.0.1/tests/requests/MO042.json"
+        },
+        "request.json": {
+          "sha256": "a64f8e6c494eca4ec02458382ce794a54a8c44088217e8955f04ef1641f39184",
+          "bytes": 543,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "59d8f65e942c44eef93b736de1da6a25238e31ced48c63f0f44667c127be1578",
+          "bytes": 521,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-morph",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoRemoteRemoveSmallObjects",
+          "arguments": {
+            "raster_path": "ACTUAL_PARENT/result.tif",
+            "input_unit": "binary",
+            "max_size_pixels": 1
+          }
+        }
+      ],
+      "scope_notes": "保留六项操作的单位和掩膜定义；217 次执行含 58 次重复。",
+      "source_request": "ore-morph-1.0.1/tests/requests/MO042.json",
+      "source_request_sha256": "0dd965b47240fdf4a06246b7d39367d8bb42a99b1a6d179c09a1871d9a9d580b",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-ndvi-example-v1",
+      "skill": "ore-ndvi",
+      "source_skill_title": "NDVI 与分区分析",
+      "title": "按分区汇总观测值",
+      "description": "本例读取分区观测表，计算指定统计量。",
+      "category": "遥感与影像",
+      "icon": "satellite",
+      "input_label": "分区观测 CSV",
+      "output_label": "分区统计",
+      "version": "1.0.1",
+      "case_id": "c001",
+      "data_kind": "验证样例",
+      "tools": [
+        "DeepTimeZonalStatistics"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "orig-points.csv",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "分区统计"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "orig-points.csv": {
+          "sha256": "96ece05ed981fc275d733d7ea809875a2c42c6997d06996068b2a09729d273fa",
+          "bytes": 43,
+          "source": "ore-ndvi-1.0.1/tests/data/orig-points.csv"
+        },
+        "request.original.json": {
+          "sha256": "1c2ad79500c02e41611d5b05ad679cd15d18c75972b74af277256bd13454ce53",
+          "bytes": 229,
+          "source": "ore-ndvi-1.0.1/tests/in/c001.json"
+        },
+        "request.json": {
+          "sha256": "e5f3ff2f91584699d1f2bcf41ec1b7597fcc810bbbd387b772ffbfed6754472a",
+          "bytes": 686,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "2b74f79778e0b519ce73e863520940a1398fb23e0de7384455a8a901ca67c6b5",
+          "bytes": 519,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-ndvi",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "DeepTimeZonalStatistics",
+          "arguments": {
+            "paths": [
+              "orig-points.csv"
+            ],
+            "zone_field": "zone",
+            "value_field": "value",
+            "operation": "mean"
+          }
+        }
+      ],
+      "scope_notes": "需真实波段、定标、质量掩膜和 CRS 元数据；指数不能证明矿产存在。",
+      "source_request": "ore-ndvi-1.0.1/tests/in/c001.json",
+      "source_request_sha256": "1c2ad79500c02e41611d5b05ad679cd15d18c75972b74af277256bd13454ce53",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-restore-example-v1",
+      "skill": "ore-restore",
+      "source_skill_title": "影像配准与恢复",
+      "title": "匹配传感器波段响应",
+      "description": "按波长与带宽，把前序波段产物重采样。",
+      "category": "遥感与影像",
+      "icon": "satellite",
+      "input_label": "光谱波段与带宽",
+      "output_label": "重采样影像",
+      "version": "1.0.0-r1",
+      "case_id": "RT033",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "GeoRemoteSensorBandResample"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "重采样影像"
+      ],
+      "load_issues": [
+        "需要前序工具产物绑定：ACTUAL_BAND_PRODUCT",
+        "需要先执行父案例 RT032"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "f3a5c0e3db5174d0622957979ba9e56d294f5a98e04266111e665c10f65688d4",
+          "bytes": 714,
+          "source": "ore-restore-1.0.0-r1/tests/requests/RT033.json"
+        },
+        "request.json": {
+          "sha256": "efc39ad2285aa09f3bf56dbd26fa2c6c428875c12ffe37b4d5e2f43b9f0b7ba6",
+          "bytes": 1095,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "622724a0dcb62dfbfd16b9072868241f30ee98da54c5379b98624ad9de866c83",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-restore",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoRemoteSensorBandResample",
+          "arguments": {
+            "raster_path": "ACTUAL_BAND_PRODUCT",
+            "input_unit": "reflectance",
+            "wavelength_nm": [
+              1000,
+              1100
+            ],
+            "source_fwhm_nm": [
+              100,
+              100
+            ],
+            "target_wavelength_nm": [
+              1050
+            ],
+            "target_fwhm_nm": [
+              200
+            ],
+            "bandpass_source": "SYNTHETIC adjoining source supports; Gaussian target within FWHM, no measured RSR"
+          }
+        }
+      ],
+      "scope_notes": "限定已测恢复流程；OR03 的 NoData 真值更正保留原值与依据。",
+      "source_request": "ore-restore-1.0.0-r1/tests/requests/RT033.json",
+      "source_request_sha256": "f3a5c0e3db5174d0622957979ba9e56d294f5a98e04266111e665c10f65688d4",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-rs-stats-example-v1",
+      "skill": "ore-rs-stats",
+      "source_skill_title": "遥感栅格与标量统计",
+      "title": "串联栅格计算与统计",
+      "description": "从原始栅格完成平均、差分和汇总。",
+      "category": "遥感与影像",
+      "icon": "satellite",
+      "input_label": "多幅栅格",
+      "output_label": "派生栅格与统计",
+      "version": "1.0.0-review1",
+      "case_id": "RS001",
+      "data_kind": "验证样例",
+      "tools": [],
+      "operation_count": 0,
+      "inputs": [
+        "A.tif",
+        "B.tif",
+        "C.tif",
+        "reference.tif",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "派生栅格与统计"
+      ],
+      "load_issues": [
+        "独立脚本／组合流程尚需绑定到当前运行时入口"
+      ],
+      "input_files": {
+        "A.tif": {
+          "sha256": "07e49efab0fe792e4cbedbf77255dadf16bf86dd8eef3b5804c90ad52a45ec00",
+          "bytes": 1923,
+          "source": "ore-rs-stats-1.0.0-review1/tests/data/A.tif"
+        },
+        "B.tif": {
+          "sha256": "87f0f627679bd38df7e58e566b84d4af8f56eda8b4c6390563139708af76048f",
+          "bytes": 1923,
+          "source": "ore-rs-stats-1.0.0-review1/tests/data/B.tif"
+        },
+        "C.tif": {
+          "sha256": "662b334ab7cf2d83a80511d0cb641764410d746f7c7e0fce69afef7585cf6a38",
+          "bytes": 1923,
+          "source": "ore-rs-stats-1.0.0-review1/tests/data/C.tif"
+        },
+        "reference.tif": {
+          "sha256": "37bccf577f413dd12533c9bf49d37f21aec8aae8ff4e2bb69ccba0b16ddb2563",
+          "bytes": 1102,
+          "source": "ore-rs-stats-1.0.0-review1/tests/data/reference.tif"
+        },
+        "request.original.json": {
+          "sha256": "9bd5a5676c800d705e32b2770e822b692a46ddf909ec91f229811be4ad60e98a",
+          "bytes": 158,
+          "source": "ore-rs-stats-1.0.0-review1/tests/inputs/RS001.json"
+        },
+        "request.json": {
+          "sha256": "10330dc20a8dfd669efb588b987b4bf9bcc9688f77fcc2c7db398ba81c4ad68d",
+          "bytes": 938,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "20cb6c2f1a8c3df156eed55ea12b067725e7c34a8e2c7d5226d66b65c22bcb5f",
+          "bytes": 524,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-rs-stats",
+      "operations": [],
+      "scope_notes": "GeoTIFF 未嵌入物理单位，必须随同 JSON；不能单独交付 TIFF。",
+      "source_request": "ore-rs-stats-1.0.0-review1/tests/inputs/RS001.json",
+      "source_request_sha256": "9bd5a5676c800d705e32b2770e822b692a46ddf909ec91f229811be4ad60e98a",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-spectral-example-v1",
+      "skill": "ore-spectral",
+      "source_skill_title": "光谱分析",
+      "title": "从光谱识别成分特征",
+      "description": "比较光谱角、连续统与线性解混结果。",
+      "category": "遥感与影像",
+      "icon": "spectrum",
+      "input_label": "光谱与参考库",
+      "output_label": "光谱指标与图件",
+      "version": "1.0.1-review1",
+      "case_id": "SPC-19",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoSpectralAngleMap",
+        "GeoSpectralAngleMatch",
+        "GeoSpectralContinuumRemoval",
+        "GeoSpectralLinearUnmix"
+      ],
+      "operation_count": 4,
+      "inputs": [
+        "tests/data/SPC-19-1.json",
+        "tests/data/SPC-19-2.json",
+        "tests/data/SPC-19-3.json",
+        "tests/data/raster-main.tif",
+        "tests/data/raster-main.json",
+        "tests/data/raster-main-mask.tif",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "光谱指标与图件"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "tests/data/SPC-19-1.json": {
+          "sha256": "76e243a3cd3a21eaefd90593984d2ff1f99c96612521aae318c48806ee7a6fc2",
+          "bytes": 810,
+          "source": "ore-spectral-1.0.1-review1/tests/g/data/SPC-19-1.json"
+        },
+        "tests/data/SPC-19-2.json": {
+          "sha256": "d58fab4d1d73a279422686dea95db1edc1381ba61e2b3285a913fca9c7a35c5f",
+          "bytes": 231,
+          "source": "ore-spectral-1.0.1-review1/tests/g/data/SPC-19-2.json"
+        },
+        "tests/data/SPC-19-3.json": {
+          "sha256": "76e243a3cd3a21eaefd90593984d2ff1f99c96612521aae318c48806ee7a6fc2",
+          "bytes": 810,
+          "source": "ore-spectral-1.0.1-review1/tests/g/data/SPC-19-3.json"
+        },
+        "tests/data/raster-main.tif": {
+          "sha256": "e9eeb82f70e32e9d2b57086a99e9c8ee998711373bcd364e290ae50a16c74201",
+          "bytes": 548,
+          "source": "ore-spectral-1.0.1-review1/tests/g/data/raster-main.tif"
+        },
+        "tests/data/raster-main.json": {
+          "sha256": "33e8948d7797f3d0cd266b60dec72574270a38967eee186b73c543a61b631d71",
+          "bytes": 411,
+          "source": "ore-spectral-1.0.1-review1/tests/g/data/raster-main.json"
+        },
+        "tests/data/raster-main-mask.tif": {
+          "sha256": "3caddf9fe4cd84b6f0a81c28f9dc2f856794c3b21bbbfb802023c2236941694d",
+          "bytes": 367,
+          "source": "ore-spectral-1.0.1-review1/tests/g/data/raster-main-mask.tif"
+        },
+        "request.original.json": {
+          "sha256": "16e2955635a24946b70e45fa5c05507d203850990ad569383328b5ce0f6c45e1",
+          "bytes": 863,
+          "source": "ore-spectral-1.0.1-review1/tests/g/inputs/SPC-19.json"
+        },
+        "request.json": {
+          "sha256": "b5ce514cefc7e410f77cd877d5e7dfe92fb540039dbbd72ba6e568541d77448c",
+          "bytes": 2256,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "d1cc028f243cdfd49c531faff3c5b367ee3cba1a05303419370bbe9f5a504cf0",
+          "bytes": 525,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-spectral",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoSpectralAngleMatch",
+          "arguments": {
+            "data_path": "tests/data/SPC-19-1.json"
+          }
+        },
+        {
+          "operation_id": "op2",
+          "tool": "GeoSpectralContinuumRemoval",
+          "arguments": {
+            "data_path": "tests/data/SPC-19-2.json"
+          }
+        },
+        {
+          "operation_id": "op3",
+          "tool": "GeoSpectralLinearUnmix",
+          "arguments": {
+            "data_path": "tests/data/SPC-19-3.json"
+          }
+        },
+        {
+          "operation_id": "op4",
+          "tool": "GeoSpectralAngleMap",
+          "arguments": {
+            "raster_path": "tests/data/raster-main.tif",
+            "library_path": "tests/data/raster-main.json",
+            "raster_wavelength_nm": [
+              1000,
+              1500,
+              2000
+            ],
+            "reflectance_scale": 1,
+            "reflectance_offset": 0,
+            "quality_mask_path": "tests/data/raster-main-mask.tif"
+          }
+        }
+      ],
+      "scope_notes": "SAM 相似度／无约束系数不是矿物确认或质量分数；需明确参考光谱库。",
+      "source_request": "ore-spectral-1.0.1-review1/tests/g/inputs/SPC-19.json",
+      "source_request_sha256": "16e2955635a24946b70e45fa5c05507d203850990ad569383328b5ce0f6c45e1",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-texture-example-v1",
+      "skill": "ore-texture",
+      "source_skill_title": "遥感影像纹理分析",
+      "title": "量化影像纹理结构",
+      "description": "在前序滤波产物上分析结构张量。",
+      "category": "遥感与影像",
+      "icon": "satellite",
+      "input_label": "前序影像产物",
+      "output_label": "纹理指标",
+      "version": "1.0.0-review1",
+      "case_id": "TX055",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoRemoteStructureTensor"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "纹理指标"
+      ],
+      "load_issues": [
+        "需要前序工具产物绑定：ACTUAL_GABOR_BAND1",
+        "需要先执行父案例 TX054"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "2a395d5aeaf7b945c98d70a03545381d9a89517eff9ebb784721053efa8a26d3",
+          "bytes": 281,
+          "source": "ore-texture-1.0.0-review1/tests/requests/TX055.json"
+        },
+        "request.json": {
+          "sha256": "7be59e0b7d7b04c51e4ce1ef19d31e03171f398f2d683d92af031d9e153cf29c",
+          "bytes": 588,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "877e9f59889cbf0bcc277356155bf88b28538ac0c92f6ef95f1ae37f49b03716",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-texture",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoRemoteStructureTensor",
+          "arguments": {
+            "raster_path": "ACTUAL_GABOR_BAND1",
+            "input_unit": "radiance",
+            "sigma_pixels": 1
+          }
+        }
+      ],
+      "scope_notes": "仅六项已选纹理操作；保留输出闭合和原合成示例说明。",
+      "source_request": "ore-texture-1.0.0-review1/tests/requests/TX055.json",
+      "source_request_sha256": "2a395d5aeaf7b945c98d70a03545381d9a89517eff9ebb784721053efa8a26d3",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-ccs-coords-example-v1",
+      "skill": "ore-ccs-coords",
+      "source_skill_title": "CCS 坐标处理",
+      "title": "核对空间坐标与尺度",
+      "description": "完成角度转换、球面距离与范围面积计算。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "坐标与范围",
+      "output_label": "距离、方位与面积",
+      "version": "1.0.0",
+      "case_id": "CCO-40",
+      "data_kind": "验证样例",
+      "tools": [
+        "CCSBBoxArea",
+        "CCSBearing",
+        "CCSCheckCRSConsistency",
+        "CCSDecimalToDMS",
+        "CCSHaversineDistance"
+      ],
+      "operation_count": 5,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "距离、方位与面积"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "fec1e01c4b1de58c9bbc387bf7b81472f7808a042fea4ffe468cf67043634115",
+          "bytes": 1013,
+          "source": "ore-ccs-coords-1.0.0/tests/inputs/CCO-40.json"
+        },
+        "request.json": {
+          "sha256": "c7cc95be7c2aebd5c5819e12975c1c395792960fa3ead205051d98833baca151",
+          "bytes": 1172,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "ade96ea9de1c0220442dee3e24ba920e2dcec83d62c2fb046a45d4d0cb45c69e",
+          "bytes": 527,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-ccs-coords",
+      "operations": [
+        {
+          "operation_id": "coord",
+          "tool": "CCSDecimalToDMS",
+          "arguments": {
+            "value": 42.5,
+            "field": "lat"
+          }
+        },
+        {
+          "operation_id": "distance",
+          "tool": "CCSHaversineDistance",
+          "arguments": {
+            "lat1": 0,
+            "lon1": 0,
+            "lat2": 0,
+            "lon2": 90
+          }
+        },
+        {
+          "operation_id": "bearing",
+          "tool": "CCSBearing",
+          "arguments": {
+            "lat1": 0,
+            "lon1": 0,
+            "lat2": 0,
+            "lon2": 90
+          }
+        },
+        {
+          "operation_id": "area",
+          "tool": "CCSBBoxArea",
+          "arguments": {
+            "bbox": [
+              0,
+              0,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "operation_id": "labels",
+          "tool": "CCSCheckCRSConsistency",
+          "arguments": {
+            "crs_values": [
+              "EPSG:4326",
+              "epsg:4326"
+            ]
+          }
+        }
+      ],
+      "scope_notes": "显式 WGS84 坐标与球面计算；CRS 标签比较不等于实际转换。",
+      "source_request": "ore-ccs-coords-1.0.0/tests/inputs/CCO-40.json",
+      "source_request_sha256": "fec1e01c4b1de58c9bbc387bf7b81472f7808a042fea4ffe468cf67043634115",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-earth-geo-example-v1",
+      "skill": "ore-earth-geo",
+      "source_skill_title": "地球空间分析",
+      "title": "完成一组空间分析",
+      "description": "串联几何、空间连接、栅格窗口与制图。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "矢量与栅格",
+      "output_label": "空间结果与图件",
+      "version": "1.0.5-review1",
+      "case_id": "ES-059",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "GeoCartopyPointMap",
+        "GeoDatashaderDensity",
+        "GeoFionaDatasetInfo",
+        "GeoPandasSpatialJoin",
+        "GeoRasterioWindow",
+        "GeoShapelyGeometry"
+      ],
+      "operation_count": 6,
+      "inputs": [
+        "tests/data/points.geojson",
+        "tests/data/cube.tif",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "空间结果与图件"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "tests/data/points.geojson": {
+          "sha256": "052c0a73c91e7ba8029a8cfdfe871f9c543e991146247fa12fa4e1b6e42b4218",
+          "bytes": 675,
+          "source": "ore-earth-geo-1.0.5-review1/tests/legacy/data/points.geojson"
+        },
+        "tests/data/cube.tif": {
+          "sha256": "b8a205a0182c15c984daa2c6971f4334dab528c61fb19c8ac34a9dda08bf0dbb",
+          "bytes": 632,
+          "source": "ore-earth-geo-1.0.5-review1/tests/legacy/data/cube.tif"
+        },
+        "request.original.json": {
+          "sha256": "761a8fa1042f1269511094aac78e412b1e76a5a49b88400f68ce52ff11705f62",
+          "bytes": 4116,
+          "source": "ore-earth-geo-1.0.5-review1/tests/legacy/inputs/ES-059.json"
+        },
+        "request.json": {
+          "sha256": "15f5dbace85104eb6aad5496e273886b5e392cf69717939382297cfa969ef513",
+          "bytes": 4468,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "2b7b3681afd3b5c9dc9210601d1a7865351afb947169f7688bf220f88946094a",
+          "bytes": 526,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-earth-geo",
+      "operations": [
+        {
+          "operation_id": "geometry",
+          "tool": "GeoShapelyGeometry",
+          "arguments": {
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    4,
+                    0
+                  ],
+                  [
+                    4,
+                    3
+                  ],
+                  [
+                    0,
+                    3
+                  ],
+                  [
+                    0,
+                    0
+                  ]
+                ]
+              ]
+            },
+            "crs": "EPSG:3857"
+          }
+        },
+        {
+          "operation_id": "join",
+          "tool": "GeoPandasSpatialJoin",
+          "arguments": {
+            "left": [
+              {
+                "type": "Point",
+                "coordinates": [
+                  1,
+                  1
+                ]
+              },
+              {
+                "type": "Point",
+                "coordinates": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "type": "Point",
+                "coordinates": [
+                  0,
+                  0
+                ]
+              },
+              {
+                "type": "Point",
+                "coordinates": [
+                  3,
+                  1
+                ]
+              }
+            ],
+            "right": [
+              {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    [
+                      0,
+                      0
+                    ],
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      2,
+                      2
+                    ],
+                    [
+                      0,
+                      2
+                    ],
+                    [
+                      0,
+                      0
+                    ]
+                  ]
+                ]
+              },
+              {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    [
+                      2,
+                      0
+                    ],
+                    [
+                      4,
+                      0
+                    ],
+                    [
+                      4,
+                      2
+                    ],
+                    [
+                      2,
+                      2
+                    ],
+                    [
+                      2,
+                      0
+                    ]
+                  ]
+                ]
+              }
+            ],
+            "crs": "EPSG:3857",
+            "predicate": "within"
+          }
+        },
+        {
+          "operation_id": "vector",
+          "tool": "GeoFionaDatasetInfo",
+          "arguments": {
+            "input_path": "tests/data/points.geojson"
+          }
+        },
+        {
+          "operation_id": "raster",
+          "tool": "GeoRasterioWindow",
+          "arguments": {
+            "input_path": "tests/data/cube.tif",
+            "col_off": 1,
+            "row_off": 1,
+            "width": 3,
+            "height": 2,
+            "bands": [
+              1,
+              2,
+              3
+            ],
+            "value_unit": "synthetic_units"
+          }
+        },
+        {
+          "operation_id": "map",
+          "tool": "GeoCartopyPointMap",
+          "arguments": {
+            "longitude": [
+              0,
+              2,
+              4
+            ],
+            "latitude": [
+              35,
+              38,
+              40
+            ],
+            "extent": [
+              -1,
+              5,
+              34,
+              41
+            ],
+            "projection": "plate_carree",
+            "title": "Synthetic CPU stations - plate_carree"
+          }
+        },
+        {
+          "operation_id": "density",
+          "tool": "GeoDatashaderDensity",
+          "arguments": {
+            "x": [
+              0,
+              0.5,
+              1,
+              1.5,
+              2,
+              3,
+              4,
+              4
+            ],
+            "y": [
+              0,
+              0.5,
+              1,
+              1.5,
+              2,
+              3,
+              4,
+              0
+            ],
+            "extent": [
+              0,
+              4,
+              0,
+              4
+            ],
+            "width": 4,
+            "height": 4,
+            "coordinate_unit": "m"
+          }
+        }
+      ],
+      "scope_notes": "需匹配 CPU 依赖；限定六项空间操作，旧 CUDA 事件说明保留。",
+      "source_request": "ore-earth-geo-1.0.5-review1/tests/legacy/inputs/ES-059.json",
+      "source_request_sha256": "761a8fa1042f1269511094aac78e412b1e76a5a49b88400f68ce52ff11705f62",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-geodesic-example-v1",
+      "skill": "ore-geodesic",
+      "source_skill_title": "球面坐标与面积",
+      "title": "计算距离、方位与面积",
+      "description": "从显式坐标出发，核对球面尺度与坐标约定。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "经纬度与范围",
+      "output_label": "空间度量",
+      "version": "1.0.2",
+      "case_id": "GEO-50",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoBearing",
+        "GeoCheckCRSConsistency",
+        "GeoDecimalToDMS",
+        "GeoHaversineDistance",
+        "GeoWGS84BBoxAreaKm2"
+      ],
+      "operation_count": 5,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "空间度量"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "584ee4575918247bd22f49f15491bcad22486e47b192e66b3acfebd6545b93f7",
+          "bytes": 979,
+          "source": "ore-geodesic-1.0.2/tests/requests/GEO-50.json"
+        },
+        "request.json": {
+          "sha256": "39cfe7a38bb681e0cbaaafe28e9a84b5392b61079541bc1273f1669fd69de9b5",
+          "bytes": 1191,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "4a5f2e54a40eb10c7ccbb3a1f9b6d69ba91572ad10c387f0773809d6036b8931",
+          "bytes": 525,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-geodesic",
+      "operations": [
+        {
+          "operation_id": "=distance",
+          "tool": "GeoHaversineDistance",
+          "arguments": {
+            "lat1": 0,
+            "lon1": 0,
+            "lat2": 0,
+            "lon2": 90
+          }
+        },
+        {
+          "operation_id": "bearing",
+          "tool": "GeoBearing",
+          "arguments": {
+            "lat1": 0,
+            "lon1": 0,
+            "lat2": 0,
+            "lon2": 90
+          }
+        },
+        {
+          "operation_id": "coord",
+          "tool": "GeoDecimalToDMS",
+          "arguments": {
+            "value": -179.9999999,
+            "axis": "lon"
+          }
+        },
+        {
+          "operation_id": "area",
+          "tool": "GeoWGS84BBoxAreaKm2",
+          "arguments": {
+            "min_lon": 0,
+            "min_lat": 0,
+            "max_lon": 1,
+            "max_lat": 1
+          }
+        },
+        {
+          "operation_id": "crs",
+          "tool": "GeoCheckCRSConsistency",
+          "arguments": {
+            "crs_values": [
+              "epsg:4326",
+              "EPSG:4326"
+            ]
+          }
+        }
+      ],
+      "scope_notes": "球面距离／面积；不等于椭球测地，不覆盖整个下溢域。",
+      "source_request": "ore-geodesic-1.0.2/tests/requests/GEO-50.json",
+      "source_request_sha256": "584ee4575918247bd22f49f15491bcad22486e47b192e66b3acfebd6545b93f7",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-geopandas-example-v1",
+      "skill": "ore-geopandas",
+      "source_skill_title": "空间数据处理与制图",
+      "title": "连接矢量数据与几何分析",
+      "description": "用真实中间产物串联空间连接与几何测量。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "几何与属性",
+      "output_label": "空间连接结果",
+      "version": "1.0.1",
+      "case_id": "GP-029",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoFionaDatasetInfo",
+        "GeoPandasSpatialJoin",
+        "GeoShapelyGeometry"
+      ],
+      "operation_count": 5,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "空间连接结果"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "f1ffcbae7fe2c9d3db816339d8dab718db8f50fb7836da114effd31d5f56b911",
+          "bytes": 2807,
+          "source": "ore-geopandas-1.0.1/tests/i/GP-029.json"
+        },
+        "request.json": {
+          "sha256": "a701e311fdc65944170e7e843fa8b82bf0a5873e7d2c4cbd61adbff3d51c7cb1",
+          "bytes": 2878,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "646ddcb6a705f712daedae274abd1f02fda30d00474ab39716be6ecf9970165f",
+          "bytes": 526,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-geopandas",
+      "operations": [
+        {
+          "operation_id": "shape",
+          "export": "geometry",
+          "tool": "GeoShapelyGeometry",
+          "arguments": {
+            "geometry": {
+              "type": "Polygon",
+              "coordinates": [
+                [
+                  [
+                    0,
+                    0
+                  ],
+                  [
+                    6,
+                    0
+                  ],
+                  [
+                    6,
+                    6
+                  ],
+                  [
+                    0,
+                    6
+                  ],
+                  [
+                    0,
+                    0
+                  ]
+                ],
+                [
+                  [
+                    2,
+                    2
+                  ],
+                  [
+                    4,
+                    2
+                  ],
+                  [
+                    4,
+                    4
+                  ],
+                  [
+                    2,
+                    4
+                  ],
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              ]
+            },
+            "crs": "EPSG:3857"
+          }
+        },
+        {
+          "operation_id": "geometry_file",
+          "input_from": {
+            "operation_id": "shape",
+            "artifact": "geometry.geojson"
+          },
+          "tool": "GeoFionaDatasetInfo",
+          "arguments": {}
+        },
+        {
+          "operation_id": "join",
+          "geometries_from": {
+            "right": {
+              "operation_id": "shape",
+              "artifact": "geometry.geojson"
+            }
+          },
+          "export": "joined_left",
+          "tool": "GeoPandasSpatialJoin",
+          "arguments": {
+            "left": [
+              {
+                "type": "Point",
+                "coordinates": [
+                  1,
+                  1
+                ]
+              },
+              {
+                "type": "Point",
+                "coordinates": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "type": "Point",
+                "coordinates": [
+                  3,
+                  3
+                ]
+              },
+              {
+                "type": "Point",
+                "coordinates": [
+                  5,
+                  5
+                ]
+              }
+            ],
+            "crs": "EPSG:3857",
+            "predicate": "within"
+          }
+        },
+        {
+          "operation_id": "join_file",
+          "input_from": {
+            "operation_id": "join",
+            "artifact": "joined.geojson"
+          },
+          "tool": "GeoFionaDatasetInfo",
+          "arguments": {}
+        },
+        {
+          "operation_id": "point_measure",
+          "geometries_from": {
+            "geometry": {
+              "operation_id": "join",
+              "artifact": "joined.geojson",
+              "feature_index": 1
+            }
+          },
+          "tool": "GeoShapelyGeometry",
+          "arguments": {
+            "crs": "EPSG:3857"
+          }
+        }
+      ],
+      "scope_notes": "限定所选本地空间数据流程；数据库、交互地图、外部服务未验。",
+      "source_request": "ore-geopandas-1.0.1/tests/i/GP-029.json",
+      "source_request_sha256": "f1ffcbae7fe2c9d3db816339d8dab718db8f50fb7836da114effd31d5f56b911",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-kriging-example-v1",
+      "skill": "ore-kriging",
+      "source_skill_title": "克里金空间插值",
+      "title": "把采样点插值为空间网格",
+      "description": "按指定变差模型生成空间插值与不确定性。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "采样点与模型",
+      "output_label": "插值网格与图件",
+      "version": "1.0.1",
+      "case_id": "KR-01",
+      "data_kind": "合成验证数据",
+      "tools": [],
+      "operation_count": 0,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "插值网格与图件"
+      ],
+      "load_issues": [
+        "输入路径尚未绑定：inputs/synthetic-points.csv",
+        "独立脚本／组合流程尚需绑定到当前运行时入口"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "575679b2df89c9e2f2c8cc8783e8d755bb7dbd1e05afed9db819946e3ff0c6f7",
+          "bytes": 345,
+          "source": "ore-kriging-1.0.1/tests/inputs/KR-01.json"
+        },
+        "request.json": {
+          "sha256": "05f68ef07f175c543e73436defe98e8b01dbbcad353d2c9d939443dbbbb118d6",
+          "bytes": 587,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "32ecbaa1a2c94cc13aeac06f808e43717e247cb12160d6252621185bb2181f34",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-kriging",
+      "operations": [],
+      "scope_notes": "本包为二维普通克里金；归档第二轮 23 项，与原报告 25 项分母区别见补充。",
+      "source_request": "ore-kriging-1.0.1/tests/inputs/KR-01.json",
+      "source_request_sha256": "575679b2df89c9e2f2c8cc8783e8d755bb7dbd1e05afed9db819946e3ff0c6f7",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-pygmt-example-v1",
+      "skill": "ore-pygmt",
+      "source_skill_title": "地学二维制图",
+      "title": "制作一张地学专题图",
+      "description": "按显式投影、区域和色标绘制空间数据。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "位置与制图参数",
+      "output_label": "专题地图",
+      "version": "1.0.0-r1",
+      "case_id": "original",
+      "data_kind": "合成验证数据",
+      "tools": [],
+      "operation_count": 0,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "专题地图"
+      ],
+      "load_issues": [
+        "独立脚本／组合流程尚需绑定到当前运行时入口"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "eef97d8580c3a591f5bef8b2f761dc85687b85c8aad7efe8de92d7ae48edd557",
+          "bytes": 283,
+          "source": "ore-pygmt-1.0.0-r1/tests/legacy/req/original.json"
+        },
+        "request.json": {
+          "sha256": "f516b5417fa613d45e0557d66f4b7406eea92de14426249d158508e0db16a10a",
+          "bytes": 526,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "09beecd51e863438d3a5f4d1933a392863b006fa76ae85f98204802787683d3b",
+          "bytes": 524,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-pygmt",
+      "operations": [],
+      "scope_notes": "离线二维制图；不含远程底图和 3D。",
+      "source_request": "ore-pygmt-1.0.0-r1/tests/legacy/req/original.json",
+      "source_request_sha256": "eef97d8580c3a591f5bef8b2f761dc85687b85c8aad7efe8de92d7ae48edd557",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-sites-example-v1",
+      "skill": "ore-sites",
+      "source_skill_title": "场地空间统计",
+      "title": "比较场地的局部空间关联",
+      "description": "串联局部 Moran 与 Geary 统计。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "观测与邻接关系",
+      "output_label": "局部关联指标",
+      "version": "1.0.1",
+      "case_id": "SIT-050",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoSpatialLocalGeary",
+        "GeoSpatialLocalMoran"
+      ],
+      "operation_count": 2,
+      "inputs": [
+        "data/SIT-050a.json",
+        "data/SIT-050b.json",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "局部关联指标"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "data/SIT-050a.json": {
+          "sha256": "637e3decdda031e15738c8e70a9001eb3cf8f15b53af8bf0efa036c38dcb0a4a",
+          "bytes": 621,
+          "source": "ore-sites-1.0.1/tests/data/SIT-050a.json"
+        },
+        "data/SIT-050b.json": {
+          "sha256": "fd0f54fc6d4f098dbe6891f0ea572113cae41c199c3bc512cb45a8798e6d4575",
+          "bytes": 609,
+          "source": "ore-sites-1.0.1/tests/data/SIT-050b.json"
+        },
+        "request.original.json": {
+          "sha256": "c66a0003469d54de3b414818e2733209ae4e4ee277d872ede5d7b2e933a8f174",
+          "bytes": 691,
+          "source": "ore-sites-1.0.1/tests/inputs/SIT-050.json"
+        },
+        "request.json": {
+          "sha256": "2ce9ed99372866d30e328bf8a5c9239182e04ad7fac6b5cfba9f5f627c00ba8b",
+          "bytes": 1205,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "503333f1a3ef5bbcc59475e4041368ae52a0a133f62bcb153a3ff390abe9e317",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-sites",
+      "operations": [
+        {
+          "operation_id": "association",
+          "site_ids": [
+            "zeta",
+            "alpha",
+            "omega",
+            "beta",
+            "kappa",
+            "eta"
+          ],
+          "tool": "GeoSpatialLocalMoran",
+          "arguments": {
+            "data_path": "data/SIT-050a.json"
+          }
+        },
+        {
+          "operation_id": "roughness",
+          "site_ids": [
+            "zeta",
+            "alpha",
+            "omega",
+            "beta",
+            "kappa",
+            "eta"
+          ],
+          "values_from": {
+            "operation_id": "association",
+            "field": "local_i"
+          },
+          "tool": "GeoSpatialLocalGeary",
+          "arguments": {
+            "data_path": "data/SIT-050b.json"
+          }
+        }
+      ],
+      "scope_notes": "保留依赖需求；曾观察本机 IPv6 回环探测，不能声称没有任何网络系统调用。",
+      "source_request": "ore-sites-1.0.1/tests/inputs/SIT-050.json",
+      "source_request_sha256": "c66a0003469d54de3b414818e2733209ae4e4ee277d872ede5d7b2e933a8f174",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-sstats-example-v1",
+      "skill": "ore-sstats",
+      "source_skill_title": "空间格局与分区评价",
+      "title": "划分并评价连续空间区域",
+      "description": "先做连续区域划分，再评价边界。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "属性与邻接关系",
+      "output_label": "分区与评价指标",
+      "version": "1.0.1",
+      "case_id": "SST-051",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "GeoSpatialContiguousRegionalization",
+        "GeoSpatialRegionBoundarySilhouette"
+      ],
+      "operation_count": 2,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "分区与评价指标"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "b5d0497b13704b54f8e8da9a79ad3b4ab640b1d0fc9d7862a38dedc5652dd495",
+          "bytes": 1900,
+          "source": "ore-sstats-1.0.1/tests/inputs/SST-051.json"
+        },
+        "request.json": {
+          "sha256": "8c756bd6e6642f48e2544a976eef9d63d5c98c60da80cc0cbe3df6dce6d028b8",
+          "bytes": 2117,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "a07e623c25cb0ed6b4a3f1edd24dece21fde8d0c8a06f4b122c527e92922b878",
+          "bytes": 524,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-sstats",
+      "operations": [
+        {
+          "operation_id": "partition",
+          "observation_ids": [
+            "zeta",
+            "alpha",
+            "omega",
+            "beta"
+          ],
+          "tool": "GeoSpatialContiguousRegionalization",
+          "arguments": {
+            "crs": "EPSG:32631",
+            "attributes": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                10
+              ],
+              [
+                11
+              ]
+            ],
+            "neighbors": [
+              [
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "regions": 2,
+            "minimum_region_size": 2,
+            "attribute_unit": "1",
+            "units": {
+              "attributes": "1"
+            }
+          }
+        },
+        {
+          "operation_id": "boundary",
+          "observation_ids": [
+            "zeta",
+            "alpha",
+            "omega",
+            "beta"
+          ],
+          "labels_from": {
+            "operation_id": "partition"
+          },
+          "tool": "GeoSpatialRegionBoundarySilhouette",
+          "arguments": {
+            "crs": "EPSG:32631",
+            "attributes": [
+              [
+                0
+              ],
+              [
+                1
+              ],
+              [
+                10
+              ],
+              [
+                11
+              ]
+            ],
+            "neighbors": [
+              [
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2
+              ]
+            ],
+            "attribute_unit": "1",
+            "units": {
+              "attributes": "1",
+              "labels": "region_id"
+            }
+          }
+        }
+      ],
+      "scope_notes": "通过哈希绑定修订运行体；最终 ZIP 未全量重跑 159 项。",
+      "source_request": "ore-sstats-1.0.1/tests/inputs/SST-051.json",
+      "source_request_sha256": "b5d0497b13704b54f8e8da9a79ad3b4ab640b1d0fc9d7862a38dedc5652dd495",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-time-coords-example-v1",
+      "skill": "ore-time-coords",
+      "source_skill_title": "地史坐标处理",
+      "title": "核对地史数据中的坐标",
+      "description": "按原接口计算角度、距离、方位和面积。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "坐标与范围",
+      "output_label": "地史空间度量",
+      "version": "1.0.0",
+      "case_id": "DTC-36",
+      "data_kind": "验证样例",
+      "tools": [
+        "DeepTimeBBoxArea",
+        "DeepTimeBearing",
+        "DeepTimeDecimalToDMS",
+        "DeepTimeHaversineDistance"
+      ],
+      "operation_count": 4,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "地史空间度量"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "8e7e93ae71fbfe8a89cc3c1969364c3d83e4a709e0fe3419b34cde25925d4589",
+          "bytes": 830,
+          "source": "ore-time-coords-1.0.0/tests/inputs/DTC-36.json"
+        },
+        "request.json": {
+          "sha256": "d0ea9690ce96a09d78c35cfdfaa2f31d81ccb9bbb7085a418f8d8e4584713a83",
+          "bytes": 1000,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "5905cf7539a7cc3d1f21be1dfeba80873928da15941ba0b4805095d4d2119fdc",
+          "bytes": 528,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-time-coords",
+      "operations": [
+        {
+          "operation_id": "coord",
+          "tool": "DeepTimeDecimalToDMS",
+          "arguments": {
+            "value": 42.5,
+            "field": "lat"
+          }
+        },
+        {
+          "operation_id": "distance",
+          "tool": "DeepTimeHaversineDistance",
+          "arguments": {
+            "lat1": 0,
+            "lon1": 0,
+            "lat2": 0,
+            "lon2": 90
+          }
+        },
+        {
+          "operation_id": "bearing",
+          "tool": "DeepTimeBearing",
+          "arguments": {
+            "lat1": 0,
+            "lon1": 0,
+            "lat2": 0,
+            "lon2": 90
+          }
+        },
+        {
+          "operation_id": "area",
+          "tool": "DeepTimeBBoxArea",
+          "arguments": {
+            "bbox": [
+              0,
+              0,
+              1,
+              1
+            ]
+          }
+        }
+      ],
+      "scope_notes": "仅所述球面／坐标操作；不含任意地史重建。",
+      "source_request": "ore-time-coords-1.0.0/tests/inputs/DTC-36.json",
+      "source_request_sha256": "8e7e93ae71fbfe8a89cc3c1969364c3d83e4a709e0fe3419b34cde25925d4589",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-vector-example-v1",
+      "skill": "ore-vector",
+      "source_skill_title": "矢量邻域与空间叠加",
+      "title": "串联矢量叠加与制图",
+      "description": "从数据标准化到邻域、缓冲、叠加和渲染。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "矢量图层",
+      "output_label": "空间图层与地图",
+      "version": "1.0.1",
+      "case_id": "DV-025",
+      "data_kind": "验证样例",
+      "tools": [
+        "DeepTimeBatchVector",
+        "DeepTimeBuffer",
+        "DeepTimeNearestNeighbor",
+        "DeepTimeOverlay",
+        "DeepTimeRenderMap",
+        "DeepTimeStandardizeSpatialData",
+        "DeepTimeValidateSpatialData"
+      ],
+      "operation_count": 7,
+      "inputs": [
+        "tests/data/p.geojson",
+        "tests/data/zones.geojson",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "空间图层与地图"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "tests/data/p.geojson": {
+          "sha256": "b9c23878da5fddb2e5cd20eaa8195c1550f278ea35c98a4a534feaeba348081a",
+          "bytes": 1029,
+          "source": "ore-vector-1.0.1/tests/data/p.geojson"
+        },
+        "tests/data/zones.geojson": {
+          "sha256": "194e5fabff212f3b20ecd262062305f798a42ad8f9cbf01b62d354e6e0e56644",
+          "bytes": 1576,
+          "source": "ore-vector-1.0.1/tests/data/zones.geojson"
+        },
+        "request.original.json": {
+          "sha256": "f4c154b1d931b57ca5168d5289e1e67df2c97a728fa9a1f979f07a5bff3f8c02",
+          "bytes": 1960,
+          "source": "ore-vector-1.0.1/tests/i/DV-025.json"
+        },
+        "request.json": {
+          "sha256": "a728e7485565d482947d5daa0d84aa013e09b1f2007424f64b578957d1474333",
+          "bytes": 2400,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "b7087a16afc772eefdf0c38d44f1588ba2a4009359d36d155a3e09bf2f4fce41",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-vector",
+      "operations": [
+        {
+          "operation_id": "std",
+          "tool": "DeepTimeStandardizeSpatialData",
+          "arguments": {
+            "paths": [
+              "tests/data/p.geojson"
+            ]
+          }
+        },
+        {
+          "operation_id": "batch",
+          "paths_from": [
+            {
+              "operation_id": "std",
+              "pointer": "/standardized_layers/0/output"
+            }
+          ],
+          "tool": "DeepTimeBatchVector",
+          "arguments": {}
+        },
+        {
+          "operation_id": "clean",
+          "paths_from": [
+            {
+              "operation_id": "batch",
+              "pointer": "/standardized_layers/0/output"
+            }
+          ],
+          "tool": "DeepTimeValidateSpatialData",
+          "arguments": {}
+        },
+        {
+          "operation_id": "near",
+          "paths_from": [
+            {
+              "operation_id": "clean",
+              "pointer": "/validation_reports/0/clean_output"
+            }
+          ],
+          "tool": "DeepTimeNearestNeighbor",
+          "arguments": {}
+        },
+        {
+          "operation_id": "buffer",
+          "paths_from": [
+            {
+              "operation_id": "clean",
+              "pointer": "/validation_reports/0/clean_output"
+            }
+          ],
+          "tool": "DeepTimeBuffer",
+          "arguments": {
+            "distance_km": 10
+          }
+        },
+        {
+          "operation_id": "overlay",
+          "paths_from": [
+            {
+              "operation_id": "clean",
+              "pointer": "/validation_reports/0/clean_output"
+            },
+            "tests/data/zones.geojson"
+          ],
+          "tool": "DeepTimeOverlay",
+          "arguments": {}
+        },
+        {
+          "operation_id": "map",
+          "paths_from": [
+            {
+              "operation_id": "buffer",
+              "pointer": "/buffer_output"
+            },
+            {
+              "operation_id": "overlay",
+              "pointer": "/overlay_output"
+            }
+          ],
+          "tool": "DeepTimeRenderMap",
+          "arguments": {
+            "title": "Vector workflow audit"
+          }
+        }
+      ],
+      "scope_notes": "限定已测点／多边形／球面流程；保留逐字段明细和近对跖数值修订。",
+      "source_request": "ore-vector-1.0.1/tests/i/DV-025.json",
+      "source_request_sha256": "f4c154b1d931b57ca5168d5289e1e67df2c97a728fa9a1f979f07a5bff3f8c02",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-zonal-example-v1",
+      "skill": "ore-zonal",
+      "source_skill_title": "栅格分区统计",
+      "title": "按真实覆盖比例做分区统计",
+      "description": "保留掩膜、定标、分区身份和面积单位。",
+      "category": "空间分析与制图",
+      "icon": "map",
+      "input_label": "栅格与多边形",
+      "output_label": "加权统计与 CSV",
+      "version": "1.0.1",
+      "case_id": "ZON-01",
+      "data_kind": "验证样例",
+      "tools": [
+        "GeoExactZonalStatistics"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "data/fb53b72984-values.tif",
+        "data/1f730bc440-full.json",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "加权统计与 CSV"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "data/fb53b72984-values.tif": {
+          "sha256": "fb53b72984ed12a5bd5f40fe0224ed8413ce9410bacb2a87c8d6e9c4fecbdbfe",
+          "bytes": 744,
+          "source": "ore-zonal-1.0.1/tests/data/values.tif"
+        },
+        "data/1f730bc440-full.json": {
+          "sha256": "1f730bc440affb0b70a6a927c53fd98c67a8278ae9766fac21864f5b70438a08",
+          "bytes": 624,
+          "source": "ore-zonal-1.0.1/tests/data/full.json"
+        },
+        "request.original.json": {
+          "sha256": "37a2065be7d4417edf1ce5139360f1739b75babd48483cedd1ee3c2512337fc2",
+          "bytes": 131,
+          "source": "ore-zonal-1.0.1/tests/inputs/ZON-01.json"
+        },
+        "request.json": {
+          "sha256": "f5cc2bbfc97bd1c69c053788c0f7e1d3d9e973adcf85e7d2bcb4cd65c63c656a",
+          "bytes": 978,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "1c0b9e7c139461e7fd078f9df5e9c5e1514f876004489687a67b907e7ef714c8",
+          "bytes": 522,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-zonal",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "GeoExactZonalStatistics",
+          "arguments": {
+            "raster_path": "data/fb53b72984-values.tif",
+            "zones_path": "data/1f730bc440-full.json",
+            "zones_crs": "EPSG:32650",
+            "value_unit": "ppm"
+          }
+        }
+      ],
+      "scope_notes": "覆盖比例加权统计；1.0.1 修复有效像元掩膜，保留面积和单位定义。",
+      "source_request": "ore-zonal-1.0.1/tests/inputs/ZON-01.json",
+      "source_request_sha256": "37a2065be7d4417edf1ce5139360f1739b75babd48483cedd1ee3c2512337fc2",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-climate-example-v1",
+      "skill": "ore-climate",
+      "source_skill_title": "气候情景分析",
+      "title": "比较不同时期的气候",
+      "description": "查询随附数据，比较古气候、现状与情景。",
+      "category": "气候与海洋",
+      "icon": "climate",
+      "input_label": "气候表与时期",
+      "output_label": "情景差异",
+      "version": "1.0.0-review1",
+      "case_id": "CLI-076",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "ClimateCompareEpochs",
+        "ClimateQueryDeepTime",
+        "ClimateQueryFutureSSP",
+        "ClimateQueryPresentMean",
+        "HydroReferenceET0",
+        "MetPyWindComponents"
+      ],
+      "operation_count": 6,
+      "inputs": [
+        "tests/data/paleo.csv",
+        "tests/data/annual.csv",
+        "tests/data/ssp.csv",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "情景差异"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "tests/data/paleo.csv": {
+          "sha256": "f467b553a17de115116a8a1d2d18b142da52d6fcee318ce6969f261607f50d9e",
+          "bytes": 57,
+          "source": "ore-climate-1.0.0-review1/tests/data/paleo.csv"
+        },
+        "tests/data/annual.csv": {
+          "sha256": "03862b710473b1da271f86beea5fa0761a4494c84868ce57518d285f0463797e",
+          "bytes": 72,
+          "source": "ore-climate-1.0.0-review1/tests/data/annual.csv"
+        },
+        "tests/data/ssp.csv": {
+          "sha256": "08d00b5f4c2c4955cc66e2e07a764996c5c614a7d01aef173c158f15c55b7e11",
+          "bytes": 163,
+          "source": "ore-climate-1.0.0-review1/tests/data/ssp.csv"
+        },
+        "request.original.json": {
+          "sha256": "e2633c1154eee90585a17af9ce3e765c3a4c6854f2ba0cceceb412699b3b5f42",
+          "bytes": 2581,
+          "source": "ore-climate-1.0.0-review1/tests/inputs/CLI-076.json"
+        },
+        "request.json": {
+          "sha256": "1410546290d6a1efb02fe79913a75a8869a21dc5a5f0d4768e09376ae4e763ac",
+          "bytes": 3213,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "1214f7b365d2a6e0385cf4498e5e55c8e8db1d9f34b1dcf0d3150b6954ec5094",
+          "bytes": 525,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-climate",
+      "operations": [
+        {
+          "operation_id": "deep",
+          "tool": "ClimateQueryDeepTime",
+          "arguments": {
+            "dataset_path": "tests/data/paleo.csv",
+            "dataset_version": "synthetic-climate-20261031-v1",
+            "baseline": "synthetic reference 1850-1900",
+            "age_kyr_bp": 11
+          }
+        },
+        {
+          "operation_id": "present",
+          "tool": "ClimateQueryPresentMean",
+          "arguments": {
+            "dataset_path": "tests/data/annual.csv",
+            "dataset_version": "synthetic-climate-20261031-v1",
+            "baseline": "synthetic reference 1850-1900",
+            "year_start": 2001,
+            "year_end": 2002
+          }
+        },
+        {
+          "operation_id": "future",
+          "tool": "ClimateQueryFutureSSP",
+          "arguments": {
+            "dataset_path": "tests/data/ssp.csv",
+            "dataset_version": "synthetic-climate-20261031-v1",
+            "baseline": "synthetic reference 1850-1900",
+            "scenario": "SSP1-2.6",
+            "horizon_year": 2100
+          }
+        },
+        {
+          "operation_id": "compare",
+          "epoch_context": {
+            "unit": "degC",
+            "baselines": [
+              "synthetic reference 1850-1900",
+              "synthetic reference 1850-1900",
+              "synthetic reference 1850-1900"
+            ]
+          },
+          "tool": "ClimateCompareEpochs",
+          "arguments": {
+            "values": [
+              -1.5,
+              0.25,
+              1.75
+            ]
+          }
+        },
+        {
+          "operation_id": "wind",
+          "tool": "MetPyWindComponents",
+          "arguments": {
+            "speed": [
+              36
+            ],
+            "direction": [
+              270
+            ],
+            "speed_unit": "km/h"
+          }
+        },
+        {
+          "operation_id": "et0",
+          "tool": "HydroReferenceET0",
+          "arguments": {
+            "tmin_c": 12,
+            "tmax_c": 25,
+            "rh_min": 40,
+            "rh_max": 80,
+            "wind_m_s": 2,
+            "solar_mj_m2": 18,
+            "latitude_deg": 35,
+            "day_of_year": 180,
+            "altitude_m": 100
+          }
+        }
+      ],
+      "scope_notes": "包装层要求 datasets／epoch_context；保留共同温标与基线，不宣称原生无修改替换。",
+      "source_request": "ore-climate-1.0.0-review1/tests/inputs/CLI-076.json",
+      "source_request_sha256": "e2633c1154eee90585a17af9ce3e765c3a4c6854f2ba0cceceb412699b3b5f42",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-climate-analysis-example-v1",
+      "skill": "ore-climate-analysis",
+      "source_skill_title": "站点与网格气候分析",
+      "title": "衔接站点与网格气候分析",
+      "description": "串联本地气候数据与趋势分析。",
+      "category": "气候与海洋",
+      "icon": "climate",
+      "input_label": "网格与站点数据",
+      "output_label": "气候指标",
+      "version": "1.0.2",
+      "case_id": "c076",
+      "data_kind": "验证样例",
+      "tools": [
+        "EarthERA5LocalMonthlyClimate",
+        "RemoteSensingMannKendallTest"
+      ],
+      "operation_count": 0,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "气候指标"
+      ],
+      "load_issues": [
+        "独立脚本／组合流程尚需绑定到当前运行时入口"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "44223b83411f7d2614ab97a0d983a9fb37dde40a21de595334b01e4593b76fff",
+          "bytes": 70,
+          "source": "ore-climate-analysis-1.0.2/tests/in/c076.json"
+        },
+        "request.json": {
+          "sha256": "a2abf05eb6529eadf53d594e729511a666c4087a503837b468304f2d9935723a",
+          "bytes": 309,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "7775745559dc83c6987a95861a7cc1e394669150a67127e9c989bf3f34e48ea6",
+          "bytes": 531,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-climate-analysis",
+      "operations": [],
+      "scope_notes": "core／native 使用两套独立锁定环境；不得混装后宣称依赖冲突已解决。",
+      "source_request": "ore-climate-analysis-1.0.2/tests/in/c076.json",
+      "source_request_sha256": "44223b83411f7d2614ab97a0d983a9fb37dde40a21de595334b01e4593b76fff",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-ecweather-example-v1",
+      "skill": "ore-ecweather",
+      "source_skill_title": "天气、气候与地震数组",
+      "title": "处理交错气象网格",
+      "description": "按声明的网格维度与单位执行去交错。",
+      "category": "气候与海洋",
+      "icon": "climate",
+      "input_label": "气象数组",
+      "output_label": "去交错网格",
+      "version": "1.0.0-review1",
+      "case_id": "EW001",
+      "data_kind": "验证样例",
+      "tools": [
+        "WrfDestaggerGrid"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "data/f38.json",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "去交错网格"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "data/f38.json": {
+          "sha256": "035d77d065c0cf34672c7b23b4950b91f18574a785195b763362b49bfe18ac47",
+          "bytes": 151,
+          "source": "ore-ecweather-1.0.0-review1/ore-ecweather/references/orig/f38.json"
+        },
+        "request.original.json": {
+          "sha256": "28741d5ce051b18bec14d0fdb1b8abfe2ce2fe15f9e958ab36e47aee579f68ac",
+          "bytes": 294,
+          "source": "ore-ecweather-1.0.0-review1/tests/in/EW001.json"
+        },
+        "request.json": {
+          "sha256": "f3a8c43a1117b767409661759fc743ce84d64f60da8d16e842ef4afcdc731d4a",
+          "bytes": 768,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "6bf7491ff7c31985e74e415e69db604c41ed443ddbbb6bc13f9fd6744eacef8b",
+          "bytes": 525,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-ecweather",
+      "operations": [
+        {
+          "operation_id": "op1",
+          "tool": "WrfDestaggerGrid",
+          "arguments": {
+            "data_path": "data/f38.json",
+            "stagger_dim": 1,
+            "data_unit": "m/s"
+          }
+        }
+      ],
+      "scope_notes": "在线安装与完整 SGZ 编码认证未验；使用修订后的清单绑定。",
+      "source_request": "ore-ecweather-1.0.0-review1/tests/in/EW001.json",
+      "source_request_sha256": "28741d5ce051b18bec14d0fdb1b8abfe2ce2fe15f9e958ab36e47aee579f68ac",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-osp-example-v1",
+      "skill": "ore-osp",
+      "source_skill_title": "海洋空间分析",
+      "title": "度量一个海域范围",
+      "description": "根据显式海域边界计算范围面积。",
+      "category": "气候与海洋",
+      "icon": "water",
+      "input_label": "海域范围",
+      "output_label": "面积结果",
+      "version": "1.0.1",
+      "case_id": "DR001",
+      "data_kind": "验证样例",
+      "tools": [
+        "OceanBBoxArea"
+      ],
+      "operation_count": 1,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "面积结果"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "a26735bcc4fbe438bec26feeb3e1c8ed94235f224b8e5481f51aadc1af34d92c",
+          "bytes": 223,
+          "source": "ore-osp-1.0.1/tests/review/q/DR001.json"
+        },
+        "request.json": {
+          "sha256": "27c58f08513c20458c1f7576b4b583ee52749b484903cb200abd15bae16233bb",
+          "bytes": 409,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "05c1a0c012b51a79bd948886be827a436050580ed76f403353e9d95929a51571",
+          "bytes": 519,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-osp",
+      "operations": [
+        {
+          "operation_id": "area",
+          "tool": "OceanBBoxArea",
+          "arguments": {
+            "bbox": [
+              0,
+              0,
+              2,
+              2
+            ]
+          }
+        }
+      ],
+      "scope_notes": "球面合成数据范围；椭球和真实观测未验。",
+      "source_request": "ore-osp-1.0.1/tests/review/q/DR001.json",
+      "source_request_sha256": "a26735bcc4fbe438bec26feeb3e1c8ed94235f224b8e5481f51aadc1af34d92c",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-xarray-example-v1",
+      "skill": "ore-xarray",
+      "source_skill_title": "气候数组与单位",
+      "title": "处理带坐标的气候数组",
+      "description": "按维度、坐标、日期和单位处理气候数据。",
+      "category": "气候与海洋",
+      "icon": "climate",
+      "input_label": "时空气候数组",
+      "output_label": "数组统计与单位",
+      "version": "1.0.2-r1",
+      "case_id": "XA001",
+      "data_kind": "验证样例",
+      "tools": [],
+      "operation_count": 0,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "数组统计与单位"
+      ],
+      "load_issues": [
+        "独立脚本／组合流程尚需绑定到当前运行时入口"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "92bfb962c37b2820c5409e2cf1cc637f5a1eac70602b8bce04f0d2e5a1a3d0c7",
+          "bytes": 1697,
+          "source": "ore-xarray-1.0.2-r1/tests/inputs/XA001.json"
+        },
+        "request.json": {
+          "sha256": "3793ab8d91f9ee20c20b8c474a8198565d05e1f47d2525638dfa2fb18f9ffd5f",
+          "bytes": 2043,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "4c3e4dc046f51f6b1a0fd44f8c4d4638be22d3d2008d49a55796c53516a3f8a8",
+          "bytes": 522,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-xarray",
+      "operations": [],
+      "scope_notes": "限定 NetCDF3 等已测范围；最终外层未全量重跑，缺单位仅告知，不代表单位齐全。",
+      "source_request": "ore-xarray-1.0.2-r1/tests/inputs/XA001.json",
+      "source_request_sha256": "92bfb962c37b2820c5409e2cf1cc637f5a1eac70602b8bce04f0d2e5a1a3d0c7",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-energy-example-v1",
+      "skill": "ore-energy",
+      "source_skill_title": "能源容量与转型",
+      "title": "比较能源容量与转型",
+      "description": "从随附表格核对容量、增长率和结构。",
+      "category": "能源",
+      "icon": "energy",
+      "input_label": "能源容量 CSV",
+      "output_label": "容量与转型指标",
+      "version": "1.0.1",
+      "case_id": "ENE-17",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "EnergyCapacityGrowth",
+        "EnergyCapacityValue",
+        "EnergyCountryRenewableSummary",
+        "EnergyTransitionMetrics"
+      ],
+      "operation_count": 4,
+      "inputs": [
+        "measurements/capacity.csv",
+        "measurements/mix.csv",
+        "measurements/transition.csv",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "容量与转型指标"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "measurements/capacity.csv": {
+          "sha256": "703728ab41b7d765d29629fccfec76ecbbd4fd4e7c1efff7434a41fcd8676cbb",
+          "bytes": 110,
+          "source": "ore-energy-1.0.1/tests/data/measurements/capacity.csv"
+        },
+        "measurements/mix.csv": {
+          "sha256": "05b8ffb8819d33490eb3a4f0e2600db74c2d137b854ea24b3243a7c15b97975d",
+          "bytes": 161,
+          "source": "ore-energy-1.0.1/tests/data/measurements/mix.csv"
+        },
+        "measurements/transition.csv": {
+          "sha256": "601b968f51b212b01535669862af5dee1f05ded1616c871fffa674045e7d58c6",
+          "bytes": 113,
+          "source": "ore-energy-1.0.1/tests/data/measurements/transition.csv"
+        },
+        "request.original.json": {
+          "sha256": "6118ef7702c024ad50efb38986bef54de09d6106483838bf60dfd822b823dde2",
+          "bytes": 1205,
+          "source": "ore-energy-1.0.1/tests/requests/ENE-17.json"
+        },
+        "request.json": {
+          "sha256": "e03626e8b6c23b82ee7b7ac3abfefcbacab3780844193521d1ac1d2a5b208504",
+          "bytes": 2076,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "6bde21927a36cbc091c0cb3c5f37a9f0a349593ce679605217d3bd403ee8ff77",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-energy",
+      "operations": [
+        {
+          "operation_id": "value",
+          "tool": "EnergyCapacityValue",
+          "arguments": {
+            "dataset_path": "measurements/capacity.csv",
+            "dataset_version": "SYNTHETIC-test-v1",
+            "series": "Solar",
+            "year": 2021
+          }
+        },
+        {
+          "operation_id": "growth",
+          "tool": "EnergyCapacityGrowth",
+          "arguments": {
+            "dataset_path": "measurements/capacity.csv",
+            "dataset_version": "SYNTHETIC-test-v1",
+            "series": "Solar",
+            "start_year": 2020,
+            "end_year": 2021
+          }
+        },
+        {
+          "operation_id": "mix",
+          "tool": "EnergyCountryRenewableSummary",
+          "arguments": {
+            "dataset_path": "measurements/mix.csv",
+            "dataset_version": "SYNTHETIC-test-v1",
+            "country": "A",
+            "renewable_types": [
+              "Solar",
+              "Wind"
+            ]
+          }
+        },
+        {
+          "operation_id": "transition",
+          "tool": "EnergyTransitionMetrics",
+          "arguments": {
+            "dataset_path": "measurements/transition.csv",
+            "dataset_version": "SYNTHETIC-test-v1",
+            "country": "A",
+            "year": 2021
+          }
+        }
+      ],
+      "scope_notes": "使用调用方的版本化能源表；限定容量与转型计算，重复运行不计独立样本。",
+      "source_request": "ore-energy-1.0.1/tests/requests/ENE-17.json",
+      "source_request_sha256": "6118ef7702c024ad50efb38986bef54de09d6106483838bf60dfd822b823dde2",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-energy-geo-example-v1",
+      "skill": "ore-energy-geo",
+      "source_skill_title": "能源区域空间查询",
+      "title": "分析能源设施的空间关系",
+      "description": "按随附目录比较距离、邻近与区域叠加。",
+      "category": "能源",
+      "icon": "energy",
+      "input_label": "设施与矿点表",
+      "output_label": "距离与区域汇总",
+      "version": "1.0.1-r1",
+      "case_id": "EGS-18",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "EnergyBBoxArea",
+        "EnergyFacilityDistance",
+        "EnergyMineralSiteDistance",
+        "EnergyNearestFacility",
+        "EnergyNearestMineralSite",
+        "EnergyRegionalOverlaySummary"
+      ],
+      "operation_count": 6,
+      "inputs": [
+        "tests/data/facilities.csv",
+        "tests/data/minerals.csv",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "距离与区域汇总"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "tests/data/facilities.csv": {
+          "sha256": "0528cd3ef50fb7040b5c31ecbe2a9a8f72be20d5b616581504bdd28858c64266",
+          "bytes": 164,
+          "source": "ore-energy-geo-1.0.1-r1/tests/data/facilities.csv"
+        },
+        "tests/data/minerals.csv": {
+          "sha256": "04246946b7c679617ab5ff44e5a0782e46128b99192706373c774b21b498ddde",
+          "bytes": 49,
+          "source": "ore-energy-geo-1.0.1-r1/tests/data/minerals.csv"
+        },
+        "request.original.json": {
+          "sha256": "f5fc319b8634bba85561b25a92f45a825a97e4df751b864d5822a050444e1999",
+          "bytes": 1707,
+          "source": "ore-energy-geo-1.0.1-r1/tests/inputs/EGS-18.json"
+        },
+        "request.json": {
+          "sha256": "bc24fff43dff2c72cf9019c346d2d5406c1ecd0433fa673c056a812ddcb0f857",
+          "bytes": 3062,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "971330124c69dd30f446dc7342325081f4a8727ef1121134f7df15ec7dc81d60",
+          "bytes": 527,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-energy-geo",
+      "operations": [
+        {
+          "operation_id": "facility",
+          "tool": "EnergyFacilityDistance",
+          "arguments": {
+            "first_id": "f1",
+            "second_id": "f2",
+            "dataset_path": "tests/data/facilities.csv",
+            "dataset_version": "SYNTHETIC-v1"
+          }
+        },
+        {
+          "operation_id": "mineral",
+          "tool": "EnergyMineralSiteDistance",
+          "arguments": {
+            "first_id": "m1",
+            "second_id": "m2",
+            "dataset_path": "tests/data/minerals.csv",
+            "dataset_version": "SYNTHETIC-v1"
+          }
+        },
+        {
+          "operation_id": "area",
+          "tool": "EnergyBBoxArea",
+          "arguments": {
+            "bbox": [
+              0,
+              0,
+              1,
+              1
+            ]
+          }
+        },
+        {
+          "operation_id": "nearest",
+          "tool": "EnergyNearestFacility",
+          "arguments": {
+            "latitude": 0,
+            "longitude": 0.6,
+            "dataset_path": "tests/data/facilities.csv",
+            "dataset_version": "SYNTHETIC-v1"
+          }
+        },
+        {
+          "operation_id": "cross",
+          "tool": "EnergyNearestMineralSite",
+          "arguments": {
+            "facilities_path": "tests/data/facilities.csv",
+            "facility_id": "f1",
+            "dataset_path": "tests/data/minerals.csv",
+            "dataset_version": "SYNTHETIC-v1"
+          }
+        },
+        {
+          "operation_id": "regional",
+          "tool": "EnergyRegionalOverlaySummary",
+          "arguments": {
+            "minerals_path": "tests/data/minerals.csv",
+            "bbox": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "dataset_path": "tests/data/facilities.csv",
+            "dataset_version": "SYNTHETIC-v1"
+          }
+        }
+      ],
+      "scope_notes": "球面区域查询及所选查询条件；保留反经线限制。",
+      "source_request": "ore-energy-geo-1.0.1-r1/tests/inputs/EGS-18.json",
+      "source_request_sha256": "f5fc319b8634bba85561b25a92f45a825a97e4df751b864d5822a050444e1999",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-hazard-example-v1",
+      "skill": "ore-hazard",
+      "source_skill_title": "灾害记录分析",
+      "title": "从灾害记录形成统计摘要",
+      "description": "筛选事件，再汇总损失、人数与时间信息。",
+      "category": "灾害与风险",
+      "icon": "hazard",
+      "input_label": "事件记录 CSV",
+      "output_label": "分组与事件统计",
+      "version": "1.0.2-review1",
+      "case_id": "HAZ-58",
+      "data_kind": "合成验证数据",
+      "tools": [
+        "NaturalHazardBuildStartDate",
+        "NaturalHazardCountRecords",
+        "NaturalHazardFilterRecords",
+        "NaturalHazardGroupAggregate",
+        "NaturalHazardLoadEventTable",
+        "NaturalHazardSelectLatest",
+        "NaturalHazardSelectMaxRecord",
+        "NaturalHazardSumField"
+      ],
+      "operation_count": 8,
+      "inputs": [
+        "fixtures/base.csv",
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "分组与事件统计"
+      ],
+      "load_issues": [],
+      "input_files": {
+        "fixtures/base.csv": {
+          "sha256": "443556fc8479189623facadf04b57e64c84f0902b24be0c0e5b7d43d56f3ad0c",
+          "bytes": 302,
+          "source": "ore-hazard-1.0.2-review1/tests/fixtures/base.csv"
+        },
+        "request.original.json": {
+          "sha256": "5222b25ae2c41ae5f1c457e2504cbf8a6b98917a21d958da32f75018b76f0c39",
+          "bytes": 1554,
+          "source": "ore-hazard-1.0.2-review1/tests/inputs/HAZ-58.json"
+        },
+        "request.json": {
+          "sha256": "75f69509c098dd80b483176edcdb0946ec7f07dee57871d251b43beb28295476",
+          "bytes": 2092,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "00dcc9a4c037e8a2e8deb9d397177b301dcce05853d45cc6841cbddd8eecefb3",
+          "bytes": 523,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-hazard",
+      "operations": [
+        {
+          "operation_id": "load",
+          "tool": "NaturalHazardLoadEventTable",
+          "arguments": {
+            "source": "fixtures/base.csv"
+          }
+        },
+        {
+          "operation_id": "filter",
+          "tool": "NaturalHazardFilterRecords",
+          "arguments": {
+            "source": "fixtures/base.csv",
+            "filters": {
+              "Country": "Alpha"
+            }
+          }
+        },
+        {
+          "operation_id": "CountRecords",
+          "records_from": "filter",
+          "tool": "NaturalHazardCountRecords",
+          "arguments": {}
+        },
+        {
+          "operation_id": "SumField",
+          "records_from": "filter",
+          "tool": "NaturalHazardSumField",
+          "arguments": {
+            "measure": "Loss"
+          }
+        },
+        {
+          "operation_id": "GroupAggregate",
+          "records_from": "filter",
+          "tool": "NaturalHazardGroupAggregate",
+          "arguments": {
+            "group_by": "Country"
+          }
+        },
+        {
+          "operation_id": "SelectMaxRecord",
+          "records_from": "filter",
+          "tool": "NaturalHazardSelectMaxRecord",
+          "arguments": {
+            "measure": "Loss"
+          }
+        },
+        {
+          "operation_id": "BuildStartDate",
+          "records_from": "filter",
+          "tool": "NaturalHazardBuildStartDate",
+          "arguments": {}
+        },
+        {
+          "operation_id": "SelectLatest",
+          "records_from": "filter",
+          "tool": "NaturalHazardSelectLatest",
+          "arguments": {}
+        }
+      ],
+      "scope_notes": "合成灾害记录测试；不构成灾害数据鉴真。",
+      "source_request": "ore-hazard-1.0.2-review1/tests/inputs/HAZ-58.json",
+      "source_request_sha256": "5222b25ae2c41ae5f1c457e2504cbf8a6b98917a21d958da32f75018b76f0c39",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-dask-example-v1",
+      "skill": "ore-dask",
+      "source_skill_title": "本地分块数组统计",
+      "title": "分块处理多维数组",
+      "description": "按维度和坐标对数组做分块归约。",
+      "category": "统计与分块计算",
+      "icon": "math",
+      "input_label": "多维数组与分块",
+      "output_label": "分块统计",
+      "version": "1.0.1",
+      "case_id": "c01",
+      "data_kind": "验证样例",
+      "tools": [],
+      "operation_count": 0,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "分块统计"
+      ],
+      "load_issues": [
+        "独立脚本／组合流程尚需绑定到当前运行时入口"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "c8be40f73d0e1bc8b438e94f48172de83eb5fb68b1cad817522554a0f68b39c0",
+          "bytes": 1422,
+          "source": "ore-dask-1.0.1/tests/in/c01.json"
+        },
+        "request.json": {
+          "sha256": "e48c3d00378a989566c8d2ab2c5a559373a1a4b58f27cf425c8cea6bbc8596eb",
+          "bytes": 1742,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "fcf06656327dda29297f769b2875026cf48c10cd5f5f120ae59248b445bf5618",
+          "bytes": 518,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-dask",
+      "operations": [],
+      "scope_notes": "本地分块数组范围；未验分布式计算或超内存性能。",
+      "source_request": "ore-dask-1.0.1/tests/in/c01.json",
+      "source_request_sha256": "c8be40f73d0e1bc8b438e94f48172de83eb5fb68b1cad817522554a0f68b39c0",
+      "independent_check": false,
+      "prior_agent_record": false
+    },
+    {
+      "id": "ore-stats-example-v1",
+      "skill": "ore-stats",
+      "source_skill_title": "地学统计分析",
+      "title": "拟合并检查地学统计模型",
+      "description": "按观测身份和单位做回归与统计诊断。",
+      "category": "统计与分块计算",
+      "icon": "math",
+      "input_label": "观测与预测变量",
+      "output_label": "回归结果与图表",
+      "version": "1.0.0-review1",
+      "case_id": "rain-ols",
+      "data_kind": "验证样例",
+      "tools": [],
+      "operation_count": 0,
+      "inputs": [
+        "request.original.json",
+        "request.json",
+        "INPUTS.md"
+      ],
+      "outputs": [
+        "回归结果与图表"
+      ],
+      "load_issues": [
+        "独立脚本／组合流程尚需绑定到当前运行时入口"
+      ],
+      "input_files": {
+        "request.original.json": {
+          "sha256": "10d634cbdc349bbe0de791b9835366a7bceccfcc2a0c4eb268a2470b40427023",
+          "bytes": 865,
+          "source": "ore-stats-1.0.0-review1/tests/in/c01.json"
+        },
+        "request.json": {
+          "sha256": "8e25385dc4a2819e47981b169cb540de13c6aef172767150c0a945bdfa9da56d",
+          "bytes": 1218,
+          "source": "derived: interface/path normalization only"
+        },
+        "INPUTS.md": {
+          "sha256": "9f3c792bc132f20317178f01829317f7203beb5c78b556a0148d5a793c296be4",
+          "bytes": 524,
+          "source": "generated: input explanation"
+        }
+      },
+      "storage": "ore-stats",
+      "operations": [],
+      "scope_notes": "仅 OLS 与明确误差假设；条件区间依赖统计假设。",
+      "source_request": "ore-stats-1.0.0-review1/tests/in/c01.json",
+      "source_request_sha256": "10d634cbdc349bbe0de791b9835366a7bceccfcc2a0c4eb268a2470b40427023",
+      "independent_check": false,
+      "prior_agent_record": false
+    }
+  ],
+  "source_index_sha256": "a294e21297e1537839ed223f663edcd1aec6e479bd58942cd64b853720fd5298"
+}

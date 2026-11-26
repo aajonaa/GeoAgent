@@ -70,10 +70,10 @@ class ToolExecutionContext:
     def path(self, relative: str) -> Path:
         candidate = Path(relative)
         if candidate.is_absolute() or not relative or "\\" in relative or ":" in relative:
-            raise ToolFailure("invalid_path", "Use a workspace-relative path with forward slashes", retryable=True)
+            raise ToolFailure("invalid_path", "Use a workspace-relative path with forward slashes", retryable=False)
         target = (self.workspace / candidate).resolve()
         if not target.is_relative_to(self.workspace.resolve()):
-            raise ToolFailure("invalid_path", "Path escapes the workspace", retryable=True)
+            raise ToolFailure("invalid_path", "Path escapes the workspace", retryable=False)
         return target
 
 
@@ -103,8 +103,9 @@ class ToolRegistry:
 
 
 class ToolExecutor:
-    def __init__(self, registry: ToolRegistry):
+    def __init__(self, registry: ToolRegistry, *, execution_adapter=None):
         self.registry = registry
+        self.execution_adapter = execution_adapter
 
     def execute(self, call: ToolCall, context: ToolExecutionContext) -> ToolResult:
         from .tool_evidence import EvidenceLedger
@@ -128,6 +129,8 @@ class ToolExecutor:
         return ledger.observe(call, args, tool, inputs, result)
 
     def _execute(self, call: ToolCall, context: ToolExecutionContext) -> ToolResult:
+        if self.execution_adapter is not None:
+            return self.execution_adapter(call, context)
         timeout = context.settings.tool_timeout_seconds
         configured_deadline = time.monotonic() + timeout if timeout > 0 else float("inf")
         ctx = replace(context, call_id=call.id, deadline=min(context.deadline, configured_deadline))
@@ -141,7 +144,7 @@ class ToolExecutor:
                 json.dumps(args, allow_nan=False)
                 Draft202012Validator(tool.definition.input_schema).validate(args)
             except (ValueError, TypeError, ValidationError) as exc:
-                raise ToolFailure("invalid_arguments", str(exc)[:1800], retryable=True) from exc
+                raise ToolFailure("invalid_arguments", str(exc)[:1800], retryable=False) from exc
             key = json.dumps([call.name, args], sort_keys=True, allow_nan=False)
             if tool.pure and key in ctx.pure_cache:
                 return replace(ctx.pure_cache[key], call_id=call.id, cached=True)

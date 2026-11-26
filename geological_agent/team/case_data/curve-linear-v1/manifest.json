@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "case_id": "linear-calibrated",
+  "package": "ore-curve-1.0.0",
+  "runtime_skill": "plot_curve_digitization",
+  "source_protocol_sha256": "f804637a3637d5c1c892a01bb4dfac5318667dbf524cdb16863bce96153ba441",
+  "files": {
+    "image.png": "ac28b179d858d44bb367bc9d2a28be99672e9acda8773f809840fbef40dce285",
+    "request.json": "24d3381419aaae67bf86b5748facb1f4a460b19e844e083b966d97126599040b",
+    "truth.json": "451de22ca0e00d998e03093c35ff82bf351823af70e926d221a0780a01acbdd5"
+  }
+}

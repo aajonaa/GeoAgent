@@ -1,0 +1,27 @@
+{
+  "case_id": "c001",
+  "source_skill": "ore-drain",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "GeoSpatialDepressionFill",
+      "arguments": {
+        "data_path": "data/b114f4b008-c001.json"
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "mode": "direct",
+    "data": "data/b114f4b008-c001.json",
+    "transport": "dict"
+  },
+  "input_path_bindings": [
+    {
+      "original": "../data/c001.json",
+      "workspace": "data/b114f4b008-c001.json",
+      "source": "ore-drain-1.0.1-review1/tests/data/c001.json"
+    }
+  ]
+}

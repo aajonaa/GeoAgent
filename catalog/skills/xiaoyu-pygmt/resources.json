@@ -1,0 +1,52 @@
+{
+  "skill_id": "xiaoyu_pygmt",
+  "archive_sha256": "bd093ea0ceb76e2dbb477542d96aa4333a4e5fcae8fc4c24c795b2bc00480bce",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 37,
+          "archive_sha256": "fe8038b3814bc375f214af76038a3fc423373c8786fdd8db230c0cb87fa549a3",
+          "member": "pygmt/LICENSE"
+        },
+        {
+          "package_number": 79,
+          "archive_sha256": "58d6a42898e5d0269a5c1286d54fa0ec150e4c940b5e6f8f7cef8054b6de0968",
+          "member": "pygmt/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 711,
+      "sha256": "556f5e7136722ed79787e70d9d832642287f40d85fb4e7ac3b5690a7e9953ee8",
+      "origins": [
+        {
+          "package_number": 37,
+          "archive_sha256": "fe8038b3814bc375f214af76038a3fc423373c8786fdd8db230c0cb87fa549a3",
+          "member": "pygmt/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 2702,
+      "sha256": "7bc093aba475dd06e0574a410c2d463d6d72718e887abfbc86adc83361c40be6",
+      "origins": [
+        {
+          "package_number": 37,
+          "archive_sha256": "fe8038b3814bc375f214af76038a3fc423373c8786fdd8db230c0cb87fa549a3",
+          "member": "pygmt/SKILL.md"
+        },
+        {
+          "package_number": 79,
+          "archive_sha256": "58d6a42898e5d0269a5c1286d54fa0ec150e4c940b5e6f8f7cef8054b6de0968",
+          "member": "pygmt/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "crs": "EPSG:32631",
+    "feature_unit": "dimensionless",
+    "points_xyz_m": [
+      [
+        0,
+        0,
+        10
+      ],
+      [
+        0.1,
+        0,
+        9
+      ],
+      [
+        0,
+        0.1,
+        9
+      ],
+      [
+        20,
+        0,
+        10
+      ],
+      [
+        20.1,
+        0,
+        9
+      ],
+      [
+        20,
+        0.1,
+        9
+      ]
+    ],
+    "height_above_ground_m": [
+      10,
+      9,
+      9,
+      10,
+      9,
+      9
+    ],
+    "minimum_points": 2,
+    "minimum_height_m": 3,
+    "radius_m": 2,
+    "units": {
+      "points_xyz_m": "m",
+      "height_above_ground_m": "m"
+    }
+  },
+  "numeric_oracle": "Two compact three-return crowns separated by 20 m, radius 2 m: two nonzero clusters, no cluster spans both crowns; labels themselves are arbitrary. Source IDs/XYZ must survive the required height sort."
+}

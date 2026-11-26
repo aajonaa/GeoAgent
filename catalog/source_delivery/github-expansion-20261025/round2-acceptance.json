@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-25",
+  "state": "all_admitted_operations_passed_release_gate_pending_diagnostic_separation",
+  "candidate": {
+    "additional_professional_operations": 117,
+    "original_professional_operations": 229,
+    "total_professional_operations": 346,
+    "skills": 70,
+    "groups": {"geophysics": 29, "remote": 30, "geology": 28, "spatial": 30}
+  },
+  "results": {
+    "native_additional": {"passed": 117, "failed": 0, "skipped": 0},
+    "original_229_and_metadata": {"passed": 244, "failed": 0, "skipped": 0},
+    "contracts": {"passed": 237, "failed": 0, "skipped": 0},
+    "geophysics": {"passed": 5, "failed": 0, "expected_failures_in_blocked_diagnostics": 1, "passed_subtests": 39},
+    "remote": {"passed": 15, "failed": 0, "skipped": 0, "passed_subtests": 308},
+    "geology": {"passed": 89, "failed": 0, "skipped": 0},
+    "spatial": {"passed": 44, "failed": 0, "skipped": 0, "passed_subtests": 345},
+    "total_passed_tests": 751,
+    "total_passed_subtests": 692,
+    "total_expected_failures": 1
+  },
+  "release_gate_passed": false,
+  "gate_reason": "The initial runner rejects every JUnit skipped element, including the explicit pytest.xfail diagnostic for the unregistered StressAnisotropy upstream defect. This diagnostic is not a passing test and is not included in the 117 admitted operations.",
+  "excluded_upstream_candidates": [
+    {"operation": "StressAnisotropy", "reason": "Unresolved upstream scientific defect; original diagnostic retained."},
+    {"operation": "Bingham confidence", "reason": "Maintained source identified, but isolated worker and independent numerical acceptance are not complete."},
+    {"operation": "CIPW norm", "reason": "Unresolved upstream fluorine/apatite scientific defect; float conversion alone is not a scientific fix."}
+  ],
+  "duplicate_replacement": {"excluded": "GeoRemoteHistogramMatch", "admitted": "GeoRemoteSensorBandResample"},
+  "pending_user_confirmation": [
+    "Report the unregistered historical expected-failure diagnostic separately without deleting it or counting it as a pass; retain zero failures and zero skips for admitted tools.",
+    "Correct the README compliance inequality to 1/Gwet >= 1/Ghigh > 0; the implementation already uses this condition."
+  ],
+  "evidence": {
+    "remote_stage": "/data/wangjian/github-expansion120-20261025-r2",
+    "payload_sha256": "c73e4efadfe6d4084791f1c50725c43a77d12ac32ee5543976a1352e1e1bff1b",
+    "report_archive_sha256": "438beffd188919c7e8004fac62f8c10a060002684d14429cadcf917541204e90",
+    "local_reports": "tests_local/expansion-release-20261025-r2/retrieved-reports/reports",
+    "round1_preserved": true
+  },
+  "dependency_compatibility": {"SQLAlchemy": "1.4.54", "GEOS": "3.13.1", "original_runtime_not_downgraded": true},
+  "production_modified": false,
+  "deployed": false,
+  "pushed": false,
+  "gpu_used": false
+}

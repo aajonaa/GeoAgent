@@ -1,0 +1,275 @@
+{
+  "group": "spatial",
+  "operations": [
+    {
+      "tool_id": "GeoSpatialRasterReproject",
+      "capability_key": "spatial:raster-reproject",
+      "upstream_callable": "rasterio.warp.reproject",
+      "scientific_task": "Reproject a bounded metric raster onto an explicit WGS84-based target grid using nearest resampling and explicit NoData propagation.",
+      "distinct_from_existing": "GeoRasterioWindow only crops integer windows without resampling; GeoSalemProjectCoordinates transforms point coordinates, not a masked raster grid.",
+      "numeric_oracle": "An explicit one-cell east target-grid shift produces [[null,null],[4,null]] and exactly one valid cell.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialPolygonRasterize",
+      "capability_key": "spatial:polygon-rasterize",
+      "upstream_callable": "rasterio.features.rasterize",
+      "scientific_task": "Burn ordered site polygons and explicit class IDs into a declared raster grid; later polygons win overlaps.",
+      "distinct_from_existing": "EarthGeoNotebookPolygonSubset masks an existing raster; this constructs a new classified raster from vector site polygons.",
+      "numeric_oracle": "A 1x2-m rectangle occupies the left column of a 2x2 one-metre grid: [[7,0],[7,0]].",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialRasterPolygonize",
+      "capability_key": "spatial:raster-polygonize",
+      "upstream_callable": "rasterio.features.shapes",
+      "scientific_task": "Convert connected integer raster classes into georeferenced polygons while excluding explicitly invalid cells.",
+      "distinct_from_existing": "GeoMapColorExtract first detects colors and regions in a map; this polygonizes supplied scientific class IDs without segmentation or color detection.",
+      "numeric_oracle": "Three one-square-metre cells of class 2 produce one polygon of area 3; the invalid fourth cell is excluded.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialPolygonIntersection",
+      "capability_key": "spatial:polygon-intersection",
+      "upstream_callable": "shapely.intersection",
+      "scientific_task": "Construct the exact intersection geometry of two projected site or exclusion-zone polygons.",
+      "distinct_from_existing": "GeoShapelyGeometry measures an existing geometry; it does not construct this topology. GeoPandasSpatialJoin returns matching feature indices without creating new geometry.",
+      "numeric_oracle": "Overlapping 2x2-m squares offset by 1 m have an intersection area of 2 m2.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialCoverageUnion",
+      "capability_key": "spatial:coverage-union",
+      "upstream_callable": "shapely.coverage_union_all",
+      "scientific_task": "Dissolve a valid edge-matched polygon coverage into its combined site footprint.",
+      "distinct_from_existing": "GeoShapelyGeometry measures an existing geometry; it does not construct this topology. GeoPandasSpatialJoin returns matching feature indices without creating new geometry.",
+      "numeric_oracle": "Two edge-matched 1x2-m rectangles dissolve to area 4 m2 and perimeter 8 m; overlapping coverages are rejected.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialConstrainedTriangulation",
+      "capability_key": "spatial:constrained-triangulation",
+      "upstream_callable": "shapely.constrained_delaunay_triangles",
+      "scientific_task": "Triangulate site polygons while preserving parcel and hole boundaries for terrain-mesh preparation.",
+      "distinct_from_existing": "GeoShapelyGeometry measures an existing geometry; it does not construct this topology. GeoPandasSpatialJoin returns matching feature indices without creating new geometry.",
+      "numeric_oracle": "A 2x2-m square has exactly two triangles of area 2 m2 each; their union is the original polygon.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialDepressionFill",
+      "capability_key": "spatial:depression-fill",
+      "upstream_callable": "pysheds.grid.Grid.fill_depressions",
+      "scientific_task": "Condition a complete DEM with priority-flood depression filling and quantify fill depth and storage volume.",
+      "distinct_from_existing": "GeoPyshedsFlowAccumulation may condition terrain internally, but does not expose an independently usable filled DEM, per-cell fill depths, or depression-storage volume.",
+      "numeric_oracle": "A 3x3 grid with rim elevation 5 m and center 1 m fills its center by 4 m; at 1-m cells the volume is 4 m3.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialHeightAboveDrainage",
+      "capability_key": "spatial:height-above-drainage",
+      "upstream_callable": "pysheds.grid.Grid.compute_hand",
+      "scientific_task": "Compute flow-connected height above a supplied drainage-channel mask using declared D8 directions and elevations.",
+      "distinct_from_existing": "GeoPyshedsFlowAccumulation returns flow directions and contributing-cell counts; EarthLandlabFlowDirections selects receivers. Neither returns this drainage diagnostic from an explicitly supplied graph.",
+      "numeric_oracle": "Interior east-flow chain elevations 5,4,2 m ending at a channel gives HAND 3,2,0 m; unrelated cells are null.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialDistanceToOutlet",
+      "capability_key": "spatial:distance-to-outlet",
+      "upstream_callable": "pysheds.grid.Grid.distance_to_outlet",
+      "scientific_task": "Calculate downstream topological D8 travel distance to a specified interior outlet.",
+      "distinct_from_existing": "GeoPyshedsFlowAccumulation returns flow directions and contributing-cell counts; EarthLandlabFlowDirections selects receivers. Neither returns this drainage diagnostic from an explicitly supplied graph. Existing catchment delineation returns membership, not per-cell outlet path lengths.",
+      "numeric_oracle": "Three-cell east-flow chain gives downstream distances 2,1,0 D8 steps; noncontributing cells remain null.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialDistanceToRidge",
+      "capability_key": "spatial:distance-to-ridge",
+      "upstream_callable": "pysheds.grid.Grid.distance_to_ridge",
+      "scientific_task": "Calculate the longest upstream D8 path from each routed cell to an originating divide.",
+      "distinct_from_existing": "GeoPyshedsFlowAccumulation returns flow directions and contributing-cell counts; EarthLandlabFlowDirections selects receivers. Neither returns this drainage diagnostic from an explicitly supplied graph.",
+      "numeric_oracle": "Three-cell east-flow chain gives longest upstream path lengths 0,1,2 D8 steps; a branched oracle uses the longest parent.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialStrahlerOrder",
+      "capability_key": "spatial:strahler-order",
+      "upstream_callable": "pyflwdir.FlwdirRaster.stream_order",
+      "scientific_task": "Assign Strahler stream order to an explicitly selected, downstream-connected D8 channel network.",
+      "distinct_from_existing": "GeoPyshedsFlowAccumulation returns flow directions and contributing-cell counts; EarthLandlabFlowDirections selects receivers. Neither returns this drainage diagnostic from an explicitly supplied graph.",
+      "numeric_oracle": "Original oracle retained: two first-order tributaries give order 2 at [2,2] and zero-direction terminal [3,2]. Supplemental independent confluences [2,2,1] give 3, while [1,1,2] give 2; the downstream terminals retain those orders.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialTerrainContours",
+      "capability_key": "spatial:terrain-contours",
+      "upstream_callable": "skimage.measure.find_contours",
+      "scientific_task": "Extract elevation isolines from a metric DEM using marching squares with explicit levels and nodata mask.",
+      "distinct_from_existing": "HydroModelsPyDEMTerrainDerivatives returns slope/direction; EarthSimRasterCrossSection samples an existing line. This constructs elevation isolines and does not segment imagery.",
+      "numeric_oracle": "For columns 0,1,2 m at 1-m spacing, the 0.5-m contour lies at x=1 m and extends 2 m between outer sample centers.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialLocalMoran",
+      "capability_key": "spatial:local-moran",
+      "upstream_callable": "esda.moran.Moran_Local",
+      "scientific_task": "Calculate per-site univariate local Moran association and descriptive PySAL quadrants.",
+      "distinct_from_existing": "SpatialMoranI produces one global univariate cross-product statistic using KNN weights; this uses explicit metric distance-band weights and returns a different statistic.",
+      "numeric_oracle": "Four square-corner observations [1,2,3,4] with edge-only neighbors yield local I [-0.45,0.15,0.15,-0.45].",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialBivariateLocalMoran",
+      "capability_key": "spatial:bivariate-local-moran",
+      "upstream_callable": "esda.moran.Moran_Local_BV",
+      "scientific_task": "Measure local association between a focal site variable and a different variable at its neighbors.",
+      "distinct_from_existing": "SpatialMoranI produces one global univariate cross-product statistic using KNN weights; this uses explicit metric distance-band weights and returns a different statistic. The cross-variable association cannot be obtained by changing a coordinate component or univariate threshold.",
+      "numeric_oracle": "Oppositely ordered second variable [4,3,2,1] gives [0.45,-0.15,-0.15,0.45] by independent standardized cross-products.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialLocalGetisOrd",
+      "capability_key": "spatial:local-getis-ord",
+      "upstream_callable": "esda.getisord.G_Local",
+      "scientific_task": "Compute self-excluding local Getis-Ord Gi concentration ratios for strictly positive site observations.",
+      "distinct_from_existing": "SpatialMoranI produces one global univariate cross-product statistic using KNN weights; this uses explicit metric distance-band weights and returns a different statistic.",
+      "numeric_oracle": "Binary edge weights and values [1,2,3,4] give neighbor-sum / nonself-total ratios [6/9,4/8,6/7,4/6].",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialGlobalGeary",
+      "capability_key": "spatial:global-geary",
+      "upstream_callable": "esda.geary.Geary",
+      "scientific_task": "Measure whole-region spatial dissimilarity using squared neighbor differences in global Geary C.",
+      "distinct_from_existing": "SpatialMoranI produces one global univariate cross-product statistic using KNN weights; this uses explicit metric distance-band weights and returns a different statistic.",
+      "numeric_oracle": "Four-square rook graph has directed row-weighted squared-difference sum 12, centered sum squares 5 and C=(3/8)*(12/5)=0.9.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialBinaryJoinCounts",
+      "capability_key": "spatial:binary-join-counts",
+      "upstream_callable": "esda.join_counts.Join_Counts",
+      "scientific_task": "Count like-class and unlike-class spatial joins in a binary site-presence map.",
+      "distinct_from_existing": "SpatialMoranI produces one global univariate cross-product statistic using KNN weights; this uses explicit metric distance-band weights and returns a different statistic.",
+      "numeric_oracle": "The square's four undirected edges contain one 1-1 join, one 0-0 join, and two mixed joins.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialLocalGeary",
+      "capability_key": "spatial:local-geary",
+      "upstream_callable": "esda.geary_local.Geary_Local.fit",
+      "scientific_task": "Locate site-level neighbor dissimilarity using standardized local Geary squared differences.",
+      "distinct_from_existing": "SpatialMoranI produces one global univariate cross-product statistic using KNN weights; this uses explicit metric distance-band weights and returns a different statistic.",
+      "numeric_oracle": "Population variance is 1.25; local mean squared neighbor differences / 1.25 equal [4,0.8,0.8,4].",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialLeastCostPath",
+      "capability_key": "spatial:least-cost-path",
+      "upstream_callable": "skimage.graph.route_through_array",
+      "scientific_task": "Find an explicit minimum-cost four-neighbor route across a masked site-access raster.",
+      "distinct_from_existing": "DeepTimeNearestNeighbor/CCSNearestNeighbor and EnergyNearestFacility measure point separation; they do not solve masked raster access networks.",
+      "numeric_oracle": "A single row of three unit-cost cells has path [[0,0],[0,1],[0,2]] and total edge cost 2 seconds.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialCostAllocation",
+      "capability_key": "spatial:cost-allocation",
+      "upstream_callable": "scipy.sparse.csgraph.dijkstra",
+      "scientific_task": "Allocate reachable raster cells to supplied service sites by network cost, with deterministic first-site tie handling.",
+      "distinct_from_existing": "DeepTimeNearestNeighbor/CCSNearestNeighbor and EnergyNearestFacility measure point separation; they do not solve masked raster access networks.",
+      "numeric_oracle": "Sites at both ends of a three-cell row yield costs [0,1,0] and owner indices [0,0,1]; a separate oracle includes barriers.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialEuclideanProximity",
+      "capability_key": "spatial:euclidean-proximity",
+      "upstream_callable": "scipy.ndimage.distance_transform_edt",
+      "scientific_task": "Calculate exact raster-cell-center Euclidean distances to declared target cells at metric resolution.",
+      "distinct_from_existing": "DeepTimeNearestNeighbor/CCSNearestNeighbor and EnergyNearestFacility measure point separation; they do not solve masked raster access networks.",
+      "numeric_oracle": "One target at the upper-left of a 2x2 unit grid produces [[0,1],[1,sqrt(2)]] metres.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialResistanceDistance",
+      "capability_key": "spatial:resistance-distance",
+      "upstream_callable": "scipy.linalg.pinvh",
+      "scientific_task": "Compute effective resistance between access cells by the pseudoinverse of the graph conductance Laplacian.",
+      "distinct_from_existing": "DeepTimeNearestNeighbor/CCSNearestNeighbor and EnergyNearestFacility measure point separation; they do not solve masked raster access networks.",
+      "numeric_oracle": "Opposite corners of a unit-resistance 2x2 square have two 2-unit series routes in parallel: effective resistance 1.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialCostCorridor",
+      "capability_key": "spatial:cost-corridor",
+      "upstream_callable": "scipy.sparse.csgraph.dijkstra",
+      "scientific_task": "Map all cells within an explicit excess-cost budget of the optimum source-destination access route.",
+      "distinct_from_existing": "DeepTimeNearestNeighbor/CCSNearestNeighbor and EnergyNearestFacility measure point separation; they do not solve masked raster access networks.",
+      "numeric_oracle": "Across the top row of a 2x3 unit grid, optimum cost is 2; excess-cost rows are [0,0,0] and [2,2,2].",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialCapacityMaxFlow",
+      "capability_key": "spatial:capacity-max-flow",
+      "upstream_callable": "scipy.sparse.csgraph.maximum_flow",
+      "scientific_task": "Solve maximum haul-throughput flow on a four-neighbor raster with integer edge capacities derived from endpoint minima.",
+      "distinct_from_existing": "DeepTimeNearestNeighbor/CCSNearestNeighbor and EnergyNearestFacility measure point separation; they do not solve masked raster access networks.",
+      "numeric_oracle": "A series corridor with endpoint capacities [5,3,4] has edge capacities [3,3], so the maximum throughput is 3 tonnes/day.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialEllipsoidalPolygonArea",
+      "capability_key": "spatial:ellipsoidal-polygon-area",
+      "upstream_callable": "pyproj.Geod.polygon_area_perimeter",
+      "scientific_task": "Measure oriented area and perimeter of a WGS84 geodesic polygon on the reference ellipsoid.",
+      "distinct_from_existing": "GeoWGS84BBoxAreaKm2 estimates spherical bounding-box area; GeoShapelyGeometry uses planar geometry. This integrates ellipsoidal geodesic polygon edges.",
+      "numeric_oracle": "The equator/meridian/pole triangle is one eighth of the oblate WGS84 spheroid surface; compare the closed-form spheroid-area expression.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialGeodesicTransect",
+      "capability_key": "spatial:geodesic-transect",
+      "upstream_callable": "pyproj.Geod.npts",
+      "scientific_task": "Construct equal-distance survey stations along a shortest WGS84 ellipsoidal geodesic transect.",
+      "distinct_from_existing": "GeoHaversineDistance and GeoBearing return scalar spherical measurements; this produces actual equal-spacing ellipsoidal survey coordinates.",
+      "numeric_oracle": "On the equator from 0 to 4 degrees, stations are at longitudes 0,1,2,3,4; length is 6378137*pi*4/180 metres.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialProjectionDistortion",
+      "capability_key": "spatial:projection-distortion",
+      "upstream_callable": "pyproj.Proj.get_factors",
+      "scientific_task": "Assess metric projection scale, area, angular distortion, and convergence at declared WGS84 survey locations.",
+      "distinct_from_existing": "GeoCheckCRSConsistency compares identifier text and GeoSalemProjectCoordinates transforms coordinates; neither quantifies projection distortion.",
+      "numeric_oracle": "UTM zone 31 at its equatorial central meridian has linear scales 0.9996, area scale 0.9996^2, and zero convergence/angular distortion within numerical tolerance.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialMaximumInscribedCircle",
+      "capability_key": "spatial:maximum-inscribed-circle",
+      "upstream_callable": "shapely.maximum_inscribed_circle",
+      "scientific_task": "Find the pole of inaccessibility and largest contained circular footprint in a site polygon within an explicit tolerance.",
+      "distinct_from_existing": "GeoShapelyGeometry returns centroids and bounds; generic buffers expand a supplied center. This optimizes a feasible center and radius within the actual boundary.",
+      "numeric_oracle": "A 2x2-m square has a largest contained circle centered at [1,1] with radius 1 m.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialSiteVoronoi",
+      "capability_key": "spatial:site-voronoi",
+      "upstream_callable": "shapely.voronoi_polygons",
+      "scientific_task": "Partition a site region into clipped Voronoi service polygons in original site-point order.",
+      "distinct_from_existing": "Generic nearest-neighbor entries return a point match; this constructs and clips the complete planar service-area partition.",
+      "numeric_oracle": "Two symmetric sites in a 2x2-m square split it at x=1 into two polygons of area 2 m2.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSpatialSiteParcelSplit",
+      "capability_key": "spatial:site-parcel-split",
+      "upstream_callable": "shapely.ops.split",
+      "scientific_task": "Split site parcels along a declared infrastructure alignment while retaining all resulting polygon pieces.",
+      "distinct_from_existing": "GeoShapelyGeometry measures an existing geometry; it does not construct this topology. GeoPandasSpatialJoin returns matching feature indices without creating new geometry.",
+      "numeric_oracle": "A vertical line x=1 splits a 2x2-m square into exactly two parcels of area 2 m2, conserving total area 4 m2.",
+      "status": "source_authored_unverified"
+    }
+  ]
+}

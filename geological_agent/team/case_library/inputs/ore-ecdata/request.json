@@ -1,0 +1,27 @@
+{
+  "case_id": "c001",
+  "source_skill": "ore-ecdata",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "EarthHydroHyRiverFlowExceedance",
+      "arguments": {
+        "discharge_m3_s": [
+          0,
+          1,
+          2,
+          2,
+          4
+        ],
+        "threshold_m3_s": 0.001
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "mode": "direct",
+    "transport": "dict"
+  },
+  "input_path_bindings": []
+}

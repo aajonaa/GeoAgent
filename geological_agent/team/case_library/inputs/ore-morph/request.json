@@ -1,0 +1,24 @@
+{
+  "case_id": "MO042",
+  "source_skill": "ore-morph",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "GeoRemoteRemoveSmallObjects",
+      "arguments": {
+        "raster_path": "ACTUAL_PARENT/result.tif",
+        "input_unit": "binary",
+        "max_size_pixels": 1
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "workflow": {
+      "parent": "MO041",
+      "kind": "native_result_tif"
+    }
+  },
+  "input_path_bindings": []
+}

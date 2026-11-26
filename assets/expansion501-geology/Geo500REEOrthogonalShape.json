@@ -1,0 +1,36 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "ree_ppm": [
+    [
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065,
+      7.38905609893065
+    ]
+  ],
+  "reference_ppm": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "reference_source": "SYNTHETIC unit reference, not chondrite measurements."
+}

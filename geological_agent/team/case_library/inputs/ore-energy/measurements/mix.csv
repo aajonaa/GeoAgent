@@ -1,0 +1,6 @@
+id,country,energy_source,capacity_mw,latitude,longitude
+s1,A,Solar,3,40,120
+s2,A,Wind,2,41,121
+s3,A,Coal,50,42,122
+s4,B,Solar,7,43,123
+s5,A,Solar,4,44,124

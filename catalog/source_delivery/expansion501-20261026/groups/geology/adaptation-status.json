@@ -1,0 +1,223 @@
+{
+  "operations": [
+    {
+      "id": "Geo500CrystalSpaceGroupAudit",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated crystal_space_group calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500IrreducibleReciprocalMesh",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated irreducible_reciprocal_mesh calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500PowderXRDPattern",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated powder_xrd_pattern calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500MineralOxygenBasisFormula",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_oxygen_basis_formula calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500MineralReactionBalance",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_reaction_balance calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500MineralPhaseHull",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_phase_hull calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500CrystalCoordination",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated crystal_coordination calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500BondValenceOxidation",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated bond_valence_oxidation calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500CrystalStructureEquivalence",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated crystal_structure_equivalence calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500WulffCrystalHabit",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated wulff_crystal_habit calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500PeriodicIonicLatticeEnergy",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated ionic_lattice_energy calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500CoherentMineralInterfaceMatch",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated coherent_interface_match calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500MineralSurfaceTerminations",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_surface_terminations calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500REEOrthogonalShape",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated ree_orthogonal_shape calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500VolcanicTASClass",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated volcanic_tas_class calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500MineralNeutronContrast",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_neutron_contrast calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500PoreChordDistribution",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated pore_chord_distribution calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500PoreBodyRadiusDistribution",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated pore_body_radius_distribution calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500QuasistaticCapillaryDrainage",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated quasistatic_capillary_drainage calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500MineralEhPHStability",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_eh_ph_stability calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "Geo500SpatialCellDeclustering",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated spatial_cell_declustering calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSlopeLimitEquilibrium",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated slope_limit_equilibrium calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "GeoMantleMeltingPath",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mantle_melting_path calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "GeoImplicitStructuralModel",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated implicit_structural_model calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": []
+    },
+    {
+      "id": "GeoConditionedResourceEnsemble",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated conditioned_resource_ensemble calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/. Local private Python 3.12.14 acceptance passed 20/20 tests, including actual source registration, decorated calls, ToolExecutor typed results, analytic full Schur covariance and negative guards. This is not parent v2 cross-interpreter or Linux acceptance; formal_eligible remains false.",
+      "blockers": [
+        "parent_owned_v2_fixed_profile_binding_pending",
+        "main_runtime_to_private_cpu_result_path_not_accepted",
+        "full_transitive_binary_lock_and_license_review_pending"
+      ]
+    },
+    {
+      "id": "Geo500PoreDiffusionTortuosity",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated pore_diffusion_tortuosity calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [
+        "parent_owned_v2_fixed_profile_binding_pending",
+        "main_runtime_to_private_cpu_result_path_not_accepted",
+        "full_transitive_binary_lock_and_license_review_pending"
+      ]
+    },
+    {
+      "id": "Geo50026ConstrainedChemicalEquilibrium",
+      "state": "blocked",
+      "reason": "Reaktoro 2.13.0 source and a CPU py312 conda artifact are identified, but a complete native dependency lock, verified database raw-byte hash/license, fixed constrained-system contract and independent equilibrium reference are not delivered. No registered wrapper or fixed v2 binding.",
+      "blockers": [
+        "native_transitive_binary_lock_missing",
+        "database_raw_sha256_and_terms_pending",
+        "fixed_system_and_independent_equilibrium_reference_pending",
+        "v2_native_binding_pending"
+      ]
+    },
+    {
+      "id": "Geo50026MineralReactionKinetics",
+      "state": "blocked",
+      "reason": "The maintained Reaktoro Palandri-Kharaka workflow is confirmed, but its database, parameter bytes, mineral surface convention, native runtime lock and independent time-path reference are not frozen together. Equilibrium imports or endpoint conservation cannot certify this kinetic operation.",
+      "blockers": [
+        "native_transitive_binary_lock_missing",
+        "database_and_rate_parameter_identity_pending",
+        "surface_area_and_rate_domain_contract_pending",
+        "independent_time_path_oracle_pending",
+        "v2_native_binding_pending"
+      ]
+    },
+    {
+      "id": "Geo50026ReactiveColumnTransport",
+      "state": "blocked",
+      "reason": "Maintained PhreeqPy 0.6.0 wrapper wheel is identified, but its bundled IPhreeqc binary's content identity and ABI, release-to-source correspondence, offline database rights/hash, fixed column template and lifecycle reference are not verified. Arbitrary PHREEQC input strings remain forbidden.",
+      "blockers": [
+        "iphreeqc_binary_sha256_abi_pending",
+        "wrapper_release_source_mapping_pending",
+        "database_identity_and_terms_pending",
+        "fixed_transport_template_oracle_pending",
+        "v2_native_binding_pending"
+      ]
+    },
+    {
+      "id": "GeoGeobodyTopology",
+      "state": "blocked",
+      "reason": "gempy_plugins 2026.0.3 has a real compute_topology implementation, but its topology.py header declares GPL-3.0-or-later while repository metadata says EUPL-1.2. File-level obligations and fixed fault/lithology model binding are unresolved. The pinned core engine topology interface is empty and is not a substitute.",
+      "blockers": [
+        "file_level_license_interpretation_pending",
+        "fixed_fault_and_lithology_solution_binding_pending",
+        "independent_geobody_adjacency_reference_pending"
+      ]
+    },
+    {
+      "id": "GeoCpxMeltThermobarometry",
+      "state": "blocked",
+      "reason": "The identified Thermobar 1.0.75 source retains custom GUI/permission/payment/citation conditions; permission for this delivery is not established. No confirmed maintained license-compatible paired clinopyroxene-melt replacement was found. Cpx-only thermometry, olivine primary melts and own equation rewrites are not accepted substitutes.",
+      "blockers": [
+        "original_license_use_not_authorized",
+        "maintained_compatible_equivalent_not_confirmed",
+        "paired_composition_calibration_and_oracle_pending"
+      ]
+    }
+  ]
+}

@@ -2,6 +2,7 @@
 (() => {
   const el = (tag, text, className) => element(tag, text, className);
   const view = $('library-view'), main = view.closest('.main'), drawer = $('library-detail');
+  const libraryDetailsDenied = {skills: '仅管理员可以查看 Skill 详情。', tools: '仅管理员可以查看工具详情。'};
   const labels = {registered:'已接入', partial:'部分受阻', blocked:'未接入'};
   const categories = {Runtime:'运行时基础工具', GeoscienceTools:'地学通用', 'deep-earth':'深部地球',
     earthquake:'地震', 'remote-sensing':'遥感', geodesy:'大地测量', mining:'矿产',
@@ -127,7 +128,22 @@
         button.append(el('span', row.scope === 'runtime' ? 'R' : 'T', 'library-asset-icon'),
           title, el('span', categoryName(row.category), 'library-tool-category'), badge(row.status), el('span','›','library-chevron'));
       }
-      button.addEventListener('click',()=>showDetail(row.kind,row.id)); target.append(button);
+      button.addEventListener('click',()=>showDetail(row.kind,row.id));
+      if (kind === 'skills' && row.status !== 'blocked') {
+        const card = el('div', undefined, 'library-skill-card');
+        const use = el('button', '在对话中使用', 'quiet');
+        use.type = 'button';
+        use.disabled = Boolean(state.busy || window.GeoToolHITL?.blocksComposer());
+        use.setAttribute('aria-label', '在对话中使用 ' + row.name);
+        use.addEventListener('click', () => {
+          if (state.busy || window.GeoToolHITL?.blocksComposer()) return;
+          selectSkill(row);
+        });
+        card.append(button, use);
+        target.append(card);
+      } else {
+        target.append(button);
+      }
     }
   }
   function section(title, content) {
@@ -182,12 +198,19 @@
   function useNote() {
     if (!current) return;
     const blocked = Boolean(state.busy || window.GeoToolHITL?.blocksComposer());
-    $('library-use').disabled = blocked || !current.example_prompt;
+    const usableSkill = current.kind === 'skills' && current.status !== 'blocked';
+    $('library-use').textContent = current.kind === 'skills' ? '在对话中使用' : '将示例填入对话';
+    $('library-use').disabled = blocked || !(usableSkill || current.example_prompt);
     $('library-use-note').textContent = blocked ? '当前任务仍在运行或等待回复。请先处理当前任务，或新建对话。'
+      : usableSkill ? '选择后可继续编辑研究问题。'
       : current.example_prompt ? '只填入草稿，不会自动发送、加载技能或执行工具。请先核对参数和材料。'
       : current.status === 'blocked' ? '此条目尚未接入。可以查看说明，但不能发起示例调用。' : '暂无通过 Schema 检查的输入示例。';
   }
   async function showDetail(nextKind, id, push = false) {
+    if (state.me?.role !== 'admin') {
+      window.alert(libraryDetailsDenied[nextKind]);
+      return;
+    }
     if (push === true && current) trail.push({kind:current.kind,id:current.id});
     else if (push === false) trail=[];
     const requestEpoch = ++detailEpoch; current=null;
@@ -225,6 +248,11 @@
       useNote(); body.scrollTop=0;
     } catch(error) {
       if(requestEpoch!==detailEpoch || !drawer.open)return;
+      if (error.status === 403) {
+        closeDetail();
+        window.alert(libraryDetailsDenied[nextKind]);
+        return;
+      }
       const title=el('h2','无法读取条目');title.id='library-detail-title';
       $('library-detail-body').replaceChildren(title,el('p',error.message,'error'));
     }
@@ -247,11 +275,140 @@
   for(const id of ['library-search','library-category','library-status'])$(id).addEventListener(id==='library-search'?'input':'change',render);
   $('library-reset').addEventListener('click',resetFilters);
   $('library-use').addEventListener('click',()=>{
-    if(!current?.example_prompt || state.busy || window.GeoToolHITL?.blocksComposer()) {useNote();return;}
+    if (!current || state.busy || window.GeoToolHITL?.blocksComposer()) { useNote(); return; }
+    if (current.kind === 'skills') {
+      if (current.status !== 'blocked') selectSkill(current);
+      return;
+    }
+    if (!current.example_prompt) return;
     const prompt=$('prompt'),example=current.example_prompt,draft=prompt.value.trim();
     if(draft!==example)prompt.value=draft?draft+'\n\n'+example:example;
     close({focus:false});prompt.focus();
     notice(draft&&draft!==example?'示例已追加到现有草稿，请核对后再发送。':'示例已填入草稿，请核对输入后再发送。');
   });
-  window.GeoToolLibrary={close,reset};
+  const prompt = $('prompt'), picker = $('composer-skills'), pickerButton = $('skill-picker-button');
+  const selection = $('composer-skill');
+  let selected = null, pickerRequest = 0, pickerMode = '', pickerIndex = -1, pickerAbort = null, pickerLoad = null;
+
+  function hidePicker() {
+    pickerRequest++;
+    pickerMode = '';
+    pickerIndex = -1;
+    picker.hidden = true;
+    pickerButton.setAttribute('aria-expanded', 'false');
+    pickerAbort?.abort();
+    pickerAbort = null;
+    pickerLoad = null;
+  }
+
+  function clearSelection() {
+    selected = null;
+    selection.replaceChildren();
+    selection.hidden = true;
+    hidePicker();
+  }
+
+  function selectSkill(row) {
+    window.GeoAgentComposer?.useAgent();
+    const slash = pickerMode === 'slash';
+    selected = row;
+    hidePicker();
+    if (slash) prompt.value = prompt.value.replace(/^\/[^\n]*(?:\n|$)/, '');
+    const title = el('strong', row.name);
+    const remove = el('button', '取消选择', 'quiet');
+    remove.type = 'button';
+    remove.addEventListener('click', () => { clearSelection(); prompt.focus(); });
+    const hint = row.required_inputs?.length ? '所需材料：' + row.required_inputs.join('；')
+      : '补充研究目标、输入材料和预期交付物。';
+    selection.replaceChildren(title, remove, el('small', hint));
+    selection.hidden = false;
+    if (!row.required_inputs && state.me?.role === 'admin') {
+      api('/api/library/skills/' + encodeURIComponent(row.id)).then(detail => {
+        if (selected === row && detail.required_inputs?.length)
+          selection.lastElementChild.textContent = '所需材料：' + detail.required_inputs.join('；');
+      }).catch(() => { /* Keep the general material prompt if details are unavailable. */ });
+    }
+    close({focus:false});
+    prompt.focus();
+  }
+
+  async function showPicker(query, mode) {
+    if (!state.me || state.busy || window.GeoAgentComposer.mode() === 'ask' || window.GeoToolHITL?.blocksComposer()) return;
+    pickerMode = mode;
+    const request = ++pickerRequest;
+    const account = state.me.id;
+    picker.hidden = false;
+    pickerButton.setAttribute('aria-expanded', 'true');
+    pickerIndex = -1;
+    picker.replaceChildren(el('p', '正在读取技能…', 'muted'));
+    try {
+      if (!data && !pickerData) {
+        if (!pickerLoad) {
+          const controller = pickerAbort = new AbortController();
+          pickerLoad = api('/api/library', {signal:controller.signal}).then(result => {
+            if (state.me?.id === account && !controller.signal.aborted) pickerData = result;
+          }).finally(() => {
+            if (pickerAbort === controller) { pickerAbort = null; pickerLoad = null; }
+          });
+        }
+        await pickerLoad;
+      }
+      if (request !== pickerRequest || state.me?.id !== account) return;
+      const rows = (data || pickerData)?.skills || [];
+      const keywords = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
+      const shown = rows.filter(row => row.status !== 'blocked' && keywords.every(word =>
+        [row.id, row.name, row.description, categoryName(row.category), ...(row.tags || [])]
+          .join(' ').toLocaleLowerCase().includes(word)));
+      const menu = el('div', undefined, 'composer-skill-options');
+      for (const row of shown) {
+        const button = el('button', undefined, 'composer-skill-option');
+        button.type = 'button';
+        button.append(el('strong', row.name), el('small', categoryName(row.category) + ' · ' + row.description));
+        button.addEventListener('click', () => selectSkill(row));
+        menu.append(button);
+      }
+      picker.replaceChildren(...(shown.length ? [menu] : [el('p', '没有匹配的可用技能。', 'muted')]));
+    } catch (error) {
+      if (request === pickerRequest) picker.replaceChildren(el('p', '暂时无法读取技能，请重试。', 'muted'));
+    }
+  }
+
+  let pickerData = null;
+  pickerButton.addEventListener('click', () => {
+    if (!picker.hidden) hidePicker();
+    else { prompt.focus(); showPicker('', 'button'); }
+  });
+  prompt.addEventListener('input', () => {
+    const match = /^\/([^\n]*)/.exec(prompt.value);
+    if (match) showPicker(match[1], 'slash');
+    else if (pickerMode === 'slash') hidePicker();
+  });
+  prompt.addEventListener('keydown', event => {
+    if (picker.hidden || event.isComposing) return;
+    const options = [...picker.querySelectorAll('button')];
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      hidePicker();
+    } else if (options.length && ['ArrowDown','ArrowUp'].includes(event.key)) {
+      event.preventDefault();
+      const step = event.key === 'ArrowDown' ? 1 : -1;
+      pickerIndex = pickerIndex < 0 ? (step > 0 ? 0 : options.length - 1)
+        : (pickerIndex + step + options.length) % options.length;
+      options.forEach((button, index) => button.classList.toggle('selected', index === pickerIndex));
+      options[pickerIndex].scrollIntoView({block:'nearest'});
+    } else if (event.key === 'Enter' && !event.shiftKey) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      options[pickerIndex < 0 ? 0 : pickerIndex]?.click();
+    }
+  }, true);
+  document.addEventListener('pointerdown', event => {
+    if (!picker.hidden && !$('composer').contains(event.target)) hidePicker();
+  });
+  window.GeoToolLibrary = {
+    close,
+    reset: () => { pickerData = null; clearSelection(); reset(); },
+    selectedId: () => selected?.id,
+    clearSelection,
+  };
 })();

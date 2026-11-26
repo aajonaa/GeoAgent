@@ -1,0 +1,144 @@
+{
+  "skill_id": "xiaoyu_gempy",
+  "archive_sha256": "039903121751c5daa0b75b3da9c94ecf24e41ca316b1fdb3d2345c851410b535",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 2,
+          "archive_sha256": "118e7e18d8b0ea78c8c584d7cc3429ca5de199e3a274ace45f01cd7705f8386a",
+          "member": "gempy/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 600,
+      "sha256": "9c980c7394c89a9eadb1f5e5b5f7f6809c48d840945617c25b9a07951ce07cd6",
+      "origins": [
+        {
+          "package_number": 2,
+          "archive_sha256": "118e7e18d8b0ea78c8c584d7cc3429ca5de199e3a274ace45f01cd7705f8386a",
+          "member": "gempy/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 6292,
+      "sha256": "22ccb76a33e46cbf158ff2cef7340f59d030a33bdd1369968f651ce08dc5ca49",
+      "origins": [
+        {
+          "package_number": 2,
+          "archive_sha256": "118e7e18d8b0ea78c8c584d7cc3429ca5de199e3a274ace45f01cd7705f8386a",
+          "member": "gempy/SKILL.md"
+        },
+        {
+          "package_number": 92,
+          "archive_sha256": "cd092101bad78d45db87465e1666269d28d95893dafa13fae2101275501143fb",
+          "member": "gempy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 92,
+          "archive_sha256": "cd092101bad78d45db87465e1666269d28d95893dafa13fae2101275501143fb",
+          "member": "gempy/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/data_requirements.md",
+      "bytes": 6453,
+      "sha256": "f0290516c6a31d96c6cc8cf152fa7e8a3ed78e619e043f3f8615d02d94057ea2",
+      "origins": [
+        {
+          "package_number": 2,
+          "archive_sha256": "118e7e18d8b0ea78c8c584d7cc3429ca5de199e3a274ace45f01cd7705f8386a",
+          "member": "gempy/references/data_requirements.md"
+        },
+        {
+          "package_number": 92,
+          "archive_sha256": "cd092101bad78d45db87465e1666269d28d95893dafa13fae2101275501143fb",
+          "member": "gempy/references/data_requirements.md"
+        }
+      ]
+    },
+    {
+      "path": "references/structural_relations.md",
+      "bytes": 5648,
+      "sha256": "d919aaf512a301e1a484c6af8adf16b09dc9749c26089f26f11b46fb821ce1f3",
+      "origins": [
+        {
+          "package_number": 2,
+          "archive_sha256": "118e7e18d8b0ea78c8c584d7cc3429ca5de199e3a274ace45f01cd7705f8386a",
+          "member": "gempy/references/structural_relations.md"
+        },
+        {
+          "package_number": 92,
+          "archive_sha256": "cd092101bad78d45db87465e1666269d28d95893dafa13fae2101275501143fb",
+          "member": "gempy/references/structural_relations.md"
+        }
+      ]
+    },
+    {
+      "path": "references/troubleshooting.md",
+      "bytes": 7832,
+      "sha256": "1d5280aabcd768ff072df5acbe03bdf4fbc2d2be22e7a7df77c759cb8480864f",
+      "origins": [
+        {
+          "package_number": 2,
+          "archive_sha256": "118e7e18d8b0ea78c8c584d7cc3429ca5de199e3a274ace45f01cd7705f8386a",
+          "member": "gempy/references/troubleshooting.md"
+        },
+        {
+          "package_number": 92,
+          "archive_sha256": "cd092101bad78d45db87465e1666269d28d95893dafa13fae2101275501143fb",
+          "member": "gempy/references/troubleshooting.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/export_model.py",
+      "bytes": 9160,
+      "sha256": "566dec5a8d595d1dd0d9cd3279440943251536aa99e2def2f6804ee44ab91906",
+      "origins": [
+        {
+          "package_number": 2,
+          "archive_sha256": "118e7e18d8b0ea78c8c584d7cc3429ca5de199e3a274ace45f01cd7705f8386a",
+          "member": "gempy/scripts/export_model.py"
+        },
+        {
+          "package_number": 92,
+          "archive_sha256": "cd092101bad78d45db87465e1666269d28d95893dafa13fae2101275501143fb",
+          "member": "gempy/scripts/export_model.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/validate_input.py",
+      "bytes": 9112,
+      "sha256": "a942932e4274e2290f4f7b66ebf698b86a2cee134de31cb51bca250d27eee214",
+      "origins": [
+        {
+          "package_number": 2,
+          "archive_sha256": "118e7e18d8b0ea78c8c584d7cc3429ca5de199e3a274ace45f01cd7705f8386a",
+          "member": "gempy/scripts/validate_input.py"
+        },
+        {
+          "package_number": 92,
+          "archive_sha256": "cd092101bad78d45db87465e1666269d28d95893dafa13fae2101275501143fb",
+          "member": "gempy/scripts/validate_input.py"
+        }
+      ]
+    }
+  ]
+}

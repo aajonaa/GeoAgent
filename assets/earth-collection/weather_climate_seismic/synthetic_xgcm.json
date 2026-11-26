@@ -1,0 +1,10 @@
+{
+  "fixture_id": "synthetic_xgcm",
+  "synthetic": true,
+  "values": [
+    0,
+    2,
+    6,
+    12
+  ]
+}

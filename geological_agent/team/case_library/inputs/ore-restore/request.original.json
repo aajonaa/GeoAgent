@@ -1,0 +1,37 @@
+{
+  "tool": "GeoRemoteSensorBandResample",
+  "arguments": {
+    "raster_path": "ACTUAL_BAND_PRODUCT",
+    "input_unit": "reflectance",
+    "wavelength_nm": [
+      1000,
+      1100
+    ],
+    "source_fwhm_nm": [
+      100,
+      100
+    ],
+    "target_wavelength_nm": [
+      1050
+    ],
+    "target_fwhm_nm": [
+      200
+    ],
+    "bandpass_source": "SYNTHETIC adjoining source supports; Gaussian target within FWHM, no measured RSR"
+  },
+  "workflow": {
+    "parent": "RT032",
+    "kind": "direct_native",
+    "artifact": "result.tif",
+    "target_role": "raster_path",
+    "unit": "reflectance",
+    "physical_centers": [
+      1000,
+      1100
+    ],
+    "physical_widths": [
+      100,
+      100
+    ]
+  }
+}

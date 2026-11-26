@@ -1,0 +1,34 @@
+from dataclasses import dataclass
+
+
+@dataclass(frozen=True)
+class Settings:
+    max_model_turns: int | None = 32
+    tool_timeout_seconds: float = 60.0
+    max_context_chars: int = 750000
+    max_tool_output_chars: int = 12000
+    max_file_bytes: int = 2 * 1024 * 1024
+    memory_enabled: bool = False
+    knowledge_enabled: bool = False
+    verify_completion: bool = True
+    context_window_tokens: int | None = None
+    context_model: str = ""
+    max_output_tokens: int = 4096
+
+    def __post_init__(self):
+        if not isinstance(self.context_model, str) or len(self.context_model) > 256:
+            raise ValueError("context_model must be a model ID of at most 256 characters")
+        if type(self.max_output_tokens) is not int or self.max_output_tokens < 1:
+            raise ValueError("max_output_tokens must be a positive integer")
+        if self.context_window_tokens is not None:
+            window = self.context_window_tokens
+            if type(window) is not int or not 1 <= window <= 9007199254740991:
+                raise ValueError("Context window must be a positive whole number of tokens")
+            reserve = self.max_output_tokens + max(1024, (window + 19) // 20)
+            if window <= reserve:
+                raise ValueError("Context window must exceed the output and safety reserves")
+        if self.max_model_turns is not None and self.max_model_turns < 1:
+            raise ValueError("max_model_turns must be positive or None")
+        for name in ("tool_timeout_seconds", "max_context_chars", "max_tool_output_chars", "max_file_bytes"):
+            if getattr(self, name) <= 0:
+                raise ValueError(f"{name} must be positive")

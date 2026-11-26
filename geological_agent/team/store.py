@@ -1,5 +1,6 @@
 """Account ownership and immutable file snapshots; no client-supplied host paths."""
 import hashlib
+from contextlib import nullcontext
 import hmac
 import json
 import os
@@ -86,40 +87,99 @@ class Store:
             row = self.db.execute("SELECT * FROM users WHERE username=?", (username,)).fetchone()
             return dict(row) if row else None
 
-    def create_user(self, username, password, *, role="member", invite=None, initial_admin=False):
-        if not re.fullmatch(r"[a-zA-Z0-9_.-]{3,40}", username):
+    @staticmethod
+    def validate_user_identity(username, role="member", initial_admin=False):
+        if not isinstance(username, str) or not re.fullmatch(r"[a-zA-Z0-9_.-]{3,40}", username):
             raise ValueError("Username must be 3-40 letters, numbers, dots, underscores, or hyphens")
         if role not in ("member", "admin") or (role == "admin" and not initial_admin):
             raise ValueError("Administrator creation requires the local administration command")
+
+    def create_user_in_transaction(self, connection, username, encoded_password, *, role="member", initial_admin=False):
+        """Trusted account insert only. Caller holds Store.lock and owns COMMIT/ROLLBACK.
+
+        Password hashing must finish before the write transaction. Invitation and
+        profile/OTP policy belong to the registration service, not this primitive.
+        """
+        if connection is not self.db or not connection.in_transaction:
+            raise RuntimeError("Explicit transaction on Store.db is required")
+        if connection.execute("PRAGMA foreign_keys").fetchone()[0] != 1:
+            raise RuntimeError("Foreign key enforcement is required")
+        self.validate_user_identity(username, role, initial_admin)
+        if not isinstance(encoded_password, str) or not re.fullmatch(r"[0-9a-f]{32}:[0-9a-f]{128}", encoded_password):
+            raise ValueError("A prepared scrypt password hash is required")
+        if initial_admin and connection.execute("SELECT 1 FROM users WHERE role='admin'").fetchone():
+            raise ValueError("An administrator already exists")
+        uid = uuid.uuid4().hex
+        connection.execute("INSERT INTO users(id,username,password,role) VALUES (?,?,?,?)", (uid, username, encoded_password, role))
+        return uid
+
+    def create_user(self, username, password, *, role="member", invite=None, initial_admin=False):
+        # Backward-compatible trusted/local wrapper. Public signup never calls it.
+        self.validate_user_identity(username, role, initial_admin)
         encoded = password_hash(password)
         with self.lock, self.db:
-            if initial_admin and self.db.execute("SELECT 1 FROM users WHERE role='admin'").fetchone():
-                raise ValueError("An administrator already exists")
+            if not self.db.in_transaction:
+                self.db.execute("BEGIN IMMEDIATE")
             if not initial_admin:
                 row = self.db.execute("SELECT * FROM invites WHERE token=?", (digest(invite or ""),)).fetchone()
-                if not row or row["used"] or row["expires"] < time.time():
+                multi=bool(self.db.execute("SELECT 1 FROM sqlite_master WHERE name='invitation_limits' AND type='table'").fetchone())
+                quota=self.db.execute('SELECT used_count,max_uses FROM invitation_limits WHERE token=?',(digest(invite or ''),)).fetchone() if multi else None
+                unavailable=(not quota or quota['used_count']>=quota['max_uses']) if multi else bool(row and row['used'])
+                if not row or unavailable or row["expires"] <= time.time() or ('revoked_at' in row.keys() and row['revoked_at'] is not None):
                     raise ValueError("Invitation is invalid, expired, or already used")
-            uid = uuid.uuid4().hex
-            self.db.execute("INSERT INTO users(id,username,password,role) VALUES (?,?,?,?)", (uid, username, encoded, role))
+            uid = self.create_user_in_transaction(self.db, username, encoded, role=role, initial_admin=initial_admin)
             if not initial_admin:
-                self.db.execute("UPDATE invites SET used=1 WHERE token=?", (digest(invite),))
+                if multi:
+                    from .activity_store import ActivityStore
+                    repo=ActivityStore(self.db)
+                    if not repo.mark_invite_used(digest(invite),now=time.time()):raise ValueError('Invitation capacity exhausted')
+                    repo.record_invite_use(digest(invite),uid,used_at=time.time(),registration_request_id=uuid.uuid4().hex)
+                else:
+                    self.db.execute("UPDATE invites SET used=1 WHERE token=?", (digest(invite),))
             return uid
 
     def invite(self):
         token = secrets.token_urlsafe(32)
         with self.lock, self.db:
             self.db.execute("INSERT INTO invites(token,expires) VALUES (?,?)", (digest(token), time.time() + 86400))
+            if self.db.execute("SELECT 1 FROM sqlite_master WHERE name='invitation_limits' AND type='table'").fetchone():
+                self.db.execute('INSERT INTO invitation_limits(token,max_uses,used_count,legacy_used) VALUES (?,50,0,0)',(digest(token),))
         return token
 
     def login(self, username, password):
-        user = self.user(username)
+        identifier = username.strip() if isinstance(username,str) else ''
+        with self.lock:
+            if '@' in identifier:
+                exists=self.db.execute("SELECT 1 FROM sqlite_master WHERE type='table' AND name='email_identities'").fetchone()
+                row=self.db.execute('SELECT u.* FROM users u JOIN email_identities e ON e.user_id=u.id WHERE e.email=? COLLATE NOCASE', (identifier.lower(),)).fetchone() if exists else None
+                user=dict(row) if row else None
+            else:
+                user=self.user(identifier)
         if not password_matches(password, user["password"] if user else None) or user["disabled"]:
             raise PermissionError("Invalid username or password")
+        return self.create_session(user['id'],password_snapshot=user['password'])
+
+    def create_session_in_transaction(self, connection, uid):
+        """Existing auth/Cookie contract, after the caller verified identity."""
+        if connection is not self.db or not connection.in_transaction:
+            raise RuntimeError('Explicit transaction on Store.db is required')
+        if not connection.execute('SELECT 1 FROM users WHERE id=? AND disabled=0', (uid,)).fetchone():
+            raise PermissionError('Please sign in')
         token, csrf = secrets.token_urlsafe(32), secrets.token_urlsafe(32)
-        with self.lock, self.db:
-            self.db.execute("DELETE FROM auth WHERE expires<?", (time.time(),))
-            self.db.execute("INSERT INTO auth VALUES (?,?,?,?)", (digest(token), user["id"], csrf, time.time() + SESSION_SECONDS))
+        connection.execute('DELETE FROM auth WHERE expires<?', (time.time(),))
+        connection.execute('INSERT INTO auth VALUES (?,?,?,?)', (digest(token), uid, csrf, time.time() + SESSION_SECONDS))
         return token, csrf
+
+    def create_session(self, uid, *, password_snapshot=None):
+        with self.lock, self.db:
+            self.db.execute('BEGIN IMMEDIATE')
+            # A password reset may finish during scrypt or after registration
+            # commits. Fence Session issuance against the verified hash snapshot.
+            if password_snapshot is not None:
+                current=self.db.execute('SELECT password,disabled FROM users WHERE id=?',(uid,)).fetchone()
+                if not current or current['disabled'] or not hmac.compare_digest(current['password'],password_snapshot):
+                    raise PermissionError('Invalid username or password')
+            return self.create_session_in_transaction(self.db, uid)
 
     def authenticate(self, token):
         with self.lock:
@@ -140,7 +200,9 @@ class Store:
             raise PermissionError("Current password is incorrect")
         encoded = password_hash(new)
         with self.lock, self.db:
-            self.db.execute("UPDATE users SET password=? WHERE id=?", (encoded, uid))
+            self.db.execute('BEGIN IMMEDIATE')
+            if self.db.execute("UPDATE users SET password=? WHERE id=? AND password=? AND disabled=0", (encoded, uid, row[0])).rowcount!=1:
+                raise PermissionError('Password changed; authenticate again')
             self.db.execute("DELETE FROM auth WHERE uid=?", (uid,))
 
     def disable(self, username):
@@ -162,8 +224,6 @@ class Store:
     def create_conversation(self, uid):
         cid = uuid.uuid4().hex
         with self.lock, self.db:
-            if self.db.execute("SELECT count(*) FROM conversations WHERE uid=?", (uid,)).fetchone()[0] >= 200:
-                raise ValueError("Conversation quota reached; ask your administrator to archive older data")
             self.db.execute("INSERT INTO conversations VALUES (?,?,?,?,?,?)", (cid, uid, "New conversation", uuid.uuid4().hex, time.time(), time.time()))
         return self.conversation(uid, cid)
 
@@ -192,9 +252,9 @@ class Store:
             now = time.time()
             return [self._run_view(r, now) for r in self.db.execute("SELECT runs.*,run_activity.data AS activity FROM runs LEFT JOIN run_activity ON run_activity.rid=runs.id WHERE cid=? ORDER BY created", (cid,))]
 
-    def begin(self, uid, cid, query, *, expected_input=None):
+    def begin(self, uid, cid, query, *, expected_input=None, _rid=None):
         self.conversation(uid, cid)
-        rid = uuid.uuid4().hex
+        rid = _rid or uuid.uuid4().hex
         with self.lock, self.db:
             if expected_input is not None:
                 self.input_request(uid, expected_input[0], cid=cid, rid=expected_input[1], pending=True)
@@ -205,33 +265,98 @@ class Store:
             self.db.execute("UPDATE conversations SET title=CASE WHEN title='New conversation' THEN ? ELSE title END, updated=? WHERE id=?", (query[:70], time.time(), cid))
         return rid
 
+    def fail_start(self, uid, rid, *, reason):
+        """Only for a fenced, unexecuted startup; not a general finish replacement."""
+        with self.lock:
+            def current():
+                row = self.db.execute(
+                    "SELECT r.status,c.uid FROM runs r JOIN conversations c ON r.cid=c.id WHERE r.id=?",
+                    (rid,)).fetchone()
+                if row is not None and row['uid'] != uid:
+                    raise PermissionError("Run ownership mismatch")
+                return row
+            row = current()
+            if row is None or row['status'] not in ('running', 'stopping'):
+                return row['status'] if row is not None else None
+            with self.db:
+                self.db.execute("BEGIN IMMEDIATE")
+                row = current()  # Revalidate after obtaining the SQLite write lock.
+                if row is None or row['status'] not in ('running', 'stopping'):
+                    return row['status'] if row is not None else None
+                # This reply never reached the runner. Restore its existing question.
+                # The following existing finish commits this change and failed+event
+                # on the same connection; an exception rolls the transaction back.
+                self.db.execute("UPDATE input_requests SET state='pending',reply_rid=NULL "
+                                "WHERE reply_rid=? AND state='resuming'", (rid,))
+                self.finish(rid, status='failed', reason=reason)
+                return 'failed'
+
     def finish(self, rid, *, status, answer="", reason="", generation="", turns=0):
+        # First legal committed outcome wins; retries cannot rewrite or re-emit it.
+        allowed = {'completed', 'incomplete', 'needs_input', 'failed', 'stopped', 'budget_exhausted', 'interrupted'}
+        if status not in allowed:
+            raise ValueError("Invalid task terminal status")
         with self.lock, self.db:
-            self.db.execute("UPDATE runs SET status=?,answer=?,reason=?,generation=?,turns=?,finished_at=COALESCE(finished_at,?) WHERE id=?",
-                            (status, answer, reason or "", generation, turns, time.time(), rid))
+            if not self.db.in_transaction:
+                self.db.execute("BEGIN IMMEDIATE")
             row = self.db.execute("SELECT * FROM runs WHERE id=?", (rid,)).fetchone()
-            elapsed = self._run_view(row, time.time())["elapsed_seconds"] if row else None
+            if row is None:
+                raise KeyError("Run not found")
+            current = row['status']
+            cancel_paused = current == 'needs_input' and status == 'stopped' and self.db.execute(
+                "SELECT 1 FROM input_requests WHERE origin_rid=? AND state='cancelled'", (rid,)).fetchone()
+            if current not in ('running', 'stopping') and not cancel_paused:
+                return current
+            changed = self.db.execute(
+                "UPDATE runs SET status=?,answer=?,reason=?,generation=?,turns=?,finished_at=COALESCE(finished_at,?) "
+                "WHERE id=? AND status=?", (status, answer, reason or "", generation, turns, time.time(), rid, current)).rowcount
+            if not changed:
+                return current
+            row = self.db.execute("SELECT * FROM runs WHERE id=?", (rid,)).fetchone()
+            elapsed = self._run_view(row, time.time())["elapsed_seconds"]
             if status != "needs_input":
                 state = "answered" if status == "completed" else "interrupted"
                 self.db.execute("UPDATE input_requests SET state=? WHERE reply_rid=? AND state='resuming'", (state, rid))
                 self.db.execute("UPDATE input_requests SET state='interrupted' WHERE origin_rid=? AND state='pending'", (rid,))
-            # Persist completion and its elapsed time atomically, so SSE replay
-            # and a refreshed conversation show the same frozen duration.
             self.db.execute("INSERT INTO events(rid,data) VALUES (?,?)", (rid, json.dumps({
                 "kind": "finished", "status": status, "answer": answer, "reason": reason or "",
                 "generation": generation, "turns": turns, "elapsed_seconds": elapsed,
+                "created": row["created"], "finished_at": row["finished_at"],
             }, ensure_ascii=False)))
+            return status
+
+    def publish(self, uid, cid, rid, files, *, base_generation, origins=None, **outcome):
+        """File generation, terminal row and event share one SQLite commit."""
+        with self.lock, self.db:
+            if not self.db.in_transaction:
+                self.db.execute("BEGIN IMMEDIATE")
+            row = self.run(uid, rid)
+            if row['cid'] != cid:
+                raise PermissionError("Run conversation mismatch")
+            if row['status'] not in ('running', 'stopping'):
+                return row['status']
+            if self.conversation(uid, cid)['generation'] != base_generation:
+                raise ValueError("Conversation files changed before result publication")
+            generation = self.snapshot(uid, cid, files, origins=origins, _transaction=True)
+            return self.finish(rid, generation=generation, **outcome)
 
     def event(self, rid, data):
         with self.lock, self.db:
             self.db.execute("INSERT INTO events(rid,data) VALUES (?,?)", (rid, json.dumps(data, ensure_ascii=False)))
-            if data.get("kind") in ("stage_timing", "model_config", "tool_start"):
+            if data.get("kind") in ("stage_timing", "model_config", "tool_start", "skill_selected", "skill_loaded", "run_mode"):
                 row = self.db.execute("SELECT data FROM run_activity WHERE rid=?", (rid,)).fetchone()
                 summary = json.loads(row[0]) if row else {}
                 if data["kind"] == "stage_timing":
                     summary["timing"] = data
                 elif data["kind"] == "model_config":
                     summary["profile"] = data.get("profile", {})
+                elif data["kind"] == "run_mode":
+                    summary["mode"] = data["mode"]
+                    summary.setdefault("loaded_skills", {})
+                elif data["kind"] == "skill_selected":
+                    summary["skill"] = data["skill"]
+                elif data["kind"] == "skill_loaded":
+                    summary.setdefault("loaded_skills", {})[data["id"]] = data
                 else:
                     summary["tool_count"] = summary.get("tool_count", 0) + 1
                 self.db.execute("INSERT INTO run_activity VALUES (?,?) ON CONFLICT(rid) DO UPDATE SET data=excluded.data",
@@ -276,6 +401,14 @@ class Store:
         with self.lock:
             return {r[0]: bytes(r[1]) for r in self.db.execute("SELECT name,content FROM files WHERE cid=? AND generation=?", (cid, generation))}
 
+    def file(self, uid, cid, name, generation=None):
+        conv = self.conversation(uid, cid)
+        generation = generation or conv["generation"]
+        with self.lock:
+            row = self.db.execute("SELECT content FROM files WHERE cid=? AND generation=? AND name=?",
+                                  (cid, generation, name)).fetchone()
+        return bytes(row[0]) if row is not None else None
+
     def file_origins(self, uid, cid, generation=None):
         conv = self.conversation(uid, cid)
         generation = generation or conv["generation"]
@@ -288,7 +421,7 @@ class Store:
             "origin": "unknown", "sha256": row[1], "scope": "legacy file; acquisition not recorded"}
                 for row in rows}
 
-    def snapshot(self, uid, cid, files, *, origins=None):
+    def snapshot(self, uid, cid, files, *, origins=None, _transaction=False):
         self.conversation(uid, cid)
         total = 0
         if len(files) > 1024:
@@ -301,7 +434,7 @@ class Store:
         if total > MAX_FILES_TOTAL:
             raise ValueError("Conversation files exceed the 64 MiB transfer quota")
         generation = uuid.uuid4().hex
-        with self.lock, self.db:
+        with self.lock, (nullcontext() if _transaction else self.db):
             previous_origins = self.file_origins(uid, cid)
             records = []
             for name, data in files.items():
@@ -372,19 +505,31 @@ class Store:
                  "rid": row["origin_rid"], "state": row["state"], "reply_rid": row["reply_rid"],
                  "title": row["title"]} for row in rows]
 
-    def cancel_input(self, uid, request_id):
+    def cancel_input(self, uid, request_id, *, _retry=False):
         with self.lock, self.db:
+            if not self.db.in_transaction:
+                self.db.execute("BEGIN IMMEDIATE")
             row = self.db.execute("SELECT input_requests.origin_rid,input_requests.state FROM input_requests JOIN conversations ON input_requests.cid=conversations.id WHERE input_requests.id=? AND uid=?", (request_id, uid)).fetchone()
             if not row:
                 raise KeyError("Input request not found")
-            if row["state"] != "pending":
+            if row["state"] != "pending" and not (_retry and row['state'] == 'cancelled'):
                 raise ValueError("This input request has already been answered or closed")
-            self.db.execute("UPDATE input_requests SET state='cancelled' WHERE id=?", (request_id,))
-        self.finish(row["origin_rid"], status="stopped", reason="The user cancelled the pending input request; saved files were retained")
+            self.db.execute("UPDATE input_requests SET state='cancelled' WHERE id=? AND state='pending'", (request_id,))
+            return self.finish(row["origin_rid"], status="stopped", reason="The user cancelled the pending input request; saved files were retained")
 
-    def recover(self):
+    def recover(self, *, after='', limit=64):
+        """Bounded discovery only; persistent evidence owns any recovery decision."""
+        if not isinstance(after, str) or not 1 <= limit <= 64:
+            raise ValueError("Invalid recovery page")
         with self.lock:
-            ids = [r[0] for r in self.db.execute("SELECT id FROM runs WHERE status IN ('running','stopping')")]
-        for rid in ids:
-            self.finish(rid, status="interrupted", reason="Service restarted. The last committed files are retained; there is no automatic replay.")
-        return ids
+            timeout = self.db.execute("PRAGMA busy_timeout").fetchone()[0]
+            deadline = time.monotonic() + .05
+            self.db.execute("PRAGMA busy_timeout=" + str(min(timeout, 100)))
+            self.db.set_progress_handler(lambda: int(time.monotonic() > deadline), 1000)
+            try:
+                return [dict(row) for row in self.db.execute(
+                    "SELECT r.id FROM runs r WHERE r.status IN ('running','stopping') AND r.id>? ORDER BY r.id LIMIT ?",
+                    (after, limit))]
+            finally:
+                self.db.set_progress_handler(None, 0)
+                self.db.execute("PRAGMA busy_timeout=" + str(timeout))

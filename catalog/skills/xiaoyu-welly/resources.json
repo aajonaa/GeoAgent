@@ -1,0 +1,157 @@
+{
+  "skill_id": "xiaoyu_welly",
+  "archive_sha256": "9316628dccd7a09d2b3dc68e3e6cb2d11e5d0797d838ab7e27f93cd3a73b0ebc",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 18,
+          "archive_sha256": "22e38bd0b7f00cdbb09de1c7015c14ee7f3ff26525b0842dcfb3ea3e1c7bb594",
+          "member": "welly/LICENSE"
+        },
+        {
+          "package_number": 76,
+          "archive_sha256": "dc1920fcf0473164ed874670e8bc7f2cd77f2007ed4334fc39dd21c46df0c951",
+          "member": "welly/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 719,
+      "sha256": "ec0c4b7b8e23f215085c094d6e7daf5b1e7baf781d94cc721e55d76ca98d1abe",
+      "origins": [
+        {
+          "package_number": 18,
+          "archive_sha256": "22e38bd0b7f00cdbb09de1c7015c14ee7f3ff26525b0842dcfb3ea3e1c7bb594",
+          "member": "welly/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5823,
+      "sha256": "9f9af9dfb803dd09f8b6db7e114387641e2e60e969b2fdb8ad1f65affd11d3a0",
+      "origins": [
+        {
+          "package_number": 18,
+          "archive_sha256": "22e38bd0b7f00cdbb09de1c7015c14ee7f3ff26525b0842dcfb3ea3e1c7bb594",
+          "member": "welly/SKILL.md"
+        },
+        {
+          "package_number": 76,
+          "archive_sha256": "dc1920fcf0473164ed874670e8bc7f2cd77f2007ed4334fc39dd21c46df0c951",
+          "member": "welly/SKILL.md"
+        },
+        {
+          "package_number": 104,
+          "archive_sha256": "54bf42582564b49dbaab03f409b2d623a621c68454af9394c9ce9c8cd906078d",
+          "member": "welly/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 104,
+          "archive_sha256": "54bf42582564b49dbaab03f409b2d623a621c68454af9394c9ce9c8cd906078d",
+          "member": "welly/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/curve_processing.md",
+      "bytes": 5563,
+      "sha256": "7ca9b9b04e59dac908b8acca0feb9b1ca74da48a617977d668980a2d515e1c35",
+      "origins": [
+        {
+          "package_number": 18,
+          "archive_sha256": "22e38bd0b7f00cdbb09de1c7015c14ee7f3ff26525b0842dcfb3ea3e1c7bb594",
+          "member": "welly/references/curve_processing.md"
+        },
+        {
+          "package_number": 76,
+          "archive_sha256": "dc1920fcf0473164ed874670e8bc7f2cd77f2007ed4334fc39dd21c46df0c951",
+          "member": "welly/references/curve_processing.md"
+        },
+        {
+          "package_number": 104,
+          "archive_sha256": "54bf42582564b49dbaab03f409b2d623a621c68454af9394c9ce9c8cd906078d",
+          "member": "welly/references/curve_processing.md"
+        }
+      ]
+    },
+    {
+      "path": "references/project_workflows.md",
+      "bytes": 6836,
+      "sha256": "084db392fd2c0da1f249ae34083c9c1181933a43870506478eed515faef592c7",
+      "origins": [
+        {
+          "package_number": 18,
+          "archive_sha256": "22e38bd0b7f00cdbb09de1c7015c14ee7f3ff26525b0842dcfb3ea3e1c7bb594",
+          "member": "welly/references/project_workflows.md"
+        },
+        {
+          "package_number": 76,
+          "archive_sha256": "dc1920fcf0473164ed874670e8bc7f2cd77f2007ed4334fc39dd21c46df0c951",
+          "member": "welly/references/project_workflows.md"
+        },
+        {
+          "package_number": 104,
+          "archive_sha256": "54bf42582564b49dbaab03f409b2d623a621c68454af9394c9ce9c8cd906078d",
+          "member": "welly/references/project_workflows.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/project_stats.py",
+      "bytes": 7211,
+      "sha256": "ab4c6a85ecce688adfec4d9f05e6c50dcc71c697bdd52cc7975e0710dd9b92a2",
+      "origins": [
+        {
+          "package_number": 18,
+          "archive_sha256": "22e38bd0b7f00cdbb09de1c7015c14ee7f3ff26525b0842dcfb3ea3e1c7bb594",
+          "member": "welly/scripts/project_stats.py"
+        },
+        {
+          "package_number": 76,
+          "archive_sha256": "dc1920fcf0473164ed874670e8bc7f2cd77f2007ed4334fc39dd21c46df0c951",
+          "member": "welly/scripts/project_stats.py"
+        },
+        {
+          "package_number": 104,
+          "archive_sha256": "54bf42582564b49dbaab03f409b2d623a621c68454af9394c9ce9c8cd906078d",
+          "member": "welly/scripts/project_stats.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/well_qc.py",
+      "bytes": 6662,
+      "sha256": "e38b3d1047ffb14114ca1def6fdf4befb1085ba44d96cf1b1ce6954112be573e",
+      "origins": [
+        {
+          "package_number": 18,
+          "archive_sha256": "22e38bd0b7f00cdbb09de1c7015c14ee7f3ff26525b0842dcfb3ea3e1c7bb594",
+          "member": "welly/scripts/well_qc.py"
+        },
+        {
+          "package_number": 76,
+          "archive_sha256": "dc1920fcf0473164ed874670e8bc7f2cd77f2007ed4334fc39dd21c46df0c951",
+          "member": "welly/scripts/well_qc.py"
+        },
+        {
+          "package_number": 104,
+          "archive_sha256": "54bf42582564b49dbaab03f409b2d623a621c68454af9394c9ce9c8cd906078d",
+          "member": "welly/scripts/well_qc.py"
+        }
+      ]
+    }
+  ]
+}

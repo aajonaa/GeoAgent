@@ -1,0 +1,80 @@
+{
+  "tool_id": "GeoSpatialTerrainSolarIrradiance",
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "crs": "EPSG:32631",
+    "origin_xy_m": [
+      500000,
+      30
+    ],
+    "cell_size_m": 10,
+    "elevation_m": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "slope_deg": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "aspect_ccw_from_east_deg": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "day_of_year": 80,
+    "local_solar_time_h": 0,
+    "linke_turbidity": 3,
+    "albedo": 0,
+    "native_precision": "FCELL_float32_explicit",
+    "elevation_reference": "mean_sea_level",
+    "units": {
+      "coordinates": "m",
+      "elevation": "m_mean_sea_level",
+      "slope": "degree",
+      "aspect": "degree_ccw_from_east",
+      "time": "local_solar_hour",
+      "linke": "dimensionless",
+      "albedo": "dimensionless"
+    }
+  },
+  "numeric_oracle": "Independent native oracle pending: equatorial flat plane at local solar midnight has all four components zero; albedo=0 gives reflected=0; global equals beam+diffuse+reflected within the explicitly calculated FCELL roundoff bound. This is instantaneous W/m2, never daily irradiation."
+}

@@ -1,0 +1,88 @@
+{
+  "call_id": "fixed-explicit-replacement",
+  "name": "StatsmodelsSeasonalFlowForecast",
+  "status": "ok",
+  "data": {
+    "forecast_mean_m3_s": [
+      16.993087653730147,
+      17.67375661483998,
+      17.390522399583396
+    ],
+    "mean_ci_lower_m3_s": [
+      16.9155284138379,
+      17.591603637372604,
+      17.30488654338129
+    ],
+    "mean_ci_upper_m3_s": [
+      17.070646893622392,
+      17.755909592307358,
+      17.476158255785503
+    ],
+    "prediction_lower_m3_s": [
+      16.768889292306408,
+      17.447927960149787,
+      17.163403555275192
+    ],
+    "prediction_upper_m3_s": [
+      17.217286015153885,
+      17.899585269530174,
+      17.6176412438916
+    ],
+    "coefficient_names": [
+      "intercept",
+      "annual_sin",
+      "annual_cos",
+      "predictor_1"
+    ],
+    "coefficients_m3_s": [
+      10.006370201464387,
+      1.9989883440204463,
+      2.9997289275972636,
+      3.986988524668495
+    ],
+    "residual_df": 44,
+    "confidence_level": 0.95,
+    "training_samples": 48,
+    "forecast_samples": 3,
+    "design_rank": 4,
+    "design_condition_number": 4.454037258399929,
+    "contains_negative_statistical_output": false,
+    "negative_output_policy": "Unconstrained OLS output and intervals are not clipped; no nonnegative physical flow model is claimed.",
+    "units": {
+      "forecast_mean_m3_s": "m3/s",
+      "mean_ci_lower_m3_s": "m3/s",
+      "mean_ci_upper_m3_s": "m3/s",
+      "prediction_lower_m3_s": "m3/s",
+      "prediction_upper_m3_s": "m3/s",
+      "coefficients_m3_s": "m3/s"
+    },
+    "artifacts": [],
+    "provenance": {
+      "tool": "StatsmodelsSeasonalFlowForecast",
+      "upstream_url": "https://github.com/statsmodels/statsmodels",
+      "source_mode": "package_release",
+      "reviewed_archive_commit": null,
+      "installed_versions": {
+        "statsmodels": "0.14.5",
+        "numpy": "2.1.3",
+        "pandas": "2.3.0",
+        "scipy": "1.15.3"
+      },
+      "vendored_source": [],
+      "input_sha256": "15d574fb794fffa2a69530b0b781297a69ebdcf96725027e8e04352e395350a2",
+      "implementation_sha256": "9e27816b852bd3b8863e03b3caec92b588ace3700ab9af4bf6304abd55e36f20",
+      "contract_sha256": "25f805cf5531ff8bf1f8894f006dca40c6035efd44967507583c820dcc323fa9",
+      "output_sha256": {},
+      "network_required": false,
+      "runtime_source_correspondence": "Pinned published release and source archive HEAD are distinct unless vendored-source hashes explicitly establish correspondence."
+    }
+  },
+  "artifacts": [],
+  "error": null,
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "a46d4a16c72c4b27e0b5fd47091642cf5cf2060a40c43026e9ed7d7f39ab7e8a"
+  }
+}

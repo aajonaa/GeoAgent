@@ -1,0 +1,56 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockSandShalePorosity",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "sand_porosity": 0.4,
+    "shale_porosity": 0.1,
+    "shale_fraction": [
+      0,
+      0.2,
+      0.6,
+      1
+    ]
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "dispersed_porosity"
+      ],
+      "value": [
+        0.4,
+        0.22,
+        0.06,
+        0.1
+      ],
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "laminated_porosity"
+      ],
+      "value": [
+        0.4,
+        0.34,
+        0.22,
+        0.1
+      ],
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "shale_porosity": 0.5
+  },
+  "numeric_oracle": "Independent volumetric geometry: laminated line joins .4 and .1; dispersed envelope intersects pore-filling and shale-framework lines.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/GM.py",
+  "limitations": [
+    "Volume fractions only; no shale-volume inference from logs or chemical composition.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

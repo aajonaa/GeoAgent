@@ -1,0 +1,415 @@
+{
+  "id": "GeoSARPolarizationSynthesis",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoSARPolarizationSynthesis",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoSARPolarizationSynthesis (remote_original_cases.RemoteCases.test_registry_GeoSARPolarizationSynthesis) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "334a88277febcb1442b2e4ee160b1debd7122ab4c9bf8aec1fd8759f9b11e7cd",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "0089b1b1146c0ec35b7f80845b80990bd8f452dd9ec9c0e4118c6c45c48dd19a",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "c1693ea28810fb7e626dee1edb07c347ab558fdcf5910aee0e2d8045c8d2c350",
+          "result.tif": "bafdf9acff2ec1a344ca959586aba12cf7db3c49658b2983593998e532245c24"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "334a88277febcb1442b2e4ee160b1debd7122ab4c9bf8aec1fd8759f9b11e7cd",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "0089b1b1146c0ec35b7f80845b80990bd8f452dd9ec9c0e4118c6c45c48dd19a",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "cb5b48b2d6e2e3444fb505084afd3287e3ee26375c9f715621b1960fb54293ab",
+          "result.tif": "bafdf9acff2ec1a344ca959586aba12cf7db3c49658b2983593998e532245c24"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_dict/results/5fa2f79047ae4459a6d17379b953b94f",
+        "artifacts": {
+          "band-summary.csv": "334a88277febcb1442b2e4ee160b1debd7122ab4c9bf8aec1fd8759f9b11e7cd",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "0089b1b1146c0ec35b7f80845b80990bd8f452dd9ec9c0e4118c6c45c48dd19a",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "cb5b48b2d6e2e3444fb505084afd3287e3ee26375c9f715621b1960fb54293ab",
+          "result.tif": "bafdf9acff2ec1a344ca959586aba12cf7db3c49658b2983593998e532245c24"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_json/results/be29076eb41f485bad1d0914341652b7",
+        "artifacts": {
+          "band-summary.csv": "334a88277febcb1442b2e4ee160b1debd7122ab4c9bf8aec1fd8759f9b11e7cd",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "0089b1b1146c0ec35b7f80845b80990bd8f452dd9ec9c0e4118c6c45c48dd19a",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "94b6ec75eed894bc7aa90965ba697b25294987bbae5158b8186d1a9b76f15839",
+          "result.tif": "bafdf9acff2ec1a344ca959586aba12cf7db3c49658b2983593998e532245c24"
+        }
+      }
+    },
+    "vertical_jones_projection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "50177eae9e1dca4574ee51449ad571dcbc9a443b6e87e951fee1d536251a9354",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "1ff9883044f08a23a8d0e933f2cdcef6ab0568db1ce9ef249879c6e969994586",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "94b6ec75eed894bc7aa90965ba697b25294987bbae5158b8186d1a9b76f15839",
+          "result.tif": "748464fb5abe28451a65e5df829ab26b60f74ad785463c1f45ea8d09b4cf4b80"
+        }
+      }
+    },
+    "vertical_jones_projection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "50177eae9e1dca4574ee51449ad571dcbc9a443b6e87e951fee1d536251a9354",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "1ff9883044f08a23a8d0e933f2cdcef6ab0568db1ce9ef249879c6e969994586",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "768254391a66621ed8cf1a7df9f33c16fbb92c0ab659a0335eb8b651331c89ec",
+          "result.tif": "748464fb5abe28451a65e5df829ab26b60f74ad785463c1f45ea8d09b4cf4b80"
+        }
+      }
+    },
+    "vertical_jones_projection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_runtime_dict/results/7648fd9fcc2d478ca4c8c45c4e4c094b",
+        "artifacts": {
+          "band-summary.csv": "50177eae9e1dca4574ee51449ad571dcbc9a443b6e87e951fee1d536251a9354",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "1ff9883044f08a23a8d0e933f2cdcef6ab0568db1ce9ef249879c6e969994586",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "768254391a66621ed8cf1a7df9f33c16fbb92c0ab659a0335eb8b651331c89ec",
+          "result.tif": "748464fb5abe28451a65e5df829ab26b60f74ad785463c1f45ea8d09b4cf4b80"
+        }
+      }
+    },
+    "vertical_jones_projection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/vertical_jones_projection_runtime_json/results/528bf7611b8640c4aebec504edc27fe4",
+        "artifacts": {
+          "band-summary.csv": "50177eae9e1dca4574ee51449ad571dcbc9a443b6e87e951fee1d536251a9354",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "1ff9883044f08a23a8d0e933f2cdcef6ab0568db1ce9ef249879c6e969994586",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "d7d71689c348c0bbd33616e154936d9f1e5db3cd92f01edf03969e1a8b4fdc41",
+          "result.tif": "748464fb5abe28451a65e5df829ab26b60f74ad785463c1f45ea8d09b4cf4b80"
+        }
+      }
+    },
+    "spatial_jones_geographic_grid_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "f1b08d59d87a5aead9a0aaba04ab90fcec09347e36b887f0883759225f835b1c",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "4c5c4e37b768d57f5a108dccc5c9d79d95658eda5419f6c15b471c39614fdeb9",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "d7d71689c348c0bbd33616e154936d9f1e5db3cd92f01edf03969e1a8b4fdc41",
+          "result.tif": "8997ec51a67d457db7c1e0c77331112be53e9d3d766b9770c99ae4611af8840a"
+        }
+      }
+    },
+    "spatial_jones_geographic_grid_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "f1b08d59d87a5aead9a0aaba04ab90fcec09347e36b887f0883759225f835b1c",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "4c5c4e37b768d57f5a108dccc5c9d79d95658eda5419f6c15b471c39614fdeb9",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "595b89a363431bf597c950ede86a39a89337efd021b9bec187437029f6d527eb",
+          "result.tif": "8997ec51a67d457db7c1e0c77331112be53e9d3d766b9770c99ae4611af8840a"
+        }
+      }
+    },
+    "spatial_jones_geographic_grid_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_runtime_dict/results/13f71d74980448799d8698c62cfb710b",
+        "artifacts": {
+          "band-summary.csv": "f1b08d59d87a5aead9a0aaba04ab90fcec09347e36b887f0883759225f835b1c",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "4c5c4e37b768d57f5a108dccc5c9d79d95658eda5419f6c15b471c39614fdeb9",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "595b89a363431bf597c950ede86a39a89337efd021b9bec187437029f6d527eb",
+          "result.tif": "8997ec51a67d457db7c1e0c77331112be53e9d3d766b9770c99ae4611af8840a"
+        }
+      }
+    },
+    "spatial_jones_geographic_grid_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/spatial_jones_geographic_grid_runtime_json/results/55b77e99ae0a401a9de77de498a8636e",
+        "artifacts": {
+          "band-summary.csv": "f1b08d59d87a5aead9a0aaba04ab90fcec09347e36b887f0883759225f835b1c",
+          "native-execution.csv": "fba273bbd653661ba13cd98bd7d46fb69a4a08bc420862ea8c76e3e0d32994f1",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "4c5c4e37b768d57f5a108dccc5c9d79d95658eda5419f6c15b471c39614fdeb9",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "c9ef13e4d18ec813bdd9157629fba2bb1a74d161b47830221970db662d5902b7",
+          "result.tif": "8997ec51a67d457db7c1e0c77331112be53e9d3d766b9770c99ae4611af8840a"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoSARPolarizationSynthesis",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoSARPolarizationSynthesis (remote_original_cases.RemoteCases.test_reject_extra_GeoSARPolarizationSynthesis) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoSARPolarizationSynthesis",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoSARPolarizationSynthesis (remote_original_cases.RemoteCases.test_reject_unit_GeoSARPolarizationSynthesis) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARPolarizationSynthesis",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoSARPolarizationSynthesis (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARPolarizationSynthesis) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARPolarizationSynthesis",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoSARPolarizationSynthesis (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARPolarizationSynthesis) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARPolarizationSynthesis",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoSARPolarizationSynthesis (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARPolarizationSynthesis) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoSARPolarizationSynthesis",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoSARPolarizationSynthesis (remote_original_cases.RemoteCases.test_reject_singular_GeoSARPolarizationSynthesis) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARPolarizationSynthesis",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoSARPolarizationSynthesis (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARPolarizationSynthesis) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarizationSynthesis/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

@@ -1,0 +1,116 @@
+{
+  "archive_path": "D:\\Downloads\\\u5730\u5b66Python\u5de5\u5177\u96c6.zip\\\u5730\u5b66Python\u5de5\u5177\u96c6.zip",
+  "archive_bytes": 4875224812,
+  "whole_archive_sha256": null,
+  "hash_scope": "Exact selectively extracted source/license members, not a claim to have hashed the full 4.8GB archive",
+  "projects": {
+    "39": {
+      "name": "VIC",
+      "upstream_url": "https://github.com/UW-Hydro/VIC",
+      "reviewed_archive_commit": "8f6cc0661bdc67c4f6caabdd4dcd0b8782517435",
+      "prefix": "\u5730\u5b66Python\u5de5\u5177\u96c6/03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/VIC/"
+    },
+    "131": {
+      "name": "Madagascar",
+      "upstream_url": "https://github.com/ahay/src",
+      "reviewed_archive_commit": "000799f11221d5cdbd0ef86d48342d149762defd",
+      "prefix": "\u5730\u5b66Python\u5de5\u5177\u96c6/10_\u5730\u9707\u5b66/src/"
+    },
+    "86": {
+      "name": "HPGL",
+      "upstream_url": "https://github.com/hpgl/hpgl",
+      "reviewed_archive_commit": "ac8f9c2e096d94f5d027970ad783f341a81af380",
+      "prefix": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/hpgl/"
+    }
+  },
+  "files": {
+    "vendor/vic/calc_rainonly.c": {
+      "project_id": 39,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/VIC/vic/vic_run/src/calc_rainonly.c",
+      "sha256": "661a2ed6e1825af100cdf999a99f9a6108f6c27b5c48086f7243e480ee069728",
+      "bytes": 1241,
+      "zip_crc32": 227026753,
+      "preserved_byte_for_byte": true
+    },
+    "licenses/VIC/LICENSE.txt": {
+      "project_id": 39,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/VIC/LICENSE.txt",
+      "sha256": "e2665fc8d67a4ee3d9b617e2b7e25919f38f465b44438fbf579681d1e838ad5e",
+      "bytes": 1092,
+      "zip_crc32": 1828069129,
+      "preserved_byte_for_byte": true
+    },
+    "vendor/madagascar/kiss_fft.c": {
+      "project_id": 131,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/10_\u5730\u9707\u5b66/src/api/c/kiss_fft.c",
+      "sha256": "c732c6c0775f26e0b0b90f94e657e362ce8137b82a56253da45d8e5f585b9491",
+      "bytes": 13097,
+      "zip_crc32": 2103375877,
+      "preserved_byte_for_byte": true
+    },
+    "vendor/madagascar/kiss_fft.h": {
+      "project_id": 131,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/10_\u5730\u9707\u5b66/src/api/c/kiss_fft.h",
+      "sha256": "4476caf3b2758aeddf1de4a4428ea3e8cc73115f57a7dc26d8d9bfc832857a0e",
+      "bytes": 3452,
+      "zip_crc32": 4230525452,
+      "preserved_byte_for_byte": true
+    },
+    "vendor/madagascar/_kiss_fft_guts.h": {
+      "project_id": 131,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/10_\u5730\u9707\u5b66/src/api/c/_kiss_fft_guts.h",
+      "sha256": "640ebb7d17be629fdc7c100c8fd429dccb7704631e2059f62fb836fec936f262",
+      "bytes": 5962,
+      "zip_crc32": 2508533147,
+      "preserved_byte_for_byte": true
+    },
+    "vendor/madagascar/README.kiss_fft": {
+      "project_id": 131,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/10_\u5730\u9707\u5b66/src/api/c/README.kiss_fft",
+      "sha256": "f5985b192dcd9c5a1da442e92b97744566941270f6e593f019f42a0b96f650b7",
+      "bytes": 4441,
+      "zip_crc32": 748120829,
+      "preserved_byte_for_byte": true
+    },
+    "licenses/Madagascar/COPYING.txt": {
+      "project_id": 131,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/10_\u5730\u9707\u5b66/src/COPYING.txt",
+      "sha256": "e5b95564d1fc67c0e95194ab86b827236c50ee69c3b555296e3a3162596ab243",
+      "bytes": 19336,
+      "zip_crc32": 3022966711,
+      "preserved_byte_for_byte": true
+    },
+    "vendor/hpgl/variograms.cpp": {
+      "project_id": 86,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/hpgl/src/geo_bsd/_cvariogram/variograms.cpp",
+      "sha256": "06e207c4ec83ed0680bc83c5e2cc92b6b157796781a81995eb5e570c910e4c40",
+      "bytes": 13538,
+      "zip_crc32": 1429500996,
+      "preserved_byte_for_byte": true
+    },
+    "vendor/hpgl/api.h": {
+      "project_id": 86,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/hpgl/src/geo_bsd/_cvariogram/api.h",
+      "sha256": "02a38dafb6c29add52152cc9c7c87e57c6422f58e272416776b6be53e705b9fb",
+      "bytes": 2694,
+      "zip_crc32": 3528150293,
+      "preserved_byte_for_byte": true
+    },
+    "licenses/HPGL/license.txt": {
+      "project_id": 86,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/hpgl/license.txt",
+      "sha256": "e13ae61052fbd3cb1e5d6399f18d083a11ccbccb28ef6582f70125286d48eaad",
+      "bytes": 1483,
+      "zip_crc32": 3313734759,
+      "preserved_byte_for_byte": true
+    },
+    "licenses/HPGL/upstream-readme.md": {
+      "project_id": 86,
+      "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/hpgl/readme.md",
+      "sha256": "1f08d63c01555516e5918385d01d1ddf9242a4661c353de2f7e36efb1f0ab1b8",
+      "bytes": 1923,
+      "zip_crc32": 607734469,
+      "preserved_byte_for_byte": true
+    }
+  }
+}

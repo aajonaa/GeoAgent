@@ -1,0 +1,42 @@
+This installer brings Python, including its standard-library, and different external packages on your computer.  HydPy is only one of these packages and would not work well without the others.  So please respect all of the following individual licenses:
+
+Python: https://docs.python.org/license.html
+black: https://github.com/psf/black/blob/master/LICENSE
+certifi: https://github.com/certifi/python-certifi
+cftime: https://github.com/Unidata/cftime/blob/master/COPYING
+click: https://github.com/pallets/click/blob/main/LICENSE.rst
+click: https://github.com/pallets/click/blob/master/LICENSE.rst
+colorama: https://github.com/tartley/colorama/blob/master/LICENSE.txt
+contourpy: https://github.com/contourpy/contourpy/blob/main/LICENSE
+cycler: https://github.com/matplotlib/cycler/blob/master/LICENSE
+cython: https://github.com/cython/cython/blob/master/LICENSE.txt
+elementpath: https://github.com/sissaschool/elementpath/blob/master/LICENSE
+fonttools: https://github.com/fonttools/fonttools/blob/main/LICENSE
+hydpy: https://github.com/hydpy-dev/hydpy/blob/master/LICENSE
+inflect: https://github.com/jaraco/inflect/blob/main/pyproject.toml (MIT)
+kiwisolver: https://github.com/google/kiwi-solver/blob/master/LICENSE
+librt: https://github.com/mypyc/librt/blob/master/LICENSE
+matplotlib: https://matplotlib.org/users/license.html
+more_itertools: https://github.com/more-itertools/more-itertools/blob/master/LICENSE
+mypy: https://github.com/python/mypy/blob/master/LICENSE
+mypy_extensions: https://github.com/python/mypy_extensions/blob/master/LICENSE
+narwhals: https://github.com/narwhals-dev/narwhals/blob/main/LICENSE.md
+netcdf4: https://github.com/Unidata/netcdf4-python/blob/master/COPYING
+networkx: https://github.com/networkx/networkx/blob/master/LICENSE.txt
+numpy: https://www.numpy.org/license.html
+packaging: https://github.com/pypa/packaging/blob/master/LICENSE
+pandas: https://github.com/pandas-dev/pandas/blob/master/LICENSE
+pathspec: https://github.com/cpburnz/python-path-specification/blob/master/LICENSE
+pillow: https://github.com/python-pillow/Pillow/blob/master/LICENSE
+platformdirs: https://github.com/tox-dev/platformdirs/blob/main/LICENSE
+plotly: https://github.com/plotly/plotly.py/blob/master/LICENSE.txt
+pyparsing: https://github.com/pyparsing/pyparsing/blob/master/LICENSE
+python-dateutil: https://github.com/dateutil/dateutil/blob/master/LICENSE
+pytokens: https://github.com/tusharsadhwani/pytokens/blob/main/LICENSE
+scipy: https://www.scipy.org/scipylib/license.html
+setuptools: https://github.com/pypa/setuptools/blob/master/LICENSE
+six: https://github.com/benjaminp/six/blob/master/LICENSE
+typeguard: https://github.com/agronholm/typeguard/blob/master/LICENSE
+typing_extensions: https://github.com/python/typing_extensions/blob/main/LICENSE
+wrapt: https://github.com/GrahamDumpleton/wrapt/blob/develop/LICENSE
+xmlschema: https://github.com/sissaschool/xmlschema/blob/master/LICENSE

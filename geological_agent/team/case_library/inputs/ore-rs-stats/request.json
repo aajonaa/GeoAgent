@@ -1,0 +1,38 @@
+{
+  "case_id": "RS001",
+  "source_skill": "ore-rs-stats",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [],
+  "original_request": "request.original.json",
+  "context": {
+    "workflow": "actual_average_to_difference_to_summary",
+    "inputs": [
+      "A.tif",
+      "B.tif",
+      "C.tif"
+    ],
+    "reference": "reference.tif"
+  },
+  "input_path_bindings": [
+    {
+      "original": "A.tif",
+      "workspace": "A.tif",
+      "source": "ore-rs-stats-1.0.0-review1/tests/data/A.tif"
+    },
+    {
+      "original": "B.tif",
+      "workspace": "B.tif",
+      "source": "ore-rs-stats-1.0.0-review1/tests/data/B.tif"
+    },
+    {
+      "original": "C.tif",
+      "workspace": "C.tif",
+      "source": "ore-rs-stats-1.0.0-review1/tests/data/C.tif"
+    },
+    {
+      "original": "reference.tif",
+      "workspace": "reference.tif",
+      "source": "ore-rs-stats-1.0.0-review1/tests/data/reference.tif"
+    }
+  ]
+}

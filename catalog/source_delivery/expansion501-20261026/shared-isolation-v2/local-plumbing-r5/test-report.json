@@ -1,0 +1,38 @@
+{
+  "scope": "local_Windows_shared_plumbing_not_GPR_science_or_Linux",
+  "identity": {
+    "ready": true,
+    "python": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\venv\\Scripts\\python.exe",
+    "python_sha256": "8e11f5c0c4cdea438059feea1b750721929433374b389674c8368ae8bfcbf525",
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "jsonschema": "4.25.1",
+    "files_sha256": {
+      "geological_agent/geology/collection_contracts.py": "53e762929334bb3f6c10a40b65dd098684845a38bf9801652f79f063745720a3",
+      "geological_agent/geology/isolated_cpu_bridge_v2.py": "be6977a5babf9abea0fc87315809b3bd94761e80d45cf0184c6c5a43cf45095b",
+      "geological_agent/geology/isolated_cpu_worker_v2.py": "4ec33964902a1b0bd9bc81f49e4d800c47c2714e900e27612bf5658b4a87b66a",
+      "tests/test_isolated_cpu_bridge_v2.py": "2f629084d67e46c5bd457f4a0d53aec28d15243297fdf07fd1800df6953d3abb"
+    }
+  },
+  "original_41": {
+    "run_including_skips": 41,
+    "passed": 41,
+    "failures": [],
+    "errors": [],
+    "skipped": []
+  },
+  "new_gpr_plumbing_11": {
+    "run_including_skips": 11,
+    "passed": 11,
+    "failures": [],
+    "errors": [],
+    "skipped": []
+  },
+  "scientific_tests_executed": 0,
+  "GPR_calls_executed": 0,
+  "Linux_tests_executed": 0,
+  "remote_operations": 0,
+  "dependency_installs": 0,
+  "group_metadata_modified": false,
+  "production_profiles_created": 0,
+  "exit_code": 0
+}

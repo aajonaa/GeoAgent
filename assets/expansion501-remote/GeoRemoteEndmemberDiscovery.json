@@ -1,0 +1,48 @@
+{
+  "grid": {
+    "crs": "EPSG:32650",
+    "affine": [
+      10,
+      0,
+      500000,
+      0,
+      -10,
+      3400000
+    ],
+    "nodata": null,
+    "mask": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "image": [
+    [
+      [
+        1,
+        0
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ]
+  ],
+  "endmember_count": 2,
+  "image_unit": "reflectance_fraction"
+}

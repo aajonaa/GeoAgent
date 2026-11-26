@@ -1,0 +1,291 @@
+{
+  "group": "remote",
+  "operations": [
+    {
+      "tool_id": "GeoSARCoherentChange",
+      "capability_key": "remote:coherent-change",
+      "upstream_callable": "sarpy.processing.sicd.ccd.mem",
+      "scientific_task": "SAR complex coherent-change magnitude and phase",
+      "distinct_from_existing": "Complex co-registered SLC neighborhood coherence and interferometric correlation phase; distinct from optical image differences, scalar correlation statistics and multi-date displacement inversion.",
+      "numeric_oracle": "For reference=2 and secondary=5*exp(i*pi/3), complex normalized correlation=sum(conj(2)*secondary)/sqrt(sum(4)*sum(25))=exp(i*pi/3). Its magnitude is 1, phase pi/3, and a 7x9 tile with a 3x3 full window has (7-2)*(9-2)=35 valid pixels.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemotePhaseUnwrap",
+      "capability_key": "remote:phase-unwrap",
+      "upstream_callable": "skimage.restoration.unwrap_phase",
+      "scientific_task": "Two-dimensional wrapped-phase recovery",
+      "distinct_from_existing": "Phase branch recovery is distinct from accepted image registration, filtering, SAM and continuum operations.",
+      "numeric_oracle": "The analytic phase ramp increments pi/2 per column; seven increments equal 7*pi/2. Absolute 2*pi offset is deliberately not asserted.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteBrightnessTemperature",
+      "capability_key": "remote:brightness-temperature",
+      "upstream_callable": "pyspectral.blackbody.blackbody_rad2temp",
+      "scientific_task": "Monochromatic thermal brightness temperature",
+      "distinct_from_existing": "Physical thermal-radiance inversion, not optical reflectance/index calculation.",
+      "numeric_oracle": "Independent forward SI Planck law at wavelength 10 um, T=300 K; tolerance allows upstream historical h/k constants.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteGaussianClassify",
+      "capability_key": "remote:gaussian-classify",
+      "upstream_callable": "spectral.algorithms.classifiers.GaussianClassifier.classify_spectrum",
+      "scientific_task": "Supervised Gaussian spectral classification",
+      "distinct_from_existing": "Supervised full-covariance class likelihood, unlike accepted unsupervised reduction, target detection or SAM matching.",
+      "numeric_oracle": "Equal-prior equal-covariance classes centered at (.2,.2) and (.6,.2); query at second mean must have class 2.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteEndmemberDiscovery",
+      "capability_key": "remote:endmember-discovery",
+      "upstream_callable": "spectral.algorithms.algorithms.smacc",
+      "scientific_task": "SMACC data-derived endmember discovery",
+      "distinct_from_existing": "Discovers extreme spectra without supplied endmembers; differs from existing supervised unmixing and library identification.",
+      "numeric_oracle": "Orthogonal unit spectral rays are exact extreme vectors; midpoint=(.5,.5) has analytic coefficients .5,.5 regardless of endpoint ordering.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteClassSeparability",
+      "capability_key": "remote:class-separability",
+      "upstream_callable": "spectral.algorithms.algorithms.bdist",
+      "scientific_task": "Gaussian training-class separability",
+      "distinct_from_existing": "Distribution-level training separability, not per-pixel Gaussian classification, spectral angle, or generic vector distance.",
+      "numeric_oracle": "Both four-corner classes have sample covariance (.04/3) I and mean difference (.4,0); D=(1/8)*.16/(.04/3)=1.5; log-determinant term is zero.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteDenseOpticalFlow",
+      "capability_key": "remote:dense-optical-flow",
+      "upstream_callable": "skimage.registration.optical_flow_tvl1",
+      "scientific_task": "Dense spatially varying optical image motion",
+      "distinct_from_existing": "Dense local displacement field differs from accepted global Fourier phase-correlation registration.",
+      "numeric_oracle": "Moving image analytically samples reference at (row-1,col-2), so reference-to-moving displacement is (1,2). Approximate variational convergence remains unverified.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteProjectiveTiePoints",
+      "capability_key": "remote:projective-tie-points",
+      "upstream_callable": "skimage.transform.ProjectiveTransform.from_estimate",
+      "scientific_task": "Projective tie-point camera registration",
+      "distinct_from_existing": "Perspective camera homography from paired control points, not geodetic CRS transformation or global translation.",
+      "numeric_oracle": "Known homography [[1,0,2],[0,1,3],[.1,0,1]] maps (10,4) to (12/2,7/2).",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteTemplateLocate",
+      "capability_key": "remote:template-locate",
+      "upstream_callable": "skimage.feature.match_template",
+      "scientific_task": "Normalized spatial-template localization",
+      "distinct_from_existing": "Local shape localization by normalized correlation differs from accepted image-wide registration and histogram matching.",
+      "numeric_oracle": "A nonconstant template is copied exactly at upper-left (3,4), hence normalized covariance correlation is one there.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteScaleSpaceBlobs",
+      "capability_key": "remote:scale-space-blobs",
+      "upstream_callable": "skimage.feature.blob_log",
+      "scientific_task": "LoG scale-space bright-feature detection",
+      "distinct_from_existing": "Joint position/scale extrema differ from accepted morphology, texture or watershed segmentation.",
+      "numeric_oracle": "Scale-normalized LoG response for a continuous 2-D Gaussian is extremal at its analytic sigma=3; center symmetry fixes (32,32). Discrete approximation unverified.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteHoughLineEvidence",
+      "capability_key": "remote:hough-line-evidence",
+      "upstream_callable": "skimage.transform.hough_line",
+      "scientific_task": "Hough voting evidence for straight image lineaments",
+      "distinct_from_existing": "Global parametric line voting differs from accepted morphological ridge enhancement; output is evidence, not mapped faults.",
+      "numeric_oracle": "Every one of ten edge points satisfies x cos(0)+y sin(0)=3; exactly ten votes.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteWaveletPyramid",
+      "capability_key": "remote:wavelet-pyramid",
+      "upstream_callable": "pywt.wavedec2",
+      "scientific_task": "Multiscale Haar directional image decomposition",
+      "distinct_from_existing": "Returns a multiresolution directional coefficient hierarchy, not accepted wavelet denoising or a generic image transform.",
+      "numeric_oracle": "The separable orthonormal Haar lowpass sums four ones with weight 1/2, yielding 2; squared energy=4.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoSARDopplerDeskew",
+      "capability_key": "remote:doppler-deskew",
+      "upstream_callable": "sarpy.processing.sicd.normalize_sicd.apply_skew_poly",
+      "scientific_task": "SICD azimuth Doppler polynomial deskew",
+      "distinct_from_existing": "SAR Doppler-centroid phase removal using SICD polynomial coordinates; not generic phase unwrap or geometric terrain correction.",
+      "numeric_oracle": "Integral of constant .25 cycles/m is .25*r cycles; exp(-i*pi*r/2) cancels the input chirp 2 exp(i*pi*r/2).",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoSARSubaperture",
+      "capability_key": "remote:subaperture",
+      "upstream_callable": "sarpy.processing.sicd.subaperture.subaperture_processing_array",
+      "scientific_task": "SAR azimuth subaperture formation",
+      "distinct_from_existing": "Forms a partial synthetic aperture from complex SLC frequency support, unlike optical smoothing or image pyramids.",
+      "numeric_oracle": "The 8-point constant signal has FFT magnitude 16 at centered index 4; selected interval [2,6) places it at local bin2, inverse length8 produces amplitude2 and reindexed carrier.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteTOAReflectance",
+      "capability_key": "remote:toa-reflectance",
+      "upstream_callable": "OTB OpticalCalibration application",
+      "scientific_task": "Sensor gain/bias top-of-atmosphere reflectance",
+      "distinct_from_existing": "Sensor gain/bias plus solar geometry radiometric calibration, not an index, band resampling or histogram bias correction.",
+      "numeric_oracle": "L=DN/gain+bias=2; rho=pi*L*d^2/(ESUN*sin(sun_elevation))=2*pi/(20*pi)=.1.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemotePansharpenFusion",
+      "capability_key": "remote:pansharpen-fusion",
+      "upstream_callable": "OTB Pansharpening application (method rcs)",
+      "scientific_task": "Ratio-component panchromatic multispectral fusion",
+      "distinct_from_existing": "Cross-resolution radiometric fusion using PAN detail, not generic resampling, band resampling or registration.",
+      "numeric_oracle": "Constant PAN divided by its normalized lowpass is one; RCS leaves constant reflectance bands unchanged.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoRemoteMADChange",
+      "capability_key": "remote:mad-change",
+      "upstream_callable": "OTB MultivariateAlterationDetector application",
+      "scientific_task": "Canonical multivariate radiometric change",
+      "distinct_from_existing": "Canonical multiband change contrasts differ from accepted PCA, anomaly detection and image differences; geological alteration is not inferred.",
+      "numeric_oracle": "Independent orthogonal sign contrasts construct equal covariance and diagonal cross-correlations .5,.25. Unit-variance canonical differences have variance 2(1-rho), i.e.1 and1.5; no sign assertion.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoSARPolarimetricHAlpha",
+      "capability_key": "remote:polarimetric-halpha",
+      "upstream_callable": "OTB SARDecompositions application (decomp haa)",
+      "scientific_task": "Reciprocal polarimetric entropy/alpha decomposition",
+      "distinct_from_existing": "Polarimetric coherency eigenscattering diagnostics require coherent HH/HV/VV; distinct from grayscale image entropy/texture.",
+      "numeric_oracle": "Three repeated Pauli vectors (3,0,0),(0,sqrt6,0),(0,0,sqrt3) have 9x9 coherency diag(3,2,1), probabilities(1/2,1/3,1/6), H=.9206198357, mean alpha45deg, A=1/3 (upstream denominator stabilization tolerance).",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoSARPolarizationSynthesis",
+      "capability_key": "remote:polarization-synthesis",
+      "upstream_callable": "OTB SARPolarSynth application",
+      "scientific_task": "Arbitrary transmit/receive polarization synthesis",
+      "distinct_from_existing": "Scattering-matrix antenna polarization response differs from H-alpha decomposition and scalar radar intensity calibration.",
+      "numeric_oracle": "Identity scattering matrix and horizontal Jones transmit/receive vectors give |[1,0] S [1,0]^T|^2=1.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoInSARNetworkDisplacement",
+      "capability_key": "remote:network-displacement",
+      "upstream_callable": "mintpy.ifgram_inversion.estimate_timeseries + mintpy.objects.ifgramStack.get_design_matrix4timeseries",
+      "scientific_task": "Connected unwrapped InSAR network displacement",
+      "distinct_from_existing": "Multi-date connected interferogram inversion differs from accepted single-image phase processing and geophysical displacement models.",
+      "numeric_oracle": "Triangle observations -1,-1,-2 rad imply phases0,-1,-2. Wavelength=4*pi*.01 m gives LOS displacement0,.01,.02 m and zero closure residual.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoInSARResidualDEM",
+      "capability_key": "remote:residual-dem",
+      "upstream_callable": "mintpy.dem_error.estimate_dem_error",
+      "scientific_task": "InSAR residual topographic-height error estimation",
+      "distinct_from_existing": "Fits topographic residual coupled to acquisition baselines, not DEM terrain derivatives or generic detrending.",
+      "numeric_oracle": "Synthetic displacement=.01*t + baseline/(800000*sin30deg)*20. Independent noncollinear baseline design separates height20m from linear motion.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoInSARIonosphericDelay",
+      "capability_key": "remote:ionospheric-delay",
+      "upstream_callable": "mintpy.ifgram_inversion.estimate_timeseries (fixed split-spectrum ionosphere workflow)",
+      "scientific_task": "Split-spectrum ionospheric network correction",
+      "distinct_from_existing": "Corrects a dispersive propagation component using a separately processed split-spectrum product, rather than rebranding ordinary displacement inversion.",
+      "numeric_oracle": "Independent additive model measured=.06 m, split-spectrum ionospheric delay=.02 m from closed phase triangle; corrected=.04 m.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoInSARPlateFrameCorrection",
+      "capability_key": "remote:plate-frame-correction",
+      "upstream_callable": "mintpy.objects.euler_pole.EulerPole.get_velocity_enu + mintpy.utils.utils.get_unit_vector4component_of_interest",
+      "scientific_task": "Rigid tectonic-plate reference-frame removal",
+      "distinct_from_existing": "Physical Euler-pole reference-frame correction of observed LOS velocity, not coordinate reprojection or synthetic source deformation.",
+      "numeric_oracle": "At equator/Greenwich on WGS84, rotation omega_z=1mas/year gives east speed a*omega_z, a=6378137m. Cartesian cross product independently determines positive east speed.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoInSARAscDescDecomposition",
+      "capability_key": "remote:asc-desc-decomposition",
+      "upstream_callable": "mintpy.asc_desc2horz_vert.asc_desc2horz_vert",
+      "scientific_task": "Ascending/descending LOS horizontal-vertical separation",
+      "distinct_from_existing": "Combines two viewing geometries to recover constrained ground-motion components, unlike image registration and scalar LOS corrections.",
+      "numeric_oracle": "Independent LOS projection d1=.5*.02+cos30*.03,d2=-.5*.02+cos30*.03. Sum/difference uniquely recover east.02m/up.03m.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoInSAREnvisatOscillatorCorrection",
+      "capability_key": "remote:envisat-oscillator-correction",
+      "upstream_callable": "mintpy.local_oscilator_drift.correct_local_oscilator_drift",
+      "scientific_task": "ENVISAT local oscillator drift correction",
+      "distinct_from_existing": "ENVISAT-specific instrument drift term depends on range and acquisition date; not generic ramp removal.",
+      "numeric_oracle": "MintPy decimal-year increment between Jan1 2005 and Jan1 2006 is one. Independent instrument model correction=1000m*3.87e-7/year=.000387m; .001-.000387=.000613.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    },
+    {
+      "tool_id": "GeoInSARCoherenceNetworkSelection",
+      "capability_key": "remote:coherence-network-selection",
+      "upstream_callable": "mintpy.modify_network.get_mst_date12",
+      "scientific_task": "Coherence-threshold interferogram network with MST retention",
+      "distinct_from_existing": "Acquisition-pair selection preserving network invertibility, not generic spatial graph/MST utilities or the inversion itself.",
+      "numeric_oracle": "Triangle inverse-coherence weights1/.9,1/.8,10 give the unique MST with first two edges; threshold.85 cannot remove required middle MST edge.",
+      "status": "source_revised_unverified",
+      "formal_eligible": false,
+      "review_status": "acceptance_pending"
+    }
+  ]
+}

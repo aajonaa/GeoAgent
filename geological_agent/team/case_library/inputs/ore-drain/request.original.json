@@ -1,0 +1,6 @@
+{
+  "mode": "direct",
+  "tool": "GeoSpatialDepressionFill",
+  "data": "../data/c001.json",
+  "transport": "dict"
+}

@@ -1,0 +1,352 @@
+{
+  "operations": [
+    {
+      "id": "GeoSpatialFlowNetworkUpscaleIHU",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls pyflwdir.pyflwdir.FlwdirRaster.upscale with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialFloodplainStageStorage",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls pyflwdir.pyflwdir.FlwdirRaster.ucat_volume with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialCoverageSimplification",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls shapely.coverage_simplify with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialConservativeArealTransfer",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls tobler.area_weighted.area_interpolate with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialGroundwaterZoneBudget",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls flopy.utils.ZoneBudget.get_budget with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialDarcySpecificDischarge",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls flopy.utils.postprocessing.get_specific_discharge with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialScreenedTransmissivity",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls flopy.utils.postprocessing.get_transmissivities with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialRPCGeolocation",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls rasterio.transform.RPCTransformer.xy with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialGCPGeoreferencing",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls rasterio.transform.GCPTransformer.xy with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialLocalHeteroscedasticity",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls esda.losh.LOSH.fit with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialContiguousRegionalization",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls spopt.region.Skater.solve with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialKnoxSpaceTimeInteraction",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls pointpats.spacetime.Knox with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialRipleyKObservedWindow",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls pointpats.distance_statistics.k with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialRegionBoundarySilhouette",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls esda.silhouettes.boundary_silhouette with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialLineworkPolygonTopology",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls shapely.polygonize_full with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialChannelFrechetDeviation",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls shapely.frechet_distance with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialEventKernelDensity",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls sklearn.neighbors.KernelDensity.score_samples with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialDensityConnectedSiteClusters",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls sklearn.cluster.DBSCAN.fit_predict with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialHillslopeDiffusionStep",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.LinearDiffuser.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialStreamPowerErosionStep",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.FastscapeEroder.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialChannelChiCoordinate",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.ChiFinder.calculate_chi with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialUnconfinedGroundwaterStep",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.GroundwaterDupuitPercolator.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialOverlandFlowStep",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.OverlandFlow.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoMarineCarbonateAccretion",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.CarbonateProducer.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRegolithProductionRate",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.ExponentialWeatherer.calc_soil_prod_rate with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoLithosphereFlexure",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.Flexure.update with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSedimentTracerDiffusion",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.ConcentrationTrackerForDiffusion.start_tracking + landlab.components.DepthDependentDiffuser.run_one_step + landlab.components.ConcentrationTrackerForDiffusion.stop_tracking with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSpatialDemandWeightedFacilitySiting",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialMinimumCoverageFacilitySet",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialPointCloudGroundClassification",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialPointCloudHeightAboveGround",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialRigidPointCloudRegistration",
+      "state": "blocked",
+      "reason": "Concrete bounded native kernel, closed pending schema and synthetic example authored; not registered. Fixed v2 binding, native closure and scientific acceptance are still missing.",
+      "blockers": [
+        "v2_native_profile_binding_pending",
+        "native_binary_and_transitive_license_closure_missing",
+        "native_scientific_acceptance_not_run"
+      ]
+    },
+    {
+      "id": "GeoSpatialTerrainViewshed",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialTerrainSolarIrradiance",
+      "state": "blocked",
+      "reason": "Concrete bounded native kernel, closed pending schema and synthetic example authored; not registered. Fixed v2 binding, native closure and scientific acceptance are still missing.",
+      "blockers": [
+        "v2_native_profile_binding_pending",
+        "native_binary_and_transitive_license_closure_missing",
+        "native_scientific_acceptance_not_run"
+      ]
+    },
+    {
+      "id": "GeoSpatialSIMWESedimentTransport",
+      "state": "blocked",
+      "reason": "Concentration particle/m3 versus mass-flux kg/(m*s) needs a reviewed physical definition and boundary/terminal-time mass-accounting reference; full stochastic state interface is incomplete.",
+      "blockers": [
+        "scientific_adapter_incomplete",
+        "reviewed_physical_or_native_evidence_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialAquiferSoluteTransport",
+      "state": "blocked",
+      "reason": "Pinned nonzero q terms have -q/nf on diagonal and +q/nf*cin on RHS; conventional source/sink semantics need independent physical resolution before conservative state claims.",
+      "blockers": [
+        "scientific_adapter_incomplete",
+        "reviewed_physical_or_native_evidence_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialGeomorphonLandforms",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialRainfallErosivityFactor",
+      "state": "blocked",
+      "reason": "Chosen empirical formula, regional calibration domain and independent reference oracle are not established; no guessed formula or placeholder wrapper.",
+      "blockers": [
+        "scientific_adapter_incomplete",
+        "reviewed_physical_or_native_evidence_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialIndividualTreeSegmentation",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialLidarSensorTrajectoryRecovery",
+      "state": "blocked",
+      "reason": "Pinned trajectory Ceres solver summary is discarded; reviewed plugin/Ceres closure and a trustworthy convergence/identifiability acceptance criterion remain missing.",
+      "blockers": [
+        "scientific_adapter_incomplete",
+        "reviewed_physical_or_native_evidence_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialNavigationBasedLidarGeoreference",
+      "state": "blocked",
+      "reason": "Concrete bounded native kernel, closed pending schema and synthetic example authored; not registered. Fixed v2 binding, native closure and scientific acceptance are still missing.",
+      "blockers": [
+        "v2_native_profile_binding_pending",
+        "native_binary_and_transitive_license_closure_missing",
+        "native_scientific_acceptance_not_run"
+      ]
+    },
+    {
+      "id": "GeoSpatialPointCloudMorphologyDescriptors",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ]
+    },
+    {
+      "id": "GeoSpatialSurveyPoissonSurface",
+      "state": "blocked",
+      "reason": "Concrete bounded native kernel, closed pending schema and synthetic example authored; not registered. Fixed v2 binding, native closure and scientific acceptance are still missing.",
+      "blockers": [
+        "v2_native_profile_binding_pending",
+        "native_binary_and_transitive_license_closure_missing",
+        "native_scientific_acceptance_not_run"
+      ]
+    },
+    {
+      "id": "GeoBedrockLandslideEvolution",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "exact_local_scientific_dependencies_unavailable"
+      ]
+    },
+    {
+      "id": "GeoTidalCycleFlow",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "exact_local_scientific_dependencies_unavailable"
+      ]
+    },
+    {
+      "id": "GeoRiverSedimentParcelTransport",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "exact_local_scientific_dependencies_unavailable"
+      ]
+    }
+  ]
+}

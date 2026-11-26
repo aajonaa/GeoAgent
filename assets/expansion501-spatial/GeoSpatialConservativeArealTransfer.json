@@ -1,0 +1,23 @@
+{
+  "crs": "EPSG:32631",
+  "source_wkt": [
+    "POLYGON ((0 0, 2 0, 2 1, 0 1, 0 0))",
+    "POLYGON ((2 0, 4 0, 4 1, 2 1, 2 0))"
+  ],
+  "target_wkt": [
+    "POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))",
+    "POLYGON ((1 0, 2 0, 2 1, 1 1, 1 0))",
+    "POLYGON ((2 0, 3 0, 3 1, 2 1, 2 0))",
+    "POLYGON ((3 0, 4 0, 4 1, 3 1, 3 0))"
+  ],
+  "source_totals": [
+    100,
+    200
+  ],
+  "quantity_unit": "kg",
+  "units": {
+    "geometry_coordinates": "m",
+    "source_totals": "declared_quantity_unit"
+  }
+}
+

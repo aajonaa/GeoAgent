@@ -1,0 +1,43 @@
+{
+  "legal_certification_or_redistribution_approval": false,
+  "license_review_complete": true,
+  "reviewed_original_files": [
+    {
+      "distribution": "mypy_extensions",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/tortuosity/venv/lib/python3.12/site-packages/mypy_extensions-1.1.0.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/tortuosity/licenses/mypy-extensions/mypy_extensions-1.1.0.dist-info/licenses/LICENSE",
+      "review": "Read original 1.1.0 wheel LICENSE: MIT, Jukka Lehtosalo and contributors 2016-2017; preserve copyright, permission notice and disclaimer.",
+      "sha256": "a50450da1d53cd777b80ced77c58ff96abe0ccd879706bd142c3ec20e245f0b4",
+      "version": "1.1.0"
+    },
+    {
+      "distribution": "openpnm",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/tortuosity/venv/lib/python3.12/site-packages/openpnm-3.6.1.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/tortuosity/licenses/openpnm/openpnm-3.6.1.dist-info/licenses/LICENSE",
+      "review": "Read frozen upstream LICENSE: MIT, PMEAL 2018; retain copyright and permission notice, with warranty/liability disclaimer.",
+      "sha256": "3709ce6a6e141c6a4dfcb81150ad2d04d3f5097f2dad92fe9f9f8b3a8230c42c",
+      "version": "3.6.1"
+    },
+    {
+      "distribution": "porespy",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/tortuosity/venv/lib/python3.12/site-packages/porespy-3.2.0.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/tortuosity/licenses/porespy/porespy-3.2.0.dist-info/licenses/LICENSE",
+      "review": "Read original pinned-wheel LICENSE: PMEAL Group 2019 MIT; retain copyright and permission notice and warranty/liability disclaimer.",
+      "sha256": "a4ed0b7a3121b0170148f83c84782229a42b52a0b0fd6b04ae109e089d741d4b",
+      "version": "3.2.0"
+    },
+    {
+      "distribution": "porespy",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/tortuosity/venv/lib/python3.12/site-packages/porespy-3.2.0.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/tortuosity/licenses/porespy/porespy-3.2.0.dist-info/licenses/LICENSE",
+      "qualification": "Original license shipped in the pinned published artifact. Reviewed repository commit is separately recorded; no wheel/commit byte-equivalence asserted. ",
+      "review": "Read original pinned-wheel LICENSE: PMEAL Group 2019 MIT; retain copyright and permission notice and warranty/liability disclaimer.",
+      "sha256": "a4ed0b7a3121b0170148f83c84782229a42b52a0b0fd6b04ae109e089d741d4b",
+      "source_commit": "916fdc135bfb08d84b8d9173d6de9174ff217e5d",
+      "url": "https://files.pythonhosted.org/packages/cd/31/322eb764600bdf7e695201fe24b4e42d9422025f248ea69e6b0761148f64/porespy-3.2.0-py3-none-any.whl",
+      "version": "3.2.0"
+    }
+  ],
+  "scope": "Original frozen upstream files read; published wheels and reviewed commits are distinct identities. No legal certification or redistribution approval asserted.",
+  "tool_id": "Geo500PoreDiffusionTortuosity"
+}

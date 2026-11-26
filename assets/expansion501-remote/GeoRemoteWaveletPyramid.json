@@ -1,0 +1,36 @@
+{
+  "grid": {
+    "crs": "EPSG:32650",
+    "affine": [
+      10,
+      0,
+      500000,
+      0,
+      -10,
+      3400000
+    ],
+    "nodata": null,
+    "mask": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "image": [
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "level": 1,
+  "image_unit": "relative_intensity"
+}

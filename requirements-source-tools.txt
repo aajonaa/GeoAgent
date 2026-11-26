@@ -1,7 +1,7 @@
 # CPU dependencies for original structured scientific implementations.
 jsonschema==4.23.0
 numpy==2.1.3
-pandas==2.2.3
+pandas==2.3.0
 Pillow==11.1.0
 rasterio==1.4.3
 requests==2.32.3
@@ -11,3 +11,4 @@ PyKrige==1.7.3
 exactextract==0.3.0
 pymannkendall==1.4.3
 shapely==2.1.2
+rdflib==7.6.0

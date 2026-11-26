@@ -1,0 +1,66 @@
+{
+  "skill_id": "xiaoyu_xrd_annotation",
+  "archive_sha256": "6044cdfb052f4853d85a5929608555b53ca6294891a51fc7747cc7f29028c8b5",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1068,
+      "sha256": "cc1eed55da5b541bd6d6b5b22806183a831ca9fcb850d09bd8d89cb17ab7d902",
+      "origins": [
+        {
+          "package_number": 108,
+          "archive_sha256": "382d40bb643c49669f38f472ba779bb7a6535507de2df4e3ed4181c3f133e15d",
+          "member": "xrd-annotation/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 1865,
+      "sha256": "239e61becd86b77d20e6893c1b60586a0b754912fcc5f702c08a9621e9d3a27f",
+      "origins": [
+        {
+          "package_number": 108,
+          "archive_sha256": "382d40bb643c49669f38f472ba779bb7a6535507de2df4e3ed4181c3f133e15d",
+          "member": "xrd-annotation/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 2604,
+      "sha256": "8e86e8d7250eaf32fe3d6ad85c007c0900d8153ba08ce04fa13be412142795ef",
+      "origins": [
+        {
+          "package_number": 108,
+          "archive_sha256": "382d40bb643c49669f38f472ba779bb7a6535507de2df4e3ed4181c3f133e15d",
+          "member": "xrd-annotation/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1068,
+      "sha256": "cc1eed55da5b541bd6d6b5b22806183a831ca9fcb850d09bd8d89cb17ab7d902",
+      "origins": [
+        {
+          "package_number": 108,
+          "archive_sha256": "382d40bb643c49669f38f472ba779bb7a6535507de2df4e3ed4181c3f133e15d",
+          "member": "xrd-annotation/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "scripts/annotate.py",
+      "bytes": 17302,
+      "sha256": "a43f7053fe4326668f83468c7d8ce31f7474caf64d59c09de407c401e8715dfa",
+      "origins": [
+        {
+          "package_number": 108,
+          "archive_sha256": "382d40bb643c49669f38f472ba779bb7a6535507de2df4e3ed4181c3f133e15d",
+          "member": "xrd-annotation/scripts/annotate.py"
+        }
+      ]
+    }
+  ]
+}

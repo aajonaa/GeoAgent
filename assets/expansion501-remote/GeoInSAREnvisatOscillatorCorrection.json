@@ -1,0 +1,72 @@
+{
+  "grid": {
+    "crs": "EPSG:4326",
+    "affine": [
+      0.01,
+      0,
+      109.995,
+      0,
+      -0.01,
+      30.005
+    ],
+    "nodata": null,
+    "mask": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "sar": {
+    "state": "coregistered_unwrapped_insar",
+    "processing_provenance": "SYNTHETIC analytic already-unwrapped/coregistered SAR fixture, not an RGB observation",
+    "wavelength_m": 0.056,
+    "los_convention": "positive_toward_sensor"
+  },
+  "dates": [
+    "20050101",
+    "20060101"
+  ],
+  "displacement_unit": "m",
+  "los_displacement_m": [
+    [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0.001
+      ],
+      [
+        0.001,
+        0.001
+      ]
+    ]
+  ],
+  "slant_range_m": [
+    [
+      800000,
+      801000
+    ],
+    [
+      801000,
+      801000
+    ]
+  ],
+  "reference_pixel": [
+    0,
+    0
+  ],
+  "platform": "ENVISAT"
+}

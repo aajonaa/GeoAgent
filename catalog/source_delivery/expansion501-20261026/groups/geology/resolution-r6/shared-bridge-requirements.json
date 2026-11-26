@@ -1,0 +1,118 @@
+{
+  "owner": "parent/Ramanujan",
+  "bridge": "isolated_cpu_bridge_v2.py + worker_v2.py",
+  "status": "requirements_only_not_a_second_bridge",
+  "dependency_hook": "After strict input/schema validation and before main-interpreter _dependencies: only an administrator-approved fixed tool/profile binding may dispatch. The authenticated child executes the ordinary operation wrapper and checks every real declared dependency. A user environment marker alone must not authorize recursion bypass.",
+  "result_path": "Parent validates real exit code, bounded live stdout/stderr, matching request/tool/profile/identity, finite closed output schema and empty artifacts. Preserve the child's installed_versions and input/implementation/contract hashes; do not overwrite them with main-environment versions.",
+  "existing_bridge_insufficiency": "Accepted native_cpu_bridge is JSON-only but has fixed accepted profiles, four-thread defaults, post-capture stream limits and different provenance envelope. Do not mutate accepted profiles or use it as an unverified generic bridge.",
+  "profiles": {
+    "expansion501-geology-conditional-cpu-v1": {
+      "tool_ids": [
+        "GeoConditionedResourceEnsemble"
+      ],
+      "kind": "expansion501_geology",
+      "entrypoint": "geological_agent.geology.expansion501_geology:conditioned_resource_ensemble",
+      "argument_parameter": "args",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "scikit-learn==1.7.2"
+      ],
+      "python": "3.12.*",
+      "requirements_file": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-conditional.txt",
+      "environment": {
+        "GEOAGENT_EXPANSION501_GEOLOGY_CPU": "expansion501-geology-cpu-v1",
+        "CUDA_VISIBLE_DEVICES": "",
+        "NVIDIA_VISIBLE_DEVICES": "void",
+        "HIP_VISIBLE_DEVICES": "",
+        "ROCR_VISIBLE_DEVICES": "",
+        "ZE_AFFINITY_MASK": "",
+        "JAX_PLATFORMS": "cpu",
+        "GEMPY_USE_GPU": "False",
+        "GEMPY_GPU_FALLBACK": "False",
+        "MPLBACKEND": "Agg",
+        "OMP_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "NUMEXPR_NUM_THREADS": "2",
+        "VECLIB_MAXIMUM_THREADS": "2",
+        "BLIS_NUM_THREADS": "2",
+        "PYTHONNOUSERSITE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "limits": {
+        "stdout_bytes": 4194304,
+        "stderr_bytes": 65536,
+        "wall_seconds": 120,
+        "memory_bytes": 2147483648
+      },
+      "transport": "JSON-only; no output_dir, artifact paths, user program, module, function, argv or environment.",
+      "artifacts": [],
+      "main_runtime_integration": "pending_parent_v2",
+      "runtime_and_entry_hashes": "parent_must_bind_verified_absolute_private_interpreter_and_source_hashes",
+      "full_transitive_lock": "pending"
+    },
+    "expansion501-geology-tortuosity-cpu-v1": {
+      "tool_ids": [
+        "Geo500PoreDiffusionTortuosity"
+      ],
+      "kind": "expansion501_geology",
+      "entrypoint": "geological_agent.geology.expansion501_geology:pore_diffusion_tortuosity",
+      "argument_parameter": "args",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.16.2",
+        "pandas==2.3.2",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "porespy==3.2.0",
+        "openpnm==3.6.1",
+        "pyamg==5.3.0",
+        "numba==0.68.0",
+        "scikit-image==0.26.0"
+      ],
+      "python": "3.12.*",
+      "requirements_file": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-tortuosity.txt",
+      "environment": {
+        "GEOAGENT_EXPANSION501_GEOLOGY_CPU": "expansion501-geology-cpu-v1",
+        "CUDA_VISIBLE_DEVICES": "",
+        "NVIDIA_VISIBLE_DEVICES": "void",
+        "HIP_VISIBLE_DEVICES": "",
+        "ROCR_VISIBLE_DEVICES": "",
+        "ZE_AFFINITY_MASK": "",
+        "JAX_PLATFORMS": "cpu",
+        "GEMPY_USE_GPU": "False",
+        "GEMPY_GPU_FALLBACK": "False",
+        "MPLBACKEND": "Agg",
+        "OMP_NUM_THREADS": "2",
+        "OPENBLAS_NUM_THREADS": "2",
+        "MKL_NUM_THREADS": "2",
+        "NUMEXPR_NUM_THREADS": "2",
+        "VECLIB_MAXIMUM_THREADS": "2",
+        "BLIS_NUM_THREADS": "2",
+        "PYTHONNOUSERSITE": "1",
+        "PYTHONDONTWRITEBYTECODE": "1"
+      },
+      "limits": {
+        "stdout_bytes": 4194304,
+        "stderr_bytes": 65536,
+        "wall_seconds": 120,
+        "memory_bytes": 2147483648
+      },
+      "transport": "JSON-only; no output_dir, artifact paths, user program, module, function, argv or environment.",
+      "artifacts": [],
+      "main_runtime_integration": "pending_parent_v2",
+      "runtime_and_entry_hashes": "parent_must_bind_verified_absolute_private_interpreter_and_source_hashes",
+      "full_transitive_lock": "pending"
+    }
+  },
+  "oxygen_profile": {
+    "existing_profile": "chemistry",
+    "tool_id": "Geo500MineralOxygenBasisFormula",
+    "requirements_file": "catalog/source_delivery/expansion501-20261026/groups/geology/requirements-chemistry.txt",
+    "change": "Explicit periodictable-2.1.0-elemental input/output convention; original profile pins unchanged."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "tests": 70,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "passed": true,
+  "failure_details": [],
+  "registration": "real source_registry from real catalog, not manual prototype registration",
+  "decorator": "unchanged shared collection_contracts.operation",
+  "direct_dict_JSON_args": true,
+  "native_ToolExecutor": true,
+  "fixed_entry": true,
+  "source_SHA_AST_JIT_numeric_and_unit_checks_retained": true,
+  "source_project_id": 43,
+  "coverage_kind": "original_bounded_operation",
+  "full_Wflow_system_equivalence": false,
+  "parent_count_delta": 0,
+  "production_or_joint_candidate_changed": false,
+  "GPU_used": false,
+  "models_used": false
+}

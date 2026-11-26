@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_well_log_evaluation",
+  "archive_sha256": "099ce8173a943823375fa553e25b53e417ce9af743025d20a46374f62da6cc81",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 41,
+          "archive_sha256": "93f186d0cbb98c92ea52454e5ea3fa96c7dbd1edb136e31650bbb85b9b5e1a18",
+          "member": "well-log-evaluation/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 813,
+      "sha256": "b1847fec145e02db7e0c5512cc5712c659fc8772bfe2071ba1de7a25d1efe4ea",
+      "origins": [
+        {
+          "package_number": 41,
+          "archive_sha256": "93f186d0cbb98c92ea52454e5ea3fa96c7dbd1edb136e31650bbb85b9b5e1a18",
+          "member": "well-log-evaluation/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 12062,
+      "sha256": "93c064c88fff560aa1819a0f858c623c279c2f9fe2324d7dfda22c093704e786",
+      "origins": [
+        {
+          "package_number": 41,
+          "archive_sha256": "93f186d0cbb98c92ea52454e5ea3fa96c7dbd1edb136e31650bbb85b9b5e1a18",
+          "member": "well-log-evaluation/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

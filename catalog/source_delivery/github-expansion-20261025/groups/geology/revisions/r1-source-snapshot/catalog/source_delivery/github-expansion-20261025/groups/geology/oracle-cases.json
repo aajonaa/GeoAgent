@@ -1,0 +1,2884 @@
+{
+  "group": "geology",
+  "status": "NOT TESTED",
+  "synthetic": true,
+  "cases": {
+    "GeoAPSGPairFabricTensor": {
+      "tool_id": "GeoAPSGPairFabricTensor",
+      "function": "paired_fabric_tensor",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGPairFabricTensor.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "normal_vectors": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "line_vectors": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "tensor"
+          ],
+          "expected": [
+            [
+              0.6666666666666666,
+              0,
+              0
+            ],
+            [
+              0,
+              0.3333333333333333,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "eigenvalues"
+          ],
+          "expected": [
+            0.6666666666666666,
+            0.3333333333333333,
+            0
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Identical horizontal planes with north-directed in-plane lines give diag(2/3,1/3,0), independently from averages of dyads.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "normal_vectors": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "line_vectors": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGFoldAxis": {
+      "tool_id": "GeoAPSGFoldAxis",
+      "function": "cylindrical_fold_axis",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGFoldAxis.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "normal_vectors": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ],
+          [
+            0,
+            -1,
+            0
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "axis_ned",
+            "2"
+          ],
+          "expected": 1,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": true
+        },
+        {
+          "path": [
+            "girdle_gap"
+          ],
+          "expected": 0.5,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "eigenvalues"
+          ],
+          "expected": [
+            0.5,
+            0.5,
+            0
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Poles +/-north and +/-east have moment diag(1/2,1/2,0); fold axis is vertical up to sign and eigenvalue gap is 1/2.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "normal_vectors": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      },
+      "negative_code": "unsupported_conditions",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGFisherDirectionalConfidence": {
+      "tool_id": "GeoAPSGFisherDirectionalConfidence",
+      "function": "fisher_directional_confidence",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGFisherDirectionalConfidence.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "directed_vectors": [
+          [
+            0.8660254037844386,
+            0.5,
+            0
+          ],
+          [
+            0.8660254037844386,
+            -0.5,
+            0
+          ],
+          [
+            0.8660254037844386,
+            0.5,
+            0
+          ],
+          [
+            0.8660254037844386,
+            -0.5,
+            0
+          ]
+        ],
+        "confidence_level": 0.95
+      },
+      "checks": [
+        {
+          "path": [
+            "mean_direction_ned"
+          ],
+          "expected": [
+            1,
+            0,
+            0
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "resultant_length_per_sample"
+          ],
+          "expected": 0.8660254037844386,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "confidence_half_angle"
+          ],
+          "expected": 42.711482537947305,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Four directed vectors at +/-30 degrees from north have R/N=sqrt(3)/2. Fisher cone follows acos(1-(N-R)/R*(0.05^(-1/(N-1))-1)); kappa additionally obeys coth(k)-1/k=R/N.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "directed_vectors": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "confidence_level": 0.95
+      },
+      "negative_code": "unsupported_conditions",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGBinghamAxialConfidence": {
+      "tool_id": "GeoAPSGBinghamAxialConfidence",
+      "function": "bingham_axial_confidence",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGBinghamAxialConfidence.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "axial_vectors": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "confidence_level": 0.95
+      },
+      "checks": [
+        {
+          "path": [
+            "eigenvalues"
+          ],
+          "expected": [
+            0.6,
+            0.3,
+            0.1
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "semi_angles"
+          ],
+          "expected": [
+            28.823197564264074,
+            38.85249948979468
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "axis_ned",
+            "0"
+          ],
+          "expected": 1,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": true
+        }
+      ],
+      "numeric_oracle": "Axis multiplicities 6:3:1 yield eigenvalues .6,.3,.1. F(2,16) quantile has closed form 8*(.05^(-1/8)-1); insert in the independent Bingham semi-angle expression.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "axial_vectors": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        "confidence_level": 0.95
+      },
+      "negative_code": "unsupported_conditions",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGMarkerStrainEstimate": {
+      "tool_id": "GeoAPSGMarkerStrainEstimate",
+      "function": "marker_strain_estimate",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGMarkerStrainEstimate.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "marker_tensors": [
+          [
+            [
+              4,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              4,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              4,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ]
+        ],
+        "section_frame": "SYNTHETIC x=north,y=east planar section"
+      },
+      "checks": [
+        {
+          "path": [
+            "rfphi_axial_ratio"
+          ],
+          "expected": 2,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "robin_axial_ratio"
+          ],
+          "expected": 2,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "rfphi_orientation"
+          ],
+          "expected": 0,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Identical ellipses with semiaxes 2 and 1 along the section axes have Rf/phi ratio 2 and Robin ratio 2, both at zero degrees.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "marker_tensors": [
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        ],
+        "section_frame": "SYNTHETIC x=north,y=east planar section"
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGFaultKinematicAxes": {
+      "tool_id": "GeoAPSGFaultKinematicAxes",
+      "function": "fault_kinematic_axes",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGFaultKinematicAxes.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "normal_vectors": [
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "line_vectors": [
+          [
+            1,
+            0,
+            0
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "p_axes_ned",
+            "0",
+            "0"
+          ],
+          "expected": 0.7071067811865475,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": true
+        },
+        {
+          "path": [
+            "t_axes_ned",
+            "0",
+            "2"
+          ],
+          "expected": 0.7071067811865475,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": true
+        }
+      ],
+      "numeric_oracle": "A down normal and north slip have bisectors with north and down absolute components 1/sqrt(2), with P and T mutually orthogonal.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "normal_vectors": [
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "line_vectors": [
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGFiniteStrainEllipsoid": {
+      "tool_id": "GeoAPSGFiniteStrainEllipsoid",
+      "function": "finite_strain_ellipsoid",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGFiniteStrainEllipsoid.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "deformation_gradient": [
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0.5
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "principal_stretches"
+          ],
+          "expected": [
+            2,
+            1,
+            0.5
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "hencky_strains"
+          ],
+          "expected": [
+            0.6931471805599453,
+            0,
+            -0.6931471805599453
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "flinn_k"
+          ],
+          "expected": 1,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "volume_ratio"
+          ],
+          "expected": 1,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Isochoric diagonal stretch (2,1,1/2) yields tensor diag(4,1,1/4), stretches 2,1,1/2, log-strains +/-ln2 and Flinn k=1.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "deformation_gradient": [
+          [
+            -2,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0.5
+          ]
+        ]
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGDeformationPolarSplit": {
+      "tool_id": "GeoAPSGDeformationPolarSplit",
+      "function": "deformation_polar_split",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGDeformationPolarSplit.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "deformation_gradient": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0.5
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "right_stretch"
+          ],
+          "expected": [
+            [
+              2,
+              0,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              0.5
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "left_stretch"
+          ],
+          "expected": [
+            [
+              1,
+              0,
+              0
+            ],
+            [
+              0,
+              2,
+              0
+            ],
+            [
+              0,
+              0,
+              0.5
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "rotation_angle"
+          ],
+          "expected": 90,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "A 90-degree vertical-axis rotation times diag(2,1,1/2) has right stretch diag(2,1,1/2), left stretch diag(1,2,1/2), and rotation angle 90 degrees.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "deformation_gradient": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ]
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGVelocityGradientEvolution": {
+      "tool_id": "GeoAPSGVelocityGradientEvolution",
+      "function": "velocity_gradient_evolution",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGVelocityGradientEvolution.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "velocity_gradient_per_myr": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "duration_myr": 2
+      },
+      "checks": [
+        {
+          "path": [
+            "deformation_gradient"
+          ],
+          "expected": [
+            [
+              1,
+              2,
+              0
+            ],
+            [
+              0,
+              1,
+              0
+            ],
+            [
+              0,
+              0,
+              1
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "volume_ratio"
+          ],
+          "expected": 1,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Unit simple shear has L^2=0, hence exp(2L)=I+2L; F_xy=2 and determinant=1 independently of numerical exponentiation.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "velocity_gradient_per_myr": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "duration_myr": 100
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGKinematicVorticity": {
+      "tool_id": "GeoAPSGKinematicVorticity",
+      "function": "kinematic_vorticity",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGKinematicVorticity.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "velocity_gradient_per_myr": [
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "kinematic_vorticity"
+          ],
+          "expected": 1,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "vorticity_magnitude"
+          ],
+          "expected": 1,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "strain_rate",
+            "0",
+            "1"
+          ],
+          "expected": 0.5,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Unit simple shear has symmetric and antisymmetric xy components 1/2, equal tensor norms, Wk=1 and curl magnitude 1/Myr.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "velocity_gradient_per_myr": [
+          [
+            0,
+            -1,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ]
+      },
+      "negative_code": "unsupported_conditions",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGFractureTraction": {
+      "tool_id": "GeoAPSGFractureTraction",
+      "function": "fracture_traction",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGFractureTraction.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "stress_mpa": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            0,
+            60,
+            0
+          ],
+          [
+            0,
+            0,
+            20
+          ]
+        ],
+        "normal_vectors": [
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "normal_compression",
+            "0"
+          ],
+          "expected": 60,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "shear_magnitude",
+            "0"
+          ],
+          "expected": 40,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "For diag(100,60,20) MPa and a 45-degree north/down normal, resolved compression is (100+20)/2=60 MPa and shear is (100-20)/2=40 MPa.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "stress_mpa": [
+          [
+            100,
+            1,
+            0
+          ],
+          [
+            0,
+            60,
+            0
+          ],
+          [
+            0,
+            0,
+            20
+          ]
+        ],
+        "normal_vectors": [
+          [
+            1,
+            0,
+            1
+          ]
+        ]
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoAPSGFaultReactivation": {
+      "tool_id": "GeoAPSGFaultReactivation",
+      "function": "fault_reactivation",
+      "arguments_path": "assets/github-expansion-geology/GeoAPSGFaultReactivation.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "stress_mpa": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            0,
+            60,
+            0
+          ],
+          [
+            0,
+            0,
+            20
+          ]
+        ],
+        "normal_vectors": [
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "pore_pressure_mpa": 10,
+        "friction_coefficient": 0.6,
+        "cohesion_mpa": 0
+      },
+      "checks": [
+        {
+          "path": [
+            "effective_normal_compression",
+            "0"
+          ],
+          "expected": 50,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "slip_tendency",
+            "0"
+          ],
+          "expected": 0.8,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "dilation_tendency",
+            "0"
+          ],
+          "expected": 0.5,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "coulomb_excess",
+            "0"
+          ],
+          "expected": 10,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "The 60 MPa normal/40 MPa shear fixture at 10 MPa pore pressure has effective normal 50, slip tendency .8, dilation .5, and Coulomb excess 40-.6*50=10 MPa.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinate_frame": "NED",
+        "stress_mpa": [
+          [
+            100,
+            0,
+            0
+          ],
+          [
+            0,
+            60,
+            0
+          ],
+          [
+            0,
+            0,
+            20
+          ]
+        ],
+        "normal_vectors": [
+          [
+            1,
+            0,
+            1
+          ]
+        ],
+        "pore_pressure_mpa": 60,
+        "friction_coefficient": 0.6,
+        "cohesion_mpa": 0
+      },
+      "negative_code": "unsupported_conditions",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoPyroliteALR": {
+      "tool_id": "GeoPyroliteALR",
+      "function": "additive_logratio",
+      "arguments_path": "assets/github-expansion-geology/GeoPyroliteALR.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Pb",
+          "Zn"
+        ],
+        "values": [
+          [
+            2,
+            4,
+            1
+          ]
+        ],
+        "input_unit": "ppm",
+        "denominator": "Zn"
+      },
+      "checks": [
+        {
+          "path": [
+            "alr"
+          ],
+          "expected": [
+            [
+              0.6931471805599453,
+              1.3862943611198906
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "closed_compositions"
+          ],
+          "expected": [
+            [
+              0.2857142857142857,
+              0.5714285714285714,
+              0.14285714285714285
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "For [2,4,1] with third-component reference, coordinates are [ln2,ln4] and inverse closure gives [2/7,4/7,1/7].",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Pb",
+          "Zn"
+        ],
+        "values": [
+          [
+            2,
+            4,
+            1
+          ]
+        ],
+        "input_unit": "ppm",
+        "denominator": "ABSENT"
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoPyroliteILR": {
+      "tool_id": "GeoPyroliteILR",
+      "function": "isometric_logratio",
+      "arguments_path": "assets/github-expansion-geology/GeoPyroliteILR.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Pb",
+          "Zn"
+        ],
+        "values": [
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        "input_unit": "ppm",
+        "basis": [
+          [
+            0.7071067811865475,
+            -0.7071067811865475,
+            0
+          ],
+          [
+            0.4082482904638631,
+            0.4082482904638631,
+            -0.8164965809277261
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "ilr"
+          ],
+          "expected": [
+            [
+              0.49012907173427356,
+              0.8489284545103327
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "closed_compositions"
+          ],
+          "expected": [
+            [
+              0.5714285714285714,
+              0.2857142857142857,
+              0.14285714285714285
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "For [4,2,1] and the stated Helmert contrasts, balances are ln2/sqrt2 and 3ln2/sqrt6; reconstructed fractions are 4/7,2/7,1/7.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Pb",
+          "Zn"
+        ],
+        "values": [
+          [
+            4,
+            2,
+            1
+          ]
+        ],
+        "input_unit": "ppm",
+        "basis": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ]
+        ]
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoPyroliteCompositionalCenter": {
+      "tool_id": "GeoPyroliteCompositionalCenter",
+      "function": "compositional_center",
+      "arguments_path": "assets/github-expansion-geology/GeoPyroliteCompositionalCenter.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Zn"
+        ],
+        "values": [
+          [
+            1,
+            4
+          ],
+          [
+            4,
+            1
+          ]
+        ],
+        "input_unit": "ppm"
+      },
+      "checks": [
+        {
+          "path": [
+            "center"
+          ],
+          "expected": [
+            0.5,
+            0.5
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Geometric component means of [1,4] and [4,1] are both 2; closure gives [.5,.5], unlike an absolute concentration estimate.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Zn"
+        ],
+        "values": [
+          [
+            1,
+            4
+          ]
+        ],
+        "input_unit": "ppm"
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoPyroliteSphericalComposition": {
+      "tool_id": "GeoPyroliteSphericalComposition",
+      "function": "spherical_composition",
+      "arguments_path": "assets/github-expansion-geology/GeoPyroliteSphericalComposition.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Pb",
+          "Zn"
+        ],
+        "values": [
+          [
+            1,
+            1,
+            2
+          ]
+        ],
+        "input_unit": "ppm"
+      },
+      "checks": [
+        {
+          "path": [
+            "angles"
+          ],
+          "expected": [
+            [
+              0.7853981633974483,
+              0.7853981633974483
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "closed_compositions"
+          ],
+          "expected": [
+            [
+              0.25,
+              0.25,
+              0.5
+            ]
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Closure of [1,1,2] gives [1/4,1/4,1/2]; square-root coordinates [.5,.5,1/sqrt2] yield both upstream ordered angles pi/4.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Pb",
+          "Zn"
+        ],
+        "values": [
+          [
+            0,
+            1,
+            2
+          ]
+        ],
+        "input_unit": "ppm"
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoPyroliteMineralEndmemberUnmix": {
+      "tool_id": "GeoPyroliteMineralEndmemberUnmix",
+      "function": "mineral_endmember_unmix",
+      "arguments_path": "assets/github-expansion-geology/GeoPyroliteMineralEndmemberUnmix.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "A",
+          "B"
+        ],
+        "compositions": [
+          [
+            0.25,
+            0.75
+          ]
+        ],
+        "endmembers": [
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "endmember_labels": [
+          "SYNTHETIC_A",
+          "SYNTHETIC_B"
+        ],
+        "input_unit": "mass_fraction",
+        "maximum_rmse": 0.001
+      },
+      "checks": [
+        {
+          "path": [
+            "weights"
+          ],
+          "expected": [
+            [
+              0.25,
+              0.75
+            ]
+          ],
+          "atol": 3e-05,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "reconstructed"
+          ],
+          "expected": [
+            [
+              0.25,
+              0.75
+            ]
+          ],
+          "atol": 3e-05,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Two orthogonal closed endmembers make the uniquely feasible mixture of [.25,.75] exactly [.25,.75]; this is an analytic mass-balance oracle, not a second optimizer.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "A",
+          "B"
+        ],
+        "compositions": [
+          [
+            0.25,
+            0.75
+          ]
+        ],
+        "endmembers": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            0
+          ]
+        ],
+        "endmember_labels": [
+          "SYNTHETIC_A",
+          "SYNTHETIC_B"
+        ],
+        "input_unit": "mass_fraction",
+        "maximum_rmse": 0.001
+      },
+      "negative_code": "unsupported_conditions",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoPyroliteCIPWNorm": {
+      "tool_id": "GeoPyroliteCIPWNorm",
+      "function": "cipw_normative_mineralogy",
+      "arguments_path": "assets/github-expansion-geology/GeoPyroliteCIPWNorm.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "major_wt_percent": {
+          "SiO2": 100,
+          "TiO2": 0,
+          "Al2O3": 0,
+          "Fe2O3": 0,
+          "FeO": 0,
+          "MnO": 0,
+          "MgO": 0,
+          "CaO": 0,
+          "Na2O": 0,
+          "K2O": 0,
+          "P2O5": 0
+        },
+        "minor_ppm": {
+          "CO2": 0,
+          "SO3": 0,
+          "F": 0,
+          "Cl": 0,
+          "S": 0,
+          "Ni": 0,
+          "Co": 0,
+          "Sr": 0,
+          "Ba": 0,
+          "Rb": 0,
+          "Cs": 0,
+          "Li": 0,
+          "Zr": 0,
+          "Cr": 0,
+          "V": 0
+        }
+      },
+      "checks": [
+        {
+          "path": [
+            "normative_wt_percent",
+            "0"
+          ],
+          "expected": 100,
+          "atol": 1e-05,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "input_major_total"
+          ],
+          "expected": 100,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "A synthetic 100 wt-percent SiO2 composition with all other explicitly supplied entries zero has normative quartz=100 wt percent by stoichiometry.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "major_wt_percent": {
+          "SiO2": 95,
+          "TiO2": 0,
+          "Al2O3": 0,
+          "Fe2O3": 0,
+          "FeO": 5,
+          "MnO": 0,
+          "MgO": 0,
+          "CaO": 0,
+          "Na2O": 0,
+          "K2O": 0,
+          "P2O5": 0
+        },
+        "minor_ppm": {
+          "CO2": 0,
+          "SO3": 0,
+          "F": 0,
+          "Cl": 0,
+          "S": 0,
+          "Ni": 0,
+          "Co": 0,
+          "Sr": 0,
+          "Ba": 0,
+          "Rb": 0,
+          "Cs": 0,
+          "Li": 0,
+          "Zr": 0,
+          "Cr": 0,
+          "V": 0
+        }
+      },
+      "negative_code": "unsupported_conditions",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoSKGstatRobustVariogram": {
+      "tool_id": "GeoSKGstatRobustVariogram",
+      "function": "robust_variogram_comparison",
+      "arguments_path": "assets/github-expansion-geology/GeoSKGstatRobustVariogram.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinates_m": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "values": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "value_unit": "ppm",
+        "lag_upper_edges_m": [
+          1.5,
+          2.5,
+          3.5
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "pair_counts"
+          ],
+          "expected": [
+            3,
+            2,
+            1
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "matheron"
+          ],
+          "expected": [
+            2,
+            8,
+            18
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "cressie_hawkins",
+            "0"
+          ],
+          "expected": 3.1914893617021276,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "dowd",
+            "0"
+          ],
+          "expected": 4.396,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "For a concentration ramp of 2 ppm/m, lag differences are 2,4,6 and counts 3,2,1. Matheron is [2,8,18]; first Cressie bin is 2/(.457+.494/3+.045/9); first Dowd bin is 4.396.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinates_m": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "values": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "value_unit": "ppm",
+        "lag_upper_edges_m": [
+          2,
+          1
+        ]
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoSKGstatSpaceTimeVariogram": {
+      "tool_id": "GeoSKGstatSpaceTimeVariogram",
+      "function": "space_time_variogram",
+      "arguments_path": "assets/github-expansion-geology/GeoSKGstatSpaceTimeVariogram.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinates_m": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "values_by_station_time": [
+          [
+            0,
+            3,
+            6,
+            9
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            4,
+            7,
+            10,
+            13
+          ],
+          [
+            6,
+            9,
+            12,
+            15
+          ]
+        ],
+        "time_step_days": 2,
+        "spatial_lags": 3,
+        "temporal_lags": 3,
+        "value_unit": "ppm"
+      },
+      "checks": [
+        {
+          "path": [
+            "semivariance",
+            "0",
+            "0"
+          ],
+          "expected": 6.5,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "semivariance",
+            "2",
+            "2"
+          ],
+          "expected": 58.5,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "pair_counts",
+            "0",
+            "0"
+          ],
+          "expected": 18,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "temporal_upper_edges"
+          ],
+          "expected": [
+            2,
+            4,
+            6
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "For z(x,t)=2x+3t, averaging forward/backward time pairs cancels cross terms, giving gamma(h,k)=(4h^2+9k^2)/2. First cell=6.5 ppm^2, opposite corner=58.5; first count=2*3*3=18.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinates_m": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "values_by_station_time": [
+          [
+            0,
+            3,
+            6,
+            9
+          ],
+          [
+            2,
+            5,
+            8,
+            11
+          ],
+          [
+            4,
+            7,
+            10,
+            13
+          ],
+          [
+            6,
+            9,
+            12,
+            15
+          ]
+        ],
+        "time_step_days": 2,
+        "spatial_lags": 3,
+        "temporal_lags": 3,
+        "value_unit": "ppm"
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoGSToolsVariogramFit": {
+      "tool_id": "GeoGSToolsVariogramFit",
+      "function": "exponential_variogram_fit",
+      "arguments_path": "assets/github-expansion-geology/GeoGSToolsVariogramFit.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "lag_centers_m": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          6
+        ],
+        "semivariance": [
+          0.25,
+          0.8169373788524215,
+          1.223165761934816,
+          1.5142411176571153,
+          1.7228057237685466,
+          1.9793294335267746
+        ],
+        "fixed_nugget": 0.25,
+        "value_unit": "ppm"
+      },
+      "checks": [
+        {
+          "path": [
+            "correlated_variance"
+          ],
+          "expected": 2,
+          "atol": 0.0001,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "length_scale_m"
+          ],
+          "expected": 3,
+          "atol": 0.0001,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "r_squared"
+          ],
+          "expected": 1,
+          "atol": 1e-07,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Analytically constructed gamma(h)=.25+2*(1-exp(-h/3)) identifies variance=2 ppm^2, length=3 m and fixed nugget=.25 ppm^2; R squared=1.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "lag_centers_m": [
+          0,
+          1,
+          1,
+          3,
+          4,
+          6
+        ],
+        "semivariance": [
+          0.25,
+          0.8169373788524215,
+          1.223165761934816,
+          1.5142411176571153,
+          1.7228057237685466,
+          1.9793294335267746
+        ],
+        "fixed_nugget": 0.25,
+        "value_unit": "ppm"
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoGSToolsBlockSupportCovariance": {
+      "tool_id": "GeoGSToolsBlockSupportCovariance",
+      "function": "block_support_covariance",
+      "arguments_path": "assets/github-expansion-geology/GeoGSToolsBlockSupportCovariance.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "support_a_m": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ]
+        ],
+        "support_b_m": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ]
+        ],
+        "point_variance": 4,
+        "length_scale_m": 1,
+        "value_unit": "ppm"
+      },
+      "checks": [
+        {
+          "path": [
+            "variance_a"
+          ],
+          "expected": 2.2706705664732256,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "variance_b"
+          ],
+          "expected": 2.2706705664732256,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "cross_covariance"
+          ],
+          "expected": 1.1534253918821908,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "With C(h)=4exp(-h), averaging the four within-block covariances gives 2+2exp(-2); between nodes {0,2} and {1,3}, covariance is 3exp(-1)+exp(-3).",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "support_a_m": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "support_b_m": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ]
+        ],
+        "point_variance": 4,
+        "length_scale_m": 1,
+        "value_unit": "ppm"
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoSKGstatKrigingLOO": {
+      "tool_id": "GeoSKGstatKrigingLOO",
+      "function": "kriging_leave_one_out",
+      "arguments_path": "assets/github-expansion-geology/GeoSKGstatKrigingLOO.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinates_m": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "values": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "value_unit": "ppm",
+        "effective_range_m": 10,
+        "partial_sill": 0,
+        "nugget": 1
+      },
+      "checks": [
+        {
+          "path": [
+            "held_out_predictions"
+          ],
+          "expected": [
+            3,
+            2.6666666666666665,
+            2.3333333333333335,
+            2
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "rmse"
+          ],
+          "expected": 1.4907119849998598,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Pure-nugget ordinary kriging gives equal weights to the three training points: predictions [3,8/3,7/3,2], errors [2,2/3,-2/3,-2], RMSE=sqrt(20/9).",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "coordinates_m": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "values": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "value_unit": "ppm",
+        "effective_range_m": 0.5,
+        "partial_sill": 0,
+        "nugget": 1
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoGeochemBackgroundDistance": {
+      "tool_id": "GeoGeochemBackgroundDistance",
+      "function": "geochemical_background_distance",
+      "arguments_path": "assets/github-expansion-geology/GeoGeochemBackgroundDistance.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Zn"
+        ],
+        "samples": [
+          [
+            16.9188286785579,
+            1
+          ]
+        ],
+        "background": [
+          [
+            0.17692120631776423,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            5.6522336740340915,
+            1
+          ]
+        ],
+        "basis": [
+          [
+            0.7071067811865475,
+            -0.7071067811865475
+          ]
+        ],
+        "input_unit": "ppm"
+      },
+      "checks": [
+        {
+          "path": [
+            "squared_mahalanobis",
+            "0"
+          ],
+          "expected": 4,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "background_ilr_covariance",
+            "0",
+            "0"
+          ],
+          "expected": 1,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Background log ratios map to [-sqrt(3/2),0,sqrt(3/2)] with ML variance 1; the sample maps to ILR=2, so squared Mahalanobis distance=4.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "components": [
+          "Cu",
+          "Zn"
+        ],
+        "samples": [
+          [
+            16.9188286785579,
+            1
+          ]
+        ],
+        "background": [
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "basis": [
+          [
+            0.7071067811865475,
+            -0.7071067811865475
+          ]
+        ],
+        "input_unit": "ppm"
+      },
+      "negative_code": "unsupported_conditions",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoLasioLogAudit": {
+      "tool_id": "GeoLasioLogAudit",
+      "function": "las_log_audit",
+      "arguments_path": "assets/github-expansion-geology/GeoLasioLogAudit.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "las_path": "assets/github-expansion-geology/synthetic-log.las"
+      },
+      "checks": [
+        {
+          "path": [
+            "row_count"
+          ],
+          "expected": 3,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "curves",
+            "0",
+            "valid_count"
+          ],
+          "expected": 2,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "curves",
+            "0",
+            "null_count"
+          ],
+          "expected": 1,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "curves",
+            "0",
+            "values",
+            "2"
+          ],
+          "expected": 30,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Synthetic LAS depths [100,101,102] and assay [10,NULL,30] must yield row_count=3, valid_count=2, null_count=1 and unaltered positive values 10 and 30.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "las_path": "assets/github-expansion-geology/synthetic-nonmonotone.las"
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoWellyMinimumCurvature": {
+      "tool_id": "GeoWellyMinimumCurvature",
+      "function": "drillhole_minimum_curvature",
+      "arguments_path": "assets/github-expansion-geology/GeoWellyMinimumCurvature.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "survey_md_inc_azi": [
+          [
+            0,
+            0,
+            90
+          ],
+          [
+            100,
+            60,
+            90
+          ]
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "east_north_tvd",
+            "1",
+            "0"
+          ],
+          "expected": 47.7464829275686,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "east_north_tvd",
+            "1",
+            "2"
+          ],
+          "expected": 82.6993343132688,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "dogleg_severity",
+            "1"
+          ],
+          "expected": 18,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "A 100-m circular arc from vertical to 60 degrees east has east=150/pi m, TVD=150sqrt(3)/pi m and dogleg severity 60/100*30=18 degrees/30m.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "survey_md_inc_azi": [
+          [
+            10,
+            0,
+            90
+          ],
+          [
+            100,
+            60,
+            90
+          ]
+        ]
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoWellyLogResample": {
+      "tool_id": "GeoWellyLogResample",
+      "function": "log_depth_resample",
+      "arguments_path": "assets/github-expansion-geology/GeoWellyLogResample.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "depth_m": [
+          0,
+          1,
+          2
+        ],
+        "values": [
+          10,
+          20,
+          30
+        ],
+        "value_unit": "ppm",
+        "start_m": 0,
+        "stop_m": 2,
+        "step_m": 0.5
+      },
+      "checks": [
+        {
+          "path": [
+            "resampled_values"
+          ],
+          "expected": [
+            10,
+            15,
+            20,
+            25,
+            30
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "depth_m"
+          ],
+          "expected": [
+            0,
+            0.5,
+            1,
+            1.5,
+            2
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "For measured y=10+10z at depths 0,1,2 m, resampling at half-metre increments gives [10,15,20,25,30].",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "depth_m": [
+          0,
+          1,
+          2
+        ],
+        "values": [
+          10,
+          20,
+          30
+        ],
+        "value_unit": "ppm",
+        "start_m": 0,
+        "stop_m": 3,
+        "step_m": 0.5
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoWellyLogDespike": {
+      "tool_id": "GeoWellyLogDespike",
+      "function": "log_median_despike",
+      "arguments_path": "assets/github-expansion-geology/GeoWellyLogDespike.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "depth_m": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "values": [
+          10,
+          10,
+          30,
+          10,
+          10
+        ],
+        "value_unit": "ppm",
+        "window_samples": 3,
+        "standard_deviation_multiplier": 1
+      },
+      "checks": [
+        {
+          "path": [
+            "filtered_values"
+          ],
+          "expected": [
+            10,
+            10,
+            18,
+            10,
+            10
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "changed_indices"
+          ],
+          "expected": [
+            2
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "original_values",
+            "2"
+          ],
+          "expected": 30,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Values [10,10,30,10,10] have population standard deviation 8; the central rolling median is 10, so z=1 clips the central spike to 18 while all others remain 10.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "depth_m": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "values": [
+          10,
+          10,
+          30,
+          10,
+          10
+        ],
+        "value_unit": "ppm",
+        "window_samples": 4,
+        "standard_deviation_multiplier": 1
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoWellyLogFaciesBlock": {
+      "tool_id": "GeoWellyLogFaciesBlock",
+      "function": "log_facies_block",
+      "arguments_path": "assets/github-expansion-geology/GeoWellyLogFaciesBlock.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "depth_m": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "values": [
+          10,
+          14,
+          25,
+          29,
+          10
+        ],
+        "value_unit": "ppm",
+        "cutoffs": [
+          20
+        ],
+        "class_labels": [
+          "SYNTHETIC_LOW",
+          "SYNTHETIC_HIGH"
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "class_indices"
+          ],
+          "expected": [
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "block_mean_values"
+          ],
+          "expected": [
+            12,
+            12,
+            27,
+            27,
+            10
+          ],
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "At cutoff 20, contiguous classes are [0,0,1,1,0]. Block means are [12,12,27,27,10], retaining the last low block separately from the first.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "depth_m": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "values": [
+          10,
+          11,
+          12,
+          13,
+          14
+        ],
+        "value_unit": "ppm",
+        "cutoffs": [
+          20
+        ],
+        "class_labels": [
+          "SYNTHETIC_LOW",
+          "SYNTHETIC_HIGH"
+        ]
+      },
+      "negative_code": "unsupported_conditions",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    },
+    "GeoStriplogIntervalIntersection": {
+      "tool_id": "GeoStriplogIntervalIntersection",
+      "function": "drillhole_interval_intersection",
+      "arguments_path": "assets/github-expansion-geology/GeoStriplogIntervalIntersection.json",
+      "arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "hole_id": "SYNTHETIC_HOLE",
+        "left_intervals": [
+          {
+            "top_m": 0,
+            "base_m": 10,
+            "label": "SYNTHETIC_UNIT_A"
+          }
+        ],
+        "right_intervals": [
+          {
+            "top_m": 4,
+            "base_m": 8,
+            "label": "SYNTHETIC_UNIT_B"
+          }
+        ]
+      },
+      "checks": [
+        {
+          "path": [
+            "intersections",
+            "0",
+            "top_m"
+          ],
+          "expected": 4,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "intersections",
+            "0",
+            "base_m"
+          ],
+          "expected": 8,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "intersections",
+            "0",
+            "thickness_m"
+          ],
+          "expected": 4,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        },
+        {
+          "path": [
+            "total_overlap_m"
+          ],
+          "expected": 4,
+          "atol": 1e-08,
+          "rtol": 1e-06,
+          "absolute": false
+        }
+      ],
+      "numeric_oracle": "Measured-depth intervals [0,10] and [4,8] intersect at [4,8], giving thickness and total shared support exactly 4 m.",
+      "negative_arguments": {
+        "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+        "hole_id": "SYNTHETIC_HOLE",
+        "left_intervals": [
+          {
+            "top_m": 10,
+            "base_m": 0,
+            "label": "SYNTHETIC_REVERSED"
+          }
+        ],
+        "right_intervals": [
+          {
+            "top_m": 4,
+            "base_m": 8,
+            "label": "SYNTHETIC_UNIT_B"
+          }
+        ]
+      },
+      "negative_code": "invalid_arguments",
+      "status": "source_authored_unverified",
+      "synthetic": true
+    }
+  }
+}

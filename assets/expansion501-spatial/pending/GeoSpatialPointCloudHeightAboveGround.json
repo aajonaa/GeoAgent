@@ -1,0 +1,47 @@
+{
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "crs": "EPSG:32631",
+    "feature_unit": "m",
+    "points_xyz_m": [
+      [
+        0,
+        0,
+        10
+      ],
+      [
+        2,
+        0,
+        10
+      ],
+      [
+        0,
+        2,
+        10
+      ],
+      [
+        2,
+        2,
+        10
+      ],
+      [
+        1,
+        1,
+        13
+      ]
+    ],
+    "classification": [
+      2,
+      2,
+      2,
+      2,
+      1
+    ],
+    "neighbors": 4,
+    "units": {
+      "points_xyz_m": "m"
+    }
+  },
+  "numeric_oracle": "Ground is constant z=10: four ground heights are 0 and the interior z=13 return has HAG=3 m. Outside-support query must reject rather than accept PDAL zero fill."
+}

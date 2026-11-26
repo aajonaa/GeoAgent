@@ -1,0 +1,19 @@
+{
+  "call_id": "fixed-explicit-replacement",
+  "name": "StatsmodelsSeasonalFlowForecast",
+  "status": "error",
+  "data": {},
+  "artifacts": [],
+  "error": {
+    "code": "invalid_arguments",
+    "message": "The supplied seasonal design must be full rank and numerically conditioned",
+    "retryable": false,
+    "outcome_unknown": false
+  },
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "3d3f97d9312480be632801446b5a74834d2ceec86a7ef202ded10e9dc0621f19"
+  }
+}

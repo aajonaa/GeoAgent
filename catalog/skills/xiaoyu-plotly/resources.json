@@ -1,0 +1,126 @@
+{
+  "skill_id": "xiaoyu_plotly",
+  "archive_sha256": "6d525b8481283c3028250f559dd7c6b6dcc349dd478a12f82b96bbfe991f2f08",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 8018,
+      "sha256": "12069a99e3e61283c63a515904d3bbf620da46460c5ecf33ae4a20803fad41d0",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/plotly/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/1b96e4dc50-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pptx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/8e53b12f75-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/docx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/9c8ca586d5-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/xlsx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/d594664132-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pdf/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "references/chart-types.md",
+      "bytes": 8763,
+      "sha256": "608d843592e1a70b21a9918f378d3ae31859b41735534faf999bf4bf0a347287",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/plotly/references/chart-types.md"
+        }
+      ]
+    },
+    {
+      "path": "references/export-interactivity.md",
+      "bytes": 9204,
+      "sha256": "4f4f717c919c59f31574b145050ee8cea8b2f61e614f8b8c221efeef410c436c",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/plotly/references/export-interactivity.md"
+        }
+      ]
+    },
+    {
+      "path": "references/graph-objects.md",
+      "bytes": 5986,
+      "sha256": "3cb5cbe5dbb7721dd1d68c091eae4169066c1edac75848eaf1b2aa40b506c671",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/plotly/references/graph-objects.md"
+        }
+      ]
+    },
+    {
+      "path": "references/layouts-styling.md",
+      "bytes": 9128,
+      "sha256": "2caf97f2926602ae70766c69a6002fbe1e3fa19b3e17adc3b6c5c1ac7f8876ea",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/plotly/references/layouts-styling.md"
+        }
+      ]
+    },
+    {
+      "path": "references/plotly-express.md",
+      "bytes": 4893,
+      "sha256": "0f34b1a9dccf824b05092550c137089a1f06cd1e04d701d2cbd19ea6e1fe251f",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/plotly/references/plotly-express.md"
+        }
+      ]
+    }
+  ]
+}

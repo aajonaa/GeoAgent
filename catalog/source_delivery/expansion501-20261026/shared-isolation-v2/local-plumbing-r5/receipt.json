@@ -1,0 +1,9 @@
+{
+  "source_unchanged_after_tests": true,
+  "test_report_sha256": "38908c259b8912ff37cba7977b781bffba0046f789ec8cd20f01feaae8e82f87",
+  "tests_log_sha256": "5bd810690cf82834f73032ef587770c1cec699d09d7756b653e055e8d1861154",
+  "profile_id_proposed_not_registered": "expansion501-geology-gpr-cpu-v2",
+  "formal_eligible": false,
+  "deployed": false,
+  "science_acceptance": "not_run"
+}

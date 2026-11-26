@@ -1,0 +1,17 @@
+{
+  "before": {
+    "geological_agent/geology/collection_contracts.py": "25f805cf5531ff8bf1f8894f006dca40c6035efd44967507583c820dcc323fa9",
+    "geological_agent/geology/source_registry.py": "41e93b038a29d63152f0488dc0a42331d4453fa598278ce13a97e85ae8136da3",
+    "legacy/ToolsAgent/ToolsFuns/source_contracts.py": "10303dc89014564d4bcd7a00fbd22f1319c15c4d0a9393787c4327883b1e0d84",
+    "catalog/registry.json": "61e7c52959f5fa7462e754931b91dfcc24be7e0e679fc33a6a1311365fd88c8c"
+  },
+  "after": {
+    "geological_agent/geology/collection_contracts.py": "25f805cf5531ff8bf1f8894f006dca40c6035efd44967507583c820dcc323fa9",
+    "geological_agent/geology/source_registry.py": "41e93b038a29d63152f0488dc0a42331d4453fa598278ce13a97e85ae8136da3",
+    "legacy/ToolsAgent/ToolsFuns/source_contracts.py": "10303dc89014564d4bcd7a00fbd22f1319c15c4d0a9393787c4327883b1e0d84",
+    "catalog/registry.json": "61e7c52959f5fa7462e754931b91dfcc24be7e0e679fc33a6a1311365fd88c8c"
+  },
+  "unchanged": true,
+  "private_shared_SDK_sha256": "25f805cf5531ff8bf1f8894f006dca40c6035efd44967507583c820dcc323fa9",
+  "private_legacy_contract_sha256": "10303dc89014564d4bcd7a00fbd22f1319c15c4d0a9393787c4327883b1e0d84"
+}

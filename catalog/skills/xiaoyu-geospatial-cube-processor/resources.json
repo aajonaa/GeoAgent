@@ -1,0 +1,30 @@
+{
+  "skill_id": "xiaoyu_geospatial_cube_processor",
+  "archive_sha256": "a54c6329c2149a53255c7ba79633920ba2d44a5228b26a5f6728d6142c082cbb",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 10631,
+      "sha256": "6d33cac900ddd3321f8a38a85775dd38c979f101d730a04296913892b82ccfae",
+      "origins": [
+        {
+          "package_number": 54,
+          "archive_sha256": "81566ba175e141b2043fe2a542ba43e0587ea7ad675eac635a991e9db0ebfd1a",
+          "member": "skill54ú║╡╪└φ┐╒╝Σ╩²╛▌┴ó╖╜╠σ┤ª└φ-geospatial-cube-processor/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/evals.json",
+      "bytes": 4039,
+      "sha256": "dcf149194bb2be99fa27b4699aa0f645c7a0feded8de92577825cb3345fff4e2",
+      "origins": [
+        {
+          "package_number": 54,
+          "archive_sha256": "81566ba175e141b2043fe2a542ba43e0587ea7ad675eac635a991e9db0ebfd1a",
+          "member": "skill54ú║╡╪└φ┐╒╝Σ╩²╛▌┴ó╖╜╠σ┤ª└φ-geospatial-cube-processor/references/evals.json"
+        }
+      ]
+    }
+  ]
+}

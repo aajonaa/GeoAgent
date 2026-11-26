@@ -1,0 +1,1471 @@
+{
+  "dependency_lock": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/dependency-lock.json",
+  "dependency_lock_sha256": "2823a2cb2a2d6ab7efbba751f7f1e4f22f9f23b276d3310ac4b2ae85df503f8f",
+  "install_report": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/install-report.json",
+  "install_report_sha256": "8fb9d18e7053dc58b239e6ef2a81c47b4e41192e8474a13b2a355badc938c464",
+  "interpreter_sha256": "edffa803e5c4d73a1357f7f2c6c9fd38e9693712b2c06793e6a5e5cc1090d03a",
+  "isolated_flag": 1,
+  "license_evidence": [
+    {
+      "distribution": "affine",
+      "distribution_sha256": "cda3b303325e7bf2bf34817e68753a0d1c4cacbdd451fe67c4878dc2ecbaa540",
+      "distribution_url": "https://files.pythonhosted.org/packages/3d/87/e62f55c956b583380e7d2a71705dfd431ee32dd1689d50491ba0c610fc11/affine-3.0.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/affine-3.0.1.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "fc3636b54ff4072cf4b013ed9893c171ed25f88dae2b32722050499c1878cd6e",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/affine-3.0.1/affine-3.0.1.dist-info/licenses/LICENSE.txt",
+      "sha256": "fc3636b54ff4072cf4b013ed9893c171ed25f88dae2b32722050499c1878cd6e",
+      "version": "3.0.1"
+    },
+    {
+      "distribution": "attrs",
+      "distribution_sha256": "c647aa4a12dfbad9333ca4e71fe62ddc36f4e63b2d260a37a8b83d2f043ac309",
+      "distribution_url": "https://files.pythonhosted.org/packages/64/b4/17d4b0b2a2dc85a6df63d1157e028ed19f90d4cd97c36717afef2bc2f395/attrs-26.1.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/attrs-26.1.0.dist-info/licenses/LICENSE",
+      "original_sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/attrs-26.1.0/attrs-26.1.0.dist-info/licenses/LICENSE",
+      "sha256": "882115c95dfc2af1eeb6714f8ec6d5cbcabf667caff8729f42420da63f714e9f",
+      "version": "26.1.0"
+    },
+    {
+      "distribution": "beautifulsoup4",
+      "distribution_sha256": "d6f88de62e1d4e38ecb1077eb9724cd0eff29d2a08ca16a401e9b9e93f117cf9",
+      "distribution_url": "https://files.pythonhosted.org/packages/88/c6/92fcd42f1ba33e1184263f25bfabf3d27c383410470f169e4b8163bf9c17/beautifulsoup4-4.15.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+      "original_sha256": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/beautifulsoup4-4.15.0/beautifulsoup4-4.15.0.dist-info/licenses/LICENSE",
+      "sha256": "55b4d8d4b1e5bc86d10efac91b74c87bcb77526b0f5b9edaf8b9cd2adc7397b2",
+      "version": "4.15.0"
+    },
+    {
+      "distribution": "certifi",
+      "distribution_sha256": "e9b54de76e530bb6cf0ccd036787103acb58fd42ba930ea8bf948ddbaa2f61d1",
+      "distribution_url": "https://files.pythonhosted.org/packages/32/d1/a3652fe2c19134d0d15922177821d863cbd7e842d53a21bbe7e8e3a1b5ac/certifi-2026.10.23-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "original_sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/certifi-2026.10.23/certifi-2026.10.23.dist-info/licenses/LICENSE",
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7",
+      "version": "2026.10.23"
+    },
+    {
+      "distribution": "charset-normalizer",
+      "distribution_sha256": "3d31298449090ab8d47b7b1b2a555ff73cac7ed438a08b7ac160980c7ebed649",
+      "distribution_url": "https://files.pythonhosted.org/packages/7f/c5/38806a25ab5e65fc178f39affeda20858efafede2fce1ffc2556cfc9fe73/charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+      "original_sha256": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/charset-normalizer-3.5.2/charset_normalizer-3.5.2.dist-info/licenses/LICENSE",
+      "sha256": "6d0d41bfe170ac6c7dc248c9a63e254d0fb45a60d50a8257d0af92c6e249b887",
+      "version": "3.5.2"
+    },
+    {
+      "distribution": "click",
+      "distribution_sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "distribution_url": "https://files.pythonhosted.org/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/click-8.5.0/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "9a8ad106a394e853bfe21f42f4e72d592819a22805d991b5f3275029292b658d",
+      "version": "8.5.0"
+    },
+    {
+      "distribution": "click-plugins",
+      "distribution_sha256": "008d65743833ffc1f5417bf0e78e8d2c23aab04d9745ba817bd3e71b0feb6aa6",
+      "distribution_url": "https://files.pythonhosted.org/packages/3d/9a/2abecb28ae875e39c8cad711eb1186d8d14eab564705325e77e4e6ab9ae5/click_plugins-1.1.1.2-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/click_plugins-1.1.1.2.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "fa1986d06c7d3ba7763524604dbab39faf5b1a89c7812a8d5d932e7dd70036d2",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/click-plugins-1.1.1.2/click_plugins-1.1.1.2.dist-info/licenses/LICENSE.txt",
+      "sha256": "fa1986d06c7d3ba7763524604dbab39faf5b1a89c7812a8d5d932e7dd70036d2",
+      "version": "1.1.1.2"
+    },
+    {
+      "distribution": "cligj",
+      "distribution_sha256": "c1ca117dbce1fe20a5809dc96f01e1c2840f6dcc939b3ddbb1111bf330ba82df",
+      "distribution_url": "https://files.pythonhosted.org/packages/73/86/43fa9f15c5b9fb6e82620428827cd3c284aa933431405d1bcf5231ae3d3e/cligj-0.7.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/cligj-0.7.2.dist-info/LICENSE",
+      "original_sha256": "5902d716544ddf9a34849b345c391abaf7c21ca16ed22706d6ac2f5503712594",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/cligj-0.7.2/cligj-0.7.2.dist-info/LICENSE",
+      "sha256": "5902d716544ddf9a34849b345c391abaf7c21ca16ed22706d6ac2f5503712594",
+      "version": "0.7.2"
+    },
+    {
+      "distribution": "cloudpickle",
+      "distribution_sha256": "9acb47f6afd73f60dc1df93bb801b472f05ff42fa6c84167d25cb206be1fbf4a",
+      "distribution_url": "https://files.pythonhosted.org/packages/88/39/799be3f2f0f38cc727ee3b4f1445fe6d5e4133064ec2e4115069418a5bb6/cloudpickle-3.1.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/cloudpickle-3.1.2.dist-info/licenses/LICENSE",
+      "original_sha256": "3029ea34173e9fdc233ad315dc6b100bd1ea71f529b1c1af97664a272fdc55f5",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/cloudpickle-3.1.2/cloudpickle-3.1.2.dist-info/licenses/LICENSE",
+      "sha256": "3029ea34173e9fdc233ad315dc6b100bd1ea71f529b1c1af97664a272fdc55f5",
+      "version": "3.1.2"
+    },
+    {
+      "distribution": "contourpy",
+      "distribution_sha256": "875f42444c9cf48d56f724f2637e60d0f73b3b12c9041e1484580a233edf9591",
+      "distribution_url": "https://files.pythonhosted.org/packages/78/f9/b6831508960d559581c448532ba4df312217072975486dbf2b24fcc5b76f/contourpy-1.4.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/contourpy-1.4.0.dist-info/licenses/LICENSE",
+      "original_sha256": "11401c428c7014a75728e8679f9c000aacf262015aaba65a760d41aa1130b3af",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/contourpy-1.4.0/contourpy-1.4.0.dist-info/licenses/LICENSE",
+      "sha256": "11401c428c7014a75728e8679f9c000aacf262015aaba65a760d41aa1130b3af",
+      "version": "1.4.0"
+    },
+    {
+      "distribution": "cycler",
+      "distribution_sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30",
+      "distribution_url": "https://files.pythonhosted.org/packages/e7/05/c19819d5e3d95294a6f5947fb9b9629efb316b96de511b418c53d245aae6/cycler-0.12.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/cycler-0.12.1.dist-info/LICENSE",
+      "original_sha256": "f1218143d766da3fea66f13396b7f15df46a83303f29bf96ba6e98eb4d42f408",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/cycler-0.12.1/cycler-0.12.1.dist-info/LICENSE",
+      "sha256": "f1218143d766da3fea66f13396b7f15df46a83303f29bf96ba6e98eb4d42f408",
+      "version": "0.12.1"
+    },
+    {
+      "distribution": "esda",
+      "distribution_sha256": "d7ddc446b59e17855b46b43bce16819bce711f8694d273a17754532429f870d6",
+      "distribution_url": "https://files.pythonhosted.org/packages/be/72/e1ae9577ba22e594c888983178e80261aed813f4507c1ad8e81c16892801/esda-2.10.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/esda-2.10.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "b5f17b86e14ff6648be9c7ce217ae9934f6f17ddf60fa5315f4998ab83297d6b",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/esda-2.10.0/esda-2.10.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "b5f17b86e14ff6648be9c7ce217ae9934f6f17ddf60fa5315f4998ab83297d6b",
+      "version": "2.10.0"
+    },
+    {
+      "archive_member": "esda-2.10.0/LICENSE.txt",
+      "archive_sha256": "2dad5b73d8408bc2fe5fff95524a38b98552e09cc494df5010649f8f12019ea5",
+      "distribution": "esda",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/esda/5f84384eb0ed/LICENSE.txt",
+      "sha256": "b5f17b86e14ff6648be9c7ce217ae9934f6f17ddf60fa5315f4998ab83297d6b",
+      "source_url": "https://files.pythonhosted.org/packages/d9/d9/8de7b97bc2dd5646136766c08fa85543a15331d38896af2aa1e7af6de4ba/esda-2.10.0.tar.gz",
+      "version": "2.10.0"
+    },
+    {
+      "distribution": "fonttools",
+      "distribution_sha256": "eb3c98cac93aac4b9f6e3ce2008325340b234cc9b0338ca6b513f31962a1e278",
+      "distribution_url": "https://files.pythonhosted.org/packages/c1/e0/ec9e4cc868c514deb02233aa1047a6aeb9350d3ee012862f58eec10ef834/fonttools-4.67.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/fonttools-4.67.0.dist-info/licenses/LICENSE",
+      "original_sha256": "6787208f83f659ccbc2223b2fde952ffa6f7e8aca62f1a8a2bf5bc51bb1b2383",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/fonttools-4.67.0/fonttools-4.67.0.dist-info/licenses/LICENSE",
+      "sha256": "6787208f83f659ccbc2223b2fde952ffa6f7e8aca62f1a8a2bf5bc51bb1b2383",
+      "version": "4.67.0"
+    },
+    {
+      "distribution": "fonttools",
+      "distribution_sha256": "eb3c98cac93aac4b9f6e3ce2008325340b234cc9b0338ca6b513f31962a1e278",
+      "distribution_url": "https://files.pythonhosted.org/packages/c1/e0/ec9e4cc868c514deb02233aa1047a6aeb9350d3ee012862f58eec10ef834/fonttools-4.67.0-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/fonttools-4.67.0.dist-info/licenses/LICENSE.external",
+      "original_sha256": "94a83aaee0729a0f302d34acc4acecbd9d58366f262429075fe557e4a54b2e69",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/fonttools-4.67.0/fonttools-4.67.0.dist-info/licenses/LICENSE.external",
+      "sha256": "94a83aaee0729a0f302d34acc4acecbd9d58366f262429075fe557e4a54b2e69",
+      "version": "4.67.0"
+    },
+    {
+      "distribution": "formulaic",
+      "distribution_sha256": "0f84ff49e3fc9dc0e68ab08a0a9427874021aa6c558e66b44dc634a35739b09b",
+      "distribution_url": "https://files.pythonhosted.org/packages/fc/75/0576b03f7889ad25b5385b4f6c69e0543713425a6f193b056c9b0a2e65ce/formulaic-1.2.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/formulaic-1.2.2.dist-info/licenses/LICENSE",
+      "original_sha256": "5230cd90a175a680a8ceb1874fa6508d25abb4d0b873a30f10fe2888f3d7e280",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/formulaic-1.2.2/formulaic-1.2.2.dist-info/licenses/LICENSE",
+      "sha256": "5230cd90a175a680a8ceb1874fa6508d25abb4d0b873a30f10fe2888f3d7e280",
+      "version": "1.2.2"
+    },
+    {
+      "distribution": "geopandas",
+      "distribution_sha256": "2bb0b1052cb47378addb4ba54c47f8d4642dcbda9b61375638274f49d9f0bb0d",
+      "distribution_url": "https://files.pythonhosted.org/packages/54/e4/fac19dc34cb686c96011388b813ff7b858a70681e5ce6ce7698e5021b0f4/geopandas-1.1.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/geopandas-1.1.2.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "c60efa15937a5a82a5a2786a26be7452936fffec7a845724db0740e54535c8ea",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/geopandas-1.1.2/geopandas-1.1.2.dist-info/licenses/LICENSE.txt",
+      "sha256": "c60efa15937a5a82a5a2786a26be7452936fffec7a845724db0740e54535c8ea",
+      "version": "1.1.2"
+    },
+    {
+      "distribution": "idna",
+      "distribution_sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "distribution_url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/idna-3.20.dist-info/licenses/LICENSE.md",
+      "original_sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/idna-3.20/idna-3.20.dist-info/licenses/LICENSE.md",
+      "sha256": "1a9a4f0e3d479a27240ddd59a9137a66ab4a0f9dfdc8ca6188cc0bfd85187f04",
+      "version": "3.20"
+    },
+    {
+      "distribution": "interface_meta",
+      "distribution_sha256": "f38016bef9a4429b6d0792d809be7b65e9781820c674bf7f463999086b6e6323",
+      "distribution_url": "https://files.pythonhosted.org/packages/a1/d3/20a61a248feb1249cd81f83ce731f0bdf5170ed96a08a298f7081cda9e90/interface_meta-2.0.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/interface_meta-2.0.1.dist-info/licenses/LICENSE",
+      "original_sha256": "84897fa209a185912827c2cfc7b66cf9d15485ef041deff220820aa5e475df89",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/interface-meta-2.0.1/interface_meta-2.0.1.dist-info/licenses/LICENSE",
+      "sha256": "84897fa209a185912827c2cfc7b66cf9d15485ef041deff220820aa5e475df89",
+      "version": "2.0.1"
+    },
+    {
+      "distribution": "Jinja2",
+      "distribution_sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+      "distribution_url": "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/jinja2-3.1.6.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "3b49dcee4105eb37bac10faf1be260408fe85d252b8e9df2e0979fc1e094437b",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/jinja2-3.1.6/jinja2-3.1.6.dist-info/licenses/LICENSE.txt",
+      "sha256": "3b49dcee4105eb37bac10faf1be260408fe85d252b8e9df2e0979fc1e094437b",
+      "version": "3.1.6"
+    },
+    {
+      "distribution": "joblib",
+      "distribution_sha256": "3dbbf9f6e4b592a2357b854608e980fe6390d131d7a82f011a377ef2ebef7aba",
+      "distribution_url": "https://files.pythonhosted.org/packages/18/53/84099323c2ec4be98d935f63c033ac4151ee83836ca1050ede3b3aadf155/joblib-1.6.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/joblib-1.6.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "42612911c1872c5e4b43f6ae0e8ee59467cd350332241cf72ce90640264fae6a",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/joblib-1.6.0/joblib-1.6.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "42612911c1872c5e4b43f6ae0e8ee59467cd350332241cf72ce90640264fae6a",
+      "version": "1.6.0"
+    },
+    {
+      "distribution": "jsonschema",
+      "distribution_sha256": "3fba0169e345c7175110351d456342c364814cfcf3b964ba4587f22915230a63",
+      "distribution_url": "https://files.pythonhosted.org/packages/bf/9c/8c95d856233c1f82500c2450b8c68576b4cf1c871db3afac5c34ff84e6fd/jsonschema-4.25.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/jsonschema-4.25.1.dist-info/licenses/COPYING",
+      "original_sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/jsonschema-4.25.1/jsonschema-4.25.1.dist-info/licenses/COPYING",
+      "sha256": "4f92a015a13c4d1a040bef018aa13430b4f1bc73b41b16bb846c346766de7439",
+      "version": "4.25.1"
+    },
+    {
+      "distribution": "jsonschema-specifications",
+      "distribution_sha256": "98802fee3a11ee76ecaca44429fda8a41bff98b00a0f2838151b113f210cc6fe",
+      "distribution_url": "https://files.pythonhosted.org/packages/41/45/1a4ed80516f02155c51f51e8cedb3c1902296743db0bbc66608a0db2814f/jsonschema_specifications-2025.9.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING",
+      "original_sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/jsonschema-specifications-2025.9.1/jsonschema_specifications-2025.9.1.dist-info/licenses/COPYING",
+      "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "version": "2025.9.1"
+    },
+    {
+      "distribution": "kiwisolver",
+      "distribution_sha256": "34633ecf50d16187ab8e5528b7a2530f2feb4e23f300db4672538b51cfc5cd38",
+      "distribution_url": "https://files.pythonhosted.org/packages/fc/f4/dadfec469313c7f428efa7e84b4aba9732f813c13ea7131a24b7b008ef57/kiwisolver-1.5.1-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/kiwisolver-1.5.1.dist-info/licenses/LICENSE",
+      "original_sha256": "529c40e5f67f2f88904657a9f7879ae2f8dc76bc9bfef9cb10d988b48804ed61",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/kiwisolver-1.5.1/kiwisolver-1.5.1.dist-info/licenses/LICENSE",
+      "sha256": "529c40e5f67f2f88904657a9f7879ae2f8dc76bc9bfef9cb10d988b48804ed61",
+      "version": "1.5.1"
+    },
+    {
+      "distribution": "libpysal",
+      "distribution_sha256": "081b603c385dd237254b5698e524a0f072b1698db0ceca33c6dcecdbdbedeb6e",
+      "distribution_url": "https://files.pythonhosted.org/packages/da/45/ede6d644008022592ba97211a562eca7cce527a0adc061028716fa20d34f/libpysal-4.15.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/libpysal-4.15.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "37acaa309d703b28061ef237b0bb010e16b1306a64ed53f0b208f4c5545fd024",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/libpysal-4.15.0/libpysal-4.15.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "37acaa309d703b28061ef237b0bb010e16b1306a64ed53f0b208f4c5545fd024",
+      "version": "4.15.0"
+    },
+    {
+      "archive_member": "libpysal-4.15.0/LICENSE.txt",
+      "archive_sha256": "db9eee1579678a2eec6974c831dc93abf612a4df5a3c45e9d7ed35ea5f9e2497",
+      "distribution": "libpysal",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/libpysal/07d37c36db43/LICENSE.txt",
+      "sha256": "37acaa309d703b28061ef237b0bb010e16b1306a64ed53f0b208f4c5545fd024",
+      "source_url": "https://files.pythonhosted.org/packages/54/94/7b7d286e65b66db8bcd0eb18accae8d68501b432cb7255fe9d264338cf22/libpysal-4.15.0.tar.gz",
+      "version": "4.15.0"
+    },
+    {
+      "distribution": "mapclassify",
+      "distribution_sha256": "a510178db75c9b12db3207d748993e0cc5be4132171a4adc42d0b723515352b1",
+      "distribution_url": "https://files.pythonhosted.org/packages/46/2d/477fbe5b2dcc1960d28181fb96fb50dd39315ae61a6817351c29ef49f9a1/mapclassify-2.11.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/mapclassify-2.11.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "5c8ea2baa2c9542916502816af63275c60ff8ef19ded72bcbff669298dd47f2c",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/mapclassify-2.11.0/mapclassify-2.11.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "5c8ea2baa2c9542916502816af63275c60ff8ef19ded72bcbff669298dd47f2c",
+      "version": "2.11.0"
+    },
+    {
+      "distribution": "MarkupSafe",
+      "distribution_sha256": "8e124f974786f831d6043728e38296969d3579db8896fe004682f5758e613581",
+      "distribution_url": "https://files.pythonhosted.org/packages/4f/a7/aeedb5140afa41fc74c225e9184ab96723a6e873b6ee1c9fede7283456d8/markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/markupsafe-3.0.4.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/markupsafe-3.0.4/markupsafe-3.0.4.dist-info/licenses/LICENSE.txt",
+      "sha256": "489a8e1108509ed98a37bb983e11e0f7e1d31f0bd8f99a79c8448e7ff37d07ea",
+      "version": "3.0.4"
+    },
+    {
+      "distribution": "matplotlib",
+      "distribution_sha256": "d5f256d49fea31f40f166a5e3131235a5d2f4b7f44520b1cf0baf1ce568ccff0",
+      "distribution_url": "https://files.pythonhosted.org/packages/7d/18/95ae2e242d4a5c98bd6e90e36e128d71cf1c7e39b0874feaed3ef782e789/matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/matplotlib-3.10.7.dist-info/LICENSE",
+      "original_sha256": "5a1a81ea301728c8bba2933da832c0cd62229daf20893a024ab3d53244468dbc",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/matplotlib-3.10.7/matplotlib-3.10.7.dist-info/LICENSE",
+      "sha256": "5a1a81ea301728c8bba2933da832c0cd62229daf20893a024ab3d53244468dbc",
+      "version": "3.10.7"
+    },
+    {
+      "distribution": "matplotlib",
+      "distribution_sha256": "d5f256d49fea31f40f166a5e3131235a5d2f4b7f44520b1cf0baf1ce568ccff0",
+      "distribution_url": "https://files.pythonhosted.org/packages/7d/18/95ae2e242d4a5c98bd6e90e36e128d71cf1c7e39b0874feaed3ef782e789/matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/LICENSE_DEJAVU",
+      "original_sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/matplotlib-3.10.7/matplotlib/mpl-data/fonts/ttf/LICENSE_DEJAVU",
+      "sha256": "d75938dec098f06f0ac3c00853065d94f020be1c3c62ef1dc2975ba15b4d9b0e",
+      "version": "3.10.7"
+    },
+    {
+      "distribution": "matplotlib",
+      "distribution_sha256": "d5f256d49fea31f40f166a5e3131235a5d2f4b7f44520b1cf0baf1ce568ccff0",
+      "distribution_url": "https://files.pythonhosted.org/packages/7d/18/95ae2e242d4a5c98bd6e90e36e128d71cf1c7e39b0874feaed3ef782e789/matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/matplotlib/mpl-data/fonts/ttf/LICENSE_STIX",
+      "original_sha256": "bab3d31dfef07f483624f2f65f2711e76065b8e7273278b1c071ede1041c9959",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/matplotlib-3.10.7/matplotlib/mpl-data/fonts/ttf/LICENSE_STIX",
+      "sha256": "bab3d31dfef07f483624f2f65f2711e76065b8e7273278b1c071ede1041c9959",
+      "version": "3.10.7"
+    },
+    {
+      "distribution": "narwhals",
+      "distribution_sha256": "d057df13f5852b8e157596e82eb5e955fad267425df5e420e0ee9863da483b31",
+      "distribution_url": "https://files.pythonhosted.org/packages/d1/89/5d4c86da1130d9059681e5b6cd7645df5c10279a6a079c5c37dcb2cc6f3f/narwhals-2.27.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/narwhals-2.27.1.dist-info/licenses/LICENSE.md",
+      "original_sha256": "811445f30147b8f0c9d444c9025fd528f9532c54b7b83f6e2368473dc91cfdf0",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/narwhals-2.27.1/narwhals-2.27.1.dist-info/licenses/LICENSE.md",
+      "sha256": "811445f30147b8f0c9d444c9025fd528f9532c54b7b83f6e2368473dc91cfdf0",
+      "version": "2.27.1"
+    },
+    {
+      "distribution": "networkx",
+      "distribution_sha256": "e3fd2c13a7814cee3746340d8d7f8598a67f16a58bf47fb7f8793fab6efca1b0",
+      "distribution_url": "https://files.pythonhosted.org/packages/7e/cd/fe58041e9011f307c490e3e17dd48cc516448f7c698a3f2d9d9d65d7e6a8/networkx-3.7-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/networkx-3.7.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "6025f323ea29dc2f0ee0abd9523bf910186f55b0e148e6ebf646c55566278e2e",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/networkx-3.7/networkx-3.7.dist-info/licenses/LICENSE.txt",
+      "sha256": "6025f323ea29dc2f0ee0abd9523bf910186f55b0e148e6ebf646c55566278e2e",
+      "version": "3.7"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/numpy-2.1.3.dist-info/LICENSE.txt",
+      "original_sha256": "c002bd26de7dc7aa464250a0de063d58fe55974452e4389e5c21c350a820bf06",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/numpy-2.1.3/numpy-2.1.3.dist-info/LICENSE.txt",
+      "sha256": "c002bd26de7dc7aa464250a0de063d58fe55974452e4389e5c21c350a820bf06",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/numpy/_core/include/numpy/random/LICENSE.txt",
+      "original_sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/numpy-2.1.3/numpy/_core/include/numpy/random/LICENSE.txt",
+      "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/numpy/ma/LICENSE",
+      "original_sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/numpy-2.1.3/numpy/ma/LICENSE",
+      "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "numpy",
+      "distribution_sha256": "2312b2aa89e1f43ecea6da6ea9a810d06aae08321609d8dc0d0eda6d946a541b",
+      "distribution_url": "https://files.pythonhosted.org/packages/9e/3e/3757f304c704f2f0294a6b8340fcf2be244038be07da4cccf390fa678a9f/numpy-2.1.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/numpy/random/LICENSE.md",
+      "original_sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/numpy-2.1.3/numpy/random/LICENSE.md",
+      "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f",
+      "version": "2.1.3"
+    },
+    {
+      "distribution": "packaging",
+      "distribution_sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "distribution_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/packaging-26.3.dist-info/licenses/LICENSE",
+      "original_sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/packaging-26.3/packaging-26.3.dist-info/licenses/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48",
+      "version": "26.3"
+    },
+    {
+      "distribution": "packaging",
+      "distribution_sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "distribution_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "original_sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/packaging-26.3/packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+      "version": "26.3"
+    },
+    {
+      "distribution": "packaging",
+      "distribution_sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "distribution_url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "original_sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/packaging-26.3/packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5",
+      "version": "26.3"
+    },
+    {
+      "distribution": "pandas",
+      "distribution_sha256": "ba24af48643b12ffe49b27065d3babd52702d95ab70f50e1b34f71ca703e2c0d",
+      "distribution_url": "https://files.pythonhosted.org/packages/01/a5/931fc3ad333d9d87b10107d948d757d67ebcfc33b1988d5faccc39c6845c/pandas-2.3.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pandas-2.3.0.dist-info/LICENSE",
+      "original_sha256": "1dea2e80ed1cbd0233f84cee4486b29689f133babaccf4d295e51c43051f3216",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pandas-2.3.0/pandas-2.3.0.dist-info/LICENSE",
+      "sha256": "1dea2e80ed1cbd0233f84cee4486b29689f133babaccf4d295e51c43051f3216",
+      "version": "2.3.0"
+    },
+    {
+      "distribution": "patsy",
+      "distribution_sha256": "d3dbebe8fd5f46e29912d030b63c6268647b59bf788a99e2af28a30234cf357c",
+      "distribution_url": "https://files.pythonhosted.org/packages/20/70/cd3cf5cff538323076a879edef02cce6f13f7d75e03d12f211b0a0dbd178/patsy-1.0.3-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/patsy-1.0.3.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "3f24a323933d367910f328abfb21f8d17891ef3867d941015de7293a5ba84ebc",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/patsy-1.0.3/patsy-1.0.3.dist-info/licenses/LICENSE.txt",
+      "sha256": "3f24a323933d367910f328abfb21f8d17891ef3867d941015de7293a5ba84ebc",
+      "version": "1.0.3"
+    },
+    {
+      "distribution": "pillow",
+      "distribution_sha256": "42d63be3af4f9b951b199b0a9d23365d37ab14687e6d77b74940432c8515c4ca",
+      "distribution_url": "https://files.pythonhosted.org/packages/e6/99/fdf65cc539e266ab93546c261bdf98411fe165c6e4e13f9dbf597097192b/pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "original_sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pillow-13.0.0/pillow-13.0.0.dist-info/licenses/LICENSE",
+      "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce",
+      "version": "13.0.0"
+    },
+    {
+      "distribution": "pip",
+      "distribution_sha256": "c46efd13b6aa8279f33f2864459c8ce587ea6a1a59ee20de055868d8f7688f7f",
+      "distribution_url": "https://files.pythonhosted.org/packages/c9/bc/b7db44f5f39f9d0494071bddae6880eb645970366d0a200022a1a93d57f5/pip-25.0.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pip-25.0.1.dist-info/LICENSE.txt",
+      "original_sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pip-25.0.1/pip-25.0.1.dist-info/LICENSE.txt",
+      "sha256": "634300a669d49aeae65b12c6c48c924c51a4cdf3d1ff086dc3456dc8bcaa2104",
+      "version": "25.0.1"
+    },
+    {
+      "distribution": "platformdirs",
+      "distribution_sha256": "53d3ec4280b815c1e0b02edad7f9ee8fda1ba9c0865dd9c2e6e63849ce82fc1e",
+      "distribution_url": "https://files.pythonhosted.org/packages/6c/8a/1d8cb3842909dc193a73835adedf412e32e18f8ffd59f43983949622fe6f/platformdirs-4.13.5-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/platformdirs-4.13.5.dist-info/licenses/LICENSE",
+      "original_sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/platformdirs-4.13.5/platformdirs-4.13.5.dist-info/licenses/LICENSE",
+      "sha256": "29e0fd62e929850e86eb28c3fdccf0cefdf4fa94879011cffb3d0d4bed6d4db6",
+      "version": "4.13.5"
+    },
+    {
+      "distribution": "pointpats",
+      "distribution_sha256": "0d790a0f543b74c6e9e43b3a128d8b99d721459906f8709c8f4490c4b556e8c7",
+      "distribution_url": "https://files.pythonhosted.org/packages/ab/58/712e42b6ffb3b18932f5305508e818f79408aafa195ac09dad520376f49d/pointpats-2.6.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pointpats-2.6.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "6b4df28ecb2650ba8683d7a6de0a837f3f26afc2cfc003f547621d47042ebf1d",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pointpats-2.6.0/pointpats-2.6.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "6b4df28ecb2650ba8683d7a6de0a837f3f26afc2cfc003f547621d47042ebf1d",
+      "version": "2.6.0"
+    },
+    {
+      "archive_member": "pointpats-2.6.0/LICENSE.txt",
+      "archive_sha256": "6c21e0a03d9ad4ca0f62393f888842212580d99b828b4b68ddeb1929eac8bdf2",
+      "distribution": "pointpats",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/pointpats/0c5251db9fd3/LICENSE.txt",
+      "sha256": "6b4df28ecb2650ba8683d7a6de0a837f3f26afc2cfc003f547621d47042ebf1d",
+      "source_url": "https://files.pythonhosted.org/packages/97/b6/1623894b77f93da95704fbc56fbfd664603f65ac168230985db0960cd858/pointpats-2.6.0.tar.gz",
+      "version": "2.6.0"
+    },
+    {
+      "distribution": "PuLP",
+      "distribution_sha256": "631b166f72086971a9597f7a0233ababa99bb8d50a01cd543f7758be5a9f86c0",
+      "distribution_url": "https://files.pythonhosted.org/packages/dd/6e/d674f1dde91c71e2ac19e5e5cf1ee6d5845e3aefecd9c39ed9c4b0c9a696/pulp-3.3.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pulp-3.3.2.dist-info/licenses/LICENSE",
+      "original_sha256": "b41bca287571c8ac88dc634f7ccbad0910f5fe42e38fefe1304c3c3b85b94aec",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pulp-3.3.2/pulp-3.3.2.dist-info/licenses/LICENSE",
+      "sha256": "b41bca287571c8ac88dc634f7ccbad0910f5fe42e38fefe1304c3c3b85b94aec",
+      "version": "3.3.2"
+    },
+    {
+      "distribution": "PuLP",
+      "distribution_sha256": "631b166f72086971a9597f7a0233ababa99bb8d50a01cd543f7758be5a9f86c0",
+      "distribution_url": "https://files.pythonhosted.org/packages/dd/6e/d674f1dde91c71e2ac19e5e5cf1ee6d5845e3aefecd9c39ed9c4b0c9a696/pulp-3.3.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pulp/solverdir/cbc/linux/arm64/coin-license.txt",
+      "original_sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pulp-3.3.2/pulp/solverdir/cbc/linux/arm64/coin-license.txt",
+      "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "version": "3.3.2"
+    },
+    {
+      "distribution": "PuLP",
+      "distribution_sha256": "631b166f72086971a9597f7a0233ababa99bb8d50a01cd543f7758be5a9f86c0",
+      "distribution_url": "https://files.pythonhosted.org/packages/dd/6e/d674f1dde91c71e2ac19e5e5cf1ee6d5845e3aefecd9c39ed9c4b0c9a696/pulp-3.3.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pulp/solverdir/cbc/linux/i32/coin-license.txt",
+      "original_sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pulp-3.3.2/pulp/solverdir/cbc/linux/i32/coin-license.txt",
+      "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "version": "3.3.2"
+    },
+    {
+      "distribution": "PuLP",
+      "distribution_sha256": "631b166f72086971a9597f7a0233ababa99bb8d50a01cd543f7758be5a9f86c0",
+      "distribution_url": "https://files.pythonhosted.org/packages/dd/6e/d674f1dde91c71e2ac19e5e5cf1ee6d5845e3aefecd9c39ed9c4b0c9a696/pulp-3.3.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pulp/solverdir/cbc/linux/i64/coin-license.txt",
+      "original_sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pulp-3.3.2/pulp/solverdir/cbc/linux/i64/coin-license.txt",
+      "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "version": "3.3.2"
+    },
+    {
+      "distribution": "PuLP",
+      "distribution_sha256": "631b166f72086971a9597f7a0233ababa99bb8d50a01cd543f7758be5a9f86c0",
+      "distribution_url": "https://files.pythonhosted.org/packages/dd/6e/d674f1dde91c71e2ac19e5e5cf1ee6d5845e3aefecd9c39ed9c4b0c9a696/pulp-3.3.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pulp/solverdir/cbc/osx/i64/coin-license.txt",
+      "original_sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pulp-3.3.2/pulp/solverdir/cbc/osx/i64/coin-license.txt",
+      "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "version": "3.3.2"
+    },
+    {
+      "distribution": "PuLP",
+      "distribution_sha256": "631b166f72086971a9597f7a0233ababa99bb8d50a01cd543f7758be5a9f86c0",
+      "distribution_url": "https://files.pythonhosted.org/packages/dd/6e/d674f1dde91c71e2ac19e5e5cf1ee6d5845e3aefecd9c39ed9c4b0c9a696/pulp-3.3.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pulp/solverdir/cbc/win/i32/coin-license.txt",
+      "original_sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pulp-3.3.2/pulp/solverdir/cbc/win/i32/coin-license.txt",
+      "sha256": "0076749b626931ea5aaee25ddd5019fbfd96da78243cc0d5bd24fe246500981f",
+      "version": "3.3.2"
+    },
+    {
+      "distribution": "PuLP",
+      "distribution_sha256": "631b166f72086971a9597f7a0233ababa99bb8d50a01cd543f7758be5a9f86c0",
+      "distribution_url": "https://files.pythonhosted.org/packages/dd/6e/d674f1dde91c71e2ac19e5e5cf1ee6d5845e3aefecd9c39ed9c4b0c9a696/pulp-3.3.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pulp/solverdir/cbc/win/i64/coin-license.txt",
+      "original_sha256": "b2cd389435fc11009fae20d53c4b1fdea53dab785b02aa4681d36af02b1a7ace",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pulp-3.3.2/pulp/solverdir/cbc/win/i64/coin-license.txt",
+      "sha256": "b2cd389435fc11009fae20d53c4b1fdea53dab785b02aa4681d36af02b1a7ace",
+      "version": "3.3.2"
+    },
+    {
+      "distribution": "pyogrio",
+      "distribution_sha256": "220a988ce2a26591d6db5c775b07289d4f54cabdf274cc048f0e17a0b9d5be14",
+      "distribution_url": "https://files.pythonhosted.org/packages/20/c2/247c150f5ca12f8593c20e39115db551b18de5c6cb383006de21b57399e4/pyogrio-0.13.0-cp311-abi3-manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pyogrio-0.13.0.dist-info/licenses/LICENSE",
+      "original_sha256": "70b1890ff5193b1c271e0520deb9a197346481fbfac7db3ccb1d736753ab735d",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pyogrio-0.13.0/pyogrio-0.13.0.dist-info/licenses/LICENSE",
+      "sha256": "70b1890ff5193b1c271e0520deb9a197346481fbfac7db3ccb1d736753ab735d",
+      "version": "0.13.0"
+    },
+    {
+      "distribution": "pyogrio",
+      "distribution_sha256": "220a988ce2a26591d6db5c775b07289d4f54cabdf274cc048f0e17a0b9d5be14",
+      "distribution_url": "https://files.pythonhosted.org/packages/20/c2/247c150f5ca12f8593c20e39115db551b18de5c6cb383006de21b57399e4/pyogrio-0.13.0-cp311-abi3-manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pyogrio/gdal_data/LICENSE.TXT",
+      "original_sha256": "1dae3468e81d00da56e2936f74d33b8b3ad09d726437f19ce209a5dabea41f77",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pyogrio-0.13.0/pyogrio/gdal_data/LICENSE.TXT",
+      "sha256": "1dae3468e81d00da56e2936f74d33b8b3ad09d726437f19ce209a5dabea41f77",
+      "version": "0.13.0"
+    },
+    {
+      "distribution": "pyparsing",
+      "distribution_sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4",
+      "distribution_url": "https://files.pythonhosted.org/packages/38/bb/d215ee7c73b61497b28a5503f9f53523f294fcc936762b7caf90e0c1c2b5/pyparsing-3.3.3-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pyparsing-3.3.3.dist-info/licenses/LICENSE",
+      "original_sha256": "a5425f9dc14ac74d4c5f0b679e941f2442e32cca7452a4418d5b1a49893ebe4e",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pyparsing-3.3.3/pyparsing-3.3.3.dist-info/licenses/LICENSE",
+      "sha256": "a5425f9dc14ac74d4c5f0b679e941f2442e32cca7452a4418d5b1a49893ebe4e",
+      "version": "3.3.3"
+    },
+    {
+      "distribution": "pyproj",
+      "distribution_sha256": "1edc34266c0c23ced85f95a1ee8b47c9035eae6aca5b6b340327250e8e281630",
+      "distribution_url": "https://files.pythonhosted.org/packages/b8/be/212882c450bba74fc8d7d35cbd57e4af84792f0a56194819d98106b075af/pyproj-3.7.2-cp312-cp312-manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pyproj-3.7.2.dist-info/licenses/LICENSE",
+      "original_sha256": "a652687151814d4c4715445912fcb49e7e58f5b248d47a1a88b859a8815e0822",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pyproj-3.7.2/pyproj-3.7.2.dist-info/licenses/LICENSE",
+      "sha256": "a652687151814d4c4715445912fcb49e7e58f5b248d47a1a88b859a8815e0822",
+      "version": "3.7.2"
+    },
+    {
+      "distribution": "pyproj",
+      "distribution_sha256": "1edc34266c0c23ced85f95a1ee8b47c9035eae6aca5b6b340327250e8e281630",
+      "distribution_url": "https://files.pythonhosted.org/packages/b8/be/212882c450bba74fc8d7d35cbd57e4af84792f0a56194819d98106b075af/pyproj-3.7.2-cp312-cp312-manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pyproj-3.7.2.dist-info/licenses/LICENSE_proj",
+      "original_sha256": "ac9caff7979c906774d756815d1d473145284ba7ba9a5ef1c5fa77e6a30cef82",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pyproj-3.7.2/pyproj-3.7.2.dist-info/licenses/LICENSE_proj",
+      "sha256": "ac9caff7979c906774d756815d1d473145284ba7ba9a5ef1c5fa77e6a30cef82",
+      "version": "3.7.2"
+    },
+    {
+      "distribution": "python-dateutil",
+      "distribution_sha256": "3c79630202e4152c6add678446984236efe4f57e84d8e892aab0637bab82e9fd",
+      "distribution_url": "https://files.pythonhosted.org/packages/5a/17/cebee01d1c0c1441174cf0456ddc91b280d79acb65340c05e41d77866ee8/python_dateutil-3.0.0-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/python_dateutil-3.0.0.dist-info/licenses/LICENSE",
+      "original_sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/python-dateutil-3.0.0/python_dateutil-3.0.0.dist-info/licenses/LICENSE",
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e",
+      "version": "3.0.0"
+    },
+    {
+      "distribution": "pytz",
+      "distribution_sha256": "e658af3757f9e26a9d25dd2aff38335acd92bc9104f890a894b2c1ba28311b03",
+      "distribution_url": "https://files.pythonhosted.org/packages/4f/ef/c66110d46fb800dda0bf33164182dfadabe26a90e4476844d502a23dca8e/pytz-2026.5-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pytz-2026.5.dist-info/LICENSE.txt",
+      "original_sha256": "be8b1a37ebe26c592a90f6c0eb33103a7f383ce2f4d7498c0af9a526990a07b8",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pytz-2026.5/pytz-2026.5.dist-info/LICENSE.txt",
+      "sha256": "be8b1a37ebe26c592a90f6c0eb33103a7f383ce2f4d7498c0af9a526990a07b8",
+      "version": "2026.5"
+    },
+    {
+      "distribution": "PyYAML",
+      "distribution_sha256": "ba1cc08a7ccde2d2ec775841541641e4548226580ab850948cbfda66a1befcdc",
+      "distribution_url": "https://files.pythonhosted.org/packages/8b/9d/b3589d3877982d4f2329302ef98a8026e7f4443c765c46cfecc8858c6b4b/pyyaml-6.0.3-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "original_sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/pyyaml-6.0.3/pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4",
+      "version": "6.0.3"
+    },
+    {
+      "distribution": "rasterio",
+      "distribution_sha256": "8e90c2c300294265c16becc9822337ded0f01fb8664500b4d77890d633d8cd0e",
+      "distribution_url": "https://files.pythonhosted.org/packages/67/72/331727423b28fffdfd8bf18bdc55c18d374c0fefd2dde390cd833f8f4477/rasterio-1.4.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/rasterio-1.4.3.dist-info/LICENSE.txt",
+      "original_sha256": "7666d012678c262c12e4e1ac77c0d1a2080bf020dd19c6745a2e4e874d8208d4",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/rasterio-1.4.3/rasterio-1.4.3.dist-info/LICENSE.txt",
+      "sha256": "7666d012678c262c12e4e1ac77c0d1a2080bf020dd19c6745a2e4e874d8208d4",
+      "version": "1.4.3"
+    },
+    {
+      "distribution": "rasterio",
+      "distribution_sha256": "8e90c2c300294265c16becc9822337ded0f01fb8664500b4d77890d633d8cd0e",
+      "distribution_url": "https://files.pythonhosted.org/packages/67/72/331727423b28fffdfd8bf18bdc55c18d374c0fefd2dde390cd833f8f4477/rasterio-1.4.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/rasterio/gdal_data/LICENSE.TXT",
+      "original_sha256": "1dae3468e81d00da56e2936f74d33b8b3ad09d726437f19ce209a5dabea41f77",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/rasterio-1.4.3/rasterio/gdal_data/LICENSE.TXT",
+      "sha256": "1dae3468e81d00da56e2936f74d33b8b3ad09d726437f19ce209a5dabea41f77",
+      "version": "1.4.3"
+    },
+    {
+      "archive_member": "rasterio-1.4.3/LICENSE.txt",
+      "archive_sha256": "201f05dbc7c4739dacb2c78a1cf4e09c0b7265b0a4d16ccbd1753ce4f2af350a",
+      "distribution": "rasterio",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/rasterio/3c6f8c4e5a2c/LICENSE.txt",
+      "sha256": "7666d012678c262c12e4e1ac77c0d1a2080bf020dd19c6745a2e4e874d8208d4",
+      "source_url": "https://files.pythonhosted.org/packages/de/19/ab4326e419b543da623ce4191f68e3f36a4d9adc64f3df5c78f044d8d9ca/rasterio-1.4.3.tar.gz",
+      "version": "1.4.3"
+    },
+    {
+      "distribution": "rasterstats",
+      "distribution_sha256": "6157d8bd1cc2fe3b3714abfa53b6a18c299efa7f70e8d9af71d3ef0408ac5c5d",
+      "distribution_url": "https://files.pythonhosted.org/packages/05/2e/7c85f00260aa332fbab9caba209290a07be645ee1d5691415ae635a7382a/rasterstats-0.21.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/rasterstats-0.21.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "eed45a7300a48158cf4f95baf0c142aa8596a2fb690e97f8fd98ec700e9fdc35",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/rasterstats-0.21.0/rasterstats-0.21.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "eed45a7300a48158cf4f95baf0c142aa8596a2fb690e97f8fd98ec700e9fdc35",
+      "version": "0.21.0"
+    },
+    {
+      "distribution": "referencing",
+      "distribution_sha256": "381329a9f99628c9069361716891d34ad94af76e461dcb0335825aecc7692231",
+      "distribution_url": "https://files.pythonhosted.org/packages/2c/58/ca301544e1fa93ed4f80d724bf5b194f6e4b945841c5bfd555878eea9fcb/referencing-0.37.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/referencing-0.37.0.dist-info/licenses/COPYING",
+      "original_sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/referencing-0.37.0/referencing-0.37.0.dist-info/licenses/COPYING",
+      "sha256": "42dcd63495f87b4eb7c7757afa379bb55a53f94afd7a5f657d9adf57236e515c",
+      "version": "0.37.0"
+    },
+    {
+      "distribution": "requests",
+      "distribution_sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "distribution_url": "https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/requests-2.34.2.dist-info/licenses/LICENSE",
+      "original_sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/requests-2.34.2/requests-2.34.2.dist-info/licenses/LICENSE",
+      "sha256": "09e8a9bcec8067104652c168685ab0931e7868f9c8284b66f5ae6edae5f1130b",
+      "version": "2.34.2"
+    },
+    {
+      "distribution": "requests",
+      "distribution_sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "distribution_url": "https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/requests-2.34.2.dist-info/licenses/NOTICE",
+      "original_sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/requests-2.34.2/requests-2.34.2.dist-info/licenses/NOTICE",
+      "sha256": "f5110972dedad2b4e9d314518daf3b7d72d6e02e499acd802181de6f74571dcc",
+      "version": "2.34.2"
+    },
+    {
+      "distribution": "rpds-py",
+      "distribution_sha256": "addeda51556dac7c1a2f14cda62db8b621cd12afba3091d03a96c72932387eab",
+      "distribution_url": "https://files.pythonhosted.org/packages/1d/6d/b26eb1e75395925b3a142ed351cbed2ec8212f5c9d937aee3df32c701baa/rpds_py-2026.9.1-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/rpds_py-2026.9.1.dist-info/licenses/LICENSE",
+      "original_sha256": "314e4e91be3baa93c0fb4bccc9e4e97cd643eb839b065af921782c2175fe9909",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/rpds-py-2026.9.1/rpds_py-2026.9.1.dist-info/licenses/LICENSE",
+      "sha256": "314e4e91be3baa93c0fb4bccc9e4e97cd643eb839b065af921782c2175fe9909",
+      "version": "2026.9.1"
+    },
+    {
+      "distribution": "rtree",
+      "distribution_sha256": "12de4578f1b3381a93a655846900be4e3d5f4cd5e306b8b00aa77c1121dc7e8c",
+      "distribution_url": "https://files.pythonhosted.org/packages/d1/75/e5d44be90525cd28503e7f836d077ae6663ec0687a13ba7810b4114b3668/rtree-1.4.1-py3-none-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/rtree-1.4.1.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "2e3e6e756da9258484bdd0e81dcd57c9094a58ca23c37c79b14cc23eeb6b7b21",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/rtree-1.4.1/rtree-1.4.1.dist-info/licenses/LICENSE.txt",
+      "sha256": "2e3e6e756da9258484bdd0e81dcd57c9094a58ca23c37c79b14cc23eeb6b7b21",
+      "version": "1.4.1"
+    },
+    {
+      "distribution": "scikit-learn",
+      "distribution_sha256": "e5bf3d930aee75a65478df91ac1225ff89cd28e9ac7bd1196853a9229b6adb0b",
+      "distribution_url": "https://files.pythonhosted.org/packages/5c/d0/0c577d9325b05594fdd33aa970bf53fb673f051a45496842caee13cfd7fe/scikit_learn-1.7.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/scikit_learn-1.7.2.dist-info/licenses/COPYING",
+      "original_sha256": "fde6cdc0a86c65a845af17086f964f7a38d934467b7f36203894af30ecee7640",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/scikit-learn-1.7.2/scikit_learn-1.7.2.dist-info/licenses/COPYING",
+      "sha256": "fde6cdc0a86c65a845af17086f964f7a38d934467b7f36203894af30ecee7640",
+      "version": "1.7.2"
+    },
+    {
+      "distribution": "scikit-learn",
+      "distribution_sha256": "e5bf3d930aee75a65478df91ac1225ff89cd28e9ac7bd1196853a9229b6adb0b",
+      "distribution_url": "https://files.pythonhosted.org/packages/5c/d0/0c577d9325b05594fdd33aa970bf53fb673f051a45496842caee13cfd7fe/scikit_learn-1.7.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/sklearn/externals/array_api_compat/LICENSE",
+      "original_sha256": "4ffd978e3fa18d058d98c66771cfea7ed634aaf7023cf9612b8b55eee9a8f0fe",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/scikit-learn-1.7.2/sklearn/externals/array_api_compat/LICENSE",
+      "sha256": "4ffd978e3fa18d058d98c66771cfea7ed634aaf7023cf9612b8b55eee9a8f0fe",
+      "version": "1.7.2"
+    },
+    {
+      "distribution": "scikit-learn",
+      "distribution_sha256": "e5bf3d930aee75a65478df91ac1225ff89cd28e9ac7bd1196853a9229b6adb0b",
+      "distribution_url": "https://files.pythonhosted.org/packages/5c/d0/0c577d9325b05594fdd33aa970bf53fb673f051a45496842caee13cfd7fe/scikit_learn-1.7.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/sklearn/externals/array_api_extra/LICENSE",
+      "original_sha256": "58494398fe147fdce76a68b2decd4c08ce3a1ea237b6d6785001c15f822c6ed6",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/scikit-learn-1.7.2/sklearn/externals/array_api_extra/LICENSE",
+      "sha256": "58494398fe147fdce76a68b2decd4c08ce3a1ea237b6d6785001c15f822c6ed6",
+      "version": "1.7.2"
+    },
+    {
+      "archive_member": "scikit_learn-1.7.2/COPYING",
+      "archive_sha256": "20e9e49ecd130598f1ca38a1d85090e1a600147b9c02fa6f15d69cb53d968fda",
+      "distribution": "scikit-learn",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/scikit-learn/097623c7160b/COPYING",
+      "sha256": "75684d16f4662ab842ed5af9482ac01939aee83c8243d89993616d959d3053f8",
+      "source_url": "https://files.pythonhosted.org/packages/98/c2/a7855e41c9d285dfe86dc50b250978105dce513d6e459ea66a6aeb0e1e0c/scikit_learn-1.7.2.tar.gz",
+      "version": "1.7.2"
+    },
+    {
+      "archive_member": "scikit_learn-1.7.2/sklearn/externals/array_api_compat/LICENSE",
+      "archive_sha256": "20e9e49ecd130598f1ca38a1d85090e1a600147b9c02fa6f15d69cb53d968fda",
+      "distribution": "scikit-learn",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/scikit-learn/cca7ee66b395/LICENSE",
+      "sha256": "4ffd978e3fa18d058d98c66771cfea7ed634aaf7023cf9612b8b55eee9a8f0fe",
+      "source_url": "https://files.pythonhosted.org/packages/98/c2/a7855e41c9d285dfe86dc50b250978105dce513d6e459ea66a6aeb0e1e0c/scikit_learn-1.7.2.tar.gz",
+      "version": "1.7.2"
+    },
+    {
+      "archive_member": "scikit_learn-1.7.2/sklearn/externals/array_api_extra/LICENSE",
+      "archive_sha256": "20e9e49ecd130598f1ca38a1d85090e1a600147b9c02fa6f15d69cb53d968fda",
+      "distribution": "scikit-learn",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/scikit-learn/80ad7f25f4d6/LICENSE",
+      "sha256": "58494398fe147fdce76a68b2decd4c08ce3a1ea237b6d6785001c15f822c6ed6",
+      "source_url": "https://files.pythonhosted.org/packages/98/c2/a7855e41c9d285dfe86dc50b250978105dce513d6e459ea66a6aeb0e1e0c/scikit_learn-1.7.2.tar.gz",
+      "version": "1.7.2"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/scipy-1.15.3.dist-info/LICENSE.txt",
+      "original_sha256": "828cb9a7369c0a9f633ce7c10023f8d822f0f76b54ce25c723361d45b088879a",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/scipy-1.15.3/scipy-1.15.3.dist-info/LICENSE.txt",
+      "sha256": "828cb9a7369c0a9f633ce7c10023f8d822f0f76b54ce25c723361d45b088879a",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/scipy/_lib/_uarray/LICENSE",
+      "original_sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/scipy-1.15.3/scipy/_lib/_uarray/LICENSE",
+      "sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/scipy/fft/_pocketfft/LICENSE.md",
+      "original_sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/scipy-1.15.3/scipy/fft/_pocketfft/LICENSE.md",
+      "sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/scipy/sparse/linalg/_eigen/arpack/COPYING",
+      "original_sha256": "0926566f9f406178d1214f8cc796e166b1213dd7c05e0c5b461a8b8ac9e50bbe",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/scipy-1.15.3/scipy/sparse/linalg/_eigen/arpack/COPYING",
+      "sha256": "0926566f9f406178d1214f8cc796e166b1213dd7c05e0c5b461a8b8ac9e50bbe",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "scipy",
+      "distribution_sha256": "271e3713e645149ea5ea3e97b57fdab61ce61333f97cfae392c28ba786f9bb49",
+      "distribution_url": "https://files.pythonhosted.org/packages/0b/1f/03f52c282437a168ee2c7c14a1a0d0781a9a4a8962d84ac05c06b4c5b555/scipy-1.15.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/scipy/spatial/qhull_src/COPYING.txt",
+      "original_sha256": "34db0c0c4f931861d720555c9cd7a2e228d1290ba29af0f2ee80c41bb2038afb",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/scipy-1.15.3/scipy/spatial/qhull_src/COPYING.txt",
+      "sha256": "34db0c0c4f931861d720555c9cd7a2e228d1290ba29af0f2ee80c41bb2038afb",
+      "version": "1.15.3"
+    },
+    {
+      "distribution": "shapely",
+      "distribution_sha256": "1e7d4d7ad262a48bb44277ca12c7c78cb1b0f56b32c10734ec9a1d30c0b0c54b",
+      "distribution_url": "https://files.pythonhosted.org/packages/b9/37/e781683abac55dde9771e086b790e554811a71ed0b2b8a1e789b7430dd44/shapely-2.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/shapely-2.1.2.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "4a207eac9bf257ed286e1c6f0fce253d1abfdb134fc61ec855e37f5692a3f754",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/shapely-2.1.2/shapely-2.1.2.dist-info/licenses/LICENSE.txt",
+      "sha256": "4a207eac9bf257ed286e1c6f0fce253d1abfdb134fc61ec855e37f5692a3f754",
+      "version": "2.1.2"
+    },
+    {
+      "distribution": "shapely",
+      "distribution_sha256": "1e7d4d7ad262a48bb44277ca12c7c78cb1b0f56b32c10734ec9a1d30c0b0c54b",
+      "distribution_url": "https://files.pythonhosted.org/packages/b9/37/e781683abac55dde9771e086b790e554811a71ed0b2b8a1e789b7430dd44/shapely-2.1.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/shapely-2.1.2.dist-info/licenses/LICENSE_GEOS",
+      "original_sha256": "138b2c2f9450073d7c116abe397ca4382625671c752b7a9a5f320b33fc3f3f2a",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/shapely-2.1.2/shapely-2.1.2.dist-info/licenses/LICENSE_GEOS",
+      "sha256": "138b2c2f9450073d7c116abe397ca4382625671c752b7a9a5f320b33fc3f3f2a",
+      "version": "2.1.2"
+    },
+    {
+      "archive_member": "shapely-2.1.2/LICENSE.txt",
+      "archive_sha256": "2ed4ecb28320a433db18a5bf029986aa8afcfd740745e78847e330d5d94922a9",
+      "distribution": "shapely",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/shapely/201a68abb28b/LICENSE.txt",
+      "sha256": "4a207eac9bf257ed286e1c6f0fce253d1abfdb134fc61ec855e37f5692a3f754",
+      "source_url": "https://files.pythonhosted.org/packages/4d/bc/0989043118a27cccb4e906a46b7565ce36ca7b57f5a18b78f4f1b0f72d9d/shapely-2.1.2.tar.gz",
+      "version": "2.1.2"
+    },
+    {
+      "distribution": "simplejson",
+      "distribution_sha256": "8c1e156ad810704994439719b9c03694e267052d4938ca188d91a1769d6f742b",
+      "distribution_url": "https://files.pythonhosted.org/packages/2d/29/fb579920d8ec86ebb1f9a8cc8c9d17f3dcdb32a885dbd8332d21aa855575/simplejson-4.2.0-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/simplejson-4.2.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "fcaa1e313a99304322e2e0836ea4ee7d839ce9a480438f3922a853edfdde129f",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/simplejson-4.2.0/simplejson-4.2.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "fcaa1e313a99304322e2e0836ea4ee7d839ce9a480438f3922a853edfdde129f",
+      "version": "4.2.0"
+    },
+    {
+      "distribution": "six",
+      "distribution_sha256": "4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274",
+      "distribution_url": "https://files.pythonhosted.org/packages/b7/ce/149a00dd41f10bc29e5921b496af8b574d8413afcd5e30dfa0ed46c2cc5e/six-1.17.0-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/six-1.17.0.dist-info/LICENSE",
+      "original_sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/six-1.17.0/six-1.17.0.dist-info/LICENSE",
+      "sha256": "4375ba20e2b9c6c4e7cad2940a628fd90e95cc3d50ee92aae755715d8ba1fbd0",
+      "version": "1.17.0"
+    },
+    {
+      "distribution": "soupsieve",
+      "distribution_sha256": "8412826614f9c632227067d0985aeb9f584bd15efc852955430e097a9fe7afbf",
+      "distribution_url": "https://files.pythonhosted.org/packages/07/66/473f7ca0be0b06e38ee8c85ee2db184e3981bd769fac2e7c19c8a8865211/soupsieve-3.0.4-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/soupsieve-3.0.4.dist-info/licenses/LICENSE.md",
+      "original_sha256": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/soupsieve-3.0.4/soupsieve-3.0.4.dist-info/licenses/LICENSE.md",
+      "sha256": "76a0acdb98c3a63681e20b6f096699ef8cad5fb35d56eef8387e0fa71d797a9a",
+      "version": "3.0.4"
+    },
+    {
+      "distribution": "spaghetti",
+      "distribution_sha256": "184ececfac6006843c22ca5d2de31621983606e7a611c0107fe5ae4ead33396e",
+      "distribution_url": "https://files.pythonhosted.org/packages/29/04/8f6b281e28cc090f368f5eee126d8fd72f60ed9a318893a54989918b048b/spaghetti-1.7.6-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/spaghetti-1.7.6.dist-info/LICENSE.txt",
+      "original_sha256": "aba4bb431146b797c93ae1374dfa29a8a1ba062743023271a9bbfdaecd832678",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/spaghetti-1.7.6/spaghetti-1.7.6.dist-info/LICENSE.txt",
+      "sha256": "aba4bb431146b797c93ae1374dfa29a8a1ba062743023271a9bbfdaecd832678",
+      "version": "1.7.6"
+    },
+    {
+      "distribution": "spopt",
+      "distribution_sha256": "30931f01f52a5554fec3e928f32e378ce3d777c372e4e84ecd8c36a04cb2cae4",
+      "distribution_url": "https://files.pythonhosted.org/packages/52/04/ea4a577ea8cc6f6afe27b619ef71c54c6664aa00cf3f5258364e47569355/spopt-0.8.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/spopt-0.8.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "057c61e78acd5374ca524b88e046a07cf7da85b578c0daa1247a51a905b4bc88",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/spopt-0.8.0/spopt-0.8.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "057c61e78acd5374ca524b88e046a07cf7da85b578c0daa1247a51a905b4bc88",
+      "version": "0.8.0"
+    },
+    {
+      "archive_member": "spopt-0.8.0/LICENSE.txt",
+      "archive_sha256": "4c74d8675d0d178cf0ae217315cbfd2c2259808298faea271909f30d154bdc9b",
+      "distribution": "spopt",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/spopt/c22080fc8969/LICENSE.txt",
+      "sha256": "057c61e78acd5374ca524b88e046a07cf7da85b578c0daa1247a51a905b4bc88",
+      "source_url": "https://files.pythonhosted.org/packages/a9/d1/1d5ac989a0f5beccbe7a794c6415d4d9c53841078271c534453f59cc7edc/spopt-0.8.0.tar.gz",
+      "version": "0.8.0"
+    },
+    {
+      "distribution": "statsmodels",
+      "distribution_sha256": "c6f2bd48915cc9b3b95c3c7f6ac363b6f8aaa38172962ba5f7f6885f0dfe57f2",
+      "distribution_url": "https://files.pythonhosted.org/packages/41/c7/aeadca282baf51d7b9c135674bac79ded91f4db79c69c188575d22234342/statsmodels-0.15.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/statsmodels-0.15.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "1ca78e1dec9dcebc55f3b96a862317f23e76422c5fc943568d955aad1f6b5fad",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/statsmodels-0.15.0/statsmodels-0.15.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "1ca78e1dec9dcebc55f3b96a862317f23e76422c5fc943568d955aad1f6b5fad",
+      "version": "0.15.0"
+    },
+    {
+      "distribution": "statsmodels",
+      "distribution_sha256": "c6f2bd48915cc9b3b95c3c7f6ac363b6f8aaa38172962ba5f7f6885f0dfe57f2",
+      "distribution_url": "https://files.pythonhosted.org/packages/41/c7/aeadca282baf51d7b9c135674bac79ded91f4db79c69c188575d22234342/statsmodels-0.15.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/statsmodels/multivariate/factor_rotation/LICENSE.txt",
+      "original_sha256": "bc23682d762c5fba500092f63efede0ccf6c5935633d6ec1e73d8031436c404b",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/statsmodels-0.15.0/statsmodels/multivariate/factor_rotation/LICENSE.txt",
+      "sha256": "bc23682d762c5fba500092f63efede0ccf6c5935633d6ec1e73d8031436c404b",
+      "version": "0.15.0"
+    },
+    {
+      "distribution": "statsmodels",
+      "distribution_sha256": "c6f2bd48915cc9b3b95c3c7f6ac363b6f8aaa38172962ba5f7f6885f0dfe57f2",
+      "distribution_url": "https://files.pythonhosted.org/packages/41/c7/aeadca282baf51d7b9c135674bac79ded91f4db79c69c188575d22234342/statsmodels-0.15.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/statsmodels/stats/libqsturng/LICENSE.txt",
+      "original_sha256": "7a1030288821832a2b25b9661034d88bb95db97997d9fbc8e327adeb57ddbe85",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/statsmodels-0.15.0/statsmodels/stats/libqsturng/LICENSE.txt",
+      "sha256": "7a1030288821832a2b25b9661034d88bb95db97997d9fbc8e327adeb57ddbe85",
+      "version": "0.15.0"
+    },
+    {
+      "distribution": "statsmodels",
+      "distribution_sha256": "c6f2bd48915cc9b3b95c3c7f6ac363b6f8aaa38172962ba5f7f6885f0dfe57f2",
+      "distribution_url": "https://files.pythonhosted.org/packages/41/c7/aeadca282baf51d7b9c135674bac79ded91f4db79c69c188575d22234342/statsmodels-0.15.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/statsmodels/tsa/statespace/tests/results/frbny_nowcast/Nowcasting/LICENSE",
+      "original_sha256": "610025080241def4185316a180c93a3d2abdd7dd4dd47844b696638edd4070f0",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/statsmodels-0.15.0/statsmodels/tsa/statespace/tests/results/frbny_nowcast/Nowcasting/LICENSE",
+      "sha256": "610025080241def4185316a180c93a3d2abdd7dd4dd47844b696638edd4070f0",
+      "version": "0.15.0"
+    },
+    {
+      "distribution": "threadpoolctl",
+      "distribution_sha256": "cd8b60b5641b45c67bbf73c64c843235fc2d8a480c87389f52f5dbee893b86be",
+      "distribution_url": "https://files.pythonhosted.org/packages/43/3f/f88a53f60a472b46f4023f56d204dd7de33d34c5d2acbfa0d70a674e639e/threadpoolctl-3.7.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/threadpoolctl-3.7.0.dist-info/licenses/LICENSE",
+      "original_sha256": "81ac619075248b06e53660b652d10e485f4675f5d0ae0f97ea22370da1f7e23b",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/threadpoolctl-3.7.0/threadpoolctl-3.7.0.dist-info/licenses/LICENSE",
+      "sha256": "81ac619075248b06e53660b652d10e485f4675f5d0ae0f97ea22370da1f7e23b",
+      "version": "3.7.0"
+    },
+    {
+      "distribution": "tobler",
+      "distribution_sha256": "a3b7aaf510d58d33e70c52d0322b74bc43f89362c04e7a4cf204aca381fe0fdc",
+      "distribution_url": "https://files.pythonhosted.org/packages/b5/da/abbb31a1d205fcc64fb5baa77cddfada2ff48d99d87fae757552a50c7fb3/tobler-0.14.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/tobler-0.14.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "4b30d65415aadbc435ffe32d933152b6c4d959133644791a5d2a7f7f200ff9c9",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/tobler-0.14.0/tobler-0.14.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "4b30d65415aadbc435ffe32d933152b6c4d959133644791a5d2a7f7f200ff9c9",
+      "version": "0.14.0"
+    },
+    {
+      "archive_member": "tobler-0.14.0/LICENSE.txt",
+      "archive_sha256": "9d199bee5f14fed64ef392700e15ea72dfb68543f2293b505071ee6d2f62efe9",
+      "distribution": "tobler",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/tobler/95f315640ca1/LICENSE.txt",
+      "sha256": "4b30d65415aadbc435ffe32d933152b6c4d959133644791a5d2a7f7f200ff9c9",
+      "source_url": "https://files.pythonhosted.org/packages/15/46/9b01486cd19cb8748c886a6704a66fa19d95e47fe3719be4e8434eae3b35/tobler-0.14.0.tar.gz",
+      "version": "0.14.0"
+    },
+    {
+      "distribution": "tqdm",
+      "distribution_sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73",
+      "distribution_url": "https://files.pythonhosted.org/packages/a7/03/921a3d3c75785aca9ebfbfcabfbc3a1be12e2ab5265deb026d55a5a3f83e/tqdm-4.70.1-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/tqdm-4.70.1.dist-info/licenses/LICENCE",
+      "original_sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/tqdm-4.70.1/tqdm-4.70.1.dist-info/licenses/LICENCE",
+      "sha256": "fcff87c3a47ce8028a8512aa182d4fcf0ad1c90544ee75cf9b343684cac194de",
+      "version": "4.70.1"
+    },
+    {
+      "distribution": "typing_extensions",
+      "distribution_sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "distribution_url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "original_sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/typing-extensions-4.16.0/typing_extensions-4.16.0.dist-info/licenses/LICENSE",
+      "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+      "version": "4.16.0"
+    },
+    {
+      "distribution": "tzdata",
+      "distribution_sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+      "distribution_url": "https://files.pythonhosted.org/packages/94/21/1e5995a1c920cce14e4bffae20c665ec10e7ed03ab25e006cd741092b718/tzdata-2026.5-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/tzdata-2026.5.dist-info/licenses/LICENSE",
+      "original_sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/tzdata-2026.5/tzdata-2026.5.dist-info/licenses/LICENSE",
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46",
+      "version": "2026.5"
+    },
+    {
+      "distribution": "tzdata",
+      "distribution_sha256": "b683bd1b6659ddcd810ff02ad09ba821d4bf1065072805063eb35c49617905ac",
+      "distribution_url": "https://files.pythonhosted.org/packages/94/21/1e5995a1c920cce14e4bffae20c665ec10e7ed03ab25e006cd741092b718/tzdata-2026.5-py2.py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/tzdata-2026.5.dist-info/licenses/licenses/LICENSE_APACHE",
+      "original_sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/tzdata-2026.5/tzdata-2026.5.dist-info/licenses/licenses/LICENSE_APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "version": "2026.5"
+    },
+    {
+      "distribution": "urllib3",
+      "distribution_sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "distribution_url": "https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+      "original_sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/urllib3-2.8.0/urllib3-2.8.0.dist-info/licenses/LICENSE.txt",
+      "sha256": "130e3a64d5fdd5d096a752694634a7d9df284469de86e5732100268041e3d686",
+      "version": "2.8.0"
+    },
+    {
+      "distribution": "wrapt",
+      "distribution_sha256": "bfaa998ceeea4d0aa72b40cdd0023d19409504e244b439ff2aa9f01729341c5f",
+      "distribution_url": "https://files.pythonhosted.org/packages/4a/5a/2a34ba5a468e9d3d6e5b0733280e1ae3c850bfc5f1d681fc0e97f564d1f2/wrapt-2.5.1-cp312-cp312-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "installed_original": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages/wrapt-2.5.1.dist-info/licenses/LICENSE",
+      "original_sha256": "d4f66854a24dda2f2a5282912aedebe6b18186b86284510a433d78fadcd88e5d",
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/licenses/wrapt-2.5.1/wrapt-2.5.1.dist-info/licenses/LICENSE",
+      "sha256": "d4f66854a24dda2f2a5282912aedebe6b18186b86284510a433d78fadcd88e5d",
+      "version": "2.5.1"
+    }
+  ],
+  "missing_original_license_files": [],
+  "pth_files": [],
+  "python": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "requirements": [
+    "affine==3.0.1",
+    "attrs==26.1.0",
+    "beautifulsoup4==4.15.0",
+    "certifi==2026.10.23",
+    "charset-normalizer==3.5.2",
+    "click==8.5.0",
+    "click-plugins==1.1.1.2",
+    "cligj==0.7.2",
+    "cloudpickle==3.1.2",
+    "contourpy==1.4.0",
+    "cycler==0.12.1",
+    "esda==2.10.0",
+    "fonttools==4.67.0",
+    "formulaic==1.2.2",
+    "geopandas==1.1.2",
+    "idna==3.20",
+    "interface_meta==2.0.1",
+    "Jinja2==3.1.6",
+    "joblib==1.6.0",
+    "jsonschema==4.25.1",
+    "jsonschema-specifications==2025.9.1",
+    "kiwisolver==1.5.1",
+    "libpysal==4.15.0",
+    "mapclassify==2.11.0",
+    "MarkupSafe==3.0.4",
+    "matplotlib==3.10.7",
+    "narwhals==2.27.1",
+    "networkx==3.7",
+    "numpy==2.1.3",
+    "packaging==26.3",
+    "pandas==2.3.0",
+    "patsy==1.0.3",
+    "pillow==13.0.0",
+    "pip==25.0.1",
+    "platformdirs==4.13.5",
+    "pointpats==2.6.0",
+    "PuLP==3.3.2",
+    "pyogrio==0.13.0",
+    "pyparsing==3.3.3",
+    "pyproj==3.7.2",
+    "python-dateutil==3.0.0",
+    "pytz==2026.5",
+    "PyYAML==6.0.3",
+    "rasterio==1.4.3",
+    "rasterstats==0.21.0",
+    "referencing==0.37.0",
+    "requests==2.34.2",
+    "rpds-py==2026.9.1",
+    "rtree==1.4.1",
+    "scikit-learn==1.7.2",
+    "scipy==1.15.3",
+    "shapely==2.1.2",
+    "simplejson==4.2.0",
+    "six==1.17.0",
+    "soupsieve==3.0.4",
+    "spaghetti==1.7.6",
+    "spopt==0.8.0",
+    "statsmodels==0.15.0",
+    "threadpoolctl==3.7.0",
+    "tobler==0.14.0",
+    "tqdm==4.70.1",
+    "typing_extensions==4.16.0",
+    "tzdata==2026.5",
+    "urllib3==2.8.0",
+    "wrapt==2.5.1"
+  ],
+  "requirements_lock": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/requirements-lock.txt",
+  "requirements_lock_sha256": "84f27bbeb2b7aad4183d36ae2562c3561219c7819d6ae1b77d88981e8ed5096d",
+  "sitecustomize": false,
+  "source_evidence": [
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "esda",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/pypi/esda-2.10.0.json",
+        "sha256": "909bcc4c141e7aa7e6c34080d66a67727b640bcceda99a5d0954c036aaa00519",
+        "url": "https://pypi.org/pypi/esda/2.10.0/json"
+      },
+      "original_release_licenses": [
+        {
+          "archive_member": "esda-2.10.0/LICENSE.txt",
+          "archive_sha256": "2dad5b73d8408bc2fe5fff95524a38b98552e09cc494df5010649f8f12019ea5",
+          "distribution": "esda",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/esda/5f84384eb0ed/LICENSE.txt",
+          "sha256": "b5f17b86e14ff6648be9c7ce217ae9934f6f17ddf60fa5315f4998ab83297d6b",
+          "source_url": "https://files.pythonhosted.org/packages/d9/d9/8de7b97bc2dd5646136766c08fa85543a15331d38896af2aa1e7af6de4ba/esda-2.10.0.tar.gz",
+          "version": "2.10.0"
+        }
+      ],
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/esda-2.10.0.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/esda-reviewed-LICENSE",
+        "sha256": "b5f17b86e14ff6648be9c7ce217ae9934f6f17ddf60fa5315f4998ab83297d6b",
+        "url": "https://raw.githubusercontent.com/pysal/esda/6ffd5b66565791cede8703c438c90a819aacd49f/LICENSE.txt"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "BSD-3-Clause",
+        "license_evidence_url": "https://github.com/pysal/esda/blob/6ffd5b66565791cede8703c438c90a819aacd49f/LICENSE.txt",
+        "package": "esda",
+        "release_evidence_url": "https://pypi.org/project/esda/2.10.0/",
+        "repository": "https://github.com/pysal/esda",
+        "source_commit": "6ffd5b66565791cede8703c438c90a819aacd49f",
+        "source_url": "https://github.com/pysal/esda/tree/6ffd5b66565791cede8703c438c90a819aacd49f",
+        "version": "2.10.0"
+      },
+      "sha256": "2dad5b73d8408bc2fe5fff95524a38b98552e09cc494df5010649f8f12019ea5",
+      "url": "https://files.pythonhosted.org/packages/d9/d9/8de7b97bc2dd5646136766c08fa85543a15331d38896af2aa1e7af6de4ba/esda-2.10.0.tar.gz",
+      "version": "2.10.0"
+    },
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "libpysal",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/pypi/libpysal-4.15.0.json",
+        "sha256": "0b8801feeb2ece675d292f18516351a9a664e79dfbf4b3e0996b3892e20b610d",
+        "url": "https://pypi.org/pypi/libpysal/4.15.0/json"
+      },
+      "original_release_licenses": [
+        {
+          "archive_member": "libpysal-4.15.0/LICENSE.txt",
+          "archive_sha256": "db9eee1579678a2eec6974c831dc93abf612a4df5a3c45e9d7ed35ea5f9e2497",
+          "distribution": "libpysal",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/libpysal/07d37c36db43/LICENSE.txt",
+          "sha256": "37acaa309d703b28061ef237b0bb010e16b1306a64ed53f0b208f4c5545fd024",
+          "source_url": "https://files.pythonhosted.org/packages/54/94/7b7d286e65b66db8bcd0eb18accae8d68501b432cb7255fe9d264338cf22/libpysal-4.15.0.tar.gz",
+          "version": "4.15.0"
+        }
+      ],
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/libpysal-4.15.0.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/libpysal-reviewed-LICENSE",
+        "sha256": "37acaa309d703b28061ef237b0bb010e16b1306a64ed53f0b208f4c5545fd024",
+        "url": "https://raw.githubusercontent.com/pysal/libpysal/40cab61991086968799609f0856bf1eb2042e5ef/LICENSE.txt"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "BSD-3-Clause",
+        "license_evidence_url": "https://github.com/pysal/libpysal/blob/40cab61991086968799609f0856bf1eb2042e5ef/LICENSE.txt",
+        "package": "libpysal",
+        "release_evidence_url": "https://pypi.org/project/libpysal/4.15.0/",
+        "repository": "https://github.com/pysal/libpysal",
+        "source_commit": "40cab61991086968799609f0856bf1eb2042e5ef",
+        "source_url": "https://github.com/pysal/libpysal/tree/40cab61991086968799609f0856bf1eb2042e5ef",
+        "version": "4.15.0"
+      },
+      "sha256": "db9eee1579678a2eec6974c831dc93abf612a4df5a3c45e9d7ed35ea5f9e2497",
+      "url": "https://files.pythonhosted.org/packages/54/94/7b7d286e65b66db8bcd0eb18accae8d68501b432cb7255fe9d264338cf22/libpysal-4.15.0.tar.gz",
+      "version": "4.15.0"
+    },
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "pointpats",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/pypi/pointpats-2.6.0.json",
+        "sha256": "522cdda506b7732fcaea1750560429ab3a6eb699d8f7e98c00676e0a33479257",
+        "url": "https://pypi.org/pypi/pointpats/2.6.0/json"
+      },
+      "original_release_licenses": [
+        {
+          "archive_member": "pointpats-2.6.0/LICENSE.txt",
+          "archive_sha256": "6c21e0a03d9ad4ca0f62393f888842212580d99b828b4b68ddeb1929eac8bdf2",
+          "distribution": "pointpats",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/pointpats/0c5251db9fd3/LICENSE.txt",
+          "sha256": "6b4df28ecb2650ba8683d7a6de0a837f3f26afc2cfc003f547621d47042ebf1d",
+          "source_url": "https://files.pythonhosted.org/packages/97/b6/1623894b77f93da95704fbc56fbfd664603f65ac168230985db0960cd858/pointpats-2.6.0.tar.gz",
+          "version": "2.6.0"
+        }
+      ],
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/pointpats-2.6.0.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/pointpats-reviewed-LICENSE",
+        "sha256": "6b4df28ecb2650ba8683d7a6de0a837f3f26afc2cfc003f547621d47042ebf1d",
+        "url": "https://raw.githubusercontent.com/pysal/pointpats/524296c551488998a26000c072d69b76ca095d68/LICENSE.txt"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "BSD-3-Clause",
+        "license_evidence_url": "https://github.com/pysal/pointpats/blob/524296c551488998a26000c072d69b76ca095d68/LICENSE.txt",
+        "package": "pointpats",
+        "release_evidence_url": "https://pypi.org/project/pointpats/2.6.0/",
+        "repository": "https://github.com/pysal/pointpats",
+        "source_commit": "524296c551488998a26000c072d69b76ca095d68",
+        "source_url": "https://github.com/pysal/pointpats/tree/524296c551488998a26000c072d69b76ca095d68",
+        "version": "2.6.0"
+      },
+      "sha256": "6c21e0a03d9ad4ca0f62393f888842212580d99b828b4b68ddeb1929eac8bdf2",
+      "url": "https://files.pythonhosted.org/packages/97/b6/1623894b77f93da95704fbc56fbfd664603f65ac168230985db0960cd858/pointpats-2.6.0.tar.gz",
+      "version": "2.6.0"
+    },
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "rasterio",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/pypi/rasterio-1.4.3.json",
+        "sha256": "2ba44ba844007f473f587af3e63913957c1cf3639a96cd9d7a792f32a2b4f980",
+        "url": "https://pypi.org/pypi/rasterio/1.4.3/json"
+      },
+      "original_release_licenses": [
+        {
+          "archive_member": "rasterio-1.4.3/LICENSE.txt",
+          "archive_sha256": "201f05dbc7c4739dacb2c78a1cf4e09c0b7265b0a4d16ccbd1753ce4f2af350a",
+          "distribution": "rasterio",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/rasterio/3c6f8c4e5a2c/LICENSE.txt",
+          "sha256": "7666d012678c262c12e4e1ac77c0d1a2080bf020dd19c6745a2e4e874d8208d4",
+          "source_url": "https://files.pythonhosted.org/packages/de/19/ab4326e419b543da623ce4191f68e3f36a4d9adc64f3df5c78f044d8d9ca/rasterio-1.4.3.tar.gz",
+          "version": "1.4.3"
+        }
+      ],
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/rasterio-1.4.3.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/rasterio-reviewed-LICENSE",
+        "sha256": "7666d012678c262c12e4e1ac77c0d1a2080bf020dd19c6745a2e4e874d8208d4",
+        "url": "https://raw.githubusercontent.com/rasterio/rasterio/7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede/LICENSE.txt"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "BSD-3-Clause",
+        "license_evidence_url": "https://github.com/rasterio/rasterio/blob/7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede/LICENSE.txt",
+        "package": "rasterio",
+        "release_evidence_url": "https://pypi.org/project/rasterio/1.4.3/",
+        "repository": "https://github.com/rasterio/rasterio",
+        "source_commit": "7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede",
+        "source_url": "https://github.com/rasterio/rasterio/tree/7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede",
+        "version": "1.4.3"
+      },
+      "sha256": "201f05dbc7c4739dacb2c78a1cf4e09c0b7265b0a4d16ccbd1753ce4f2af350a",
+      "url": "https://files.pythonhosted.org/packages/de/19/ab4326e419b543da623ce4191f68e3f36a4d9adc64f3df5c78f044d8d9ca/rasterio-1.4.3.tar.gz",
+      "version": "1.4.3"
+    },
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "scikit-learn",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/pypi/scikit-learn-1.7.2.json",
+        "sha256": "2828c02475011ebe821076d9dea99b1dc9ebbb9e2f96f6cbae1be5284c43948c",
+        "url": "https://pypi.org/pypi/scikit-learn/1.7.2/json"
+      },
+      "original_release_licenses": [
+        {
+          "archive_member": "scikit_learn-1.7.2/COPYING",
+          "archive_sha256": "20e9e49ecd130598f1ca38a1d85090e1a600147b9c02fa6f15d69cb53d968fda",
+          "distribution": "scikit-learn",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/scikit-learn/097623c7160b/COPYING",
+          "sha256": "75684d16f4662ab842ed5af9482ac01939aee83c8243d89993616d959d3053f8",
+          "source_url": "https://files.pythonhosted.org/packages/98/c2/a7855e41c9d285dfe86dc50b250978105dce513d6e459ea66a6aeb0e1e0c/scikit_learn-1.7.2.tar.gz",
+          "version": "1.7.2"
+        },
+        {
+          "archive_member": "scikit_learn-1.7.2/sklearn/externals/array_api_compat/LICENSE",
+          "archive_sha256": "20e9e49ecd130598f1ca38a1d85090e1a600147b9c02fa6f15d69cb53d968fda",
+          "distribution": "scikit-learn",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/scikit-learn/cca7ee66b395/LICENSE",
+          "sha256": "4ffd978e3fa18d058d98c66771cfea7ed634aaf7023cf9612b8b55eee9a8f0fe",
+          "source_url": "https://files.pythonhosted.org/packages/98/c2/a7855e41c9d285dfe86dc50b250978105dce513d6e459ea66a6aeb0e1e0c/scikit_learn-1.7.2.tar.gz",
+          "version": "1.7.2"
+        },
+        {
+          "archive_member": "scikit_learn-1.7.2/sklearn/externals/array_api_extra/LICENSE",
+          "archive_sha256": "20e9e49ecd130598f1ca38a1d85090e1a600147b9c02fa6f15d69cb53d968fda",
+          "distribution": "scikit-learn",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/scikit-learn/80ad7f25f4d6/LICENSE",
+          "sha256": "58494398fe147fdce76a68b2decd4c08ce3a1ea237b6d6785001c15f822c6ed6",
+          "source_url": "https://files.pythonhosted.org/packages/98/c2/a7855e41c9d285dfe86dc50b250978105dce513d6e459ea66a6aeb0e1e0c/scikit_learn-1.7.2.tar.gz",
+          "version": "1.7.2"
+        }
+      ],
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/scikit_learn-1.7.2.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/scikit-learn-reviewed-LICENSE",
+        "sha256": "75684d16f4662ab842ed5af9482ac01939aee83c8243d89993616d959d3053f8",
+        "url": "https://raw.githubusercontent.com/scikit-learn/scikit-learn/25dee604bae18205b01548348388baf7a1cdfe0e/COPYING"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "BSD-3-Clause",
+        "license_evidence_url": "https://github.com/scikit-learn/scikit-learn/blob/25dee604bae18205b01548348388baf7a1cdfe0e/COPYING",
+        "package": "scikit-learn",
+        "release_evidence_url": "https://pypi.org/project/scikit-learn/1.7.2/",
+        "repository": "https://github.com/scikit-learn/scikit-learn",
+        "source_commit": "25dee604bae18205b01548348388baf7a1cdfe0e",
+        "source_url": "https://github.com/scikit-learn/scikit-learn/tree/25dee604bae18205b01548348388baf7a1cdfe0e",
+        "version": "1.7.2"
+      },
+      "sha256": "20e9e49ecd130598f1ca38a1d85090e1a600147b9c02fa6f15d69cb53d968fda",
+      "url": "https://files.pythonhosted.org/packages/98/c2/a7855e41c9d285dfe86dc50b250978105dce513d6e459ea66a6aeb0e1e0c/scikit_learn-1.7.2.tar.gz",
+      "version": "1.7.2"
+    },
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "shapely",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/pypi/shapely-2.1.2.json",
+        "sha256": "eaec9a42e985b3c8eb5594716cb81b43b25f0c733ce0a6fb25047a118cfe0b39",
+        "url": "https://pypi.org/pypi/shapely/2.1.2/json"
+      },
+      "original_release_licenses": [
+        {
+          "archive_member": "shapely-2.1.2/LICENSE.txt",
+          "archive_sha256": "2ed4ecb28320a433db18a5bf029986aa8afcfd740745e78847e330d5d94922a9",
+          "distribution": "shapely",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/shapely/201a68abb28b/LICENSE.txt",
+          "sha256": "4a207eac9bf257ed286e1c6f0fce253d1abfdb134fc61ec855e37f5692a3f754",
+          "source_url": "https://files.pythonhosted.org/packages/4d/bc/0989043118a27cccb4e906a46b7565ce36ca7b57f5a18b78f4f1b0f72d9d/shapely-2.1.2.tar.gz",
+          "version": "2.1.2"
+        }
+      ],
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/shapely-2.1.2.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/shapely-reviewed-LICENSE",
+        "sha256": "4a207eac9bf257ed286e1c6f0fce253d1abfdb134fc61ec855e37f5692a3f754",
+        "url": "https://raw.githubusercontent.com/shapely/shapely/5fb639d1056888d135fe56bfaf750c9648addeec/LICENSE.txt"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "BSD-3-Clause",
+        "license_evidence_url": "https://github.com/shapely/shapely/blob/5fb639d1056888d135fe56bfaf750c9648addeec/LICENSE.txt",
+        "package": "shapely",
+        "release_evidence_url": "https://pypi.org/project/shapely/2.1.2/",
+        "repository": "https://github.com/shapely/shapely",
+        "source_commit": "5fb639d1056888d135fe56bfaf750c9648addeec",
+        "source_url": "https://github.com/shapely/shapely/tree/5fb639d1056888d135fe56bfaf750c9648addeec",
+        "version": "2.1.2"
+      },
+      "sha256": "2ed4ecb28320a433db18a5bf029986aa8afcfd740745e78847e330d5d94922a9",
+      "url": "https://files.pythonhosted.org/packages/4d/bc/0989043118a27cccb4e906a46b7565ce36ca7b57f5a18b78f4f1b0f72d9d/shapely-2.1.2.tar.gz",
+      "version": "2.1.2"
+    },
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "spopt",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/pypi/spopt-0.8.0.json",
+        "sha256": "500d3e8410e8e57bec65f7d58beb71500b0839f1a3e13a3e0826c6cb7e782851",
+        "url": "https://pypi.org/pypi/spopt/0.8.0/json"
+      },
+      "original_release_licenses": [
+        {
+          "archive_member": "spopt-0.8.0/LICENSE.txt",
+          "archive_sha256": "4c74d8675d0d178cf0ae217315cbfd2c2259808298faea271909f30d154bdc9b",
+          "distribution": "spopt",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/spopt/c22080fc8969/LICENSE.txt",
+          "sha256": "057c61e78acd5374ca524b88e046a07cf7da85b578c0daa1247a51a905b4bc88",
+          "source_url": "https://files.pythonhosted.org/packages/a9/d1/1d5ac989a0f5beccbe7a794c6415d4d9c53841078271c534453f59cc7edc/spopt-0.8.0.tar.gz",
+          "version": "0.8.0"
+        }
+      ],
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/spopt-0.8.0.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/spopt-reviewed-LICENSE",
+        "sha256": "057c61e78acd5374ca524b88e046a07cf7da85b578c0daa1247a51a905b4bc88",
+        "url": "https://raw.githubusercontent.com/pysal/spopt/8d282940ab2827f84cb5f8319e396aa90ac686aa/LICENSE.txt"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "BSD-3-Clause",
+        "license_evidence_url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/LICENSE.txt",
+        "package": "spopt",
+        "release_evidence_url": "https://pypi.org/project/spopt/0.8.0/",
+        "repository": "https://github.com/pysal/spopt",
+        "source_commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+        "source_url": "https://github.com/pysal/spopt/tree/8d282940ab2827f84cb5f8319e396aa90ac686aa",
+        "version": "0.8.0"
+      },
+      "sha256": "4c74d8675d0d178cf0ae217315cbfd2c2259808298faea271909f30d154bdc9b",
+      "url": "https://files.pythonhosted.org/packages/a9/d1/1d5ac989a0f5beccbe7a794c6415d4d9c53841078271c534453f59cc7edc/spopt-0.8.0.tar.gz",
+      "version": "0.8.0"
+    },
+    {
+      "correspondence": "Pinned release sdist and reviewed source commit retained separately; byte identity is not claimed.",
+      "distribution": "tobler",
+      "kind": "canonical_PyPI_release_sdist",
+      "metadata_evidence": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/pypi/tobler-0.14.0.json",
+        "sha256": "6fba5bb4c020f6cf7211689617f9ecad5fc208c34e517742da471f474bb39677",
+        "url": "https://pypi.org/pypi/tobler/0.14.0/json"
+      },
+      "original_release_licenses": [
+        {
+          "archive_member": "tobler-0.14.0/LICENSE.txt",
+          "archive_sha256": "9d199bee5f14fed64ef392700e15ea72dfb68543f2293b505071ee6d2f62efe9",
+          "distribution": "tobler",
+          "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream-licenses/tobler/95f315640ca1/LICENSE.txt",
+          "sha256": "4b30d65415aadbc435ffe32d933152b6c4d959133644791a5d2a7f7f200ff9c9",
+          "source_url": "https://files.pythonhosted.org/packages/15/46/9b01486cd19cb8748c886a6704a66fa19d95e47fe3719be4e8434eae3b35/tobler-0.14.0.tar.gz",
+          "version": "0.14.0"
+        }
+      ],
+      "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/tobler-0.14.0.tar.gz",
+      "reviewed_original_license": {
+        "path": "/data/wangjian/remediate121-20261026-r1/spatial/environments/statistics/upstream/tobler-reviewed-LICENSE",
+        "sha256": "4b30d65415aadbc435ffe32d933152b6c4d959133644791a5d2a7f7f200ff9c9",
+        "url": "https://raw.githubusercontent.com/pysal/tobler/955790dac77f4a76d06591ffe9f246cfb0af4501/LICENSE.txt"
+      },
+      "reviewed_source": {
+        "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending.",
+        "license": "BSD-3-Clause",
+        "license_evidence_url": "https://github.com/pysal/tobler/blob/955790dac77f4a76d06591ffe9f246cfb0af4501/LICENSE.txt",
+        "package": "tobler",
+        "release_evidence_url": "https://pypi.org/project/tobler/0.14.0/",
+        "repository": "https://github.com/pysal/tobler",
+        "source_commit": "955790dac77f4a76d06591ffe9f246cfb0af4501",
+        "source_url": "https://github.com/pysal/tobler/tree/955790dac77f4a76d06591ffe9f246cfb0af4501",
+        "version": "0.14.0"
+      },
+      "sha256": "9d199bee5f14fed64ef392700e15ea72dfb68543f2293b505071ee6d2f62efe9",
+      "url": "https://files.pythonhosted.org/packages/15/46/9b01486cd19cb8748c886a6704a66fa19d95e47fe3719be4e8434eae3b35/tobler-0.14.0.tar.gz",
+      "version": "0.14.0"
+    }
+  ],
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/spatial/envs/statistics/lib/python3.12/site-packages"
+  ],
+  "usercustomize": false
+}

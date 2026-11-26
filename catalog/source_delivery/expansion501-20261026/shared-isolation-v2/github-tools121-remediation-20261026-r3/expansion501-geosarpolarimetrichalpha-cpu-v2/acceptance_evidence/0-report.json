@@ -1,0 +1,347 @@
+{
+  "id": "GeoSARPolarimetricHAlpha",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoSARPolarimetricHAlpha",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoSARPolarimetricHAlpha (remote_original_cases.RemoteCases.test_registry_GeoSARPolarimetricHAlpha) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "c8c966c496ec1e6902a568e747c99e2807bcb5afb5301bfe459f6c5f775a9ad1",
+          "native-execution.csv": "0113fd8ab567e30c3fe8c5f42b1aabd21ca689d82d6e47f3dce57f7b9678ea68",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "b0a07b8fcb4132101c8ad794b9dc64932a44ab11beaec7c68c6a9e196672dad3",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "2fa02f2e75a85f5b6b8118fee69661a7a91478a2ecce6eb8e8b257e640e5c122",
+          "result.tif": "c407e7e6635546264ed14c4c02e80b0e67ff9b1fde41d1083eff18935299ee3f"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "c8c966c496ec1e6902a568e747c99e2807bcb5afb5301bfe459f6c5f775a9ad1",
+          "native-execution.csv": "0113fd8ab567e30c3fe8c5f42b1aabd21ca689d82d6e47f3dce57f7b9678ea68",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "b0a07b8fcb4132101c8ad794b9dc64932a44ab11beaec7c68c6a9e196672dad3",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "2fa02f2e75a85f5b6b8118fee69661a7a91478a2ecce6eb8e8b257e640e5c122",
+          "result.tif": "c407e7e6635546264ed14c4c02e80b0e67ff9b1fde41d1083eff18935299ee3f"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_dict/results/fd4716881b1c48f7b4895ca2b2c00d91",
+        "artifacts": {
+          "band-summary.csv": "c8c966c496ec1e6902a568e747c99e2807bcb5afb5301bfe459f6c5f775a9ad1",
+          "native-execution.csv": "0113fd8ab567e30c3fe8c5f42b1aabd21ca689d82d6e47f3dce57f7b9678ea68",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "b0a07b8fcb4132101c8ad794b9dc64932a44ab11beaec7c68c6a9e196672dad3",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "0d22bb897d219b6cc8833dfaafd4cf4ae6f06f36513aa5a87599e10b97edd5fb",
+          "result.tif": "c407e7e6635546264ed14c4c02e80b0e67ff9b1fde41d1083eff18935299ee3f"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_json/results/23c327526f01471ba1d972fe4c9e5a00",
+        "artifacts": {
+          "band-summary.csv": "c8c966c496ec1e6902a568e747c99e2807bcb5afb5301bfe459f6c5f775a9ad1",
+          "native-execution.csv": "0113fd8ab567e30c3fe8c5f42b1aabd21ca689d82d6e47f3dce57f7b9678ea68",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "b0a07b8fcb4132101c8ad794b9dc64932a44ab11beaec7c68c6a9e196672dad3",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "0d22bb897d219b6cc8833dfaafd4cf4ae6f06f36513aa5a87599e10b97edd5fb",
+          "result.tif": "c407e7e6635546264ed14c4c02e80b0e67ff9b1fde41d1083eff18935299ee3f"
+        }
+      }
+    },
+    "scattering_gain_invariance_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "d19ebcf4e175ba813a8cdb00fcb93030863746b50130524aa5ccc9a97b4ae241",
+          "native-execution.csv": "0113fd8ab567e30c3fe8c5f42b1aabd21ca689d82d6e47f3dce57f7b9678ea68",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "e3a85fd40901d268361e9d1a8a8eb07b9e02fabbf985b970a640cce95f5b2434",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "0d22bb897d219b6cc8833dfaafd4cf4ae6f06f36513aa5a87599e10b97edd5fb",
+          "result.tif": "7349a071f71acc734cfc6c3131cca201cf73f1fd2b91c3e3d49e45ea0d711e0f"
+        }
+      }
+    },
+    "scattering_gain_invariance_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "d19ebcf4e175ba813a8cdb00fcb93030863746b50130524aa5ccc9a97b4ae241",
+          "native-execution.csv": "0113fd8ab567e30c3fe8c5f42b1aabd21ca689d82d6e47f3dce57f7b9678ea68",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "e3a85fd40901d268361e9d1a8a8eb07b9e02fabbf985b970a640cce95f5b2434",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "0d22bb897d219b6cc8833dfaafd4cf4ae6f06f36513aa5a87599e10b97edd5fb",
+          "result.tif": "7349a071f71acc734cfc6c3131cca201cf73f1fd2b91c3e3d49e45ea0d711e0f"
+        }
+      }
+    },
+    "scattering_gain_invariance_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_runtime_dict/results/d053e6f699b84573a46b77ed513905f2",
+        "artifacts": {
+          "band-summary.csv": "d19ebcf4e175ba813a8cdb00fcb93030863746b50130524aa5ccc9a97b4ae241",
+          "native-execution.csv": "0113fd8ab567e30c3fe8c5f42b1aabd21ca689d82d6e47f3dce57f7b9678ea68",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "e3a85fd40901d268361e9d1a8a8eb07b9e02fabbf985b970a640cce95f5b2434",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "fb6c798c6845f0ee6b3501be5b3f38c4f4547e620c25807a0a08b8cd92f9eb43",
+          "result.tif": "7349a071f71acc734cfc6c3131cca201cf73f1fd2b91c3e3d49e45ea0d711e0f"
+        }
+      }
+    },
+    "scattering_gain_invariance_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/scattering_gain_invariance_runtime_json/results/8866e740321b49f09fd847b44d7821c0",
+        "artifacts": {
+          "band-summary.csv": "d19ebcf4e175ba813a8cdb00fcb93030863746b50130524aa5ccc9a97b4ae241",
+          "native-execution.csv": "0113fd8ab567e30c3fe8c5f42b1aabd21ca689d82d6e47f3dce57f7b9678ea68",
+          "native-identity.json": "b4be80ea81c0b84c46f321f8a3ea747f01fe30a3b1cd66fbe8484a6d432c8450",
+          "native-raster-transport.json": "e3a85fd40901d268361e9d1a8a8eb07b9e02fabbf985b970a640cce95f5b2434",
+          "native-stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "native-stdout.txt": "fb6c798c6845f0ee6b3501be5b3f38c4f4547e620c25807a0a08b8cd92f9eb43",
+          "result.tif": "7349a071f71acc734cfc6c3131cca201cf73f1fd2b91c3e3d49e45ea0d711e0f"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoSARPolarimetricHAlpha",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoSARPolarimetricHAlpha (remote_original_cases.RemoteCases.test_reject_extra_GeoSARPolarimetricHAlpha) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoSARPolarimetricHAlpha",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoSARPolarimetricHAlpha (remote_original_cases.RemoteCases.test_reject_unit_GeoSARPolarimetricHAlpha) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARPolarimetricHAlpha",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoSARPolarimetricHAlpha (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARPolarimetricHAlpha) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARPolarimetricHAlpha",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoSARPolarimetricHAlpha (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARPolarimetricHAlpha) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARPolarimetricHAlpha",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoSARPolarimetricHAlpha (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARPolarimetricHAlpha) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoSARPolarimetricHAlpha",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoSARPolarimetricHAlpha (remote_original_cases.RemoteCases.test_reject_singular_GeoSARPolarimetricHAlpha) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARPolarimetricHAlpha",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoSARPolarimetricHAlpha (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARPolarimetricHAlpha) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARPolarimetricHAlpha/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

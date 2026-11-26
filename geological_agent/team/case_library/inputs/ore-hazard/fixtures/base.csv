@@ -1,0 +1,8 @@
+EventID,Country,Type,Loss,Affected,Start Year,Start Month,Start Day
+E01,Alpha,Storm,0.1,10,2024,1,2
+E02,Alpha,Flood,0.2,20,2023,12,31
+E03,Beta,Storm,0.3,30,2024,2,29
+E04,Beta,Flood,5.5,50,2025,1,1
+E05,Alpha,Storm,5.5,40,2025,1,1
+E06,Gamma,Quake,-0.6,0,2022,6,15
+E07,Gamma,Storm,2.0,5,2024,2,30

@@ -22,7 +22,13 @@ def build_registry(*, human_input=False):
     from .scientific_imaging import register_scientific_image_tools
     register_scientific_image_tools(registry)
     professional = register_professional(registry)
+    from .skill_resources import register_skill_resources
+    register_skill_resources(registry)
+    from .general_artifacts import register_general_tools
+    register_general_tools(registry)
     skills = load_source_skills(SkillLoader(SkillRegistry()), professional, runtime_registry=registry)
+    from .research_skills import register_research
+    register_research(registry, skills)
     for summary in skills.registry.list():
         for name in skills.load(summary.id).tool_names:
             registry.get(name)
@@ -43,7 +49,7 @@ def build_registry(*, human_input=False):
     summary_schema = object_schema({k: text for k in ("id", "name", "description", "when_to_use")}, ["id", "name", "description", "when_to_use"])
     registry.register(Tool(ToolDefinition("skill_find", "Discover concise skill summaries; does not load all instructions or tools.",
         "Find procedures relevant to a geological task; an empty query lists the small local registry.",
-        object_schema({"query": {**text, "description": "Optional keywords for literal matching. No match returns an empty skills array, not unrelated entries. An empty query lists the registry; these entries are not relevance-ranked."}}),
+        object_schema({"query": {**text, "description": "Optional keywords for lexical relevance ranking, English suffix folding and Chinese bigram matching. No match returns an empty skills array, not unrelated entries. An empty query lists the registry; these entries are not relevance-ranked."}}),
         object_schema({"skills": {"type": "array", "items": summary_schema},
                        "unavailable_skills": {"type": "array", "items": summary_schema}}, ["skills", "unavailable_skills"])), find))
     registry.register(Tool(ToolDefinition("skill_load", "Load one skill's instructions and disclose its registered tools on the NEXT model turn.",
@@ -62,9 +68,9 @@ def build_registry(*, human_input=False):
     return registry, skills, base_tools
 
 
-def create_agent(model, *, settings=None, memory=None, knowledge=None, trace_factory=None, completion_checks=(), human_input=False, context_store=None):
+def create_agent(model, *, settings=None, memory=None, knowledge=None, trace_factory=None, completion_checks=(), human_input=False, context_store=None, read_only=False):
     settings = settings or Settings()
-    registry, skills, base_tools = build_registry(human_input=human_input)
+    registry, skills, base_tools = build_registry(human_input=human_input and not read_only)
     if knowledge is None and context_store is not None:
         from .rag.store import configured_index
         knowledge = configured_index(context_store.scope.owner_id)
@@ -76,5 +82,15 @@ def create_agent(model, *, settings=None, memory=None, knowledge=None, trace_fac
         from .context_store import register_context_tools
         register_context_tools(registry, context_store)
         base_tools = (*base_tools, "context_search", "context_read")
+    if read_only:
+        allowed = {"read_file", "web_search", "web_fetch", "context_search", "context_read"}
+        base_tools = tuple(name for name in base_tools if name in allowed)
+        read_registry = ToolRegistry()
+        for name in base_tools:
+            read_registry.register(registry.get(name))
+        registry = read_registry
+        skills = SkillLoader(SkillRegistry())
+    else:
+        completion_checks = (validate_energy_answer, *completion_checks)
     return AgentRuntime(model, settings, registry, skills, memory or NullMemoryStore(), knowledge or NullKnowledgeRetriever(), base_tools, trace_factory,
-                        completion_checks=(validate_energy_answer, *completion_checks), context_store=context_store)
+                        completion_checks=completion_checks, context_store=context_store, read_only=read_only)

@@ -1,0 +1,13 @@
+{
+  "data_source": "SYNTHETIC analytic fixture; no measured resource, assay or engineering observation. Ideal Mg2SiO4 constructed from explicitly declared atomic masses.",
+  "oxides": [
+    "MgO",
+    "SiO2"
+  ],
+  "oxide_wt_percent": [
+    57.29435429416238,
+    42.70564570583762
+  ],
+  "oxygen_basis": 4,
+  "atomic_weight_convention": "periodictable-2.1.0-elemental"
+}

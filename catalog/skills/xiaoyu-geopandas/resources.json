@@ -1,0 +1,138 @@
+{
+  "skill_id": "xiaoyu_geopandas",
+  "archive_sha256": "f8f3b43fdd6dd6ca3f86656c9aec4ed8fb77b36f27589aee0dca878b123ce545",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 7936,
+      "sha256": "f21c64a3f05fd9954d24b02f1be0b38fad8827e51b2e5cf6c91016f4705623c6",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/geopandas/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/1b96e4dc50-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pptx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/8e53b12f75-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/docx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/9c8ca586d5-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/xlsx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/d594664132-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pdf/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "references/crs-management.md",
+      "bytes": 4835,
+      "sha256": "3e78919eef20638352689a2419b28ad7367bbd0f64686f438f3496625db6f48d",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/geopandas/references/crs-management.md"
+        }
+      ]
+    },
+    {
+      "path": "references/data-io.md",
+      "bytes": 3690,
+      "sha256": "8bfd8fc74b34e79fd42f31daef06ca582a500469c711371a6eba04cd6f8f59dc",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/geopandas/references/data-io.md"
+        }
+      ]
+    },
+    {
+      "path": "references/data-structures.md",
+      "bytes": 1638,
+      "sha256": "9cd950173409b04e3c57b40b24e296646931de938ebcc86b8bf6806a97fcaab8",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/geopandas/references/data-structures.md"
+        }
+      ]
+    },
+    {
+      "path": "references/geometric-operations.md",
+      "bytes": 4183,
+      "sha256": "f9d55230cae612770de98fb873f32d004d06f4e24624541dc9513be229c176f3",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/geopandas/references/geometric-operations.md"
+        }
+      ]
+    },
+    {
+      "path": "references/spatial-analysis.md",
+      "bytes": 4816,
+      "sha256": "9e846073426fdb00da1f04465036e3c992b5fb3f556f2e264c8db56e1f9e4924",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/geopandas/references/spatial-analysis.md"
+        }
+      ]
+    },
+    {
+      "path": "references/visualization.md",
+      "bytes": 5415,
+      "sha256": "b84ea68adec0fe229bb46973efc2747de69465f6bcc9ad835d526860bbfeddc4",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/geopandas/references/visualization.md"
+        }
+      ]
+    }
+  ]
+}

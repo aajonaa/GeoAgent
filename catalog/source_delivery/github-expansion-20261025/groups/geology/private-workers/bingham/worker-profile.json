@@ -1,0 +1,60 @@
+{
+  "profile_id": "geology-bingham-apsg-44f9dde-cpu-r2",
+  "status": "blocked_not_bound",
+  "enabled": false,
+  "tool_allowlist": [
+    "GeoAPSGBinghamAxialConfidence"
+  ],
+  "source_interface_kind": "github_expansion_geology",
+  "scientific_entrypoint": "geological_agent.geology.github_expansion_geology:bingham_axial_confidence",
+  "entrypoint_status": "Current source intentionally rejects every call; this profile is not an executable integration.",
+  "package": "apsg",
+  "source_mode": "immutable_upstream_commit",
+  "source_commit": "44f9dde66e2e36417e09aebffd9992756705d7ab",
+  "source_url": "https://github.com/ondrolexa/apsg/archive/44f9dde66e2e36417e09aebffd9992756705d7ab.zip",
+  "published_release": false,
+  "source_declared_version": "2.1.0",
+  "requirements_file": "requirements-source.txt",
+  "python": "3.12",
+  "environment_prefix_relative_to_repo": "catalog/source_delivery/github-expansion-20261025/groups/geology/private-workers/bingham/.venv",
+  "fixed_interpreter_relative_to_repo": {
+    "windows": "catalog/source_delivery/github-expansion-20261025/groups/geology/private-workers/bingham/.venv/Scripts/python.exe",
+    "posix": "catalog/source_delivery/github-expansion-20261025/groups/geology/private-workers/bingham/.venv/bin/python"
+  },
+  "interpreter_binding_owner": "Parent-controlled immutable configuration; choose by host OS only, never from request arguments or PATH.",
+  "python_isolated_mode": true,
+  "system_site_packages": false,
+  "inherit_pythonpath": false,
+  "inherit_user_site": false,
+  "cpu_only": true,
+  "environment_overrides": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "HIP_VISIBLE_DEVICES": "",
+    "ROCR_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMBA_NUM_THREADS": "1"
+  },
+  "network_during_calls": false,
+  "runtime_installation": false,
+  "user_controlled_module_function_code_or_executable": false,
+  "fallback_to_main_runtime": false,
+  "other_apsg_operations": {
+    "count": 11,
+    "package_pin": "apsg==2.0.6",
+    "sqlalchemy_pin": "SQLAlchemy==1.4.54",
+    "source_commit": "f9f45a52d60521ba37f326a85645df3dee74272e"
+  },
+  "activation_requirements": [
+    "Bind the entire decorated operation call to the fixed interpreter before shared dependency validation; wrapping an import inside the main interpreter is insufficient.",
+    "Parent must provide a fixed trusted worker entry and scoped catalog containing only this tool; no generic arbitrary dispatch may be exposed.",
+    "Record independently acquired immutable archive and built-wheel SHA256, retained source-tree/file identity, installed interpreter/package paths and package versions. __version__ alone is insufficient evidence.",
+    "Represent immutable commit provenance truthfully rather than a published package_release 2.1.0. Parent owns any required shared dispatch/contract support.",
+    "Replace the fail-closed adapter only after qualified independent numeric oracles and degenerate/rotation/coverage CPU acceptance, retaining the full intended scientific domain."
+  ],
+  "acquisition_artifact_hashes": null,
+  "hash_status": "Not acquired or built here. Parent must record artifact hashes before activation.",
+  "installation_performed": false,
+  "tests_run": false
+}

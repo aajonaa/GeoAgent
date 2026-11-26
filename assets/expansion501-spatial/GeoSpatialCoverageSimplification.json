@@ -1,0 +1,13 @@
+{
+  "crs": "EPSG:32631",
+  "polygons_wkt": [
+    "POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))",
+    "POLYGON ((1 0, 2 0, 2 1, 1 1, 1 0))"
+  ],
+  "tolerance_m": 0.2,
+  "units": {
+    "tolerance_m": "m",
+    "geometry_coordinates": "m"
+  }
+}
+

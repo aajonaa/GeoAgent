@@ -1,0 +1,6 @@
+{
+  "raster_path": "../data/values.tif",
+  "zones_path": "../data/full.json",
+  "zones_crs": "EPSG:32650",
+  "value_unit": "ppm"
+}

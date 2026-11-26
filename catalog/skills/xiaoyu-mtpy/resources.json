@@ -1,0 +1,135 @@
+{
+  "skill_id": "xiaoyu_mtpy",
+  "archive_sha256": "1bfa7edcf559764eb5cc0703304d9fd15c153bbfd334957b84217c38d4693dc5",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 33,
+          "archive_sha256": "f18850fe9c46f671d7b6fff179bf723aa222ff50eecbeeec5f2066862bfd1c48",
+          "member": "mtpy/LICENSE"
+        },
+        {
+          "package_number": 68,
+          "archive_sha256": "4cf323628d3f30d0b5929b6bfad4b1346bc4fd436d3134825c43d9f90eb44861",
+          "member": "mtpy/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 705,
+      "sha256": "3762dab5d72f777242d0bdb22685699eea3910ef1adf042eb00467ac5e19c10f",
+      "origins": [
+        {
+          "package_number": 33,
+          "archive_sha256": "f18850fe9c46f671d7b6fff179bf723aa222ff50eecbeeec5f2066862bfd1c48",
+          "member": "mtpy/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 4495,
+      "sha256": "23bcd9bf5c47e9b76e7bb78a772f1fd4c39f62c4747f15c1ee516c3a0391b7eb",
+      "origins": [
+        {
+          "package_number": 33,
+          "archive_sha256": "f18850fe9c46f671d7b6fff179bf723aa222ff50eecbeeec5f2066862bfd1c48",
+          "member": "mtpy/SKILL.md"
+        },
+        {
+          "package_number": 68,
+          "archive_sha256": "4cf323628d3f30d0b5929b6bfad4b1346bc4fd436d3134825c43d9f90eb44861",
+          "member": "mtpy/SKILL.md"
+        },
+        {
+          "package_number": 102,
+          "archive_sha256": "e82afa1e91b5bfe58bbc3da6d0c4b9ed09fd4175f42db2d7ed931eb3af25ece1",
+          "member": "mtpy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 102,
+          "archive_sha256": "e82afa1e91b5bfe58bbc3da6d0c4b9ed09fd4175f42db2d7ed931eb3af25ece1",
+          "member": "mtpy/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/edi_format.md",
+      "bytes": 2809,
+      "sha256": "17343d0c91dc14f01996fec8da8c6d4cdf522c0a61e81bd857576973849fed2e",
+      "origins": [
+        {
+          "package_number": 33,
+          "archive_sha256": "f18850fe9c46f671d7b6fff179bf723aa222ff50eecbeeec5f2066862bfd1c48",
+          "member": "mtpy/references/edi_format.md"
+        },
+        {
+          "package_number": 68,
+          "archive_sha256": "4cf323628d3f30d0b5929b6bfad4b1346bc4fd436d3134825c43d9f90eb44861",
+          "member": "mtpy/references/edi_format.md"
+        },
+        {
+          "package_number": 102,
+          "archive_sha256": "e82afa1e91b5bfe58bbc3da6d0c4b9ed09fd4175f42db2d7ed931eb3af25ece1",
+          "member": "mtpy/references/edi_format.md"
+        }
+      ]
+    },
+    {
+      "path": "references/plotting.md",
+      "bytes": 1393,
+      "sha256": "93fa2a292356c855de654607716951fcaa9c2e62f3a649b290934c2169478e65",
+      "origins": [
+        {
+          "package_number": 33,
+          "archive_sha256": "f18850fe9c46f671d7b6fff179bf723aa222ff50eecbeeec5f2066862bfd1c48",
+          "member": "mtpy/references/plotting.md"
+        },
+        {
+          "package_number": 68,
+          "archive_sha256": "4cf323628d3f30d0b5929b6bfad4b1346bc4fd436d3134825c43d9f90eb44861",
+          "member": "mtpy/references/plotting.md"
+        },
+        {
+          "package_number": 102,
+          "archive_sha256": "e82afa1e91b5bfe58bbc3da6d0c4b9ed09fd4175f42db2d7ed931eb3af25ece1",
+          "member": "mtpy/references/plotting.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/mt_analysis.py",
+      "bytes": 10518,
+      "sha256": "30ef9152bd552bf5a5321ec04bab21ebf6ace284974af9d06d55b7c407dac3ac",
+      "origins": [
+        {
+          "package_number": 33,
+          "archive_sha256": "f18850fe9c46f671d7b6fff179bf723aa222ff50eecbeeec5f2066862bfd1c48",
+          "member": "mtpy/scripts/mt_analysis.py"
+        },
+        {
+          "package_number": 68,
+          "archive_sha256": "4cf323628d3f30d0b5929b6bfad4b1346bc4fd436d3134825c43d9f90eb44861",
+          "member": "mtpy/scripts/mt_analysis.py"
+        },
+        {
+          "package_number": 102,
+          "archive_sha256": "e82afa1e91b5bfe58bbc3da6d0c4b9ed09fd4175f42db2d7ed931eb3af25ece1",
+          "member": "mtpy/scripts/mt_analysis.py"
+        }
+      ]
+    }
+  ]
+}

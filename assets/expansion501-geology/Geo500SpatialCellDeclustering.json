@@ -1,0 +1,32 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "coordinates_m": [
+    [
+      0.1,
+      0.1
+    ],
+    [
+      0.2,
+      0.2
+    ],
+    [
+      0.3,
+      0.3
+    ],
+    [
+      10.1,
+      10.1
+    ]
+  ],
+  "values": [
+    10,
+    10,
+    10,
+    2
+  ],
+  "value_unit": "ppm",
+  "cell_size_min_m": 5,
+  "cell_size_max_m": 5,
+  "cell_size_steps": 1,
+  "origin_offsets": 1
+}

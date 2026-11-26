@@ -1,0 +1,37 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockContactCement",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "porosity": 0.36,
+    "critical_porosity": 0.4,
+    "coordination": 6,
+    "cement_bulk_gpa": 20,
+    "cement_shear_gpa": 15
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "bulk_gpa"
+      ],
+      "value": 3.1834416013478437,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "porosity": 0.41
+  },
+  "numeric_oracle": "Independent Dvorkin-Nur contact polynomial evaluation: nu0=nuc=.2,alpha=2*(1/270)^(1/4),LambdaN=32/(15*pi),K_eff=24*S_n.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/GM.py",
+  "limitations": [
+    "Fixed contact-deposition scheme1; 0<phi_c-phi<=0.1; empirical contact polynomial.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

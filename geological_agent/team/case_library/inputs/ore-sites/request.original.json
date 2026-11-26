@@ -1,0 +1,38 @@
+{
+  "operations": [
+    {
+      "operation_id": "association",
+      "call_name": "GeoSpatialLocalMoran",
+      "args": {
+        "data_path": "data/SIT-050a.json"
+      },
+      "site_ids": [
+        "zeta",
+        "alpha",
+        "omega",
+        "beta",
+        "kappa",
+        "eta"
+      ]
+    },
+    {
+      "operation_id": "roughness",
+      "call_name": "GeoSpatialLocalGeary",
+      "args": {
+        "data_path": "data/SIT-050b.json"
+      },
+      "site_ids": [
+        "zeta",
+        "alpha",
+        "omega",
+        "beta",
+        "kappa",
+        "eta"
+      ],
+      "values_from": {
+        "operation_id": "association",
+        "field": "local_i"
+      }
+    }
+  ]
+}

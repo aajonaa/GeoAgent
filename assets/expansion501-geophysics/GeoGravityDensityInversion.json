@@ -1,0 +1,95 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "x_edges_m": [
+    -100,
+    -20,
+    20,
+    100
+  ],
+  "y_edges_m": [
+    -100,
+    -20,
+    20,
+    100
+  ],
+  "z_edges_m": [
+    -100,
+    -40,
+    -10,
+    0
+  ],
+  "max_iterations": 5,
+  "regularization_beta": 0.01,
+  "observations_enu_m": [
+    [
+      -50,
+      -50,
+      50
+    ],
+    [
+      -50,
+      50,
+      50
+    ],
+    [
+      50,
+      -50,
+      50
+    ],
+    [
+      50,
+      50,
+      50
+    ],
+    [
+      0,
+      0,
+      50
+    ]
+  ],
+  "gravity_up_mgal": [
+    -0.1,
+    -0.1,
+    -0.1,
+    -0.1,
+    -0.2
+  ],
+  "standard_deviation_mgal": [
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01
+  ],
+  "starting_density_contrast_kg_m3": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "density_lower_kg_m3": -1000,
+  "density_upper_kg_m3": 1000
+}

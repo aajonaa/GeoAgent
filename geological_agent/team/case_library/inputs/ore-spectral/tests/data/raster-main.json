@@ -1,0 +1,30 @@
+{
+  "reference_wavelength_nm": [
+    1000,
+    1500,
+    2000
+  ],
+  "reference_spectra": [
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "reference_labels": [
+    "SYN-REF-A",
+    "SYN-REF-B",
+    "SYN-REF-C"
+  ],
+  "reference_source": "SYNTHETIC independent reference vectors, not measured minerals"
+}

@@ -1,0 +1,11 @@
+{
+  "time_s": [
+    100
+  ],
+  "radius_m": [
+    20
+  ],
+  "storativity": 0.001,
+  "transmissivity_m2_s": 0.001,
+  "pumping_rate_m3_s": 0.01
+}

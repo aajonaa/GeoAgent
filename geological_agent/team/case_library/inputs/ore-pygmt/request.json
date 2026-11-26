@@ -1,0 +1,26 @@
+{
+  "case_id": "original",
+  "source_skill": "ore-pygmt",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [],
+  "original_request": "request.original.json",
+  "context": {
+    "case_id": "original",
+    "operation": "original",
+    "dataset_id": "original",
+    "region": [
+      5,
+      10,
+      44,
+      48
+    ],
+    "projection": "M10c",
+    "coordinate_kind": "geographic",
+    "title": "Synthetic locations",
+    "color_limits": [
+      0,
+      400
+    ]
+  },
+  "input_path_bindings": []
+}

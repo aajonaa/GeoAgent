@@ -1,0 +1,66 @@
+{
+  "skill_id": "xiaoyu_feature_db_client",
+  "archive_sha256": "35ed845d0aeb32d4a04c5f7acf900e9950d30e2280bc6132c2815c2e52b7de89",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 7277,
+      "sha256": "6129ef31552f724456cf9a3e526e5a15ab4d203831a96ec81954f3f5963bea30",
+      "origins": [
+        {
+          "package_number": 65,
+          "archive_sha256": "72fa356b3ff5dfad78701c3e81124dba6e89fe7b3cdce2bd03c39de919206c0d",
+          "member": "feature-db-client/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 1361,
+      "sha256": "c3e2a400d232a3ddc68bb259b148668066b7c0f4369c700a80fb25de36187351",
+      "origins": [
+        {
+          "package_number": 65,
+          "archive_sha256": "72fa356b3ff5dfad78701c3e81124dba6e89fe7b3cdce2bd03c39de919206c0d",
+          "member": "feature-db-client/agents/openai.yaml"
+        }
+      ]
+    },
+    {
+      "path": "references/querying.md",
+      "bytes": 2790,
+      "sha256": "6d06f5ab4d1fd0f0aeff4911eb490b92ebe0a57b4d1e760dfa9f207012c22bb1",
+      "origins": [
+        {
+          "package_number": 65,
+          "archive_sha256": "72fa356b3ff5dfad78701c3e81124dba6e89fe7b3cdce2bd03c39de919206c0d",
+          "member": "feature-db-client/references/querying.md"
+        }
+      ]
+    },
+    {
+      "path": "references/reference-data-and-errors.md",
+      "bytes": 1894,
+      "sha256": "c82e9567f903c0515fd062dc949978739b36c7cefb44ccc78e2c11de19e0d836",
+      "origins": [
+        {
+          "package_number": 65,
+          "archive_sha256": "72fa356b3ff5dfad78701c3e81124dba6e89fe7b3cdce2bd03c39de919206c0d",
+          "member": "feature-db-client/references/reference-data-and-errors.md"
+        }
+      ]
+    },
+    {
+      "path": "references/saving-features.md",
+      "bytes": 10675,
+      "sha256": "a7e8fc3f6d74184a8f78d4fe5182bc6e699ec895ded8fa2b8fcbe64c70975119",
+      "origins": [
+        {
+          "package_number": 65,
+          "archive_sha256": "72fa356b3ff5dfad78701c3e81124dba6e89fe7b3cdce2bd03c39de919206c0d",
+          "member": "feature-db-client/references/saving-features.md"
+        }
+      ]
+    }
+  ]
+}

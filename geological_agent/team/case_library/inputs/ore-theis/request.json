@@ -1,0 +1,35 @@
+{
+  "case_id": "PT-01",
+  "source_skill": "ore-theis",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "HydroAnaFlowTheis",
+      "arguments": {
+        "time_s": [
+          100
+        ],
+        "radius_m": [
+          20
+        ],
+        "storativity": 0.001,
+        "transmissivity_m2_s": 0.001,
+        "pumping_rate_m3_s": 0.01
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "time_s": [
+      100
+    ],
+    "radius_m": [
+      20
+    ],
+    "storativity": 0.001,
+    "transmissivity_m2_s": 0.001,
+    "pumping_rate_m3_s": 0.01
+  },
+  "input_path_bindings": []
+}

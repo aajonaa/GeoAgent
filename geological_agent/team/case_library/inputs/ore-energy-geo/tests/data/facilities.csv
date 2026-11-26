@@ -1,0 +1,5 @@
+id,country,energy_source,capacity_mw,latitude,longitude
+f1,SYNTHETIC,Solar,10,0,0
+f2,SYNTHETIC,Wind,20,0,1
+f3,SYNTHETIC,Coal,30,1,1
+f4,SYNTHETIC,Solar,5,-1,-1

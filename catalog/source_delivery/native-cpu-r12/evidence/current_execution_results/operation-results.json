@@ -1,0 +1,218 @@
+{
+  "HydroVICPrecipitationPhase": {
+    "call_id": "receipt-r6-HydroVICPrecipitationPhase",
+    "name": "HydroVICPrecipitationPhase",
+    "status": "ok",
+    "data": {
+      "rain_mm": [
+        0.0,
+        0.0,
+        5.0,
+        10.0,
+        10.0
+      ],
+      "snow_mm": [
+        10.0,
+        10.0,
+        5.0,
+        0.0,
+        0.0
+      ],
+      "sample_count": 5,
+      "units": {
+        "rain_mm": "mm/time_step",
+        "snow_mm": "mm/time_step",
+        "air_temperature_c": "degree_Celsius"
+      },
+      "provenance": {
+        "tool": "HydroVICPrecipitationPhase",
+        "source_mode": "original_native_kernel",
+        "upstream_url": "https://github.com/UW-Hydro/VIC",
+        "reviewed_archive_commit": "8f6cc0661bdc67c4f6caabdd4dcd0b8782517435",
+        "original_source_bytes_preserved": true,
+        "source_sha256": {
+          "vendor/vic/calc_rainonly.c": "661a2ed6e1825af100cdf999a99f9a6108f6c27b5c48086f7243e480ee069728",
+          "licenses/VIC/LICENSE.txt": "e2665fc8d67a4ee3d9b617e2b7e25919f38f465b44438fbf579681d1e838ad5e"
+        },
+        "binary_sha256": "1289c2d4e4c2e3782abe9389e364aedc70fc92fcf67292eeb00df199e38e801b",
+        "build_receipt_sha256": "6e22c8ceb6efadc9729b7883ceab4822db838ea8b8bca0cd832718acd94b5da5",
+        "input_sha256": "f89b5784d38ebb4b637b40e24aa38b1dfc1607352ac8d6d570c0f997df58147e",
+        "implementation_sha256": "1352936ff833e973add486fe9709de372f62aacc2c18d00c31c93acb671b76ae",
+        "precision": "upstream double",
+        "runtime_compile": false,
+        "network_required": false,
+        "gpu_required": false,
+        "output_sha256": {},
+        "upstream_adapter_sha256": "2920306008082ef769bfda6d290fd7e81597cc5767bbbcdff5d33fae87b65a64",
+        "cpu_bridge_sha256": "73a9179ac51edc50c41e20fd29f6537d53049302ea7a4db1202196e24fabe115",
+        "cpu_profile_sha256": "0ca667440b96475158dfefd749bb1c5bc50a6c550d1d68d1ce5464d516df8046",
+        "execution_mode": "fixed_cpu_dependency_profile",
+        "gpu_used": false,
+        "runtime_install": false
+      },
+      "artifacts": []
+    },
+    "artifacts": [],
+    "error": null,
+    "cached": false,
+    "evidence": {
+      "execution": "executed",
+      "input_files": [],
+      "operation_key": "b55455859b997fc475c660ce8af21e04bc2a896b4f95432fabd3cf918bca21f3"
+    }
+  },
+  "SeismicMadagascarFFT": {
+    "call_id": "receipt-r6-SeismicMadagascarFFT",
+    "name": "SeismicMadagascarFFT",
+    "status": "ok",
+    "data": {
+      "frequency_hz": [
+        0.0,
+        12.5,
+        25.0,
+        37.5,
+        -50.0,
+        -37.5,
+        -25.0,
+        -12.5
+      ],
+      "real": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "imaginary": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "amplitude_two_sided": [
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125,
+        0.125
+      ],
+      "sample_count": 8,
+      "normalization": "Forward DFT unscaled; two-sided amplitude is abs(DFT)/N; no window/padding/detrending.",
+      "units": {
+        "frequency_hz": "Hz",
+        "real": "m/s",
+        "imaginary": "m/s",
+        "amplitude_two_sided": "m/s"
+      },
+      "provenance": {
+        "tool": "SeismicMadagascarFFT",
+        "source_mode": "original_native_kernel",
+        "upstream_url": "https://github.com/ahay/src",
+        "reviewed_archive_commit": "000799f11221d5cdbd0ef86d48342d149762defd",
+        "original_source_bytes_preserved": true,
+        "source_sha256": {
+          "vendor/madagascar/kiss_fft.c": "c732c6c0775f26e0b0b90f94e657e362ce8137b82a56253da45d8e5f585b9491",
+          "vendor/madagascar/kiss_fft.h": "4476caf3b2758aeddf1de4a4428ea3e8cc73115f57a7dc26d8d9bfc832857a0e",
+          "vendor/madagascar/_kiss_fft_guts.h": "640ebb7d17be629fdc7c100c8fd429dccb7704631e2059f62fb836fec936f262",
+          "vendor/madagascar/README.kiss_fft": "f5985b192dcd9c5a1da442e92b97744566941270f6e593f019f42a0b96f650b7",
+          "licenses/Madagascar/COPYING.txt": "e5b95564d1fc67c0e95194ab86b827236c50ee69c3b555296e3a3162596ab243"
+        },
+        "binary_sha256": "6dd2d792e8616257d45c5b30d26e981b95de467153601103d7902fde2ab9aa14",
+        "build_receipt_sha256": "6e22c8ceb6efadc9729b7883ceab4822db838ea8b8bca0cd832718acd94b5da5",
+        "input_sha256": "0f5ae7eefc60c01d39ee3fb597e550ff39b76773a4f556f5713bae1f235dcae1",
+        "implementation_sha256": "1352936ff833e973add486fe9709de372f62aacc2c18d00c31c93acb671b76ae",
+        "precision": "upstream default float32",
+        "runtime_compile": false,
+        "network_required": false,
+        "gpu_required": false,
+        "output_sha256": {},
+        "upstream_adapter_sha256": "2920306008082ef769bfda6d290fd7e81597cc5767bbbcdff5d33fae87b65a64",
+        "cpu_bridge_sha256": "73a9179ac51edc50c41e20fd29f6537d53049302ea7a4db1202196e24fabe115",
+        "cpu_profile_sha256": "0ca667440b96475158dfefd749bb1c5bc50a6c550d1d68d1ce5464d516df8046",
+        "execution_mode": "fixed_cpu_dependency_profile",
+        "gpu_used": false,
+        "runtime_install": false
+      },
+      "artifacts": []
+    },
+    "artifacts": [],
+    "error": null,
+    "cached": false,
+    "evidence": {
+      "execution": "executed",
+      "input_files": [],
+      "operation_key": "dd34055f03a6ee5821ba0552d2c0347538053012930f0bf08045335d1e911e41"
+    }
+  },
+  "GeoHPGLDirectionalSemivariogram": {
+    "call_id": "receipt-r6-GeoHPGLDirectionalSemivariogram",
+    "name": "GeoHPGLDirectionalSemivariogram",
+    "status": "ok",
+    "data": {
+      "lag_center_m": [
+        1,
+        2,
+        3
+      ],
+      "semivariance": [
+        0.5,
+        2.0,
+        4.5
+      ],
+      "sample_count": 4,
+      "empty_bin_policy": "Unchanged upstream returns 0 for empty bins and for equal-valued pairs; do not infer pair support from zero.",
+      "units": {
+        "lag_center_m": "m",
+        "semivariance": "(g/t)^2"
+      },
+      "distribution_license_review_required": true,
+      "provenance": {
+        "tool": "GeoHPGLDirectionalSemivariogram",
+        "source_mode": "original_native_kernel",
+        "upstream_url": "https://github.com/hpgl/hpgl",
+        "reviewed_archive_commit": "ac8f9c2e096d94f5d027970ad783f341a81af380",
+        "original_source_bytes_preserved": true,
+        "source_sha256": {
+          "vendor/hpgl/variograms.cpp": "06e207c4ec83ed0680bc83c5e2cc92b6b157796781a81995eb5e570c910e4c40",
+          "vendor/hpgl/api.h": "02a38dafb6c29add52152cc9c7c87e57c6422f58e272416776b6be53e705b9fb",
+          "licenses/HPGL/license.txt": "e13ae61052fbd3cb1e5d6399f18d083a11ccbccb28ef6582f70125286d48eaad",
+          "licenses/HPGL/upstream-readme.md": "1f08d63c01555516e5918385d01d1ddf9242a4661c353de2f7e36efb1f0ab1b8"
+        },
+        "binary_sha256": "a44d5577d0be0a478d70846fda81ba8479765038ec524cd76f7bd378d04615f2",
+        "build_receipt_sha256": "6e22c8ceb6efadc9729b7883ceab4822db838ea8b8bca0cd832718acd94b5da5",
+        "input_sha256": "8e3d0ba4bc7aac22c31516fc09af659b37fe2c7e0f8e4167253c4785b1015203",
+        "implementation_sha256": "1352936ff833e973add486fe9709de372f62aacc2c18d00c31c93acb671b76ae",
+        "precision": "upstream float32 samples/output, double accumulation",
+        "runtime_compile": false,
+        "network_required": false,
+        "gpu_required": false,
+        "output_sha256": {},
+        "upstream_adapter_sha256": "2920306008082ef769bfda6d290fd7e81597cc5767bbbcdff5d33fae87b65a64",
+        "cpu_bridge_sha256": "73a9179ac51edc50c41e20fd29f6537d53049302ea7a4db1202196e24fabe115",
+        "cpu_profile_sha256": "0ca667440b96475158dfefd749bb1c5bc50a6c550d1d68d1ce5464d516df8046",
+        "execution_mode": "fixed_cpu_dependency_profile",
+        "gpu_used": false,
+        "runtime_install": false
+      },
+      "artifacts": []
+    },
+    "artifacts": [],
+    "error": null,
+    "cached": false,
+    "evidence": {
+      "execution": "executed",
+      "input_files": [],
+      "operation_key": "0a789fff9cfe763aaef41dfa8b96dff14b5a148188c004d6382338f9930cda60"
+    }
+  }
+}

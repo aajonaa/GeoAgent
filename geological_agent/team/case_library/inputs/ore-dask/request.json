@@ -1,0 +1,109 @@
+{
+  "case_id": "c01",
+  "source_skill": "ore-dask",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [],
+  "original_request": "request.original.json",
+  "context": {
+    "operation": "reduce",
+    "array": {
+      "shape": [
+        4,
+        3,
+        2
+      ],
+      "dims": [
+        "time",
+        "lat",
+        "lon"
+      ],
+      "coords": {
+        "time": [
+          "2020-01-01",
+          "2020-01-03",
+          "2020-02-01",
+          "2021-01-01"
+        ],
+        "lat": [
+          -60,
+          0,
+          60
+        ],
+        "lon": [
+          100,
+          110
+        ]
+      },
+      "coord_units": {
+        "time": "ISO8601 date label",
+        "lat": "degrees_north",
+        "lon": "degrees_east"
+      },
+      "values": [
+        -3.0,
+        null,
+        -2.0,
+        -1.5,
+        -1.0,
+        -0.5,
+        0.0,
+        0.5,
+        null,
+        1.5,
+        2.0,
+        2.5,
+        3.0,
+        3.5,
+        4.0,
+        4.5,
+        null,
+        null,
+        6.0,
+        6.5,
+        7.0,
+        7.5,
+        null,
+        8.5
+      ],
+      "mask": [
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        true,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false
+      ],
+      "dtype": "float64",
+      "units": "K"
+    },
+    "chunks": [
+      2,
+      2,
+      1
+    ],
+    "axis": null,
+    "keepdims": false,
+    "ddof": 0,
+    "scheduler": "synchronous",
+    "split_every": 2
+  },
+  "input_path_bindings": []
+}

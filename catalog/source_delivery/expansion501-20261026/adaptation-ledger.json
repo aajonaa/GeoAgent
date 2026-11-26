@@ -1,0 +1,2254 @@
+{
+  "operations": [
+    {
+      "id": "GeoSeismicInstrumentDeconvolution",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoEMLayeredBipoleResponse",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoGravityTesseroid",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoPotentialEulerSourceLocation",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSurfaceWaveDispersion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoPotentialEquivalentSources",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoPotentialUpwardContinuation",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoMagneticReductionToPole",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoDCFourElectrodeResponse",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoGravityNormalEllipsoid",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicArrayBeamforming",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicSTALTADetection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicTemplateDetection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicPolarization",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicTauPRays",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicNMO",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicComplexAttributes",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicWindowCoherence",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoPotentialEdgeAttributes",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicArrayStrainRotation",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoGravityBouguerSlab",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoCrustAiryMoho",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoEMConductiveSphere",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoMagneticWirePath",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicARPhasePick",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicProbabilisticNoise",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicWaveformTFMisfit",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicRadiationPattern",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSurfaceWaveEigenfunctions",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSurfaceWaveSensitivity",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geophysics/research-inventory.json",
+        "sha256": "d74378bd7f5639fb94240629421f0d4f500008131d3d2c7c885ad2073cb4bb14"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoDCResistivityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoIPChargeabilityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoFDEMConductivityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoTDEMConductivityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoGravityDensityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoMagneticSusceptibilityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicLeastSquaresMigration",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicPoststackImpedanceInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicPrestackElasticInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicReceiverDeghosting",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicUpDownWavefieldSeparation",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicMultidimensionalDeconvolution",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": [],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicMarchenkoRedatuming",
+      "state": "blocked",
+      "reason": "Actual pinned Marchenko adapter now authored with public LSQR stop/iteration parsing and separate coupled-system/normal residuals. Remains source-only: parent v2 profile/hook and independent nonzero rational-reference execution are pending.",
+      "blockers": [
+        "parent_v2_end_to_end_dispatch_pending",
+        "independent_scientific_execution_not_run"
+      ],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geophysics.json",
+        "sha256": "2aa226e8385e245944fd94b697e119486cf1846fd3aaae0a7d298ce3c2eabf0e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSeismicTraveltimeTomography",
+      "state": "blocked",
+      "reason": "Actual pygimli1.6.0/pgcore1.6.0 crosshole adapter now authored with slowness start, velocity output, public iteration observer and independent weighted residual check. Remains source-only: v2 profile, native source/build correspondence, bundled library license closure, actual ABI and heterogeneous reference execution are pending; no upstream success code is fabricated.",
+      "blockers": [
+        "parent_v2_end_to_end_dispatch_pending",
+        "native_source_build_correspondence_pending",
+        "bundled_native_license_closure_pending",
+        "native_abi_execution_not_run",
+        "heterogeneous_reference_execution_not_run",
+        "upstream_structured_stop_code_unavailable_not_certified"
+      ],
+      "group": "geophysics",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500CrystalSpaceGroupAudit",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated crystal_space_group calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500IrreducibleReciprocalMesh",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated irreducible_reciprocal_mesh calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500PowderXRDPattern",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated powder_xrd_pattern calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500MineralOxygenBasisFormula",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_oxygen_basis_formula calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500MineralReactionBalance",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_reaction_balance calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500MineralPhaseHull",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_phase_hull calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500CrystalCoordination",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated crystal_coordination calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500BondValenceOxidation",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated bond_valence_oxidation calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500CrystalStructureEquivalence",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated crystal_structure_equivalence calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500WulffCrystalHabit",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated wulff_crystal_habit calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500PeriodicIonicLatticeEnergy",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated ionic_lattice_energy calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500CoherentMineralInterfaceMatch",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated coherent_interface_match calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500MineralSurfaceTerminations",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_surface_terminations calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500REEOrthogonalShape",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated ree_orthogonal_shape calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500VolcanicTASClass",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated volcanic_tas_class calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500MineralNeutronContrast",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_neutron_contrast calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500PoreChordDistribution",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated pore_chord_distribution calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500PoreBodyRadiusDistribution",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated pore_body_radius_distribution calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500QuasistaticCapillaryDrainage",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated quasistatic_capillary_drainage calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500MineralEhPHStability",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mineral_eh_ph_stability calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500SpatialCellDeclustering",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated spatial_cell_declustering calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSlopeLimitEquilibrium",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated slope_limit_equilibrium calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoMantleMeltingPath",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated mantle_melting_path calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoImplicitStructuralModel",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated implicit_structural_model calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoConditionedResourceEnsemble",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated conditioned_resource_ensemble calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/. Local private Python 3.12.14 acceptance passed 20/20 tests, including actual source registration, decorated calls, ToolExecutor typed results, analytic full Schur covariance and negative guards. This is not parent v2 cross-interpreter or Linux acceptance; formal_eligible remains false.",
+      "blockers": [
+        "parent_owned_v2_fixed_profile_binding_pending",
+        "main_runtime_to_private_cpu_result_path_not_accepted",
+        "full_transitive_binary_lock_and_license_review_pending"
+      ],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo500PoreDiffusionTortuosity",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated pore_diffusion_tortuosity calls the fixed upstream with bounded inputs and physical checks. This source revision has not completed private CPU or main-runtime dispatch acceptance. Prior execution/failure records remain immutable in acceptance/.",
+      "blockers": [
+        "parent_owned_v2_fixed_profile_binding_pending",
+        "main_runtime_to_private_cpu_result_path_not_accepted",
+        "full_transitive_binary_lock_and_license_review_pending"
+      ],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/geology/candidate-inventory.json",
+        "sha256": "a5e4e9dbdd2972d0b3a7a47cd0517fd45e10c6dbf3182e5ca05ce52ec88a4ce9"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo50026ConstrainedChemicalEquilibrium",
+      "state": "blocked",
+      "reason": "Reaktoro 2.13.0 source and a CPU py312 conda artifact are identified, but a complete native dependency lock, verified database raw-byte hash/license, fixed constrained-system contract and independent equilibrium reference are not delivered. No registered wrapper or fixed v2 binding.",
+      "blockers": [
+        "native_transitive_binary_lock_missing",
+        "database_raw_sha256_and_terms_pending",
+        "fixed_system_and_independent_equilibrium_reference_pending",
+        "v2_native_binding_pending"
+      ],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geology.json",
+        "sha256": "058c66137bc3c96a2ec71610ec502f7903aaf9c78579209fd3a357cbcf2ed7b1"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo50026MineralReactionKinetics",
+      "state": "blocked",
+      "reason": "The maintained Reaktoro Palandri-Kharaka workflow is confirmed, but its database, parameter bytes, mineral surface convention, native runtime lock and independent time-path reference are not frozen together. Equilibrium imports or endpoint conservation cannot certify this kinetic operation.",
+      "blockers": [
+        "native_transitive_binary_lock_missing",
+        "database_and_rate_parameter_identity_pending",
+        "surface_area_and_rate_domain_contract_pending",
+        "independent_time_path_oracle_pending",
+        "v2_native_binding_pending"
+      ],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geology.json",
+        "sha256": "058c66137bc3c96a2ec71610ec502f7903aaf9c78579209fd3a357cbcf2ed7b1"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "Geo50026ReactiveColumnTransport",
+      "state": "blocked",
+      "reason": "Maintained PhreeqPy 0.6.0 wrapper wheel is identified, but its bundled IPhreeqc binary's content identity and ABI, release-to-source correspondence, offline database rights/hash, fixed column template and lifecycle reference are not verified. Arbitrary PHREEQC input strings remain forbidden.",
+      "blockers": [
+        "iphreeqc_binary_sha256_abi_pending",
+        "wrapper_release_source_mapping_pending",
+        "database_identity_and_terms_pending",
+        "fixed_transport_template_oracle_pending",
+        "v2_native_binding_pending"
+      ],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/geology.json",
+        "sha256": "058c66137bc3c96a2ec71610ec502f7903aaf9c78579209fd3a357cbcf2ed7b1"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoGeobodyTopology",
+      "state": "blocked",
+      "reason": "gempy_plugins 2026.0.3 has a real compute_topology implementation, but its topology.py header declares GPL-3.0-or-later while repository metadata says EUPL-1.2. File-level obligations and fixed fault/lithology model binding are unresolved. The pinned core engine topology interface is empty and is not a substitute.",
+      "blockers": [
+        "file_level_license_interpretation_pending",
+        "fixed_fault_and_lithology_solution_binding_pending",
+        "independent_geobody_adjacency_reference_pending"
+      ],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoCpxMeltThermobarometry",
+      "state": "blocked",
+      "reason": "The identified Thermobar 1.0.75 source retains custom GUI/permission/payment/citation conditions; permission for this delivery is not established. No confirmed maintained license-compatible paired clinopyroxene-melt replacement was found. Cpx-only thermometry, olivine primary melts and own equation rewrites are not accepted substitutes.",
+      "blockers": [
+        "original_license_use_not_authorized",
+        "maintained_compatible_equivalent_not_confirmed",
+        "paired_composition_calibration_and_oracle_pending"
+      ],
+      "group": "geology",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemotePhaseUnwrap",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteBrightnessTemperature",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteGaussianClassify",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteEndmemberDiscovery",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteClassSeparability",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteDenseOpticalFlow",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteProjectiveTiePoints",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteTemplateLocate",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteScaleSpaceBlobs",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteHoughLineEvidence",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteWaveletPyramid",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSARDopplerDeskew",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSARSubaperture",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteTOAReflectance",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemotePansharpenFusion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteMADChange",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSARPolarimetricHAlpha",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSARPolarizationSynthesis",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARNetworkDisplacement",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARResidualDEM",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARIonosphericDelay",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARPlateFrameCorrection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARAscDescDecomposition",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSAREnvisatOscillatorCorrection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARCoherenceNetworkSelection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSARCoherentChange",
+      "state": "source_adapted_unverified",
+      "reason": "User-approved complex-correlation magnitude adapter authored; upstream phase retained; shape/finite/physical bounds and independent acceptance test sources added. No execution yet.",
+      "blockers": [],
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSARSigma0Calibration",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Original SAFE calibration/noise vector coverage, TIFF type and sensor-geolocation content validator/fixture still missing. Native OTB build receipt and artifact geolocation acceptance remain pending. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Original SAFE calibration/noise vector coverage, TIFF type and sensor-geolocation content validator/fixture still missing.",
+        "Native OTB build receipt and artifact geolocation acceptance remain pending.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "OTB SARCalibration requires original sensor calibration/noise LUTs and product metadata not preserved by the bounded array interface.",
+          "blockers": [
+            "A closed SAFE/product dependency manifest, safe copied sidecars, and independently calibrated sigma0 fixture remain unauthored; DN-only scaling would substitute an invented kernel."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json",
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/remote/inventory.json",
+        "sha256": "27f5854a782730fb08bf17d57170aac366c9af12ed0b68634cfc34eb99fc02d5"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARClosureAmbiguityCorrection",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: CVXOPT and complete component/stack HDF5 typed-copy validation and lock missing. A single triangle has nonunique edge corrections; closure=-2pi is not a sufficient correction oracle. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "CVXOPT and complete component/stack HDF5 typed-copy validation and lock missing.",
+        "A single triangle has nonunique edge corrections; closure=-2pi is not a sufficient correction oracle.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "MintPy mutates an interferogram HDF stack and solves integer ambiguities with cvxopt/connected-component sampling.",
+          "blockers": [
+            "Safe operation-specific mutable HDF/component transport, cvxopt ABI lock and an independently identifiable multi-triangle ambiguity fixture are not authored."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json",
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARTroposphericDelay",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: GRIB content validation, full pressure-level/DEM vertical coverage and ecCodes/GRIB dependency identities missing. No independently supplied ERA5 fixture or complete atmospheric-delay oracle. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "GRIB content validation, full pressure-level/DEM vertical coverage and ecCodes/GRIB dependency identities missing.",
+        "No independently supplied ERA5 fixture or complete atmospheric-delay oracle.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "MintPy tropo_pyaps3 CLI includes weather acquisition; offline use needs calc_delay_timeseries plus validated local ERA5 GRIB.",
+          "blockers": [
+            "PyAPS3/GRIB native identity and local pressure-level temperature/humidity/geopotential product coverage for every acquisition UTC are unresolved; no downloads authorized."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json",
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARSolidEarthTideCorrection",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Fortran binary/build receipt and IERS-derived notices pending. Independent same-ephemeris/time reference and complete masked LOS reference/correction fixture missing. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Fortran binary/build receipt and IERS-derived notices pending.",
+        "Independent same-ephemeris/time reference and complete masked LOS reference/correction fixture missing.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "Compiled PySolid kernel is required. Located v0.3.4 release does not yet close reviewed source/build/license identity.",
+          "blockers": [
+            "Need pinned licensed Fortran CPU build, acquisition UTC/tide references and independent nonzero tide oracle; no local replacement formula."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json",
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARMultilookClosureBias",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: ISCE2/SNAPHU source/build/license/transitive receipts and safe fixed native launch chain missing. No independently anchored nonzero bias example with complete closure-stack acquisition graph. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "ISCE2/SNAPHU source/build/license/transitive receipts and safe fixed native launch chain missing.",
+        "No independently anchored nonzero bias example with complete closure-stack acquisition graph.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "MintPy closure_phase_bias estimate path calls ISCE2/SNAPHU unwrapping; it is not a standalone Python kernel.",
+          "blockers": [
+            "No reviewed private ISCE2/SNAPHU identity/license/fixed nested-process transport, sequential-network contract or independent closure-bias fixture."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json",
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoInSARSentinelInterplatformRangeBias",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Original SAFE/HDF5 content binding and georeferenced artifact producer remain pending. Upstream exact-zero bias becomes NaN; source rejects this domain instead of fabricating zero. Per-IW geometry summaries not inferred from array columns. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Original SAFE/HDF5 content binding and georeferenced artifact producer remain pending.",
+        "Upstream exact-zero bias becomes NaN; source rejects this domain instead of fabricating zero.",
+        "Per-IW geometry summaries not inferred from array columns.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "Data-estimation path reads inputs/geometryRadar.h5, derives IW masks from nonzero height and maps SAFE acquisition identity to A/B dates.",
+          "blockers": [
+            "Need closed three-IW-swath/SAFE-date/radar-geometry transport and independent recoverable bias fixture; genuine zero elevation must not silently become missing swath evidence."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json",
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteAtmosphericRadiativeTransfer",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Underlying/component license review, fixed native binary/build receipt and safely bounded execution missing. No version-bound nontrivial independent atmosphere vector or validated vacuum-mode configuration. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Underlying/component license review, fixed native binary/build receipt and safely bounded execution missing.",
+        "No version-bound nontrivial independent atmosphere vector or validated vacuum-mode configuration.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "Py6S wraps an external 6S engine; reviewed matching native version/source/license/identity is not established.",
+          "blockers": [
+            "Confirm Py6S source/release correspondence and independently license/pin CPU 6S binary before fixed transport and oracle authoring."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json",
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRemoteCanopySoilRadiativeTransfer",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Full dependency lock, packaged spectral-data identity and redistribution review remain pending. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Full dependency lock, packaged spectral-data identity and redistribution review remain pending.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "Inspected jgomezdans/prosail root and setup.py do not establish redistribution license.",
+          "blockers": [
+            "Explicit authoritative PROSAIL license and reviewed release/source identity are required; no invented license or replacement canopy formula."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json",
+      "group": "remote",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/remote.json",
+        "sha256": "523e2dd62a5a349059bf20ce5c08774973044c465d4fcb432f538c7af3b97bed"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialFlowNetworkUpscaleIHU",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls pyflwdir.pyflwdir.FlwdirRaster.upscale with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialFloodplainStageStorage",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls pyflwdir.pyflwdir.FlwdirRaster.ucat_volume with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialCoverageSimplification",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls shapely.coverage_simplify with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialConservativeArealTransfer",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls tobler.area_weighted.area_interpolate with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialGroundwaterZoneBudget",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls flopy.utils.ZoneBudget.get_budget with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialDarcySpecificDischarge",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls flopy.utils.postprocessing.get_specific_discharge with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialScreenedTransmissivity",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls flopy.utils.postprocessing.get_transmissivities with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialRPCGeolocation",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls rasterio.transform.RPCTransformer.xy with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialGCPGeoreferencing",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls rasterio.transform.GCPTransformer.xy with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialLocalHeteroscedasticity",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls esda.losh.LOSH.fit with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialContiguousRegionalization",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls spopt.region.Skater.solve with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialKnoxSpaceTimeInteraction",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls pointpats.spacetime.Knox with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialRipleyKObservedWindow",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls pointpats.distance_statistics.k with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialRegionBoundarySilhouette",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls esda.silhouettes.boundary_silhouette with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialLineworkPolygonTopology",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls shapely.polygonize_full with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialChannelFrechetDeviation",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls shapely.frechet_distance with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialEventKernelDensity",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls sklearn.neighbors.KernelDensity.score_samples with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialDensityConnectedSiteClusters",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls sklearn.cluster.DBSCAN.fit_predict with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialHillslopeDiffusionStep",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.LinearDiffuser.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialStreamPowerErosionStep",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.FastscapeEroder.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialChannelChiCoordinate",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.ChiFinder.calculate_chi with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialUnconfinedGroundwaterStep",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.GroundwaterDupuitPercolator.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialOverlandFlowStep",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.OverlandFlow.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoMarineCarbonateAccretion",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.CarbonateProducer.run_one_step with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRegolithProductionRate",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.ExponentialWeatherer.calc_soil_prod_rate with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoLithosphereFlexure",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.Flexure.update with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSedimentTracerDiffusion",
+      "state": "source_adapted_unverified",
+      "reason": "Explicit decorated adapter calls landlab.components.ConcentrationTrackerForDiffusion.start_tracking + landlab.components.DepthDependentDiffuser.run_one_step + landlab.components.ConcentrationTrackerForDiffusion.stop_tracking with bounded closed schemas and declared scientific assumptions; source authored only, CPU/platform acceptance not run.",
+      "blockers": [],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialDemandWeightedFacilitySiting",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialMinimumCoverageFacilitySet",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialPointCloudGroundClassification",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialPointCloudHeightAboveGround",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialRigidPointCloudRegistration",
+      "state": "blocked",
+      "reason": "Concrete bounded native kernel, closed pending schema and synthetic example authored; not registered. Fixed v2 binding, native closure and scientific acceptance are still missing.",
+      "blockers": [
+        "v2_native_profile_binding_pending",
+        "native_binary_and_transitive_license_closure_missing",
+        "native_scientific_acceptance_not_run"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialTerrainViewshed",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialTerrainSolarIrradiance",
+      "state": "blocked",
+      "reason": "Concrete bounded native kernel, closed pending schema and synthetic example authored; not registered. Fixed v2 binding, native closure and scientific acceptance are still missing.",
+      "blockers": [
+        "v2_native_profile_binding_pending",
+        "native_binary_and_transitive_license_closure_missing",
+        "native_scientific_acceptance_not_run"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261025/groups/spatial/research-inventory.json",
+        "sha256": "96c21c92e3f38cc12ec86538c9c9aef279477b1f81cc4422fd14faf5952f6e8e"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialSIMWESedimentTransport",
+      "state": "blocked",
+      "reason": "Concentration particle/m3 versus mass-flux kg/(m*s) needs a reviewed physical definition and boundary/terminal-time mass-accounting reference; full stochastic state interface is incomplete.",
+      "blockers": [
+        "scientific_adapter_incomplete",
+        "reviewed_physical_or_native_evidence_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/spatial.json",
+        "sha256": "fc4a97296749bd829f3218c0730758fb54c49163e9388bb93a3538c800e1e3da"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialAquiferSoluteTransport",
+      "state": "blocked",
+      "reason": "Pinned nonzero q terms have -q/nf on diagonal and +q/nf*cin on RHS; conventional source/sink semantics need independent physical resolution before conservative state claims.",
+      "blockers": [
+        "scientific_adapter_incomplete",
+        "reviewed_physical_or_native_evidence_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/spatial.json",
+        "sha256": "fc4a97296749bd829f3218c0730758fb54c49163e9388bb93a3538c800e1e3da"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialGeomorphonLandforms",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/spatial.json",
+        "sha256": "fc4a97296749bd829f3218c0730758fb54c49163e9388bb93a3538c800e1e3da"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialRainfallErosivityFactor",
+      "state": "blocked",
+      "reason": "Chosen empirical formula, regional calibration domain and independent reference oracle are not established; no guessed formula or placeholder wrapper.",
+      "blockers": [
+        "scientific_adapter_incomplete",
+        "reviewed_physical_or_native_evidence_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/spatial.json",
+        "sha256": "fc4a97296749bd829f3218c0730758fb54c49163e9388bb93a3538c800e1e3da"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialIndividualTreeSegmentation",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/spatial.json",
+        "sha256": "fc4a97296749bd829f3218c0730758fb54c49163e9388bb93a3538c800e1e3da"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialLidarSensorTrajectoryRecovery",
+      "state": "blocked",
+      "reason": "Pinned trajectory Ceres solver summary is discarded; reviewed plugin/Ceres closure and a trustworthy convergence/identifiability acceptance criterion remain missing.",
+      "blockers": [
+        "scientific_adapter_incomplete",
+        "reviewed_physical_or_native_evidence_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/spatial.json",
+        "sha256": "fc4a97296749bd829f3218c0730758fb54c49163e9388bb93a3538c800e1e3da"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialNavigationBasedLidarGeoreference",
+      "state": "blocked",
+      "reason": "Concrete bounded native kernel, closed pending schema and synthetic example authored; not registered. Fixed v2 binding, native closure and scientific acceptance are still missing.",
+      "blockers": [
+        "v2_native_profile_binding_pending",
+        "native_binary_and_transitive_license_closure_missing",
+        "native_scientific_acceptance_not_run"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/spatial.json",
+        "sha256": "fc4a97296749bd829f3218c0730758fb54c49163e9388bb93a3538c800e1e3da"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialPointCloudMorphologyDescriptors",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "native_binary_hash_and_transitive_license_closure_missing"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/spatial.json",
+        "sha256": "fc4a97296749bd829f3218c0730758fb54c49163e9388bb93a3538c800e1e3da"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoSpatialSurveyPoissonSurface",
+      "state": "blocked",
+      "reason": "Concrete bounded native kernel, closed pending schema and synthetic example authored; not registered. Fixed v2 binding, native closure and scientific acceptance are still missing.",
+      "blockers": [
+        "v2_native_profile_binding_pending",
+        "native_binary_and_transitive_license_closure_missing",
+        "native_scientific_acceptance_not_run"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/spatial.json",
+        "sha256": "fc4a97296749bd829f3218c0730758fb54c49163e9388bb93a3538c800e1e3da"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoBedrockLandslideEvolution",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "exact_local_scientific_dependencies_unavailable"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoTidalCycleFlow",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "exact_local_scientific_dependencies_unavailable"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    },
+    {
+      "id": "GeoRiverSedimentParcelTransport",
+      "state": "blocked",
+      "reason": "Concrete private kernel, closed pending contracts and synthetic examples authored, but NOT catalog registered or integrated. Main-runtime fixed private dispatch and correct-interpreter dependency guard remain unimplemented; acceptance pending.",
+      "blockers": [
+        "parent_fixed_private_cpu_v2_not_implemented",
+        "scientific_numeric_acceptance_not_run",
+        "exact_local_scientific_dependencies_unavailable"
+      ],
+      "group": "spatial",
+      "research_source": {
+        "inventory": "catalog/source_delivery/github-expansion500-20261026/groups/additional-evidence.json",
+        "sha256": "400fd4d01a3de653cbc82423330d10954a1d8cdef4f61f1f82659170cc65ec74"
+      },
+      "acceptance": "not_run",
+      "deployment": "not_deployed"
+    }
+  ]
+}

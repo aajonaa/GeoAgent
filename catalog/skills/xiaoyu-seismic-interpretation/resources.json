@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_seismic_interpretation",
+  "archive_sha256": "aa690bff04e11482b928e5baaa5f59a97b33597a375725ed7769f028263bb538",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 40,
+          "archive_sha256": "51390102ac91209e2415bc9a81cabf5212920eefca07dec6ac1febce7f8b9c08",
+          "member": "seismic-interpretation/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 823,
+      "sha256": "8f4b87a84899abda138f70bc558aa0c409cab7348cbca6b7ee00bac6ebce60f1",
+      "origins": [
+        {
+          "package_number": 40,
+          "archive_sha256": "51390102ac91209e2415bc9a81cabf5212920eefca07dec6ac1febce7f8b9c08",
+          "member": "seismic-interpretation/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 13565,
+      "sha256": "180b528488c7fe9c8cf3dd2e8921f1530eeabcaff517e8f0f1a4312333b55cd3",
+      "origins": [
+        {
+          "package_number": 40,
+          "archive_sha256": "51390102ac91209e2415bc9a81cabf5212920eefca07dec6ac1febce7f8b9c08",
+          "member": "seismic-interpretation/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

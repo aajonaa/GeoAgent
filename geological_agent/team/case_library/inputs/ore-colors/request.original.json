@@ -1,0 +1,35 @@
+{
+  "case_id": "legend-outside-roi",
+  "tool": "GeoMapColorExtract",
+  "arguments": {
+    "path": "image.png",
+    "output_dir": "out",
+    "roi": [
+      1,
+      1,
+      31,
+      19
+    ],
+    "classes": [
+      {
+        "label": "User label A",
+        "rgb": [
+          200,
+          20,
+          20
+        ],
+        "tolerance": 0
+      },
+      {
+        "label": "User label B",
+        "rgb": [
+          20,
+          20,
+          200
+        ],
+        "tolerance": 0
+      }
+    ],
+    "minimum_pixels": 1
+  }
+}

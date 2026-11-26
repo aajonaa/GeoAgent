@@ -1,0 +1,27 @@
+{
+  "legal_certification_or_redistribution_approval": false,
+  "license_review_complete": true,
+  "reviewed_original_files": [
+    {
+      "distribution": "pyslope",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/slope/venv/lib/python3.12/site-packages/pyslope-1.4.0.dist-info/licenses/LICENSE.txt",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/slope/licenses/pyslope/pyslope-1.4.0.dist-info/licenses/LICENSE.txt",
+      "review": "Read frozen upstream LICENSE.txt: MIT, Jesse Bonanno 2022; retain copyright and permission notice, with warranty/liability disclaimer.",
+      "sha256": "5f89cd4429f37a02a9852cbefe92d4ea892ae8221db45a4b6741a854e33d7968",
+      "version": "1.4.0"
+    },
+    {
+      "distribution": "pyslope",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/slope/venv/lib/python3.12/site-packages/pyslope-1.4.0.dist-info/licenses/LICENSE.txt",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/slope/licenses/pyslope/pyslope-1.4.0.dist-info/licenses/LICENSE.txt",
+      "qualification": "Original license shipped in the pinned published artifact. Reviewed repository commit is separately recorded; no wheel/commit byte-equivalence asserted. Published package includes web/plot/test dependencies; numeric adapter does not start web services or export plots. Full transitive lock pending.",
+      "review": "Read frozen upstream LICENSE.txt: MIT, Jesse Bonanno 2022; retain copyright and permission notice, with warranty/liability disclaimer.",
+      "sha256": "5f89cd4429f37a02a9852cbefe92d4ea892ae8221db45a4b6741a854e33d7968",
+      "source_commit": "b50f46ac342b569e251890239560ec311c8015cb",
+      "url": "https://files.pythonhosted.org/packages/3c/7d/729870e4e677c982a05ac5d7c9e02d767240f208b2048620c80e271ce9ce/pyslope-1.4.0-py3-none-any.whl",
+      "version": "1.4.0"
+    }
+  ],
+  "scope": "Original frozen upstream files read; published wheels and reviewed commits are distinct identities. No legal certification or redistribution approval asserted.",
+  "tool_id": "GeoSlopeLimitEquilibrium"
+}

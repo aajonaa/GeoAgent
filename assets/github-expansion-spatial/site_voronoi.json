@@ -1,0 +1,19 @@
+{
+  "source": {
+    "kind": "synthetic",
+    "citation": "Explicit synthetic analytic fixture; not a geological observation or mineral evidence."
+  },
+  "crs": "EPSG:32631",
+  "coordinate_unit": "m",
+  "polygon_wkt": "POLYGON ((0 0, 2 0, 2 2, 0 2, 0 0))",
+  "points_xy": [
+    [
+      0.5,
+      1
+    ],
+    [
+      1.5,
+      1
+    ]
+  ]
+}

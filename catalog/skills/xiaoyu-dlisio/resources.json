@@ -1,0 +1,135 @@
+{
+  "skill_id": "xiaoyu_dlisio",
+  "archive_sha256": "1eb5f24b4e2dcc6951cd1b97139157478420c8efe5717b4fe6eac466e6a29d81",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 17,
+          "archive_sha256": "36e9e86ff890dd77f257795c4b358fb5074e88d85882dc93fa2258d87159c49d",
+          "member": "dlisio/LICENSE"
+        },
+        {
+          "package_number": 75,
+          "archive_sha256": "ff4ce77a572d5b6791a7f46e49ec7974403944c53312de5217fffcd7099b7459",
+          "member": "dlisio/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 721,
+      "sha256": "828c28a4b6b080696f3efd49501d812e439f3eb91693afe829023b4a9b5a5b9d",
+      "origins": [
+        {
+          "package_number": 17,
+          "archive_sha256": "36e9e86ff890dd77f257795c4b358fb5074e88d85882dc93fa2258d87159c49d",
+          "member": "dlisio/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 6065,
+      "sha256": "f2bd27cbdca68d7c7b8259b82063b273464030ecdf08b90d381390aaf7e7643c",
+      "origins": [
+        {
+          "package_number": 17,
+          "archive_sha256": "36e9e86ff890dd77f257795c4b358fb5074e88d85882dc93fa2258d87159c49d",
+          "member": "dlisio/SKILL.md"
+        },
+        {
+          "package_number": 75,
+          "archive_sha256": "ff4ce77a572d5b6791a7f46e49ec7974403944c53312de5217fffcd7099b7459",
+          "member": "dlisio/SKILL.md"
+        },
+        {
+          "package_number": 103,
+          "archive_sha256": "3e80c80c44acba3ea19ab3b2a9c85bbd349e7abcd9bb5448cbed90e8173555cb",
+          "member": "dlisio/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 103,
+          "archive_sha256": "3e80c80c44acba3ea19ab3b2a9c85bbd349e7abcd9bb5448cbed90e8173555cb",
+          "member": "dlisio/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/dlis_structure.md",
+      "bytes": 2579,
+      "sha256": "d265521f943d9adfe0517e65982c1b177a21d6d67ff91572be1a4bba57d0e2fd",
+      "origins": [
+        {
+          "package_number": 17,
+          "archive_sha256": "36e9e86ff890dd77f257795c4b358fb5074e88d85882dc93fa2258d87159c49d",
+          "member": "dlisio/references/dlis_structure.md"
+        },
+        {
+          "package_number": 75,
+          "archive_sha256": "ff4ce77a572d5b6791a7f46e49ec7974403944c53312de5217fffcd7099b7459",
+          "member": "dlisio/references/dlis_structure.md"
+        },
+        {
+          "package_number": 103,
+          "archive_sha256": "3e80c80c44acba3ea19ab3b2a9c85bbd349e7abcd9bb5448cbed90e8173555cb",
+          "member": "dlisio/references/dlis_structure.md"
+        }
+      ]
+    },
+    {
+      "path": "references/frame_channels.md",
+      "bytes": 2711,
+      "sha256": "d047e97b8671cbd5b526352f8793e602b35ef769e9c9421554bf6e336eb21633",
+      "origins": [
+        {
+          "package_number": 17,
+          "archive_sha256": "36e9e86ff890dd77f257795c4b358fb5074e88d85882dc93fa2258d87159c49d",
+          "member": "dlisio/references/frame_channels.md"
+        },
+        {
+          "package_number": 75,
+          "archive_sha256": "ff4ce77a572d5b6791a7f46e49ec7974403944c53312de5217fffcd7099b7459",
+          "member": "dlisio/references/frame_channels.md"
+        },
+        {
+          "package_number": 103,
+          "archive_sha256": "3e80c80c44acba3ea19ab3b2a9c85bbd349e7abcd9bb5448cbed90e8173555cb",
+          "member": "dlisio/references/frame_channels.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/dlis_to_las.py",
+      "bytes": 9738,
+      "sha256": "f08f6fc65fbbddb42e5ecb4e2eec45939d0984d6d551c054aeecc85f3ba069e6",
+      "origins": [
+        {
+          "package_number": 17,
+          "archive_sha256": "36e9e86ff890dd77f257795c4b358fb5074e88d85882dc93fa2258d87159c49d",
+          "member": "dlisio/scripts/dlis_to_las.py"
+        },
+        {
+          "package_number": 75,
+          "archive_sha256": "ff4ce77a572d5b6791a7f46e49ec7974403944c53312de5217fffcd7099b7459",
+          "member": "dlisio/scripts/dlis_to_las.py"
+        },
+        {
+          "package_number": 103,
+          "archive_sha256": "3e80c80c44acba3ea19ab3b2a9c85bbd349e7abcd9bb5448cbed90e8173555cb",
+          "member": "dlisio/scripts/dlis_to_las.py"
+        }
+      ]
+    }
+  ]
+}

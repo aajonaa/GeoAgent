@@ -1,0 +1,27 @@
+{
+  "strike_degrees": [
+    0,
+    90,
+    0,
+    0,
+    90,
+    0
+  ],
+  "dip_degrees": [
+    45,
+    45,
+    45,
+    45,
+    45,
+    45
+  ],
+  "measurement_ids": [
+    "SYN-NS45",
+    "SYN-EW45",
+    "SYN-N2",
+    "SYN-N3",
+    "SYN-E2",
+    "SYN-N4"
+  ],
+  "convention": "right_hand_rule"
+}

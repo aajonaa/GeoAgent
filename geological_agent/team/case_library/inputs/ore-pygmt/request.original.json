@@ -1,0 +1,18 @@
+{
+  "case_id": "original",
+  "operation": "original",
+  "dataset_id": "original",
+  "region": [
+    5,
+    10,
+    44,
+    48
+  ],
+  "projection": "M10c",
+  "coordinate_kind": "geographic",
+  "title": "Synthetic locations",
+  "color_limits": [
+    0,
+    400
+  ]
+}

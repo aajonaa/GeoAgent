@@ -1,0 +1,232 @@
+{
+  "case_id": "ES-059",
+  "source_skill": "ore-earth-geo",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "geometry",
+      "tool": "GeoShapelyGeometry",
+      "arguments": {
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                4,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          ]
+        },
+        "crs": "EPSG:3857"
+      }
+    },
+    {
+      "operation_id": "join",
+      "tool": "GeoPandasSpatialJoin",
+      "arguments": {
+        "left": [
+          {
+            "type": "Point",
+            "coordinates": [
+              1,
+              1
+            ]
+          },
+          {
+            "type": "Point",
+            "coordinates": [
+              0,
+              1
+            ]
+          },
+          {
+            "type": "Point",
+            "coordinates": [
+              0,
+              0
+            ]
+          },
+          {
+            "type": "Point",
+            "coordinates": [
+              3,
+              1
+            ]
+          }
+        ],
+        "right": [
+          {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  0,
+                  0
+                ],
+                [
+                  2,
+                  0
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  0,
+                  2
+                ],
+                [
+                  0,
+                  0
+                ]
+              ]
+            ]
+          },
+          {
+            "type": "Polygon",
+            "coordinates": [
+              [
+                [
+                  2,
+                  0
+                ],
+                [
+                  4,
+                  0
+                ],
+                [
+                  4,
+                  2
+                ],
+                [
+                  2,
+                  2
+                ],
+                [
+                  2,
+                  0
+                ]
+              ]
+            ]
+          }
+        ],
+        "crs": "EPSG:3857",
+        "predicate": "within"
+      }
+    },
+    {
+      "operation_id": "vector",
+      "tool": "GeoFionaDatasetInfo",
+      "arguments": {
+        "input_path": "tests/data/points.geojson"
+      }
+    },
+    {
+      "operation_id": "raster",
+      "tool": "GeoRasterioWindow",
+      "arguments": {
+        "input_path": "tests/data/cube.tif",
+        "col_off": 1,
+        "row_off": 1,
+        "width": 3,
+        "height": 2,
+        "bands": [
+          1,
+          2,
+          3
+        ],
+        "value_unit": "synthetic_units"
+      }
+    },
+    {
+      "operation_id": "map",
+      "tool": "GeoCartopyPointMap",
+      "arguments": {
+        "longitude": [
+          0,
+          2,
+          4
+        ],
+        "latitude": [
+          35,
+          38,
+          40
+        ],
+        "extent": [
+          -1,
+          5,
+          34,
+          41
+        ],
+        "projection": "plate_carree",
+        "title": "Synthetic CPU stations - plate_carree"
+      }
+    },
+    {
+      "operation_id": "density",
+      "tool": "GeoDatashaderDensity",
+      "arguments": {
+        "x": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2,
+          3,
+          4,
+          4
+        ],
+        "y": [
+          0,
+          0.5,
+          1,
+          1.5,
+          2,
+          3,
+          4,
+          0
+        ],
+        "extent": [
+          0,
+          4,
+          0,
+          4
+        ],
+        "width": 4,
+        "height": 4,
+        "coordinate_unit": "m"
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {},
+  "input_path_bindings": [
+    {
+      "original": "tests/data/points.geojson",
+      "workspace": "tests/data/points.geojson",
+      "source": "ore-earth-geo-1.0.5-review1/tests/legacy/data/points.geojson"
+    },
+    {
+      "original": "tests/data/cube.tif",
+      "workspace": "tests/data/cube.tif",
+      "source": "ore-earth-geo-1.0.5-review1/tests/legacy/data/cube.tif"
+    }
+  ]
+}

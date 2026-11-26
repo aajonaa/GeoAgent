@@ -1,0 +1,27 @@
+{
+  "crs": "EPSG:32631",
+  "events_xy_m": [
+    [
+      0,
+      0
+    ]
+  ],
+  "query_xy_m": [
+    [
+      0,
+      0
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "bandwidth_m": 2,
+  "normalization": "probability",
+  "units": {
+    "events_xy_m": "m",
+    "query_xy_m": "m",
+    "bandwidth_m": "m"
+  }
+}
+

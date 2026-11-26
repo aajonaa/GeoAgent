@@ -1,0 +1,128 @@
+{
+  "source": "C:/Users/jona/gkg1",
+  "catalog_sha256": "965420832ee27ac670244e9db5da4f1026a0d71c9fae6b9d7050a3a0bda5872e",
+  "skill_document_failures": [
+    {
+      "skill": "github-geophysics-potential-fields",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-geophysics-effective-media",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-geophysics-grain-fracture",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-geophysics-fluid-effects",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-geophysics-seismic-interpretation",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-remote-spectral",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-remote-morphology",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-remote-texture",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-remote-segmentation",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-remote-radiometry",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-geology-structural-fabrics",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-geology-strain-stress",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-geology-mineral-chemistry",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-geology-geostat-validation",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-geology-drillhole-logs",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-spatial-gis-conversion",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-spatial-terrain-drainage",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-spatial-site-association",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-spatial-raster-access",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    },
+    {
+      "skill": "github-spatial-survey-layout",
+      "status": "failed",
+      "workflow_validation": "not_run",
+      "error": "AssertionError: "
+    }
+  ],
+  "count": 20,
+  "scope": "pre-integration source, no scientific tool or model execution"
+}

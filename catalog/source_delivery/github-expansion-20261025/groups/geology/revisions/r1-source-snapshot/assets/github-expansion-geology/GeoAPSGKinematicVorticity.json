@@ -1,0 +1,21 @@
+{
+  "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+  "coordinate_frame": "NED",
+  "velocity_gradient_per_myr": [
+    [
+      0,
+      1,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0
+    ]
+  ]
+}

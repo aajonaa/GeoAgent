@@ -112,3 +112,17 @@ dialog.library-drawer[open]{display:flex;flex-direction:column;animation:library
 @media(max-width:960px){.library-hero{grid-template-columns:1fr;padding-top:27px}.library-hero h1 br{display:none}.library-stats{justify-content:space-around;max-width:480px;padding:17px 0}.library-stat{flex:1}.library-stat strong{font-size:27px}.library-stat span{margin-top:7px}.library-stat small{font-size:9px}.library-intro br{display:none}}
 @media(max-width:760px){.library-view{padding:19px 18px 30px}.library-grid{grid-template-columns:1fr}.library-toolbar{gap:12px;flex-wrap:wrap;padding-bottom:14px}.library-search{max-width:none;flex-basis:100%;order:-1}.library-tabs{gap:26px}.library-tabs button{padding-bottom:10px}.library-filters{gap:12px;padding-top:16px}.library-filters select{max-width:155px}#library-match-count{margin-left:0}.library-card{padding:19px 20px 0}.library-card .library-description{min-height:0}.library-tool-row{grid-template-columns:27px minmax(0,1fr) 70px;padding:17px 0;gap:12px}.library-tool-category,.library-chevron{display:none}.library-tool-row .library-asset-icon{width:26px;height:30px;font-size:16px}.library-tool-row .library-status{font-size:9px}.library-tool-main strong{font-size:11px}.library-drawer-top{padding:14px 15px}.library-detail-body{padding:24px 19px}.library-detail-body>h2{font-size:25px}dialog.library-drawer{width:100vw;border-radius:0;border:0}.library-drawer-footer{padding:14px 17px;gap:12px;flex-wrap:wrap}.library-drawer-footer button{width:100%}.library-drawer-footer p{flex-basis:100%}.library-shortcut{padding:7px 9px;font-size:11px}}
 @media(prefers-reduced-motion:reduce){.library-card{transition:none}.library-card:hover{transform:none}}
+
+.composer-skills { max-height: 15rem; overflow: auto; padding: .35rem .55rem; }
+.composer-skill-options { display: grid; gap: .2rem; }
+.composer-skill-option { display: grid; gap: .2rem; text-align: left; padding: .55rem .7rem; border: 1px solid transparent; border-radius: .5rem; background: transparent; color: inherit; }
+.composer-skill-option:hover, .composer-skill-option.selected, .composer-skill-option:focus-visible { border-color: currentColor; }
+.composer-skill-option small, .composer-skill small, .run-skill { font-size: .8rem; opacity: .8; }
+.composer-skill { display: flex; align-items: center; flex-wrap: wrap; gap: .35rem .65rem; padding: .25rem .65rem; }
+.composer-skill[hidden], .composer-skills[hidden], .run-skill[hidden] { display: none; }
+.composer-skill small { flex-basis: 100%; }
+.run-skill { margin-top: .25rem; max-width: 100%; overflow-wrap: anywhere; }
+
+.library-skill-card { display: flex; flex-direction: column; min-width: 0; align-items: stretch; gap: .25rem; }
+.library-skill-card .library-card { flex: 1; }
+.library-skill-card > .quiet { align-self: flex-start; }

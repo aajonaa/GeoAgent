@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_climate_data_download",
+  "archive_sha256": "b8a0ac62f901f208b3735ec31dbcf0632bee587522ad9f82823591e0d14ee3f2",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 37103,
+      "sha256": "05f3ba4893bf19a02e40da16ceb8dcf5037ffed326e1ed546311d63844d43a45",
+      "origins": [
+        {
+          "package_number": 52,
+          "archive_sha256": "0e036df91289e28717b93d491b5115914df298c70c4f07b9272e80101ec0f78e",
+          "member": "skill52ú║╞°║≥╩²╛▌╧┬╘╪-climate-data-download/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "evals/evals.json",
+      "bytes": 7552,
+      "sha256": "7599abd0cd48e8c1e2dc3bca99c9f440f18e295bd3f4a75d36d568e01d0e5165",
+      "origins": [
+        {
+          "package_number": 52,
+          "archive_sha256": "0e036df91289e28717b93d491b5115914df298c70c4f07b9272e80101ec0f78e",
+          "member": "skill52ú║╞°║≥╩²╛▌╧┬╘╪-climate-data-download/evals/evals.json"
+        }
+      ]
+    },
+    {
+      "path": "references/python_api.md",
+      "bytes": 3366,
+      "sha256": "fd81a6744248c8372e561aad81b5c26de814fc18525f8c5cb3240452646c0ff2",
+      "origins": [
+        {
+          "package_number": 52,
+          "archive_sha256": "0e036df91289e28717b93d491b5115914df298c70c4f07b9272e80101ec0f78e",
+          "member": "skill52ú║╞°║≥╩²╛▌╧┬╘╪-climate-data-download/references/python_api.md"
+        }
+      ]
+    }
+  ]
+}

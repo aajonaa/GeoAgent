@@ -1,0 +1,22 @@
+{
+  "case_id": "DR001",
+  "source_skill": "ore-osp",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "area",
+      "tool": "OceanBBoxArea",
+      "arguments": {
+        "bbox": [
+          0,
+          0,
+          2,
+          2
+        ]
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {},
+  "input_path_bindings": []
+}

@@ -1,0 +1,307 @@
+{
+  "id": "GeoInSARAscDescDecomposition",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoInSARAscDescDecomposition",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoInSARAscDescDecomposition (remote_original_cases.RemoteCases.test_registry_GeoInSARAscDescDecomposition) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "42f3d1fcbcf5e411c25a649df8eb5fd1dd1517a242b91def227e70cc5f6e59d3",
+          "result.tif": "13a29d48dabc0b241dee0bf723c4c199ed40bc2f4cbf6722457d37642aab5127"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "42f3d1fcbcf5e411c25a649df8eb5fd1dd1517a242b91def227e70cc5f6e59d3",
+          "result.tif": "13a29d48dabc0b241dee0bf723c4c199ed40bc2f4cbf6722457d37642aab5127"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_dict/results/892f207b54854408984baea309d55093",
+        "artifacts": {
+          "band-summary.csv": "42f3d1fcbcf5e411c25a649df8eb5fd1dd1517a242b91def227e70cc5f6e59d3",
+          "result.tif": "13a29d48dabc0b241dee0bf723c4c199ed40bc2f4cbf6722457d37642aab5127"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_json/results/eeb9aebf4e804024a757a13d5089ae47",
+        "artifacts": {
+          "band-summary.csv": "42f3d1fcbcf5e411c25a649df8eb5fd1dd1517a242b91def227e70cc5f6e59d3",
+          "result.tif": "13a29d48dabc0b241dee0bf723c4c199ed40bc2f4cbf6722457d37642aab5127"
+        }
+      }
+    },
+    "asymmetric_los_geometry_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "7a5d44f5d5c35e238d8b12f44c09842157be039c2e74d4421efb4d94dc127db6",
+          "result.tif": "d206a89e2ec7182468d47d36f242679a509720811a4e80ceaba3ea2a3f146741"
+        }
+      }
+    },
+    "asymmetric_los_geometry_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "7a5d44f5d5c35e238d8b12f44c09842157be039c2e74d4421efb4d94dc127db6",
+          "result.tif": "d206a89e2ec7182468d47d36f242679a509720811a4e80ceaba3ea2a3f146741"
+        }
+      }
+    },
+    "asymmetric_los_geometry_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_runtime_dict/results/b749b782115b4db9bbcef8c61b934609",
+        "artifacts": {
+          "band-summary.csv": "7a5d44f5d5c35e238d8b12f44c09842157be039c2e74d4421efb4d94dc127db6",
+          "result.tif": "d206a89e2ec7182468d47d36f242679a509720811a4e80ceaba3ea2a3f146741"
+        }
+      }
+    },
+    "asymmetric_los_geometry_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/asymmetric_los_geometry_runtime_json/results/856e211ef30a4cc6b108a5a75330fbe6",
+        "artifacts": {
+          "band-summary.csv": "7a5d44f5d5c35e238d8b12f44c09842157be039c2e74d4421efb4d94dc127db6",
+          "result.tif": "d206a89e2ec7182468d47d36f242679a509720811a4e80ceaba3ea2a3f146741"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoInSARAscDescDecomposition",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoInSARAscDescDecomposition (remote_original_cases.RemoteCases.test_reject_extra_GeoInSARAscDescDecomposition) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoInSARAscDescDecomposition",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoInSARAscDescDecomposition (remote_original_cases.RemoteCases.test_reject_unit_GeoInSARAscDescDecomposition) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoInSARAscDescDecomposition",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoInSARAscDescDecomposition (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoInSARAscDescDecomposition) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoInSARAscDescDecomposition",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoInSARAscDescDecomposition (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoInSARAscDescDecomposition) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoInSARAscDescDecomposition",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoInSARAscDescDecomposition (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoInSARAscDescDecomposition) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoInSARAscDescDecomposition",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoInSARAscDescDecomposition (remote_original_cases.RemoteCases.test_reject_singular_GeoInSARAscDescDecomposition) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoInSARAscDescDecomposition",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoInSARAscDescDecomposition (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoInSARAscDescDecomposition) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARAscDescDecomposition/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

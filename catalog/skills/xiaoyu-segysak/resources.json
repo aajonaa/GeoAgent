@@ -1,0 +1,52 @@
+{
+  "skill_id": "xiaoyu_segysak",
+  "archive_sha256": "3839d40fe5cf39d9b8910761b1d1c209f720679fe9d4b7d256f7cced4bf3bef8",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 14,
+          "archive_sha256": "2abc1e37d67048260a8dea8efb0fd30b717e34b9a5101f331ad707294d97189f",
+          "member": "segysak/LICENSE"
+        },
+        {
+          "package_number": 84,
+          "archive_sha256": "0ba5b30f7c5dd27735157301384570978f0d8f5a4abb831206fcacb3fef1fece",
+          "member": "segysak/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 752,
+      "sha256": "bf57d7b5cdc73d58881a6b6a9f664447f7a075c3142b734f9ca9456611a9805a",
+      "origins": [
+        {
+          "package_number": 14,
+          "archive_sha256": "2abc1e37d67048260a8dea8efb0fd30b717e34b9a5101f331ad707294d97189f",
+          "member": "segysak/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 2972,
+      "sha256": "4f9b1006469b3ecedc98720d293ffc666a96c64ef0e580ca6714cc42ea0df487",
+      "origins": [
+        {
+          "package_number": 14,
+          "archive_sha256": "2abc1e37d67048260a8dea8efb0fd30b717e34b9a5101f331ad707294d97189f",
+          "member": "segysak/SKILL.md"
+        },
+        {
+          "package_number": 84,
+          "archive_sha256": "0ba5b30f7c5dd27735157301384570978f0d8f5a4abb831206fcacb3fef1fece",
+          "member": "segysak/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

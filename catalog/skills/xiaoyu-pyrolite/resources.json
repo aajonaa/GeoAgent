@@ -1,0 +1,110 @@
+{
+  "skill_id": "xiaoyu_pyrolite",
+  "archive_sha256": "2340cab1ed448c2fe4b1cfe374323cde6b804e84f2bd46776166ad2c10ce1a29",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 3,
+          "archive_sha256": "f0369aa0dbdbf3650d2188bc2e6384c4789b6ded26955740fe75881d32b40f2a",
+          "member": "pyrolite/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 621,
+      "sha256": "9b77058813a2dc607d97a5cfdd458fbc061fde98607d87426ab1380703194c32",
+      "origins": [
+        {
+          "package_number": 3,
+          "archive_sha256": "f0369aa0dbdbf3650d2188bc2e6384c4789b6ded26955740fe75881d32b40f2a",
+          "member": "pyrolite/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5624,
+      "sha256": "a42e8661332bd33f1337924f0d111f2e37ef61c7b7514696d0b5ae2782817aa0",
+      "origins": [
+        {
+          "package_number": 3,
+          "archive_sha256": "f0369aa0dbdbf3650d2188bc2e6384c4789b6ded26955740fe75881d32b40f2a",
+          "member": "pyrolite/SKILL.md"
+        },
+        {
+          "package_number": 90,
+          "archive_sha256": "81fd58b76c9bf1249e5540a1e1a592d9da0bad416990c99f0a83a89e2a05cea7",
+          "member": "pyrolite/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 90,
+          "archive_sha256": "81fd58b76c9bf1249e5540a1e1a592d9da0bad416990c99f0a83a89e2a05cea7",
+          "member": "pyrolite/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/classification.md",
+      "bytes": 6413,
+      "sha256": "5eb926a47e2cafc35b43e316d4c7539b5933561873ede29439c0f0c419a3b830",
+      "origins": [
+        {
+          "package_number": 3,
+          "archive_sha256": "f0369aa0dbdbf3650d2188bc2e6384c4789b6ded26955740fe75881d32b40f2a",
+          "member": "pyrolite/references/classification.md"
+        },
+        {
+          "package_number": 90,
+          "archive_sha256": "81fd58b76c9bf1249e5540a1e1a592d9da0bad416990c99f0a83a89e2a05cea7",
+          "member": "pyrolite/references/classification.md"
+        }
+      ]
+    },
+    {
+      "path": "references/normalization.md",
+      "bytes": 5615,
+      "sha256": "95b3dc93c9ef9aff4992088347910d441b0251c2bf91d83205e575818daa74a9",
+      "origins": [
+        {
+          "package_number": 3,
+          "archive_sha256": "f0369aa0dbdbf3650d2188bc2e6384c4789b6ded26955740fe75881d32b40f2a",
+          "member": "pyrolite/references/normalization.md"
+        },
+        {
+          "package_number": 90,
+          "archive_sha256": "81fd58b76c9bf1249e5540a1e1a592d9da0bad416990c99f0a83a89e2a05cea7",
+          "member": "pyrolite/references/normalization.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/geochemistry_plots.py",
+      "bytes": 11550,
+      "sha256": "b4067f8279676d547e876acf5a79a0f86e9dc92e227a22a629d84779cbfde416",
+      "origins": [
+        {
+          "package_number": 3,
+          "archive_sha256": "f0369aa0dbdbf3650d2188bc2e6384c4789b6ded26955740fe75881d32b40f2a",
+          "member": "pyrolite/scripts/geochemistry_plots.py"
+        },
+        {
+          "package_number": 90,
+          "archive_sha256": "81fd58b76c9bf1249e5540a1e1a592d9da0bad416990c99f0a83a89e2a05cea7",
+          "member": "pyrolite/scripts/geochemistry_plots.py"
+        }
+      ]
+    }
+  ]
+}

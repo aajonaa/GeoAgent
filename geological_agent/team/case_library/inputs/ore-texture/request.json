@@ -1,0 +1,26 @@
+{
+  "case_id": "TX055",
+  "source_skill": "ore-texture",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "GeoRemoteStructureTensor",
+      "arguments": {
+        "raster_path": "ACTUAL_GABOR_BAND1",
+        "input_unit": "radiance",
+        "sigma_pixels": 1
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "workflow": {
+      "parent": "TX054",
+      "kind": "select_native_band",
+      "band": 1,
+      "declared_unit": "radiance"
+    }
+  },
+  "input_path_bindings": []
+}

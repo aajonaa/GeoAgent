@@ -1,0 +1,10 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "reactants": [
+    "Mg2SiO4",
+    "SiO2"
+  ],
+  "products": [
+    "MgSiO3"
+  ]
+}

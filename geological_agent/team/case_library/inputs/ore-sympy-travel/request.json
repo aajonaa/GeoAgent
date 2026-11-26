@@ -1,0 +1,33 @@
+{
+  "case_id": "KP001",
+  "source_skill": "ore-sympy-travel",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [],
+  "original_request": "request.original.json",
+  "context": {
+    "request_id": "AUTHORED-SYN-KEPLER-20261101",
+    "units": {
+      "thickness": "m",
+      "velocity": "m/s",
+      "time": "s"
+    },
+    "models": [
+      {
+        "model_id": "layer-A",
+        "path_factor": 1,
+        "expression": "h1/v1+h2/v2",
+        "parameters": {
+          "h1": "2",
+          "h2": "5",
+          "v1": "3",
+          "v2": "7"
+        },
+        "condition": {
+          "solve_for": "h2",
+          "target_time": "2"
+        }
+      }
+    ]
+  },
+  "input_path_bindings": []
+}

@@ -1,0 +1,62 @@
+test_canonical_main_to_worker_artifact (original_41_local_r5.CanonicalEndToEndTests.test_canonical_main_to_worker_artifact) ... ok
+test_old_nonisolated_path (original_41_local_r5.CanonicalEndToEndTests.test_old_nonisolated_path) ... ok
+test_original_error_chain_survives (original_41_local_r5.CanonicalEndToEndTests.test_original_error_chain_survives) ... ok
+test_tampered_source_rejected (original_41_local_r5.CanonicalEndToEndTests.test_tampered_source_rejected) ... ok
+test_absolute_artifact (original_41_local_r5.ProtocolTests.test_absolute_artifact) ... ok
+test_artifact_limit (original_41_local_r5.ProtocolTests.test_artifact_limit) ... ok
+test_artifact_payload_roundtrip (original_41_local_r5.ProtocolTests.test_artifact_payload_roundtrip) ... ok
+test_artifact_traversal (original_41_local_r5.ProtocolTests.test_artifact_traversal) ... ok
+test_binary_not_text (original_41_local_r5.ProtocolTests.test_binary_not_text) ... ok
+test_closed_profile_no_placeholders (original_41_local_r5.ProtocolTests.test_closed_profile_no_placeholders) ... ok
+test_deep_json (original_41_local_r5.ProtocolTests.test_deep_json) ... ok
+test_duplicate_artifacts (original_41_local_r5.ProtocolTests.test_duplicate_artifacts) ... ok
+test_duplicate_json (original_41_local_r5.ProtocolTests.test_duplicate_json) ... ok
+test_empty_admin_allowlist (original_41_local_r5.ProtocolTests.test_empty_admin_allowlist) ... ok
+test_frame_roundtrip (original_41_local_r5.ProtocolTests.test_frame_roundtrip) ... ok
+test_invalid_png (original_41_local_r5.ProtocolTests.test_invalid_png) ... ok
+test_mismatched_frame_size (original_41_local_r5.ProtocolTests.test_mismatched_frame_size) ... ok
+test_nan_json (original_41_local_r5.ProtocolTests.test_nan_json) ... ok
+test_no_context_bypass (original_41_local_r5.ProtocolTests.test_no_context_bypass) ... ok
+test_nonce_mismatch (original_41_local_r5.ProtocolTests.test_nonce_mismatch) ... ok
+test_oversized_control_header (original_41_local_r5.ProtocolTests.test_oversized_control_header) ... ok
+test_ragged_csv (original_41_local_r5.ProtocolTests.test_ragged_csv) ... ok
+test_real_process_deadline (original_41_local_r5.ProtocolTests.test_real_process_deadline) ... ok
+test_real_process_nonzero_exit (original_41_local_r5.ProtocolTests.test_real_process_nonzero_exit) ... ok
+test_real_process_stderr_bound (original_41_local_r5.ProtocolTests.test_real_process_stderr_bound) ... ok
+test_real_process_stdout_bound (original_41_local_r5.ProtocolTests.test_real_process_stdout_bound) ... ok
+test_real_subprocess_framed_artifact (original_41_local_r5.ProtocolTests.test_real_subprocess_framed_artifact) ... ok
+test_response_not_object (original_41_local_r5.ProtocolTests.test_response_not_object) ... ok
+test_result_manifest_mismatch (original_41_local_r5.ProtocolTests.test_result_manifest_mismatch) ... ok
+test_snapshot_copy_and_tamper (original_41_local_r5.ProtocolTests.test_snapshot_copy_and_tamper) ... ok
+test_structured_error_preserved (original_41_local_r5.ProtocolTests.test_structured_error_preserved) ... ok
+test_tampered_artifact_hash (original_41_local_r5.ProtocolTests.test_tampered_artifact_hash) ... ok
+test_text_content_check (original_41_local_r5.ProtocolTests.test_text_content_check) ... ok
+test_trailing_bytes (original_41_local_r5.ProtocolTests.test_trailing_bytes) ... ok
+test_truncated_header (original_41_local_r5.ProtocolTests.test_truncated_header) ... ok
+test_unknown_error_field (original_41_local_r5.ProtocolTests.test_unknown_error_field) ... ok
+test_unknown_response_field (original_41_local_r5.ProtocolTests.test_unknown_response_field) ... ok
+test_unsupported_requirement (original_41_local_r5.ProtocolTests.test_unsupported_requirement) ... ok
+test_validator_binding (original_41_local_r5.ProtocolTests.test_validator_binding) ... ok
+test_windows_artifact (original_41_local_r5.ProtocolTests.test_windows_artifact) ... ok
+test_wrong_child_context (original_41_local_r5.ProtocolTests.test_wrong_child_context) ... ok
+
+----------------------------------------------------------------------
+Ran 41 tests in 2.757s
+
+OK
+test_all_internal_fields_required (gpr_plumbing_local_r5.GPRPlumbing.test_all_internal_fields_required) ... ok
+test_closed_schema_accepts_synthetic_shape (gpr_plumbing_local_r5.GPRPlumbing.test_closed_schema_accepts_synthetic_shape) ... ok
+test_fixed_marker_is_set_then_restored (gpr_plumbing_local_r5.GPRPlumbing.test_fixed_marker_is_set_then_restored) ... ok
+test_marker_requires_child_context (gpr_plumbing_local_r5.GPRPlumbing.test_marker_requires_child_context) ... ok
+test_native_projects_must_be_empty (gpr_plumbing_local_r5.GPRPlumbing.test_native_projects_must_be_empty) ... ok
+test_other_tool_not_given_geology_marker (gpr_plumbing_local_r5.GPRPlumbing.test_other_tool_not_given_geology_marker) ... ok
+test_strict_six_dependency_versions (gpr_plumbing_local_r5.GPRPlumbing.test_strict_six_dependency_versions) ... ok
+test_unknown_property_rejected (gpr_plumbing_local_r5.GPRPlumbing.test_unknown_property_rejected) ... ok
+test_wrong_fixed_entry_refused (gpr_plumbing_local_r5.GPRPlumbing.test_wrong_fixed_entry_refused) ... ok
+test_wrong_gpr_profile_refused (gpr_plumbing_local_r5.GPRPlumbing.test_wrong_gpr_profile_refused) ... ok
+test_wrong_profile_and_true_capability_claims_rejected (gpr_plumbing_local_r5.GPRPlumbing.test_wrong_profile_and_true_capability_claims_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 11 tests in 0.012s
+
+OK

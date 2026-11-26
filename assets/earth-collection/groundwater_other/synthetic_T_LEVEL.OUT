@@ -1,0 +1,8 @@
+SYNTHETIC HYDRUS T_LEVEL fixture; no field observations
+Time rTop vTop vBot hTop hBot
+[d] [m/d] [m/d] [m/d] [m] [m]
+0 0.001 0.0008 -0.0001 -0.1 -0.5
+1 0.002 0.0015 -0.0002 -0.2 -0.6
+2 0.0005 0.0004 -0.0003 -0.15 -0.7
+
+end

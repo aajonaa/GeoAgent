@@ -1,0 +1,39 @@
+test_generator_reproduction_and_idempotence (__main__.contract_checks.<locals>.Fidelity.test_generator_reproduction_and_idempotence) ... ok
+test_protected_source_and_main_catalog_unchanged (__main__.contract_checks.<locals>.Fidelity.test_protected_source_and_main_catalog_unchanged) ... ok
+test_skill_expansion501_spatial_gis_georeferencing (__main__.contract_checks.<locals>.Fidelity.test_skill_expansion501_spatial_gis_georeferencing) ... ok
+test_skill_expansion501_spatial_groundwater (__main__.contract_checks.<locals>.Fidelity.test_skill_expansion501_spatial_groundwater) ... ok
+test_skill_expansion501_spatial_hydronetwork (__main__.contract_checks.<locals>.Fidelity.test_skill_expansion501_spatial_hydronetwork) ... ok
+test_skill_expansion501_spatial_landscape_evolution (__main__.contract_checks.<locals>.Fidelity.test_skill_expansion501_spatial_landscape_evolution) ... ok
+test_skill_expansion501_spatial_spatial_statistics (__main__.contract_checks.<locals>.Fidelity.test_skill_expansion501_spatial_spatial_statistics) ... ok
+test_tool_GeoLithosphereFlexure (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoLithosphereFlexure) ... ok
+test_tool_GeoMarineCarbonateAccretion (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoMarineCarbonateAccretion) ... ok
+test_tool_GeoRegolithProductionRate (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoRegolithProductionRate) ... ok
+test_tool_GeoSedimentTracerDiffusion (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSedimentTracerDiffusion) ... ok
+test_tool_GeoSpatialChannelChiCoordinate (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialChannelChiCoordinate) ... ok
+test_tool_GeoSpatialChannelFrechetDeviation (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialChannelFrechetDeviation) ... ok
+test_tool_GeoSpatialConservativeArealTransfer (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialConservativeArealTransfer) ... ok
+test_tool_GeoSpatialContiguousRegionalization (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialContiguousRegionalization) ... ok
+test_tool_GeoSpatialCoverageSimplification (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialCoverageSimplification) ... ok
+test_tool_GeoSpatialDarcySpecificDischarge (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialDarcySpecificDischarge) ... ok
+test_tool_GeoSpatialDensityConnectedSiteClusters (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialDensityConnectedSiteClusters) ... ok
+test_tool_GeoSpatialEventKernelDensity (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialEventKernelDensity) ... ok
+test_tool_GeoSpatialFloodplainStageStorage (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialFloodplainStageStorage) ... ok
+test_tool_GeoSpatialFlowNetworkUpscaleIHU (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialFlowNetworkUpscaleIHU) ... ok
+test_tool_GeoSpatialGCPGeoreferencing (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialGCPGeoreferencing) ... ok
+test_tool_GeoSpatialGroundwaterZoneBudget (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialGroundwaterZoneBudget) ... ok
+test_tool_GeoSpatialHillslopeDiffusionStep (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialHillslopeDiffusionStep) ... ok
+test_tool_GeoSpatialKnoxSpaceTimeInteraction (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialKnoxSpaceTimeInteraction) ... ok
+test_tool_GeoSpatialLineworkPolygonTopology (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialLineworkPolygonTopology) ... ok
+test_tool_GeoSpatialLocalHeteroscedasticity (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialLocalHeteroscedasticity) ... ok
+test_tool_GeoSpatialOverlandFlowStep (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialOverlandFlowStep) ... ok
+test_tool_GeoSpatialRPCGeolocation (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialRPCGeolocation) ... ok
+test_tool_GeoSpatialRegionBoundarySilhouette (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialRegionBoundarySilhouette) ... ok
+test_tool_GeoSpatialRipleyKObservedWindow (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialRipleyKObservedWindow) ... ok
+test_tool_GeoSpatialScreenedTransmissivity (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialScreenedTransmissivity) ... ok
+test_tool_GeoSpatialStreamPowerErosionStep (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialStreamPowerErosionStep) ... ok
+test_tool_GeoSpatialUnconfinedGroundwaterStep (__main__.contract_checks.<locals>.Fidelity.test_tool_GeoSpatialUnconfinedGroundwaterStep) ... ok
+
+----------------------------------------------------------------------
+Ran 34 tests in 0.479s
+
+OK

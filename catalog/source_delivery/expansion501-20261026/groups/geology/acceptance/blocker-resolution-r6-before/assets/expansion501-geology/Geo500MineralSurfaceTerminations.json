@@ -1,0 +1,39 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "structure": {
+    "lattice_angstrom": [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        2
+      ]
+    ],
+    "species": [
+      "Si"
+    ],
+    "fractional_coords": [
+      [
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "miller_index": [
+    0,
+    0,
+    1
+  ],
+  "minimum_slab_angstrom": 8,
+  "minimum_vacuum_angstrom": 10
+}

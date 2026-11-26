@@ -1,0 +1,12 @@
+.memorax-settings{margin-top:28px;padding-top:24px;border-top:1px solid #d7e1d4}
+.memorax-settings h3{margin:0 0 14px;font-size:19px;letter-spacing:-.02em}
+.memorax-label{display:block;margin:16px 0 8px;font-size:13px;font-weight:600}
+.memorax-settings>input,.memorax-settings textarea,.memorax-settings select{box-sizing:border-box;width:100%;padding:12px;border:1px solid #ccdbcc;border-radius:10px;background:#fff;color:inherit;font:inherit}
+.memorax-settings textarea{resize:vertical;line-height:1.6;min-height:90px}
+.memorax-toggle{display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.6;margin:14px 0}
+.memorax-toggle input{flex:0 0 16px;width:16px;height:16px;padding:0;margin:4px 0 0;accent-color:#246b51}
+.memorax-toggle span{flex:1 1 0;min-width:0;overflow-wrap:anywhere}
+.memorax-settings button{border-radius:10px;padding:10px 14px;font:inherit;font-size:13px;cursor:pointer}
+.memorax-settings hr{margin:24px 0;border:0;border-top:1px solid #e3e9dc}
+.memorax-settings input:focus-visible,.memorax-settings textarea:focus-visible,.memorax-settings select:focus-visible,.memorax-settings button:focus-visible{outline:2px solid #2d8060;outline-offset:3px}
+@media(prefers-reduced-motion:no-preference){.memorax-settings{animation:memorax-reveal .2s ease-out}@keyframes memorax-reveal{from{opacity:.6;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}}

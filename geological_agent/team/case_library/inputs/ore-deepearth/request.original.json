@@ -1,0 +1,37 @@
+{
+  "operations": [
+    {
+      "operation_id": "moho",
+      "tool": "DeepEarthQueryLITHO1",
+      "arguments": {
+        "dataset_path": "tests/data/litho.csv",
+        "dataset_version": "synthetic-deepearth-20261031-v1",
+        "latitude": 0,
+        "longitude": 0,
+        "layer": "CRUST3-BOTTOM"
+      }
+    },
+    {
+      "operation_id": "lab",
+      "tool": "DeepEarthQueryLITHO1",
+      "arguments": {
+        "dataset_path": "tests/data/litho.csv",
+        "dataset_version": "synthetic-deepearth-20261031-v1",
+        "latitude": 0,
+        "longitude": 0,
+        "layer": "LAB"
+      }
+    },
+    {
+      "operation_id": "vs",
+      "tool": "DeepEarthQuerySEMUCB",
+      "arguments": {
+        "dataset_path": "tests/data/semucb.csv",
+        "dataset_version": "synthetic-deepearth-20261031-v1",
+        "latitude": 0,
+        "longitude": 0,
+        "depth_km": 100
+      }
+    }
+  ]
+}

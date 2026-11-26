@@ -1,0 +1,53 @@
+{
+  "case_id": "legend-outside-roi",
+  "source_skill": "ore-colors",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "GeoMapColorExtract",
+      "arguments": {
+        "path": "image.png",
+        "output_dir": "out",
+        "roi": [
+          1,
+          1,
+          31,
+          19
+        ],
+        "classes": [
+          {
+            "label": "User label A",
+            "rgb": [
+              200,
+              20,
+              20
+            ],
+            "tolerance": 0
+          },
+          {
+            "label": "User label B",
+            "rgb": [
+              20,
+              20,
+              200
+            ],
+            "tolerance": 0
+          }
+        ],
+        "minimum_pixels": 1
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "case_id": "legend-outside-roi"
+  },
+  "input_path_bindings": [
+    {
+      "original": "image.png",
+      "workspace": "image.png",
+      "source": "ore-colors-1.0.0/tests/in/c01/image.png"
+    }
+  ]
+}

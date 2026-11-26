@@ -132,9 +132,10 @@ def test_member_invitation_cannot_grant_admin(group):
     invite = clients['admin'].post('/api/admin/invites').json()['token']
     anonymous = TestClient(app, base_url='http://127.0.0.1')
     data = {'username':'invited', 'password':'Invited-User-Password-2026','invite':invite,'role':'admin'}
-    assert anonymous.post('/api/register', json=data).status_code == 200
-    assert app.state.store.user('invited')['role'] == 'member'
-    assert anonymous.post('/api/register', json={**data,'username':'reused'}).status_code == 400
+    # Public registration is fail-closed by default; local fixture creation remains available.
+    assert anonymous.post('/api/register', json=data).status_code == 403
+    assert app.state.store.user('invited') is None
+    assert anonymous.post('/api/register', json={**data,'username':'reused'}).status_code == 403
 
 
 def test_cancel_preserves_committed_files(group):

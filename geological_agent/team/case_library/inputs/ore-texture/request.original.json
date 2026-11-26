@@ -1,0 +1,14 @@
+{
+  "tool": "GeoRemoteStructureTensor",
+  "arguments": {
+    "raster_path": "ACTUAL_GABOR_BAND1",
+    "input_unit": "radiance",
+    "sigma_pixels": 1
+  },
+  "workflow": {
+    "parent": "TX054",
+    "kind": "select_native_band",
+    "band": 1,
+    "declared_unit": "radiance"
+  }
+}

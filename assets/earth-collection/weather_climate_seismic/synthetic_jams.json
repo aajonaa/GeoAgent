@@ -1,0 +1,8 @@
+{
+  "fixture_id": "synthetic_jams",
+  "synthetic": true,
+  "vapour_pressure_pa": [
+    611.21,
+    1222.42
+  ]
+}

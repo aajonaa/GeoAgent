@@ -1,0 +1,278 @@
+{
+  "scope": "new candidate registration envelopes only",
+  "frozen_contributions_modified": false,
+  "before": {
+    "HydroVICPrecipitationPhase": {
+      "asset_version": "1.0.0",
+      "provider": "VIC original kernel; GeoAgent fixed ABI integration",
+      "license": "MIT",
+      "upstream_license": "MIT",
+      "official_protocol_version": null,
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "source_commit": "8f6cc0661bdc67c4f6caabdd4dcd0b8782517435",
+      "runtime": {
+        "python": ">=3.12",
+        "dependency_lock": "geological_agent/geology/native-cpu-profiles.json",
+        "environment_version": "native-cpu-kernels-20261022-original-r1-build"
+      },
+      "metadata_profile": "scientific",
+      "lifecycle": {
+        "registration": "proposed_disjoint_candidate",
+        "contract_validation": "independent_cpu_passed_parent_gate_pending",
+        "unit_validation": "independent_cpu_passed",
+        "workflow_validation": "not_run",
+        "platform_validation": "not_run",
+        "release_status": "draft"
+      },
+      "pending_fields": [
+        "parent_bridge_protocol_gate",
+        "parent_assembly_full_regression",
+        "receiving_lab_approval",
+        "redistribution_review"
+      ],
+      "platform_validation": "not_run"
+    },
+    "SeismicMadagascarFFT": {
+      "asset_version": "1.0.0",
+      "provider": "Madagascar original kernel; GeoAgent fixed ABI integration",
+      "license": "SEE_UPSTREAM_LICENSE",
+      "upstream_license": "BSD-3-Clause notices in selected Kiss FFT sources; upstream project COPYING.txt also retained",
+      "official_protocol_version": null,
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "source_commit": "000799f11221d5cdbd0ef86d48342d149762defd",
+      "runtime": {
+        "python": ">=3.12",
+        "dependency_lock": "geological_agent/geology/native-cpu-profiles.json",
+        "environment_version": "native-cpu-kernels-20261022-original-r1-build"
+      },
+      "metadata_profile": "scientific",
+      "lifecycle": {
+        "registration": "proposed_disjoint_candidate",
+        "contract_validation": "independent_cpu_passed_parent_gate_pending",
+        "unit_validation": "independent_cpu_passed",
+        "workflow_validation": "not_run",
+        "platform_validation": "not_run",
+        "release_status": "draft"
+      },
+      "pending_fields": [
+        "parent_bridge_protocol_gate",
+        "parent_assembly_full_regression",
+        "receiving_lab_approval",
+        "redistribution_review"
+      ],
+      "platform_validation": "not_run"
+    },
+    "GeoHPGLDirectionalSemivariogram": {
+      "asset_version": "1.0.0",
+      "provider": "HPGL original kernel; GeoAgent fixed ABI integration",
+      "license": "SEE_UPSTREAM_LICENSE",
+      "upstream_license": "HPGL license.txt BSD terms; README separately limits use wording: distribution review required",
+      "official_protocol_version": null,
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "source_commit": "ac8f9c2e096d94f5d027970ad783f341a81af380",
+      "runtime": {
+        "python": ">=3.12",
+        "dependency_lock": "geological_agent/geology/native-cpu-profiles.json",
+        "environment_version": "native-cpu-kernels-20261022-original-r1-build"
+      },
+      "metadata_profile": "scientific",
+      "lifecycle": {
+        "registration": "proposed_disjoint_candidate",
+        "contract_validation": "independent_cpu_passed_parent_gate_pending",
+        "unit_validation": "independent_cpu_passed",
+        "workflow_validation": "not_run",
+        "platform_validation": "not_run",
+        "release_status": "draft"
+      },
+      "pending_fields": [
+        "parent_bridge_protocol_gate",
+        "parent_assembly_full_regression",
+        "receiving_lab_approval",
+        "redistribution_review",
+        "HPGL_README_license_wording_review"
+      ],
+      "platform_validation": "not_run"
+    },
+    "EarthWflowKinematicWaveReachStep": {
+      "asset_version": "1.0.0",
+      "provider": "openstreams/wflow original archived kernel",
+      "license": "GPL-3.0-or-later; wrapper/interface redistribution review pending",
+      "upstream_license": "GPL-3.0-or-later",
+      "source_commit": null,
+      "runtime": {
+        "python": ">=3.12",
+        "dependency_lock": "requirements-wflow43-collection.txt",
+        "environment_version": "wflow43-collection-r4-R4-CPU"
+      },
+      "lifecycle": {
+        "registration": "independent_native_candidate",
+        "release_status": "not_deployed"
+      },
+      "pending_fields": [
+        "parent_union",
+        "receiving_lab_approval",
+        "redistribution_review",
+        "full_upstream_release_correspondence"
+      ],
+      "platform_validation": "not_run"
+    }
+  },
+  "after": {
+    "HydroVICPrecipitationPhase": {
+      "asset_version": "1.0.0",
+      "provider": "VIC original kernel; GeoAgent fixed ABI integration",
+      "license": "MIT",
+      "upstream_license": "MIT",
+      "official_protocol_version": null,
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "source_commit": "8f6cc0661bdc67c4f6caabdd4dcd0b8782517435",
+      "runtime": {
+        "python": ">=3.12",
+        "dependency_lock": "geological_agent/geology/native-cpu-profiles.json",
+        "environment_version": "native-cpu-kernels-20261022-original-r1-build"
+      },
+      "metadata_profile": "scientific",
+      "lifecycle": {
+        "registration": "proposed_disjoint_candidate",
+        "contract_validation": "independent_cpu_passed_parent_gate_pending",
+        "unit_validation": "independent_cpu_passed",
+        "workflow_validation": "not_run",
+        "platform_validation": "not_run",
+        "release_status": "draft"
+      },
+      "pending_fields": [
+        "parent_bridge_protocol_gate",
+        "parent_assembly_full_regression",
+        "receiving_lab_approval",
+        "redistribution_review"
+      ],
+      "platform_validation": "not_run",
+      "source_url": "https://github.com/UW-Hydro/VIC"
+    },
+    "SeismicMadagascarFFT": {
+      "asset_version": "1.0.0",
+      "provider": "Madagascar original kernel; GeoAgent fixed ABI integration",
+      "license": "SEE_UPSTREAM_LICENSE",
+      "upstream_license": "BSD-3-Clause notices in selected Kiss FFT sources; upstream project COPYING.txt also retained",
+      "official_protocol_version": null,
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "source_commit": "000799f11221d5cdbd0ef86d48342d149762defd",
+      "runtime": {
+        "python": ">=3.12",
+        "dependency_lock": "geological_agent/geology/native-cpu-profiles.json",
+        "environment_version": "native-cpu-kernels-20261022-original-r1-build"
+      },
+      "metadata_profile": "scientific",
+      "lifecycle": {
+        "registration": "proposed_disjoint_candidate",
+        "contract_validation": "independent_cpu_passed_parent_gate_pending",
+        "unit_validation": "independent_cpu_passed",
+        "workflow_validation": "not_run",
+        "platform_validation": "not_run",
+        "release_status": "draft"
+      },
+      "pending_fields": [
+        "parent_bridge_protocol_gate",
+        "parent_assembly_full_regression",
+        "receiving_lab_approval",
+        "redistribution_review"
+      ],
+      "platform_validation": "not_run",
+      "source_url": "https://github.com/ahay/src"
+    },
+    "GeoHPGLDirectionalSemivariogram": {
+      "asset_version": "1.0.0",
+      "provider": "HPGL original kernel; GeoAgent fixed ABI integration",
+      "license": "SEE_UPSTREAM_LICENSE",
+      "upstream_license": "HPGL license.txt BSD terms; README separately limits use wording: distribution review required",
+      "official_protocol_version": null,
+      "official_protocol": {
+        "applicability": "not_applicable",
+        "name": null,
+        "version": null
+      },
+      "source_commit": "ac8f9c2e096d94f5d027970ad783f341a81af380",
+      "runtime": {
+        "python": ">=3.12",
+        "dependency_lock": "geological_agent/geology/native-cpu-profiles.json",
+        "environment_version": "native-cpu-kernels-20261022-original-r1-build"
+      },
+      "metadata_profile": "scientific",
+      "lifecycle": {
+        "registration": "proposed_disjoint_candidate",
+        "contract_validation": "independent_cpu_passed_parent_gate_pending",
+        "unit_validation": "independent_cpu_passed",
+        "workflow_validation": "not_run",
+        "platform_validation": "not_run",
+        "release_status": "draft"
+      },
+      "pending_fields": [
+        "parent_bridge_protocol_gate",
+        "parent_assembly_full_regression",
+        "receiving_lab_approval",
+        "redistribution_review",
+        "HPGL_README_license_wording_review"
+      ],
+      "platform_validation": "not_run",
+      "source_url": "https://github.com/hpgl/hpgl"
+    },
+    "EarthWflowKinematicWaveReachStep": {
+      "asset_version": "1.0.0",
+      "provider": "openstreams/wflow original archived kernel",
+      "license": "GPL-3.0-or-later; wrapper/interface redistribution review pending",
+      "upstream_license": "GPL-3.0-or-later",
+      "source_commit": null,
+      "runtime": {
+        "python": ">=3.12",
+        "dependency_lock": "requirements-wflow43-collection.txt",
+        "environment_version": "earth-python-coverage101-imports-20261022-CPU"
+      },
+      "lifecycle": {
+        "registration": "independent_native_candidate",
+        "release_status": "not_deployed",
+        "contract_validation": "pending_union_cpu_regression",
+        "unit_validation": "pending_union_cpu_regression",
+        "workflow_validation": "not_run",
+        "platform_validation": "not_run"
+      },
+      "pending_fields": [
+        "parent_union",
+        "receiving_lab_approval",
+        "redistribution_review",
+        "full_upstream_release_correspondence",
+        "official_protocol_name",
+        "official_protocol_version"
+      ],
+      "platform_validation": "not_run",
+      "source_url": "https://github.com/openstreams/wflow",
+      "metadata_profile": "scientific",
+      "official_protocol": {
+        "applicability": "unknown",
+        "name": null,
+        "version": null
+      }
+    }
+  },
+  "dependency_lock_path": "requirements-wflow43-collection.txt",
+  "dependency_lock_sha256": "c9613fe84bc4dd75e46834ec3c85e35357ac0c4a6c87294d5cd86239c406ffed"
+}

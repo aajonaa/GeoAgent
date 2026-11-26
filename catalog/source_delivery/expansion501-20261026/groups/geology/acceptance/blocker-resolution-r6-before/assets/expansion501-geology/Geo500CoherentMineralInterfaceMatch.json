@@ -1,0 +1,28 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "film_vectors_angstrom": [
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      0,
+      2,
+      0
+    ]
+  ],
+  "substrate_vectors_angstrom": [
+    [
+      2,
+      0,
+      0
+    ],
+    [
+      0,
+      2,
+      0
+    ]
+  ],
+  "max_area_angstrom2": 20
+}

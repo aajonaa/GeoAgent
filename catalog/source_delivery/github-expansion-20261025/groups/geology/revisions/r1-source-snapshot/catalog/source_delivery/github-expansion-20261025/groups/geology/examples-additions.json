@@ -1,0 +1,798 @@
+{
+  "GeoAPSGPairFabricTensor": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "normal_vectors": [
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "line_vectors": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ]
+  },
+  "GeoAPSGFoldAxis": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "normal_vectors": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        -1,
+        0
+      ]
+    ]
+  },
+  "GeoAPSGFisherDirectionalConfidence": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "directed_vectors": [
+      [
+        0.8660254037844386,
+        0.5,
+        0
+      ],
+      [
+        0.8660254037844386,
+        -0.5,
+        0
+      ],
+      [
+        0.8660254037844386,
+        0.5,
+        0
+      ],
+      [
+        0.8660254037844386,
+        -0.5,
+        0
+      ]
+    ],
+    "confidence_level": 0.95
+  },
+  "GeoAPSGBinghamAxialConfidence": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "axial_vectors": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "confidence_level": 0.95
+  },
+  "GeoAPSGMarkerStrainEstimate": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "marker_tensors": [
+      [
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          4,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "section_frame": "SYNTHETIC x=north,y=east planar section"
+  },
+  "GeoAPSGFaultKinematicAxes": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "normal_vectors": [
+      [
+        0,
+        0,
+        1
+      ]
+    ],
+    "line_vectors": [
+      [
+        1,
+        0,
+        0
+      ]
+    ]
+  },
+  "GeoAPSGFiniteStrainEllipsoid": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "deformation_gradient": [
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0.5
+      ]
+    ]
+  },
+  "GeoAPSGDeformationPolarSplit": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "deformation_gradient": [
+      [
+        0,
+        -1,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.5
+      ]
+    ]
+  },
+  "GeoAPSGVelocityGradientEvolution": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "velocity_gradient_per_myr": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "duration_myr": 2
+  },
+  "GeoAPSGKinematicVorticity": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "velocity_gradient_per_myr": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "GeoAPSGFractureTraction": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "stress_mpa": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        60,
+        0
+      ],
+      [
+        0,
+        0,
+        20
+      ]
+    ],
+    "normal_vectors": [
+      [
+        1,
+        0,
+        1
+      ]
+    ]
+  },
+  "GeoAPSGFaultReactivation": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinate_frame": "NED",
+    "stress_mpa": [
+      [
+        100,
+        0,
+        0
+      ],
+      [
+        0,
+        60,
+        0
+      ],
+      [
+        0,
+        0,
+        20
+      ]
+    ],
+    "normal_vectors": [
+      [
+        1,
+        0,
+        1
+      ]
+    ],
+    "pore_pressure_mpa": 10,
+    "friction_coefficient": 0.6,
+    "cohesion_mpa": 0
+  },
+  "GeoPyroliteALR": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "components": [
+      "Cu",
+      "Pb",
+      "Zn"
+    ],
+    "values": [
+      [
+        2,
+        4,
+        1
+      ]
+    ],
+    "input_unit": "ppm",
+    "denominator": "Zn"
+  },
+  "GeoPyroliteILR": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "components": [
+      "Cu",
+      "Pb",
+      "Zn"
+    ],
+    "values": [
+      [
+        4,
+        2,
+        1
+      ]
+    ],
+    "input_unit": "ppm",
+    "basis": [
+      [
+        0.7071067811865475,
+        -0.7071067811865475,
+        0
+      ],
+      [
+        0.4082482904638631,
+        0.4082482904638631,
+        -0.8164965809277261
+      ]
+    ]
+  },
+  "GeoPyroliteCompositionalCenter": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "components": [
+      "Cu",
+      "Zn"
+    ],
+    "values": [
+      [
+        1,
+        4
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "input_unit": "ppm"
+  },
+  "GeoPyroliteSphericalComposition": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "components": [
+      "Cu",
+      "Pb",
+      "Zn"
+    ],
+    "values": [
+      [
+        1,
+        1,
+        2
+      ]
+    ],
+    "input_unit": "ppm"
+  },
+  "GeoPyroliteMineralEndmemberUnmix": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "components": [
+      "A",
+      "B"
+    ],
+    "compositions": [
+      [
+        0.25,
+        0.75
+      ]
+    ],
+    "endmembers": [
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "endmember_labels": [
+      "SYNTHETIC_A",
+      "SYNTHETIC_B"
+    ],
+    "input_unit": "mass_fraction",
+    "maximum_rmse": 0.001
+  },
+  "GeoPyroliteCIPWNorm": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "major_wt_percent": {
+      "SiO2": 100,
+      "TiO2": 0,
+      "Al2O3": 0,
+      "Fe2O3": 0,
+      "FeO": 0,
+      "MnO": 0,
+      "MgO": 0,
+      "CaO": 0,
+      "Na2O": 0,
+      "K2O": 0,
+      "P2O5": 0
+    },
+    "minor_ppm": {
+      "CO2": 0,
+      "SO3": 0,
+      "F": 0,
+      "Cl": 0,
+      "S": 0,
+      "Ni": 0,
+      "Co": 0,
+      "Sr": 0,
+      "Ba": 0,
+      "Rb": 0,
+      "Cs": 0,
+      "Li": 0,
+      "Zr": 0,
+      "Cr": 0,
+      "V": 0
+    }
+  },
+  "GeoSKGstatRobustVariogram": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinates_m": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "values": [
+      0,
+      2,
+      4,
+      6
+    ],
+    "value_unit": "ppm",
+    "lag_upper_edges_m": [
+      1.5,
+      2.5,
+      3.5
+    ]
+  },
+  "GeoSKGstatSpaceTimeVariogram": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinates_m": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        3,
+        0
+      ]
+    ],
+    "values_by_station_time": [
+      [
+        0,
+        3,
+        6,
+        9
+      ],
+      [
+        2,
+        5,
+        8,
+        11
+      ],
+      [
+        4,
+        7,
+        10,
+        13
+      ],
+      [
+        6,
+        9,
+        12,
+        15
+      ]
+    ],
+    "time_step_days": 2,
+    "spatial_lags": 3,
+    "temporal_lags": 3,
+    "value_unit": "ppm"
+  },
+  "GeoGSToolsVariogramFit": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "lag_centers_m": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      6
+    ],
+    "semivariance": [
+      0.25,
+      0.8169373788524215,
+      1.223165761934816,
+      1.5142411176571153,
+      1.7228057237685466,
+      1.9793294335267746
+    ],
+    "fixed_nugget": 0.25,
+    "value_unit": "ppm"
+  },
+  "GeoGSToolsBlockSupportCovariance": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "support_a_m": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ]
+    ],
+    "support_b_m": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ]
+    ],
+    "point_variance": 4,
+    "length_scale_m": 1,
+    "value_unit": "ppm"
+  },
+  "GeoSKGstatKrigingLOO": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "coordinates_m": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "values": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "value_unit": "ppm",
+    "effective_range_m": 10,
+    "partial_sill": 0,
+    "nugget": 1
+  },
+  "GeoGeochemBackgroundDistance": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "components": [
+      "Cu",
+      "Zn"
+    ],
+    "samples": [
+      [
+        16.9188286785579,
+        1
+      ]
+    ],
+    "background": [
+      [
+        0.17692120631776423,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        5.6522336740340915,
+        1
+      ]
+    ],
+    "basis": [
+      [
+        0.7071067811865475,
+        -0.7071067811865475
+      ]
+    ],
+    "input_unit": "ppm"
+  },
+  "GeoLasioLogAudit": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "las_path": "assets/github-expansion-geology/synthetic-log.las"
+  },
+  "GeoWellyMinimumCurvature": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "survey_md_inc_azi": [
+      [
+        0,
+        0,
+        90
+      ],
+      [
+        100,
+        60,
+        90
+      ]
+    ]
+  },
+  "GeoWellyLogResample": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "depth_m": [
+      0,
+      1,
+      2
+    ],
+    "values": [
+      10,
+      20,
+      30
+    ],
+    "value_unit": "ppm",
+    "start_m": 0,
+    "stop_m": 2,
+    "step_m": 0.5
+  },
+  "GeoWellyLogDespike": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "depth_m": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "values": [
+      10,
+      10,
+      30,
+      10,
+      10
+    ],
+    "value_unit": "ppm",
+    "window_samples": 3,
+    "standard_deviation_multiplier": 1
+  },
+  "GeoWellyLogFaciesBlock": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "depth_m": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "values": [
+      10,
+      14,
+      25,
+      29,
+      10
+    ],
+    "value_unit": "ppm",
+    "cutoffs": [
+      20
+    ],
+    "class_labels": [
+      "SYNTHETIC_LOW",
+      "SYNTHETIC_HIGH"
+    ]
+  },
+  "GeoStriplogIntervalIntersection": {
+    "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+    "hole_id": "SYNTHETIC_HOLE",
+    "left_intervals": [
+      {
+        "top_m": 0,
+        "base_m": 10,
+        "label": "SYNTHETIC_UNIT_A"
+      }
+    ],
+    "right_intervals": [
+      {
+        "top_m": 4,
+        "base_m": 8,
+        "label": "SYNTHETIC_UNIT_B"
+      }
+    ]
+  }
+}

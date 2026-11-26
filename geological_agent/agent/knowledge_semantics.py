@@ -26,6 +26,8 @@ A matching formula, acronym, number or citation ID does NOT establish that the s
 For translated scientific terms, first derive the conventional target-language term from the SOURCE, then compare with the actual answer term. Do not rationalize a literal word-by-word or nonstandard translation just because its formula is correct.
 Return the exact answer_term and source_term, the conventional target_term, and equivalent/mismatch/uncertain for each technical translation. A correct conventional synonym is equivalent; an invented name is not.
 Use supported only if EVERY factual claim and translation in that block is supported. Any mismatch is revise; unresolved ambiguity or missing support is uncertain.
+Page/provenance evidence is supplied separately in each source's metadata. metadata.sources[].page is the 1-based physical page of the parsed PDF; page_idx is its 0-based index, NOT a printed page label. Use this recorded location to verify PDF-page citations even when the page number is absent from the quoted body text. For split books, original_pdf_pages and source_coverage.original_page_offset identify the original PDF scope; do not conflate section-local and original pages. Do not invent missing pages, infer printed pagination, or accept inconsistent location fields. A multi-page chunk locates the passage across those pages, not every sentence on every listed page.
+Metadata establishes recorded location/provenance only, not scientific truth. Preserve quality_status, partial-source coverage and excluded-page limitations. Do not substitute metadata for exact textual evidence of scientific claims.
 Supply minimal exact source quotations including the words/numbers needed for the judgment. A quote copied from the answer is not source evidence.
 Whitespace and whole-paragraph Markdown bold wrappers may be omitted; every other character must match the identified original field. Never paraphrase a quotation, omit a negation, change numbers/units, or join noncontiguous excerpts. The runtime binds accepted quotations and compared source terms back to original character spans.
 Use not_claim only for headings, transitions, a requested literal code example that is not asserted as executed, or other text containing no source-based factual assertion. Never use it to evade checking a factual assertion.
@@ -37,9 +39,50 @@ Keep successful feedback empty and explanations concise. This review is not inde
 
 def material(state):
     rows = state.get("metadata", {}).get("knowledge", {}).get("references", [])
-    sources = {r["citation_id"]: {k: r.get(k, "") for k in
-               ("document_id", "title", "source", "text", "sha256")} for r in rows}
+    sources = {}
+    for row in rows:
+        source = {key: row.get(key, "") for key in
+                  ("document_id", "title", "source", "text", "sha256")}
+        source.update({key: deepcopy(row[key]) for key in
+                       ("ordinal", "start_char", "end_char") if key in row})
+        metadata = row.get("metadata") or {}
+        # Keep recorded source locations and limitations, not embedding copies
+        # or relevance scores. These are data, never model-authored approval.
+        source["metadata"] = {key: deepcopy(metadata[key]) for key in (
+            "sources", "block_ids", "document_schema", "original_sha256",
+            "structure_sha256", "source_text_sha256", "quality_status",
+            "source_completeness", "source_coverage", "original_pdf_pages",
+            "excluded_original_pdf_pages", "section_path", "physical_section_path",
+            "retrieval_is_verbatim", "retrieval_transformations"
+        ) if key in metadata}
+        sources[row["citation_id"]] = source
+    if state.get("metadata", {}).get("library_first"):
+        # Give the source auditor the actual public passages used to fill gaps,
+        # rather than asking it to verify public claims against local excerpts.
+        answer = state.get("answer", "")
+        linked = set(re.findall(r"https?://[^\s<>\]）)]+", answer))
+        for message in state.get("messages", []):
+            if message.role != "tool":
+                continue
+            try:
+                receipt = json.loads(message.content)
+            except (ValueError, TypeError):
+                continue
+            if not isinstance(receipt, dict) or receipt.get("name") != "web_fetch" or receipt.get("status") != "ok":
+                continue
+            data = receipt.get("data")
+            if not isinstance(data, dict) or data.get("url") not in linked or not isinstance(data.get("content"), str):
+                continue
+            if data["content"] and message.tool_call_id and receipt.get("call_id") == message.tool_call_id:
+                sources["web:" + message.tool_call_id] = {"source": data["url"], "text": data["content"],
+                    "title": "", "metadata": {"kind": "fetched_web_page", "offset": data.get("offset", 0)}}
     blocks = {f"b{i+1}": text for i, text in enumerate(_citation_blocks(state.get("answer", ""), sources))}
+    if state.get("metadata", {}).get("library_first"):
+        # Completion review already checks the deliverable, model and hypotheses.
+        # Here check the actual source attributions, including cited public supplements.
+        fetched = {s["source"] for key, s in sources.items() if key.startswith("web:")}
+        blocks = {key: text for key, text in blocks.items()
+                  if _citation_ids(text, sources) or any(url in text for url in fetched)}
     return {"answer_blocks": blocks, "sources": sources}
 
 def fingerprint(state):
@@ -153,6 +196,11 @@ def _check_block(key, block, check, sources):
     if check["verdict"] == "supported":
         if not quotes or not cited <= {q["source_id"] for q in quotes}:
             raise ModelProtocolError("Supported block needs exact evidence for all its cited sources")
+        public_urls = {s["source"] for k, s in sources.items() if k.startswith("web:")}
+        block_urls = set(re.findall(r"https?://[^\s<>\]）)]+", block))
+        bound_urls = {sources[q["source_id"]]["source"] for q in quotes if q["source_id"].startswith("web:") and q["field"] == "text"}
+        if (public_urls & block_urls) - bound_urls:
+            raise ModelProtocolError("Cited public findings require a text quotation from the matching fetched page")
         cross_language = bool(re.search(r"[\u3400-\u9fff]", block)) and any(
             q["field"] == "text" and re.search(r"[A-Za-z]{3,}", q["quote"]) and q["quote"] not in block
             for q in quotes)
@@ -184,7 +232,11 @@ def _check_block(key, block, check, sources):
         issues.append("Source semantics " + key + ": " + check["feedback"])
     # Added only after validating the native schema and source text. A model
     # cannot supply or override these code-generated provenance records.
-    check["evidence_bindings"] = {"quotes": quote_bindings, "terms": term_bindings}
+    check["evidence_bindings"] = {
+        "quotes": quote_bindings, "terms": term_bindings,
+        "source_locations": {source_id: deepcopy(sources[source_id].get("metadata", {}))
+                             for source_id in sorted(cited)},
+    }
     return issues
 
 
@@ -222,3 +274,4 @@ def parse_semantic_review(response, request):
         raise SemanticReviewProtocolError(checks, issues, errors)
     return {"passed": not issues, "checks": checks, "issues": issues,
             "scope": "Exact quote/coverage checks plus model-assisted semantics; not scientific certification."}
+

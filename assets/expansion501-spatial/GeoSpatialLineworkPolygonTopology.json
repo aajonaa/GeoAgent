@@ -1,0 +1,15 @@
+{
+  "crs": "EPSG:32631",
+  "lines_wkt": [
+    "LINESTRING (0 0, 1 0)",
+    "LINESTRING (1 0, 1 1)",
+    "LINESTRING (1 1, 0 1)",
+    "LINESTRING (0 1, 0 0)",
+    "LINESTRING (1 1, 2 1)"
+  ],
+  "input_policy": "already_noded_no_repair",
+  "units": {
+    "geometry_coordinates": "m"
+  }
+}
+

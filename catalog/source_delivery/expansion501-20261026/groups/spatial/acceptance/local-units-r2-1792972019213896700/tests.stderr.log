@@ -1,0 +1,14 @@
+test_adapter_wires_actual_columns_to_unit_mapper (__main__.ColumnUnitRegression.test_adapter_wires_actual_columns_to_unit_mapper) ... ok
+test_delivery_and_source_counts_are_honest (__main__.ColumnUnitRegression.test_delivery_and_source_counts_are_honest) ... ok
+test_generated_closed_unit_schemas_match_literal_oracles (__main__.ColumnUnitRegression.test_generated_closed_unit_schemas_match_literal_oracles) ... ok
+test_hag_classification_is_not_metres (__main__.ColumnUnitRegression.test_hag_classification_is_not_metres) ... ok
+test_legacy_inputs_are_preserved_not_used_as_column_units (__main__.ColumnUnitRegression.test_legacy_inputs_are_preserved_not_used_as_column_units) ... ok
+test_no_numeric_oracle_requirement_or_nonunit_schema_change (__main__.ColumnUnitRegression.test_no_numeric_oracle_requirement_or_nonunit_schema_change) ... ok
+test_other_pdal_columns_keep_physical_units (__main__.ColumnUnitRegression.test_other_pdal_columns_keep_physical_units) ... ok
+test_tree_height_is_not_dimensionless (__main__.ColumnUnitRegression.test_tree_height_is_not_dimensionless) ... ok
+test_unknown_column_has_no_guessed_unit (__main__.ColumnUnitRegression.test_unknown_column_has_no_guessed_unit) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.036s
+
+OK

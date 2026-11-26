@@ -1,0 +1,90 @@
+{
+  "skill_id": "xiaoyu_working_with_wyvern_data",
+  "archive_sha256": "f244b45d7eef4907cbc5a431cc115e251ba6e11d81a6a7ae1cf5b7bf78e6aae3",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 18546,
+      "sha256": "16c7e0a1c0129235da45e7421c71f76ea96de039f146a3705d9194e9405e2d8d",
+      "origins": [
+        {
+          "package_number": 61,
+          "archive_sha256": "33e39d46c01640fd04949259174f93e4ed60bfb802151c1e5c6de1b0bcc71d69",
+          "member": "working-with-wyvern-data/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/band-reference.md",
+      "bytes": 2915,
+      "sha256": "9fca2a855705650b448d6a1c8c0f3e2b3121792345d6921cea1eea0e9c1ce10d",
+      "origins": [
+        {
+          "package_number": 61,
+          "archive_sha256": "33e39d46c01640fd04949259174f93e4ed60bfb802151c1e5c6de1b0bcc71d69",
+          "member": "working-with-wyvern-data/references/band-reference.md"
+        }
+      ]
+    },
+    {
+      "path": "references/python-packages.md",
+      "bytes": 5702,
+      "sha256": "0a5259db650ee85d3c2c16987f1e43497d3599c0d563c954b2097bb19d1ae30b",
+      "origins": [
+        {
+          "package_number": 61,
+          "archive_sha256": "33e39d46c01640fd04949259174f93e4ed60bfb802151c1e5c6de1b0bcc71d69",
+          "member": "working-with-wyvern-data/references/python-packages.md"
+        }
+      ]
+    },
+    {
+      "path": "references/spectral-analysis.md",
+      "bytes": 18239,
+      "sha256": "ea23165bee2a9a4debeaf7be4c7d10762b12a93893196e3efa31b78041f8ee38",
+      "origins": [
+        {
+          "package_number": 61,
+          "archive_sha256": "33e39d46c01640fd04949259174f93e4ed60bfb802151c1e5c6de1b0bcc71d69",
+          "member": "working-with-wyvern-data/references/spectral-analysis.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/resample_spectra.py",
+      "bytes": 10181,
+      "sha256": "9ce2053a11de07320fa8b7c5bc4330dda7ca975bd2c43d4f87739e2a334cc64d",
+      "origins": [
+        {
+          "package_number": 61,
+          "archive_sha256": "33e39d46c01640fd04949259174f93e4ed60bfb802151c1e5c6de1b0bcc71d69",
+          "member": "working-with-wyvern-data/scripts/resample_spectra.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/spy_helpers.py",
+      "bytes": 3890,
+      "sha256": "23f795bcbff5a69d02e0cbc027c3a26764cca07099fbc5be36c084927fd9bf0c",
+      "origins": [
+        {
+          "package_number": 61,
+          "archive_sha256": "33e39d46c01640fd04949259174f93e4ed60bfb802151c1e5c6de1b0bcc71d69",
+          "member": "working-with-wyvern-data/scripts/spy_helpers.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/wyvern_stac.py",
+      "bytes": 9686,
+      "sha256": "c1b98133f8cc04e0adb368d2a3fe605495428c20c1a96dcee3bc2329023d3877",
+      "origins": [
+        {
+          "package_number": 61,
+          "archive_sha256": "33e39d46c01640fd04949259174f93e4ed60bfb802151c1e5c6de1b0bcc71d69",
+          "member": "working-with-wyvern-data/scripts/wyvern_stac.py"
+        }
+      ]
+    }
+  ]
+}

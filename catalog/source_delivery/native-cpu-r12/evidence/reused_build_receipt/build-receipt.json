@@ -1,0 +1,78 @@
+{
+  "source_lock_sha256": "3c9b5985b75583d6319337af7fbd8a3a30f6568eee892ba6bf61f664e7676818",
+  "input_sha256": {
+    "vendor/vic/calc_rainonly.c": "661a2ed6e1825af100cdf999a99f9a6108f6c27b5c48086f7243e480ee069728",
+    "licenses/VIC/LICENSE.txt": "e2665fc8d67a4ee3d9b617e2b7e25919f38f465b44438fbf579681d1e838ad5e",
+    "vendor/madagascar/kiss_fft.c": "c732c6c0775f26e0b0b90f94e657e362ce8137b82a56253da45d8e5f585b9491",
+    "vendor/madagascar/kiss_fft.h": "4476caf3b2758aeddf1de4a4428ea3e8cc73115f57a7dc26d8d9bfc832857a0e",
+    "vendor/madagascar/_kiss_fft_guts.h": "640ebb7d17be629fdc7c100c8fd429dccb7704631e2059f62fb836fec936f262",
+    "vendor/madagascar/README.kiss_fft": "f5985b192dcd9c5a1da442e92b97744566941270f6e593f019f42a0b96f650b7",
+    "licenses/Madagascar/COPYING.txt": "e5b95564d1fc67c0e95194ab86b827236c50ee69c3b555296e3a3162596ab243",
+    "vendor/hpgl/variograms.cpp": "06e207c4ec83ed0680bc83c5e2cc92b6b157796781a81995eb5e570c910e4c40",
+    "vendor/hpgl/api.h": "02a38dafb6c29add52152cc9c7c87e57c6422f58e272416776b6be53e705b9fb",
+    "licenses/HPGL/license.txt": "e13ae61052fbd3cb1e5d6399f18d083a11ccbccb28ef6582f70125286d48eaad",
+    "licenses/HPGL/upstream-readme.md": "1f08d63c01555516e5918385d01d1ddf9242a4661c353de2f7e36efb1f0ab1b8",
+    "native/hpgl_bridge.cpp": "36829515270663e3edb8d3d9163ad7d60880d6916d335fcf8b509d9f1f065839",
+    "native/vic_bridge.c": "d816b17539f3a8106e2219db973a1975e84ab74d3b8f70a22810a7c66f00ba17",
+    "native/madagascar_bridge.c": "2081e9b44cad2bdbb5d78cfa569444e5531eff6dcab525534013b922a0a004de",
+    "native/vic_run.h": "9b2e4efa122a3806d614fd7ceffe913423c71a7116dd86baa2da449fc33bf825"
+  },
+  "commands": [
+    [
+      "gcc",
+      "-std=c11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "-fvisibility=hidden",
+      "-Wl,-z,relro,-z,now",
+      "-Inative",
+      "vendor/vic/calc_rainonly.c",
+      "native/vic_bridge.c",
+      "-lm",
+      "-o",
+      "build/libvic_phase.so"
+    ],
+    [
+      "gcc",
+      "-std=c11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "-fvisibility=hidden",
+      "-Wl,-z,relro,-z,now",
+      "-Ivendor/madagascar",
+      "vendor/madagascar/kiss_fft.c",
+      "native/madagascar_bridge.c",
+      "-lm",
+      "-o",
+      "build/libmadagascar_fft.so"
+    ],
+    [
+      "g++",
+      "-std=c++11",
+      "-O2",
+      "-fPIC",
+      "-shared",
+      "-fvisibility=hidden",
+      "-Wl,-z,relro,-z,now",
+      "-Ivendor/hpgl",
+      "vendor/hpgl/variograms.cpp",
+      "native/hpgl_bridge.cpp",
+      "-lm",
+      "-o",
+      "build/libhpgl_variogram.so"
+    ]
+  ],
+  "compiler_versions": {
+    "gcc": "gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0",
+    "g++": "g++ (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0"
+  },
+  "output_sha256": {
+    "libvic_phase.so": "1289c2d4e4c2e3782abe9389e364aedc70fc92fcf67292eeb00df199e38e801b",
+    "libhpgl_variogram.so": "a44d5577d0be0a478d70846fda81ba8479765038ec524cd76f7bd378d04615f2",
+    "libmadagascar_fft.so": "6dd2d792e8616257d45c5b30d26e981b95de467153601103d7902fde2ab9aa14"
+  },
+  "cpu_only": true,
+  "runtime_compile": false
+}

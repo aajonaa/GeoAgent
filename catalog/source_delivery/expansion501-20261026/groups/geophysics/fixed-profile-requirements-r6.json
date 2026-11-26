@@ -1,0 +1,84 @@
+{
+  "status": "requirements_only_not_a_runnable_profile",
+  "protocol_owner": "Ramanujan / parent",
+  "bridge": "isolated_cpu_bridge_v2.py",
+  "worker": "worker_v2.py",
+  "deprecated_group_worker": "geological_agent/geology/expansion501_geophysics/fixed_cpu_entry.py is superseded v1 diagnostic source only; DO NOT use as the integrated runtime entry",
+  "python": "CPython 3.12.14 Linux x86_64",
+  "cpu_threads": 2,
+  "gpu": "disabled",
+  "limits": {
+    "max_request_bytes": 262144,
+    "max_response_bytes": 2097152,
+    "max_stderr_bytes": 2097152,
+    "max_solver_log_bytes": 32768,
+    "cpu_seconds": 120,
+    "address_space_bytes": 4294967296
+  },
+  "input_artifacts": [],
+  "path_fields": [],
+  "output_artifacts": [],
+  "output_directory_parameter": null,
+  "artifact_transport_required": false,
+  "operations": [
+    {
+      "id": "GeoSeismicMarchenkoRedatuming",
+      "module": "geological_agent.geology.expansion501_geophysics",
+      "function": "GeoSeismicMarchenkoRedatuming",
+      "argument_parameter": "args",
+      "requirements": [
+        "pylops==2.6.0",
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "jsonschema==4.25.1"
+      ],
+      "source_commit": "97992be198c66a489c945c3feff31f6ed7d9117b",
+      "dependency_interpreter": "private worker only; real shared operation() guard retained"
+    },
+    {
+      "id": "GeoSeismicTraveltimeTomography",
+      "module": "geological_agent.geology.expansion501_geophysics",
+      "function": "GeoSeismicTraveltimeTomography",
+      "argument_parameter": "args",
+      "requirements": [
+        "pygimli==1.6.0",
+        "pgcore==1.6.0",
+        "scooby==0.11.2",
+        "setuptools==80.9.0",
+        "matplotlib==3.10.7",
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "jsonschema==4.25.1"
+      ],
+      "source_commit": "d598724a75cf0abbefcb354b8cd71bb48c232fc6",
+      "dependency_interpreter": "private worker only; real shared operation() guard retained"
+    }
+  ],
+  "cpu_environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "NVIDIA_VISIBLE_DEVICES": "none",
+    "HIP_VISIBLE_DEVICES": "",
+    "ROCR_VISIBLE_DEVICES": "",
+    "ONEAPI_DEVICE_SELECTOR": "opencl:cpu",
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "NUMBA_NUM_THREADS": "2",
+    "LANGSMITH_TRACING": "false",
+    "LANGCHAIN_TRACING_V2": "false"
+  },
+  "isolation": "Fresh per-call HOME/XDG/MPL/NUMBA/TMP/cwd inside private profile. No user paths, runtime downloads, installations, arbitrary dispatch, shell or GPU.",
+  "identity": "Retain parent input/source/catalog/contract hashes, exact child installed_versions, actual interpreter and native library identities. wheel-static-identity.json contains reviewed native file SHA256 values; these are not proof of execution.",
+  "pending": [
+    "Parent v2 hook/profile registration and end-to-end dispatch",
+    "actual independent scientific calls; four new direct-call tests currently opt-in and not executed",
+    "Tomography native source/build correspondence and bundled licenses",
+    "actual Linux CPython 3.12 / numpy2.1.3 ABI acceptance"
+  ],
+  "known_diagnostic_only_bug": {
+    "file": "geological_agent/geology/expansion501_geophysics/fixed_cpu_entry.py",
+    "issue": "Invalid JSON ValueError maps to upstream_failure rather than invalid_arguments.",
+    "minimal_proposal": "If this superseded v1 diagnostic entry is ever retained for use, catch input decoding exceptions explicitly as invalid_arguments. No repair performed.",
+    "current_runtime_impact": "none; this entry is not registered or chosen for parent v2"
+  }
+}

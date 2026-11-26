@@ -1,0 +1,17 @@
+[
+  {
+    "id": "approved-functional-hydrology-replacements",
+    "name": "Explicit groundwater spectral response and seasonal flow forecasting",
+    "description": "Two limited SciPy/statsmodels functional alternatives, separately counted from original project implementations.",
+    "skill_file": "catalog/skills/approved-functional-hydrology-replacements/SKILL.md",
+    "tool_references": [
+      "ScipyGroundwaterFrequencyResponse",
+      "StatsmodelsSeasonalFlowForecast"
+    ],
+    "coverage_kind": "explicit_functional_replacement",
+    "coverage_target_project_ids": [
+      72,
+      82
+    ]
+  }
+]

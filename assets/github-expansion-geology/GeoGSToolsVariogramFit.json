@@ -1,0 +1,21 @@
+{
+  "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+  "lag_centers_m": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    6
+  ],
+  "semivariance": [
+    0.25,
+    0.8169373788524215,
+    1.223165761934816,
+    1.5142411176571153,
+    1.7228057237685466,
+    1.9793294335267746
+  ],
+  "fixed_nugget": 0.25,
+  "value_unit": "ppm"
+}

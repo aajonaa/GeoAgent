@@ -1,0 +1,40 @@
+{
+  "case_id": "DEP-26",
+  "source_skill": "ore-deposits",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "MineralResourcesGetDeposit",
+      "arguments": {
+        "dataset_path": "tests/data/catalog.csv",
+        "dep_id": 55
+      }
+    },
+    {
+      "operation_id": "op2",
+      "tool": "MineralResourcesSearchDeposits",
+      "arguments": {
+        "dataset_path": "tests/data/catalog.csv",
+        "country": "中国"
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "dataset_source": "SYNTHETIC provider test catalog; not real deposits",
+    "coordinate_reference": "EPSG:4326, degree; synthetic caller declaration"
+  },
+  "input_path_bindings": [
+    {
+      "original": "tests/data/catalog.csv",
+      "workspace": "tests/data/catalog.csv",
+      "source": "ore-deposits-1.0.1/tests/data/catalog.csv"
+    },
+    {
+      "original": "tests/data/catalog.csv",
+      "workspace": "tests/data/catalog.csv",
+      "source": "ore-deposits-1.0.1/tests/data/catalog.csv"
+    }
+  ]
+}

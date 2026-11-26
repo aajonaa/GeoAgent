@@ -1,0 +1,4 @@
+-r requirements-core.txt
+# Private CPU source snapshot declaring version2.1.1, not an inferred published tag.
+sarpy @ git+https://github.com/ngageoint/sarpy.git@19a6ca3b8cc2e268b58ecf2523bd25c327a0a58c
+# Exact transitive dependencies, including any sarkit requirement, remain acceptance gates.

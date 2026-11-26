@@ -1,0 +1,25 @@
+{
+  "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+  "depth_m": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "values": [
+    10,
+    14,
+    25,
+    29,
+    10
+  ],
+  "value_unit": "ppm",
+  "cutoffs": [
+    20
+  ],
+  "class_labels": [
+    "SYNTHETIC_LOW",
+    "SYNTHETIC_HIGH"
+  ]
+}

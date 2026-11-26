@@ -1,0 +1,19 @@
+{
+  "call_id": "invalid-negative_lateral",
+  "name": "EarthWflowKinematicWaveReachStep",
+  "status": "error",
+  "data": {},
+  "artifacts": [],
+  "error": {
+    "code": "invalid_arguments",
+    "message": "-1 is less than the minimum of 0\n\nFailed validating 'minimum' in schema['properties']['lateral_inflow_m2_s']:\n    {'type': 'number', 'minimum': 0, 'maximum': 1000.0}\n\nOn instance['lateral_inflow_m2_s']:\n    -1",
+    "retryable": true,
+    "outcome_unknown": false
+  },
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "8c42c4c2e721fbb4d094a39914d31f070392df33aa241b20e53377233abb93e9"
+  }
+}

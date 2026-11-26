@@ -1,0 +1,9 @@
+-r requirements-core.txt
+mintpy==1.6.4
+h5py==3.16.0
+pyproj==3.7.2
+matplotlib==3.10.7
+pandas==2.3.0
+scikit-image==0.26.0
+# Private CPU only. Full MintPy transitive/compiled dependency lock remains pending.
+# EXPANSION501_REMOTE_PROFILE=mintpy-1.6.4-cpu; CUDA_VISIBLE_DEVICES empty or -1.

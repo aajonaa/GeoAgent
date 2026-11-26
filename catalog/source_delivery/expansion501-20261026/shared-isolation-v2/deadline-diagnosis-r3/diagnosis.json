@@ -1,0 +1,11 @@
+{
+  "python": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\venv\\Scripts\\python.exe",
+  "fixture_source": "import sys,time\nsys.stdin.buffer.read()\ntime.sleep(5)\n",
+  "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "source_sha256": "1389987925d451fe45facb884a3e3beeb6d54e3400161bff8691ce8be5c988e6",
+  "outcome": "returned",
+  "exit_code": 1,
+  "elapsed_seconds": 1.0150000000139698,
+  "stderr.log": "",
+  "stdout.frames": ""
+}

@@ -1,0 +1,105 @@
+{
+  "boundary_sha256": "be53b6ae7880788da1d5f5bdbfc9cefac30370bab44ab2bedf659abb4f3730a7",
+  "checks": [
+    {
+      "elapsed_seconds": 19.319982082990464,
+      "name": "real_source_registry_registration",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.06022724701324478,
+      "name": "exact_upstream_pins_and_staged_spec",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 2.883318774984218,
+      "name": "direct_dict_independent_numeric",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.021511499013286084,
+      "name": "direct_json_independent_numeric",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.08617590396897867,
+      "name": "runtime_dict_independent_numeric",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.061796010995749384,
+      "name": "runtime_json_independent_numeric",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.1792300340021029,
+      "name": "independent_boundary_case_all_four_routes",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.0341591170290485,
+      "name": "reject_unknown_dispatch_fields",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.00029076600912958384,
+      "name": "reject_missing_required",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.00019776599947363138,
+      "name": "reject_nonfinite",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.03417492797598243,
+      "name": "reject_specific_physical_domain",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.03398542199283838,
+      "name": "reject_shape_mismatch",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.0006907880306243896,
+      "name": "reject_wrong_dependency_version",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.03408488701097667,
+      "name": "reject_missing_private_cpu_identity",
+      "status": "passed"
+    },
+    {
+      "elapsed_seconds": 0.17633009201381356,
+      "name": "ToolExecutor_dict_json_physical_shape_schema_negatives_and_duplicate_keys",
+      "status": "passed"
+    }
+  ],
+  "dependency_lock_sha256": "420c703786c023869d213da5623b04ff5210e520dc7bf5849408db52ec6e4b00",
+  "evidence": "/data/wangjian/remediate121-20261026-r1/geology/acceptance-20261026T034723/Geo500SpatialCellDeclustering",
+  "gpu_used": false,
+  "harness_sha256": "8346703c19fa0675440648dc48c69fb1c7609316a0cae799c27f5a6cf1f91301",
+  "id": "Geo500SpatialCellDeclustering",
+  "interpreter": "/data/wangjian/remediate121-20261026-r1/geology/environments/geostatspy/venv/bin/python",
+  "model_called": false,
+  "native_name": "Geo500SpatialCellDeclustering",
+  "prefix": "/data/wangjian/remediate121-20261026-r1/geology/environments/geostatspy/venv",
+  "production_changed": false,
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "reference_sha256": "d6acfe3ae1912236f559961c238f324dc1439fb3b7573d918e9c26a7e1ad23dd",
+  "registered_count": 467,
+  "source_hashes": {
+    "catalog/registry.json": "572fa9df2bf0af0ccaf91fff40f5494649bd5010b09a657403cae714529a2e9b",
+    "geological_agent/geology/collection_contracts.py": "53e762929334bb3f6c10a40b65dd098684845a38bf9801652f79f063745720a3",
+    "geological_agent/geology/expansion501_geology.py": "20830b7edd3a93aecc6a99f3cf69d9f8d256201c9a44aea6286dcc2480259376",
+    "geological_agent/geology/source_registry.py": "c107ec7ab91587122fcc77c9e02756ca2aa8800319407b5d7879e651362e3576",
+    "geological_agent/tools.py": "3f9aa6861f5ff01f31e04d342b8549c277e8fd8ccf1e68b1a35226aff445b6ae",
+    "legacy/ToolsAgent/ToolsFuns/source_contracts.py": "10303dc89014564d4bcd7a00fbd22f1319c15c4d0a9393787c4327883b1e0d84",
+    "tests/test_expansion501_geology.py": "15f677bbde8944a971e958bf74292a1369fa02b4f9ce677a833aab0991a3d269"
+  },
+  "status": "passed",
+  "trusted_job_root_for_parent": "/data/wangjian/geotoolagent-hitl-state-20260930-r1/trusted-jobs"
+}

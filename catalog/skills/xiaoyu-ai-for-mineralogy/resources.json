@@ -1,0 +1,18 @@
+{
+  "skill_id": "xiaoyu_ai_for_mineralogy",
+  "archive_sha256": "6d252f47a33feffd640da2ba04d0f0eb7f267a2ce86c0e7b059ef4c50f78a2ca",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 2574,
+      "sha256": "f9b0b8876264a0ef727115642776ec8748ccd4f6c94393aa3db95141bac45a8c",
+      "origins": [
+        {
+          "package_number": 109,
+          "archive_sha256": "9c91388f1d5ea985c9a7e097d24d4578635ae375a3df5a643e1b74c42e06111a",
+          "member": "ai-for-mineralogy/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

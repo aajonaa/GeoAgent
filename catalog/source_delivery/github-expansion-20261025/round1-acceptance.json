@@ -1,0 +1,87 @@
+{
+  "phase": "merged_candidate_with_failed_acceptance",
+  "date": "2026-10-25",
+  "baseline_professional_tools": 229,
+  "additional_authored_operations": 120,
+  "candidate_professional_tools": 349,
+  "candidate_skills": 70,
+  "minimum_additional_verified_operations": 101,
+  "verified_additional_operations": null,
+  "verification_status": "Not established: runtime failures and scientific review findings remain open.",
+  "candidate_root": "/data/wangjian/github-expansion120-20261025-r1/candidate",
+  "source_archive_sha256": "f1752e59faaf2a25497f592a994d07eb8a7e69b2346e437319659178504aa737",
+  "local_evidence_directory": "tests_local/expansion-release-20261025-r1",
+  "merge": {
+    "exit_code": 0,
+    "receipt": "MERGE.json",
+    "log": "merge.log"
+  },
+  "test_runs": [
+    {
+      "modules": [
+        "tests_local/test_github_expansion_contracts.py",
+        "tests_local/test_github_expansion_remote.py",
+        "tests_local/test_github_expansion_spatial.py"
+      ],
+      "exit_code": 1,
+      "reported_passed": 286,
+      "reported_failed": 2,
+      "reported_subtests_passed": 451,
+      "seconds": 82.32,
+      "log": "remote-spatial-contracts.log",
+      "junit": "remote-spatial-contracts.xml",
+      "failing_operations": ["GeoRemoteMatchedFilter", "GeoSpatialStrahlerOrder"]
+    },
+    {
+      "modules": [
+        "tests_local/test_github_expansion_geophysics.py",
+        "tests_local/test_github_expansion_geology.py"
+      ],
+      "exit_code": 1,
+      "reported_passed": 93,
+      "reported_failed": 2,
+      "reported_subtests_passed": 30,
+      "seconds": 17.94,
+      "log": "geophysics-geology.log",
+      "junit": "geophysics-geology.xml",
+      "failing_operations": ["GeoPyroliteCIPWNorm", "GeoLasioLogAudit"]
+    }
+  ],
+  "counting_note": "Test cases and unittest subtests are not tool counts. Passing an easy oracle does not clear independent scientific review findings.",
+  "private_dependencies": {
+    "new_wheel_count": 17,
+    "target": "/data/wangjian/github-expansion120-20261025-r1/deps",
+    "inventory": "wheel-inventory.json",
+    "download_log": "dependency-download.log",
+    "install_log": "dependency-install.log",
+    "install_exit_code": 0,
+    "existing_environments_modified": false
+  },
+  "open_runtime_failures": [
+    {"tool_id": "GeoRemoteMatchedFilter", "finding": "Upstream (N,1) scores cannot be assigned directly into the (N,) valid-pixel selection."},
+    {"tool_id": "GeoSpatialStrahlerOrder", "finding": "A zero-direction terminal returns order 3 instead of the independent expected order 2."},
+    {"tool_id": "GeoPyroliteCIPWNorm", "finding": "Integer composition columns reach an upstream in-place float multiplication without dtype normalization."},
+    {"tool_id": "GeoLasioLogAudit", "finding": "The test canonicalizes a scalar file path as a descriptor list, inconsistent with the real provenance contract."}
+  ],
+  "open_read_only_review_findings": [
+    {"tool_ids": ["GeoRockSelfConsistent"], "finding": "Pinned upstream prolate formula and mutation of exact-sphere inputs require independent scientific resolution."},
+    {"tool_ids": ["GeoRockStressAnisotropy"], "finding": "Pinned angular-integral logarithm parentheses disagree with the general unequal-strain expression."},
+    {"tool_ids": ["GeoSeismicHTIReflectivity"], "finding": "The accepted domain does not exclude post-critical interfaces."},
+    {"tool_ids": ["GeoRockSquirtFlow"], "finding": "Velocity ordering alone does not enforce the required dry/high-pressure bulk-modulus ordering."},
+    {"tool_ids": ["GeoAPSGBinghamAxialConfidence"], "finding": "Confidence behavior near an unidentified axis is suspect; the fixture repeats the same upstream expression."},
+    {"tool_ids": ["GeoPyroliteCIPWNorm"], "finding": "Pinned upstream fluorapatite mass correction contains an unreachable string-versus-list comparison."},
+    {"tool_ids": ["GeoSpatialStrahlerOrder"], "finding": "Upstream zero-terminal self-edges and multi-tributary [2,2,1] handling need resolution beyond changing the fixture."},
+    {"tool_ids": ["GeoSpatialDepressionFill", "GeoSpatialHeightAboveDrainage", "GeoSpatialDistanceToOutlet", "GeoSpatialDistanceToRidge", "GeoSpatialStrahlerOrder", "GeoSpatialLeastCostPath", "GeoSpatialCostAllocation", "GeoSpatialEuclideanProximity", "GeoSpatialCostCorridor"], "finding": "Returned arrays or index paths omit the grid origin and cell size needed for geographic placement."},
+    {"tool_ids": ["GeoSpatialRasterReproject"], "finding": "Top-level CRS identifies the source despite returning a destination grid."},
+    {"tool_ids": ["GeoRemoteHistogramMatch", "GeoRemoteTVDenoise"], "finding": "Categorical input declarations can produce fractional continuous values without a corresponding output-unit contract."},
+    {"tool_ids": ["GeoRemoteHistogramMatch"], "finding": "Net-new scientific distinctness from existing SkdownscaleQuantileBiasCorrection is unresolved."},
+    {"group": "remote", "finding": "Independent missing/mismatched CRS and unit negative tests are incomplete."}
+  ],
+  "repair_status": "User decision requested; no repair applied for these findings.",
+  "full_native_positive_runtime_acceptance": "not_completed",
+  "scientific_admission": "blocked_by_open_findings",
+  "deployed": false,
+  "pushed": false,
+  "receiving_lab_submission": "not_submitted",
+  "gpu_used": false
+}

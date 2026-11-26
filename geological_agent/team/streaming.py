@@ -107,6 +107,21 @@ class RunProgress:
             return call
 
 
+def retry_model_connection(attempt, cancel, on_retry):
+    """Retry only errors that the transport identified before a response."""
+    for number, delay in enumerate((1, 3, None), start=1):
+        if cancel.is_set():
+            raise Cancelled("Stopped before connecting to the model")
+        ok, value, retryable = attempt()
+        if ok:
+            return value
+        if delay is None or not retryable:
+            raise value
+        on_retry(number + 1)
+        if cancel.wait(delay):
+            raise Cancelled("Stopped while waiting to reconnect to the model")
+
+
 def consume_model_stream(client, request, progress, call, cancel):
     """Drain one request once; only its fully assembled response reaches runtime."""
     started = progress.clock()
@@ -149,6 +164,7 @@ def consume_model_stream(client, request, progress, call, cancel):
             completed = client.invoke(request)
         else:
             for event in client.stream(request):
+                call['received_response'] = True
                 if cancel.is_set():
                     raise Cancelled("Stopped while receiving the model response")
                 if completed is not None:

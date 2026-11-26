@@ -1,0 +1,55 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoSeismicZoeppritzScattering",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "upper_vp_m_s": 2000,
+    "upper_vs_m_s": 1000,
+    "upper_density_kg_m3": 2000,
+    "lower_vp_m_s": 3000,
+    "lower_vs_m_s": 1500,
+    "lower_density_kg_m3": 2000,
+    "incidence_degrees": [
+      0,
+      30,
+      60
+    ]
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "scattering_real",
+        0,
+        0,
+        0
+      ],
+      "value": 0.2,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "scattering_real",
+        0,
+        0,
+        2
+      ],
+      "value": 0.8,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "upper_vs_m_s": 2000
+  },
+  "numeric_oracle": "Independent normal-incidence displacement/traction continuity with impedance ratio3/2 gives R=1/5,transmitted displacement=4/5; postcritical output is not discarded.",
+  "upstream_source": "https://github.com/agilescientific/bruges/blob/24e2e7912f49089465dd622363fd2788029266b1/bruges/reflection/reflection.py",
+  "limitations": [
+    "Lossless isotropic elastic halfspaces; no fluid halfspace; incident rows Pd,Sd,Pu,Su and outgoing columns Pu,Su,Pd,Sd.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

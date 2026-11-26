@@ -1,0 +1,59 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "001",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0,
+          0
+        ]
+      },
+      "properties": {
+        "sid": "001",
+        "label": "点 001",
+        "value": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "duplicate",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0,
+          0
+        ]
+      },
+      "properties": {
+        "sid": "duplicate",
+        "label": "点 duplicate",
+        "value": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "002",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          2,
+          0
+        ]
+      },
+      "properties": {
+        "sid": "002",
+        "label": "点 002",
+        "value": 7
+      }
+    }
+  ],
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "EPSG:4326"
+    }
+  }
+}

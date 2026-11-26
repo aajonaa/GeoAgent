@@ -1,0 +1,13 @@
+{
+  "case_id": "c076",
+  "source_skill": "ore-climate-analysis",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [],
+  "original_request": "request.original.json",
+  "context": {
+    "mode": "chain",
+    "grid_case": "c066",
+    "era_case": "c067"
+  },
+  "input_path_bindings": []
+}

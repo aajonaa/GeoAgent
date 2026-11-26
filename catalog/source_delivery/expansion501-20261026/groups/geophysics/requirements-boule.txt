@@ -1,0 +1,6 @@
+# Private CPU direct/scientific contract pins, NOT an executed installation.
+# Parent must retain baseline and freeze remaining transitive distribution/build identities.
+boule==0.6.0
+numpy==2.1.3
+scipy==1.15.3
+jsonschema==4.25.1

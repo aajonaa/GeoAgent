@@ -1,0 +1,31 @@
+{
+  "app": "/data/wangjian/github-minerals-20261025-r3/app",
+  "browser_validation": "blocked_by_saved_origin_permission",
+  "fresh_tests_passed": 292,
+  "gpu_used": false,
+  "model_calls": false,
+  "native_professional_operations": 229,
+  "other_services_unchanged": true,
+  "pid": 178626,
+  "preserved_baseline": "/data/wangjian/geoagent-literature49-fix-20261024-r1/release/app",
+  "rollback": "Remove only /data/wangjian/.config/systemd/user/geotoolagent-hitl-candidate.service.d/50-github-minerals-20261025.conf; daemon-reload and restart geotoolagent-hitl-candidate.service",
+  "runtime": {
+    "catalog_root": "/data/wangjian/github-minerals-20261025-r3/app",
+    "counts": {
+      "catalog_skills": 50,
+      "professional_tools": 229,
+      "registered_tools": 241,
+      "runtime_tools": 12,
+      "skills": 50,
+      "tools": 241
+    },
+    "postgres_select_1": true,
+    "registered_tools_total": 241,
+    "server_source": "/data/wangjian/github-minerals-20261025-r3/app/geological_agent/team/server.py",
+    "unavailable_skills": 0
+  },
+  "source_commit": "dbf9f0b0d74b1cbf908fc538cc200d039d145708",
+  "status": "deployed_backend_accepted_browser_pending",
+  "unit": "geotoolagent-hitl-candidate.service",
+  "users_model_profiles_paused_runs_unchanged": true
+}

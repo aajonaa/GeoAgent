@@ -1,0 +1,19 @@
+{
+  "status": "source_revised_unverified",
+  "assigned_blocked": 19,
+  "new_concrete_kernels": 15,
+  "scientific_adapters_still_incomplete": 4,
+  "still_integration_blocked": 19,
+  "new_catalog_tools": 0,
+  "new_accepted": 0,
+  "new_deployed": 0,
+  "unimplemented": {
+    "GeoSpatialLidarSensorTrajectoryRecovery": "Pinned trajectory Ceres solver summary is discarded; reviewed plugin/Ceres closure and a trustworthy convergence/identifiability acceptance criterion remain missing.",
+    "GeoSpatialSIMWESedimentTransport": "Concentration particle/m3 versus mass-flux kg/(m*s) needs a reviewed physical definition and boundary/terminal-time mass-accounting reference; full stochastic state interface is incomplete.",
+    "GeoSpatialAquiferSoluteTransport": "Pinned nonzero q terms have -q/nf on diagonal and +q/nf*cin on RHS; conventional source/sink semantics need independent physical resolution before conservative state claims.",
+    "GeoSpatialRainfallErosivityFactor": "Chosen empirical formula, regional calibration domain and independent reference oracle are not established; no guessed formula or placeholder wrapper."
+  },
+  "existing_catalog_tools_untouched": true,
+  "policy_denied_remote_actions_retried": false,
+  "main_environment_modified": false
+}

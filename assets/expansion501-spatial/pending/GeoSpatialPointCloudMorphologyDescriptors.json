@@ -1,0 +1,50 @@
+{
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "crs": "EPSG:32631",
+    "feature_unit": "dimensionless",
+    "points_xyz_m": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0
+      ],
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        6,
+        0,
+        0
+      ]
+    ],
+    "neighbors": 4,
+    "units": {
+      "points_xyz_m": "m"
+    }
+  },
+  "numeric_oracle": "Collinear distinct points have rank-one covariance: Linearity=1, Planarity=0, Scattering=0 under Raw eigenvalues. Verticality in an eigenspace tie is not assigned an invented unique oracle."
+}

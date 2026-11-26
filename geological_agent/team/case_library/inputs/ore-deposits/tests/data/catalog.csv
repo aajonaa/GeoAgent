@@ -1,0 +1,9 @@
+dep_id,country,commod1,commod2,name,longitude,latitude,depth_m,url,notes
+103,China,Gold,Silver,SYNTHETIC A,127.5,42.9,10,https://example.invalid/a,
+7,China,"Gold, Silver",Copper,SYNTHETIC B,128.1,43.2,20,https://example.invalid/b,NA
+202,china,Copper,Gold,SYNTHETIC C,129.2,44.1,30,https://example.invalid/c,Unknown
+55,Canada,Gold,,SYNTHETIC D,-75.4,45.4,40,https://example.invalid/d,N/A
+42,China,Goldstone,,SYNTHETIC E,126.8,41.2,50,https://example.invalid/e,NaN
+89,中国,"金, 银",铜,合成矿点,125.3,42.1,60,https://example.invalid/f,中文
+300,China,,,SYNTHETIC G,126.0,42.0,70,https://example.invalid/g,
+501,China,C++,Gold,SYNTHETIC H,127.0,43.0,80,https://example.invalid/h,Literal . [ ] +

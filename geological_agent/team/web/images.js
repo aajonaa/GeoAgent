@@ -2,7 +2,6 @@
 // Answer links resolve only against the authenticated, immutable run manifest.
 // No model-written HTML, filesystem URL, or remote image is executed or loaded.
 (() => {
-  let sequence = 0;
   function localName(value) {
     let name;
     try { name = decodeURIComponent(value); } catch { return null; }
@@ -14,24 +13,228 @@
     return '/api/conversations/' + encodeURIComponent(context.conversation_id) + '/' + kind
       + '?name=' + encodeURIComponent(name) + '&generation=' + encodeURIComponent(context.generation);
   }
-  function preview(label, src, downloadURL, name) {
-    const dialog = element('dialog', undefined, 'answer-image-dialog');
-    const title = element('h2', label), head = element('header', undefined, 'image-dialog-header');
-    title.id = 'answer-image-title-' + (++sequence); dialog.setAttribute('aria-labelledby', title.id);
-    const close = element('button', '关闭', 'quiet'); close.type = 'button'; close.addEventListener('click', () => dialog.close());
-    head.append(title, close);
-    const viewport = element('div', undefined, 'image-viewport'), image = element('img');
-    viewport.classList.toggle('is-svg', /\.svg$/i.test(name));
-    image.src = src; image.alt = label; viewport.append(image);
-    image.addEventListener('error', () => viewport.replaceChildren(element('p', '预览不可用，请下载原图。', 'image-failed')));
-    const actions = element('div', undefined, 'image-actions'), zoom = element('button', '原尺寸查看', 'outline'), download = element('a', '下载原图');
-    zoom.type = 'button'; zoom.addEventListener('click', () => {
-      const expanded = viewport.classList.toggle('is-zoomed'); zoom.textContent = expanded ? '适应窗口' : '原尺寸查看'; zoom.setAttribute('aria-pressed', String(expanded));
-    });
-    download.href = downloadURL; download.download = name.split('/').pop(); actions.append(zoom, download);
-    dialog.append(head, viewport, actions); dialog.addEventListener('close', () => dialog.remove());
-    document.body.append(dialog); dialog.showModal();
+  const imagePattern = /\.(png|jpe?g|webp|tiff?|svg)$/i;
+  const textPattern = /\.(md|markdown|txt|log|json|geojson|jsonl|ya?ml|xml|html|css|js|py|r|sql|tex|bib)$/i;
+  const readerAssets = '/api/knowledge/pdf/reader-assets/pdfjs/';
+  const panel = $('artifact-preview'), title = $('artifact-preview-title');
+  const body = $('artifact-preview-body'), picker = $('artifact-preview-files');
+  const close = $('artifact-preview-close'), evidence = $('artifact-preview-evidence');
+  const download = $('artifact-preview-download');
+  let selection = null, origin = null, fromFiles = false;
+
+  function stopPreview() {
+    const previous = selection;
+    selection = null;
+    if (!previous) return;
+    previous.controller.abort();
+    previous.render?.cancel();
+    previous.pdf?.destroy().catch(() => {});
   }
+  function closePreview(restore = false) {
+    stopPreview();
+    panel.hidden = true;
+    body.replaceChildren();
+    picker.replaceChildren(); picker.onchange = null;
+    evidence.onclick = null;
+    download.removeAttribute('href');
+    if (restore && fromFiles) $('files-panel').hidden = false;
+    if (restore && origin?.isConnected) origin.focus();
+    origin = null;
+    fromFiles = false;
+  }
+  close.addEventListener('click', () => closePreview(true));
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape' || panel.hidden || document.querySelector('dialog[open]')) return;
+    event.preventDefault();
+    closePreview(true);
+  });
+
+  const current = view => selection === view;
+  const status = text => element('p', text, 'artifact-preview-status');
+  async function get(url, view) {
+    const response = await fetch(url, {signal:view.controller.signal, cache:'no-store'});
+    if (!response.ok) throw new Error('Artifact preview unavailable');
+    return response;
+  }
+  function pageControls(previous, next) {
+    const controls = element('div', undefined, 'artifact-preview-pages');
+    const back = element('button', '上一页', 'quiet'), forward = element('button', '下一页', 'quiet');
+    const count = element('span');
+    back.type = forward.type = 'button';
+    back.addEventListener('click', previous);
+    forward.addEventListener('click', next);
+    controls.append(back, count, forward);
+    return {controls, back, count, forward};
+  }
+  async function showPDF(view) {
+    const bytes = await (await get(view.href, view)).arrayBuffer();
+    const lib = await import(readerAssets + 'build/pdf.mjs');
+    if (!current(view)) return;
+    lib.GlobalWorkerOptions.workerSrc = readerAssets + 'build/pdf.worker.mjs';
+    view.pdf = lib.getDocument({data:new Uint8Array(bytes), isEvalSupported:false, enableXfa:false,
+      useWasm:false, disableFontFace:true, isOffscreenCanvasSupported:false,
+      cMapUrl:readerAssets + 'cmaps/', cMapPacked:true, standardFontDataUrl:readerAssets + 'standard_fonts/'});
+    const documentPdf = await view.pdf.promise;
+    if (!current(view)) return;
+    let pageNumber = 1;
+    const pages = pageControls(() => paint(pageNumber - 1), () => paint(pageNumber + 1));
+    const canvas = element('canvas', undefined, 'artifact-pdf-page');
+    canvas.setAttribute('role', 'img');
+    body.replaceChildren(pages.controls, canvas);
+    async function paint(number) {
+      pages.back.disabled = pages.forward.disabled = true;
+      pages.count.textContent = number + ' / ' + documentPdf.numPages;
+      canvas.setAttribute('aria-label', 'PDF 第 ' + number + ' 页');
+      try {
+        const page = await documentPdf.getPage(number);
+        if (!current(view)) return;
+        const natural = page.getViewport({scale:1});
+        const scale = Math.min(2, 1600 / Math.max(natural.width, natural.height));
+        const viewport = page.getViewport({scale});
+        canvas.width = Math.ceil(viewport.width);
+        canvas.height = Math.ceil(viewport.height);
+        view.render = page.render({canvasContext:canvas.getContext('2d'), viewport});
+        await view.render.promise;
+        if (!current(view)) return;
+        view.render = null;
+        pageNumber = number;
+        pages.back.disabled = number <= 1;
+        pages.forward.disabled = number >= documentPdf.numPages;
+      } catch {
+        if (current(view)) body.replaceChildren(status('PDF 页面加载失败，可以下载原文件。'));
+      }
+    }
+    await paint(1);
+  }
+  async function showTable(view) {
+    const limit = 30;
+    let offset = 0;
+    const pages = pageControls(() => paint(offset - limit), () => paint(offset + limit));
+    const scroller = element('div', undefined, 'artifact-table-scroll');
+    body.replaceChildren(pages.controls, scroller);
+    async function paint(start) {
+      pages.back.disabled = pages.forward.disabled = true;
+      try {
+        const response = await get(view.table + '&offset=' + start + '&limit=' + limit, view);
+        const {columns, rows, total} = await response.json();
+        if (!current(view)) return;
+        const table = element('table'), head = element('thead'), header = element('tr'), contents = element('tbody');
+        for (const value of columns) {
+          const cell = element('th', value); cell.scope = 'col'; header.append(cell);
+        }
+        head.append(header);
+        for (const row of rows) {
+          const record = element('tr');
+          for (const value of row) record.append(element('td', value));
+          contents.append(record);
+        }
+        table.append(head, contents); scroller.replaceChildren(table);
+        offset = start;
+        pages.count.textContent = (total ? (start + 1) + '–' + (start + rows.length) : '0') + ' / ' + total + ' 行';
+        pages.back.disabled = !start;
+        pages.forward.disabled = start + rows.length >= total;
+      } catch {
+        if (current(view)) body.replaceChildren(status('表格预览不可用，可以下载原文件。'));
+      }
+    }
+    await paint(0);
+  }
+  function showImage(context, file, view) {
+    const name = file.name, url = fileURL(context, name, 'image');
+    let attempt = 0;
+    function load() {
+      if (!current(view)) return;
+      const image = element('img', undefined, 'artifact-preview-image');
+      image.alt = name;
+      image.addEventListener('load', () => {
+        if (!current(view)) return;
+        body.replaceChildren(image);
+        if (/\.tiff?$/i.test(name)) body.append(status('GeoTIFF 预览展示第 1 波段及显示拉伸效果。原文件包含数值与坐标。'));
+      }, {once:true});
+      image.addEventListener('error', () => {
+        if (!current(view)) return;
+        if (!attempt) {
+          attempt++;
+          load();
+          return;
+        }
+        const retry = element('button', '重试预览', 'outline');
+        retry.type = 'button';
+        retry.addEventListener('click', () => {
+          attempt++;
+          body.replaceChildren(status('正在重新加载预览…'));
+          load();
+        });
+        body.replaceChildren(status('暂时无法显示图片，原文件仍可下载。'), retry);
+      }, {once:true});
+      image.src = url + (attempt ? '&retry=' + Date.now() + '-' + attempt : '');
+    }
+    load();
+  }
+  async function paintFile(context, file) {
+    stopPreview();
+    const name = file.name, href = fileURL(context, name, 'download');
+    const view = {href, controller:new AbortController(), table:fileURL(context, name, 'table-preview')};
+    selection = view;
+    picker.value = name;
+    title.textContent = name;
+    $('artifact-preview-meta').textContent = context.run_id ? '本轮成果' : '对话文件';
+    download.href = href;
+    download.download = name.split('/').pop();
+    body.scrollTop = 0;
+    body.replaceChildren(status('正在加载预览…'));
+    try {
+      if (imagePattern.test(name)) {
+        showImage(context, file, view);
+      } else if (/\.pdf$/i.test(name)) {
+        await showPDF(view);
+      } else if (/\.(csv|tsv)$/i.test(name)) {
+        await showTable(view);
+      } else if (textPattern.test(name) && file.bytes <= 512 * 1024) {
+        const text = await (await get(href, view)).text();
+        if (!current(view)) return;
+        if (/\.(md|markdown)$/i.test(name)) {
+          const article = element('article', undefined, 'artifact-preview-markdown');
+          markdown(article, text, context);
+          body.replaceChildren(article);
+        } else {
+          body.replaceChildren(element('pre', text, 'artifact-preview-text'));
+        }
+      } else {
+        body.replaceChildren(status(textPattern.test(name)
+          ? '文件较大，可以下载查看完整内容。' : '此格式暂未提供网页预览，可以下载原文件。'));
+      }
+    } catch {
+      if (current(view)) body.replaceChildren(status('预览加载失败，可以下载原文件。'));
+    }
+  }
+  function openFile(context, name, trigger, openEvidence) {
+    if (!state.me || !state.cid || context?.conversation_id !== state.cid || !context.generation || !Array.isArray(context.files)) return;
+    const files = context.files;
+    const file = name ? files.find(item => item.name === name)
+      : files.find(item => imagePattern.test(item.name)) || files[0];
+    if (!file) return;
+    const source = trigger || document.activeElement;
+    if (!panel.contains(source)) {
+      origin = source;
+      fromFiles = $('files-panel').contains(source);
+    }
+    $('files-panel').hidden = true;
+    panel.hidden = false;
+    picker.replaceChildren(...files.map(item => {
+      const option = element('option', item.name); option.value = item.name; return option;
+    }));
+    picker.hidden = files.length < 2;
+    picker.onchange = () => {
+      const next = files.find(item => item.name === picker.value);
+      if (next) paintFile(context, next);
+    };
+    evidence.hidden = !openEvidence;
+    evidence.onclick = openEvidence || null;
+    paintFile(context, file);
+    if (!panel.contains(document.activeElement)) close.focus();
+  }
+
   function renderLink(token, context) {
     const parsed = /^(!?)\[([^\]\n]*)\]\(([\s\S]*)\)$/.exec(token);
     if (!parsed) return document.createTextNode(token);
@@ -44,16 +247,17 @@
     const file = context?.generation && context.conversation_id && Array.isArray(context.files)
       ? context.files.find(item => item.name === name) : null;
     if (file) {
-      const href = fileURL(context, name, 'download'), link = element('a', label, 'answer-file-link');
-      link.href = href; link.download = name.split('/').pop();
-      if (!/\.(png|jpe?g|webp|tiff?|svg)$/i.test(name)) return link;
+      const href = fileURL(context, name, 'download'), link = element('button', label, 'quiet answer-file-link');
+      link.type = 'button';
+      link.addEventListener('click', () => openFile(context, name, link));
+      if (!imagePattern.test(name)) return link;
       const wrap = element('span', undefined, 'answer-image'), show = element('button', undefined, 'answer-image-open'), img = element('img');
       const src = fileURL(context, name, 'image');
-      show.type = 'button'; show.setAttribute('aria-label', '放大图片：' + label);
+      show.type = 'button'; show.setAttribute('aria-label', '预览图片：' + label);
       img.src = src; img.alt = label; img.loading = 'lazy'; img.decoding = 'async'; show.append(img);
-      const open = () => preview(label, src, href, name); show.addEventListener('click', open);
-      const actions = element('span', undefined, 'answer-image-actions'), zoom = element('button', '放大查看', 'quiet'), download = element('a', '下载原图');
-      zoom.type = 'button'; zoom.setAttribute('aria-label', '放大查看：' + label); zoom.addEventListener('click', open);
+      const open = event => openFile(context, name, event.currentTarget); show.addEventListener('click', open);
+      const actions = element('span', undefined, 'answer-image-actions'), zoom = element('button', '侧栏预览', 'quiet'), download = element('a', '下载原图');
+      zoom.type = 'button'; zoom.setAttribute('aria-label', '侧栏预览：' + label); zoom.addEventListener('click', open);
       download.href = href; download.download = name.split('/').pop(); actions.append(zoom, download);
       img.addEventListener('error', () => { show.replaceChildren(element('span', '暂不能预览，请下载原图', 'image-failed')); show.disabled = true; zoom.disabled = true; });
       wrap.append(link, show, actions); return wrap;
@@ -71,7 +275,7 @@
     if (name && context?.generation) { unresolved.append(document.createTextNode('（本轮未保存此文件）')); unresolved.title = name; }
     return unresolved;
   }
-  window.GeoAgentArtifacts = {renderLink, preview};
+  window.GeoAgentArtifacts = {renderLink, openFile, closePreview, fileURL};
 })();
 (() => {
   let files = [], cid = null, generation = '';
@@ -114,7 +318,7 @@
     });
     dialog.showModal();
   }
-  function clear() { window.GeoAgentExperience?.clear(); files = []; cid = null; generation = ''; if (dialog.open) dialog.close(); for (const preview of document.querySelectorAll('.answer-image-dialog')) preview.close(); document.getElementById('image-gallery')?.remove(); for (const p of panels) { p.image.removeAttribute('src'); p.select.replaceChildren(); p.download.removeAttribute('href'); } }
+  function clear() { window.GeoAgentExperience?.clear(); files = []; cid = null; generation = ''; if (dialog.open) dialog.close(); window.GeoAgentArtifacts.closePreview(); document.getElementById('image-gallery')?.remove(); for (const p of panels) { p.image.removeAttribute('src'); p.select.replaceChildren(); p.download.removeAttribute('href'); } }
   function render(result, conversation) {
     if (state.cid !== conversation) return;
     cid = conversation; generation = result.generation;
@@ -150,9 +354,6 @@
     && context?.conversation_id === state.cid && typeof context.generation === 'string' && context.generation);
   const url = (ctx, file, kind = 'download') => '/api/conversations/' + encodeURIComponent(ctx.conversation_id)
     + '/' + kind + '?name=' + encodeURIComponent(file.name) + '&generation=' + encodeURIComponent(ctx.generation);
-  const format = name => name.split('.').pop().toUpperCase();
-  const size = bytes => Number.isFinite(bytes) && bytes >= 0
-    ? (bytes >= 1048576 ? (bytes / 1048576).toFixed(1) + ' MiB' : (bytes / 1024).toFixed(1) + ' KiB') : '大小未记录';
   const terminal = status => ({completed:'已完成',needs_input:'等待补充信息',stopped:'已停止',failed:'执行失败',paused:'已暂停',stopping:'正在停止',budget_exhausted:'运行预算已耗尽',incomplete:'尚未完成'})[status] || '状态待确认';
   function classifyIssue(reason) {
     if (typeof reason !== 'string') return null;
@@ -180,6 +381,10 @@
     })[category] || {title:'正在处理检查问题',detail:'原始记录保留'};
   }
   function terminalAction(status, reason, outcome) {
+    if (reason === '任务已达到执行时限。完整调研报告未完成。' ||
+        reason === 'TimeoutError: Managed task execution deadline exceeded') {
+      return {title:'任务已超时', detail:'可查看本轮已保存的检索和执行记录'};
+    }
     if (status !== 'needs_input') return {title:terminal(status),detail:''};
     const category = outcome?.failure_category || classifyIssue(reason);
     if (outcome?.recovery_required || category) {
@@ -189,7 +394,7 @@
     }
     return {title:'等待补充信息',detail:'回复下方问题后继续；已有执行记录保留'};
   }
-  let active = null, serial = 0;
+  let active = null;
   function clear() {
     if (active) active.dialog.close();
     document.getElementById('effective-model-summary')?.remove();
@@ -205,6 +410,16 @@
     box.append(grid);
     return box;
   }
+  function recordedProfile(data) {
+    const profile = {...data.profile}, budget = data.context_budget;
+    // Legacy events recorded these values in the same event's budget.
+    // Never consult today's model settings or infer unrecorded parameters.
+    if (typeof budget?.tokenizer_model === 'string' && budget.tokenizer_model === profile.model) {
+      profile.context_window_tokens ??= budget.context_window_tokens;
+      profile.max_output_tokens ??= budget.output_reserve_tokens;
+    }
+    return profile;
+  }
   function model(profile) {
     const anchor = document.querySelector('.model-profile-picker');
     if (!anchor || !profile || !state.me) return;
@@ -217,7 +432,7 @@
   function attach(rid, ui) {
     if (ui.overview) return;
     const box = el('section', undefined, 'run-overview'); box.setAttribute('aria-label', '任务执行概况');
-    const heading = el('strong', ui.finished ? terminal(ui.status) : '正在准备任务', 'run-action-title');
+    const heading = el('strong', ui.finished ? terminal(ui.status) : '任务已接收', 'run-action-title');
     const target = el('span', '', 'run-action-target'); target.hidden = true;
     const copy = el('div', undefined, 'run-action-copy');
     copy.setAttribute('role', 'status'); copy.setAttribute('aria-live', 'polite'); copy.setAttribute('aria-atomic', 'true');
@@ -230,9 +445,32 @@
     const details = el('details', undefined, 'run-model-details'); details.append(el('summary', '本轮模型参数'));
     const body = el('div'); body.append(el('p', '执行事件尚未提供模型参数，不使用当前连接的值替代。', 'experience-muted'));
     details.append(body); technical.append(details); ui.activity.append(technical);
-    box.append(line); ui.activity.before(box);
+    const milestones = el('ul', undefined, 'run-milestones');
+    milestones.hidden = true;
+    milestones.setAttribute('aria-label', '阶段成果');
+    const preview = el('section', undefined, 'run-draft-preview');
+    preview.hidden = true;
+    preview.setAttribute('aria-label', '答复草稿');
+    const draftLabel = el('p', '草稿 · 正在生成', 'run-draft-label');
+    const draftText = el('div', '', 'run-draft-text');
+    draftText.setAttribute('aria-live', 'off');
+    const draftBody = document.createTextNode('');
+    draftText.append(draftBody);
+    preview.append(draftLabel, draftText);
+    const researchNote = el('p', '', 'run-research-note');
+    researchNote.hidden = true;
+    box.append(line, milestones, researchNote);
+    ui.activity.before(box);
+    const findings = el('section', undefined, 'run-findings');
+    findings.hidden = true;
+    findings.setAttribute('aria-label', '已确认的阶段发现');
+    findings.setAttribute('aria-live', 'polite');
+    ui.answer.before(findings, preview);
     ui.overview = {box, heading, target, counts, body, calls:new Map(), turn:0,
-      action:{title:'正在准备任务', detail:''}, sequence:-1, connection:''};
+      milestones, findings, findingsByKey:new Map(), shownPages:0, findingFiles:new Map(),
+      researchNote, preview, draftLabel, draftBody, pendingDraft:null, visibleDraft:null, sourceUrls:new Set(),
+      facts:{knowledgeCount:null, pagesRead:0, reviewed:false},
+      action:{title:'任务已接收', detail:'正在准备执行'}, sequence:-1, connection:''};
     box.dataset.state = ui.finished ? ui.status : 'working';
     if (ui.summary) ui.summary.textContent = '查看执行详情';
     ui.overview.reason = ui.reason?.textContent || '';
@@ -244,7 +482,7 @@
     read_file:'正在读取文件', write_file:'正在保存文件', execute_python:'正在运行计算程序',
     web_search:'正在搜索公开资料', web_fetch:'正在读取网页资料',
     request_user_input:'正在准备需要你确认的问题',
-    GeoImageInspect:'正在检查影像尺寸、波段和坐标信息',
+    GeoIllustration:'正在绘制图件', GeoImageInspect:'正在检查影像尺寸、波段和坐标信息',
     GeoImageTransform:'正在处理图片', GeoRasterPreview:'正在生成栅格预览',
     GeoImageAnalyze:'正在解读影像内容', GeoRasterChangeAnalysis:'正在分析两期影像变化',
     GeoMapColorExtract:'正在提取图例颜色对应的候选区域', GeoPlotDigitize:'正在提取并标定图中曲线',
@@ -274,6 +512,13 @@
     const paths = [...new Set(['path','source','dataset_path','input_path','raster_path','before_path','after_path']
       .map(key => args[key]).filter(value => safeName(value)).map(text))];
     let detail = paths.slice(0, 2).join(' · ');
+    if (name === 'web_search') detail = text(args.query);
+    if (name === 'web_fetch') {
+      try {
+        const url = new URL(args.url);
+        if (['http:', 'https:'].includes(url.protocol)) detail = url.hostname;
+      } catch { /* An incomplete tool argument has no destination to show. */ }
+    }
     if (name === 'skill_load') detail = text(args.skill_id);
     if (name === 'skill_find') detail = '正在匹配已登记的技能与工具';
     if (name === 'execute_python') detail = 'Python · 以实际运行结果为准';
@@ -281,22 +526,44 @@
   }
   function stageAction(data, view) {
     if (['Correcting a model response','Retrying the completion check'].includes(data.message) && view.issue) return issueAction(view.issue.category);
+    if (data.message === 'Stopping the task; keeping the last committed files') {
+      return {title:'正在停止任务', detail:'已保存的文件会保留'};
+    }
     if (data.message === 'Compacting context') return {title:'正在整理历史上下文', detail:'保留原始执行记录和工具证据'};
     if (data.message === 'Preparing answer') return {title:'正在整理答复', detail:'根据已有执行结果组织说明与成果链接'};
-    if (data.message === 'Checking the result') return {title:data.phase === 'human_input'
-      ? '正在检查是否需要你补充信息' : data.phase === 'final_answer' ? '正在核对答复与原始证据' : '正在检查结果', detail:''};
+    if (data.message === 'Checking the result') {
+      const title = ({
+        human_input:'正在判断是否需要补充信息',
+        knowledge_semantics:'正在核对结论与文献是否一致',
+        answer:'正在核对答复和引用',
+        final_answer:'正在核对答复与原始证据',
+      })[data.phase] || '正在检查执行结果';
+      return {title, detail:''};
+    }
     if (data.message === 'Correcting the result') return {title:'正在处理结果检查发现的问题', detail:'不会将未通过检查的内容当作最终结果'};
     if (data.message === 'Correcting a model response') return {title:'正在修正模型响应格式', detail:'不执行格式无效的工具调用'};
     if (data.message === 'Retrying the completion check') return {title:'正在重新检查完成情况', detail:''};
-    if (data.message === 'Starting an isolated task environment') return {title:'正在准备任务执行环境', detail:''};
-    if (data.message === 'Running in the service account environment (OS isolation disabled)')
-      return {title:'正在准备任务执行环境', detail:'使用服务账号环境，未启用系统沙箱'};
+    if (['Starting an isolated task environment', 'Running in the service account environment (OS isolation disabled)'].includes(data.message)) {
+      return {title:'正在准备执行', detail:''};
+    }
     if (data.message === 'Model is working' || data.message === 'GeoGPT is working') {
-      const title = data.phase === 'intent' ? '正在理解任务要求' : data.phase === 'vision' ? '正在解读影像内容'
-        : view.calls.size ? '正在根据执行结果规划下一步' : '正在规划分析步骤';
-      return {title, detail:'等待模型响应'};
+      const title = ({
+        intent:'正在理解任务要求',
+        source_selection:'正在选择资料来源',
+        source_relevance:'正在筛选相关资料',
+        vision:'正在解读影像内容',
+      })[data.phase] || (view.calls.size ? '正在综合已有结果' : '正在规划分析步骤');
+      return {title, detail:''};
     }
     return {title:'正在处理任务', detail:''};
+  }
+  function setProgressLayout(ui, compact) {
+    const box = ui.overview.box, layout = compact ? 'compact' : 'detailed';
+    if (box.dataset.layout === layout) return;
+    box.dataset.layout = layout;
+    if (compact) box.append(ui.activity);
+    else box.after(ui.activity);
+    if (ui.timing) (compact ? ui.activity : box).append(ui.timing.root);
   }
   function paintActivity(ui) {
     const view = ui.overview, running = [...view.calls.values()].filter(call => call.status === 'running');
@@ -313,9 +580,146 @@
       action = running[running.length - 1].action;
       if (running.length > 1) action = {...action, detail:action.detail + ' · 另有 ' + (running.length - 1) + ' 项操作尚未返回'};
     }
+    const compact = ui.mode === 'ask' && !ui.hasExtendedProgress;
+    setProgressLayout(ui, compact);
+    if (compact && status === 'working' && !view.issue) {
+      const checking = /^正在(?:检查|核对|处理.*问题|重新检查)/.test(action.title);
+      if (action.title !== '任务已接收' && action.title !== '正在停止任务') {
+        action = {title:checking ? '正在核对' : '正在生成答复', detail:''};
+      }
+    }
     if (view.heading.textContent !== action.title) view.heading.textContent = action.title;
     if (view.target.textContent !== action.detail) view.target.textContent = action.detail;
     view.target.hidden = !action.detail; view.box.dataset.state = status;
+  }
+  function paintMilestones(view) {
+    const facts = view.facts;
+    const labels = [];
+    if (facts.knowledgeCount > 0) labels.push('找到 ' + facts.knowledgeCount + ' 个知识库片段');
+    if (view.sourceUrls.size) labels.push('找到 ' + view.sourceUrls.size + ' 条候选网页');
+    if (facts.pagesRead) labels.push('完成 ' + facts.pagesRead + ' 次网页读取');
+    if (facts.reviewed && view.box.dataset.layout !== 'compact') labels.push('本轮审核已通过');
+    const current = [...view.milestones.children].map(node => node.textContent);
+    if (current.length !== labels.length || labels.some((label, index) => label !== current[index])) {
+      view.milestones.replaceChildren(...labels.map(label => el('li', label)));
+      view.milestones.hidden = !labels.length;
+    }
+  }
+  function recordPublicSources(view, results) {
+    for (const result of results) {
+      try {
+        const url = new URL(result?.url);
+        if (!['http:', 'https:'].includes(url.protocol) || url.username || url.password) continue;
+        url.hash = '';
+        view.sourceUrls.add(url.href);
+      } catch { /* A search result without a valid URL is not counted as a webpage. */ }
+    }
+  }
+  function finding(view, key, label, content) {
+    if (view.findingsByKey.has(key)) return;
+    const entry = el('article', undefined, 'run-finding');
+    const heading = el('p', label, 'run-finding-label');
+    entry.append(heading, content);
+    view.findingsByKey.set(key, heading);
+    view.findings.append(entry);
+    view.findings.hidden = false;
+    return heading;
+  }
+  function pageFinding(view, output) {
+    const content = typeof output.content === 'string' ? output.content.trim() : '';
+    if (!content || view.shownPages >= 3 || output.offset > 0) return;
+    const url = window.GeoAgentTimeline?.sourceURL(output.url);
+    if (!url) return;
+    url.hash = '';
+    const key = 'page:' + url.href;
+    if (view.findingsByKey.has(key)) return;
+    const titleLine = content.split(/\r?\n/, 1)[0].replace(/^#{1,6}\s+/, '');
+    const link = el('a', text(titleLine) || url.hostname);
+    link.href = url.href; link.target = '_blank'; link.rel = 'noopener noreferrer';
+    const body = el('div'); body.append(link);
+    const abstract = /(?:^|\n)\s*(?:#{1,6}\s*)?Abstract\s*[:\n]\s*(\S[^\n]+)/i.exec(content)?.[1];
+    if (abstract) {
+      const excerpt = text(abstract);
+      body.append(el('blockquote', excerpt + (abstract.length > excerpt.length ? '…' : '')));
+    }
+    finding(view, key, abstract ? '已读取来源 · 摘要摘录' : '已读取来源', body);
+    view.shownPages++;
+  }
+  function toolFinding(ui, receipt) {
+    if (ui.mode !== 'agent' || receipt?.status !== 'ok') return;
+    const view = ui.overview, output = receipt.data;
+    if (receipt.name === 'web_fetch' && output) pageFinding(view, output);
+    const artifacts = Array.isArray(receipt.artifacts) ? receipt.artifacts : [];
+    const paths = artifacts.map(item => item?.path).filter(path => safeName(path) && !path.startsWith('.'));
+    const fresh = [...new Set(paths)].filter(path => !view.findingFiles.has(path));
+    if (!fresh.length) return;
+    const images = fresh.every(path => /\.(?:png|jpe?g|svg|webp|tiff?)$/i.test(path));
+    const label = finding(view, 'files:' + fresh.join('\n'), images ? '已生成图件' : '已生成文件', el('p', fresh.join(' · ')));
+    for (const name of fresh) view.findingFiles.set(name, {label, paths:fresh, images});
+    markSavedFindings(ui, ui.resultContext);
+  }
+  function markSavedFindings(ui, context) {
+    if (!context?.generation || !ui.overview) return;
+    const saved = new Set(manifest(context).map(file => file.name));
+    for (const {label, paths, images} of new Set(ui.overview.findingFiles.values())) {
+      if (paths.every(name => saved.has(name))) label.textContent = images ? '图件已保存' : '文件已保存';
+    }
+  }
+  function showDraft(view, draft, label) {
+    view.visibleDraft = draft;
+    view.draftBody.data = draft.text;
+    view.draftLabel.textContent = label;
+    view.preview.hidden = false;
+  }
+  function updateDraft(ui, data) {
+    if (!['execution','final_answer'].includes(data.phase) || data.channel !== 'text' ||
+        data.verified !== false || !data.request_id || typeof data.text !== 'string') return;
+    const view = ui.overview;
+    let draft = view.pendingDraft;
+    if (draft?.id !== data.request_id) {
+      if (data.offset !== 0) return;
+      draft = view.pendingDraft = {id:data.request_id, chars:0, text:''};
+    }
+    if (draft.chars !== data.offset) return;
+    draft.chars += Array.from(data.text).length;
+    draft.text += data.text;
+    if (view.visibleDraft === draft) {
+      view.draftBody.appendData(data.text);
+      return;
+    }
+    if (view.visibleDraft || !draft.text.trim()) return;
+
+    // Research turns can narrate a tool call before they begin drafting.
+    // A leading heading with body text can be shown as a provisional draft.
+    const shortAnswer = ui.mode === 'ask' && !ui.hasExtendedProgress;
+    const startsReport = /^\s*#{1,3}[ \t]+\S[^\n]*\n\s*\S/.test(draft.text);
+    if (shortAnswer || startsReport || data.phase === 'final_answer') {
+      showDraft(view, draft, '草稿 · 正在生成');
+    }
+  }
+  function finishDraft(view, data) {
+    const draft = view.pendingDraft;
+    if (!draft || draft.id !== data.request_id) return;
+    view.pendingDraft = null;
+    const callsTools = data.native_tool_calls > 0 || data.finish_reason === 'tool_calls';
+    if (callsTools || data.complete === false) {
+      if (view.visibleDraft === draft) {
+        view.visibleDraft = null;
+        view.preview.hidden = true;
+        view.draftBody.data = '';
+      }
+      if (callsTools && draft.text.trim()) {
+        const chars = Array.from(draft.text.trim());
+        view.researchNote.textContent = '调研进展 · ' + chars.slice(0, 320).join('') + (chars.length > 320 ? '…' : '');
+        view.researchNote.hidden = false;
+      }
+      return;
+    }
+    if (view.visibleDraft === draft) {
+      view.draftLabel.textContent = '草稿 · 待核对';
+    } else if (!view.visibleDraft && data.complete === true && draft.text.trim()) {
+      showDraft(view, draft, '草稿 · 待核对');
+    }
   }
   function event(rid, data, eventId) {
     const ui = state.runs.get(rid); if (!ui) return;
@@ -328,9 +732,44 @@
     if (data.kind === 'connection_lost' || data.kind === 'connection_failed') view.connection = data.kind === 'connection_failed' ? 'failed' : 'reconnecting';
     else view.connection = '';
     if (data.kind === 'diagnostic') { view.issue = data; if (!ui.finished) view.action = issueAction(data.category); }
-    if (data.kind === 'review_result' && data.passed === true) { view.issue = null; if (!ui.finished) view.action = {title:'来源审核已通过',detail:'准备交付已核对的答复'}; }
+    if (data.kind === 'review_result') {
+      view.facts.reviewed = data.passed === true;
+      if (data.passed === true) {
+        view.issue = null;
+        if (!ui.finished) view.action = {title:'本轮审核已通过', detail:'正在准备交付'};
+      }
+    }
+    if (data.kind === 'knowledge_start' && !ui.finished) {
+      view.action = {title:'正在查找知识库资料', detail:''};
+    }
+    if (data.kind === 'knowledge_sources' && Array.isArray(data.references)) {
+      if (data.status !== 'unavailable') view.facts.knowledgeCount = data.references.length;
+      if (ui.mode === 'agent' && data.status !== 'unavailable' && data.references.length) {
+        const titles = [...new Set(data.references.map(ref => text(ref?.title)).filter(Boolean))];
+        const message = '检索返回 ' + data.references.length + ' 个片段' + (titles.length ? '，包括《' + titles[0] + '》。' : '。');
+        finding(view, 'knowledge', '知识库检索', el('p', message));
+      }
+      if (!ui.finished) view.action = data.status === 'unavailable'
+        ? {title:'知识库暂不可用，正在继续任务', detail:''}
+        : {title:'知识库检索已返回', detail:data.references.length ? '' : '本次未返回相关片段'};
+    }
+    if (['knowledge_start','knowledge_sources','tool_start','tool_result','skill_selected'].includes(data.kind)
+        || (data.kind === 'stage_timing' && (data.active === 'retrieval' || data.totals_seconds?.retrieval))) {
+      ui.hasExtendedProgress = true;
+    }
+    if (data.kind === 'stream_delta' && !ui.finished) {
+      updateDraft(ui, data);
+      return;
+    }
+    if (data.kind === 'stream_end' && !ui.finished) {
+      if (data.native_tool_calls > 0 || data.finish_reason === 'tool_calls') ui.hasExtendedProgress = true;
+      finishDraft(view, data);
+    }
+    if (data.kind === 'status' && /Checking the result|Correcting the result|Retrying the completion check/.test(data.message)) {
+      view.draftLabel.textContent = '草稿 · 正在核对';
+    }
     if (data.kind === 'run_outcome') view.outcome = data;
-    if (data.kind === 'model_config') view.body.replaceChildren(metadata(data.profile, '本轮实际使用 · 执行事件快照'));
+    if (data.kind === 'model_config') view.body.replaceChildren(metadata(recordedProfile(data), '本轮实际使用 · 执行事件快照'));
     if (data.kind === 'status') {
       if (!ui.finished) view.action = stageAction(data, view);
       if (Number.isSafeInteger(data.turn)) view.turn = Math.max(view.turn, data.turn);
@@ -342,10 +781,20 @@
         action:previous.action || toolAction(data.name, data.arguments), status:previous.status || 'running'});
       else {
         const ok = data.result?.status === 'ok', cached = data.cached === true || data.result?.cached === true;
+        toolFinding(ui, data.result);
         view.calls.set(data.id, {...previous, name:previous.name || data.name || data.result?.name,
           status:ok ? 'ok' : 'error', cached});
-        view.action = {title:ok ? cached ? '已复用工具结果，准备下一步' : '工具处理完成，准备下一步'
-          : '工具未完成，等待下一步处理', detail:previous.action?.detail || text(data.name || data.result?.name)};
+        const name = previous.name || data.name || data.result?.name;
+        if (ok && name === 'web_search' && Array.isArray(data.result?.data?.results)) {
+          recordPublicSources(view, data.result.data.results);
+        }
+        if (ok && name === 'web_fetch' && previous.status !== 'ok') view.facts.pagesRead++;
+        view.action = ok && name === 'web_search'
+          ? {title:'网页检索已返回', detail:''}
+          : ok && name === 'web_fetch'
+            ? {title:'网页内容已返回', detail:''}
+            : {title:ok ? cached ? '已复用工具结果，准备下一步' : '工具处理完成，准备下一步'
+              : '这一步未完成，正在判断下一步', detail:previous.action?.detail || text(name)};
       }
     }
     const calls = [...view.calls.values()];
@@ -361,79 +810,42 @@
       ui.status = data.status || ui.status; ui.finished = true;
       view.reason = data.reason || ui.reason?.textContent || view.reason || '';
       if (Number.isSafeInteger(data.turns)) view.turn = Math.max(view.turn, data.turns);
+      view.preview.hidden = true;
+      view.draftBody.data = '';
+      view.pendingDraft = view.visibleDraft = null;
+      view.researchNote.hidden = true;
     }
     paintActivity(ui);
+    if (['knowledge_sources','tool_result','review_result','finished'].includes(data.kind)) paintMilestones(view);
   }
-  function download(ctx, file, label = '下载原文件') {
-    const node = el('a', label); node.href = url(ctx, file); node.download = file.name.split('/').pop(); return node;
-  }
-  function openFiles(context, selected, ui) {
-    if (!valid(context)) return;
-    const files = manifest(context), key = [context.conversation_id, context.run_id || '', context.generation].join(':');
-    if (!files.length && !ui?.rich) return;
-    if (active?.key === key) { if (selected) active.select(selected); return; }
-    if (active) active.dialog.close();
+  function openEvidence(ui) {
+    const panel = ui?.rich?.panel;
+    if (!panel || active) return;
     const dialog = el('dialog', undefined, 'results-drawer'), head = el('header', undefined, 'results-drawer-head');
-    const id = 'results-title-' + (++serial), title = el('h2', '研究成果'); title.id = id; dialog.setAttribute('aria-labelledby', id);
-    const intro = el('div'); intro.append(el('span', 'RESULTS / FILES / EVIDENCE', 'experience-eyebrow'), title);
-    head.append(intro, btn('关闭成果面板', () => dialog.close(), 'quiet'));
-    const body = el('div', undefined, 'results-drawer-body');
-    body.append(el('p', context.run_id ? '本轮任务快照 · ' + files.length + ' 个文件' : '当前对话文件快照 · ' + files.length + ' 个文件', 'experience-muted'));
-    const images = files.filter(imageFile);
-    let selectImage = () => {};
-    if (images.length) {
-      const label = el('label', '选择图像', 'results-image-label'), select = el('select');
-      select.id = 'results-image-' + serial; label.htmlFor = select.id;
-      for (const file of images) { const option = el('option', file.name); option.value = file.name; select.append(option); }
-      label.append(select);
-      const viewport = el('div', undefined, 'results-preview'), meta = el('div', undefined, 'results-image-meta');
-      const actions = el('div', undefined, 'results-actions'), note = el('p', undefined, 'results-science-note');
-      function paint() {
-        const file = images.find(item => item.name === select.value); if (!file) return;
-        viewport.replaceChildren(); actions.replaceChildren(); meta.replaceChildren();
-        const image = el('img'); image.alt = file.name; image.decoding = 'async'; image.src = url(context, file, 'image');
-        image.addEventListener('error', () => {
-          if (select.value === file.name) viewport.replaceChildren(el('p', '预览不可用，原始文件仍可下载。', 'image-failed'));
-        }); viewport.append(image);
-        const fingerprint = el('details'); fingerprint.append(el('summary', '文件指纹'), el('code', file.sha256));
-        meta.append(el('strong', file.name), el('span', format(file.name) + ' · ' + size(file.bytes)), fingerprint);
-        note.textContent = /\.tiff?$/i.test(file.name)
-          ? 'GeoTIFF 快速预览：默认第 1 波段，按有效采样值做显示拉伸。预览颜色不能直接代表指数值；数值、坐标与 NoData 以原文件和工具证据为准。'
-          : '这是保存的图像产物，不从颜色推断科学数值。日期、波段、色标与质量掩膜以图内标注、来源文件和工具记录为准；缺失的信息不自动补造。';
-        actions.append(btn('放大查看', () => window.GeoAgentArtifacts.preview(file.name, url(context, file, 'image'), url(context, file), file.name)), download(context, file));
-      }
-      selectImage = name => { if (images.some(file => file.name === name)) { select.value = name; paint(); } };
-      select.value = images.some(file => file.name === selected) ? selected : images[0].name;
-      select.addEventListener('change', paint); paint();
-      body.append(label, viewport, meta, actions, note);
-    }
-    const downloads = el('details', undefined, 'results-downloads'); downloads.open = images.length === 0;
-    downloads.append(el('summary', '全部文件与下载 · ' + files.length));
-    for (const file of files) {
-      const row = el('div', undefined, 'results-file-row'), name = el('div');
-      name.append(el('strong', file.name), el('small', format(file.name) + ' · ' + size(file.bytes)));
-      row.append(name);
-      if (imageFile(file)) row.append(btn('预览', () => selectImage(file.name), 'quiet'));
-      row.append(download(context, file, '下载')); downloads.append(row);
-    }
-    body.append(downloads);
-    const panel = ui?.rich?.panel, oldHidden = panel?.hidden;
-    if (panel) {
-      const evidence = el('details', undefined, 'results-evidence');
-      evidence.append(el('summary', '工具证据与交互分析')); panel.hidden = false; evidence.append(panel); body.append(evidence);
-    }
-    body.append(el('p', '文件指纹用于追溯内容一致性，不代表科学结论已获独立验证。原始文件和执行记录不会被此视图修改。', 'experience-muted'));
-    dialog.append(head, body);
-    const record = {key, dialog, select:selectImage};
+    const title = el('h2', '工具证据'); title.id = 'results-evidence-title';
+    dialog.setAttribute('aria-labelledby', title.id);
+    head.append(title, btn('关闭工具证据', () => dialog.close(), 'quiet'));
+    const body = el('div', undefined, 'results-drawer-body'), originalHidden = panel.hidden;
+    panel.hidden = false; body.append(panel); dialog.append(head, body);
+    const record = {dialog};
     dialog.addEventListener('close', () => {
-      if (panel && ui.rich.root.isConnected) { ui.rich.root.append(panel); panel.hidden = oldHidden; }
+      ui.rich.root.append(panel); panel.hidden = originalHidden;
       dialog.remove(); if (active === record) active = null;
     });
     active = record; document.body.append(dialog); dialog.showModal();
   }
+  function openFiles(context, selected, ui) {
+    if (!valid(context)) return;
+    const files = manifest(context);
+    const evidence = context.blocks?.some(block => block.component !== 'sources') && ui?.rich
+      ? () => openEvidence(ui) : null;
+    if (files.length) window.GeoAgentArtifacts.openFile({...context, files}, selected, undefined, evidence);
+    else if (evidence) evidence();
+  }
   function results(rid, ui, context) {
     if (!valid(context) || state.runs.get(rid) !== ui) return;
     ui.resultContext = context; ui.rich.root.classList.add('has-results-panel');
+    markSavedFindings(ui, context);
     const images = [...ui.answer.querySelectorAll('.answer-image')];
     images.forEach((node, index) => node.classList.toggle('is-secondary', index > 0));
     if (!ui.rich.compact) {
@@ -459,7 +871,7 @@
       image.addEventListener('error', () => show.replaceChildren(el('span', '预览不可用，点击查看下载。')));
       show.append(image); ui.rich.compact.append(show);
     }
-    ui.rich.compact.hidden = ui.rich.panel.hidden;
+    ui.rich.compact.hidden = !files.length;
   }
   function open(rid, ui) {
     if (state.runs.get(rid) !== ui || !ui.resultContext) return;

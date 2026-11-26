@@ -1,0 +1,162 @@
+{
+  "skill_id": "xiaoyu_pymatgen",
+  "archive_sha256": "a067199dbe0525b694be7b56db6f237c5de0c656fe0078146dd0792533719e3b",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 20853,
+      "sha256": "bd866be0aac3f2e5ba3a6a5cd008d3d1bd5cd84b1f606cbe93ede5c4b9a25db2",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/pymatgen/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/1b96e4dc50-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pptx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/8e53b12f75-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/docx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/9c8ca586d5-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/xlsx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/d594664132-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pdf/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "references/analysis_modules.md",
+      "bytes": 12945,
+      "sha256": "5029f48a4744ed15043cfa0e46340933187a2c65e56b3d0883cae8ef5868a3e4",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/pymatgen/references/analysis_modules.md"
+        }
+      ]
+    },
+    {
+      "path": "references/core_classes.md",
+      "bytes": 9445,
+      "sha256": "230c4a8be4467a7c712d95a0b4109af2b1427b9ea7cb191bc2ea78062d7143de",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/pymatgen/references/core_classes.md"
+        }
+      ]
+    },
+    {
+      "path": "references/io_formats.md",
+      "bytes": 10518,
+      "sha256": "d31fab0646a5be2ceefadca786f079a6b0b62f93c502a668654548d8bae9c1d1",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/pymatgen/references/io_formats.md"
+        }
+      ]
+    },
+    {
+      "path": "references/materials_project_api.md",
+      "bytes": 12770,
+      "sha256": "9af1daa4bc88a0774b93d238fdf203d8cf86b817ac642166e55abd5248eb5fbc",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/pymatgen/references/materials_project_api.md"
+        }
+      ]
+    },
+    {
+      "path": "references/transformations_workflows.md",
+      "bytes": 16805,
+      "sha256": "7c7e4cc305c4c67cbcf8d56ba7bee08170ce5264e6bba964aa0b98de44001fb9",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/pymatgen/references/transformations_workflows.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/phase_diagram_generator.py",
+      "bytes": 7353,
+      "sha256": "be132bf108bb799d81f53e17280de05db286d85c80e1ff34efe1bb75640e947e",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/pymatgen/scripts/phase_diagram_generator.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/structure_analyzer.py",
+      "bytes": 8452,
+      "sha256": "efd488516026e53108af8f96872c1c30928de92efca9e083c15d620575cec76f",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/pymatgen/scripts/structure_analyzer.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/structure_converter.py",
+      "bytes": 5179,
+      "sha256": "a1ee392512f3e97fa014cbe2e3f290f5d049d0431e59f4dbbd80c2dce4293935",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/pymatgen/scripts/structure_converter.py"
+        }
+      ]
+    }
+  ]
+}

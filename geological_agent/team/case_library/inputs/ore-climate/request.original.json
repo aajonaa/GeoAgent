@@ -1,0 +1,100 @@
+{
+  "operations": [
+    {
+      "operation_id": "deep",
+      "tool": "ClimateQueryDeepTime",
+      "arguments": {
+        "dataset_path": "tests/data/paleo.csv",
+        "dataset_version": "synthetic-climate-20261031-v1",
+        "baseline": "synthetic reference 1850-1900",
+        "age_kyr_bp": 11
+      }
+    },
+    {
+      "operation_id": "present",
+      "tool": "ClimateQueryPresentMean",
+      "arguments": {
+        "dataset_path": "tests/data/annual.csv",
+        "dataset_version": "synthetic-climate-20261031-v1",
+        "baseline": "synthetic reference 1850-1900",
+        "year_start": 2001,
+        "year_end": 2002
+      }
+    },
+    {
+      "operation_id": "future",
+      "tool": "ClimateQueryFutureSSP",
+      "arguments": {
+        "dataset_path": "tests/data/ssp.csv",
+        "dataset_version": "synthetic-climate-20261031-v1",
+        "baseline": "synthetic reference 1850-1900",
+        "scenario": "SSP1-2.6",
+        "horizon_year": 2100
+      }
+    },
+    {
+      "operation_id": "compare",
+      "tool": "ClimateCompareEpochs",
+      "arguments": {
+        "values": [
+          -1.5,
+          0.25,
+          1.75
+        ]
+      },
+      "epoch_context": {
+        "unit": "degC",
+        "baselines": [
+          "synthetic reference 1850-1900",
+          "synthetic reference 1850-1900",
+          "synthetic reference 1850-1900"
+        ]
+      }
+    },
+    {
+      "operation_id": "wind",
+      "tool": "MetPyWindComponents",
+      "arguments": {
+        "speed": [
+          36
+        ],
+        "direction": [
+          270
+        ],
+        "speed_unit": "km/h"
+      }
+    },
+    {
+      "operation_id": "et0",
+      "tool": "HydroReferenceET0",
+      "arguments": {
+        "tmin_c": 12,
+        "tmax_c": 25,
+        "rh_min": 40,
+        "rh_max": 80,
+        "wind_m_s": 2,
+        "solar_mj_m2": 18,
+        "latitude_deg": 35,
+        "day_of_year": 180,
+        "altitude_m": 100
+      }
+    }
+  ],
+  "datasets": {
+    "tests/data/paleo.csv": {
+      "version": "synthetic-climate-20261031-v1",
+      "baseline": "synthetic reference 1850-1900",
+      "temperature_unit": "degC"
+    },
+    "tests/data/annual.csv": {
+      "version": "synthetic-climate-20261031-v1",
+      "baseline": "synthetic reference 1850-1900",
+      "temperature_unit": "degC"
+    },
+    "tests/data/ssp.csv": {
+      "version": "synthetic-climate-20261031-v1",
+      "baseline": "synthetic reference 1850-1900",
+      "temperature_unit": "degC"
+    }
+  }
+}

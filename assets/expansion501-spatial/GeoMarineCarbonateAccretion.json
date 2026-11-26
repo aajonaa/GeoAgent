@@ -1,0 +1,65 @@
+{
+  "crs": "EPSG:32631",
+  "origin_xy_m": [
+    500000,
+    1000
+  ],
+  "cell_size_m": 1,
+  "nodata_policy": "reject_missing",
+  "boundary": "fixed_value",
+  "elevation_m": [
+    [
+      -10,
+      -10,
+      -10,
+      -10,
+      -10
+    ],
+    [
+      -10,
+      -10,
+      -10,
+      -10,
+      -10
+    ],
+    [
+      -10,
+      -10,
+      -10,
+      -10,
+      -10
+    ],
+    [
+      -10,
+      -10,
+      -10,
+      -10,
+      -10
+    ],
+    [
+      -10,
+      -10,
+      -10,
+      -10,
+      -10
+    ]
+  ],
+  "sea_level_m": 0,
+  "dt_years": 1,
+  "maximum_rate_m_year": 0.01,
+  "extinction_m_inverse": 0.1,
+  "surface_light": 2000,
+  "saturating_light": 400,
+  "units": {
+    "origin_xy_m": "m",
+    "cell_size_m": "m",
+    "elevation_m": "m",
+    "sea_level_m": "m",
+    "dt_years": "year",
+    "maximum_rate_m_year": "m/year",
+    "extinction_m_inverse": "1/m",
+    "surface_light": "microEinstein/m2/s",
+    "saturating_light": "microEinstein/m2/s"
+  }
+}
+

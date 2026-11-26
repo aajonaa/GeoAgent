@@ -16,7 +16,7 @@
   const bottom = document.createElementNS(icon.namespaceURI, 'circle');
   bottom.setAttribute('cx', '15'); bottom.setAttribute('cy', '17'); bottom.setAttribute('r', '3');
   icon.append(lines, top, bottom); button.append(icon, element('span', '设置'));
-  $('model-settings-button').after(button);
+  $('files-toggle').after(button);
 
   const dialog = element('dialog', undefined, 'account-settings-dialog');
   dialog.id = 'account-settings-dialog'; dialog.setAttribute('aria-labelledby', 'account-settings-title');

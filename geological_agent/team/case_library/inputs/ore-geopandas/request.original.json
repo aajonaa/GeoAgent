@@ -1,0 +1,138 @@
+{
+  "operations": [
+    {
+      "operation_id": "shape",
+      "tool": "GeoShapelyGeometry",
+      "arguments": {
+        "geometry": {
+          "type": "Polygon",
+          "coordinates": [
+            [
+              [
+                0,
+                0
+              ],
+              [
+                6,
+                0
+              ],
+              [
+                6,
+                6
+              ],
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            [
+              [
+                2,
+                2
+              ],
+              [
+                4,
+                2
+              ],
+              [
+                4,
+                4
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                2
+              ]
+            ]
+          ]
+        },
+        "crs": "EPSG:3857"
+      },
+      "export": "geometry"
+    },
+    {
+      "operation_id": "geometry_file",
+      "tool": "GeoFionaDatasetInfo",
+      "arguments": {},
+      "input_from": {
+        "operation_id": "shape",
+        "artifact": "geometry.geojson"
+      }
+    },
+    {
+      "operation_id": "join",
+      "tool": "GeoPandasSpatialJoin",
+      "arguments": {
+        "left": [
+          {
+            "type": "Point",
+            "coordinates": [
+              1,
+              1
+            ]
+          },
+          {
+            "type": "Point",
+            "coordinates": [
+              0,
+              1
+            ]
+          },
+          {
+            "type": "Point",
+            "coordinates": [
+              3,
+              3
+            ]
+          },
+          {
+            "type": "Point",
+            "coordinates": [
+              5,
+              5
+            ]
+          }
+        ],
+        "crs": "EPSG:3857",
+        "predicate": "within"
+      },
+      "geometries_from": {
+        "right": {
+          "operation_id": "shape",
+          "artifact": "geometry.geojson"
+        }
+      },
+      "export": "joined_left"
+    },
+    {
+      "operation_id": "join_file",
+      "tool": "GeoFionaDatasetInfo",
+      "arguments": {},
+      "input_from": {
+        "operation_id": "join",
+        "artifact": "joined.geojson"
+      }
+    },
+    {
+      "operation_id": "point_measure",
+      "tool": "GeoShapelyGeometry",
+      "arguments": {
+        "crs": "EPSG:3857"
+      },
+      "geometries_from": {
+        "geometry": {
+          "operation_id": "join",
+          "artifact": "joined.geojson",
+          "feature_index": 1
+        }
+      }
+    }
+  ]
+}

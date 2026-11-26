@@ -1,0 +1,35 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "structure": {
+    "lattice_angstrom": [
+      [
+        4,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        4
+      ]
+    ],
+    "species": [
+      "Si"
+    ],
+    "fractional_coords": [
+      [
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "wavelength_angstrom": 1,
+  "two_theta_min_degrees": 5,
+  "two_theta_max_degrees": 40
+}

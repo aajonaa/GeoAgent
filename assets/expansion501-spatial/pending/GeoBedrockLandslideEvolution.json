@@ -1,0 +1,109 @@
+{
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "crs": "EPSG:32631",
+    "origin_xy_m": [
+      500000,
+      1000
+    ],
+    "cell_size_m": 1,
+    "nodata_policy": "reject_missing",
+    "bedrock_elevation_m": [
+      [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      [
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      [
+        10,
+        10,
+        10,
+        10,
+        10
+      ]
+    ],
+    "soil_depth_m": [
+      [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      [
+        1,
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "critical_cells": [],
+    "dt_years": 2,
+    "friction_slope": 1,
+    "deposition_slope": 1,
+    "cohesion_pa": 10000,
+    "rock_density_kg_m3": 2700,
+    "fines_fraction": 0.2,
+    "porosity": 0.3,
+    "units": {
+      "origin_xy_m": "m",
+      "cell_size_m": "m",
+      "bedrock_elevation_m": "m",
+      "soil_depth_m": "m",
+      "dt_years": "year",
+      "friction_slope": "m/m",
+      "deposition_slope": "m/m",
+      "cohesion_pa": "Pa",
+      "rock_density_kg_m3": "kg/m3",
+      "fines_fraction": "1",
+      "porosity": "1"
+    }
+  },
+  "numeric_oracle": "No prescribed events: terrain unchanged, all yields zero. Forced toe at elevation 0 below plateau 10 with friction slope 1: adjacent cardinal erosion plane 5.5 m, diagonal 5.5*sqrt(2). Use fines=1 to avoid deposition masking the plane; dt=2 requires suspended_volume=2*raw_rate."
+}

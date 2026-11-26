@@ -1,0 +1,62 @@
+{
+  "case_id": "CCO-40",
+  "source_skill": "ore-ccs-coords",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "coord",
+      "tool": "CCSDecimalToDMS",
+      "arguments": {
+        "value": 42.5,
+        "field": "lat"
+      }
+    },
+    {
+      "operation_id": "distance",
+      "tool": "CCSHaversineDistance",
+      "arguments": {
+        "lat1": 0,
+        "lon1": 0,
+        "lat2": 0,
+        "lon2": 90
+      }
+    },
+    {
+      "operation_id": "bearing",
+      "tool": "CCSBearing",
+      "arguments": {
+        "lat1": 0,
+        "lon1": 0,
+        "lat2": 0,
+        "lon2": 90
+      }
+    },
+    {
+      "operation_id": "area",
+      "tool": "CCSBBoxArea",
+      "arguments": {
+        "bbox": [
+          0,
+          0,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "operation_id": "labels",
+      "tool": "CCSCheckCRSConsistency",
+      "arguments": {
+        "crs_values": [
+          "EPSG:4326",
+          "epsg:4326"
+        ]
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "coordinate_reference": "EPSG:4326"
+  },
+  "input_path_bindings": []
+}

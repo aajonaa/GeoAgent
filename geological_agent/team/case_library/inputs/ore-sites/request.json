@@ -1,0 +1,55 @@
+{
+  "case_id": "SIT-050",
+  "source_skill": "ore-sites",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "association",
+      "site_ids": [
+        "zeta",
+        "alpha",
+        "omega",
+        "beta",
+        "kappa",
+        "eta"
+      ],
+      "tool": "GeoSpatialLocalMoran",
+      "arguments": {
+        "data_path": "data/SIT-050a.json"
+      }
+    },
+    {
+      "operation_id": "roughness",
+      "site_ids": [
+        "zeta",
+        "alpha",
+        "omega",
+        "beta",
+        "kappa",
+        "eta"
+      ],
+      "values_from": {
+        "operation_id": "association",
+        "field": "local_i"
+      },
+      "tool": "GeoSpatialLocalGeary",
+      "arguments": {
+        "data_path": "data/SIT-050b.json"
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {},
+  "input_path_bindings": [
+    {
+      "original": "data/SIT-050a.json",
+      "workspace": "data/SIT-050a.json",
+      "source": "ore-sites-1.0.1/tests/data/SIT-050a.json"
+    },
+    {
+      "original": "data/SIT-050b.json",
+      "workspace": "data/SIT-050b.json",
+      "source": "ore-sites-1.0.1/tests/data/SIT-050b.json"
+    }
+  ]
+}

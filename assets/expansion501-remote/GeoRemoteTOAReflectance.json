@@ -1,0 +1,82 @@
+{
+  "grid": {
+    "crs": "EPSG:32650",
+    "affine": [
+      10,
+      0,
+      500000,
+      0,
+      -10,
+      3400000
+    ],
+    "nodata": null,
+    "mask": [
+      [
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true,
+        true
+      ]
+    ]
+  },
+  "digital_numbers": [
+    [
+      [
+        4,
+        4,
+        4,
+        4
+      ],
+      [
+        4,
+        4,
+        4,
+        4
+      ],
+      [
+        4,
+        4,
+        4,
+        4
+      ],
+      [
+        4,
+        4,
+        4,
+        4
+      ]
+    ]
+  ],
+  "gains": [
+    2
+  ],
+  "biases": [
+    0
+  ],
+  "solar_irradiance": [
+    62.83185307179586
+  ],
+  "sun_distance_au": 1,
+  "sun_elevation_deg": 90,
+  "digital_unit": "DN",
+  "radiance_unit": "W m-2 sr-1 um-1",
+  "irradiance_unit": "W m-2 um-1"
+}

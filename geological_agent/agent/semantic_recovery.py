@@ -1,12 +1,104 @@
 """Incremental source audits, with durable protocol-cycle recovery."""
 import json
+import math
+import re
 from dataclasses import replace
 
 from .completion import CompletionIssue
+from .compaction import ContextOverflow
 from .knowledge_semantics import (
     fingerprint, material, semantic_request, parse_semantic_review, SemanticReviewProtocolError)
 from ..llm import ModelProtocolError
 from ..tool_evidence import identity
+from ..contracts import strict_json
+
+
+def observed_numeric_result(receipt, tool_names):
+    """Render finite numeric outputs from a successful registered tool receipt."""
+    if (not isinstance(receipt, dict) or receipt.get("status") != "ok"
+            or receipt.get("name") not in tool_names or not isinstance(receipt.get("data"), dict)):
+        return None
+    values = []
+    for key, value in receipt["data"].items():
+        if (re.fullmatch(r"[A-Za-z][A-Za-z0-9_]{0,63}", key)
+                and not re.search(r"(?:^|_)(?:id|port|token|key|credential|password|secret)(?:_|$)", key, re.I)
+                and type(value) in (int, float) and (type(value) is int or math.isfinite(value))):
+            values.append(f"`{key}` = {value}")
+        if len(values) == 8:
+            break
+    return f"`{receipt['name']}` · " + "，".join(values) if values else None
+
+
+def numeric_results_from_receipts(receipts, task):
+    from .execution_contract import obligations
+    names = {receipt["name"] for receipt in receipts
+             if isinstance(receipt, dict) and isinstance(receipt.get("name"), str)}
+    requested = obligations({"task": task}, names)[2]
+    results = [observed_numeric_result(receipt, requested) for receipt in receipts]
+    return list(dict.fromkeys(item for item in results if item))[-3:]
+
+
+def partial_delivery(state):
+    metadata = state["metadata"]
+    registry = set(metadata.get("professional_tool_names", []))
+    calls = {call.id: call.name for message in state["messages"] if message.role == "assistant"
+             for call in message.tool_calls}
+    results = list(reversed(metadata.get("partial_numeric_results", [])[-3:]))
+    for message in reversed(state["messages"]):
+        if len(results) == 3:
+            break
+        if message.role != "tool":
+            continue
+        try:
+            receipt = strict_json(message.content)
+        except (ValueError, TypeError):
+            continue
+        if (not isinstance(receipt, dict) or receipt.get("call_id") != message.tool_call_id
+                or calls.get(message.tool_call_id) != receipt.get("name")):
+            continue
+        result = observed_numeric_result(receipt, registry)
+        if result and result not in results:
+            results.append(result)
+    if not results:
+        return partial_source_answer(state)
+    sources = partial_source_answer(state)
+    prefix = "## 已取得的工具结果\n\n" + "\n".join("- " + item for item in reversed(results))
+    return prefix + "\n\n" + (sources or "**仍待核实**：以上为本轮工具的原始输出。文献解释和其余交付尚未完成核验。")
+
+
+def partial_source_answer(state):
+    """Return audited prose; raw search excerpts remain in the reference panel."""
+    metadata = state["metadata"]
+    audits = [metadata.get("semantic_review_progress", {}),
+              *reversed(metadata.get("knowledge_semantic_reviews", []))]
+    drafts = [state["answer"], metadata.get("semantic_pending_draft", {}).get("answer", ""),
+              *(row["answer"] for row in reversed(metadata.get("rejected_answers", [])))]
+    for draft in dict.fromkeys(drafts):
+        if not draft.strip():
+            continue
+        candidate = {**state, "answer": draft}
+        stamp = fingerprint(candidate)
+        blocks = material(candidate)["answer_blocks"]
+        # Keep the original audit numbering but select only prose outside fences.
+        prose = re.sub(r"(?ms)^\s*(`{3,}|~{3,})[^\n]*\n.*?(?:^\s*\1[ \t]*$|\Z)", "", draft)
+        prose_blocks = set(material({**candidate, "answer": prose})["answer_blocks"].values())
+        for audit in audits:
+            if audit.get("fingerprint") != stamp:
+                continue
+            rejected = {match[1] for issue in audit["issues"]
+                        if (match := re.match(r"Source semantics (b\d+):", issue))}
+            verified = []
+            for key, block in blocks.items():
+                check = audit["checks"].get(key, {})
+                if (key not in rejected and check.get("verdict") == "supported"
+                        and check.get("evidence_bindings", {}).get("quotes")
+                        and block in prose_blocks and not block.startswith(("#", "|"))):
+                    verified.append(block)
+            if verified:
+                return ("## 已核验的部分\n\n" + "\n\n".join(dict.fromkeys(verified)) +
+                        "\n\n**仍待核实**：其余论断或交付项尚未得到充分支持。")
+
+    return ""
 
 
 def review_sources(state, *, settings, model, cancel, record, trace, activity, pause):
@@ -29,9 +121,6 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
     while True:
         if cancel.is_set():
             return {**state, "status": "stopped", "answer": "", "last_error": "Stopped by user"}, []
-        if settings.max_model_turns is not None and state["model_turns"] >= settings.max_model_turns:
-            return {**state, "status": "budget_exhausted", "answer": "",
-                    "last_error": "Model-turn budget exhausted before source semantic review; draft not published"}, []
         pending = [key for key in blocks if key not in progress["checks"]]
         if not pending:
             verdict = {"passed": not progress["issues"], "checks": progress["checks"],
@@ -45,7 +134,15 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
             trace.emit("knowledge_semantic_checked", run_id=state["run_id"], **audit)
             record(state, state)
             return state, [CompletionIssue(message) for message in verdict["issues"]]
-        request = semantic_request(state, settings, protocol_feedback=feedback, block_ids=pending)
+        if settings.max_model_turns is not None and state["model_turns"] >= settings.max_model_turns - 1:
+            return {**state, "status": "budget_exhausted", "answer": "",
+                    "last_error": "Model-turn budget exhausted before source semantic review; draft not published"}, []
+        try:
+            batch = pending[:4] if state["metadata"].get("library_first") else pending
+            request = semantic_request(state, settings, protocol_feedback=feedback, block_ids=batch)
+        except ContextOverflow as exc:
+            trace.emit("completion_check_error", run_id=state["run_id"], error=str(exc), phase="knowledge_semantics")
+            return pause(state, "knowledge_semantics", str(exc)), []
         request = replace(request, transport=progress.get("response_transport", "auto"))
         attempt += 1
         turn = state["model_turns"] + 1
@@ -129,7 +226,18 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
             feedback = {"error": error, "pending_blocks": pending, "rejected_checks": rejected,
                         "instruction": "Correct only pending blocks; malformed blocks authorize no approval or task action."}
             continue
+        except (RuntimeError, TimeoutError, ConnectionError) as exc:
+            transient = isinstance(exc, (TimeoutError, ConnectionError)) or re.search(
+                r"\b(?:502|503|504|524)\b|timed? ?out|connection (?:reset|broken)", str(exc), re.I)
+            if not transient:
+                raise
+            # Preserve the actual checkpoint and any completed checks. The parent
+            # may deliver an explicitly provisional, ordinarily reviewed answer.
+            state["metadata"]["source_review_unavailable"] = True
+            record(state, state)
+            return pause(state, "knowledge_semantics", "Source verification service temporarily unavailable"), []
         progress["checks"].update(verdict["checks"])
+        feedback = None
         progress["issues"].extend(verdict["issues"])
         stagnant_attempts = 0
         state["metadata"]["semantic_review_progress"] = progress

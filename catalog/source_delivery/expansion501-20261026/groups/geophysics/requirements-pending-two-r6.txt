@@ -1,0 +1,11 @@
+# PRIVATE PROFILE ONLY. No installation performed. No extras, main environment changes or downgrades.
+jsonschema==4.25.1
+matplotlib==3.10.7
+numpy==2.1.3
+pgcore==1.6.0
+pygimli==1.6.0
+pylops==2.6.0
+scipy==1.15.3
+scooby==0.11.2
+setuptools==80.9.0
+

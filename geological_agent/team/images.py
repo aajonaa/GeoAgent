@@ -15,15 +15,15 @@ def install_image_routes(app, auth, store):
     def preview(cid: str, request: Request, name: str, generation: str = ""):
         uid = auth(request)["id"]
         name = relative_name(name)
-        files = store.files(uid, cid, generation or None)
-        if name not in files:
+        original = store.file(uid, cid, name, generation or None)
+        if original is None:
             raise HTTPException(404, "Image not found")
         try:
             is_svg = name.lower().endswith(".svg")
             if is_svg:
-                raw = svg_preview(files[name])
+                raw = svg_preview(original)
             else:
-                raw, _ = preview_bytes(files[name])
+                raw, _ = preview_bytes(original)
         except ToolFailure as exc:
             raise HTTPException(422, str(exc)) from exc
         except ImportError as exc:

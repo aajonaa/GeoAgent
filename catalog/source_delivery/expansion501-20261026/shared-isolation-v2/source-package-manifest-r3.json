@@ -1,0 +1,172 @@
+{
+  "status": "source_authored_local_contract_results_not_science_accepted",
+  "baseline_precondition": {
+    "path": "geological_agent/geology/collection_contracts.py",
+    "sha256_before": "25f805cf5531ff8bf1f8894f006dca40c6035efd44967507583c820dcc323fa9",
+    "sha256_after": "53e762929334bb3f6c10a40b65dd098684845a38bf9801652f79f063745720a3"
+  },
+  "files": [
+    {
+      "path": "geological_agent/geology/collection_contracts.py",
+      "sha256": "53e762929334bb3f6c10a40b65dd098684845a38bf9801652f79f063745720a3",
+      "bytes": 9404
+    },
+    {
+      "path": "geological_agent/geology/isolated_cpu_bridge_v2.py",
+      "sha256": "be6977a5babf9abea0fc87315809b3bd94761e80d45cf0184c6c5a43cf45095b",
+      "bytes": 43169
+    },
+    {
+      "path": "geological_agent/geology/isolated_cpu_worker_v2.py",
+      "sha256": "09032aa3448651b9f7aaca1796fa0a8cd943d5aa471e765f0a2e410f14e54125",
+      "bytes": 8950
+    },
+    {
+      "path": "tests/test_isolated_cpu_bridge_v2.py",
+      "sha256": "2f629084d67e46c5bd457f4a0d53aec28d15243297fdf07fd1800df6953d3abb",
+      "bytes": 23034
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/profiles.json",
+      "sha256": "8e95ab7c0e26cdd66f00c89adf7b79ea4d7e11a78f6ef69f4c4770ee902781a0",
+      "bytes": 63
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/profile.schema.json",
+      "sha256": "b609df32d0261eb6b3283454acfe7d42ae552f6f80473885076ea471062eef3b",
+      "bytes": 10454
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/source-package.schema.json",
+      "sha256": "8f743560fdbe2a537b8fc693eea9a3d9f55e6115bf4824af613cc8709161ff96",
+      "bytes": 2302
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/baseline-precondition.json",
+      "sha256": "ed8692bbed97141662088e4dfe909e59d3ba0affe5b97b3657811e8d5d31833b",
+      "bytes": 269
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/README.md",
+      "sha256": "88ce2a114dd069869cad7f2c9c1bf80be1f8414c829efc7bf7fad774d2338021",
+      "bytes": 6669
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/run_local_contracts.py",
+      "sha256": "b1a691efcd6d15757cd34804de0c5f178cbc2d7d423a6836dcec7ec2db5299ca",
+      "bytes": 3708
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/delivery-files.json",
+      "sha256": "f268d2fe578f7aa857d08fc651fd6baa6ec3524d534181752fb6d1afe4799807",
+      "bytes": 3105
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/local-test-report-r1.json",
+      "sha256": "7d8ac9f6cfec038323aee47e94ebfc9b1d69302c5daa379fd56600d2da39358e",
+      "bytes": 5437
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/local-tests-r1.stdout.log",
+      "sha256": "c502d3ca7dcd502044f454f3fd95b64387c8d9b65802096916d1f9ec5b35fbf6",
+      "bytes": 4263
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/local-tests-r1.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/source-package-manifest-r1.json",
+      "sha256": "8362ef6785b1dfe9c66bd1e5d69a4e20dd6ac426d4bdd3fb99c6a110b5b115ee",
+      "bytes": 3689
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/acceptance-r2/run_contracts.py",
+      "sha256": "e4c052060b162d0b2fc609084c12c1ad5bfc4725a8d3770b133fd874a1544316",
+      "bytes": 5173
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/acceptance-r2/test-report.json",
+      "sha256": "68af90c2b952c0c2eb05e6d90ca436300f83f21b9721d244615e6dfb6dfbd3e0",
+      "bytes": 1913
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/acceptance-r2/tests.log",
+      "sha256": "10f9dc6b1ea3818243f32bcd488e8c3935cac71da34030834e3ab55b76f27c67",
+      "bytes": 5108
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/acceptance-r2/receipt.json",
+      "sha256": "4a4a534a3974068e2e79731ad349102d6cfcf12fd1b5b3209762fd098011633e",
+      "bytes": 429
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/deadline-diagnosis-r3/synthetic_child.py",
+      "sha256": "46a410d158ba77f87253d3f72e8701f98d329772afeac18be735579d95223186",
+      "bytes": 57
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/deadline-diagnosis-r3/diagnosis.json",
+      "sha256": "bd68f6d0ee537e9ebfab907c4dcbe233902516f9ef3c2c42e61ff197144dd32c",
+      "bytes": 590
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/deadline-diagnosis-r3/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/deadline-diagnosis-r3/stdout.frames",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/deadline-diagnosis-r3/timing/synthetic_child.py",
+      "sha256": "292066db71eaedaf578680a49a896c8da86f1acd4850ceb157ec83ebf79c0164",
+      "bytes": 162
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/deadline-diagnosis-r3/timing/timing.json",
+      "sha256": "ea58f3498878abb49679a5e5eaadf726e5f15f7c0dc6abfd44a92e42f44f37a0",
+      "bytes": 1695
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/deadline-diagnosis-r3/timing/stderr.log",
+      "sha256": "5f14c516e0c7a2be0aa613a98a475138fe4e5824bd7715e51ae46652059c709b",
+      "bytes": 7
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/deadline-diagnosis-r3/timing/stdout.frames",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/acceptance-r3/run_contracts.py",
+      "sha256": "4ddbfdf7698e7e4be4b56fb40f5188c2307a63b67dc5513260ea7bd2421475be",
+      "bytes": 7428
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/acceptance-r3/test-report.json",
+      "sha256": "f23adb222c9ee2d79299a38acdf77cf046e840815ae60a2c3c6e49a41435d1a7",
+      "bytes": 1577
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/acceptance-r3/tests.log",
+      "sha256": "96db768529508e53be3c7825848b99d93fe28b24566956a79c0967f7b5211ee8",
+      "bytes": 4517
+    },
+    {
+      "path": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/acceptance-r3/receipt.json",
+      "sha256": "9f3a9f3efeb4bda47c14df0923d75903d2b851fc576cf183f3e886793ac9d738",
+      "bytes": 457
+    }
+  ],
+  "test_report": "catalog/source_delivery/expansion501-20261026/shared-isolation-v2/acceptance-r3/test-report.json",
+  "test_exit_code": 0,
+  "science_acceptance": "not_run",
+  "real_gpr_cross_interpreter": "not_run",
+  "deployed": false,
+  "submitted": false,
+  "manifest_self_hash_excluded": true
+}

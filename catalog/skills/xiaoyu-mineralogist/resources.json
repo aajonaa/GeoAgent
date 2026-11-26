@@ -1,0 +1,30 @@
+{
+  "skill_id": "xiaoyu_mineralogist",
+  "archive_sha256": "74be22a3665047ef5240253aced64bcc9d4a46051cd9c82bd4913372cb2acffb",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 18050,
+      "sha256": "4f2c9c760f009578c78fc8d87acb2345de6c19998fdfc96906542b285e15ef17",
+      "origins": [
+        {
+          "package_number": 107,
+          "archive_sha256": "c9b1bde8c0d7cc7e28f75ac6ef9983cf5e66d1cb9b7b542d371f60b1fc76fef7",
+          "member": "mineralogist/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE.md",
+      "bytes": 1070,
+      "sha256": "7b6558eca9d4b159e581c30fe200ce3987caeda9c32519e641031f2ec1b7380b",
+      "origins": [
+        {
+          "package_number": 107,
+          "archive_sha256": "c9b1bde8c0d7cc7e28f75ac6ef9983cf5e66d1cb9b7b542d371f60b1fc76fef7",
+          "member": "mineralogist/_上游仓库许可/LICENSE.md"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "wavelength_nm": [
+    1000,
+    1500,
+    2000
+  ],
+  "sample_ids": [
+    "SYNTHETIC_ABSORPTION"
+  ],
+  "spectra": [
+    [
+      1,
+      0.5,
+      1
+    ]
+  ]
+}

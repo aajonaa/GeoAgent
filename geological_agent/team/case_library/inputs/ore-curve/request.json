@@ -1,0 +1,36 @@
+{
+  "case_id": "linear-calibrated",
+  "tool": "GeoPlotDigitize",
+  "arguments": {
+    "path": "image.png",
+    "output_dir": "out",
+    "roi": [
+      2,
+      1,
+      12,
+      11
+    ],
+    "rgb": [
+      180,
+      20,
+      40
+    ],
+    "tolerance": 0,
+    "x_axis": {
+      "pixel_start": 2,
+      "pixel_end": 11,
+      "value_start": 100,
+      "value_end": 1000,
+      "scale": "linear",
+      "unit": "Ma"
+    },
+    "y_axis": {
+      "pixel_start": 1,
+      "pixel_end": 10,
+      "value_start": 10,
+      "value_end": 1,
+      "scale": "linear",
+      "unit": "mg/kg"
+    }
+  }
+}

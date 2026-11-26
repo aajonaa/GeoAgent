@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "tests": 58,
+  "failed": 0,
+  "errors": 0,
+  "skipped": 0,
+  "GPU_used": false,
+  "models_used": false,
+  "production_changed": false,
+  "deployed": false,
+  "pushed": false,
+  "worker_bridge_used": false,
+  "parent_catalog_edited": false,
+  "functional_replacements_only": true,
+  "independent_baseline_unchanged": true
+}

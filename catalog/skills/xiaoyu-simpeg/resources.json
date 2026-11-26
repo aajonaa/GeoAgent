@@ -1,0 +1,135 @@
+{
+  "skill_id": "xiaoyu_simpeg",
+  "archive_sha256": "d0a174f61fb61ca5163d29b47176b0f325dd941ca9c6281e19033b744e9985bc",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 23,
+          "archive_sha256": "da5294b68a34a72688b27ddefb6f2b1ae50301ee9d88190fc677a8e994c4619a",
+          "member": "simpeg/LICENSE"
+        },
+        {
+          "package_number": 66,
+          "archive_sha256": "ea7b54eaa70a8fa91d43f49c7c5deef190dffaa80f799b2dedcc5755c374cacd",
+          "member": "simpeg/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 723,
+      "sha256": "8dedf6c19b7b2054e82fd47b575503a74b29335b957453dfc4657b64e9ce9fd7",
+      "origins": [
+        {
+          "package_number": 23,
+          "archive_sha256": "da5294b68a34a72688b27ddefb6f2b1ae50301ee9d88190fc677a8e994c4619a",
+          "member": "simpeg/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 6675,
+      "sha256": "53d3b2d0507b3fda6f72aa5b545169aaa99086ae14c4fd29f9477271561eae9b",
+      "origins": [
+        {
+          "package_number": 23,
+          "archive_sha256": "da5294b68a34a72688b27ddefb6f2b1ae50301ee9d88190fc677a8e994c4619a",
+          "member": "simpeg/SKILL.md"
+        },
+        {
+          "package_number": 66,
+          "archive_sha256": "ea7b54eaa70a8fa91d43f49c7c5deef190dffaa80f799b2dedcc5755c374cacd",
+          "member": "simpeg/SKILL.md"
+        },
+        {
+          "package_number": 95,
+          "archive_sha256": "215c1d8bb168bad7508ecaa23a44a5d8c908572fab64f6a90e623d5d75bbc54e",
+          "member": "simpeg/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 95,
+          "archive_sha256": "215c1d8bb168bad7508ecaa23a44a5d8c908572fab64f6a90e623d5d75bbc54e",
+          "member": "simpeg/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/mesh_types.md",
+      "bytes": 6551,
+      "sha256": "8988ea910e356d78ea34ba9560b89a59e9cb6ab074903845c41f2a073dcdfa34",
+      "origins": [
+        {
+          "package_number": 23,
+          "archive_sha256": "da5294b68a34a72688b27ddefb6f2b1ae50301ee9d88190fc677a8e994c4619a",
+          "member": "simpeg/references/mesh_types.md"
+        },
+        {
+          "package_number": 66,
+          "archive_sha256": "ea7b54eaa70a8fa91d43f49c7c5deef190dffaa80f799b2dedcc5755c374cacd",
+          "member": "simpeg/references/mesh_types.md"
+        },
+        {
+          "package_number": 95,
+          "archive_sha256": "215c1d8bb168bad7508ecaa23a44a5d8c908572fab64f6a90e623d5d75bbc54e",
+          "member": "simpeg/references/mesh_types.md"
+        }
+      ]
+    },
+    {
+      "path": "references/survey_types.md",
+      "bytes": 6827,
+      "sha256": "c0e65f18c3127636e7a7e4a284ec59c728b12bbbbfccf10d60eedc7d3084e423",
+      "origins": [
+        {
+          "package_number": 23,
+          "archive_sha256": "da5294b68a34a72688b27ddefb6f2b1ae50301ee9d88190fc677a8e994c4619a",
+          "member": "simpeg/references/survey_types.md"
+        },
+        {
+          "package_number": 66,
+          "archive_sha256": "ea7b54eaa70a8fa91d43f49c7c5deef190dffaa80f799b2dedcc5755c374cacd",
+          "member": "simpeg/references/survey_types.md"
+        },
+        {
+          "package_number": 95,
+          "archive_sha256": "215c1d8bb168bad7508ecaa23a44a5d8c908572fab64f6a90e623d5d75bbc54e",
+          "member": "simpeg/references/survey_types.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/dc_inversion.py",
+      "bytes": 10232,
+      "sha256": "f15bd26253dbc85701065bfe40a5d089e31b15d2d967280d01c4133613e178a6",
+      "origins": [
+        {
+          "package_number": 23,
+          "archive_sha256": "da5294b68a34a72688b27ddefb6f2b1ae50301ee9d88190fc677a8e994c4619a",
+          "member": "simpeg/scripts/dc_inversion.py"
+        },
+        {
+          "package_number": 66,
+          "archive_sha256": "ea7b54eaa70a8fa91d43f49c7c5deef190dffaa80f799b2dedcc5755c374cacd",
+          "member": "simpeg/scripts/dc_inversion.py"
+        },
+        {
+          "package_number": 95,
+          "archive_sha256": "215c1d8bb168bad7508ecaa23a44a5d8c908572fab64f6a90e623d5d75bbc54e",
+          "member": "simpeg/scripts/dc_inversion.py"
+        }
+      ]
+    }
+  ]
+}

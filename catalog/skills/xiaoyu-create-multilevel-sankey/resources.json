@@ -1,0 +1,66 @@
+{
+  "skill_id": "xiaoyu_create_multilevel_sankey",
+  "archive_sha256": "b764f404a03550805aa21a53c9456703d104767c535c54fd135787c399fc4501",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 11853,
+      "sha256": "28b6f7137371ae751a94f8558a4fd2328408dbefeac41c7c3a5524d4b1e67ac9",
+      "origins": [
+        {
+          "package_number": 49,
+          "archive_sha256": "a3a4cb29baf17c53db198266db19f217dcf54864a062591173d21cc1570996c6",
+          "member": "skill4-sankey-plot-main/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 3556,
+      "sha256": "1025af293947d729c8f4091e62f25b24c1bc45abb5294afea77d73bb4d0afd12",
+      "origins": [
+        {
+          "package_number": 49,
+          "archive_sha256": "a3a4cb29baf17c53db198266db19f217dcf54864a062591173d21cc1570996c6",
+          "member": "skill4-sankey-plot-main/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 240,
+      "sha256": "137bef1a5ebb1f2cdd568b4b51591734cafebb2f3f81a9ed2ebae71e8cb161a3",
+      "origins": [
+        {
+          "package_number": 49,
+          "archive_sha256": "a3a4cb29baf17c53db198266db19f217dcf54864a062591173d21cc1570996c6",
+          "member": "skill4-sankey-plot-main/agents/openai.yaml"
+        }
+      ]
+    },
+    {
+      "path": "references/data-formats.md",
+      "bytes": 1954,
+      "sha256": "d9148692eaa3e69bd5a56fe4a2e8dde58c24aa2d06a868e210f0ce4e99ffe723",
+      "origins": [
+        {
+          "package_number": 49,
+          "archive_sha256": "a3a4cb29baf17c53db198266db19f217dcf54864a062591173d21cc1570996c6",
+          "member": "skill4-sankey-plot-main/references/data-formats.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/render_sankey.py",
+      "bytes": 16116,
+      "sha256": "a3c9a6856506bfec62cd96cdcc6b387a6faa147b2576f8e01a002e1694c6dbb1",
+      "origins": [
+        {
+          "package_number": 49,
+          "archive_sha256": "a3a4cb29baf17c53db198266db19f217dcf54864a062591173d21cc1570996c6",
+          "member": "skill4-sankey-plot-main/scripts/render_sankey.py"
+        }
+      ]
+    }
+  ]
+}

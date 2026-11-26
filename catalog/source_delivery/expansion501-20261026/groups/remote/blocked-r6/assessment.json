@@ -1,0 +1,260 @@
+{
+  "group": "remote",
+  "revision": "blocked-r6",
+  "scope": [
+    "GeoSARSigma0Calibration",
+    "GeoInSARClosureAmbiguityCorrection",
+    "GeoInSARTroposphericDelay",
+    "GeoInSARSolidEarthTideCorrection",
+    "GeoInSARMultilookClosureBias",
+    "GeoInSARSentinelInterplatformRangeBias",
+    "GeoRemoteAtmosphericRadiativeTransfer",
+    "GeoRemoteCanopySoilRadiativeTransfer"
+  ],
+  "permissions": {
+    "remote_setup": false,
+    "remote_transfer": false,
+    "local_stdlib_contract_tests": true,
+    "install": false,
+    "deployment": false,
+    "gpu": false
+  },
+  "existing_registered_source_tools": 26,
+  "new_registered_tools": 0,
+  "operations": [
+    {
+      "id": "GeoSARSigma0Calibration",
+      "kernel_authored": false,
+      "resolved": [
+        "Confirmed fixed OTB SARCalibration application and original-product metadata dependence.",
+        "Authored bounded SHA-256 and exact manifest-reference preflight; not a fabricated radiometric reader."
+      ],
+      "blockers": [
+        "Original SAFE calibration/noise vector coverage, TIFF type and sensor-geolocation content validator/fixture still missing.",
+        "Native OTB build receipt and artifact geolocation acceptance remain pending.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "entry": "otbApplication.Registry.CreateApplication('SARCalibration')",
+      "reference": "For synthetic DN amplitude 10 and sigma LUT 2 with zero noise, sigma0=25. For complex 3+4j, same LUT gives 6.25. These analytic targets are NOT an executed full SAFE acceptance.",
+      "oracle_complete": false,
+      "state": "blocked",
+      "metadata_profile": "scientific",
+      "source_status": "partial_source_authored_not_integrated",
+      "formal_eligible": false,
+      "acceptance_pending": true,
+      "main_runtime_to_private_entry": false,
+      "scientific_tests_executed": 0,
+      "certified": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "network_required": false
+    },
+    {
+      "id": "GeoInSARClosureAmbiguityCorrection",
+      "kernel_authored": false,
+      "resolved": [
+        "Confirmed get_common_region_int_ambiguity + correct_unwrap_error_phase_closure at MintPy 1.6.4.",
+        "Found unseeded default_rng sampling; must declare pure=false and mutate only a copied stack."
+      ],
+      "blockers": [
+        "CVXOPT and complete component/stack HDF5 typed-copy validation and lock missing.",
+        "A single triangle has nonunique edge corrections; closure=-2pi is not a sufficient correction oracle.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "entry": "mintpy.unwrap_error_phase_closure.get_common_region_int_ambiguity + correct_unwrap_error_phase_closure",
+      "reference": "Yunjun et al. 2019 algorithm cited in upstream; retain stable-component anchoring and spatial reference. Do not label a closure diagnostic as corrected-phase acceptance.",
+      "oracle_complete": false,
+      "pure": false,
+      "state": "blocked",
+      "metadata_profile": "scientific",
+      "source_status": "partial_source_authored_not_integrated",
+      "formal_eligible": false,
+      "acceptance_pending": true,
+      "main_runtime_to_private_entry": false,
+      "scientific_tests_executed": 0,
+      "certified": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "network_required": false
+    },
+    {
+      "id": "GeoInSARTroposphericDelay",
+      "kernel_authored": false,
+      "resolved": [
+        "Confirmed offline mintpy.tropo_pyaps3.get_delay; explicitly excludes upstream download paths.",
+        "PyAPS source identity/GPL evidence and hourly/units/coverage descriptor contracts recorded."
+      ],
+      "blockers": [
+        "GRIB content validation, full pressure-level/DEM vertical coverage and ecCodes/GRIB dependency identities missing.",
+        "No independently supplied ERA5 fixture or complete atmospheric-delay oracle.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "entry": "mintpy.tropo_pyaps3.get_delay",
+      "reference": "Upstream reverses PyAPS delay sign; returns metres. Do not use invented weather fields, nearest-hour imputation, or a different atmospheric model's formula as exact PyAPS truth.",
+      "oracle_complete": false,
+      "state": "blocked",
+      "metadata_profile": "scientific",
+      "source_status": "partial_source_authored_not_integrated",
+      "formal_eligible": false,
+      "acceptance_pending": true,
+      "main_runtime_to_private_entry": false,
+      "scientific_tests_executed": 0,
+      "certified": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "network_required": false
+    },
+    {
+      "id": "GeoInSARSolidEarthTideCorrection",
+      "kernel_authored": false,
+      "resolved": [
+        "PySolid source/GPL/Fortran identity recorded.",
+        "Explicit UTC acquisition contract rejects times outside reviewed leap table."
+      ],
+      "blockers": [
+        "Fortran binary/build receipt and IERS-derived notices pending.",
+        "Independent same-ephemeris/time reference and complete masked LOS reference/correction fixture missing.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "entry": "mintpy.solid_earth_tides.calc_solid_earth_tides_timeseries + mintpy.diff.diff_timeseries",
+      "reference": "IERS 2010 Chapter 7.1.1 is an authoritative physical reference, not automatically an exact oracle for PySolid's simplified ephemerides. No fabricated tidal vectors supplied.",
+      "oracle_complete": false,
+      "state": "blocked",
+      "metadata_profile": "scientific",
+      "source_status": "partial_source_authored_not_integrated",
+      "formal_eligible": false,
+      "acceptance_pending": true,
+      "main_runtime_to_private_entry": false,
+      "scientific_tests_executed": 0,
+      "certified": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "network_required": false
+    },
+    {
+      "id": "GeoInSARMultilookClosureBias",
+      "kernel_authored": false,
+      "resolved": [
+        "Confirmed compute_unwrap_closure_phase invokes fixed coherence estimation and SNAPHU through ISCE utilities.",
+        "Confirmed bias time-series estimator is separate from closure mask/diagnostic."
+      ],
+      "blockers": [
+        "ISCE2/SNAPHU source/build/license/transitive receipts and safe fixed native launch chain missing.",
+        "No independently anchored nonzero bias example with complete closure-stack acquisition graph.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "entry": "mintpy.closure_phase_bias.compute_unwrap_closure_phase + estimate_bias_timeseries",
+      "reference": "Zheng et al. 2022, upstream equations 20/25/28/29; do not substitute a mask, average phase, or zero fixture for a positive end-to-end bias-correction oracle.",
+      "oracle_complete": false,
+      "state": "blocked",
+      "metadata_profile": "scientific",
+      "source_status": "partial_source_authored_not_integrated",
+      "formal_eligible": false,
+      "acceptance_pending": true,
+      "main_runtime_to_private_entry": false,
+      "scientific_tests_executed": 0,
+      "certified": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "network_required": false
+    },
+    {
+      "id": "GeoInSARSentinelInterplatformRangeBias",
+      "kernel_authored": true,
+      "resolved": [
+        "Authored fixed MintPy estimate_s1ab_bias composition with actual interpreter pin checks.",
+        "Explicit range-offset metres, S1A/S1B SAFE identities, common coregistration, masks, dates and shared fitting-period constraints."
+      ],
+      "blockers": [
+        "Original SAFE/HDF5 content binding and georeferenced artifact producer remain pending.",
+        "Upstream exact-zero bias becomes NaN; source rejects this domain instead of fabricating zero.",
+        "Per-IW geometry summaries not inferred from array columns.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "entry": "mintpy.utils.s1_utils.estimate_s1ab_bias",
+      "reference": "Synthetic identical linear trends with S1B +0.1 m offset imply bias=+0.1 m at each valid pixel. Full SAFE source-data binding remains pending.",
+      "oracle_complete": true,
+      "state": "blocked",
+      "metadata_profile": "scientific",
+      "source_status": "partial_source_authored_not_integrated",
+      "formal_eligible": false,
+      "acceptance_pending": true,
+      "main_runtime_to_private_entry": false,
+      "scientific_tests_executed": 0,
+      "certified": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "network_required": false
+    },
+    {
+      "id": "GeoRemoteAtmosphericRadiativeTransfer",
+      "kernel_authored": false,
+      "resolved": [
+        "Located actual 6S mirror LICENSE.md (MIT text), not a nonexistent LICENSE.",
+        "Pinned Py6S and 6S mirror commits separately."
+      ],
+      "blockers": [
+        "Underlying/component license review, fixed native binary/build receipt and safely bounded execution missing.",
+        "No version-bound nontrivial independent atmosphere vector or validated vacuum-mode configuration.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "entry": "Py6S.SixS.run",
+      "reference": "Official Py6S README publishes 0.283 reflectance /112.095 radiance for its illustrated defaults at 0.675 um with Maritime aerosol; this is an upstream regression example, NOT an independent analytic oracle.",
+      "oracle_complete": false,
+      "state": "blocked",
+      "metadata_profile": "scientific",
+      "source_status": "partial_source_authored_not_integrated",
+      "formal_eligible": false,
+      "acceptance_pending": true,
+      "main_runtime_to_private_entry": false,
+      "scientific_tests_executed": 0,
+      "certified": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "network_required": false
+    },
+    {
+      "id": "GeoRemoteCanopySoilRadiativeTransfer",
+      "kernel_authored": true,
+      "resolved": [
+        "Legal-capability alternative identified: radiative-transfer-models 1.6.2 with explicit GPL-3.0-or-later.",
+        "Authored fixed PROSPECT-D / Campbell LIDF / 4SAIL composition using user-supplied soil spectrum; no arbitrary soil filename.",
+        "Directional reflectance factor not incorrectly clamped to probability <=1."
+      ],
+      "blockers": [
+        "Full dependency lock, packaged spectral-data identity and redistribution review remain pending.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "entry": "pypro4sail.prospect.prospectd + pypro4sail.four_sail.calc_lidf_campbell + pypro4sail.four_sail.foursail",
+      "reference": "Synthetic LAI=0 and soil reflectance 0.2 at every wavelength imply directional reflectance 0.2 over all 2101 wavelengths, independently of the canopy kernel.",
+      "oracle_complete": true,
+      "state": "blocked",
+      "metadata_profile": "scientific",
+      "source_status": "partial_source_authored_not_integrated",
+      "formal_eligible": false,
+      "acceptance_pending": true,
+      "main_runtime_to_private_entry": false,
+      "scientific_tests_executed": 0,
+      "certified": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "network_required": false
+    }
+  ]
+}

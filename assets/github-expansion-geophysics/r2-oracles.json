@@ -1,0 +1,667 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "positive_cases": [
+    {
+      "case_id": "heterogeneous_exact_spheres",
+      "tool_id": "GeoRockSelfConsistent",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "fractions": [
+          0.5,
+          0.5
+        ],
+        "bulk_gpa": [
+          4,
+          16
+        ],
+        "shear_gpa": [
+          3,
+          12
+        ],
+        "aspect_ratios": [
+          1,
+          1
+        ],
+        "density_kg_m3": [
+          2400,
+          2800
+        ]
+      },
+      "expected_checks": [
+        {
+          "path": [
+            "bulk_gpa"
+          ],
+          "value": 8,
+          "relative_tolerance": 1e-06,
+          "absolute_tolerance": 1e-12
+        },
+        {
+          "path": [
+            "shear_gpa"
+          ],
+          "value": 6,
+          "relative_tolerance": 1e-06,
+          "absolute_tolerance": 1e-12
+        },
+        {
+          "path": [
+            "density_kg_m3"
+          ],
+          "value": 2600,
+          "relative_tolerance": 1e-07,
+          "absolute_tolerance": 1e-12
+        }
+      ],
+      "numeric_oracle": "Heterogeneous exact spheres with K_i=4G_i/3 and equal fractions have P_i=Q_i at K=4G/3. The two self-consistency equations reduce to G^2=G1*G2=36: K=8,G=6 GPa, density=2600 kg/m3. Additional prolate and mixed-shape inverse-design analytic oracles are in r2-oracles.json."
+    },
+    {
+      "case_id": "heterogeneous_prolates",
+      "tool_id": "GeoRockSelfConsistent",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "fractions": [
+          0.24772774236074827,
+          0.2519455417317771,
+          0.5003267159074747
+        ],
+        "bulk_gpa": [
+          4,
+          16,
+          8
+        ],
+        "shear_gpa": [
+          3,
+          3,
+          12
+        ],
+        "aspect_ratios": [
+          2,
+          3,
+          2
+        ],
+        "density_kg_m3": [
+          2400,
+          2700,
+          3000
+        ]
+      },
+      "expected_checks": [
+        {
+          "path": [
+            "bulk_gpa"
+          ],
+          "value": 8,
+          "relative_tolerance": 1e-06,
+          "absolute_tolerance": 1e-12
+        },
+        {
+          "path": [
+            "shear_gpa"
+          ],
+          "value": 6,
+          "relative_tolerance": 1e-06,
+          "absolute_tolerance": 1e-12
+        },
+        {
+          "path": [
+            "density_kg_m3"
+          ],
+          "value": 2775.779692064018,
+          "relative_tolerance": 1e-07,
+          "absolute_tolerance": 1e-12
+        }
+      ],
+      "independent_phase_factors_p_q": [
+        [
+          1.3411890481705102,
+          1.3393573578454545
+        ],
+        [
+          0.6593681569010589,
+          1.3401672155936941
+        ],
+        [
+          1.0,
+          0.6690079785196122
+        ]
+      ],
+      "numeric_oracle": "Prescribed K*=8,G*=6 GPa; independent Hill/Kelvin concentration projections determine positive fractions algebraically so both weighted constitutive balances vanish. No upstream kernel outputs or nonlinear solver define expectations."
+    },
+    {
+      "case_id": "heterogeneous_oblate_exact_sphere_prolate",
+      "tool_id": "GeoRockSelfConsistent",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "fractions": [
+          0.24874533097780074,
+          0.251246463709416,
+          0.5000082053127832
+        ],
+        "bulk_gpa": [
+          4,
+          16,
+          8
+        ],
+        "shear_gpa": [
+          3,
+          3,
+          12
+        ],
+        "aspect_ratios": [
+          0.5,
+          1,
+          2
+        ],
+        "density_kg_m3": [
+          2400,
+          2700,
+          3000
+        ]
+      },
+      "expected_checks": [
+        {
+          "path": [
+            "bulk_gpa"
+          ],
+          "value": 8,
+          "relative_tolerance": 1e-06,
+          "absolute_tolerance": 1e-12
+        },
+        {
+          "path": [
+            "shear_gpa"
+          ],
+          "value": 6,
+          "relative_tolerance": 1e-06,
+          "absolute_tolerance": 1e-12
+        },
+        {
+          "path": [
+            "density_kg_m3"
+          ],
+          "value": 2775.378862300495,
+          "relative_tolerance": 1e-07,
+          "absolute_tolerance": 1e-12
+        }
+      ],
+      "independent_phase_factors_p_q": [
+        [
+          1.3467399915771072,
+          1.342833938229662
+        ],
+        [
+          0.6666666666666669,
+          1.3333333333333333
+        ],
+        [
+          1.0,
+          0.6690079785196122
+        ]
+      ],
+      "numeric_oracle": "Prescribed K*=8,G*=6 GPa; independent Hill/Kelvin concentration projections determine positive fractions algebraically so both weighted constitutive balances vanish. No upstream kernel outputs or nonlinear solver define expectations."
+    }
+  ],
+  "negative_cases": [
+    {
+      "case_id": "hti_isotropic_postcritical",
+      "tool_id": "GeoSeismicHTIReflectivity",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "upper_stiffness_gpa": [
+          [
+            40.0,
+            10.0,
+            10.0,
+            0,
+            0,
+            0
+          ],
+          [
+            10.0,
+            40.0,
+            10.0,
+            0,
+            0,
+            0
+          ],
+          [
+            10.0,
+            10.0,
+            40.0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            15
+          ]
+        ],
+        "lower_stiffness_gpa": [
+          [
+            160.0,
+            40.0,
+            40.0,
+            0,
+            0,
+            0
+          ],
+          [
+            40.0,
+            160.0,
+            40.0,
+            0,
+            0,
+            0
+          ],
+          [
+            40.0,
+            40.0,
+            160.0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            60,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            60,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            60
+          ]
+        ],
+        "upper_density_kg_m3": 2500,
+        "lower_density_kg_m3": 2500,
+        "incidence_degrees": [
+          35
+        ],
+        "azimuth_degrees": [
+          0
+        ]
+      },
+      "expected_error": "unsupported_conditions",
+      "numeric_oracle": "Equal density: Vp1=4000,Vp2=8000 m/s, critical angle=30deg; 35deg violates Snell propagation even though <=35deg schema limit."
+    },
+    {
+      "case_id": "hti_isotropic_exact_critical",
+      "tool_id": "GeoSeismicHTIReflectivity",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "upper_stiffness_gpa": [
+          [
+            40.0,
+            10.0,
+            10.0,
+            0,
+            0,
+            0
+          ],
+          [
+            10.0,
+            40.0,
+            10.0,
+            0,
+            0,
+            0
+          ],
+          [
+            10.0,
+            10.0,
+            40.0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            15
+          ]
+        ],
+        "lower_stiffness_gpa": [
+          [
+            160.0,
+            40.0,
+            40.0,
+            0,
+            0,
+            0
+          ],
+          [
+            40.0,
+            160.0,
+            40.0,
+            0,
+            0,
+            0
+          ],
+          [
+            40.0,
+            40.0,
+            160.0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            60,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            60,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            60
+          ]
+        ],
+        "upper_density_kg_m3": 2500,
+        "lower_density_kg_m3": 2500,
+        "incidence_degrees": [
+          30
+        ],
+        "azimuth_degrees": [
+          0
+        ]
+      },
+      "expected_error": "unsupported_conditions",
+      "numeric_oracle": "At 30deg the transmitted qP vertical slowness is zero; strictly propagating approximation excludes the critical boundary."
+    },
+    {
+      "case_id": "hti_actual_anisotropic_postcritical",
+      "tool_id": "GeoSeismicHTIReflectivity",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "upper_stiffness_gpa": [
+          [
+            40.0,
+            10.0,
+            10.0,
+            0,
+            0,
+            0
+          ],
+          [
+            10.0,
+            40.0,
+            10.0,
+            0,
+            0,
+            0
+          ],
+          [
+            10.0,
+            10.0,
+            40.0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            15
+          ]
+        ],
+        "lower_stiffness_gpa": [
+          [
+            168.75,
+            35.15625,
+            35.15625,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            35.15625,
+            140.625,
+            35.15625,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            35.15625,
+            35.15625,
+            140.625,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            52.734375,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            52.734375,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            52.734375
+          ]
+        ],
+        "upper_density_kg_m3": 2500,
+        "lower_density_kg_m3": 2500,
+        "incidence_degrees": [
+          30
+        ],
+        "azimuth_degrees": [
+          0
+        ]
+      },
+      "expected_error": "unsupported_conditions",
+      "numeric_oracle": "Lower epsilon=.1,delta=gamma=0. Horizontal qP speed=sqrt(168.75e9/2500)>8000 m/s, making 30deg postcritical. Vertical qP speed=7500 alone would incorrectly admit it."
+    },
+    {
+      "case_id": "squirt_velocity_bounds_do_not_bound_bulk",
+      "tool_id": "GeoRockSquirtFlow",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "high_pressure_vp_m_s": 4000,
+        "high_pressure_vs_m_s": 2500,
+        "dry_vp_m_s": [
+          3900
+        ],
+        "dry_vs_m_s": [
+          1800
+        ],
+        "mineral_bulk_gpa": 40,
+        "dry_density_kg_m3": 2000,
+        "fluid_density_kg_m3": 1000,
+        "fluid_bulk_gpa": 4,
+        "porosity": 0.25
+      },
+      "expected_error": "invalid_arguments",
+      "numeric_oracle": "At rho=2000, Khigh=46/3 GPa but Kdry=21.78 GPa despite both dry velocities being smaller."
+    },
+    {
+      "case_id": "squirt_exceeds_crack_free_shear",
+      "tool_id": "GeoRockSquirtFlow",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "high_pressure_vp_m_s": 3214.550253664318,
+        "high_pressure_vs_m_s": 2000,
+        "dry_vp_m_s": [
+          2677.0630673681685
+        ],
+        "dry_vs_m_s": [
+          1870.8286933869706
+        ],
+        "mineral_bulk_gpa": 40,
+        "dry_density_kg_m3": 2000,
+        "fluid_density_kg_m3": 1000,
+        "fluid_bulk_gpa": 4,
+        "porosity": 0.25
+      },
+      "expected_error": "invalid_arguments",
+      "numeric_oracle": "Kdry=5,Gdry=7,Khigh=10,Ghigh=8 GPa: predicted wet compliance=61/525 1/GPa, Gwet=525/61>8."
+    },
+    {
+      "case_id": "squirt_negative_wet_shear_compliance",
+      "tool_id": "GeoRockSquirtFlow",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "high_pressure_vp_m_s": 3214.550253664318,
+        "high_pressure_vs_m_s": 2000,
+        "dry_vp_m_s": [
+          2273.030282830976
+        ],
+        "dry_vs_m_s": [
+          1870.8286933869706
+        ],
+        "mineral_bulk_gpa": 40,
+        "dry_density_kg_m3": 2000,
+        "fluid_density_kg_m3": 1000,
+        "fluid_bulk_gpa": 4,
+        "porosity": 0.25
+      },
+      "expected_error": "invalid_arguments",
+      "numeric_oracle": "Kdry=1,Gdry=7,Khigh=10 GPa: wet shear compliance=1/7-(4/15)*(1-1/10)=-17/175 1/GPa."
+    },
+    {
+      "case_id": "sca_bulk_only_false_convergence",
+      "tool_id": "GeoRockSelfConsistent",
+      "synthetic": true,
+      "arguments": {
+        "input_source": "SYNTHETIC analytic fixture; not geological observations",
+        "fractions": [
+          0.5,
+          0.5
+        ],
+        "bulk_gpa": [
+          10,
+          10
+        ],
+        "shear_gpa": [
+          3,
+          12
+        ],
+        "aspect_ratios": [
+          1,
+          1
+        ],
+        "density_kg_m3": [
+          2400,
+          2800
+        ]
+      },
+      "expected_error": "invalid_result",
+      "numeric_oracle": "Equal phase bulk moduli force zero bulk update immediately, but contrasting shear moduli leave a nonzero shear balance. Reject native premature convergence instead of changing the solver."
+    }
+  ],
+  "oracle_source": "Parnell (2016), DOI 10.1007/s10659-016-9573-6, isotropic-host Hill tensor and concentration projections; independent closed angular moments.",
+  "derivation": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/independent-oracles.md",
+  "upstream_used_to_generate_expectations": false
+}

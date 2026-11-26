@@ -1,0 +1,14 @@
+#admin-releases-dialog{width:min(680px,96vw)}
+#admin-releases-content{display:grid;gap:12px;margin-top:20px}
+.admin-release-item{padding:14px 16px;border:1px solid #e1e6df;border-radius:8px;background:#f8faf6;overflow-wrap:anywhere}
+.admin-release-item h3{display:flex;align-items:center;flex-wrap:wrap;gap:10px;margin:0 0 4px}
+.admin-release-item time,.admin-release-item details{font-size:13px;color:#54665a}
+.admin-release-item ul{margin:10px 0;padding-left:1.25em}
+.admin-release-item details p{margin:6px 0}
+.admin-release-item summary{cursor:pointer}
+.admin-release-current{font-size:12px;font-weight:600;padding:2px 8px;border-radius:12px;background:#e6efe2;color:#35533e}
+.admin-users-dialog{width:min(1440px,96vw);max-width:96vw;max-height:90vh;padding:28px;border:1px solid #d7ded8;border-radius:14px;color:#243e32;background:#fffefb}
+.admin-users-dialog::backdrop{background:#152d2480}.admin-users-header{display:flex;align-items:start;justify-content:space-between;gap:20px}.admin-users-header h2{margin:0 0 8px}.admin-users-header p{margin:0;color:#67756e}
+.admin-users-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:22px 0}.admin-user-stat{background:#f1f5ef;border-radius:8px;padding:14px}.admin-user-stat strong{display:block;font-size:26px}.admin-user-stat span{font-size:13px;color:#54665a}
+.admin-users-form{display:flex;gap:12px;align-items:center}.admin-users-form input{flex:1;min-width:150px}.admin-users-form input,.admin-users-form select{padding:10px;border:1px solid #cbd5ce;border-radius:6px;background:white}.admin-users-table{overflow:auto;max-height:48vh;border:1px solid #e1e6df;border-radius:8px}.admin-users-table table{width:100%;border-collapse:collapse;font-size:14px}.admin-users-table th,.admin-users-table td{text-align:left;padding:12px;border-bottom:1px solid #e1e6df;min-width:90px;max-width:280px;overflow-wrap:anywhere}.admin-users-table th{position:sticky;top:0;background:#eef3ed;color:#35533e;white-space:nowrap}.admin-users-table tr:hover td{background:#f8faf6}.admin-users-footer{display:flex;gap:12px;align-items:center;justify-content:flex-end;margin-top:14px}.admin-users-message{min-height:22px;color:#627466}.admin-users-dialog button{cursor:pointer}.admin-users-dialog button:disabled{cursor:default;opacity:.5}
+@media(max-width:650px){.admin-users-dialog{padding:16px}.admin-users-summary{grid-template-columns:repeat(2,1fr)}.admin-users-form{flex-wrap:wrap}.admin-users-form input{flex-basis:100%}.admin-users-header h2{font-size:22px}}

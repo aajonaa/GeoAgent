@@ -1,0 +1,137 @@
+{
+  "crs": "EPSG:32631",
+  "origin_xy_m": [
+    500000,
+    1000
+  ],
+  "cell_size_m": 1,
+  "nodata_policy": "reject_missing",
+  "boundary": "closed",
+  "elevation_m": [
+    [
+      10,
+      10,
+      10,
+      10,
+      10
+    ],
+    [
+      10,
+      10,
+      10,
+      10,
+      10
+    ],
+    [
+      10,
+      10,
+      10,
+      10,
+      10
+    ],
+    [
+      10,
+      10,
+      10,
+      10,
+      10
+    ],
+    [
+      10,
+      10,
+      10,
+      10,
+      10
+    ]
+  ],
+  "aquifer_base_m": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "water_table_m": [
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      2,
+      2,
+      2,
+      2,
+      2
+    ]
+  ],
+  "conductivity_m_s": 0.001,
+  "porosity": 0.2,
+  "recharge_m_s": 0,
+  "dt_s": 1,
+  "units": {
+    "origin_xy_m": "m",
+    "cell_size_m": "m",
+    "elevation_m": "m",
+    "aquifer_base_m": "m",
+    "water_table_m": "m",
+    "conductivity_m_s": "m/s",
+    "recharge_m_s": "m/s",
+    "dt_s": "s",
+    "porosity": "1"
+  }
+}
+

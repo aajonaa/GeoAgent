@@ -1,0 +1,21 @@
+{
+  "full_environment_lock": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/environment-evidence/requirements-full.txt",
+    "sha256": "37833113b96c33f992fd4e29db672a5fe0133226ada76590b432f0b1aa3c7e94"
+  },
+  "original_file_count": 157,
+  "original_license_inventory": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/environment-evidence/licenses.json",
+    "sha256": "7b6a2079fb2a12da069d9ce6908333a5a4e66bd069ab794e68c8b0debb465ea7"
+  },
+  "parent_redistribution_review_required_if_packaging": true,
+  "review_scope": "Technical review for private CPU execution of the unmodified canonical distributions, with original license grants and notices retained; not a redistribution legal opinion.",
+  "reviewed_terms": [
+    "MIT: retain copyright and permission notice",
+    "BSD: retain copyright, conditions and disclaimers; non-endorsement where specified",
+    "Apache-2.0: retain license/NOTICE and patent terms; mark modifications if distributing",
+    "LGPL/GPL bundled notices: retain originals and source/relink obligations if distributing covered linked components",
+    "PSF, MPL, ISC and dual-licensed bundled components: preserve their original license and notice files"
+  ],
+  "upstream_packages_modified": false
+}

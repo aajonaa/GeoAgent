@@ -1,0 +1,63 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockSquirtFlow",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "high_pressure_vp_m_s": 3214.550253664318,
+    "high_pressure_vs_m_s": 2000,
+    "dry_vp_m_s": [
+      2549.5097567963926
+    ],
+    "dry_vs_m_s": [
+      1732.0508075688772
+    ],
+    "mineral_bulk_gpa": 40,
+    "dry_density_kg_m3": 2000,
+    "fluid_density_kg_m3": 1000,
+    "fluid_bulk_gpa": 4,
+    "porosity": 0.25
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "saturated_bulk_gpa"
+      ],
+      "value": 17.5,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "saturated_shear_gpa",
+        0
+      ],
+      "value": 7.142857142857143,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "vp_m_s",
+        0
+      ],
+      "value": 3465.6286602263103,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "dry_vp_m_s": [
+      1000
+    ]
+  },
+  "numeric_oracle": "Nonzero crack compliance: Kdry=5,Gdry=6,Khigh=10,Ghigh=8 GPa. Independent Gwet=1/(1/6-(4/15)*(1/5-1/10))=50/7 GPa, Ksat=17.5 GPa and rho_sat=2250 kg/m3.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/Fluid.py",
+  "limitations": [
+    "Require 0<Kdry<=Khigh<Kmineral, 0<Gdry<=Ghigh, and 1/Gdry-(4/15)*(1/Kdry-1/Khigh)>=1/Ghigh>0; velocity bounds alone are insufficient. Explicit kg/m3 to upstream g/cm3 conversion.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

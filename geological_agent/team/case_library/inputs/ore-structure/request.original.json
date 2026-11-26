@@ -1,0 +1,10 @@
+{
+  "operations": [
+    {
+      "tool": "GeoStereonetAnalysis",
+      "arguments": {
+        "data_path": "SR001.json"
+      }
+    }
+  ]
+}

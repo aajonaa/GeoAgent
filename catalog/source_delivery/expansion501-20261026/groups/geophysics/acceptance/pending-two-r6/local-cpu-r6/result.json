@@ -1,0 +1,22 @@
+{
+  "returncode": 1,
+  "counts": {
+    "failures": 1,
+    "errors": 0,
+    "skipped": 4,
+    "total": 23,
+    "executed": 19,
+    "passed": 18
+  },
+  "scope": "local stdlib protocol/reference tests only",
+  "scientific_tests_executed": 0,
+  "accepted_operations": 0,
+  "remote_setup_or_upload": false,
+  "installed_packages": false,
+  "production_mutation": false,
+  "gpu_used": false,
+  "known_failure": "Superseded v1 diagnostic worker classifies invalid JSON as upstream_failure; not repaired.",
+  "source_status": "source_revised_unverified",
+  "integrated": false,
+  "certified": false
+}

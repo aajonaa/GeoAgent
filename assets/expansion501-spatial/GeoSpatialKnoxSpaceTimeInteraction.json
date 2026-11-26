@@ -1,0 +1,32 @@
+{
+  "crs": "EPSG:32631",
+  "points_xy_m": [
+    [
+      0,
+      0
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      10,
+      0
+    ]
+  ],
+  "times_s": [
+    0,
+    1,
+    10
+  ],
+  "distance_m": 2,
+  "time_s": 2,
+  "time_reference": "common_epoch_seconds",
+  "units": {
+    "points_xy_m": "m",
+    "times_s": "s",
+    "distance_m": "m",
+    "time_s": "s"
+  }
+}
+

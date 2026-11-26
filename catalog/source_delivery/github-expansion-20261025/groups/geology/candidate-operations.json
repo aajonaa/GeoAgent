@@ -1,0 +1,257 @@
+{
+  "group": "geology",
+  "operations": [
+    {
+      "tool_id": "GeoAPSGPairFabricTensor",
+      "capability_key": "geology:paired-fabric-tensor",
+      "upstream_callable": "apsg.feature.OrientationTensor3.from_pairs",
+      "scientific_task": "Estimate Lisle joint foliation-lineation fabric from orthogonal measured pairs.",
+      "distinct_from_existing": "GeoStereonetAnalysis uses plane poles alone; Lisle fabric uses jointly observed lineations and planes, so different lineation fabrics remain distinguishable.",
+      "numeric_oracle": "Identical horizontal planes with north-directed in-plane lines give diag(2/3,1/3,0), independently from averages of dyads.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGFoldAxis",
+      "capability_key": "geology:cylindrical-fold-axis",
+      "upstream_callable": "apsg.feature.OrientationTensor3.from_features",
+      "scientific_task": "Estimate the unique cylindrical-fold axis from the girdle of measured plane poles.",
+      "distinct_from_existing": "GeoStereonetAnalysis fits a dominant plane using its leading pole eigenvector. A cylindrical fold uses the least-eigenvalue girdle axis, a different geological inference.",
+      "numeric_oracle": "Poles +/-north and +/-east have moment diag(1/2,1/2,0); fold axis is vertical up to sign and eigenvalue gap is 1/2.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGFisherDirectionalConfidence",
+      "capability_key": "geology:fisher-directional-confidence",
+      "upstream_callable": "apsg.feature.Vector3Set.fisher_statistics",
+      "scientific_task": "Estimate a Fisher population mean and confidence cone for directed structural measurements.",
+      "distinct_from_existing": "Existing stereonet and plane-intersection tools have no directional population confidence calculation. Directed polarity is retained rather than folded to an axial hemisphere.",
+      "numeric_oracle": "Four directed vectors at +/-30 degrees from north have R/N=sqrt(3)/2. Fisher cone follows acos(1-(N-R)/R*(0.05^(-1/(N-1))-1)); kappa additionally obeys coth(k)-1/k=R/N.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGMarkerStrainEstimate",
+      "capability_key": "geology:marker-strain-estimate",
+      "upstream_callable": "apsg.feature.EllipseSet.rfphi",
+      "scientific_task": "Infer planar strain from measured elliptical markers using Rf/phi, with Robin log-tensor comparison.",
+      "distinct_from_existing": "No baseline operation estimates finite strain from elliptical grain/marker populations; pole stereonets cannot infer marker axial ratios.",
+      "numeric_oracle": "Identical ellipses with semiaxes 2 and 1 along the section axes have Rf/phi ratio 2 and Robin ratio 2, both at zero degrees.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGFaultKinematicAxes",
+      "capability_key": "geology:fault-kinematic-axes",
+      "upstream_callable": "apsg.feature.Fault.p_vector",
+      "scientific_task": "Derive fault-slip kinematic compression/extension bisector axes from measured plane and directed slip pairs.",
+      "distinct_from_existing": "GeoStructuralPlaneIntersection intersects two planes. This operation uses a measured slip direction and one fault plane to derive kinematic P/T axes, without stress inversion.",
+      "numeric_oracle": "A down normal and north slip have bisectors with north and down absolute components 1/sqrt(2), with P and T mutually orthogonal.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGFiniteStrainEllipsoid",
+      "capability_key": "geology:finite-strain-ellipsoid",
+      "upstream_callable": "apsg.feature.Ellipsoid.from_defgrad",
+      "scientific_task": "Recover principal stretches, Hencky strains and Flinn shape from a measured finite deformation gradient.",
+      "distinct_from_existing": "Baseline structural operations address plane geometry, not finite deformation tensors or strain-ellipsoid shape.",
+      "numeric_oracle": "Isochoric diagonal stretch (2,1,1/2) yields tensor diag(4,1,1/4), stretches 2,1,1/2, log-strains +/-ln2 and Flinn k=1.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGDeformationPolarSplit",
+      "capability_key": "geology:deformation-polar-split",
+      "upstream_callable": "apsg.feature.DeformationGradient3",
+      "scientific_task": "Separate rigid rotation from finite material stretch in a structural deformation gradient.",
+      "distinct_from_existing": "Finite-strain eigenvalues describe stretching but do not recover rigid-body rotation. No baseline stereonet tool performs deformation polar decomposition.",
+      "numeric_oracle": "A 90-degree vertical-axis rotation times diag(2,1,1/2) has right stretch diag(2,1,1/2), left stretch diag(1,2,1/2), and rotation angle 90 degrees.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGVelocityGradientEvolution",
+      "capability_key": "geology:velocity-gradient-evolution",
+      "upstream_callable": "apsg.feature.VelocityGradient3.defgrad",
+      "scientific_task": "Integrate a constant tectonic velocity gradient over an explicit duration using the upstream matrix exponential.",
+      "distinct_from_existing": "Static plane or finite-strain analysis does not integrate a time-dependent deformation mapping. This tool solves the constant-flow evolution task.",
+      "numeric_oracle": "Unit simple shear has L^2=0, hence exp(2L)=I+2L; F_xy=2 and determinant=1 independently of numerical exponentiation.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGKinematicVorticity",
+      "capability_key": "geology:kinematic-vorticity",
+      "upstream_callable": "apsg.feature.VelocityGradient3",
+      "scientific_task": "Quantify noncoaxial deformation through strain rate, spin and the kinematic vorticity number.",
+      "distinct_from_existing": "Finite polar rotation is an accumulated mapping property; kinematic vorticity diagnoses instantaneous coaxial versus noncoaxial flow and is not a duplicate rotation calculation.",
+      "numeric_oracle": "Unit simple shear has symmetric and antisymmetric xy components 1/2, equal tensor norms, Wk=1 and curl magnitude 1/Myr.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGFractureTraction",
+      "capability_key": "geology:fracture-traction",
+      "upstream_callable": "apsg.feature.Stress3.stress_comp",
+      "scientific_task": "Resolve measured stress onto fracture planes, retaining normal compression, shear magnitude and physical traction.",
+      "distinct_from_existing": "No baseline tool projects a geological stress tensor onto fractures. This returns traction, whereas plane intersections return only geometric lines.",
+      "numeric_oracle": "For diag(100,60,20) MPa and a 45-degree north/down normal, resolved compression is (100+20)/2=60 MPa and shear is (100-20)/2=40 MPa.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoAPSGFaultReactivation",
+      "capability_key": "geology:fault-reactivation",
+      "upstream_callable": "apsg.feature.Stress3.slip_tendency",
+      "scientific_task": "Assess frictional reactivation of closed fractures under declared pore pressure and Mohr-Coulomb parameters.",
+      "distinct_from_existing": "Traction alone contains no pore-pressure/friction failure criterion. This task explicitly evaluates closed-fracture reactivation, without elastic or seismic modeling.",
+      "numeric_oracle": "The 60 MPa normal/40 MPa shear fixture at 10 MPa pore pressure has effective normal 50, slip tendency .8, dilation .5, and Coulomb excess 40-.6*50=10 MPa.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoPyroliteALR",
+      "capability_key": "geology:additive-logratio",
+      "upstream_callable": "pyrolite.comp.codata.ALR",
+      "scientific_task": "Express positive geochemical compositions as additive log ratios to an explicitly selected reference component.",
+      "distinct_from_existing": "GeoGeochemCLR uses the geometric mean and D redundant coordinates. ALR uses a declared analyte reference and D-1 coordinates with a distinct interpretive meaning.",
+      "numeric_oracle": "For [2,4,1] with third-component reference, coordinates are [ln2,ln4] and inverse closure gives [2/7,4/7,1/7].",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoPyroliteILR",
+      "capability_key": "geology:isometric-logratio",
+      "upstream_callable": "pyrolite.comp.codata.ILR",
+      "scientific_task": "Map chemical compositions into explicitly defined orthonormal log-ratio balances for valid Euclidean analysis.",
+      "distinct_from_existing": "GeoGeochemCLR is rank-deficient in D-dimensional Euclidean space. ILR supplies a complete orthonormal D-1 basis, not an alias of CLR output.",
+      "numeric_oracle": "For [4,2,1] and the stated Helmert contrasts, balances are ln2/sqrt2 and 3ln2/sqrt6; reconstructed fractions are 4/7,2/7,1/7.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoPyroliteCompositionalCenter",
+      "capability_key": "geology:compositional-center",
+      "upstream_callable": "pyrolite.comp.codata.logratiomean",
+      "scientific_task": "Estimate the Aitchison center of a population of positive geological compositions.",
+      "distinct_from_existing": "GeoGeochemCLR transforms individual rows; it does not estimate a sample population center in the simplex.",
+      "numeric_oracle": "Geometric component means of [1,4] and [4,1] are both 2; closure gives [.5,.5], unlike an absolute concentration estimate.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoPyroliteSphericalComposition",
+      "capability_key": "geology:spherical-composition",
+      "upstream_callable": "pyrolite.comp.codata.sphere",
+      "scientific_task": "Represent closed mineral-chemical compositions as positive-orthant spherical angles and reconstruct their fractions.",
+      "distinct_from_existing": "This square-root simplex/sphere representation is neither CLR/ALR/ILR log-ratio geometry nor the existing stereonet mapping of geological directions.",
+      "numeric_oracle": "Closure of [1,1,2] gives [1/4,1/4,1/2]; square-root coordinates [.5,.5,1/sqrt2] yield both upstream ordered angles pi/4.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoPyroliteMineralEndmemberUnmix",
+      "capability_key": "geology:mineral-endmember-unmix",
+      "upstream_callable": "pyrolite.mineral.normative.unmix",
+      "scientific_task": "Fit supplied chemical compositions to an explicit independent mineral endmember mass-fraction model.",
+      "distinct_from_existing": "GeoSpectralLinearUnmix fits unconstrained reflectance coefficients. This fits nonnegative closed chemical mass-fraction endmembers, with different physical inputs and constraints.",
+      "numeric_oracle": "Two orthogonal closed endmembers make the uniquely feasible mixture of [.25,.75] exactly [.25,.75]; this is an analytic mass-balance oracle, not a second optimizer.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSKGstatRobustVariogram",
+      "capability_key": "geology:robust-variogram-comparison",
+      "upstream_callable": "skgstat.estimators.cressie",
+      "scientific_task": "Compare classical, Cressie-Hawkins and Dowd empirical semivariograms on the same geological sample pairs.",
+      "distinct_from_existing": "GeoHPGLDirectionalSemivariogram computes a directional classical estimate. This single comparison tool diagnoses sensitivity to outliers using two robust estimators on identical isotropic pair bins; algorithms are not counted separately.",
+      "numeric_oracle": "For a concentration ramp of 2 ppm/m, lag differences are 2,4,6 and counts 3,2,1. Matheron is [2,8,18]; first Cressie bin is 2/(.457+.494/3+.045/9); first Dowd bin is 4.396.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSKGstatSpaceTimeVariogram",
+      "capability_key": "geology:space-time-variogram",
+      "upstream_callable": "skgstat.SpaceTimeVariogram",
+      "scientific_task": "Estimate joint spatial/temporal geological semivariance from repeated fixed-station measurements, including both cross-time directions.",
+      "distinct_from_existing": "Existing HPGL directional variograms use a single-time spatial point set. This estimates a two-dimensional space-time lag surface from repeat monitoring.",
+      "numeric_oracle": "For z(x,t)=2x+3t, averaging forward/backward time pairs cancels cross terms, giving gamma(h,k)=(4h^2+9k^2)/2. First cell=6.5 ppm^2, opposite corner=58.5; first count=2*3*3=18.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoGSToolsVariogramFit",
+      "capability_key": "geology:exponential-variogram-fit",
+      "upstream_callable": "gstools.Exponential.fit_variogram",
+      "scientific_task": "Fit correlated variance and correlation length to a supplied measured exponential semivariogram with fixed known nugget.",
+      "distinct_from_existing": "Neither the baseline empirical variogram nor prediction-grid kriging exposes an independent constrained fit to externally supplied empirical bins.",
+      "numeric_oracle": "Analytically constructed gamma(h)=.25+2*(1-exp(-h/3)) identifies variance=2 ppm^2, length=3 m and fixed nugget=.25 ppm^2; R squared=1.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoGSToolsBlockSupportCovariance",
+      "capability_key": "geology:block-support-covariance",
+      "upstream_callable": "gstools.Exponential.covariance",
+      "scientific_task": "Regularize point covariance to two explicit finite discrete geological sampling supports.",
+      "distinct_from_existing": "Existing point kriging predicts at locations; this quantifies change of sampling support through covariance regularization, without producing kriging predictions or reserves.",
+      "numeric_oracle": "With C(h)=4exp(-h), averaging the four within-block covariances gives 2+2exp(-2); between nodes {0,2} and {1,3}, covariance is 3exp(-1)+exp(-3).",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoSKGstatKrigingLOO",
+      "capability_key": "geology:kriging-leave-one-out",
+      "upstream_callable": "skgstat.OrdinaryKriging.transform",
+      "scientific_task": "Measure leave-one-out interpolation errors for a supplied fixed spherical geological variogram, retaining every validation fold.",
+      "distinct_from_existing": "GeoOrdinaryKrigingGrid generates prediction rasters. This tool removes each observation before prediction and measures held-out error; it does not duplicate a new grid/prediction API.",
+      "numeric_oracle": "Pure-nugget ordinary kriging gives equal weights to the three training points: predictions [3,8/3,7/3,2], errors [2,2/3,-2/3,-2], RMSE=sqrt(20/9).",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoGeochemBackgroundDistance",
+      "capability_key": "geology:geochemical-background-distance",
+      "upstream_callable": "sklearn.covariance.EmpiricalCovariance.mahalanobis",
+      "scientific_task": "Measure multivariate chemical departure from a caller-declared background in nonredundant ILR coordinates.",
+      "distinct_from_existing": "GeoGeochemCLR transforms a composition but does not compare observations against an independently declared multivariate background. This emits a covariance-normalized anomaly score, not another transform.",
+      "numeric_oracle": "Background log ratios map to [-sqrt(3/2),0,sqrt(3/2)] with ML variance 1; the sample maps to ILR=2, so squared Mahalanobis distance=4.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoLasioLogAudit",
+      "capability_key": "geology:las-log-audit",
+      "upstream_callable": "lasio.LASFile.read",
+      "scientific_task": "Parse and audit a local LAS drillhole log with explicit depth/curve units and preserved missing-value masks.",
+      "distinct_from_existing": "Baseline CSV record search and log/profile plotting do not parse LAS header/null conventions or enforce measured-depth integrity.",
+      "numeric_oracle": "Synthetic LAS depths [100,101,102] and assay [10,NULL,30] must yield row_count=3, valid_count=2, null_count=1 and unaltered positive values 10 and 30.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoWellyMinimumCurvature",
+      "capability_key": "geology:drillhole-minimum-curvature",
+      "upstream_callable": "welly.tools.compute_position_log",
+      "scientific_task": "Reconstruct a drillhole trajectory and normalized dogleg severity from a measured deviation survey.",
+      "distinct_from_existing": "Existing geographic distance/bearing tools do not integrate borehole deviation surveys or compute true vertical depth and dogleg severity.",
+      "numeric_oracle": "A 100-m circular arc from vertical to 60 degrees east has east=150/pi m, TVD=150sqrt(3)/pi m and dogleg severity 60/100*30=18 degrees/30m.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoWellyLogResample",
+      "capability_key": "geology:log-depth-resample",
+      "upstream_callable": "welly.Curve.to_basis",
+      "scientific_task": "Resample a measured drillhole log onto a declared regular depth basis using bounded linear interpolation.",
+      "distinct_from_existing": "GeoHoloViewsLineProfile only renders supplied data. This constructs an explicit numeric depth basis for aligning logs before cross-log analysis.",
+      "numeric_oracle": "For measured y=10+10z at depths 0,1,2 m, resampling at half-metre increments gives [10,15,20,25,30].",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoWellyLogDespike",
+      "capability_key": "geology:log-median-despike",
+      "upstream_callable": "welly.Curve.despike",
+      "scientific_task": "Attenuate isolated drillhole-log spikes using an explicit median window and global standard-deviation threshold, retaining original values.",
+      "distinct_from_existing": "Baseline log visualization and general record cleaning do not apply a depth-indexed numerical spike filter with explicit thresholds and retained raw measurements.",
+      "numeric_oracle": "Values [10,10,30,10,10] have population standard deviation 8; the central rolling median is 10, so z=1 clips the central spike to 18 while all others remain 10.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoWellyLogFaciesBlock",
+      "capability_key": "geology:log-facies-block",
+      "upstream_callable": "welly.Curve.block",
+      "scientific_task": "Segment a measured drillhole log at caller-specified value cutoffs and compute mean values within contiguous blocks.",
+      "distinct_from_existing": "This creates a contiguous-zone representation and within-zone log means, unlike profile rendering or isolated-spike filtering. It is not a count of selections or a generic threshold-only wrapper.",
+      "numeric_oracle": "At cutoff 20, contiguous classes are [0,0,1,1,0]. Block means are [12,12,27,27,10], retaining the last low block separately from the first.",
+      "status": "source_authored_unverified"
+    },
+    {
+      "tool_id": "GeoStriplogIntervalIntersection",
+      "capability_key": "geology:drillhole-interval-intersection",
+      "upstream_callable": "striplog.Interval.intersect",
+      "scientific_task": "Intersect two measured interval logs in one drillhole to expose co-occurring geological units and their shared measured-depth support.",
+      "distinct_from_existing": "Existing spatial polygon overlays work in map coordinates. This intersects geological logs along one shared borehole measured-depth datum, retaining both lithology labels and interval support.",
+      "numeric_oracle": "Measured-depth intervals [0,10] and [4,8] intersect at [4,8], giving thickness and total shared support exactly 4 m.",
+      "status": "source_authored_unverified"
+    }
+  ]
+}

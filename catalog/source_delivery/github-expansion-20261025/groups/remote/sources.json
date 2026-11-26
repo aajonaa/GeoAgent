@@ -1,0 +1,219 @@
+{
+  "group": "remote",
+  "research_date": "2026-10-25",
+  "sources": {
+    "spectral": {
+      "version": "0.25",
+      "repository": "spectralpython/spectral",
+      "commit": "bd91dc47377028683ef5c97bc7c1cc2dff14012c",
+      "tag": "0.25",
+      "license": "MIT",
+      "license_path": "LICENSE.txt",
+      "release_url": "https://github.com/spectralpython/spectral/releases/tag/0.25",
+      "release_tag_object": "93b1dca87034fbf612d67bc3e80a14c8fabd4f60",
+      "repository_url": "https://github.com/spectralpython/spectral",
+      "license_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/LICENSE.txt",
+      "license_evidence_file": "catalog/source_delivery/github-expansion-20261025/groups/remote/licenses/spectral.txt",
+      "release_commit_correspondence": "Annotated release tag dereferenced through official GitHub API to the exact source commit.",
+      "distribution_correspondence": "Published version and release-tag source reviewed; installed distribution contents have NOT been compared."
+    },
+    "scikit-image": {
+      "version": "0.26.0",
+      "repository": "scikit-image/scikit-image",
+      "commit": "ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8",
+      "tag": "v0.26.0",
+      "license": "BSD-3-Clause AND BSD-2-Clause AND MIT",
+      "license_path": "LICENSE.txt",
+      "release_url": "https://github.com/scikit-image/scikit-image/releases/tag/v0.26.0",
+      "release_tag_object": "ecd06885a44eec47cf268af923cd55e79db8a686",
+      "repository_url": "https://github.com/scikit-image/scikit-image",
+      "license_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/LICENSE.txt",
+      "license_evidence_file": "catalog/source_delivery/github-expansion-20261025/groups/remote/licenses/scikit-image.txt",
+      "release_commit_correspondence": "Annotated release tag dereferenced through official GitHub API to the exact source commit.",
+      "distribution_correspondence": "Published version and release-tag source reviewed; installed distribution contents have NOT been compared."
+    }
+  },
+  "operations": [
+    {
+      "tool_id": "GeoRemotePCA",
+      "upstream_callable": "spectral.algorithms.algorithms.principal_components",
+      "source_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/algorithms.py"
+    },
+    {
+      "tool_id": "GeoRemoteNoiseCovariance",
+      "upstream_callable": "spectral.algorithms.algorithms.noise_from_diffs",
+      "source_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/algorithms.py"
+    },
+    {
+      "tool_id": "GeoRemoteMNF",
+      "upstream_callable": "spectral.algorithms.algorithms.mnf",
+      "source_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/algorithms.py"
+    },
+    {
+      "tool_id": "GeoRemoteRX",
+      "upstream_callable": "spectral.algorithms.detectors.rx",
+      "source_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/detectors.py"
+    },
+    {
+      "tool_id": "GeoRemoteMatchedFilter",
+      "upstream_callable": "spectral.algorithms.detectors.matched_filter",
+      "source_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/detectors.py"
+    },
+    {
+      "tool_id": "GeoRemoteACE",
+      "upstream_callable": "spectral.algorithms.detectors.ace",
+      "source_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/detectors.py"
+    },
+    {
+      "tool_id": "GeoRemoteWhiteTophat",
+      "upstream_callable": "skimage.morphology.white_tophat",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/morphology/gray.py"
+    },
+    {
+      "tool_id": "GeoRemoteSeedReconstruction",
+      "upstream_callable": "skimage.morphology.reconstruction",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/morphology/grayreconstruct.py"
+    },
+    {
+      "tool_id": "GeoRemoteSkeleton",
+      "upstream_callable": "skimage.morphology.skeletonize",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/morphology/_skeletonize.py"
+    },
+    {
+      "tool_id": "GeoRemoteRemoveSmallObjects",
+      "upstream_callable": "skimage.morphology.remove_small_objects",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/morphology/misc.py"
+    },
+    {
+      "tool_id": "GeoRemoteFillSmallHoles",
+      "upstream_callable": "skimage.morphology.remove_small_holes",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/morphology/misc.py"
+    },
+    {
+      "tool_id": "GeoRemoteHMaxima",
+      "upstream_callable": "skimage.morphology.h_maxima",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/morphology/extrema.py"
+    },
+    {
+      "tool_id": "GeoRemoteGLCM",
+      "upstream_callable": "skimage.feature.graycomatrix",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/feature/texture.py"
+    },
+    {
+      "tool_id": "GeoRemoteLocalEntropy",
+      "upstream_callable": "skimage.filters.rank.entropy",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/filters/rank/generic.py"
+    },
+    {
+      "tool_id": "GeoRemoteLBP",
+      "upstream_callable": "skimage.feature.local_binary_pattern",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/feature/texture.py"
+    },
+    {
+      "tool_id": "GeoRemoteStructureTensor",
+      "upstream_callable": "skimage.feature.structure_tensor",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/feature/corner.py"
+    },
+    {
+      "tool_id": "GeoRemoteGabor",
+      "upstream_callable": "skimage.filters.gabor",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/filters/_gabor.py"
+    },
+    {
+      "tool_id": "GeoRemoteCanny",
+      "upstream_callable": "skimage.feature.canny",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/feature/_canny.py"
+    },
+    {
+      "tool_id": "GeoRemoteOtsu",
+      "upstream_callable": "skimage.filters.threshold_otsu",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/filters/thresholding.py"
+    },
+    {
+      "tool_id": "GeoRemoteWatershed",
+      "upstream_callable": "skimage.segmentation.watershed",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/segmentation/_watershed.py"
+    },
+    {
+      "tool_id": "GeoRemoteSLIC",
+      "upstream_callable": "skimage.segmentation.slic",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/segmentation/slic_superpixels.py"
+    },
+    {
+      "tool_id": "GeoRemoteFelzenszwalb",
+      "upstream_callable": "skimage.segmentation.felzenszwalb",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/segmentation/_felzenszwalb.py"
+    },
+    {
+      "tool_id": "GeoRemoteRandomWalker",
+      "upstream_callable": "skimage.segmentation.random_walker",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/segmentation/random_walker_segmentation.py"
+    },
+    {
+      "tool_id": "GeoRemoteRegionProperties",
+      "upstream_callable": "skimage.measure.regionprops_table",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/measure/_regionprops.py"
+    },
+    {
+      "tool_id": "GeoRemotePhaseRegistration",
+      "upstream_callable": "skimage.registration.phase_cross_correlation",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/registration/_phase_cross_correlation.py"
+    },
+    {
+      "tool_id": "GeoRemoteSSIMChange",
+      "upstream_callable": "skimage.metrics.structural_similarity",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/metrics/_structural_similarity.py"
+    },
+    {
+      "tool_id": "GeoRemoteSensorBandResample",
+      "upstream_callable": "spectral.algorithms.resampling.BandResampler",
+      "source_url": "https://github.com/spectralpython/spectral/blob/bd91dc47377028683ef5c97bc7c1cc2dff14012c/spectral/algorithms/resampling.py"
+    },
+    {
+      "tool_id": "GeoRemoteTVDenoise",
+      "upstream_callable": "skimage.restoration.denoise_tv_chambolle",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/restoration/_denoise.py"
+    },
+    {
+      "tool_id": "GeoRemoteRichardsonLucy",
+      "upstream_callable": "skimage.restoration.richardson_lucy",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/restoration/deconvolution.py"
+    },
+    {
+      "tool_id": "GeoRemoteRollingBall",
+      "upstream_callable": "skimage.restoration.rolling_ball",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/restoration/_rolling_ball.py"
+    }
+  ],
+  "excluded_operations": [
+    {
+      "tool_id": "GeoRemoteHistogramMatch",
+      "duplicate_of": "SkdownscaleQuantileBiasCorrection",
+      "counted_as_new": false,
+      "record_file": "catalog/source_delivery/github-expansion-20261025/groups/remote/excluded-candidates.json",
+      "upstream_callable": "skimage.exposure.match_histograms",
+      "source_url": "https://github.com/scikit-image/scikit-image/blob/ee0a7a3ebd9ac8c2602f40e55bc015a3c8a81ae8/src/skimage/exposure/histogram_matching.py"
+    }
+  ],
+  "compatibility": {
+    "python": "3.12",
+    "pins": [
+      "numpy==2.1.3",
+      "scipy==1.15.3",
+      "rasterio==1.4.3",
+      "matplotlib==3.10.7",
+      "jsonschema==4.25.1",
+      "spectral==0.25",
+      "scikit-image==0.26.0"
+    ],
+    "basis": "User-confirmed deployed versions plus upstream API/source review; NOT locally executed.",
+    "new_private_packages": [],
+    "main_runtime_changes": "none",
+    "transitive_lock": "Existing environment retained; this file pins direct imports, not a fresh-environment full transitive lock."
+  },
+  "pysptools": {
+    "used": false,
+    "documented_project": "https://pysptools.sourceforge.io/",
+    "reason": "Not required; no reliance on the invalid pysptools/pysptools GitHub URL."
+  }
+}

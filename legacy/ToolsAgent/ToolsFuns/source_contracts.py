@@ -162,3 +162,34 @@ def check_files(name, value):
                     raise ValueError("This source profile accepts points only.")
                 if not (-180 <= xy[0] <= 180 and -90 <= xy[1] <= 90):
                     raise ValueError("Coordinates are outside WGS84 bounds.")
+
+
+def validate_registration_metadata(spec):
+    """Validate the additive asset metadata envelope without requiring provenance."""
+    metadata = spec.get("registration_metadata")
+    if not isinstance(metadata, dict):
+        raise ValueError("Tool is missing registration_metadata: " + str(spec.get("id")))
+    for key in ("provider", "license", "asset_version", "source_commit"):
+        if key not in metadata:
+            raise ValueError(f"Tool metadata is missing {key}: {spec.get('id')}")
+    if metadata.get("metadata_profile") not in ("generic", "scientific"):
+        raise ValueError("Invalid tool metadata_profile: " + str(spec.get("id")))
+    protocol = metadata.get("official_protocol")
+    if not isinstance(protocol, dict):
+        raise ValueError("Tool metadata is missing official_protocol: " + str(spec.get("id")))
+    applicability = protocol.get("applicability")
+    if applicability not in ("applicable", "not_applicable", "unknown"):
+        raise ValueError("Invalid official_protocol applicability: " + str(spec.get("id")))
+    if applicability == "applicable" and (not protocol.get("name") or not protocol.get("version")):
+        raise ValueError("Applicable protocol needs a name and version: " + str(spec.get("id")))
+    if applicability != "applicable" and protocol.get("version") is not None:
+        raise ValueError("Non-applicable or unknown protocol cannot have a version: " + str(spec.get("id")))
+    runtime = metadata.get("runtime")
+    if not isinstance(runtime, dict) or any(key not in runtime for key in (
+            "python", "dependency_lock", "environment_version")):
+        raise ValueError("Tool metadata has an incomplete runtime envelope: " + str(spec.get("id")))
+    lifecycle = metadata.get("lifecycle")
+    if not isinstance(lifecycle, dict) or any(key not in lifecycle for key in (
+            "registration", "contract_validation", "unit_validation",
+            "workflow_validation", "platform_validation", "release_status")):
+        raise ValueError("Tool metadata has an incomplete lifecycle envelope: " + str(spec.get("id")))

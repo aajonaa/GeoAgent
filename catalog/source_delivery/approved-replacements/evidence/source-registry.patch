@@ -1,0 +1,10 @@
+--- a/geological_agent/geology/source_registry.py
++++ b/geological_agent/geology/source_registry.py
+@@ -22,6 +22,7 @@
+ 
+ READY = "source_revised_unverified"
+ ENTRY_MODULES = {
++    "geological_agent.geology.collection_approved_replacements",
+     "legacy.ToolsAgent.ToolsFuns.GeoEval.scientific_tools",
+     "legacy.ToolsAgent.ToolsFuns.Geoscience.geoscience_common",
+     "legacy.ToolsAgent.ToolsFuns.GeoEval.runtime",

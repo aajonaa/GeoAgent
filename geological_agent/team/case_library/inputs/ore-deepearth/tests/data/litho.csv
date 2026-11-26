@@ -1,0 +1,4 @@
+node_index,latitude,longitude,moho_depth_km,lab_depth_km
+N10,0,10,40.5,110.25
+N0,0,0,35.125,92.5
+N45,45,0,30,85

@@ -1,0 +1,143 @@
+{
+  "case_id": "CHG-034",
+  "source_skill": "ore-change",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "value_unit": "SYN-unit",
+      "tool": "RemoteSensingPercentageChange",
+      "arguments": {
+        "a": 100,
+        "b": 125
+      }
+    },
+    {
+      "operation_id": "op2",
+      "value_unit": "1",
+      "tool": "RemoteSensingExtremeSnowLossPercentage",
+      "arguments": {
+        "binary_map_path": "tests/data/snow.tif"
+      }
+    },
+    {
+      "operation_id": "op3",
+      "value_unit": "SYN-unit",
+      "tool": "RemoteSensingBatchHotspotPercentage",
+      "arguments": {
+        "file_list": [
+          "tests/data/scene-a.tif",
+          "tests/data/scene-b.tif"
+        ],
+        "threshold": 2
+      }
+    },
+    {
+      "operation_id": "op4",
+      "value_unit": "SYN-unit",
+      "tool": "RemoteSensingCountAboveThreshold",
+      "arguments": {
+        "file_path": "tests/data/scene-a.tif",
+        "threshold": 2
+      }
+    },
+    {
+      "operation_id": "op5",
+      "value_unit": "SYN-unit",
+      "tool": "RemoteSensingBatchHotspotRaster",
+      "arguments": {
+        "file_list": [
+          "tests/data/scene-a.tif",
+          "tests/data/scene-b.tif"
+        ],
+        "threshold": 2
+      }
+    },
+    {
+      "operation_id": "op6",
+      "value_unit": "SYN-unit",
+      "tool": "RemoteSensingFireIncreaseMap",
+      "arguments": {
+        "change_image_path": "tests/data/change.tif",
+        "threshold": 0
+      }
+    },
+    {
+      "operation_id": "op7",
+      "value_unit": "SYN-unit",
+      "tool": "RemoteSensingMaxValueAndIndex",
+      "arguments": {
+        "x": [
+          3,
+          7,
+          7,
+          -2
+        ]
+      }
+    },
+    {
+      "operation_id": "op8",
+      "value_unit": "SYN-unit",
+      "tool": "RemoteSensingMinValueAndIndex",
+      "arguments": {
+        "x": [
+          3,
+          -2,
+          -2,
+          7
+        ]
+      }
+    },
+    {
+      "operation_id": "op9",
+      "value_unit": "SYN-unit",
+      "tool": "RemoteSensingArgmax",
+      "arguments": {
+        "x": [
+          0,
+          -1,
+          0
+        ]
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {},
+  "input_path_bindings": [
+    {
+      "original": "tests/data/snow.tif",
+      "workspace": "tests/data/snow.tif",
+      "source": "ore-change-1.0.0-r3/tests/data/snow.tif"
+    },
+    {
+      "original": "tests/data/scene-a.tif",
+      "workspace": "tests/data/scene-a.tif",
+      "source": "ore-change-1.0.0-r3/tests/data/scene-a.tif"
+    },
+    {
+      "original": "tests/data/scene-b.tif",
+      "workspace": "tests/data/scene-b.tif",
+      "source": "ore-change-1.0.0-r3/tests/data/scene-b.tif"
+    },
+    {
+      "original": "tests/data/scene-a.tif",
+      "workspace": "tests/data/scene-a.tif",
+      "source": "ore-change-1.0.0-r3/tests/data/scene-a.tif"
+    },
+    {
+      "original": "tests/data/scene-a.tif",
+      "workspace": "tests/data/scene-a.tif",
+      "source": "ore-change-1.0.0-r3/tests/data/scene-a.tif"
+    },
+    {
+      "original": "tests/data/scene-b.tif",
+      "workspace": "tests/data/scene-b.tif",
+      "source": "ore-change-1.0.0-r3/tests/data/scene-b.tif"
+    },
+    {
+      "original": "tests/data/change.tif",
+      "workspace": "tests/data/change.tif",
+      "source": "ore-change-1.0.0-r3/tests/data/change.tif"
+    }
+  ]
+}

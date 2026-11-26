@@ -1,0 +1,307 @@
+{
+  "id": "GeoSARDopplerDeskew",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoSARDopplerDeskew",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoSARDopplerDeskew (remote_original_cases.RemoteCases.test_registry_GeoSARDopplerDeskew) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "f8de1a5507f599617a53f1cd74fd41e41f26f5fb17e4b9d531910f5c215cc427",
+          "result.tif": "ee9e3c27e43ab3b584c1492c549ea99676e1dccec6b43aee4767caa44477c93b"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "f8de1a5507f599617a53f1cd74fd41e41f26f5fb17e4b9d531910f5c215cc427",
+          "result.tif": "ee9e3c27e43ab3b584c1492c549ea99676e1dccec6b43aee4767caa44477c93b"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_dict/results/43f41ecc016945c7aca7a203c1253fe9",
+        "artifacts": {
+          "band-summary.csv": "f8de1a5507f599617a53f1cd74fd41e41f26f5fb17e4b9d531910f5c215cc427",
+          "result.tif": "ee9e3c27e43ab3b584c1492c549ea99676e1dccec6b43aee4767caa44477c93b"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_json/results/e6f1b686d64c46c599ecb4033ce9180e",
+        "artifacts": {
+          "band-summary.csv": "f8de1a5507f599617a53f1cd74fd41e41f26f5fb17e4b9d531910f5c215cc427",
+          "result.tif": "ee9e3c27e43ab3b584c1492c549ea99676e1dccec6b43aee4767caa44477c93b"
+        }
+      }
+    },
+    "opposite_fft_sign_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "f8de1a5507f599617a53f1cd74fd41e41f26f5fb17e4b9d531910f5c215cc427",
+          "result.tif": "ee9e3c27e43ab3b584c1492c549ea99676e1dccec6b43aee4767caa44477c93b"
+        }
+      }
+    },
+    "opposite_fft_sign_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "f8de1a5507f599617a53f1cd74fd41e41f26f5fb17e4b9d531910f5c215cc427",
+          "result.tif": "ee9e3c27e43ab3b584c1492c549ea99676e1dccec6b43aee4767caa44477c93b"
+        }
+      }
+    },
+    "opposite_fft_sign_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_runtime_dict/results/22352751cc9840b6958bcb9c42b7b731",
+        "artifacts": {
+          "band-summary.csv": "f8de1a5507f599617a53f1cd74fd41e41f26f5fb17e4b9d531910f5c215cc427",
+          "result.tif": "ee9e3c27e43ab3b584c1492c549ea99676e1dccec6b43aee4767caa44477c93b"
+        }
+      }
+    },
+    "opposite_fft_sign_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/opposite_fft_sign_runtime_json/results/71d8094850514f1aa4bbd58168c48fd6",
+        "artifacts": {
+          "band-summary.csv": "f8de1a5507f599617a53f1cd74fd41e41f26f5fb17e4b9d531910f5c215cc427",
+          "result.tif": "ee9e3c27e43ab3b584c1492c549ea99676e1dccec6b43aee4767caa44477c93b"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoSARDopplerDeskew",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoSARDopplerDeskew (remote_original_cases.RemoteCases.test_reject_extra_GeoSARDopplerDeskew) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoSARDopplerDeskew",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoSARDopplerDeskew (remote_original_cases.RemoteCases.test_reject_unit_GeoSARDopplerDeskew) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARDopplerDeskew",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoSARDopplerDeskew (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoSARDopplerDeskew) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARDopplerDeskew",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoSARDopplerDeskew (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoSARDopplerDeskew) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARDopplerDeskew",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoSARDopplerDeskew (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoSARDopplerDeskew) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoSARDopplerDeskew",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoSARDopplerDeskew (remote_original_cases.RemoteCases.test_reject_singular_GeoSARDopplerDeskew) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARDopplerDeskew",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoSARDopplerDeskew (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoSARDopplerDeskew) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoSARDopplerDeskew/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

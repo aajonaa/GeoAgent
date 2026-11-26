@@ -1,0 +1,90 @@
+{
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "crs": "EPSG:32631",
+    "origin_xy_m": [
+      500000,
+      1000
+    ],
+    "cell_size_m": 1,
+    "nodata_policy": "reject_missing",
+    "elevation_m": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "observer_cell": [
+      3,
+      3
+    ],
+    "observer_height_m": 2,
+    "target_height_m": 0,
+    "units": {
+      "origin_xy_m": "m",
+      "cell_size_m": "m",
+      "elevation_m": "m"
+    }
+  },
+  "numeric_oracle": "Flat zero-elevation plane with observer 2 m above ground and no curvature/refraction flags: all cells visible=1. Preserve exact extent, spacing, CRS and explicit native nulls."
+}

@@ -1,0 +1,86 @@
+{
+  "skill_id": "xiaoyu_gnnwr",
+  "archive_sha256": "28ffbfe45fe669e4b0636c442cd18ace8055ab232e1c5f14cd7a05a101a6e6f9",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 28,
+          "archive_sha256": "f934cbb8bbf935f095a5b4e2f875f4042870c8eebd6db3adf42d26f05b20b1e5",
+          "member": "gnnwr/LICENSE"
+        },
+        {
+          "package_number": 74,
+          "archive_sha256": "fa40fdec0a17e15b2005c989f5cdf0c8ec812a9f1bae6b3fb7133062e039332a",
+          "member": "gnnwr/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 728,
+      "sha256": "3dadc9a3e54c320ff6bdfcb1e72b2d89d8737c756399cef4b8e434291fc51513",
+      "origins": [
+        {
+          "package_number": 28,
+          "archive_sha256": "f934cbb8bbf935f095a5b4e2f875f4042870c8eebd6db3adf42d26f05b20b1e5",
+          "member": "gnnwr/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 8322,
+      "sha256": "654970a253e8a8c26132743c0d1978bc588b594b87241be76f1bccd816d84670",
+      "origins": [
+        {
+          "package_number": 28,
+          "archive_sha256": "f934cbb8bbf935f095a5b4e2f875f4042870c8eebd6db3adf42d26f05b20b1e5",
+          "member": "gnnwr/SKILL.md"
+        },
+        {
+          "package_number": 74,
+          "archive_sha256": "fa40fdec0a17e15b2005c989f5cdf0c8ec812a9f1bae6b3fb7133062e039332a",
+          "member": "gnnwr/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/diagnostics.md",
+      "bytes": 3051,
+      "sha256": "0d75fabf3c1467638fd109cd21bb0d28d5dc8fce249ef70e8ea05e894e332162",
+      "origins": [
+        {
+          "package_number": 28,
+          "archive_sha256": "f934cbb8bbf935f095a5b4e2f875f4042870c8eebd6db3adf42d26f05b20b1e5",
+          "member": "gnnwr/references/diagnostics.md"
+        },
+        {
+          "package_number": 74,
+          "archive_sha256": "fa40fdec0a17e15b2005c989f5cdf0c8ec812a9f1bae6b3fb7133062e039332a",
+          "member": "gnnwr/references/diagnostics.md"
+        }
+      ]
+    },
+    {
+      "path": "references/visualization.md",
+      "bytes": 3366,
+      "sha256": "df51932bfcd95ac96cbd4ad0da6e6afbb1294e1572d19e16d913c548c992d550",
+      "origins": [
+        {
+          "package_number": 28,
+          "archive_sha256": "f934cbb8bbf935f095a5b4e2f875f4042870c8eebd6db3adf42d26f05b20b1e5",
+          "member": "gnnwr/references/visualization.md"
+        },
+        {
+          "package_number": 74,
+          "archive_sha256": "fa40fdec0a17e15b2005c989f5cdf0c8ec812a9f1bae6b3fb7133062e039332a",
+          "member": "gnnwr/references/visualization.md"
+        }
+      ]
+    }
+  ]
+}

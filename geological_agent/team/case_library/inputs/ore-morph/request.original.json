@@ -1,0 +1,12 @@
+{
+  "tool": "GeoRemoteRemoveSmallObjects",
+  "arguments": {
+    "raster_path": "ACTUAL_PARENT/result.tif",
+    "input_unit": "binary",
+    "max_size_pixels": 1
+  },
+  "workflow": {
+    "parent": "MO041",
+    "kind": "native_result_tif"
+  }
+}

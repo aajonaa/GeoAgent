@@ -1,0 +1,44 @@
+{
+  "source": {
+    "kind": "synthetic",
+    "citation": "Independently hand-authored analytic CPU site graph; arbitrary site concentration mg/kg, not measurements or disaster/mineral evidence."
+  },
+  "crs": "EPSG:32631",
+  "coordinate_unit": "m",
+  "points_xy": [
+    [
+      500000,
+      4500000
+    ],
+    [
+      500003,
+      4500000
+    ],
+    [
+      500000,
+      4500004
+    ],
+    [
+      500003,
+      4500004
+    ],
+    [
+      500006,
+      4500004
+    ],
+    [
+      500006,
+      4500000
+    ]
+  ],
+  "values": [
+    2,
+    7,
+    3,
+    11,
+    5,
+    13
+  ],
+  "radius_m": 5,
+  "value_unit": "mg/kg"
+}

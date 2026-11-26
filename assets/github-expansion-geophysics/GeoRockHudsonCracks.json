@@ -1,0 +1,48 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockHudsonCracks",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "inclusion_bulk_gpa": 0,
+    "inclusion_shear_gpa": 0,
+    "aspect_ratio": 0.01,
+    "crack_density": 0.02
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "stiffness_gpa",
+        2,
+        2
+      ],
+      "value": 35.44888888888889,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "stiffness_gpa",
+        5,
+        5
+      ],
+      "value": 15,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "aspect_ratio": 0
+  },
+  "numeric_oracle": "Independent dry-crack U3=32/15 for lambda=10,mu=15GPa; C33=40-(40^2/15)*0.02*U3,C66=15.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/EM.py",
+  "limitations": [
+    "Fixed first order and axis3; thin weak cracks; reject unstable tensors.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

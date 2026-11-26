@@ -1,0 +1,105 @@
+{
+  "case_id": "DV-025",
+  "source_skill": "ore-vector",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "std",
+      "tool": "DeepTimeStandardizeSpatialData",
+      "arguments": {
+        "paths": [
+          "tests/data/p.geojson"
+        ]
+      }
+    },
+    {
+      "operation_id": "batch",
+      "paths_from": [
+        {
+          "operation_id": "std",
+          "pointer": "/standardized_layers/0/output"
+        }
+      ],
+      "tool": "DeepTimeBatchVector",
+      "arguments": {}
+    },
+    {
+      "operation_id": "clean",
+      "paths_from": [
+        {
+          "operation_id": "batch",
+          "pointer": "/standardized_layers/0/output"
+        }
+      ],
+      "tool": "DeepTimeValidateSpatialData",
+      "arguments": {}
+    },
+    {
+      "operation_id": "near",
+      "paths_from": [
+        {
+          "operation_id": "clean",
+          "pointer": "/validation_reports/0/clean_output"
+        }
+      ],
+      "tool": "DeepTimeNearestNeighbor",
+      "arguments": {}
+    },
+    {
+      "operation_id": "buffer",
+      "paths_from": [
+        {
+          "operation_id": "clean",
+          "pointer": "/validation_reports/0/clean_output"
+        }
+      ],
+      "tool": "DeepTimeBuffer",
+      "arguments": {
+        "distance_km": 10
+      }
+    },
+    {
+      "operation_id": "overlay",
+      "paths_from": [
+        {
+          "operation_id": "clean",
+          "pointer": "/validation_reports/0/clean_output"
+        },
+        "tests/data/zones.geojson"
+      ],
+      "tool": "DeepTimeOverlay",
+      "arguments": {}
+    },
+    {
+      "operation_id": "map",
+      "paths_from": [
+        {
+          "operation_id": "buffer",
+          "pointer": "/buffer_output"
+        },
+        {
+          "operation_id": "overlay",
+          "pointer": "/overlay_output"
+        }
+      ],
+      "tool": "DeepTimeRenderMap",
+      "arguments": {
+        "title": "Vector workflow audit"
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {},
+  "input_path_bindings": [
+    {
+      "original": "tests/data/p.geojson",
+      "workspace": "tests/data/p.geojson",
+      "source": "ore-vector-1.0.1/tests/data/p.geojson"
+    },
+    {
+      "original": "tests/data/zones.geojson",
+      "workspace": "tests/data/zones.geojson",
+      "source": "ore-vector-1.0.1/tests/data/zones.geojson"
+    }
+  ]
+}

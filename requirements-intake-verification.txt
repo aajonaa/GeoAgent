@@ -1,0 +1,2 @@
+# Existing PDF content renderer dependency, matching the live environment.
+markdown-it-py==4.0.0

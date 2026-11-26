@@ -1,0 +1,48 @@
+{
+  "operations": [
+    {
+      "operation_id": "value",
+      "tool": "EnergyCapacityValue",
+      "arguments": {
+        "dataset_path": "measurements/capacity.csv",
+        "dataset_version": "SYNTHETIC-test-v1",
+        "series": "Solar",
+        "year": 2021
+      }
+    },
+    {
+      "operation_id": "growth",
+      "tool": "EnergyCapacityGrowth",
+      "arguments": {
+        "dataset_path": "measurements/capacity.csv",
+        "dataset_version": "SYNTHETIC-test-v1",
+        "series": "Solar",
+        "start_year": 2020,
+        "end_year": 2021
+      }
+    },
+    {
+      "operation_id": "mix",
+      "tool": "EnergyCountryRenewableSummary",
+      "arguments": {
+        "dataset_path": "measurements/mix.csv",
+        "dataset_version": "SYNTHETIC-test-v1",
+        "country": "A",
+        "renewable_types": [
+          "Solar",
+          "Wind"
+        ]
+      }
+    },
+    {
+      "operation_id": "transition",
+      "tool": "EnergyTransitionMetrics",
+      "arguments": {
+        "dataset_path": "measurements/transition.csv",
+        "dataset_version": "SYNTHETIC-test-v1",
+        "country": "A",
+        "year": 2021
+      }
+    }
+  ]
+}

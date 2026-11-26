@@ -1,0 +1,78 @@
+{
+  "skill_id": "xiaoyu_disba",
+  "archive_sha256": "18328017b97b439b7d59b5e814dd1a96ef209e3bc6d8b3db6e8f63fc79b4c82b",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 16,
+          "archive_sha256": "be26d28c05778b0e5758731161305dabe6b50a46cebba7febb776ebc40eba0c9",
+          "member": "disba/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 723,
+      "sha256": "5e169db0e35f72dcc0e2fbbc252b12f851b8e3de831322d42e64c5b67609197a",
+      "origins": [
+        {
+          "package_number": 16,
+          "archive_sha256": "be26d28c05778b0e5758731161305dabe6b50a46cebba7febb776ebc40eba0c9",
+          "member": "disba/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5715,
+      "sha256": "13f12b3d88c347fba5cade3c2699abf6703b7ba1ec718e47fce42effe763e39e",
+      "origins": [
+        {
+          "package_number": 16,
+          "archive_sha256": "be26d28c05778b0e5758731161305dabe6b50a46cebba7febb776ebc40eba0c9",
+          "member": "disba/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/dispersion_curves.md",
+      "bytes": 4404,
+      "sha256": "e72c67da5ebbaf021d66f88e862cc0415fa355cf09132d8684e546bb82d2d936",
+      "origins": [
+        {
+          "package_number": 16,
+          "archive_sha256": "be26d28c05778b0e5758731161305dabe6b50a46cebba7febb776ebc40eba0c9",
+          "member": "disba/references/dispersion_curves.md"
+        }
+      ]
+    },
+    {
+      "path": "references/velocity_models.md",
+      "bytes": 5151,
+      "sha256": "bce7908fc3800a23615a191b16dd4ef63c19ab02310ef587a8392711e98f1985",
+      "origins": [
+        {
+          "package_number": 16,
+          "archive_sha256": "be26d28c05778b0e5758731161305dabe6b50a46cebba7febb776ebc40eba0c9",
+          "member": "disba/references/velocity_models.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/dispersion_analysis.py",
+      "bytes": 14630,
+      "sha256": "47f8a7de904b6afbca95cfa87a8f3f30272394d5c88b49650440f01ba0397242",
+      "origins": [
+        {
+          "package_number": 16,
+          "archive_sha256": "be26d28c05778b0e5758731161305dabe6b50a46cebba7febb776ebc40eba0c9",
+          "member": "disba/scripts/dispersion_analysis.py"
+        }
+      ]
+    }
+  ]
+}

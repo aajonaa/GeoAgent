@@ -1,0 +1,538 @@
+{
+  "status": "proposed_not_run",
+  "operations": [
+    {
+      "tool_id": "Geo500CrystalSpaceGroupAudit",
+      "fixture": "assets/expansion501-geology/Geo500CrystalSpaceGroupAudit.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Monatomic cubic cell: space group 221, 48 rotation operations, one equivalent site (independent cubic point group).",
+      "negative_constraints": [
+        "Ordered periodic atomic sites only; tolerance-dependent crystallographic classification."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500IrreducibleReciprocalMesh",
+      "fixture": "assets/expansion501-geology/Geo500IrreducibleReciprocalMesh.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Cubic 2x2x2 mesh: 4 symmetry orbits with sorted weights [1,1,3,3], summing to 8; direct cube-corner orbit enumeration.",
+      "negative_constraints": [
+        "No magnetic symmetry or electronic-structure solver; time reversal fixed on."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500PowderXRDPattern",
+      "fixture": "assets/expansion501-geology/Geo500PowderXRDPattern.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Simple cubic a=4 angstrom, wavelength=1: (100) d=4 and 2theta=14.361511562916563 degrees by Bragg law, independent of XRDCalculator.",
+      "negative_constraints": [
+        "No texture, instrument broadening, extinction corrections or measured mineral identification."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500MineralOxygenBasisFormula",
+      "fixture": "assets/expansion501-geology/Geo500MineralOxygenBasisFormula.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Original wt% fixture is preserved: 57.293630232496 MgO and 42.706369767504 SiO2. Explicit elemental masses Mg=24.305, Si=28.085, O=15.999 g/mol give oxide masses 40.304 and 60.083. Independent exact-decimal stoichiometry yields Mg=1.9999704077834797, Si=1.0000147961082602, O=4; atol=1e-6 and rtol=0 unchanged. A separate ideal 2MgO+SiO2 fixture constructed from the same masses must give Mg=2, Si=1, O=4. Neither expected value calls pyrolite or periodictable.",
+      "negative_constraints": [
+        "Total 90..102 wt%; supplied FeO/Fe2O3 retained; no redox inference or missing-component imputation.",
+        "Required atomic_weight_convention is periodictable-2.1.0-elemental; aligned oxide molar masses are reported. No isotope override, hidden normalization, tolerance change or rewritten kernel."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500MineralReactionBalance",
+      "fixture": "assets/expansion501-geology/Geo500MineralReactionBalance.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Mg2SiO4+SiO2 -> 2MgSiO3: coefficients [-1,-1,2]; Mg=2, Si=2, O=6 on each side by integer atom counting.",
+      "negative_constraints": [
+        "Unique stoichiometric nullspace required; forbids omitted participants and upstream side swaps; no reaction kinetics or favorability inferred."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500MineralPhaseHull",
+      "fixture": "assets/expansion501-geology/Geo500MineralPhaseHull.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "LiO=-2 eV/formula versus LiO polymorph=0 with zero elemental references: high polymorph 1 eV/atom above hull; decomposes 100% into low LiO.",
+      "negative_constraints": [
+        "At most four elements; all elemental terminal references required by upstream; mixing incompatible energy references is forbidden."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500CrystalCoordination",
+      "fixture": "assets/expansion501-geology/Geo500CrystalCoordination.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "NaCl conventional a=5.64 angstrom: central Na has 6 geometric nearest Cl neighbors, each 2.82 angstrom, from octahedral lattice geometry.",
+      "negative_constraints": [
+        "Geometric-only CrystalNN weights; no oxidation-state constraints or inferred bond orders."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500BondValenceOxidation",
+      "fixture": "assets/expansion501-geology/Geo500BondValenceOxidation.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Periclase rock-salt MgO: inferred Mg +2 and O -2, four of each in conventional cell; independent known ionic valence and neutrality. Not a measured-redox oracle.",
+      "negative_constraints": [
+        "Finite search budget 10000; unsupported elements/ambiguous fits fail, not fabricated charges; no measured redox claim."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500CrystalStructureEquivalence",
+      "fixture": "assets/expansion501-geology/Geo500CrystalStructureEquivalence.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Identical NaCl after site permutation and fractional origin translation: equivalent=true, RMS=0 and max=0; 8 atom identities retained.",
+      "negative_constraints": [
+        "Fixed matching tolerances; no scaling, anonymous chemical substitution or supercell search; nonmatches return explicit null distances."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500WulffCrystalHabit",
+      "fixture": "assets/expansion501-geology/Geo500WulffCrystalHabit.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Cubic gamma100=1, gamma110=gamma111=2: cube with {100} area fraction 1, shape factor 6, mean surface energy 1 J/m2; independent geometry.",
+      "negative_constraints": [
+        "No absolute nanocrystal size or dimensional raw Wulff volume reported; nondegenerate indexed surface energies required."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500PeriodicIonicLatticeEnergy",
+      "fixture": "assets/expansion501-geology/Geo500PeriodicIonicLatticeEnergy.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "NaCl a=5.64 angstrom, charges +/-1: conventional-cell Madelung energy approximately -35.694057607611626 eV (M=1.7475645946331822); absolute magnitude 35.6940576 eV. Independent Madelung reference still requires acceptance citation freeze.",
+      "negative_constraints": [
+        "Neutral ordered 3D cells only; no implicit charge compensation, metallic screening or full formation-energy claim."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500CoherentMineralInterfaceMatch",
+      "fixture": "assets/expansion501-geology/Geo500CoherentMineralInterfaceMatch.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Identical square surface nets of side 2 angstrom: lowest matching area 4 angstrom2, identity deformation and unit stretches.",
+      "negative_constraints": [
+        "At most 25 primitive-cell area multiples; fixed mismatch tolerances; no claim of favorable interface energy."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500MineralSurfaceTerminations",
+      "fixture": "assets/expansion501-geology/Geo500MineralSurfaceTerminations.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Monatomic cubic a=2 angstrom, (001), 8 angstrom slab: surface area 4 angstrom2 and four atomic layers, from lattice-plane counting.",
+      "negative_constraints": [
+        "Input <=32 sites; output <=8192 atoms; no reconstruction, relaxation, bond repair or invented surface energies."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500REEOrthogonalShape",
+      "fixture": "assets/expansion501-geology/Geo500REEOrthogonalShape.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Constant log normalized REE=2: lambda0=2, lambda1..3=0 by orthogonality to constants; 13 positive supplied elements.",
+      "negative_constraints": [
+        "Fixed element order La Ce Pr Nd Sm Gd Tb Dy Ho Er Tm Yb Lu; no missing-value filling, tetrad fits or reference downloads."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500VolcanicTASClass",
+      "fixture": "assets/expansion501-geology/Geo500VolcanicTASClass.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "SiO2=50 wt%, total alkali=3 wt% lies inside Bs (subalkalic basalt); alkali margin to the relevant upper line is positive (4.142857-3 wt%).",
+      "negative_constraints": [
+        "Only declared anhydrous volcanic chemistry; boundary/outside samples receive no forced class; not tectonic provenance or ore identification."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500MineralNeutronContrast",
+      "fixture": "assets/expansion501-geology/Geo500MineralNeutronContrast.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Independent NIST/Sears bSi=4.1491 fm,bO=5.803 fm gives SiO2 SLD ~4.184719291694345e-6/angstrom2 at 2.65 g/cm3; tolerance 0.1% permits documented newer upstream table values, not an exact same-table oracle.",
+      "negative_constraints": [
+        "Natural-isotope elemental formulas only; tabulated bound-atom approximation, not magnetic/thermal material-specific scattering."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500PoreChordDistribution",
+      "fixture": "assets/expansion501-geology/Geo500PoreChordDistribution.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Two isolated interior chords of 2 and 4 voxels at 0.01 m pitch: 0.02 and 0.04 m lengths, relative frequencies 0.5/0.5 and mean 0.03 m by direct segment geometry.",
+      "negative_constraints": [
+        "Binary physical pore mask, no segmentation; sampled lines separated by one voxel; boundary-touching chords removed."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500PoreBodyRadiusDistribution",
+      "fixture": "assets/expansion501-geology/Geo500PoreBodyRadiusDistribution.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Central 3x3x3 pore in solid 7^3 volume: radius-2 smooth digital sphere covers all 27 pore centers (sqrt(3)<2); radius 2 micrometres at 1 micrometre pitch and upper-bin fraction 1.",
+      "negative_constraints": [
+        "Solid exterior collar required; fixed integer radii, smooth=True, brute-force upstream method; radius not diameter."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500QuasistaticCapillaryDrainage",
+      "fixture": "assets/expansion501-geology/Geo500QuasistaticCapillaryDrainage.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Single connected inlet-outlet pore channel, all entry pressures 2000 Pa: no invasion at 1000 Pa and full saturation 1 at 3000 Pa, with reported step pressure 3000 Pa rather than fictitious exact 2000.",
+      "negative_constraints": [
+        "No generated Young-Laplace pressure or hidden surface tension; explicit pressure input. Infinity is represented by null plus masks, not silently replaced with a finite pressure."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500MineralEhPHStability",
+      "fixture": "assets/expansion501-geology/Geo500MineralEhPHStability.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Synthetic Fe(s)=0 eV/Fe and Fe2+(aq)=1 eV/Fe at 1 M: crossing Eh=0.5 V; Fe(s) is 1 eV/atom above the ion line at Eh=1 V by two-electron electrochemical work.",
+      "negative_constraints": [
+        "Single-metal H/O systems only, room-temperature upstream PREFAC; no arbitrary temperature, database download, water-stability certification or kinetic persistence claim."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500SpatialCellDeclustering",
+      "fixture": "assets/expansion501-geology/Geo500SpatialCellDeclustering.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Three samples in one cell and one in a second equally represented cell: normalized weights [1/6,1/6,1/6,1/2], declustered mean 6 ppm versus naive 8 ppm, from equal cell representation.",
+      "negative_constraints": [
+        "Immutable archive required; source iminmax=1 selects minimum despite contradictory docstring; 2D isotropic cells; no ore grade imputation."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "GeoSlopeLimitEquilibrium",
+      "fixture": "assets/expansion501-geology/GeoSlopeLimitEquilibrium.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Independent dry limit-equilibrium scale invariance: multiply unit weights, cohesion and every load by 2 at fixed geometry/friction; expected safety-factor ratio=1. A separate published absolute-FOS benchmark remains acceptance_pending, not claimed verified.",
+      "negative_constraints": [
+        "Fixed Bishop simplified circular family and bounded search; minimum among searched surfaces is not certified global critical FOS or engineering approval."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "GeoMantleMeltingPath",
+      "fixture": "assets/expansion501-geology/GeoMantleMeltingPath.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Pressure-grid endpoints are independently prescribed as 4 and 0.1 GPa with 101 points. Mass balance Fbulk=0.8Flherzolite+0.2Fharzburgite; mass-fraction sum=1. Independent published thermal/melt-path numeric benchmark remains pending (not an absolute melting-accuracy claim).",
+      "negative_constraints": [
+        "Fixed dry Katz2003 lherzolite plus Shorttle2014 harzburgite; no model/callback parameters; freezing allowed and pressure endpoints not shifted. GPL LICENSE conflicts with MIT packaging classifier; redistribution review pending."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "GeoImplicitStructuralModel",
+      "fixture": "assets/expansion501-geology/GeoImplicitStructuralModel.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Horizontal contact z=500 m in a 1000 m cube with 8^3 centered cells gives 512 cells split into two geometric halves of 256; independent plane/grid geometry. Scalar sign/label identities are engine conventions, not assumed geological names.",
+      "negative_constraints": [
+        "GemPy=2026.0.3 and engine=2026.0.3, explicit NumPy CPU backend, no GPU fallback. Single stack only; no faults or meshes. EUPL-1.2, not LGPL; publication/distribution approval pending."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "GeoConditionedResourceEnsemble",
+      "fixture": "assets/expansion501-geology/GeoConditionedResourceEnsemble.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Independent one-observation Schur complement: mean=10+2/e, covariance diagonal=4*(1-exp(-2)), off-diagonal exactly zero for x=-1,+1 conditioned at 0. With alpha=1, off-diagonal=0.8*exp(-2)>0 and mean=10+8/(5e). Check full covariance, not empirical marginals. Samples use that same joint covariance; no pointwise scaling.",
+      "negative_constraints": [
+        "Actual provider is scikit-learn 1.7.2, not GSTools. Fixed ConstantKernel times Matern nu=0.5; optimizer=None, normalize_y=False, explicit known mean.",
+        "Independent homoscedastic observation-error variance alpha is explicit; outputs describe the latent field, not a fresh noisy assay.",
+        "Coordinates are metres in one caller-defined Cartesian system; no CRS transform, detrending, fit or hyperparameter optimization.",
+        "Repeated conditioning/target positions are rejected; a target may equal one observation. Conditioning eigenvalue ratio must be at least 1e-12.",
+        "Negative posterior covariance eigenvalues fail without clipping, repair or jitter. A roundoff-induced failure remains a failure.",
+        "At most 64 observations, 128 targets and 32768 realization values. Gaussian draws may be negative; never clipped, treated as measured grade, or used alone to certify a mineral resource.",
+        "Seed is explicit but pure=false; reproducibility is tied to the fixed interpreter/dependency profile."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    },
+    {
+      "tool_id": "Geo500PoreDiffusionTortuosity",
+      "fixture": "assets/expansion501-geology/Geo500PoreDiffusionTortuosity.json",
+      "synthetic": true,
+      "status": "proposed_not_run",
+      "independent_check": "Independent series-resistance calculation for a five-voxel straight channel in a 3x3 cross-section: porosity=1/9, four unit resistors, lattice length=4, tortuosity=1, formation factor=9, Deff=D0/9; channel concentration=[1,.75,.5,.25,0]. Fixed numerical tolerances are 1e-7 for tau/formation/concentration, 1e-17 m^2/s for Deff.",
+      "negative_constraints": [
+        "PoreSpy 3.2.0 calls OpenPNM 3.6.1 and its fixed PyAMG solver; no local replacement diffusion solver.",
+        "Dedicated profile requires SciPy 1.16.2 and pandas 2.3.2. Never install this profile over the existing pores or main environment.",
+        "2D means unit out-of-plane thickness; isotropic voxel spacing cancels from the relative diffusivity. Boundary distance is (shape[axis]-1)*spacing.",
+        "Both solid and void required; face-connected spanning pores required. Nonspanning pores are removed by upstream and both original/effective porosities are returned.",
+        "Fixed residual tolerance 1e-10 and relative inlet/outlet flux-balance tolerance 1e-6. No arbitrary solver, executable, convergence loosening or GPU.",
+        "Concentration is meaningful only where retained_pore_mask is true; zeros elsewhere are upstream solid/dropped-void sentinels, not measurements.",
+        "Full binary lock, including OpenPNM's Linux x86_64 pypardiso dependency, remains pending. Only CPU PyAMG is explicitly selected."
+      ],
+      "common_negative_checks": [
+        "unknown fields",
+        "NaN/Infinity",
+        "wrong rank/length",
+        "physical-domain violation",
+        "wrong dependency profile",
+        "missing CPU identity"
+      ],
+      "provenance_check": "Shared input/implementation/contract hashes, installed pins, artifacts=[] and output_sha256={}.",
+      "acceptance_note": "Not an executable suite; absolute-FOS and thermal melting-path benchmarks remain explicitly pending."
+    }
+  ]
+}

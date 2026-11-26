@@ -1,0 +1,216 @@
+{
+  "status": "source_authored_unregistered_acceptance_pending",
+  "operations": [
+    {
+      "id": "GeoTidalCycleFlow",
+      "url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/tidal_flow/tidal_flow_calculator.py",
+      "source_commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "landlab==2.11.0",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "xarray==2026.9.0"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoBedrockLandslideEvolution",
+      "url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/bedrock_landslider/bedrock_landslider.py",
+      "source_commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "landlab==2.11.0",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "xarray==2026.9.0"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoRiverSedimentParcelTransport",
+      "url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/network_sediment_transporter/network_sediment_transporter.py",
+      "source_commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "landlab==2.11.0",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "xarray==2026.9.0"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoSpatialPointCloudGroundClassification",
+      "url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.smrf.md",
+      "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license": "BSD-3-Clause",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoSpatialPointCloudHeightAboveGround",
+      "url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.hag_nn.md",
+      "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license": "BSD-3-Clause",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoSpatialIndividualTreeSegmentation",
+      "url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.litree.md",
+      "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license": "BSD-3-Clause",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoSpatialPointCloudMorphologyDescriptors",
+      "url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.covariancefeatures.md",
+      "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license": "BSD-3-Clause",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoSpatialTerrainViewshed",
+      "url": "https://grass.osgeo.org/grass85/manuals/r.viewshed.html",
+      "source_commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+      "license": "GPL-2.0-or-later",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoSpatialGeomorphonLandforms",
+      "url": "https://grass.osgeo.org/grass85/manuals/r.geomorphon.html",
+      "source_commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+      "license": "GPL-2.0-or-later",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoSpatialDemandWeightedFacilitySiting",
+      "url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/spopt/locate/p_median.py",
+      "source_commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+      "license": "BSD-3-Clause",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "spopt==0.8.0",
+        "PuLP==3.3.0",
+        "libpysal==4.15.0",
+        "geopandas==1.1.2",
+        "shapely==2.1.2",
+        "pandas==2.3.0"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    },
+    {
+      "id": "GeoSpatialMinimumCoverageFacilitySet",
+      "url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/spopt/locate/coverage.py",
+      "source_commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+      "license": "BSD-3-Clause",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "spopt==0.8.0",
+        "PuLP==3.3.0",
+        "libpysal==4.15.0",
+        "geopandas==1.1.2",
+        "shapely==2.1.2",
+        "pandas==2.3.0"
+      ],
+      "source_state": "source_authored_unregistered_acceptance_pending",
+      "native_binary_sha256": null,
+      "transitive_license_closure": "pending"
+    }
+  ],
+  "additional_sources": [
+    {
+      "project": "PuLP",
+      "version": "3.3.0",
+      "source_commit": null,
+      "license": "MIT",
+      "url": "https://github.com/coin-or/pulp/releases/tag/3.3.0",
+      "license_url": "https://raw.githubusercontent.com/coin-or/pulp/3.3.0/LICENSE",
+      "status_evidence": "https://raw.githubusercontent.com/coin-or/pulp/3.3.0/pulp/apis/coin_api.py"
+    },
+    {
+      "project": "CBC",
+      "version": "2.10.12",
+      "source_commit": null,
+      "license": "EPL-2.0",
+      "url": "https://github.com/coin-or/Cbc/releases/tag/releases%2F2.10.12",
+      "license_url": "https://raw.githubusercontent.com/coin-or/Cbc/releases/2.10.12/LICENSE"
+    }
+  ],
+  "license_closure_complete": false,
+  "native_binary_hashes": null,
+  "source_release_binary_correspondence": "not_established"
+}

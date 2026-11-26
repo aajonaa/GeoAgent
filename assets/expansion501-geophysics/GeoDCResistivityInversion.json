@@ -1,0 +1,112 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "x_edges_m": [
+    -100,
+    -20,
+    20,
+    100
+  ],
+  "y_edges_m": [
+    -100,
+    -20,
+    20,
+    100
+  ],
+  "z_edges_m": [
+    -100,
+    -40,
+    -10,
+    0
+  ],
+  "max_iterations": 5,
+  "regularization_beta": 0.01,
+  "electrode_abmn_enu_m": [
+    [
+      [
+        -30,
+        0,
+        0
+      ],
+      [
+        30,
+        0,
+        0
+      ],
+      [
+        -10,
+        0,
+        0
+      ],
+      [
+        10,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        -30,
+        0
+      ],
+      [
+        0,
+        30,
+        0
+      ],
+      [
+        0,
+        -10,
+        0
+      ],
+      [
+        0,
+        10,
+        0
+      ]
+    ]
+  ],
+  "source_current_a": [
+    1,
+    1
+  ],
+  "starting_conductivity_s_m": [
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01,
+    0.01
+  ],
+  "conductivity_lower_s_m": 1e-05,
+  "conductivity_upper_s_m": 1,
+  "voltage_v": [
+    0.7957747154594768,
+    0.7957747154594768
+  ],
+  "standard_deviation_v": [
+    0.05,
+    0.05
+  ]
+}

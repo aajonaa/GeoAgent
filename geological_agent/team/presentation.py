@@ -15,6 +15,7 @@ from fastapi import HTTPException, Query, Request
 from fastapi.responses import JSONResponse, Response
 
 from .protocol import relative_name
+from .citations import answer_citations
 
 
 def block(component, identifier, title, props):
@@ -183,7 +184,29 @@ def install_presentation_routes(app, auth, store):
         if sources:
             blocks.append(block("sources", "knowledge", "Sources", {"items": sources}))
         return response({"version": 1, "run_id": rid, "conversation_id": run["cid"],
-                         "generation": generation, "status": run["status"], "files": files, "blocks": blocks})
+                         "generation": generation, "status": run["status"], "files": files, "blocks": blocks,
+                         "citations": answer_citations(store, uid, run)})
+
+    def table_response(name, cid, generation, offset, limit, sort=-1, descending=False):
+        name = relative_name(name)
+        if not generation or PurePosixPath(name).suffix.lower() not in (".csv", ".tsv"):
+            raise HTTPException(404, "Committed table not found")
+        with store.lock:
+            row = store.db.execute("SELECT content FROM files WHERE cid=? AND generation=? AND name=?",
+                                   (cid, generation, name)).fetchone()
+        if row is None:
+            raise HTTPException(404, "Committed table not found")
+        try:
+            return response(csv_page(bytes(row[0]), name, offset, limit, sort, descending))
+        except (ValueError, UnicodeError, csv.Error) as exc:
+            raise HTTPException(422, str(exc)) from exc
+
+    @app.get("/api/conversations/{cid}/table-preview")
+    def conversation_table(cid: str, request: Request, name: str, generation: str,
+                           offset: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=100)):
+        uid = auth(request)["id"]
+        store.conversation(uid, cid)
+        return table_response(name, cid, generation, offset, limit)
 
     @app.get("/api/runs/{rid}/table")
     def table(rid: str, request: Request, name: str,
@@ -191,19 +214,7 @@ def install_presentation_routes(app, auth, store):
               sort: int = Query(-1, ge=-1), descending: bool = False):
         uid = auth(request)["id"]
         run = store.run(uid, rid)
-        name = relative_name(name)
-        if not run.get("generation") or PurePosixPath(name).suffix.lower() not in (".csv", ".tsv"):
-            raise HTTPException(404, "Committed table not found")
-        with store.lock:
-            row = store.db.execute("SELECT content FROM files WHERE cid=? AND generation=? AND name=?",
-                                   (run["cid"], run["generation"], name)).fetchone()
-        if row is None:
-            raise HTTPException(404, "Committed table not found")
-        try:
-            result = csv_page(bytes(row[0]), name, offset, limit, sort, descending)
-        except (ValueError, UnicodeError, csv.Error) as exc:
-            raise HTTPException(422, str(exc)) from exc
-        return response(result)
+        return table_response(name, run["cid"], run.get("generation"), offset, limit, sort, descending)
 
     @app.get("/api/runs/{rid}/receipts/{call_id}")
     def receipt(rid: str, call_id: str, request: Request):

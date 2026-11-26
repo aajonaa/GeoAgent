@@ -1,0 +1,67 @@
+{
+  "grid": {
+    "crs": "EPSG:32650",
+    "affine": [
+      10,
+      0,
+      500000,
+      0,
+      -10,
+      3400000
+    ],
+    "nodata": null,
+    "mask": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "sar": {
+    "state": "coregistered_unwrapped_insar",
+    "processing_provenance": "SYNTHETIC analytic already-unwrapped/coregistered SAR fixture, not an RGB observation",
+    "wavelength_m": 0.12566370614359174,
+    "los_convention": "positive_toward_sensor"
+  },
+  "asc_desc_los_m": [
+    [
+      [
+        0.035980762113533155,
+        0.035980762113533155
+      ],
+      [
+        0.035980762113533155,
+        0.035980762113533155
+      ]
+    ],
+    [
+      [
+        0.015980762113533158,
+        0.015980762113533158
+      ],
+      [
+        0.015980762113533158,
+        0.015980762113533158
+      ]
+    ]
+  ],
+  "incidence_deg": [
+    30,
+    30
+  ],
+  "azimuth_deg": [
+    -90,
+    90
+  ],
+  "displacement_unit": "m",
+  "horizontal_assumption": "north_displacement_zero",
+  "common_reference": "SYNTHETIC common displacement datum",
+  "common_time_interval": [
+    "20200101",
+    "20200125"
+  ]
+}

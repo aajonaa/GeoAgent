@@ -1,0 +1,222 @@
+{
+  "skill_id": "xiaoyu_citation_management",
+  "archive_sha256": "dbe0c21cffda49985f53d7183c72f08aaaf394806833beb6cd9410a787045c72",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 33415,
+      "sha256": "9653a4eb8144a3594d42239b3bc124f807796f8d64471f26dee758bd0620c155",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/1b96e4dc50-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pptx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/8e53b12f75-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/docx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/9c8ca586d5-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/xlsx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/d594664132-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pdf/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "assets/bibtex_template.bib",
+      "bytes": 9201,
+      "sha256": "bf03cc646e6bc6aaba85d632b8e25b26c2830419892f3c17a7d844805d3a721e",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/assets/bibtex_template.bib"
+        }
+      ]
+    },
+    {
+      "path": "assets/citation_checklist.md",
+      "bytes": 10348,
+      "sha256": "305ff79e25b2654f1a5dc2163c03e7ab14e6c9578b1ea0f2d30f97195578d2c6",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/assets/citation_checklist.md"
+        }
+      ]
+    },
+    {
+      "path": "references/bibtex_formatting.md",
+      "bytes": 19286,
+      "sha256": "89fde5b4e04112ee62dcfe086780f000906681ec7b102c094c875c3656eaed6f",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/references/bibtex_formatting.md"
+        }
+      ]
+    },
+    {
+      "path": "references/citation_validation.md",
+      "bytes": 16075,
+      "sha256": "37e61db867ac45d685d908422bb1c342ab4ec4ee46d4277f3d6ea7590e741951",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/references/citation_validation.md"
+        }
+      ]
+    },
+    {
+      "path": "references/google_scholar_search.md",
+      "bytes": 17045,
+      "sha256": "494df9be29bebca6aa4d64ebc442e945b1aa934a4e58e47ae5422069ee3f86d4",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/references/google_scholar_search.md"
+        }
+      ]
+    },
+    {
+      "path": "references/metadata_extraction.md",
+      "bytes": 19182,
+      "sha256": "aa8be4ac76c6e274ce5ef2f034c6578e0f263baf71f030a0f2eeb92fcd810b45",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/references/metadata_extraction.md"
+        }
+      ]
+    },
+    {
+      "path": "references/pubmed_search.md",
+      "bytes": 17735,
+      "sha256": "f25e7adf200fee05f83e3434e1a08b6ec25d1ee2563a19325b94e443ff7cde59",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/references/pubmed_search.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/doi_to_bibtex.py",
+      "bytes": 6299,
+      "sha256": "45dbdbc365e63c65dc7e32945186122dd1cd7cb003ca5fbe103876952b4d9171",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/scripts/doi_to_bibtex.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/extract_metadata.py",
+      "bytes": 20794,
+      "sha256": "85bd98dca384591518e043d070330749cb66418d5c261918c1e5d8bc59fd620c",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/scripts/extract_metadata.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/format_bibtex.py",
+      "bytes": 11444,
+      "sha256": "98bf59c0a6d28596bc6663089c33111a21cb4f9b127785013e0c8117c6311b41",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/scripts/format_bibtex.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/search_google_scholar.py",
+      "bytes": 8982,
+      "sha256": "4ba851118596e316c809c5a089542112aa48bfe4d105ec5841d7ba528316798b",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/scripts/search_google_scholar.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/search_pubmed.py",
+      "bytes": 12832,
+      "sha256": "5533733bc4edd0e203488a83c89c0200c4845f194e215fca0907220402eb6d97",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/scripts/search_pubmed.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/validate_citations.py",
+      "bytes": 17482,
+      "sha256": "ed65df0fbc507517664287c8a27d40d48ca314835f91b1fac794914a8a5e4618",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/citation-management/scripts/validate_citations.py"
+        }
+      ]
+    }
+  ]
+}

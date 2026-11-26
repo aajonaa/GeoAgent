@@ -1,0 +1,62 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoPrismMagnetic",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "observations_enu_m": [
+      [
+        0,
+        0,
+        3
+      ]
+    ],
+    "prisms_wesnbt_m": [
+      [
+        -1,
+        1,
+        -1,
+        1,
+        -1,
+        1
+      ]
+    ],
+    "magnetization_enu_a_m": [
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "magnetic_enu_t",
+        0,
+        2
+      ],
+      "value": 5.7000165968329346e-08,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "observations_enu_m": [
+      [
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "numeric_oracle": "Independent bound magnetic-charge surface integral: Bz=mu0*M*[Omega_top-Omega_bottom]/(4*pi).",
+  "upstream_source": "https://github.com/fatiando/choclo/blob/6b4171701a6c8d7ffff88efc83c6bab5655233c3/choclo/prism/_magnetic.py",
+  "limitations": [
+    "Uniform supplied magnetization; reject interior/boundary observations; no geomagnetic retrieval or inversion.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

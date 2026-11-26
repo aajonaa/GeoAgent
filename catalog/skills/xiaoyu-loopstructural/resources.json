@@ -1,0 +1,135 @@
+{
+  "skill_id": "xiaoyu_loopstructural",
+  "archive_sha256": "062769c94dfc2f4285227e29d50e95d682b341f04ca9863052ab918b1e4f7e82",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 21,
+          "archive_sha256": "61f0b21bff858d8128a9536866d49da02347bf8ccad20aa5917b16fa14469f4f",
+          "member": "loopstructural/LICENSE"
+        },
+        {
+          "package_number": 70,
+          "archive_sha256": "d961b737ff2ed0adbfd3ed6d3d2136f515cc88066872079d4ae5a631a9ca2513",
+          "member": "loopstructural/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 764,
+      "sha256": "31c25758cb060332d88207c5767f6348359dab9af2591005035e9d45f1985433",
+      "origins": [
+        {
+          "package_number": 21,
+          "archive_sha256": "61f0b21bff858d8128a9536866d49da02347bf8ccad20aa5917b16fa14469f4f",
+          "member": "loopstructural/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5361,
+      "sha256": "8b34a0fe8c23e6e80dd1f5f57c56feab15eb883b3479a9f46fe3f6522042a124",
+      "origins": [
+        {
+          "package_number": 21,
+          "archive_sha256": "61f0b21bff858d8128a9536866d49da02347bf8ccad20aa5917b16fa14469f4f",
+          "member": "loopstructural/SKILL.md"
+        },
+        {
+          "package_number": 70,
+          "archive_sha256": "d961b737ff2ed0adbfd3ed6d3d2136f515cc88066872079d4ae5a631a9ca2513",
+          "member": "loopstructural/SKILL.md"
+        },
+        {
+          "package_number": 93,
+          "archive_sha256": "11607bdc9702c7db1fbdaf05a70e73980bbfc728ece6949251f18e59f718d0d2",
+          "member": "loopstructural/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 93,
+          "archive_sha256": "11607bdc9702c7db1fbdaf05a70e73980bbfc728ece6949251f18e59f718d0d2",
+          "member": "loopstructural/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/geological_features.md",
+      "bytes": 1957,
+      "sha256": "f8cf6e5f12668c42230bc3ea779ff1de0a8508c5d989f58245a3575adeb914d0",
+      "origins": [
+        {
+          "package_number": 21,
+          "archive_sha256": "61f0b21bff858d8128a9536866d49da02347bf8ccad20aa5917b16fa14469f4f",
+          "member": "loopstructural/references/geological_features.md"
+        },
+        {
+          "package_number": 70,
+          "archive_sha256": "d961b737ff2ed0adbfd3ed6d3d2136f515cc88066872079d4ae5a631a9ca2513",
+          "member": "loopstructural/references/geological_features.md"
+        },
+        {
+          "package_number": 93,
+          "archive_sha256": "11607bdc9702c7db1fbdaf05a70e73980bbfc728ece6949251f18e59f718d0d2",
+          "member": "loopstructural/references/geological_features.md"
+        }
+      ]
+    },
+    {
+      "path": "references/interpolators.md",
+      "bytes": 1936,
+      "sha256": "f9d5b8085244124e4a298bfd39d1adf75dcfe96af69be7f9c289afeaefbf204f",
+      "origins": [
+        {
+          "package_number": 21,
+          "archive_sha256": "61f0b21bff858d8128a9536866d49da02347bf8ccad20aa5917b16fa14469f4f",
+          "member": "loopstructural/references/interpolators.md"
+        },
+        {
+          "package_number": 70,
+          "archive_sha256": "d961b737ff2ed0adbfd3ed6d3d2136f515cc88066872079d4ae5a631a9ca2513",
+          "member": "loopstructural/references/interpolators.md"
+        },
+        {
+          "package_number": 93,
+          "archive_sha256": "11607bdc9702c7db1fbdaf05a70e73980bbfc728ece6949251f18e59f718d0d2",
+          "member": "loopstructural/references/interpolators.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/build_model.py",
+      "bytes": 8002,
+      "sha256": "2d3878064dbf4bf2e9f6ed63a760a89ff5fe1a4ba07386dca8bb685b50a72547",
+      "origins": [
+        {
+          "package_number": 21,
+          "archive_sha256": "61f0b21bff858d8128a9536866d49da02347bf8ccad20aa5917b16fa14469f4f",
+          "member": "loopstructural/scripts/build_model.py"
+        },
+        {
+          "package_number": 70,
+          "archive_sha256": "d961b737ff2ed0adbfd3ed6d3d2136f515cc88066872079d4ae5a631a9ca2513",
+          "member": "loopstructural/scripts/build_model.py"
+        },
+        {
+          "package_number": 93,
+          "archive_sha256": "11607bdc9702c7db1fbdaf05a70e73980bbfc728ece6949251f18e59f718d0d2",
+          "member": "loopstructural/scripts/build_model.py"
+        }
+      ]
+    }
+  ]
+}

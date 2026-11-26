@@ -1,0 +1,221 @@
+{
+  "group": "geology",
+  "operations": [
+    {
+      "tool_id": "Geo500CrystalSpaceGroupAudit",
+      "capability_key": "geology:crystal-space-group",
+      "upstream_callable": "spglib.spg.get_symmetry_dataset",
+      "scientific_task": "Audit crystal space-group symmetry and atomic equivalence.",
+      "distinct_from_existing": "Field stereonets/APSG fabric eigenvectors do not determine atomic space groups.",
+      "numeric_oracle": "Monatomic cubic cell: space group 221, 48 rotation operations, one equivalent site (independent cubic point group).",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500IrreducibleReciprocalMesh",
+      "capability_key": "geology:irreducible-reciprocal-mesh",
+      "upstream_callable": "spglib.kpoints.get_ir_reciprocal_mesh",
+      "scientific_task": "Reduce a Gamma-centred reciprocal mesh by atomic symmetry and time reversal.",
+      "distinct_from_existing": "Reciprocal Brillouin-zone quadrature is not real-space raster resampling or stereonet analysis.",
+      "numeric_oracle": "Cubic 2x2x2 mesh: 4 symmetry orbits with sorted weights [1,1,3,3], summing to 8; direct cube-corner orbit enumeration.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500PowderXRDPattern",
+      "capability_key": "geology:powder-xrd-pattern",
+      "upstream_callable": "pymatgen.analysis.diffraction.xrd.XRDCalculator.get_pattern",
+      "scientific_task": "Calculate kinematic powder X-ray diffraction from supplied ordered atomic structures.",
+      "distinct_from_existing": "Optical mineral spectral-angle matching does not calculate diffraction from atomic coordinates.",
+      "numeric_oracle": "Simple cubic a=4 angstrom, wavelength=1: (100) d=4 and 2theta=14.361511562916563 degrees by Bragg law, independent of XRDCalculator.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500MineralOxygenBasisFormula",
+      "capability_key": "geology:mineral-oxygen-basis-formula",
+      "upstream_callable": "pyrolite.mineral.transform.recalc_cations",
+      "scientific_task": "Recalculate measured simple-oxide mineral analyses to an explicit fixed oxygen basis.",
+      "distinct_from_existing": "Existing GeoGeochemOxideMoles returns oxide mol/100g, not ionic APFU. No CIPW normative-mineral kernel is used.",
+      "numeric_oracle": "Forsterite stoichiometry 2MgO+SiO2, normalized to 4 oxygens: Mg=2, Si=1, O=4; tolerance must account for stated atomic-mass table and rounded wt% fixture.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500MineralReactionBalance",
+      "capability_key": "geology:mineral-reaction-balance",
+      "upstream_callable": "pymatgen.analysis.reaction_calculator.Reaction",
+      "scientific_task": "Balance a unique mineral reaction without changing participant sides.",
+      "distinct_from_existing": "Oxide conversion and endmember fitting do not solve a conserved chemical reaction.",
+      "numeric_oracle": "Mg2SiO4+SiO2 -> 2MgSiO3: coefficients [-1,-1,2]; Mg=2, Si=2, O=6 on each side by integer atom counting.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500MineralPhaseHull",
+      "capability_key": "geology:mineral-phase-hull",
+      "upstream_callable": "pymatgen.analysis.phase_diagram.PhaseDiagram.get_decomp_and_e_above_hull",
+      "scientific_task": "Evaluate decomposition and energy above a composition-energy convex hull.",
+      "distinct_from_existing": "Different from redox/open-H/O Pourbaix stability and existing compositional endmember unmixing.",
+      "numeric_oracle": "LiO=-2 eV/formula versus LiO polymorph=0 with zero elemental references: high polymorph 1 eV/atom above hull; decomposes 100% into low LiO.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500CrystalCoordination",
+      "capability_key": "geology:crystal-coordination",
+      "upstream_callable": "pymatgen.core.local_env.CrystalNN.get_nn_info",
+      "scientific_task": "Determine geometric periodic coordination environments with fixed CrystalNN settings.",
+      "distinct_from_existing": "Atomic neighbor topology differs from field-orientation tensors and spatial point nearest-neighbor lookup.",
+      "numeric_oracle": "NaCl conventional a=5.64 angstrom: central Na has 6 geometric nearest Cl neighbors, each 2.82 angstrom, from octahedral lattice geometry.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500BondValenceOxidation",
+      "capability_key": "geology:bond-valence-oxidation",
+      "upstream_callable": "pymatgen.core.bond_valence.BVAnalyzer.get_valences",
+      "scientific_task": "Infer charge-neutral ordered-site oxidation states from bond valence.",
+      "distinct_from_existing": "Explicitly distinct from input FeO/Fe2O3 conversion: this is a model-based structural oxidation-state assignment.",
+      "numeric_oracle": "Periclase rock-salt MgO: inferred Mg +2 and O -2, four of each in conventional cell; independent known ionic valence and neutrality. Not a measured-redox oracle.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500CrystalStructureEquivalence",
+      "capability_key": "geology:crystal-structure-equivalence",
+      "upstream_callable": "pymatgen.core.structure_matcher.StructureMatcher.get_rms_dist",
+      "scientific_task": "Match periodic crystal structures under origin shift and site permutation.",
+      "distinct_from_existing": "Not remote image phase registration or chemical-composition equality; full periodic geometry and species are compared.",
+      "numeric_oracle": "Identical NaCl after site permutation and fractional origin translation: equivalent=true, RMS=0 and max=0; 8 atom identities retained.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500WulffCrystalHabit",
+      "capability_key": "geology:wulff-crystal-habit",
+      "upstream_callable": "pymatgen.analysis.wulff.WulffShape",
+      "scientific_task": "Construct equilibrium crystal habit from indexed relative surface energies.",
+      "distinct_from_existing": "Atomic surface free-energy habit differs from supplied-lattice slab terminations or geological stereonet planes.",
+      "numeric_oracle": "Cubic gamma100=1, gamma110=gamma111=2: cube with {100} area fraction 1, shape factor 6, mean surface energy 1 J/m2; independent geometry.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500PeriodicIonicLatticeEnergy",
+      "capability_key": "geology:ionic-lattice-energy",
+      "upstream_callable": "pymatgen.core.ewald.EwaldSummation",
+      "scientific_task": "Compute neutral three-dimensional periodic ionic Coulomb energy.",
+      "distinct_from_existing": "Not geophysical gravity, elastic moduli or fluid EOS; atomic electrostatic lattice energy.",
+      "numeric_oracle": "NaCl a=5.64 angstrom, charges +/-1: conventional-cell Madelung energy approximately -35.694057607611626 eV (M=1.7475645946331822); absolute magnitude 35.6940576 eV. Independent Madelung reference still requires acceptance citation freeze.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500CoherentMineralInterfaceMatch",
+      "capability_key": "geology:coherent-interface-match",
+      "upstream_callable": "pymatgen.analysis.interfaces.zsl.ZSLGenerator.__call__",
+      "scientific_task": "Find the lowest-area coherent superlattice match between two mineral surface nets.",
+      "distinct_from_existing": "Unlike general crystal equivalence, solves integer coincidence superlattices for two surface nets.",
+      "numeric_oracle": "Identical square surface nets of side 2 angstrom: lowest matching area 4 angstrom2, identity deformation and unit stretches.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500MineralSurfaceTerminations",
+      "capability_key": "geology:mineral-surface-terminations",
+      "upstream_callable": "pymatgen.core.surface.SlabGenerator.get_slabs",
+      "scientific_task": "Generate distinct unrelaxed crystal slab terminations for a Miller plane.",
+      "distinct_from_existing": "Slab termination enumeration supplies atomic surfaces, not Wulff equilibrium shape or field-plane intersection.",
+      "numeric_oracle": "Monatomic cubic a=2 angstrom, (001), 8 angstrom slab: surface area 4 angstrom2 and four atomic layers, from lattice-plane counting.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500REEOrthogonalShape",
+      "capability_key": "geology:ree-orthogonal-shape",
+      "upstream_callable": "pyrolite.util.lambdas.calc_lambdas",
+      "scientific_task": "Fit fixed O'Neill orthogonal shape coefficients to positive reference-normalized REE patterns.",
+      "distinct_from_existing": "Existing REE plot and Eu anomaly do not infer orthogonal smooth-pattern shape coefficients; Eu/Pm excluded explicitly.",
+      "numeric_oracle": "Constant log normalized REE=2: lambda0=2, lambda1..3=0 by orthogonality to constants; 13 positive supplied elements.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500VolcanicTASClass",
+      "capability_key": "geology:volcanic-tas-class",
+      "upstream_callable": "pyrolite.util.classification.TAS.predict",
+      "scientific_task": "Classify anhydrous volcanic compositions in the fixed Middlemost TAS diagram.",
+      "distinct_from_existing": "Volcanic rock nomenclature is not oxide-mole conversion, generic polygon selection or mineral spectroscopy.",
+      "numeric_oracle": "SiO2=50 wt%, total alkali=3 wt% lies inside Bs (subalkalic basalt); alkali margin to the relevant upper line is positive (4.142857-3 wt%).",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500MineralNeutronContrast",
+      "capability_key": "geology:mineral-neutron-contrast",
+      "upstream_callable": "periodictable.nsf.neutron_scattering",
+      "scientific_task": "Compute tabulated neutron scattering contrast and macroscopic attenuation of mineral compositions.",
+      "distinct_from_existing": "Neutron contrast is neither XRD peak prediction nor seismic/elastic rock response.",
+      "numeric_oracle": "Independent NIST/Sears bSi=4.1491 fm,bO=5.803 fm gives SiO2 SLD ~4.184719291694345e-6/angstrom2 at 2.65 g/cm3; tolerance 0.1% permits documented newer upstream table values, not an exact same-table oracle.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500PoreChordDistribution",
+      "capability_key": "geology:pore-chord-distribution",
+      "upstream_callable": "porespy.filters.apply_chords + porespy.metrics.chord_length_distribution",
+      "scientific_task": "Measure edge-censored pore chord-length distributions.",
+      "distinct_from_existing": "Chord stereology is not generic region properties, skeletonization or pore-radius statistics.",
+      "numeric_oracle": "Two isolated interior chords of 2 and 4 voxels at 0.01 m pitch: 0.02 and 0.04 m lengths, relative frequencies 0.5/0.5 and mean 0.03 m by direct segment geometry.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500PoreBodyRadiusDistribution",
+      "capability_key": "geology:pore-body-radius-distribution",
+      "upstream_callable": "porespy.filters.local_thickness + porespy.metrics.pore_size_distribution",
+      "scientific_task": "Measure maximal-sphere local pore radii and pore-volume radius distribution.",
+      "distinct_from_existing": "Pointwise 3D maximal pore spheres differ from a single planar inscribed circle, chord lengths or invasion pressure.",
+      "numeric_oracle": "Central 3x3x3 pore in solid 7^3 volume: radius-2 smooth digital sphere covers all 27 pore centers (sqrt(3)<2); radius 2 micrometres at 1 micrometre pitch and upper-bin fraction 1.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500QuasistaticCapillaryDrainage",
+      "capability_key": "geology:quasistatic-capillary-drainage",
+      "upstream_callable": "porespy.simulations.drainage",
+      "scientific_task": "Simulate inlet-accessible quasistatic drainage with explicit capillary pressure and defender trapping.",
+      "distinct_from_existing": "Accessible capillary invasion and trapping are not DEM depression filling, watershed segmentation or geophysical patchy-fluid elasticity.",
+      "numeric_oracle": "Single connected inlet-outlet pore channel, all entry pressures 2000 Pa: no invasion at 1000 Pa and full saturation 1 at 3000 Pa, with reported step pressure 3000 Pa rather than fictitious exact 2000.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500MineralEhPHStability",
+      "capability_key": "geology:mineral-eh-ph-stability",
+      "upstream_callable": "pymatgen.analysis.pourbaix_diagram.PourbaixDiagram.get_decomposition_energy",
+      "scientific_task": "Evaluate single-metal solid/ion stability at explicit pH and SHE potential.",
+      "distinct_from_existing": "Distinct open-H/O/electron-reservoir stability from closed-composition phase hull; no CIPW or Fe redox measurement inference.",
+      "numeric_oracle": "Synthetic Fe(s)=0 eV/Fe and Fe2+(aq)=1 eV/Fe at 1 M: crossing Eh=0.5 V; Fe(s) is 1 eV/atom above the ion line at Eh=1 V by two-electron electrochemical work.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "Geo500SpatialCellDeclustering",
+      "capability_key": "geology:spatial-cell-declustering",
+      "upstream_callable": "geostatspy.geostats.declus",
+      "scientific_task": "Estimate sampling-density cell-declustering weights with explicit offset and scale search.",
+      "distinct_from_existing": "Sampling-density weights are not CLR/ILR, geochemical background distance, kriging or conditional ensemble generation.",
+      "numeric_oracle": "Three samples in one cell and one in a second equally represented cell: normalized weights [1/6,1/6,1/6,1/2], declustered mean 6 ppm versus naive 8 ppm, from equal cell representation.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "GeoSlopeLimitEquilibrium",
+      "capability_key": "geology:slope-limit-equilibrium",
+      "upstream_callable": "pyslope.Slope.analyse_slope",
+      "scientific_task": "Search circular slope failures and report the lowest Bishop simplified safety factor.",
+      "distinct_from_existing": "Existing fracture traction/reactivation concerns one stress plane, not circular slip-surface slice equilibrium over a layered slope.",
+      "numeric_oracle": "Independent dry limit-equilibrium scale invariance: multiply unit weights, cohesion and every load by 2 at fixed geometry/friction; expected safety-factor ratio=1. A separate published absolute-FOS benchmark remains acceptance_pending, not claimed verified.",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "GeoMantleMeltingPath",
+      "capability_key": "geology:mantle-melting-path",
+      "upstream_callable": "pyMelt.mantle.adiabaticMelt",
+      "scientific_task": "Integrate anhydrous two-lithology decompression melting with fixed published lithology laws.",
+      "distinct_from_existing": "Path-dependent latent-heat decompression is neither fixed-condition chemical equilibrium nor statistical endmember unmixing.",
+      "numeric_oracle": "Pressure-grid endpoints are independently prescribed as 4 and 0.1 GPa with 101 points. Mass balance Fbulk=0.8Flherzolite+0.2Fharzburgite; mass-fraction sum=1. Independent published thermal/melt-path numeric benchmark remains pending (not an absolute melting-accuracy claim).",
+      "status": "source_revised_unverified"
+    },
+    {
+      "tool_id": "GeoImplicitStructuralModel",
+      "capability_key": "geology:implicit-structural-model",
+      "upstream_callable": "gempy.compute_model",
+      "scientific_task": "Reconstruct a bounded 3D stratigraphic stack from contact points and orientation constraints.",
+      "distinct_from_existing": "APSG orientation fabrics do not interpolate volumetric stratigraphy; this does not duplicate resource conditional SRF ensembles.",
+      "numeric_oracle": "Horizontal contact z=500 m in a 1000 m cube with 8^3 centered cells gives 512 cells split into two geometric halves of 256; independent plane/grid geometry. Scalar sign/label identities are engine conventions, not assumed geological names.",
+      "status": "source_revised_unverified"
+    }
+  ]
+}

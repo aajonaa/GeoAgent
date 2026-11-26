@@ -1,0 +1,20 @@
+{
+  "data_source": "SYNTHETIC fixture only; not a measured mineral, rock, resource or engineering observation.",
+  "height_m": 3,
+  "angle_degrees": 30,
+  "materials": [
+    {
+      "unit_weight_kn_m3": 20,
+      "friction_degrees": 30,
+      "cohesion_kpa": 5,
+      "depth_to_bottom_m": 10
+    }
+  ],
+  "water_depth_m": null,
+  "uniform_loads": [],
+  "line_loads": [],
+  "search_crest_distance_m": 1,
+  "search_toe_distance_m": 1,
+  "slices": 30,
+  "search_iterations": 500
+}

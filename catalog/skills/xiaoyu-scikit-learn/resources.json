@@ -1,0 +1,162 @@
+{
+  "skill_id": "xiaoyu_scikit_learn",
+  "archive_sha256": "a114900e0c4ba0a22ade06f17a06781db6c9352fc82deb914af7507537b708e3",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 16352,
+      "sha256": "b7de6b8d95a2674a0dea43fdf2537a8d193ba1a04b8cc0ad9ddcdc33f09372e6",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scikit-learn/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/1b96e4dc50-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pptx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/8e53b12f75-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/docx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/9c8ca586d5-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/xlsx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/d594664132-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pdf/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "references/model_evaluation.md",
+      "bytes": 15454,
+      "sha256": "246f20f8ce58c645f772455fc2b656999742337881d117de4ae24a3666076853",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scikit-learn/references/model_evaluation.md"
+        }
+      ]
+    },
+    {
+      "path": "references/pipelines_and_composition.md",
+      "bytes": 14770,
+      "sha256": "c856b5b21e03b1cf5e4094211a831b69f1ff1d8ecd7b0174ca3a28674aec0033",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scikit-learn/references/pipelines_and_composition.md"
+        }
+      ]
+    },
+    {
+      "path": "references/preprocessing.md",
+      "bytes": 15603,
+      "sha256": "b40925dbdc65b8de7f40f72643aba4de73b08ef9fa40e053d1090736ef65b18e",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scikit-learn/references/preprocessing.md"
+        }
+      ]
+    },
+    {
+      "path": "references/quick_reference.md",
+      "bytes": 11508,
+      "sha256": "cfa5cc09711bd315f901b7dd91f543aead0bb9b5574a88a32cff584da46a2bdf",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scikit-learn/references/quick_reference.md"
+        }
+      ]
+    },
+    {
+      "path": "references/supervised_learning.md",
+      "bytes": 11011,
+      "sha256": "1d8a04ee6fb9ad69d17960c2022d6072a1119b2fce6e130cfeabd0c3c4c9408e",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scikit-learn/references/supervised_learning.md"
+        }
+      ]
+    },
+    {
+      "path": "references/unsupervised_learning.md",
+      "bytes": 14440,
+      "sha256": "760d8867f545c20feb4c479b49d661e865311d24a2e01da7179c33ae2fd68c09",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scikit-learn/references/unsupervised_learning.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/classification_pipeline.py",
+      "bytes": 8044,
+      "sha256": "1048e0d1c8cf0ffa845ad17cec90699231b26a306c868d9982f1fa65283891c3",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scikit-learn/scripts/classification_pipeline.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/clustering_analysis.py",
+      "bytes": 11396,
+      "sha256": "aec71c7f1abfbc218eaa7ce000a85a726bef4d7b777038179aa4b44e96ca4d78",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/scikit-learn/scripts/clustering_analysis.py"
+        }
+      ]
+    }
+  ]
+}

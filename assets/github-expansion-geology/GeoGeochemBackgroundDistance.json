@@ -1,0 +1,34 @@
+{
+  "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+  "components": [
+    "Cu",
+    "Zn"
+  ],
+  "samples": [
+    [
+      16.9188286785579,
+      1
+    ]
+  ],
+  "background": [
+    [
+      0.17692120631776423,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      5.6522336740340915,
+      1
+    ]
+  ],
+  "basis": [
+    [
+      0.7071067811865475,
+      -0.7071067811865475
+    ]
+  ],
+  "input_unit": "ppm"
+}

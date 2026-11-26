@@ -1,0 +1,52 @@
+{
+  "case_id": "DTC-36",
+  "source_skill": "ore-time-coords",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "coord",
+      "tool": "DeepTimeDecimalToDMS",
+      "arguments": {
+        "value": 42.5,
+        "field": "lat"
+      }
+    },
+    {
+      "operation_id": "distance",
+      "tool": "DeepTimeHaversineDistance",
+      "arguments": {
+        "lat1": 0,
+        "lon1": 0,
+        "lat2": 0,
+        "lon2": 90
+      }
+    },
+    {
+      "operation_id": "bearing",
+      "tool": "DeepTimeBearing",
+      "arguments": {
+        "lat1": 0,
+        "lon1": 0,
+        "lat2": 0,
+        "lon2": 90
+      }
+    },
+    {
+      "operation_id": "area",
+      "tool": "DeepTimeBBoxArea",
+      "arguments": {
+        "bbox": [
+          0,
+          0,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "coordinate_reference": "EPSG:4326"
+  },
+  "input_path_bindings": []
+}

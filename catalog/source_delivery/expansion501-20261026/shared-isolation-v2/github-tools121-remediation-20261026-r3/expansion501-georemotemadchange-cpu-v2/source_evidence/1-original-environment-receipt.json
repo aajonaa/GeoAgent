@@ -1,0 +1,33 @@
+{
+  "distributions": 106,
+  "frozen_runtime_manifest": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/handoff-r3/runtime-environments.json",
+    "sha256": "dece2828287c5e194a870b99e563d5d8191bd41d58dc77495784f346be7b2eee"
+  },
+  "installed_app_source_lock": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/handoff-r3/source-lock-r3.json",
+    "sha256": "8e24b701168bb7ece57e978e2695357f85b4cc587911d365efe6103d1d68b47a"
+  },
+  "license_review": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/handoff-r3/license-review.json",
+    "sha256": "cf6196b3dd371ef1b00af3139d8d51aaaf7c499a4fd01de27b410ba39fadb6ba"
+  },
+  "license_review_scope": "Reviewed original declared upstream license files; not blanket legal clearance.",
+  "normalized_full_lock": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/full-installed-requirements.txt",
+    "sha256": "09ec18a38e7fac85c645a99f83e942f7f5b35038932734f947223b5b6401b7d8"
+  },
+  "original_json_lock": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/environment-r3/full-environment-lock.json",
+    "sha256": "8f6ad0910579786fb49f643853b35a8882ae498cab117a091d615557960edb5f"
+  },
+  "pip_install_report": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/pip-install-report.json",
+    "sha256": "d7ccdad2203bc7fb287709d4d1d528ce1d2b2e5b7a173088d9817e93542e669c"
+  },
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version_normalized": "3.12.14",
+  "python_version_original": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]"
+}

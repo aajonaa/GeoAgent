@@ -1,0 +1,4 @@
+country,year,renewable_capacity_mw,total_capacity_mw,population
+A,2021,3,10,2
+B,2020,0,2,100
+C,2021,5,5,1000

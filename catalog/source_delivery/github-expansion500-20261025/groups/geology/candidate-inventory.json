@@ -1,0 +1,2413 @@
+{
+  "schema_version": "1.0",
+  "group": "geology",
+  "research_date": "2026-10-25",
+  "status": "research_only_not_integrated_not_counted",
+  "counts": {
+    "research_candidates": 22,
+    "priority_candidates": 20,
+    "conditional_follow_up_candidates": 2,
+    "implemented": 0,
+    "integrated": 0,
+    "accepted": 0,
+    "counted_new_professional_tools": 0,
+    "requested_upper_bound": 45
+  },
+  "release_boundary": {
+    "parent_reported_source_commit": "7466cfa",
+    "parent_reported_acceptance": "751/751",
+    "parent_reported_deployment_state": "running",
+    "independently_verified_here": false,
+    "accepted_117_modified": false,
+    "release_or_remote_actions_performed": false
+  },
+  "deduplication": {
+    "method": "Metadata-level semantic screen against all tool IDs and descriptions in the baseline and all four contribution catalogs; parent implementation-level dedup review remains required.",
+    "baseline_professional_tools": 229,
+    "accepted_contributions": 117,
+    "total_comparison_ids": 346,
+    "scope": [
+      {
+        "path": "C:/Users/jona/github/GeoAgent-tools220-release/catalog/registry.json",
+        "count": 229,
+        "tool_ids": [
+          "GeoOrdinaryKrigingGrid",
+          "GeoExactZonalStatistics",
+          "GeoCheckCRSConsistency",
+          "GeoHaversineDistance",
+          "GeoMagnitudeToEnergy",
+          "GeoBearing",
+          "GeoDecimalToDMS",
+          "GeoWGS84BBoxAreaKm2",
+          "USGS 地震数据获取",
+          "地震数据清洗与分级",
+          "地震事件地图可视化",
+          "DeepEarthQueryLITHO1",
+          "DeepEarthQuerySEMUCB",
+          "DeepEarthQueryUSGSCatalog",
+          "DeepEarthGetUSGSEvent",
+          "DeepEarthSampleEventModels",
+          "GeoBigDataExecuteGeoSPARQL",
+          "MineralResourcesSearchDeposits",
+          "MineralResourcesGetDeposit",
+          "MineralResourcesCountrySummary",
+          "MineralResourcesRankCommodityCountries",
+          "ClimateQueryDeepTime",
+          "ClimateQueryPresentMean",
+          "ClimateQueryFutureSSP",
+          "ClimateCompareEpochs",
+          "EnergyFacilityDistance",
+          "EnergyMineralSiteDistance",
+          "EnergyBBoxArea",
+          "EnergyNearestFacility",
+          "EnergyCapacityValue",
+          "EnergyNearestMineralSite",
+          "EnergyCountryRenewableSummary",
+          "EnergyCapacityGrowth",
+          "EnergyTransitionMetrics",
+          "EnergyRegionalOverlaySummary",
+          "OceanMonthlyGridValue",
+          "OceanProfileValue",
+          "OceanCruiseQC",
+          "OceanStationDistance",
+          "OceanBBoxArea",
+          "OceanAnnualCarbonSummary",
+          "OceanVerticalProfileDifference",
+          "OceanRegionalMapSummary",
+          "OceanSurfaceDeepMatch",
+          "OceanProfileDeduplication",
+          "DeepTimeDecimalToDMS",
+          "DeepTimeHaversineDistance",
+          "DeepTimeBearing",
+          "DeepTimeBBoxArea",
+          "DeepTimeStandardizeSpatialData",
+          "DeepTimeValidateSpatialData",
+          "DeepTimeNearestNeighbor",
+          "DeepTimeBuffer",
+          "DeepTimeOverlay",
+          "DeepTimeBatchVector",
+          "DeepTimeInterpolateIDW",
+          "DeepTimeRasterAlgebra",
+          "DeepTimeZonalStatistics",
+          "DeepTimeRenderMap",
+          "CCSDecimalToDMS",
+          "CCSHaversineDistance",
+          "CCSBearing",
+          "CCSBBoxArea",
+          "CCSCheckCRSConsistency",
+          "CCSStandardizeSpatialData",
+          "CCSValidateSpatialData",
+          "CCSNearestNeighbor",
+          "CCSBuffer",
+          "CCSOverlay",
+          "CCSBatchVector",
+          "CCSInterpolateIDW",
+          "CCSRasterAlgebra",
+          "CCSZonalStatistics",
+          "CCSRenderMap",
+          "RemoteSensingListFiles",
+          "RemoteSensingBatchImageMean",
+          "RemoteSensingBatchHotspotPercentage",
+          "RemoteSensingTiffAverage",
+          "RemoteSensingBatchNDSI",
+          "RemoteSensingNDWI",
+          "RemoteSensingNBR",
+          "RemoteSensingCloudMask",
+          "RemoteSensingBatchHotspotRaster",
+          "RemoteSensingNDVI",
+          "RemoteSensingNDTI",
+          "RemoteSensingCountAboveThreshold",
+          "RemoteSensingBatchImageSum",
+          "RemoteSensingTiffDifference",
+          "RemoteSensingExtremeSnowLossPercentage",
+          "RemoteSensingSubtract",
+          "RemoteSensingFireIncreaseMap",
+          "RemoteSensingMean",
+          "RemoteSensingPercentageChange",
+          "RemoteSensingDifference",
+          "RemoteSensingDivision",
+          "RemoteSensingLinearTrend",
+          "RemoteSensingMaxValueAndIndex",
+          "RemoteSensingKelvinToCelsius",
+          "RemoteSensingMinValueAndIndex",
+          "RemoteSensingSensSlope",
+          "RemoteSensingCoefficientOfVariation",
+          "RemoteSensingKurtosis",
+          "RemoteSensingMannKendallTest",
+          "RemoteSensingArgmax",
+          "NaturalHazardLoadEventTable",
+          "NaturalHazardFilterRecords",
+          "NaturalHazardCountRecords",
+          "NaturalHazardSumField",
+          "NaturalHazardGroupAggregate",
+          "NaturalHazardSelectMaxRecord",
+          "NaturalHazardBuildStartDate",
+          "NaturalHazardSelectLatest",
+          "GeoRasterIndexAnalysis",
+          "GeoRasterChangeAnalysis",
+          "GeoMapColorExtract",
+          "GeoPlotDigitize",
+          "GeoVerdeGrid",
+          "GeoRegionMask",
+          "HydroErrorMetrics",
+          "ScientificCurveFit",
+          "HydroInterpolationGrid",
+          "MetPyWindComponents",
+          "SeismicReflectivity",
+          "SeismicSegySummary",
+          "HydroReferenceET0",
+          "SpatialMoranI",
+          "GeoShapelyGeometry",
+          "GeoPandasSpatialJoin",
+          "GeoFionaDatasetInfo",
+          "GeoRasterioWindow",
+          "GeoCartopyPointMap",
+          "GeoDatashaderDensity",
+          "HydroAnaFlowTheis",
+          "SeismicObsPyBandpass",
+          "GeoPyshedsFlowAccumulation",
+          "GeoPywrWaterAllocation",
+          "GeoHoloViewsLineProfile",
+          "GeoGeoViewsPolygonMap",
+          "GeoHVPlotHexbin",
+          "GeoPanelDataReport",
+          "GeoGeemapBoundingPolygon",
+          "GeoCollocatePressureMatch",
+          "GeoSalemProjectCoordinates",
+          "EarthHydroHyRiverFlowExceedance",
+          "EarthHydroWetterdienstElevationAdjustment",
+          "EarthHydroUlmoWaterMLValues",
+          "EarthHydroFewsPiTimeSeries",
+          "EarthHydroOpenradarRainRate",
+          "EarthHydroCamelsStationSeries",
+          "EarthHydroBomWaterMLObservations",
+          "EarthHydroPastasExponentialImpulse",
+          "EarthHydroHydropyChapmanBaseflow",
+          "EarthHydroHydrostatsDailyClimatology",
+          "EarthHydroHtimeseriesReadRecords",
+          "EarthHydroEftsForecastEnsemble",
+          "EarthHydroSpotpyNashSutcliffe",
+          "EarthHydroClimateAccumulation",
+          "EarthHydroPyemuExponentialCovariance",
+          "EarthHydroHydrolmRegularizeDaily",
+          "HydroModelsXanthosMonthlyPET",
+          "HydroModelsRRMPGABCRunoff",
+          "HydroModelsNeuralHydrologyFlowScores",
+          "HydroModelsHydroFunctionsFlowDuration",
+          "HydroModelsCMFSoilConductivity",
+          "HydroModelsTopoFlowSolarFlux",
+          "HydroModelsEXPHydroBucketWaterBalance",
+          "HydroModelsPyTOPKAPIGreenAmpt",
+          "HydroModelsHidroCompEnsembleRMSE",
+          "EarthFlopyWaterTable",
+          "EarthTimmlSteadyWellHeads",
+          "EarthTtimTransientWellDrawdown",
+          "EarthPyhelpStationDistances",
+          "EarthImodFreshwaterHead",
+          "EarthIdfMaskedRasterAggregate",
+          "EarthWellapplicationBaseflow",
+          "EarthWelltestBourdetDerivative",
+          "EarthPytesmoMeanStdScale",
+          "EarthPhydrusReadTlevel",
+          "EarthLandlabFlowDirections",
+          "EarthIrisCubeCorrelation",
+          "EarthPyhspfReachTable",
+          "EarthSphyCropEvapotranspiration",
+          "EarthXsboringenLithology",
+          "EarthEflowMagnitudeIndices",
+          "EarthHydroboxFlashiness",
+          "WrfDestaggerGrid",
+          "RainymotionPrecipitationScores",
+          "MetSimPotentialEvapotranspiration",
+          "MelodistDailyPrecipitationToHourly",
+          "ImproverRescaleForecastField",
+          "SkdownscaleQuantileBiasCorrection",
+          "JamsDewPoint",
+          "XgcmStaggeredGridDiagnostics",
+          "ClimpredEnsembleCrps",
+          "ClimlabLayerHeatCapacity",
+          "AospyHybridPressure",
+          "OocgcmSurfaceSpiciness",
+          "OcgisHeatIndex",
+          "PyrockoDoubleCoupleTensor",
+          "RsudpWindowAmplitude",
+          "SeismicZfpCompressCube",
+          "EarthPyOWMBeaufortWind",
+          "EarthSimRasterCrossSection",
+          "EarthERA5LocalMonthlyClimate",
+          "EarthPangaeaGeographicGrid",
+          "EarthGeoNotebookPolygonSubset",
+          "EarthHydroShareRasterBandRanges",
+          "EarthPyGLUEABCEnsemble",
+          "ScipyGroundwaterFrequencyResponse",
+          "StatsmodelsSeasonalFlowForecast",
+          "HydroVICPrecipitationPhase",
+          "SeismicMadagascarFFT",
+          "GeoHPGLDirectionalSemivariogram",
+          "EarthWflowKinematicWaveReachStep",
+          "HydroModelsPyFloCurveNumberRunoff",
+          "HydroModelsPySTEPSPrecipitationAdvection",
+          "EarthCatchmodLinearStoreStep",
+          "HydroModelsSuperflexUnitHydrograph",
+          "HydroModelsHydPyFlowScores",
+          "HydroModelsPyDEMTerrainDerivatives",
+          "GeoSpectralAngleMatch",
+          "GeoSpectralContinuumRemoval",
+          "GeoSpectralLinearUnmix",
+          "GeoSpectralAngleMap",
+          "GeoGeochemCLR",
+          "GeoGeochemOxideMoles",
+          "GeoGeochemREEPattern",
+          "GeoStereonetAnalysis",
+          "GeoStructuralPlaneIntersection"
+        ]
+      },
+      {
+        "path": "C:/Users/jona/github/GeoAgent-tools220-release/catalog/source_delivery/github-expansion-20261025/groups/geology/catalog-additions.json",
+        "count": 28,
+        "tool_ids": [
+          "GeoAPSGPairFabricTensor",
+          "GeoAPSGFoldAxis",
+          "GeoAPSGFisherDirectionalConfidence",
+          "GeoAPSGMarkerStrainEstimate",
+          "GeoAPSGFaultKinematicAxes",
+          "GeoAPSGFiniteStrainEllipsoid",
+          "GeoAPSGDeformationPolarSplit",
+          "GeoAPSGVelocityGradientEvolution",
+          "GeoAPSGKinematicVorticity",
+          "GeoAPSGFractureTraction",
+          "GeoAPSGFaultReactivation",
+          "GeoPyroliteALR",
+          "GeoPyroliteILR",
+          "GeoPyroliteCompositionalCenter",
+          "GeoPyroliteSphericalComposition",
+          "GeoPyroliteMineralEndmemberUnmix",
+          "GeoSKGstatRobustVariogram",
+          "GeoSKGstatSpaceTimeVariogram",
+          "GeoGSToolsVariogramFit",
+          "GeoGSToolsBlockSupportCovariance",
+          "GeoSKGstatKrigingLOO",
+          "GeoGeochemBackgroundDistance",
+          "GeoLasioLogAudit",
+          "GeoWellyMinimumCurvature",
+          "GeoWellyLogResample",
+          "GeoWellyLogDespike",
+          "GeoWellyLogFaciesBlock",
+          "GeoStriplogIntervalIntersection"
+        ]
+      },
+      {
+        "path": "C:/Users/jona/github/GeoAgent-tools220-release/catalog/source_delivery/github-expansion-20261025/groups/geophysics/catalog-additions.json",
+        "count": 29,
+        "tool_ids": [
+          "GeoPointMassGravity",
+          "GeoPrismGravity",
+          "GeoDipoleMagnetic",
+          "GeoPrismMagnetic",
+          "GeoRockVRHBounds",
+          "GeoRockHashinShtrikman",
+          "GeoRockCriticalPorosity",
+          "GeoRockSphericalPores",
+          "GeoRockSelfConsistent",
+          "GeoRockRandomCracks",
+          "GeoRockMoriTanaka",
+          "GeoRockHudsonCracks",
+          "GeoRockHertzMindlin",
+          "GeoRockContactCement",
+          "GeoRockDigbyContacts",
+          "GeoRockSandShalePorosity",
+          "GeoRockGassmannSubstitution",
+          "GeoRockBrownKorringa",
+          "GeoRockBiotDispersion",
+          "GeoRockSquirtFlow",
+          "GeoRockPatchySaturation",
+          "GeoRockBrieMixing",
+          "GeoRockFluidPVT",
+          "GeoSeismicBackus",
+          "GeoSeismicVTIPhase",
+          "GeoSeismicOrthorhombicParameters",
+          "GeoSeismicHTIReflectivity",
+          "GeoSeismicZoeppritzScattering",
+          "GeoSeismicElasticImpedance"
+        ]
+      },
+      {
+        "path": "C:/Users/jona/github/GeoAgent-tools220-release/catalog/source_delivery/github-expansion-20261025/groups/remote/catalog-additions.json",
+        "count": 30,
+        "tool_ids": [
+          "GeoRemotePCA",
+          "GeoRemoteNoiseCovariance",
+          "GeoRemoteMNF",
+          "GeoRemoteRX",
+          "GeoRemoteMatchedFilter",
+          "GeoRemoteACE",
+          "GeoRemoteWhiteTophat",
+          "GeoRemoteSeedReconstruction",
+          "GeoRemoteSkeleton",
+          "GeoRemoteRemoveSmallObjects",
+          "GeoRemoteFillSmallHoles",
+          "GeoRemoteHMaxima",
+          "GeoRemoteGLCM",
+          "GeoRemoteLocalEntropy",
+          "GeoRemoteLBP",
+          "GeoRemoteStructureTensor",
+          "GeoRemoteGabor",
+          "GeoRemoteCanny",
+          "GeoRemoteOtsu",
+          "GeoRemoteWatershed",
+          "GeoRemoteSLIC",
+          "GeoRemoteFelzenszwalb",
+          "GeoRemoteRandomWalker",
+          "GeoRemoteRegionProperties",
+          "GeoRemotePhaseRegistration",
+          "GeoRemoteSSIMChange",
+          "GeoRemoteSensorBandResample",
+          "GeoRemoteTVDenoise",
+          "GeoRemoteRichardsonLucy",
+          "GeoRemoteRollingBall"
+        ]
+      },
+      {
+        "path": "C:/Users/jona/github/GeoAgent-tools220-release/catalog/source_delivery/github-expansion-20261025/groups/spatial/catalog-additions.json",
+        "count": 30,
+        "tool_ids": [
+          "GeoSpatialRasterReproject",
+          "GeoSpatialPolygonRasterize",
+          "GeoSpatialRasterPolygonize",
+          "GeoSpatialPolygonIntersection",
+          "GeoSpatialCoverageUnion",
+          "GeoSpatialConstrainedTriangulation",
+          "GeoSpatialDepressionFill",
+          "GeoSpatialHeightAboveDrainage",
+          "GeoSpatialDistanceToOutlet",
+          "GeoSpatialDistanceToRidge",
+          "GeoSpatialStrahlerOrder",
+          "GeoSpatialTerrainContours",
+          "GeoSpatialLocalMoran",
+          "GeoSpatialBivariateLocalMoran",
+          "GeoSpatialLocalGetisOrd",
+          "GeoSpatialGlobalGeary",
+          "GeoSpatialBinaryJoinCounts",
+          "GeoSpatialLocalGeary",
+          "GeoSpatialLeastCostPath",
+          "GeoSpatialCostAllocation",
+          "GeoSpatialEuclideanProximity",
+          "GeoSpatialResistanceDistance",
+          "GeoSpatialCostCorridor",
+          "GeoSpatialCapacityMaxFlow",
+          "GeoSpatialEllipsoidalPolygonArea",
+          "GeoSpatialGeodesicTransect",
+          "GeoSpatialProjectionDistortion",
+          "GeoSpatialMaximumInscribedCircle",
+          "GeoSpatialSiteVoronoi",
+          "GeoSpatialSiteParcelSplit"
+        ]
+      }
+    ],
+    "source_adapters_read": false,
+    "limitations": "No new candidate is asserted accepted or deployable from this research. Internal candidate cross-references are explicitly proposed, not existing registry IDs."
+  },
+  "common_safety_scope": {
+    "no_remote_execution": true,
+    "official_read_only_web_research_performed": true,
+    "no_git": true,
+    "no_gpu": true,
+    "no_installations": true,
+    "no_scientific_tests_or_imports": true,
+    "no_wrappers_authored": true,
+    "no_ore_grade_reserve_or_mineral_presence_imputation": true,
+    "future_inputs": "Explicit bounded JSON arrays/tables and local measured structures only; never executable MSON @class/@module payloads."
+  },
+  "source_records_file": "sources.json",
+  "operations": [
+    {
+      "tool_id": "Geo500CrystalSpaceGroupAudit",
+      "rank": 1,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:crystal-space-group-audit",
+      "scientific_task": "Identify crystal space group, Wyckoff-site equivalence and symmetry operations from an explicit periodic atomic structure.",
+      "upstream_callable": "spglib.spg.get_symmetry_dataset",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "spglib"
+      ],
+      "primary_pin": "spglib==2.8.0",
+      "source_commit": "3ebd8ac3318793932baeee90b44f453a7c35b5b4",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/spglib/spglib/blob/3ebd8ac3318793932baeee90b44f453a7c35b5b4/python/spglib/spg.py#L395",
+        "definition": "def get_symmetry_dataset(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Atomic crystallographic symmetry, not outcrop orientation analysis. Report standard setting and tolerance; species labels must preserve chemistry.",
+      "units": {
+        "lattice": "angstrom",
+        "fractional_positions": "fraction",
+        "symprec": "angstrom",
+        "rotations": "integer lattice-basis matrix",
+        "space_group_number": "International Tables index"
+      },
+      "input_constraints": [
+        "3x3 nonsingular finite lattice with positive volume; 1..128 sites",
+        "Fractional coordinates and positive species codes aligned; no coincident different species",
+        "Explicit 1e-8..1e-2 angstrom symmetry tolerance; disorder/partial occupancy not inferred"
+      ],
+      "fixed_invocation_plan": {
+        "hall_number": 0,
+        "allow_partial_occupancy": false
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC simple cubic a=4 angstrom with one atom at fractional [0,0,0].",
+        "expected": {
+          "space_group_number": 221,
+          "rotation_count": 48,
+          "equivalence_classes": 1
+        },
+        "derivation": "The full octahedral group has 24 proper and 24 improper operations; a primitive cubic monatomic lattice has Pm-3m symmetry.",
+        "negative": "Singular lattice, nonfinite coordinates or overlapping incompatible species must fail, not return a guessed space group."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoStereonetAnalysis",
+        "GeoAPSGPairFabricTensor"
+      ],
+      "distinct_from_existing": "Those tools analyze geological pole/lineation fabrics. This searches lattice translations and atomic-site symmetry; no existing crystal space-group task was found.",
+      "expected_dependencies": {
+        "source_profile": "spglib",
+        "companion_profiles": [],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Symmetry is tolerance-dependent; noisy structural measurements may admit multiple interpretations.",
+        "Compiled wheel/ABI acceptance pending. Magnetic symmetry is not split into another counted tool."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500PowderXRDPattern",
+      "rank": 2,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:powder-xrdpattern",
+      "scientific_task": "Predict a kinematic powder X-ray diffraction pattern from a supplied crystal structure.",
+      "upstream_callable": "pymatgen.analysis.diffraction.xrd.XRDCalculator.get_pattern",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "pm",
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen==2026.10.24",
+      "source_commit": "e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen/blob/e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26/src/pymatgen/analysis/diffraction/xrd.py#L140",
+        "definition": "def get_pattern(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Calculate Bragg peak positions, multiplicities and relative intensities for an explicit atomic model. Not phase identification or Rietveld refinement.",
+      "units": {
+        "lattice": "angstrom",
+        "wavelength": "angstrom",
+        "two_theta": "degree",
+        "d_spacing": "angstrom",
+        "intensity": "relative arbitrary units"
+      },
+      "input_constraints": [
+        "1..128 fully occupied sites; finite positive lattice volume and wavelength",
+        "Bound two_theta range to 0..150 degrees; no automatic symmetry refinement",
+        "No hidden anisotropic U_cif site properties; any displacement model must be explicit in a future schema"
+      ],
+      "fixed_invocation_plan": {
+        "symprec": 0,
+        "scaled": true,
+        "unrequested_site_properties": false
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC monatomic simple-cubic Si model, a=4 angstrom, wavelength=1 angstrom; not an assertion that elemental Si is simple cubic.",
+        "expected": {
+          "first_d_spacing_angstrom": 4,
+          "first_two_theta_degree": 14.361511562916563
+        },
+        "derivation": "Bragg law 2d sin(theta)=lambda and cubic d100=a independently determine the first allowed reflection. Extend acceptance with BCC systematic absences and occupancy/intensity sum checks.",
+        "negative": "Zero wavelength, invalid occupancy, singular cell or conflicting isotropic/anisotropic displacement models must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoSpectralAngleMatch",
+        "GeoSpectralAngleMap"
+      ],
+      "distinct_from_existing": "Existing tools compare reflectance spectra with references. This predicts diffraction from periodic atomic positions and scattering factors, a different measurement and physical model.",
+      "expected_dependencies": {
+        "source_profile": "pm",
+        "companion_profiles": [
+          "core",
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Kinematic powder model omits preferred orientation, instrument broadening and many experimental effects.",
+        "2026.10.24 has explicit anisotropic-displacement behavior changes; do not silently use defaults."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500MineralOxygenBasisFormula",
+      "rank": 3,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:mineral-oxygen-basis-formula",
+      "scientific_task": "Recalculate measured mineral oxide chemistry to charge-labelled cations per explicit oxygen formula unit.",
+      "upstream_callable": "pyrolite.mineral.transform.recalc_cations",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "pyrolite",
+        "periodictable"
+      ],
+      "primary_pin": "pyrolite==0.3.7",
+      "source_commit": "ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/morganjwilliams/pyrolite/blob/ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca/pyrolite/mineral/transform.py#L42",
+        "definition": "def recalc_cations(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Electron-microprobe/mineral formula audit on an explicitly stated oxygen basis. No crystallographic site allocation, Fe-redox inference or normative mineral prediction.",
+      "units": {
+        "oxides": "wt_percent",
+        "ideal_oxygens": "atoms_per_formula_unit",
+        "cations": "atoms_per_formula_unit"
+      },
+      "input_constraints": [
+        "One complete finite oxide composition per upstream call; batch handling must call the same kernel per sample",
+        "Simple oxides only; positive total; explicit oxygen basis 1..32",
+        "FeO/Fe2O3 are caller-specified measurements; absent measurements are not filled or inferred"
+      ],
+      "fixed_invocation_plan": {
+        "oxygen_constrained": true,
+        "single_sample_upstream_calls": true
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC stoichiometric forsterite chemistry, exactly 2 mol MgO plus 1 mol SiO2, expressed as mass percentages using independently tabulated atomic masses; oxygen basis 4.",
+        "expected": {
+          "Mg": 2,
+          "Si": 1,
+          "O": 4
+        },
+        "derivation": "Mg2SiO4 atom counting and charge neutrality require 2 Mg, 1 Si and 4 O regardless of uniform mass scaling.",
+        "negative": "Unknown/mixed unsupported species, negative oxide values, missing redox provenance or nonpositive oxygen basis must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoGeochemOxideMoles",
+        "GeoPyroliteCIPWNorm"
+      ],
+      "distinct_from_existing": "Oxide-moles conversion stops at mol/100g; this fixes a mineral oxygen basis and yields ionic formula proportions. Blocked CIPW allocates normative phases and is not reused.",
+      "expected_dependencies": {
+        "source_profile": "pyrolite",
+        "companion_profiles": [
+          "periodictable"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "The upstream function supports a single Series-like sample, not general multi-row DataFrames.",
+        "Preserve measured iron species and explicitly set oxygen_constrained=True; do not rely on automatic iron heuristics."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500MineralReactionBalance",
+      "rank": 4,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:mineral-reaction-balance",
+      "scientific_task": "Balance a supplied mineral reaction and report stoichiometric coefficients and element residuals.",
+      "upstream_callable": "pymatgen.analysis.reaction_calculator.Reaction",
+      "supporting_callables": [
+        "pymatgen.analysis.reaction_calculator.Reaction.normalize_to",
+        "pymatgen.analysis.reaction_calculator.Reaction.get_coeff"
+      ],
+      "source_record_ids": [
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen-core==2026.10.16",
+      "source_commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen-core/blob/cddebfb21ed5acaee3987948b6704a2790d4e056/src/pymatgen/analysis/reaction_calculator.py#L293",
+        "definition": "class Reaction(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Conservation-law balancing of user-declared mineral reactants/products. Does not infer a reaction pathway, equilibrium state or kinetic rate.",
+      "units": {
+        "formula_amounts": "mol",
+        "stoichiometric_coefficients": "dimensionless",
+        "element_residuals": "mol per normalized reaction"
+      },
+      "input_constraints": [
+        "2..12 supplied mineral formulae, no unknown elements or executable deserialization",
+        "Require unambiguous species-side assignment; report any upstream side changes rather than silently accepting them",
+        "Normalize to one caller-selected input species from the fixed list; no arbitrary function selection"
+      ],
+      "fixed_invocation_plan": {
+        "normalization_species": "a declared input species only"
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC forsterite + quartz -> enstatite: Mg2SiO4 + SiO2 -> MgSiO3.",
+        "expected": {
+          "Mg2SiO4": -1,
+          "SiO2": -1,
+          "MgSiO3": 2,
+          "Mg_atoms_each_side": 2,
+          "Si_atoms_each_side": 2,
+          "O_atoms_each_side": 6
+        },
+        "derivation": "Direct counting gives the unique primitive integer balance [1,1,2].",
+        "negative": "An impossible reaction with an element present on only one side, or an underdetermined family without a declared convention, must not be presented as a unique reaction."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoGeochemOxideMoles",
+        "GeoPyroliteMineralEndmemberUnmix"
+      ],
+      "distinct_from_existing": "Neither converts a list of mineral species into a balanced reaction. Chemical unmixing estimates coefficients against observed compositions rather than balancing a declared transformation.",
+      "expected_dependencies": {
+        "source_profile": "core",
+        "companion_profiles": [
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "The general upstream solver may move species across sides; a bounded adapter must make that explicit.",
+        "No thermodynamic favorability follows from balance alone."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500MineralPhaseHull",
+      "rank": 5,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:mineral-phase-hull",
+      "scientific_task": "Calculate phase decomposition and energy above the compositional convex hull from explicit consistent phase energies.",
+      "upstream_callable": "pymatgen.analysis.phase_diagram.PhaseDiagram.get_decomp_and_e_above_hull",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen-core==2026.10.16",
+      "source_commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen-core/blob/cddebfb21ed5acaee3987948b6704a2790d4e056/src/pymatgen/analysis/phase_diagram.py#L802",
+        "definition": "def get_decomp_and_e_above_hull(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Closed-system thermodynamic stability relative to the supplied finite phase set. No online Materials Project database, missing phase invention or mineral mode estimation from assays.",
+      "units": {
+        "entry_energy": "eV per supplied formula unit",
+        "energy_above_hull": "eV/atom",
+        "decomposition": "atomic-fraction weights"
+      },
+      "input_constraints": [
+        "At most 4 elements and 64 phase entries, with all required elemental reference entries",
+        "All energies must use one temperature/pressure/reference convention and explicit formula normalization",
+        "Do not mix uncorrected DFT, experimental free energies or different reference states silently"
+      ],
+      "fixed_invocation_plan": {
+        "on_error": "raise",
+        "allow_negative": false
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC Li and O elemental entries at 0 eV/atom; stable LiO at -2 eV per LiO formula; a second LiO polymorph at 0 eV per formula.",
+        "expected": {
+          "unstable_polymorph_e_above_hull_eV_per_atom": 1,
+          "stable_LiO_decomposition_weight": 1
+        },
+        "derivation": "The stable LiO tie-point is -1 eV/atom. At identical composition the energy difference is exactly 1 eV/atom.",
+        "negative": "Missing elemental references, inconsistent units or unknown formula elements must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoPyroliteMineralEndmemberUnmix",
+        "GeoPyroliteCIPWNorm"
+      ],
+      "distinct_from_existing": "This selects energetically stable combinations from supplied phase energies; unmixing fits composition and CIPW follows a normative allocation sequence. No blocked CIPW code is involved.",
+      "expected_dependencies": {
+        "source_profile": "core",
+        "companion_profiles": [
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Only relative to supplied entries; omitted stable phases can change every conclusion.",
+        "Coexistence at finite T needs free energies, not merely static energies."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500CrystalCoordination",
+      "rank": 6,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:crystal-coordination",
+      "scientific_task": "Determine periodic atomic coordination environments and neighbor identities in a mineral structural model.",
+      "upstream_callable": "pymatgen.core.local_env.CrystalNN.get_nn_info",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen-core==2026.10.16",
+      "source_commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen-core/blob/cddebfb21ed5acaee3987948b6704a2790d4e056/src/pymatgen/core/local_env.py#L3839",
+        "definition": "class CrystalNN(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Neighbor topology and coordination around specified crystallographic sites. Not a grain/fabric orientation tensor or a generic spatial-nearest-point query.",
+      "units": {
+        "positions_and_bond_lengths": "angstrom",
+        "coordination_number": "count",
+        "neighbor_weights": "dimensionless"
+      },
+      "input_constraints": [
+        "At most 128 sites; fully periodic finite structure and explicit site selection",
+        "State geometric versus chemistry-weighted convention once per workflow; do not count different site axes/species as tools",
+        "No oxidation-state inference unless separately declared; cap initial search radius"
+      ],
+      "fixed_invocation_plan": {
+        "distance_cutoffs": null,
+        "x_diff_weight": 0,
+        "porous_adjustment": false,
+        "search_cutoff_angstrom": 7
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC ideal rock-salt NaCl, conventional cubic a=5.64 angstrom, geometric CrystalNN settings.",
+        "expected": {
+          "coordination_number_each_site": 6,
+          "nearest_opposite_species_distance_angstrom": 2.82
+        },
+        "derivation": "Each site has six Cartesian nearest neighbors at plus/minus a/2 along three axes.",
+        "negative": "Coincident atoms, invalid site index, singular cells and unsupported disorder must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoAPSGPairFabricTensor",
+        "DeepTimeNearestNeighbor"
+      ],
+      "distinct_from_existing": "Atomic periodic images and coordination weights are not bulk foliation-lineation tensors or nearest geographic feature lookup.",
+      "expected_dependencies": {
+        "source_profile": "core",
+        "companion_profiles": [
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Chemical weights are model assumptions, not observed bonds.",
+        "local_env imports ruamel.yaml directly; dependency freeze must include it."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500BondValenceOxidation",
+      "rank": 7,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:bond-valence-oxidation",
+      "scientific_task": "Infer charge-balanced oxidation-state assignments using bond-valence evidence from a supplied mineral structure.",
+      "upstream_callable": "pymatgen.core.bond_valence.BVAnalyzer.get_valences",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen-core==2026.10.16",
+      "source_commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen-core/blob/cddebfb21ed5acaee3987948b6704a2790d4e056/src/pymatgen/core/bond_valence.py#L205",
+        "definition": "def get_valences(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Explicitly model-inferred oxidation states for structural quality control. Never relabel them as measured iron speciation or assay chemistry.",
+      "units": {
+        "bond_lengths": "angstrom",
+        "oxidation_state": "elementary_charge",
+        "net_charge": "elementary_charge"
+      },
+      "input_constraints": [
+        "At most 64 ordered atomic sites and 10000 enumerated assignments",
+        "Elements must have upstream parameter-table coverage; report unsupported species",
+        "Neutral input chemical model and explicit symmetry/distance tolerances"
+      ],
+      "fixed_invocation_plan": {
+        "max_permutations": 10000,
+        "max_radius_angstrom": 4
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC ideal periclase MgO rock-salt cell a=4.21 angstrom.",
+        "expected": {
+          "Mg_valence": 2,
+          "O_valence": -2,
+          "net_charge": 0
+        },
+        "derivation": "Independent chemical valence and charge neutrality for stoichiometric MgO give Mg2+ and O2-; compare all equivalent sites, not just one.",
+        "negative": "Unsupported element parameters or failure to find a neutral assignment must return an explicit failure, not guessed zeros."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoGeochemOxideMoles",
+        "Geo500MineralOxygenBasisFormula"
+      ],
+      "distinct_from_existing": "Baseline oxide conversion preserves supplied oxidation species. This uses crystal bond distances to infer a labelled model assignment; formula normalization only rescales explicitly measured species.",
+      "expected_dependencies": {
+        "source_profile": "core",
+        "companion_profiles": [
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Empirical/probabilistic assignment may be ambiguous or wrong for unusual minerals.",
+        "Do not use as automatic correction of measured FeO/Fe2O3."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500CrystalStructureEquivalence",
+      "rank": 8,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:crystal-structure-equivalence",
+      "scientific_task": "Match periodic mineral structures across site permutations, origin shifts and alternative cells.",
+      "upstream_callable": "pymatgen.core.structure_matcher.StructureMatcher.get_rms_dist",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen-core==2026.10.16",
+      "source_commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen-core/blob/cddebfb21ed5acaee3987948b6704a2790d4e056/src/pymatgen/core/structure_matcher.py#L678",
+        "definition": "def get_rms_dist(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Test structural equivalence with explicit species identity and normalized RMS displacement. Not a proof that two specimens are the same mineral phase.",
+      "units": {
+        "lattice": "angstrom",
+        "fractional_coordinates": "fraction",
+        "normalized_rms": "dimensionless per free-length normalization"
+      },
+      "input_constraints": [
+        "At most 128 sites per model; bound supercell search or disable it",
+        "Require explicit species comparison; no anonymous element substitutions",
+        "Fix length/angle/site tolerances; preserve scale rather than allowing arbitrary density changes"
+      ],
+      "fixed_invocation_plan": {
+        "scale": false,
+        "attempt_supercell": false,
+        "primitive_cell": true,
+        "comparator": "fixed SpeciesComparator"
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC rock-salt model and an identical model with atom order permuted and all fractional positions shifted by [1/4,1/4,1/4] modulo one.",
+        "expected": {
+          "equivalent_indicator": 1,
+          "normalized_rms": 0,
+          "normalized_max_distance": 0
+        },
+        "derivation": "A global translation and relabelling preserve all periodic pair separations and species.",
+        "negative": "Replacing a chemical species must not match under the fixed SpeciesComparator; mismatches are a valid result, not an exception hidden as success."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoRemotePhaseRegistration",
+        "GeoStereonetAnalysis"
+      ],
+      "distinct_from_existing": "Image phase registration finds raster translation. This compares 3D periodic atomic species under cell reduction, origins and site permutations.",
+      "expected_dependencies": {
+        "source_profile": "core",
+        "companion_profiles": [
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Tolerance-dependent and combinatorial; arbitrary supercell searches can grow rapidly.",
+        "Report normalized RMS units honestly, not angstroms."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500WulffCrystalHabit",
+      "rank": 9,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:wulff-crystal-habit",
+      "scientific_task": "Construct an equilibrium crystal habit from supplied Miller-plane surface energies.",
+      "upstream_callable": "pymatgen.analysis.wulff.WulffShape",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "pm",
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen==2026.10.24",
+      "source_commit": "e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen/blob/e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26/src/pymatgen/analysis/wulff.py#L97",
+        "definition": "class WulffShape:",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Surface-energy-controlled equilibrium shape of a single crystal, with face-area fractions and shape factor. Not growth kinetics or observed morphology classification.",
+      "units": {
+        "surface_energy": "J/m^2",
+        "facet_area_fraction": "fraction",
+        "shape_factor": "dimensionless"
+      },
+      "input_constraints": [
+        "3..32 unique bounded nonzero Miller families with positive finite energies",
+        "Conventional lattice supplied explicitly; all energies use one termination/environment convention",
+        "Only normalized geometry is physical without a size constraint; do not label raw Wulff volume as angstrom^3"
+      ],
+      "fixed_invocation_plan": {
+        "return_normalized_geometry_only": true
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC cubic lattice with gamma100=1 J/m^2 and gamma110=gamma111=2 J/m^2.",
+        "expected": {
+          "area_fraction_100": 1,
+          "shape_factor": 6,
+          "weighted_surface_energy_J_per_m2": 1
+        },
+        "derivation": "The {100} planes bound a cube; higher-energy diagonal planes lie outside its edges/corners. Any cube has S/V^(2/3)=6.",
+        "negative": "Negative surface energies, zero Miller indices or an unbounded/degenerate intersection must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoRemoteRegionProperties",
+        "GeoSpatialMaximumInscribedCircle"
+      ],
+      "distinct_from_existing": "Existing methods measure supplied image regions or fit a circle to a site polygon; this predicts a crystal habit through surface-energy minimization.",
+      "expected_dependencies": {
+        "source_profile": "pm",
+        "companion_profiles": [
+          "core",
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Surface energies are caller evidence, not generated by this tool.",
+        "Observed natural habits may be kinetically controlled."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500PeriodicIonicLatticeEnergy",
+      "rank": 10,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:periodic-ionic-lattice-energy",
+      "scientific_task": "Evaluate neutral 3D-periodic ionic electrostatic energy by Ewald summation.",
+      "upstream_callable": "pymatgen.core.ewald.EwaldSummation",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen-core==2026.10.16",
+      "source_commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen-core/blob/cddebfb21ed5acaee3987948b6704a2790d4e056/src/pymatgen/core/ewald.py#L38",
+        "definition": "class EwaldSummation(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Point-charge electrostatic component of a mineral lattice energy. Not a total cohesive energy, force field, elastic model or geophysical field.",
+      "units": {
+        "lattice": "angstrom",
+        "site_charge": "elementary_charge",
+        "total_energy": "eV per input cell"
+      },
+      "input_constraints": [
+        "At most 128 sites with explicitly assigned finite charges and zero net charge within tolerance",
+        "Require all three periodic directions, nonsingular positive-volume lattice and no coincident sites",
+        "Bound convergence accuracy and ensure charge origin is caller-supplied, not automatically inferred"
+      ],
+      "fixed_invocation_plan": {
+        "compute_forces": false,
+        "acc_factor": 10
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC conventional NaCl cell a=5.64 angstrom, 4 Na+ and 4 Cl-.",
+        "expected": {
+          "energy_eV_per_conventional_cell": -35.694057607611626,
+          "madelung_constant": 1.7475645946331821
+        },
+        "derivation": "Independent rock-salt Madelung sum gives -4*M*14.3996454784255/(a/2) eV. The integer-lattice Madelung reference must be cited/frozen independently during test authoring, not obtained from EwaldSummation.",
+        "negative": "Non-3D periodic structures, nonneutral cells in this explicitly neutral model, missing charges or overlaps must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoPointMassGravity",
+        "GeoRockVRHBounds"
+      ],
+      "distinct_from_existing": "Finite-body gravity and elastic mixture moduli do not compute periodic ionic Coulomb lattice energies.",
+      "expected_dependencies": {
+        "source_profile": "core",
+        "companion_profiles": [
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Does not include short-range repulsion, polarization or electronic energy.",
+        "Use the current core release with periodicity fixes; never confuse charged-cell background conventions with neutral lattice energy."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500CoherentMineralInterfaceMatch",
+      "rank": 11,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:coherent-mineral-interface-match",
+      "scientific_task": "Search bounded coincidence superlattices for two declared mineral surface nets.",
+      "upstream_callable": "pymatgen.analysis.interfaces.zsl.ZSLGenerator.__call__",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "pm",
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen==2026.10.24",
+      "source_commit": "e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen/blob/e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26/src/pymatgen/analysis/interfaces/zsl.py#L190",
+        "definition": "def __call__(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Zur-McGill matching of 2D crystallographic surface lattices for epitaxy/intergrowth hypotheses. Does not establish an observed interface or its energy.",
+      "units": {
+        "surface_vectors": "angstrom",
+        "match_area": "angstrom^2",
+        "length_mismatch": "fraction",
+        "angle_mismatch": "fraction"
+      },
+      "input_constraints": [
+        "Two noncollinear coplanar vector pairs in a declared common convention",
+        "Positive bounded search area <=400 angstrom^2 and output <=64 matches",
+        "Fixed mismatch tolerances; no user-selected JIT/kernel/code"
+      ],
+      "fixed_invocation_plan": {
+        "lowest": true,
+        "max_area_angstrom2": 400,
+        "bidirectional": true
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC identical square surface nets with vectors [2,0,0] and [0,2,0] angstrom; bounded search area 16 angstrom^2.",
+        "expected": {
+          "lowest_match_area_angstrom2": 4,
+          "principal_in_plane_stretches": [
+            1,
+            1
+          ]
+        },
+        "derivation": "The primitive 2x2 square nets already coincide, requiring no supercell enlargement or strain.",
+        "negative": "Collinear vectors, zero/negative areas or resource-exploding searches must fail before enumeration."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoAPSGDeformationPolarSplit",
+        "GeoSpatialCoverageUnion"
+      ],
+      "distinct_from_existing": "Polar decomposition analyzes a supplied deformation; surface-net matching searches discrete crystallographic coincidences and integer supercells.",
+      "expected_dependencies": {
+        "source_profile": "pm",
+        "companion_profiles": [
+          "core",
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Combinatorial enumeration and Numba imports need CPU resource limits.",
+        "Lattice match alone does not imply favorable interface bonding."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500MineralSurfaceTerminations",
+      "rank": 12,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:mineral-surface-terminations",
+      "scientific_task": "Enumerate symmetry-distinct crystallographic slab terminations for a supplied mineral Miller plane.",
+      "upstream_callable": "pymatgen.core.surface.SlabGenerator.get_slabs",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen-core==2026.10.16",
+      "source_commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen-core/blob/cddebfb21ed5acaee3987948b6704a2790d4e056/src/pymatgen/core/surface.py#L1301",
+        "definition": "def get_slabs(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Construct explicit atomistic surfaces and termination stoichiometry for downstream surface chemistry. No DFT, relaxation or inferred reconstruction.",
+      "units": {
+        "lattice_slab_vacuum": "angstrom",
+        "surface_area": "angstrom^2",
+        "miller_indices": "integer",
+        "site_count": "count"
+      },
+      "input_constraints": [
+        "At most 128 bulk sites and 2048 generated slab sites; abs(h,k,l)<=4, not all zero",
+        "Explicit slab/vacuum thickness and preservation of chemical species",
+        "No automatic repair, symmetrization-induced stoichiometry changes or reconstructions"
+      ],
+      "fixed_invocation_plan": {
+        "repair": false,
+        "symmetrize": false,
+        "primitive": true
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC monatomic simple-cubic a=2 angstrom, (001), slab thickness 8 angstrom and vacuum 10 angstrom.",
+        "expected": {
+          "surface_area_angstrom2": 4,
+          "interlayer_spacing_angstrom": 2,
+          "slab_atom_count": 4
+        },
+        "derivation": "The primitive (001) surface cell is a square of side 2; four cubic repeats supply four atomic planes at spacing 2. Compare geometry invariantly, not by arbitrary origin.",
+        "negative": "Zero Miller triplet, nonpositive vacuum or a slab exceeding atom bounds must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoStructuralPlaneIntersection",
+        "Geo500WulffCrystalHabit"
+      ],
+      "distinct_from_existing": "Plane intersection gives a line from field planes; Wulff predicts an external equilibrium shape. This builds stoichiometric atomistic terminations and vacuum-separated slabs.",
+      "expected_dependencies": {
+        "source_profile": "core",
+        "companion_profiles": [
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Broken-bond and surface-charge diagnostics depend on explicit chemistry.",
+        "Slab generation is not a relaxed or energetically ranked mineral surface."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500IrreducibleReciprocalMesh",
+      "rank": 13,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:irreducible-reciprocal-mesh",
+      "scientific_task": "Reduce a crystal reciprocal-space integration grid to symmetry-inequivalent points and multiplicity weights.",
+      "upstream_callable": "spglib.kpoints.get_ir_reciprocal_mesh",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "spglib"
+      ],
+      "primary_pin": "spglib==2.8.0",
+      "source_commit": "3ebd8ac3318793932baeee90b44f453a7c35b5b4",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/spglib/spglib/blob/3ebd8ac3318793932baeee90b44f453a7c35b5b4/python/spglib/kpoints.py#L20",
+        "definition": "def get_ir_reciprocal_mesh(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Symmetry-aware Brillouin-zone sampling preparation for mineral electronic/phonon calculations. Does not run those calculations.",
+      "units": {
+        "mesh": "integer divisions",
+        "k_points": "fractional reciprocal coordinates",
+        "weights": "count and normalized fraction"
+      },
+      "input_constraints": [
+        "Mesh dimensions 1..32 with total <=32768 points; valid bounded crystal cell",
+        "State time-reversal assumption; magnetic states must not silently assume it",
+        "Use one gamma-centered workflow; shifts/axes are not separate tools"
+      ],
+      "fixed_invocation_plan": {
+        "is_shift": [
+          0,
+          0,
+          0
+        ],
+        "is_time_reversal": true
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC simple cubic monatomic cell with gamma-centered 2x2x2 mesh and time reversal.",
+        "expected": {
+          "irreducible_points": 4,
+          "multiplicities_sorted": [
+            1,
+            1,
+            3,
+            3
+          ],
+          "total_weight": 8,
+          "normalized_weight_sum": 1
+        },
+        "derivation": "The eight binary grid points partition by number of half-grid components into Gamma/X/M/R orbits with multiplicities 1,3,3,1.",
+        "negative": "Zero/negative mesh entries, excess total points or singular cell must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoRemotePCA",
+        "GeoStereonetAnalysis"
+      ],
+      "distinct_from_existing": "No existing task builds crystallographic reciprocal integration weights; neither spectral dimension reduction nor stereonet projection does this.",
+      "expected_dependencies": {
+        "source_profile": "spglib",
+        "companion_profiles": [],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Only valid under the declared symmetry and time-reversal assumptions.",
+        "A mesh is preparation data, not a converged DFT result."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500REEOrthogonalShape",
+      "rank": 14,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:reeorthogonal-shape",
+      "scientific_task": "Fit orthogonal rare-earth pattern shape coefficients to explicit normalized log-REE data.",
+      "upstream_callable": "pyrolite.util.lambdas.calc_lambdas",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "pyrolite",
+        "periodictable"
+      ],
+      "primary_pin": "pyrolite==0.3.7",
+      "source_commit": "ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/morganjwilliams/pyrolite/blob/ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca/pyrolite/util/lambdas/__init__.py#L18",
+        "definition": "def calc_lambdas(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "O'Neill polynomial shape description of REE patterns, with residual/uncertainty interpretation. No duplicate normalization plot or automatic mineralization label.",
+      "units": {
+        "input": "natural_log(measured_concentration/reference_concentration)",
+        "coefficients": "basis-dependent dimensionless",
+        "residual": "log-ratio"
+      },
+      "input_constraints": [
+        "Fixed O'Neill basis and degree 4; document reference composition and excluded elements",
+        "Enough uncensored complete REE measurements; no imputation of detection-limit values",
+        "No arbitrary polynomial basis, optimizer callable or tetrad mode presented as extra tools"
+      ],
+      "fixed_invocation_plan": {
+        "algorithm": "ONeill",
+        "degree": 4,
+        "fit_tetrads": false
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC every supplied normalized log-REE value equals 2, with at least eight fitted elements.",
+        "expected": {
+          "lambda0": 2,
+          "lambda1": 0,
+          "lambda2": 0,
+          "lambda3": 0,
+          "reconstruction_residual": 0
+        },
+        "derivation": "A constant function lies entirely in the degree-zero basis, whose value is one; higher-order coefficients must vanish. Add an independently expanded linear polynomial fixture during acceptance.",
+        "negative": "Insufficient fitted elements, nonfinite log-values or missing reference provenance must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoGeochemREEPattern",
+        "GeoPyroliteILR"
+      ],
+      "distinct_from_existing": "REEPattern normalizes and plots abundances/Eu anomaly; ILR gives compositional balances. This extracts smooth chemical-pattern shape through an ionic-radius polynomial model.",
+      "expected_dependencies": {
+        "source_profile": "pyrolite",
+        "companion_profiles": [
+          "periodictable"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Basis choice and element exclusion alter coefficient meaning.",
+        "Uncertainty interpretation needs measurement errors; no goodness-of-fit equals geological proof."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500VolcanicTASClass",
+      "rank": 15,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:volcanic-tasclass",
+      "scientific_task": "Classify declared anhydrous volcanic whole-rock chemistry in the fixed Middlemost TAS fields.",
+      "upstream_callable": "pyrolite.util.classification.TAS.predict",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "pyrolite",
+        "periodictable"
+      ],
+      "primary_pin": "pyrolite==0.3.7",
+      "source_commit": "ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca",
+      "authoritative_api_evidence": [
+        {
+          "url": "https://github.com/morganjwilliams/pyrolite/blob/ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca/pyrolite/util/classification.py#L358",
+          "definition": "class TAS(",
+          "evidence_type": "read_primary_upstream_source",
+          "executed": false
+        },
+        {
+          "url": "https://github.com/morganjwilliams/pyrolite/blob/ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca/pyrolite/util/classification.py#L129",
+          "definition": "def predict(self, X",
+          "evidence_type": "read_primary_upstream_source",
+          "executed": false
+        },
+        {
+          "url": "https://github.com/morganjwilliams/pyrolite/blob/ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca/pyrolite/data/models/TAS/config.json",
+          "evidence_type": "fixed bundled field polygons"
+        }
+      ],
+      "scientific_scope": "Empirical rock nomenclature from measured silica and total alkalis. Not mineral identification, weathering correction or prediction of tectonic setting.",
+      "units": {
+        "SiO2_Na2O_K2O": "anhydrous wt_percent",
+        "field_membership": "categorical"
+      },
+      "input_constraints": [
+        "Caller must attest volcanic, suitable unaltered whole-rock scope and anhydrous normalization",
+        "SiO2 and both alkalis must be finite, nonnegative and jointly <=100 wt_percent",
+        "Boundary/overlap cases need explicit ambiguity reporting; never nearest-centroid forced naming"
+      ],
+      "fixed_invocation_plan": {
+        "which_model": null,
+        "data_scale": 100,
+        "axes": [
+          "SiO2",
+          "Na2O + K2O"
+        ]
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC SiO2=50, Na2O=2, K2O=1 wt_percent.",
+        "expected": {
+          "field_code": "Bs",
+          "subalkalic_basalt_membership_indicator": 1
+        },
+        "derivation": "On the independently interpreted TAS diagram the point is between silica 45 and 52, below the dividing line y=2+3*(x-45)/7=4.142857 and above zero. It lies strictly inside the subalkalic-basalt polygon.",
+        "negative": "Negative concentrations, undeclared hydration/normalization or boundary ambiguity must not yield a confident rock label."
+      },
+      "nearest_existing_tool_ids": [
+        "EarthXsboringenLithology",
+        "GeoSpectralAngleMatch"
+      ],
+      "distinct_from_existing": "CPT lithology uses cone/friction measurements and spectral matching uses reflectance; neither applies volcanic whole-rock chemical nomenclature.",
+      "expected_dependencies": {
+        "source_profile": "pyrolite",
+        "companion_profiles": [
+          "periodictable"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Fixed Middlemost subfields differ from combined Le Maitre fields; report exact convention.",
+        "One classification task only; individual named fields are not separate tools."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500MineralNeutronContrast",
+      "rank": 16,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:mineral-neutron-contrast",
+      "scientific_task": "Calculate mineral neutron scattering-length density, macroscopic cross sections and attenuation from explicit composition and density.",
+      "upstream_callable": "periodictable.nsf.neutron_scattering",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "periodictable"
+      ],
+      "primary_pin": "periodictable==2.1.0",
+      "source_commit": "83b643f4ca4c7d8cf5202c13e32921b572da9896",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/python-periodictable/periodictable/blob/83b643f4ca4c7d8cf5202c13e32921b572da9896/periodictable/nsf.py#L785",
+        "definition": "def neutron_scattering(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Predict neutron contrast for mineral/porous-rock experiments using bundled evaluated scattering data. No mineral identification or experimental radiation-safety certification.",
+      "units": {
+        "density": "g/cm^3",
+        "wavelength": "angstrom",
+        "sld": "1e-6/angstrom^2",
+        "macroscopic_cross_sections": "1/cm",
+        "penetration": "cm"
+      },
+      "input_constraints": [
+        "Explicit chemical/isotopic formula, positive finite density and thermal/cold-neutron wavelength",
+        "All constituent data must exist; unknown cross sections are not zero",
+        "Bound formula atom count and wavelength samples; no remote table replacement"
+      ],
+      "fixed_invocation_plan": {
+        "energy": null,
+        "table": "fixed bundled default",
+        "natural_density": null
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC SiO2 at density 2.65 g/cm^3 and wavelength 1.798 angstrom.",
+        "expected": {
+          "coherent_sld_reference_1e_minus6_per_A2": 4.184719291694345,
+          "reference_relative_tolerance": 0.001
+        },
+        "derivation": "Independent NIST/Sears bSi=4.1491 fm, bO=5.803 fm and number density rho*NA/M give the quoted SLD. Use 0.1% tolerance because pinned periodictable uses newer 4.15071 and 5.8037 fm values; do not replace the oracle with a call into the same table.",
+        "reference_url": "https://www.ncnr.nist.gov/resources/n-lengths/list.html",
+        "negative": "Missing density, unknown isotope/scattering data or invalid wavelength must fail explicitly."
+      },
+      "nearest_existing_tool_ids": [
+        "Geo500PowderXRDPattern",
+        "GeoRockFluidPVT"
+      ],
+      "distinct_from_existing": "XRD models reciprocal-lattice diffraction from atomic positions; this predicts bulk nuclear scattering/attenuation from composition and density. Fluid PVT does neither.",
+      "expected_dependencies": {
+        "source_profile": "periodictable",
+        "companion_profiles": [],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Nuclear data uncertainty and bound-atom approximation limit agreement with experiments.",
+        "Public-domain module plus distribution-specific notices must be retained."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500PoreChordDistribution",
+      "rank": 17,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:pore-chord-distribution",
+      "scientific_task": "Measure boundary-aware pore chord-length distributions from segmented rock microstructure.",
+      "upstream_callable": "porespy.metrics.chord_length_distribution",
+      "supporting_callables": [
+        "porespy.filters.apply_chords"
+      ],
+      "source_record_ids": [
+        "porespy"
+      ],
+      "primary_pin": "porespy==3.2.0",
+      "source_commit": "916fdc135bfb08d84b8d9173d6de9174ff217e5d",
+      "authoritative_api_evidence": [
+        {
+          "url": "https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/metrics/_funcs.py#L697",
+          "definition": "def chord_length_distribution(",
+          "evidence_type": "read_primary_upstream_source",
+          "executed": false
+        },
+        {
+          "url": "https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/filters/_funcs.py#L507",
+          "definition": "def apply_chords(",
+          "evidence_type": "read_primary_upstream_source",
+          "executed": false
+        }
+      ],
+      "scientific_scope": "Line-intercept stereology of an explicitly segmented pore phase. One task accepts a direction; different axes are not counted separately.",
+      "units": {
+        "voxel_pitch": "m",
+        "chord_length": "m",
+        "pdf": "1/m",
+        "relative_frequency": "fraction"
+      },
+      "input_constraints": [
+        "Boolean 2D/3D pore mask with isotropic explicit voxel pitch and <=64^3 voxels",
+        "Declared direction; positive spacing >=1; edge truncation treatment explicit",
+        "Do not infer segmentation or use generic region size as a chord without upstream chord construction"
+      ],
+      "fixed_invocation_plan": {
+        "spacing": 1,
+        "trim_edges": true,
+        "label": true,
+        "normalization": "count",
+        "log": false
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC 8x8 mask with an interior two-voxel chord at column 2 and four-voxel chord at column 4, both parallel to axis 0; pitch=0.01 m; bins [0.01,0.03,0.05] m.",
+        "expected": {
+          "lengths_m": [
+            0.02,
+            0.04
+          ],
+          "relative_frequency": [
+            0.5,
+            0.5
+          ],
+          "mean_chord_length_m": 0.03
+        },
+        "derivation": "Manual line-intercept enumeration yields precisely the two lengths; equal chord counts give equal probability mass.",
+        "negative": "Nonpositive pitch, unsorted bins, no retained chords or invalid axis must not produce a fabricated distribution."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoRemoteRegionProperties",
+        "GeoRemoteSkeleton"
+      ],
+      "distinct_from_existing": "Region properties describe whole connected image objects; skeletonization gives a medial graph. Chord stereology samples lineal pore lengths with explicit edge censoring.",
+      "expected_dependencies": {
+        "source_profile": "porespy",
+        "companion_profiles": [],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Edge trimming changes the sampled population and must be reported.",
+        "Requires PoreSpy's larger CPU dependency profile; no GPU or rendering path."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500PoreBodyRadiusDistribution",
+      "rank": 18,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:pore-body-radius-distribution",
+      "scientific_task": "Estimate voxel-center local pore-body radii by maximal inscribed spheres and summarize pore-volume radius distribution.",
+      "upstream_callable": "porespy.filters.local_thickness",
+      "supporting_callables": [
+        "porespy.metrics.pore_size_distribution"
+      ],
+      "source_record_ids": [
+        "porespy"
+      ],
+      "primary_pin": "porespy==3.2.0",
+      "source_commit": "916fdc135bfb08d84b8d9173d6de9174ff217e5d",
+      "authoritative_api_evidence": [
+        {
+          "url": "https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/filters/_lt_methods.py#L260",
+          "definition": "def local_thickness(",
+          "evidence_type": "read_primary_upstream_source",
+          "executed": false
+        },
+        {
+          "url": "https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/metrics/_funcs.py#L804",
+          "definition": "def pore_size_distribution(",
+          "evidence_type": "read_primary_upstream_source",
+          "executed": false
+        }
+      ],
+      "scientific_scope": "Local maximal-sphere pore-body size, not access-limited capillary entry radius, a global site-inscribed circle, or a count of connected regions.",
+      "units": {
+        "voxel_pitch": "um",
+        "local_radius": "um",
+        "radius_bin_mass": "pore_volume_fraction"
+      },
+      "input_constraints": [
+        "Explicit boolean 3D pore segmentation with isotropic pitch and solid boundary padding",
+        "At most 32^3 voxels for the initial bounded CPU workflow",
+        "Fix the integer-radius voxel-center definition; no unreported conversion to continuum radii or diameters"
+      ],
+      "fixed_invocation_plan": {
+        "method": "bf",
+        "smooth": true,
+        "sizes": null,
+        "return_indices": false,
+        "distribution_log": false
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC 7x7x7 solid grid with the central 3x3x3 cube marked pore; voxel pitch=1 um; integer radii 1,2; smooth=True.",
+        "expected": {
+          "maximum_local_radius_um": 2,
+          "central_voxel_radius_um": 2,
+          "pore_volume_bin_fraction_for_radius_2": 1
+        },
+        "derivation": "The central pore voxel is two center-to-center spacings from the nearest solid. Every one of the 27 pore centers is at distance <=sqrt(3)<2 from that center, so the radius-2 digital sphere covers all pore voxels.",
+        "negative": "Anisotropic or missing voxel spacing, empty pore masks or an unbounded all-pore image must not receive an unqualified physical radius."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoSpatialMaximumInscribedCircle",
+        "GeoRemoteRegionProperties",
+        "Geo500PoreChordDistribution"
+      ],
+      "distinct_from_existing": "The spatial tool finds one global 2D circle inside a site polygon. This assigns local radii throughout a 3D pore volume; chord lengths instead measure directional line intercepts.",
+      "expected_dependencies": {
+        "source_profile": "porespy",
+        "companion_profiles": [],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "PoreSpy3.2.0 uses integer radii by default; resolution bias and solid/pore interface convention must be explicit.",
+        "Volume-weighted pore-body size is not throat size or capillary-pressure distribution."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500QuasistaticCapillaryDrainage",
+      "rank": 19,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:quasistatic-capillary-drainage",
+      "scientific_task": "Simulate access-limited capillary invasion and pressure-saturation response in a segmented pore volume.",
+      "upstream_callable": "porespy.simulations.drainage",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "porespy"
+      ],
+      "primary_pin": "porespy==3.2.0",
+      "source_commit": "916fdc135bfb08d84b8d9173d6de9174ff217e5d",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/simulations/_drainage.py#L476",
+        "definition": "def drainage(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Quasistatic image-based drainage using explicitly supplied pore-entry pressures and inlet/outlet masks. Not a flow-rate solver, forecast or measured saturation replacement.",
+      "units": {
+        "capillary_pressure": "Pa",
+        "saturation": "pore_volume_fraction",
+        "voxel_pitch": "m",
+        "invasion_step": "integer"
+      },
+      "input_constraints": [
+        "<=32^3 boolean voxels, explicit pitch, pressure field and <=64 pressure steps",
+        "Disjoint inlet/outlet masks within pore space; finite positive pore-entry pressures",
+        "No implicit dimensionless 2/dt pressure default; any uninvaded infinity must become a documented status/null in future JSON"
+      ],
+      "fixed_invocation_plan": {
+        "conn": "min",
+        "min_size": 0,
+        "residual": null,
+        "pressure_source": "caller-supplied physical Pa field"
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC inlet-connected straight pore channel with entry-pressure field exactly 2000 Pa, no residual phase and no outlet-trapping constraint; applied steps 1000 and 3000 Pa.",
+        "expected": {
+          "nonwetting_saturation_below_threshold": 0,
+          "nonwetting_saturation_above_threshold": 1,
+          "reported_invasion_step_pressure_Pa": 3000
+        },
+        "derivation": "No point is eligible below the common entry threshold; at the next applied step the whole connected channel is accessible. Discrete applied-step pressure must not be misreported as exact entry pressure.",
+        "negative": "Overlapping inlet/outlet masks, invalid pressure units or nonfinite pore-entry values must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoRemoteWatershed",
+        "GeoRockPatchySaturation",
+        "GeoSpatialDepressionFill"
+      ],
+      "distinct_from_existing": "Watershed partitions image basins, patchy-saturation rock models predict elastic response, and DEM filling conditions terrain. None predicts pore-access-limited invasion and trapping.",
+      "expected_dependencies": {
+        "source_profile": "porespy",
+        "companion_profiles": [],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Finite pressure-step resolution affects reported invasion thresholds.",
+        "Static capillary model omits viscous dynamics; supplied pressure fields require physical justification."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500MineralEhPHStability",
+      "rank": 20,
+      "priority": "first_20_for_parent_review",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:mineral-eh-phstability",
+      "scientific_task": "Evaluate mineral/ion thermodynamic stability and decomposition energy over explicit Eh-pH conditions.",
+      "upstream_callable": "pymatgen.analysis.pourbaix_diagram.PourbaixDiagram.get_decomposition_energy",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "pm",
+        "core",
+        "spglib"
+      ],
+      "primary_pin": "pymatgen==2026.10.24",
+      "source_commit": "e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/materialsproject/pymatgen/blob/e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26/src/pymatgen/analysis/pourbaix_diagram.py#L863",
+        "definition": "def get_decomposition_energy(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Pourbaix stability relative to user-supplied solid/aqueous formation energies and concentrations at the upstream fixed room-temperature convention. Not kinetic dissolution, complete aqueous speciation or a water-quality prediction.",
+      "units": {
+        "formation_energy": "eV per formula unit",
+        "decomposition_energy": "eV/atom",
+        "potential": "V vs SHE",
+        "pH": "dimensionless",
+        "ion_concentration": "mol/L"
+      },
+      "input_constraints": [
+        "One or two non-H/O components, <=32 entries and <=256 evaluation points",
+        "Explicit consistent formation-energy references to H2/O2 and ideal concentration convention",
+        "No external database fetch; no arbitrary temperature input because the upstream prefactor is fixed",
+        "Serial evaluation only; do not infer absent phases or activity corrections"
+      ],
+      "fixed_invocation_plan": {
+        "nproc": 1,
+        "temperature_model": "upstream fixed prefactor, approximately 298 K",
+        "concentrations": "explicit",
+        "filter_solids": "explicitly declared in future contract"
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC Fe(s) with formation energy 0 and Fe2+(aq) with formation energy +1 eV/Fe at 1 mol/L, with no H/O in either formula.",
+        "expected": {
+          "equal_stability_potential_V": 0.5,
+          "Fe_metal_energy_above_hull_at_1V_eV_per_atom": 1
+        },
+        "derivation": "Two-electron exchange lowers the ion's free energy by 2E eV; equality is 1-2E=0. At 1 V the ion is lower by 1 eV/Fe. pH has no effect for this deliberately H/O-free analytic fixture.",
+        "negative": "Missing energy references, nonpositive concentrations or unsupported temperature claims must fail."
+      },
+      "nearest_existing_tool_ids": [
+        "Geo500MineralPhaseHull",
+        "GeoPyroliteMineralEndmemberUnmix"
+      ],
+      "distinct_from_existing": "Closed-composition hull stability fixes all component amounts; this treats H/O/electrons as open reservoirs and includes ionic concentrations and electrochemical conditions. It is not another phase-hull plotting mode.",
+      "expected_dependencies": {
+        "source_profile": "pm",
+        "companion_profiles": [
+          "core",
+          "spglib"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Data/reference-state quality dominates validity; incomplete phase sets can mislead.",
+        "Multi-element combinations can grow rapidly. Fixed room-temperature/ideal-solution assumptions must remain visible."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500SpatialCellDeclustering",
+      "rank": 21,
+      "priority": "conditional_follow_up",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:spatial-cell-declustering",
+      "scientific_task": "Estimate spatial sampling declustering weights and cell-size sensitivity for clustered geological observations.",
+      "upstream_callable": "geostatspy.geostats.declus",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "geostatspy"
+      ],
+      "primary_pin": "geostatspy @ https://github.com/GeostatsGuy/GeostatsPy/archive/45b2032a1e3f05de6cd0cb7f32ed43203399dbfa.zip",
+      "source_commit": "45b2032a1e3f05de6cd0cb7f32ed43203399dbfa",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/GeostatsGuy/GeostatsPy/blob/45b2032a1e3f05de6cd0cb7f32ed43203399dbfa/geostatspy/geostats.py#L1508",
+        "definition": "def declus(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Two-dimensional cell declustering of measured samples. Report sample weights and sensitivity, not an ore-resource estimate or an automatically unbiased population mean.",
+      "units": {
+        "coordinates": "m in explicit local projected frame",
+        "cell_size": "m",
+        "weights": "dimensionless, upstream sums to sample count",
+        "weighted_mean": "same explicit unit as observations"
+      },
+      "input_constraints": [
+        "4..1024 finite paired samples, positive cell sizes, <=32 sizes and <=16 offsets",
+        "Bound allocated cell grid to <=1000000 cells before upstream allocation",
+        "State the objective as executed: iminmax=1 selects a lower mean despite the conflicting upstream docstring",
+        "No imputed values, automatic assay cutoffs or spatial extrapolation"
+      ],
+      "fixed_invocation_plan": {
+        "source_install": "fixed immutable archive only",
+        "column_names": [
+          "x_m",
+          "y_m",
+          "value"
+        ],
+        "kernel_objective_mapping": "1=minimize, 0=maximize according to inspected code; not upstream docstring"
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC points (0.1,0.1),(0.2,0.2),(0.3,0.3),(10.1,10.1) m with values [10,10,10,2] ppm; fixed 5 m cells, one origin and ncell=1.",
+        "expected": {
+          "returned_weights": [
+            0.6666666666666666,
+            0.6666666666666666,
+            0.6666666666666666,
+            2
+          ],
+          "normalized_weights": [
+            0.16666666666666666,
+            0.16666666666666666,
+            0.16666666666666666,
+            0.5
+          ],
+          "weighted_mean_ppm": 6,
+          "naive_mean_ppm": 8
+        },
+        "derivation": "Three samples share one occupied cell and the fourth occupies a second cell. Equal cell support gives weights 1/6 for each clustered sample and 1/2 for the isolated sample.",
+        "negative": "Zero cell size, nonfinite coordinates or excessive allocation must fail before calling the kernel."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoHPGLDirectionalSemivariogram",
+        "GeoSpatialSiteVoronoi",
+        "GeoGeochemBackgroundDistance"
+      ],
+      "distinct_from_existing": "Variograms measure spatial dependence; Voronoi builds service polygons; background distance measures chemical departure. None estimates sampling-density declustering weights and cell-size sensitivity.",
+      "expected_dependencies": {
+        "source_profile": "geostatspy",
+        "companion_profiles": [],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "Immutable source is usable as a research target but __version__=0.0.46 does NOT establish correspondence with PyPI0.0.79.",
+        "Underdeclared dependencies, stdout progress and reversed objective documentation require parent review before any wrapper.",
+        "Selecting a minimum mean assumes preferential high-value sampling; report sensitivity rather than claiming unbiasedness."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    },
+    {
+      "tool_id": "Geo500PoreDiffusionTortuosity",
+      "rank": 22,
+      "priority": "conditional_follow_up",
+      "status": "research_only_not_integrated_not_counted",
+      "capability_key": "geology500:pore-diffusion-tortuosity",
+      "scientific_task": "Solve steady pore-space diffusion to estimate effective diffusivity ratio, formation factor and tortuosity.",
+      "upstream_callable": "porespy.simulations.tortuosity_fd",
+      "supporting_callables": [],
+      "source_record_ids": [
+        "porespy",
+        "openpnm"
+      ],
+      "primary_pin": "porespy==3.2.0",
+      "source_commit": "916fdc135bfb08d84b8d9173d6de9174ff217e5d",
+      "authoritative_api_evidence": {
+        "url": "https://github.com/PMEAL/porespy/blob/916fdc135bfb08d84b8d9173d6de9174ff217e5d/src/porespy/simulations/_dns.py#L16",
+        "definition": "def tortuosity_fd(",
+        "evidence_type": "read_primary_upstream_source",
+        "executed": false
+      },
+      "scientific_scope": "Finite-difference transport through segmented connected pores, with explicit directional boundary conditions and convergence checks. Not porosity counting or a geometric shortest-path proxy.",
+      "units": {
+        "voxel_pitch": "m",
+        "relative_diffusivity": "dimensionless D_eff/D_free",
+        "formation_factor": "dimensionless",
+        "tortuosity": "dimensionless",
+        "normalized_concentration": "fraction"
+      },
+      "input_constraints": [
+        "<=32^3 boolean voxels with explicit isotropic pitch and a through-connected pore phase",
+        "One declared flow direction per call, not separate tools per axis",
+        "Require converged=True and acceptable inlet/outlet flux balance; report trimmed nonpercolating volume",
+        "Fixed CPU solver object bound by adapter, never user-supplied code/class"
+      ],
+      "fixed_invocation_plan": {
+        "axis": "explicit single direction",
+        "ftol": 0.001,
+        "solver": "parent-fixed CPU solver",
+        "private_worker_required": true
+      },
+      "proposed_independent_numeric_oracle": {
+        "synthetic": true,
+        "status": "proposed_not_executed",
+        "fixture": "SYNTHETIC 8x4x4 grid with straight pore channel [:,1:3,1:3], normalized concentration 1 and 0 at the axial ends.",
+        "expected": {
+          "effective_porosity": 0.25,
+          "relative_diffusivity": 0.25,
+          "formation_factor": 4,
+          "tortuosity": 1
+        },
+        "derivation": "Four of sixteen cross-sectional cells conduct in parallel with straight unit-length paths. Fick's law gives D_eff/D_free=area fraction=1/4; tau=porosity/(D_eff/D_free)=1.",
+        "negative": "No through-connected path, solver nonconvergence or flux imbalance must not return a valid transport result."
+      },
+      "nearest_existing_tool_ids": [
+        "GeoSpatialLeastCostPath",
+        "GeoSpatialResistanceDistance",
+        "HydroModelsCMFSoilConductivity"
+      ],
+      "distinct_from_existing": "Least cost/resistance describe supplied planning networks; soil conductivity uses a constitutive saturation model. This solves a diffusion boundary-value problem on the actual pore phase.",
+      "expected_dependencies": {
+        "source_profile": "porespy",
+        "companion_profiles": [
+          "openpnm"
+        ],
+        "complete_transitive_lock_available": false,
+        "shared_runtime_changes_authorized": false
+      },
+      "risks": [
+        "OpenPNM3.6.1 requires scipy>=1.16.2 and pandas>=2.3.2, conflicting with the fixed accepted main profile.",
+        "Only a separate parent-controlled CPU environment is a candidate path; no in-place dependency replacement.",
+        "PoreSpy accesses OpenPNM solver internals, requiring version-pair acceptance."
+      ],
+      "offline_reproducibility": {
+        "local_explicit_inputs_only": true,
+        "no_runtime_fetch": true,
+        "no_credentials_or_service_required": true,
+        "no_gpu": true,
+        "no_arbitrary_callable_module_code_solver_or_MSON_class_parameters": true,
+        "no_package_install_during_calls": true,
+        "future_evidence_required": [
+          "source/release identity and license",
+          "complete private CPU dependency lock",
+          "input/output units and content hashes",
+          "independent numeric and negative acceptance",
+          "parent semantic dedup review"
+        ]
+      },
+      "implementation_authored": false,
+      "integrated": false,
+      "counted_as_professional_tool": false
+    }
+  ],
+  "excluded_not_counted": [
+    {
+      "topic": "APSG Bingham axial confidence",
+      "reason": "Previously blocked operation; not proposed again or counted. Existing immutable-fix research and failures are not rewritten.",
+      "existing_id": "GeoAPSGBinghamAxialConfidence"
+    },
+    {
+      "topic": "pyrolite CIPW norm",
+      "reason": "Previously blocked fluorapatite scientific defect; not proposed again or counted.",
+      "existing_id": "GeoPyroliteCIPWNorm"
+    },
+    {
+      "topic": "scikit-gstat cross-variogram",
+      "reason": "Inspected 1.0.24 computes absolute per-variable differences, multiplies them, then feeds the product to an estimator that squares it. This loses negative cross-dependence and has wrong product units for a signed cross-semivariogram. Not rescued by a positive-correlation example.",
+      "source_url": "https://github.com/mmaelicke/scikit-gstat/blob/813a4c4f5173df100e64cc84c8ad56d928c9e0af/skgstat/Variogram.py",
+      "estimator_url": "https://github.com/mmaelicke/scikit-gstat/blob/813a4c4f5173df100e64cc84c8ad56d928c9e0af/skgstat/estimators.py",
+      "independent_rejection_example": "For colocated increments +2 ppm and -4 ppm, the cross-semivariogram contribution is -4 ppm^2. Squaring the absolute product instead gives +32 ppm^4."
+    },
+    {
+      "topic": "GSTools CondSRF as exact conditional Gaussian simulation",
+      "reason": "Inspected 1.7.0 returns kriging mean plus an unconditional field multiplied by pointwise standard-deviation factors. This can match marginal variances and conditioning values but does not generally equal the full Gaussian conditional joint covariance. Not proposed under an exact conditional-simulation claim.",
+      "source_url": "https://github.com/GeoStat-Framework/GSTools/blob/1edd2b93bf429803d716a9cbab125362583575de/src/gstools/field/cond_srf.py",
+      "independent_rejection_example": "For unit exponential covariance, one exact observation at x=0, and target points x=1 and -1, true conditional cross covariance is exp(-2)-exp(-1)^2=0. The inspected pointwise-scaling construction gives (1-exp(-2))*exp(-2)>0."
+    },
+    {
+      "topic": "Binary pore two-point correlation as an extra tool",
+      "reason": "Conservatively omitted because it is algebraically close to the accepted GLCM/co-occurrence family. A new implementation should not be counted without stronger parent-level distinctness review.",
+      "nearest_existing_id": "GeoRemoteGLCM"
+    },
+    {
+      "topic": "Magnetic symmetry, individual crystal axes, alternative classifiers and repeated methods",
+      "reason": "Not split into additional counted candidates. No parameter-family or axis padding."
+    },
+    {
+      "topic": "More kriging, elastic mixtures, compositional transforms and generic drill-log resampling",
+      "reason": "Existing baseline/four-group contributions already cover these scientific tasks. No renamed equivalents proposed."
+    }
+  ],
+  "roadmap": "Review the first 20 tasks for scientific usefulness and semantic distinctness. Treat declustering and diffusion tortuosity as conditional follow-ups, not ready work. Freeze private CPU dependencies and author independent numeric/negative/provenance tests only after parent approval. There is no defensible automatic addition of 22 to the deployed count and no claim that 500 has been reached."
+}

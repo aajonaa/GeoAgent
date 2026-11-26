@@ -1,0 +1,73 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockPatchySaturation",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "dry_bulk_gpa": 10,
+    "dry_shear_gpa": 8,
+    "mineral_bulk_gpa": 40,
+    "porosity": 0.25,
+    "mineral_density_kg_m3": 2650,
+    "inner_fluid_bulk_gpa": 4,
+    "outer_fluid_bulk_gpa": 4,
+    "inner_density_kg_m3": 1000,
+    "outer_density_kg_m3": 1000,
+    "inner_viscosity_pa_s": 0.001,
+    "outer_viscosity_pa_s": 0.001,
+    "permeability_m2": 1e-10,
+    "inner_radius_m": 0.01,
+    "inner_saturation": 0.5,
+    "frequencies_hz": [
+      1,
+      10
+    ]
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "vp_m_s"
+      ],
+      "value": [
+        3548.0211916170783,
+        3548.0211916170783
+      ],
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "bulk_real_gpa"
+      ],
+      "value": [
+        17.5,
+        17.5
+      ],
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "attenuation_inv_m"
+      ],
+      "value": [
+        0,
+        0
+      ],
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "inner_saturation": 0
+  },
+  "numeric_oracle": "Independent equal-fluid limit cancels patch flow: positive K*=17.5GPa and vp=sqrt((17.5+32/3)*1e9/2237.5), with zero attenuation at both frequencies.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/Fluid.py",
+  "limitations": [
+    "Concentric patches; supplied fluids/geometry; unstable exponential regimes rejected; no patch-size inversion.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

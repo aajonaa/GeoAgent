@@ -1,0 +1,394 @@
+{
+  "group": "weather_climate_seismic",
+  "records": [
+    {
+      "project_id": 105,
+      "relative_path": "vendor/wrf_destag.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/wrf-python/src/wrf/destag.py",
+      "symbol": "destagger",
+      "excerpt_lines": [
+        9,
+        62
+      ],
+      "source_sha256": "adf6200ee74d034763f003506a9a691bca4367ffa9c52b42637fa88e43f26dae",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "051a6a353be740390bd245b2f37664e8648a1682451f16d5f6a11bffc5f6a12f",
+      "license": "Apache-2.0",
+      "source_revision": "44bbe87866c495d9ce2396d6caa4e03243b1c56d",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "50ba049472e373c2b8478ed44f52c253eed2733c530c8e9d5a623718dbed6f55"
+    },
+    {
+      "project_id": 106,
+      "relative_path": "vendor/rainymotion_metrics.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/rainymotion/rainymotion/metrics.py",
+      "source_sha256": "afc12cd5c034ef77e5b3e16964a575c2dba9b018734a3a011550baf8cdd04ce6",
+      "hash_scope": "whole_file",
+      "license": "MIT",
+      "source_revision": "39f55f3ea28f712effeb971cb5e52df1125afcd7",
+      "vendor_sha256": "afc12cd5c034ef77e5b3e16964a575c2dba9b018734a3a011550baf8cdd04ce6"
+    },
+    {
+      "project_id": 107,
+      "relative_path": "vendor/metsim_pet.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/MetSim/metsim/physics.py",
+      "symbol": "calc_pet",
+      "excerpt_lines": [
+        28,
+        96
+      ],
+      "source_sha256": "b8c12e6257d904c6955ce907124bcb3997638a39d1410dd89464382974418ae9",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "157fd060f01c99418909c44d10a7fbbd8147c95f1609d76a3c9f2bc56f42e817",
+      "license": "GPL-3.0-or-later",
+      "source_revision": "a4b4c52ce310c80dfd4d5f37c98e1fdbb9e4a676",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "266593d387424cb272aa3993da1b2d18da72f05cae88eb873116904646d6a1b3"
+    },
+    {
+      "project_id": 107,
+      "relative_path": "vendor/metsim_pet.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/MetSim/metsim/physics.py",
+      "symbol": "svp",
+      "excerpt_lines": [
+        124,
+        152
+      ],
+      "source_sha256": "ffb8f11d2fcabf88f53c81bd2cebea80c4f3bc7fb639762161f8070cb61b39ef",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "157fd060f01c99418909c44d10a7fbbd8147c95f1609d76a3c9f2bc56f42e817",
+      "license": "GPL-3.0-or-later",
+      "source_revision": "a4b4c52ce310c80dfd4d5f37c98e1fdbb9e4a676",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "266593d387424cb272aa3993da1b2d18da72f05cae88eb873116904646d6a1b3"
+    },
+    {
+      "project_id": 107,
+      "relative_path": "vendor/metsim_constants.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/MetSim/metsim/constants.py",
+      "symbol": "CP",
+      "excerpt_lines": [
+        53,
+        53
+      ],
+      "source_sha256": "f8de91134813b2ec9b6a22fdb991a9458a27dc539bc202a128712de2fa0df4fa",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "48f61a670930e6a5b93d4a69ba358669ccc507d5916fdfec855bcdf572187281",
+      "license": "GPL-3.0-or-later",
+      "source_revision": "a4b4c52ce310c80dfd4d5f37c98e1fdbb9e4a676",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "0f446f333ca9930d0c2be813d42221cc1b79d2a6aae9f0f8b74b14cf56c81f0c"
+    },
+    {
+      "project_id": 107,
+      "relative_path": "vendor/metsim_constants.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/MetSim/metsim/constants.py",
+      "symbol": "EPS",
+      "excerpt_lines": [
+        56,
+        56
+      ],
+      "source_sha256": "d4c4337fc26e5a5a142871be9de8e6ad719bb2442ddfe489c7ac8867e9a1015a",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "48f61a670930e6a5b93d4a69ba358669ccc507d5916fdfec855bcdf572187281",
+      "license": "GPL-3.0-or-later",
+      "source_revision": "a4b4c52ce310c80dfd4d5f37c98e1fdbb9e4a676",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "0f446f333ca9930d0c2be813d42221cc1b79d2a6aae9f0f8b74b14cf56c81f0c"
+    },
+    {
+      "project_id": 108,
+      "relative_path": "vendor/melodist_equal.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/melodist/melodist/util/util.py",
+      "symbol": "hourly_index",
+      "excerpt_lines": [
+        26,
+        43
+      ],
+      "source_sha256": "c058c7f1a9843a3970ff13954144fafff192232d672dcba9740fc966b90fd303",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "0c1d7d6b3da9525893b245604740918b497f50be65a37ad91bc12d45ccf50e37",
+      "license": "GPL-3.0-or-later",
+      "source_revision": "d3f9331aada3b64a7b67b0c070d7ca3de1c43ac4",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "d809324cf5aa9003308c42f1ca49f21070572205b4c457f2e510c161ea65bef7"
+    },
+    {
+      "project_id": 108,
+      "relative_path": "vendor/melodist_equal.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/melodist/melodist/util/util.py",
+      "symbol": "distribute_equally",
+      "excerpt_lines": [
+        46,
+        67
+      ],
+      "source_sha256": "ba66e902baee4cab01ee69a6f6e393a583650e64653adf8d22cb5eec035995b6",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "0c1d7d6b3da9525893b245604740918b497f50be65a37ad91bc12d45ccf50e37",
+      "license": "GPL-3.0-or-later",
+      "source_revision": "d3f9331aada3b64a7b67b0c070d7ca3de1c43ac4",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "d809324cf5aa9003308c42f1ca49f21070572205b4c457f2e510c161ea65bef7"
+    },
+    {
+      "project_id": 109,
+      "relative_path": "vendor/improver_rescale.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/improver/improver/utilities/rescale.py",
+      "symbol": "rescale",
+      "excerpt_lines": [
+        14,
+        69
+      ],
+      "source_sha256": "bf3e0c2d139d1d889923fcdd5c62155c262ef4895ca077942112921d719f026a",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "223f7ea2661315f55d23aac3abd9816e624c751bd1aade9e27c2c5066da9ac19",
+      "license": "BSD-3-Clause",
+      "source_revision": "e3feecbd7d3a375a1ef233cd0f8961e5908f2af7",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "ecd65ce5b0fd55d2da1c8bcaaf4bed4d29a67b63172acf1a6af345eddb7e11b8"
+    },
+    {
+      "project_id": 111,
+      "relative_path": "vendor/skdownscale_quantile.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/scikit-downscale/skdownscale/pointwise_models/quantile.py",
+      "symbol": "SYNTHETIC_MIN",
+      "excerpt_lines": [
+        17,
+        17
+      ],
+      "source_sha256": "f5fc0a36ac46885cecb7b628b1b2d52287dad18924cf8502f34d62f64845a5b6",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "155f0eba6de44526baa5f8a3615a9d8eee2dc496e3ebeb7e62a9ac145a9d5bd6",
+      "license": "Apache-2.0",
+      "source_revision": "44d042584e0fd96bc16e2fca4caa928c5718b970",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "9f5f27e54465a6b8432e6045a2aefbb5c08adb09c51333f7e5edb844484c3a75"
+    },
+    {
+      "project_id": 111,
+      "relative_path": "vendor/skdownscale_quantile.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/scikit-downscale/skdownscale/pointwise_models/quantile.py",
+      "symbol": "SYNTHETIC_MAX",
+      "excerpt_lines": [
+        18,
+        18
+      ],
+      "source_sha256": "f6aabced0e5e3b4253dd99b2716a775e94000beeb2205ba3f79f29864735a860",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "155f0eba6de44526baa5f8a3615a9d8eee2dc496e3ebeb7e62a9ac145a9d5bd6",
+      "license": "Apache-2.0",
+      "source_revision": "44d042584e0fd96bc16e2fca4caa928c5718b970",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "9f5f27e54465a6b8432e6045a2aefbb5c08adb09c51333f7e5edb844484c3a75"
+    },
+    {
+      "project_id": 111,
+      "relative_path": "vendor/skdownscale_quantile.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/scikit-downscale/skdownscale/pointwise_models/quantile.py",
+      "symbol": "Cdf",
+      "excerpt_lines": [
+        20,
+        20
+      ],
+      "source_sha256": "6bb6128876f3aa5166b2988ebea3d35cb313868812fc5838fb92caebedea26ba",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "155f0eba6de44526baa5f8a3615a9d8eee2dc496e3ebeb7e62a9ac145a9d5bd6",
+      "license": "Apache-2.0",
+      "source_revision": "44d042584e0fd96bc16e2fca4caa928c5718b970",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "9f5f27e54465a6b8432e6045a2aefbb5c08adb09c51333f7e5edb844484c3a75"
+    },
+    {
+      "project_id": 111,
+      "relative_path": "vendor/skdownscale_quantile.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/scikit-downscale/skdownscale/pointwise_models/quantile.py",
+      "symbol": "plotting_positions",
+      "excerpt_lines": [
+        23,
+        43
+      ],
+      "source_sha256": "3a9e1d316959b5072467fb4695d1002e66ea4a79e20f598eb940c8d758e0f418",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "155f0eba6de44526baa5f8a3615a9d8eee2dc496e3ebeb7e62a9ac145a9d5bd6",
+      "license": "Apache-2.0",
+      "source_revision": "44d042584e0fd96bc16e2fca4caa928c5718b970",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "9f5f27e54465a6b8432e6045a2aefbb5c08adb09c51333f7e5edb844484c3a75"
+    },
+    {
+      "project_id": 111,
+      "relative_path": "vendor/skdownscale_quantile.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/scikit-downscale/skdownscale/pointwise_models/quantile.py",
+      "symbol": "QuantileMappingReressor",
+      "excerpt_lines": [
+        160,
+        395
+      ],
+      "source_sha256": "9c840daf621fa95a0f6b4a3a62710a3393232435559cda0c9778610944187450",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "155f0eba6de44526baa5f8a3615a9d8eee2dc496e3ebeb7e62a9ac145a9d5bd6",
+      "license": "Apache-2.0",
+      "source_revision": "44d042584e0fd96bc16e2fca4caa928c5718b970",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "9f5f27e54465a6b8432e6045a2aefbb5c08adb09c51333f7e5edb844484c3a75"
+    },
+    {
+      "project_id": 111,
+      "relative_path": "vendor/skdownscale_quantile.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/scikit-downscale/skdownscale/pointwise_models/utils.py",
+      "symbol": "check_max_features",
+      "excerpt_lines": [
+        10,
+        25
+      ],
+      "source_sha256": "d359f513605aec6397d1eaa2071835eec802bc5cb60158626a6432012d5f1978",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "2d13e4e13187da6304a31cebd25ae1a59197ece67bcd60136ed29152548994c6",
+      "license": "Apache-2.0",
+      "source_revision": "44d042584e0fd96bc16e2fca4caa928c5718b970",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "9f5f27e54465a6b8432e6045a2aefbb5c08adb09c51333f7e5edb844484c3a75"
+    },
+    {
+      "project_id": 117,
+      "relative_path": "vendor/jams_dewpoint.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/08_\u6c14\u8c61/jams_python/jams/dewpoint.py",
+      "source_sha256": "ef601f1f0489b2022f6c302632d6c7fc0b404367c084c3ca5908939ea4c2a109",
+      "hash_scope": "whole_file",
+      "license": "MIT",
+      "source_revision": "474ca165494e2bc20153722f0077c791116a855d",
+      "vendor_sha256": "ef601f1f0489b2022f6c302632d6c7fc0b404367c084c3ca5908939ea4c2a109"
+    },
+    {
+      "project_id": 121,
+      "relative_path": "vendor/climlab_capacity.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/climlab/climlab/utils/heat_capacity.py",
+      "symbol": "atmosphere",
+      "excerpt_lines": [
+        6,
+        44
+      ],
+      "source_sha256": "344ac875c4553c1b9d24268a12c1aa843defb81de62430dee1cc4b30fce73d99",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "23b1a2bde6dd68cb24c64586f11b2b54b593249e17b66471ecfaacdca2ba3c1e",
+      "license": "MIT",
+      "source_revision": "fcbde377d131d98b05e2e9d0729d9a22ec60bd18",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "915203b906a40a442728fc207f4e27672d8f7220824388703a21611d0a7ffa52"
+    },
+    {
+      "project_id": 121,
+      "relative_path": "vendor/climlab_capacity.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/climlab/climlab/utils/heat_capacity.py",
+      "symbol": "ocean",
+      "excerpt_lines": [
+        47,
+        84
+      ],
+      "source_sha256": "b01c16b8238a7b2c51d55796c03fd928fe28a374301522c92aed35088eaaa2c8",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "23b1a2bde6dd68cb24c64586f11b2b54b593249e17b66471ecfaacdca2ba3c1e",
+      "license": "MIT",
+      "source_revision": "fcbde377d131d98b05e2e9d0729d9a22ec60bd18",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "915203b906a40a442728fc207f4e27672d8f7220824388703a21611d0a7ffa52"
+    },
+    {
+      "project_id": 121,
+      "relative_path": "vendor/climlab_constants.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/climlab/climlab/utils/constants.py",
+      "source_sha256": "28e2d2825e640f3089da65aff3b512e480a4bca893db3f0c9f7e7fa658ff76af",
+      "hash_scope": "whole_file",
+      "license": "MIT",
+      "source_revision": "fcbde377d131d98b05e2e9d0729d9a22ec60bd18",
+      "vendor_sha256": "28e2d2825e640f3089da65aff3b512e480a4bca893db3f0c9f7e7fa658ff76af"
+    },
+    {
+      "project_id": 122,
+      "relative_path": "vendor/aospy_hybrid.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/aospy/aospy/utils/vertcoord.py",
+      "symbol": "phalf_from_ps",
+      "excerpt_lines": [
+        54,
+        56
+      ],
+      "source_sha256": "3debad5000b6b1c5ac1c63cdabe9738dd9bf1cad63b5b6bb7bfe6a8bff42079c",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "44201bc7dcff79a4ec299ede75f196931834b32e522b501bccbba1fffc1c206e",
+      "license": "Apache-2.0",
+      "source_revision": "6c8df45705927476e140df903bcb88e5abadae22",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "e80ddec0dc82fd7764f4d236eef415b55ed1e5fa5d62f6d9f91b369241ff7749"
+    },
+    {
+      "project_id": 123,
+      "relative_path": "vendor/oocgcm_spice.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/oocgcm/oocgcm/oceanfuncs/eos/misc.py",
+      "symbol": "_spice_coefs",
+      "excerpt_lines": [
+        17,
+        25
+      ],
+      "source_sha256": "f5e9a8858b867569a4e41102001e2170e1c4520c5dc5ea54a2db3e16418228ed",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "8e9fd7d0d6cf91ee26bd80d057fcae70f1a8a522f1aafb79f224d85de8f4b17b",
+      "license": "Apache-2.0",
+      "source_revision": "c9616872077494b14b41915d1b6202aeea545c82",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "6288afebc44e09f6733aec1403b42f706d6e9880406a2742430472e8afb3a407"
+    },
+    {
+      "project_id": 123,
+      "relative_path": "vendor/oocgcm_spice.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/oocgcm/oocgcm/oceanfuncs/eos/misc.py",
+      "symbol": "_spice",
+      "excerpt_lines": [
+        28,
+        75
+      ],
+      "source_sha256": "38fcd3185b928b8e302f88f3660bc3d3b08af7bfd662666788ba57073d9aabac",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "8e9fd7d0d6cf91ee26bd80d057fcae70f1a8a522f1aafb79f224d85de8f4b17b",
+      "license": "Apache-2.0",
+      "source_revision": "c9616872077494b14b41915d1b6202aeea545c82",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "6288afebc44e09f6733aec1403b42f706d6e9880406a2742430472e8afb3a407"
+    },
+    {
+      "project_id": 125,
+      "relative_path": "vendor/ocgis_heat_index.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/09_\u6c14\u5019/ocgis/src/ocgis/calc/library/index/heat_index.py",
+      "symbol": "HeatIndex.calculate",
+      "excerpt_lines": [
+        15,
+        36
+      ],
+      "source_sha256": "a354cc39e12a8a666a0f267c5bf0e83c2292361b9d5134d9761ba75c2301d302",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "a3f48167d2982eb89e584160fd323711589e19388c9626d3e4e05271c7ac0354",
+      "license": "NCSA",
+      "source_revision": "50e86df04ca3e5ca5bf2a794c71a55c0037b995a",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "b1f1ee8afc5069d5d374be1102ddb339fd80ef853ccaa62495fdb40e8fbb0e5b"
+    },
+    {
+      "project_id": 129,
+      "relative_path": "vendor/rsudp_rsam.py",
+      "archive_path": "\u5730\u5b66Python\u5de5\u5177\u96c6/10_\u5730\u9707\u5b66/rsudp/rsudp/c_rsam.py",
+      "symbol": "RSAM._rsam",
+      "excerpt_lines": [
+        173,
+        182
+      ],
+      "source_sha256": "1dd3cdd9ba8c5dde333278f477676bc36ba7d31970204d7262f6f6142a2f048d",
+      "hash_scope": "exact_excerpt_utf8_bytes",
+      "upstream_file_sha256": "7ae28ffb62bb1cb77fb99fa5a4b7d282644e5eec0da2de287edbb37f50553f92",
+      "license": "GPL-3.0-only",
+      "source_revision": "467e8c01fbc878232487e1fcca62da03426f4eaf",
+      "adaptation": "Function/assignment body verbatim; external package metadata/JIT decorators outside excerpt omitted. Fixed bounded array-only invocation; see operation limitations.",
+      "vendor_sha256": "94c575b71b702f62d7b0d535a0c2184dfbf9c23456f80550233ab2c2679db408"
+    }
+  ],
+  "notice": "Verbatim source body excerpt hashes refer to exact original UTF-8 bytes, with inclusive upstream source line ranges. vendor_sha256 covers assembled import/class glue plus all excerpts. Whole-file records preserve ZIP member bytes exactly. Full directory-specific original licenses are under licenses/.",
+  "no_source_execution": true
+}

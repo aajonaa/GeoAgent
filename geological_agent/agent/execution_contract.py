@@ -12,7 +12,10 @@ CONTROL_TOOLS = frozenset(("skill_find", "skill_load", "request_user_input"))
 _ACTION = re.compile(r"\b(?:use|using|invoke|call|run|execute)\b|使用|调用|运行|(?<!使|调|作|利|采|引)用", re.I)
 _TOOL = re.compile(r"\btools?\b|工具", re.I)
 _PROFESSIONAL = re.compile(r"\b(?:professional|speciali[sz]ed|domain[- ]specific)\b|专业", re.I)
-_NEGATED = re.compile(r"(?:do not|don't|must not|need not|no need to|without)\s+(?:\w+\s+){0,2}$|(?:不要|不用|不必|无需|禁止|不需要|不|别)(?:再|去)?$", re.I)
+_NEGATED = re.compile(
+    r"(?:do not|don't|must not|need not|no need to|without)\s+(?:\w+\s+){0,2}$"
+    r"|(?:不要|不用|不必|无需|无须|禁止|不需要|请勿|不|别)"
+    r"(?:\s*联网\s*(?:或|和|、))?\s*(?:再|去)?\s*$", re.I)
 _EXPLANATION = re.compile(r"(?:how to|how do I|example of|examples of)\s*$|(?:如何|怎样|怎么)(?:才能)?$", re.I)
 
 
@@ -46,6 +49,8 @@ def obligations(state, professional_names):
 
 
 def requested_execution_issues(state, professional_names):
+    if state.get("metadata", {}).get("read_only"):
+        return []
     professional, any_execution, names = obligations(state, professional_names)
     if not (professional or any_execution or names):
         return []

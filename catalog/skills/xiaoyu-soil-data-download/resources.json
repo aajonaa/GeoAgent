@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_soil_data_download",
+  "archive_sha256": "0bf70612c7bacc04d0f83f3db2d879f5ad622c10d4f826edcf4f19d4a3a29926",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 15283,
+      "sha256": "dffada1f287850fac407fdc8385ba34c02fe46be1a2e143351ba9ae72d111777",
+      "origins": [
+        {
+          "package_number": 53,
+          "archive_sha256": "396c1d316be4657012a5ac512e0d23b3a8173cbac0122273dc870cb78bd7d1c2",
+          "member": "skill53ú║═┴╚└╩²╛▌╧┬╘╪-soil-data-download/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/evals.json",
+      "bytes": 4063,
+      "sha256": "921ef852d26bc080a306e71300f8e9bdfc1f59b194d0f089b558e5fa2dfd01b1",
+      "origins": [
+        {
+          "package_number": 53,
+          "archive_sha256": "396c1d316be4657012a5ac512e0d23b3a8173cbac0122273dc870cb78bd7d1c2",
+          "member": "skill53ú║═┴╚└╩²╛▌╧┬╘╪-soil-data-download/references/evals.json"
+        }
+      ]
+    },
+    {
+      "path": "references/python_api.md",
+      "bytes": 3378,
+      "sha256": "025fb6f7bf75333db67d9a9ecc76413f13d0a9cc9fa80654033cd1b306d49ba7",
+      "origins": [
+        {
+          "package_number": 53,
+          "archive_sha256": "396c1d316be4657012a5ac512e0d23b3a8173cbac0122273dc870cb78bd7d1c2",
+          "member": "skill53ú║═┴╚└╩²╛▌╧┬╘╪-soil-data-download/references/python_api.md"
+        }
+      ]
+    }
+  ]
+}

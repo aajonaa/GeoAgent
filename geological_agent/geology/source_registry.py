@@ -22,11 +22,33 @@ from ..tools import Tool, ToolDefinition, ToolFailure, ToolOutput, artifact
 
 READY = "source_revised_unverified"
 ENTRY_MODULES = {
+    "geological_agent.geology.github_expansion_geophysics",
+    "geological_agent.geology.github_expansion_remote",
+    "geological_agent.geology.github_expansion_geology",
+    "geological_agent.geology.github_expansion_spatial",
+    "geological_agent.geology.github_minerals",
+    'geological_agent.geology.collection_hydro_cpu.adapters',
+    "geological_agent.geology.native_cpu_kernels",
+    "geological_agent.geology.collection_wflow43",
+    "geological_agent.geology.collection_approved_replacements",
+    "geological_agent.geology.collection_offline_originals.adapters",
+    "geological_agent.geology.collection_offline_originals.pyglue_fixed.adapters",
     "legacy.ToolsAgent.ToolsFuns.GeoEval.scientific_tools",
     "legacy.ToolsAgent.ToolsFuns.Geoscience.geoscience_common",
     "legacy.ToolsAgent.ToolsFuns.GeoEval.runtime",
     "legacy.ToolsAgent.ToolsFuns.GeoEval.native_recovery",
     "legacy.ToolsAgent.ToolsFuns.Geo.geoscienceTools",
+    "geological_agent.geology.github_first_batch",
+    "geological_agent.geology.earth_python_wave1",
+    "geological_agent.geology.collection_spatial",
+    "geological_agent.geology.collection_hydro_data_opt",
+    "geological_agent.geology.collection_hydro_models",
+    "geological_agent.geology.collection_groundwater_other",
+    "geological_agent.geology.collection_weather_climate_seismic",
+    'geological_agent.geology.expansion501_geophysics',
+    'geological_agent.geology.expansion501_geology',
+    'geological_agent.geology.expansion501_remote',
+    'geological_agent.geology.expansion501_spatial',
 }
 # Declarative source semantics, not a planner or a tool-name heuristic.
 # These operations query reference catalog records; model-authored rows cannot
@@ -212,7 +234,7 @@ def register(registry):
             usage += " Limitations: " + "; ".join(map(str, limitations))
         registry.register(Tool(ToolDefinition(name, spec["description"], usage,
                                deepcopy(spec["input_schema"]), deepcopy(spec["output_schema"])),
-                               _handler(spec), pure=not spec["source_interface"].get("path_fields") and not spec["source_interface"].get("network_required", False),
+                               _handler(spec), pure=spec["source_interface"].get("pure", not spec["source_interface"].get("path_fields") and not spec["source_interface"].get("network_required", False)),
                                input_paths=tuple(spec["source_interface"].get("path_fields", [])),
                                reference_paths=REFERENCE_DATA_INPUTS.get(source_id, ())))
         registered[source_id] = name
@@ -253,6 +275,8 @@ def load_source_skills(loader, registered, *, runtime_registry=None):
             raise ValueError("Invalid skill document: " + spec["id"])
         if metadata.get("id", skill_id) != skill_id:
             raise ValueError("Skill ID differs from catalog: " + spec["id"])
+        summary = SkillSummary(skill_id, spec["name"], spec["description"],
+                               metadata.get("when_to_use", spec["description"]))
         if "tools" in metadata:
             declared = tuple(metadata["tools"])
             expected = tuple(resolved.get(name, name) for name in references)
@@ -267,8 +291,10 @@ def load_source_skills(loader, registered, *, runtime_registry=None):
                      "; ".join(item["name"] + ": " + item["reason"] for item in blocked) + ".\n")
             constraints = ("Choose only operations required by the task; never fabricate unavailable data or results.",
                            "Independent operations may share one response. No files or Python are needed unless the task requires them.")
-        loader.registry.register(Skill(summary, tuple(metadata.get("required_inputs", [])), body,
-            constraints, available, tuple(metadata.get("expected_outputs", ["Observed results with units, provenance and limitations"]))))
+        skill = Skill(summary, tuple(metadata.get("required_inputs", [])), body,
+            constraints, available, tuple(metadata.get("expected_outputs", ["Observed results with units, provenance and limitations"])))
+        from ..general_artifacts import extend_skill
+        loader.registry.register(extend_skill(skill, resolved))
     return loader
 
 

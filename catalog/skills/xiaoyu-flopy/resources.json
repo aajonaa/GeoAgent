@@ -1,0 +1,54 @@
+{
+  "skill_id": "xiaoyu_flopy",
+  "archive_sha256": "3b3a12057b7b28634020202a0165aa02aa92a02db354e891484d9231738a8636",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 30,
+          "archive_sha256": "26879b35fcbb271e8102b3c7f8be1ba5a2c7da1995824179d522f7bc9b38e7a3",
+          "member": "flopy/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 706,
+      "sha256": "9680944dc7df7107fe91e0e492b7d65e139931851d7cde6eb36221bc92254f34",
+      "origins": [
+        {
+          "package_number": 30,
+          "archive_sha256": "26879b35fcbb271e8102b3c7f8be1ba5a2c7da1995824179d522f7bc9b38e7a3",
+          "member": "flopy/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 3324,
+      "sha256": "5f10cc466ec02441bab40357b5c9f07721eaff0cc2dc10e3e0e786fc8bd3e288",
+      "origins": [
+        {
+          "package_number": 30,
+          "archive_sha256": "26879b35fcbb271e8102b3c7f8be1ba5a2c7da1995824179d522f7bc9b38e7a3",
+          "member": "flopy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/confined_flow.py",
+      "bytes": 3547,
+      "sha256": "c3d3a36e106711e985b8adce5d1d89cca4848e314d67c18087ed0e74a7ed0285",
+      "origins": [
+        {
+          "package_number": 30,
+          "archive_sha256": "26879b35fcbb271e8102b3c7f8be1ba5a2c7da1995824179d522f7bc9b38e7a3",
+          "member": "flopy/scripts/confined_flow.py"
+        }
+      ]
+    }
+  ]
+}

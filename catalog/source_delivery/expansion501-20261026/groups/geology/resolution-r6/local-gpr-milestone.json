@@ -1,0 +1,34 @@
+{
+  "status": "local_private_cpu_passed_not_production_accepted",
+  "python": "3.12.14",
+  "platform": "Windows",
+  "provider": "scikit-learn==1.7.2",
+  "executed_unique_tests": 20,
+  "passed": 20,
+  "failed": 0,
+  "breakdown": {
+    "registration_schema_pins": 1,
+    "numeric_and_reproducibility": 8,
+    "negative": 11
+  },
+  "calls": {
+    "direct_decorated_invocations": 29,
+    "registered_runtime_invocations": 2
+  },
+  "positive_decorated_calls": 8,
+  "positive_runtime_calls": 1,
+  "negative_decorated_calls": 21,
+  "negative_runtime_calls": 1,
+  "source_unchanged_during_run": true,
+  "report": "catalog/source_delivery/expansion501-20261026/groups/geology/acceptance/local-r6-gpr-20261026/gpr-report.json",
+  "report_sha256": "e7ce1d2f62825c2cf3026ecdeaddf1b7e1a27200be4887327a0a6b1e31d71471",
+  "catalog_scope": "private_single_entry_group_catalog_with_unmodified_parent_r3_source_registry",
+  "non_psd_test": "Explicit upstream-predict fault injection; not a naturally produced invalid covariance.",
+  "main_runtime_v2": "not_run",
+  "linux_production_acceptance": "not_run",
+  "model_workflow": "not_run",
+  "platform_validation": "not_run",
+  "formal_eligible": false,
+  "deployment_status": "not_deployed",
+  "submission_status": "not_submitted"
+}

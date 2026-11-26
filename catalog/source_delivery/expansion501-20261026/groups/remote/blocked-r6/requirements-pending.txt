@@ -1,0 +1,22 @@
+# SOURCE PLAN ONLY; no installation performed; NOT a complete transitive lock.
+# Private CPU environment only after legitimate permission resolution.
+# SCM archive metadata and native build receipts remain explicit blockers.
+numpy==2.1.3
+scipy==1.15.3
+rasterio==1.4.3
+jsonschema==4.25.1
+h5py==3.16.0
+mintpy==1.6.4
+pandas==2.3.0
+matplotlib==3.10.7
+scikit-learn==1.7.2
+scikit-image==0.26.0
+pyproj==3.7.2
+radiative-transfer-models @ https://github.com/hectornieto/pypro4sail/archive/470bc26238dbce7a8e77746b5569036f1219f298.zip
+pyaps3 @ https://github.com/insarlab/PyAPS/archive/11c5310dd9e6937f917c474e1863782a0e8f6987.zip
+pysolid @ https://github.com/insarlab/PySolid/archive/37276a8d7a2127b8867b976dbc240aab2fe46715.zip
+Py6S @ https://github.com/robintw/Py6S/archive/801824eac00e705e4aa235d8f6c5f9458e3065b7.zip
+# Native 6S source: 96223f73eb3a2a00d01c190365b9afb346c27f31; binary/build identity pending.
+# OTB 9.1.1 prior reviewed source: 154726b379fdb39b481ee8fd793fbd3d584884e6.
+# CVXOPT, ISCE2, SNAPHU, GRIB/ecCodes, build tools and remaining transitive pins
+# are deliberately NOT invented. Their absence prevents accepted profile creation.

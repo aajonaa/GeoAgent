@@ -1,0 +1,19 @@
+{
+  "call_id": "invalid-nonfinite",
+  "name": "EarthWflowKinematicWaveReachStep",
+  "status": "error",
+  "data": {},
+  "artifacts": [],
+  "error": {
+    "code": "invalid_arguments",
+    "message": "Out of range float values are not JSON compliant: nan",
+    "retryable": true,
+    "outcome_unknown": false
+  },
+  "cached": false,
+  "evidence": {
+    "execution": "executed",
+    "input_files": [],
+    "operation_key": "44d58e78bbb4fa113d269817123efe09dd642af585c3fc76d05ae39d92d10373"
+  }
+}

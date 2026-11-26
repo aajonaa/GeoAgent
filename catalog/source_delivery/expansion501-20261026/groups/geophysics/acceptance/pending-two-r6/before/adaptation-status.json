@@ -1,0 +1,272 @@
+{
+  "operations": [
+    {
+      "id": "GeoSeismicInstrumentDeconvolution",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoEMLayeredBipoleResponse",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoGravityTesseroid",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoPotentialEulerSourceLocation",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSurfaceWaveDispersion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoPotentialEquivalentSources",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoPotentialUpwardContinuation",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoMagneticReductionToPole",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoDCFourElectrodeResponse",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoGravityNormalEllipsoid",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicArrayBeamforming",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicSTALTADetection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicTemplateDetection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicPolarization",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicTauPRays",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicNMO",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicComplexAttributes",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicWindowCoherence",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoPotentialEdgeAttributes",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicArrayStrainRotation",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoGravityBouguerSlab",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoCrustAiryMoho",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoEMConductiveSphere",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoMagneticWirePath",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicARPhasePick",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicProbabilisticNoise",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicWaveformTFMisfit",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicRadiationPattern",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSurfaceWaveEigenfunctions",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSurfaceWaveSensitivity",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoDCResistivityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoIPChargeabilityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoFDEMConductivityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoTDEMConductivityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoGravityDensityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoMagneticSusceptibilityInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicLeastSquaresMigration",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicPoststackImpedanceInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicPrestackElasticInversion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicReceiverDeghosting",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicUpDownWavefieldSeparation",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicMultidimensionalDeconvolution",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named decorated adapter and closed schemas authored; exact upstream pin recorded. Not executed or accepted; private CPU binding and scientific acceptance pending.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSeismicMarchenkoRedatuming",
+      "state": "blocked",
+      "reason": "PyLops 2.6.0 Marchenko.apply_onepoint discards LSQR termination/iteration diagnostics and does not expose the coupled residual operator. A reviewed coupled-residual/termination adapter is not authored; a finite returned focusing function alone cannot satisfy this inversion convergence contract. No upstream solver monkeypatch or falsely converged wrapper is registered.",
+      "blockers": [
+        "PyLops 2.6.0 Marchenko.apply_onepoint discards LSQR termination/iteration diagnostics and does not expose the coupled residual operator. A reviewed coupled-residual/termination adapter is not authored; a finite returned focusing function alone cannot satisfy this inversion convergence contract. No upstream solver monkeypatch or falsely converged wrapper is registered."
+      ]
+    },
+    {
+      "id": "GeoSeismicTraveltimeTomography",
+      "state": "blocked",
+      "reason": "The TravelTimeManager.invert API is confirmed, but a fixed pyGIMLi/pgcore compiled build identity, matching release commit/license record and approved private CPU worker binding have not been established. No arbitrary executable/environment bridge or in-process unpinned native fallback is registered.",
+      "blockers": [
+        "The TravelTimeManager.invert API is confirmed, but a fixed pyGIMLi/pgcore compiled build identity, matching release commit/license record and approved private CPU worker binding have not been established. No arbitrary executable/environment bridge or in-process unpinned native fallback is registered."
+      ]
+    }
+  ]
+}

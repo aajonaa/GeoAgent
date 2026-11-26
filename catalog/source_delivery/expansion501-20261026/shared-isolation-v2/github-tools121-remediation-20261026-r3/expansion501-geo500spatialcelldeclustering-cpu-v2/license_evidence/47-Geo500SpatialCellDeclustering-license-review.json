@@ -1,0 +1,35 @@
+{
+  "legal_certification_or_redistribution_approval": false,
+  "license_review_complete": true,
+  "reviewed_original_files": [
+    {
+      "distribution": "geostatspy",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/geostatspy/venv/lib/python3.12/site-packages/geostatspy-0.0.46.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/geostatspy/licenses/geostatspy/geostatspy-0.0.46.dist-info/licenses/LICENSE",
+      "review": "Read LICENSE installed from the immutable source archive: Michael Pyrcz 2019 MIT; retain copyright and permission notice and warranty/liability disclaimer. Archive URL and SHA identify actual source; package metadata correctly says 0.0.46.",
+      "sha256": "54f0a1c8fc64f282617c22c61db7ded0be158f442be30cf1eaf3b8f9fe494649",
+      "version": "0.0.46"
+    },
+    {
+      "distribution": "mypy_extensions",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/geostatspy/venv/lib/python3.12/site-packages/mypy_extensions-1.1.0.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/geostatspy/licenses/mypy-extensions/mypy_extensions-1.1.0.dist-info/licenses/LICENSE",
+      "review": "Read original 1.1.0 wheel LICENSE: MIT, Jukka Lehtosalo and contributors 2016-2017; preserve copyright, permission notice and disclaimer.",
+      "sha256": "a50450da1d53cd777b80ced77c58ff96abe0ccd879706bd142c3ec20e245f0b4",
+      "version": "1.1.0"
+    },
+    {
+      "distribution": "geostatspy",
+      "original_path": "/data/wangjian/remediate121-20261026-r1/geology/environments/geostatspy/venv/lib/python3.12/site-packages/geostatspy-0.0.46.dist-info/licenses/LICENSE",
+      "path": "/data/wangjian/remediate121-20261026-r1/geology/environments/geostatspy/licenses/geostatspy/geostatspy-0.0.46.dist-info/licenses/LICENSE",
+      "qualification": "Original license shipped in the pinned published artifact. Reviewed repository commit is separately recorded; no wheel/commit byte-equivalence asserted. Source __version__ is 0.0.46, not asserted to be PyPI 0.0.79. Requires direct_url.json archive identity.",
+      "review": "Read LICENSE installed from the immutable source archive: Michael Pyrcz 2019 MIT; retain copyright and permission notice and warranty/liability disclaimer. Archive URL and SHA identify actual source; package metadata correctly says 0.0.46.",
+      "sha256": "54f0a1c8fc64f282617c22c61db7ded0be158f442be30cf1eaf3b8f9fe494649",
+      "source_commit": "45b2032a1e3f05de6cd0cb7f32ed43203399dbfa",
+      "url": "https://github.com/GeostatsGuy/GeostatsPy/archive/45b2032a1e3f05de6cd0cb7f32ed43203399dbfa.zip",
+      "version": "0.0.46"
+    }
+  ],
+  "scope": "Original frozen upstream files read; published wheels and reviewed commits are distinct identities. No legal certification or redistribution approval asserted.",
+  "tool_id": "Geo500SpatialCellDeclustering"
+}

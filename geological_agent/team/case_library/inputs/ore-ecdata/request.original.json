@@ -1,0 +1,15 @@
+{
+  "mode": "direct",
+  "tool": "EarthHydroHyRiverFlowExceedance",
+  "args": {
+    "discharge_m3_s": [
+      0,
+      1,
+      2,
+      2,
+      4
+    ],
+    "threshold_m3_s": 0.001
+  },
+  "transport": "dict"
+}

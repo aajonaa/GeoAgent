@@ -1,0 +1,20 @@
+{
+  "dataset_source": "SYNTHETIC provider test catalog; not real deposits",
+  "coordinate_reference": "EPSG:4326, degree; synthetic caller declaration",
+  "operations": [
+    {
+      "tool": "MineralResourcesGetDeposit",
+      "arguments": {
+        "dataset_path": "tests/data/catalog.csv",
+        "dep_id": 55
+      }
+    },
+    {
+      "tool": "MineralResourcesSearchDeposits",
+      "arguments": {
+        "dataset_path": "tests/data/catalog.csv",
+        "country": "中国"
+      }
+    }
+  ]
+}

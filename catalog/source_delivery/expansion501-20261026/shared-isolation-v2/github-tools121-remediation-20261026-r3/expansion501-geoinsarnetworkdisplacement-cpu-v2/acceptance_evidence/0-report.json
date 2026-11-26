@@ -1,0 +1,315 @@
+{
+  "id": "GeoInSARNetworkDisplacement",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoInSARNetworkDisplacement",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoInSARNetworkDisplacement (remote_original_cases.RemoteCases.test_registry_GeoInSARNetworkDisplacement) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "2acf0d7c9f770ef70686ec49e30ea148c6000f5b851036dfff1bcd5e45577faa",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "004adf05e6ab7163e04b510097180545c46f8923273757493be752e8b743f373"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "2acf0d7c9f770ef70686ec49e30ea148c6000f5b851036dfff1bcd5e45577faa",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "004adf05e6ab7163e04b510097180545c46f8923273757493be752e8b743f373"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_dict/results/6785e76e15f1448f8821dcc483d3822e",
+        "artifacts": {
+          "band-summary.csv": "2acf0d7c9f770ef70686ec49e30ea148c6000f5b851036dfff1bcd5e45577faa",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "004adf05e6ab7163e04b510097180545c46f8923273757493be752e8b743f373"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_json/results/fdd16fa9d9d24496874abbf133d3f7a9",
+        "artifacts": {
+          "band-summary.csv": "2acf0d7c9f770ef70686ec49e30ea148c6000f5b851036dfff1bcd5e45577faa",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "004adf05e6ab7163e04b510097180545c46f8923273757493be752e8b743f373"
+        }
+      }
+    },
+    "spatial_reference_cancels_phase_offset_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_direct_dict/result",
+        "artifacts": {
+          "band-summary.csv": "2acf0d7c9f770ef70686ec49e30ea148c6000f5b851036dfff1bcd5e45577faa",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "004adf05e6ab7163e04b510097180545c46f8923273757493be752e8b743f373"
+        }
+      }
+    },
+    "spatial_reference_cancels_phase_offset_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_direct_json/result",
+        "artifacts": {
+          "band-summary.csv": "2acf0d7c9f770ef70686ec49e30ea148c6000f5b851036dfff1bcd5e45577faa",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "004adf05e6ab7163e04b510097180545c46f8923273757493be752e8b743f373"
+        }
+      }
+    },
+    "spatial_reference_cancels_phase_offset_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_runtime_dict/results/2a4f4847ec664e7990f035e2111c6a7e",
+        "artifacts": {
+          "band-summary.csv": "2acf0d7c9f770ef70686ec49e30ea148c6000f5b851036dfff1bcd5e45577faa",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "004adf05e6ab7163e04b510097180545c46f8923273757493be752e8b743f373"
+        }
+      }
+    },
+    "spatial_reference_cancels_phase_offset_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/spatial_reference_cancels_phase_offset_runtime_json/results/545118890ac84c22a4464b214f1d3f28",
+        "artifacts": {
+          "band-summary.csv": "2acf0d7c9f770ef70686ec49e30ea148c6000f5b851036dfff1bcd5e45577faa",
+          "network-quality.csv": "ede6039d82387d622df52614a31a284c16aad2bb8341d6605f9d98191c5fed90",
+          "result.tif": "004adf05e6ab7163e04b510097180545c46f8923273757493be752e8b743f373"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoInSARNetworkDisplacement",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoInSARNetworkDisplacement (remote_original_cases.RemoteCases.test_reject_extra_GeoInSARNetworkDisplacement) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoInSARNetworkDisplacement",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoInSARNetworkDisplacement (remote_original_cases.RemoteCases.test_reject_unit_GeoInSARNetworkDisplacement) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoInSARNetworkDisplacement",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoInSARNetworkDisplacement (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoInSARNetworkDisplacement) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoInSARNetworkDisplacement",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoInSARNetworkDisplacement (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoInSARNetworkDisplacement) ... ok\n"
+      }
+    },
+    "negative_missing_crs": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_missing_crs_GeoInSARNetworkDisplacement",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_missing_crs_GeoInSARNetworkDisplacement (remote_original_cases.RemoteCases.test_reject_missing_crs_GeoInSARNetworkDisplacement) ... ok\n"
+      }
+    },
+    "negative_singular": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_singular_GeoInSARNetworkDisplacement",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_singular_GeoInSARNetworkDisplacement (remote_original_cases.RemoteCases.test_reject_singular_GeoInSARNetworkDisplacement) ... ok\n"
+      }
+    },
+    "negative_empty_mask": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_empty_mask_GeoInSARNetworkDisplacement",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_empty_mask_GeoInSARNetworkDisplacement (remote_original_cases.RemoteCases.test_reject_empty_mask_GeoInSARNetworkDisplacement) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARNetworkDisplacement/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

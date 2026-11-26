@@ -1,0 +1,70 @@
+{
+  "dataset_source": "synthetic:bruges-analytic-v1",
+  "context": {
+    "velocity_unit": "m/s",
+    "density_unit": "kg/m3",
+    "reflectivity_density_unit": "g/cm3",
+    "angle_unit": "degree",
+    "amplitude_unit": "dimensionless",
+    "sample_axis": "two_way_time",
+    "sample_interval_s": 0.002
+  },
+  "operations": [
+    {
+      "operation_id": "ei",
+      "call_name": "GeoSeismicElasticImpedance",
+      "arguments": {
+        "input_source": "synthetic:layer-logs-v1",
+        "vp_m_s": [
+          2000,
+          3000,
+          2500
+        ],
+        "vs_m_s": [
+          1000,
+          1500,
+          1250
+        ],
+        "density_kg_m3": [
+          2000,
+          2400,
+          2200
+        ],
+        "incidence_degrees": [
+          0,
+          20
+        ],
+        "shear_p_ratio": 0.5
+      }
+    },
+    {
+      "operation_id": "r",
+      "call_name": "SeismicReflectivity",
+      "arguments": {
+        "vp": [
+          2000,
+          3000,
+          2500
+        ],
+        "density": [
+          2.0,
+          2.4,
+          2.2
+        ]
+      }
+    },
+    {
+      "operation_id": "c",
+      "call_name": "GeoSeismicWindowCoherence",
+      "arguments": {
+        "input_source": "synthetic:layer-logs-v1/reflectivity"
+      },
+      "window_from": "r",
+      "trace_gains": [
+        1,
+        1,
+        2
+      ]
+    }
+  ]
+}

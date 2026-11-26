@@ -1,0 +1,22 @@
+{
+  "complete": false,
+  "source_materials_frozen": true,
+  "archive": {
+    "path": "C:\\Users\\jona\\.codex\\visualizations\\2026\\08\\29\\01a04b19-6e61-7b12-88df-4878c03a46da\\earth-python-all-20261022\\coverage-101\\native-c-kernels\\integration\\r12-20261023\\C3-minimal-runtime-source-r12.tar.gz",
+    "sha256": "c9818553030ea76a61b7ba9085ef58ee35ed31276e46f0064579650fea4dc113",
+    "files": 48
+  },
+  "original21_sha256": "8a4d9b58de83dd937276413ed13d9db1abaa2b98b83f4473adb997756b20a578",
+  "supplementary_before_sha256": "04fd6cd9dee158a99d65ff09062f0a07f5dc518d277dedbe7eba8874ecb4dfdd",
+  "supplementary_after_sha256": "3e987f6e33c7659db080f22ae841986b1b3a4262fcff144db57f60bc714ded20",
+  "worker_sha256": "9c08d1f627051b41746cb5eb4cf26f3e9dd85a9e2ef65d64e85163925617dd9d",
+  "runtime_sha256": "14ababddec35a640f6eb54f27b90536c47f5d4e9dc3cb045957634efad5acc33",
+  "profile_sha256": "0ca667440b96475158dfefd749bb1c5bc50a6c550d1d68d1ce5464d516df8046",
+  "reused87_freeze_sha256": "ca3dd57d2fd8643cc51852fb17ade2aa9e50eb0977f0972e5844102e5f22dd9d",
+  "build_receipt_sha256": "6e22c8ceb6efadc9729b7883ceab4822db838ea8b8bca0cd832718acd94b5da5",
+  "checker_original_sha256": "a9a96b9c94b7bc2e97ef9a4efbd59503194a624fb96d7e45a91f2608eaabd64d",
+  "scientific_source_and_unit_hash_assertions_unchanged": true,
+  "known_r8_r9_SSH255_exit_gap": "untouched_pending_approval",
+  "HPGL_distribution_license_review": "pending",
+  "parent_and_Schrodinger_written": false
+}

@@ -1,0 +1,137 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoSeismicOrthorhombicParameters",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "stiffness_gpa": [
+      [
+        48,
+        16,
+        14,
+        0,
+        0,
+        0
+      ],
+      [
+        16,
+        44,
+        12,
+        0,
+        0,
+        0
+      ],
+      [
+        14,
+        12,
+        40,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        10,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        12,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        14
+      ]
+    ]
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "epsilon1_delta1_gamma1_epsilon2_delta2_gamma2_delta3"
+      ],
+      "value": [
+        0.05,
+        -0.17333333333333334,
+        0.08333333333333333,
+        0.1,
+        -0.048214285714285716,
+        0.2,
+        -0.0784313725490196
+      ],
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "stiffness_gpa": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  },
+  "numeric_oracle": "Independent stiffness contrasts: eps1=(44-40)/80=.05,eps2=.1,gamma1=1/12,gamma2=.2; delta terms are the stated rational square contrasts.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/Anisotropy.py",
+  "limitations": [
+    "Symmetry-aligned tensor; no rotation; extracting parameters does not guarantee weak anisotropy.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

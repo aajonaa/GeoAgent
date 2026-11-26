@@ -1,0 +1,51 @@
+{
+  "revision": "bouguer-si-r7",
+  "tool_id": "GeoGravityBouguerSlab",
+  "status": "source_stable_source_revised_unverified",
+  "formal_eligible": false,
+  "acceptance_pending": true,
+  "source_count": 42,
+  "blocked_candidates": 2,
+  "newly_registered": 0,
+  "newly_accepted": 0,
+  "changed_source": "geological_agent/geology/expansion501_geophysics.py",
+  "change": "Multiply actual Harmonica Bouguer mGal return by 1e-5 at the existing adapter boundary.",
+  "old_tests_and_failures": "Unchanged; before-source and before-delivery preserved in this revision.",
+  "new_test_source": "catalog/source_delivery/expansion501-20261026/groups/geophysics/acceptance/bouguer-si-r7/test_bouguer_si_r7.py",
+  "new_test_cases_authored": {
+    "unit_boundary": 5,
+    "real_pinned_upstream_boundary": 4
+  },
+  "tests_executed_this_revision": 0,
+  "unit_boundary_status": "not_run",
+  "real_pinned_science_status": "not_run; no available authorized pinned runtime established here",
+  "full_decorated_interface_acceptance": "not_run; parent-owned staged v2 route remains pending",
+  "scope_exclusions": [
+    "Tesseroid",
+    "Edge",
+    "Eigenfunctions",
+    "superseded v1 diagnostic worker",
+    "shared bridge",
+    "shared registry",
+    "old test assertions"
+  ],
+  "not_deployed": true,
+  "not_submitted": true,
+  "model_workflow": "not_run",
+  "remote_setup_or_upload": false,
+  "install": false,
+  "gpu": false,
+  "git_or_push": false,
+  "delivery_files": [
+    "geological_agent/geology/expansion501_geophysics.py",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/delivery-files.json",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/apply_bouguer_si_r7.py",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/acceptance/bouguer-si-r7/before/expansion501_geophysics.py",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/acceptance/bouguer-si-r7/before/delivery-files.json",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/acceptance/bouguer-si-r7/source-edit.json",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/acceptance/bouguer-si-r7/test_bouguer_si_r7.py",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/acceptance/bouguer-si-r7/source-report.json",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/acceptance/bouguer-si-r7/README.md",
+    "catalog/source_delivery/expansion501-20261026/groups/geophysics/acceptance/bouguer-si-r7/flow.log"
+  ]
+}

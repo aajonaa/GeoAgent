@@ -1,0 +1,61 @@
+{
+  "crs": "EPSG:32631",
+  "origin_xy_m": [
+    500000,
+    1000
+  ],
+  "cell_size_m": 1000,
+  "nodata_policy": "reject_missing",
+  "boundary": "fixed_value",
+  "pressure_increment_pa": [
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  ],
+  "elastic_thickness_m": 65000,
+  "youngs_modulus_pa": 70000000000,
+  "mantle_density_kg_m3": 3300,
+  "load_outside_grid": "zero",
+  "plate_extent": "infinite",
+  "units": {
+    "origin_xy_m": "m",
+    "cell_size_m": "m",
+    "pressure_increment_pa": "Pa",
+    "elastic_thickness_m": "m",
+    "youngs_modulus_pa": "Pa",
+    "mantle_density_kg_m3": "kg/m3"
+  }
+}
+

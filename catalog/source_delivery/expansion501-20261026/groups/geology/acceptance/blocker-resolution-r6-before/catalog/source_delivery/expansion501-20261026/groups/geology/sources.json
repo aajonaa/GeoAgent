@@ -1,0 +1,208 @@
+{
+  "status": "source_revised_unverified",
+  "sources": {
+    "spglib": {
+      "package": "spglib",
+      "version": "2.8.0",
+      "repo": "spglib/spglib",
+      "commit": "3ebd8ac3318793932baeee90b44f453a7c35b5b4",
+      "license": "BSD-3-Clause",
+      "license_file": "COPYING",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "spglib==2.8.0"
+      ],
+      "profile": "crystals"
+    },
+    "core": {
+      "package": "pymatgen-core",
+      "version": "2026.10.16",
+      "repo": "materialsproject/pymatgen-core",
+      "commit": "cddebfb21ed5acaee3987948b6704a2790d4e056",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pymatgen-core==2026.10.16",
+        "spglib==2.8.0"
+      ],
+      "profile": "crystals"
+    },
+    "pymatgen": {
+      "package": "pymatgen",
+      "version": "2026.10.24",
+      "repo": "materialsproject/pymatgen",
+      "commit": "e3fdb6d4bb2a3bc1622f4c133e088d660f0c3c26",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pymatgen==2026.10.24",
+        "pymatgen-core==2026.10.16",
+        "spglib==2.8.0"
+      ],
+      "profile": "crystals"
+    },
+    "pyrolite": {
+      "package": "pyrolite",
+      "version": "0.3.7",
+      "repo": "morganjwilliams/pyrolite",
+      "commit": "ab651b448ecd2ce1bc22d752b80a977a1f4dd1ca",
+      "license": "LicenseRef-CSIRO-BSD-MIT",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pyrolite==0.3.7",
+        "periodictable==2.1.0",
+        "mpltern==1.0.5",
+        "sympy==1.14.0",
+        "mpmath==1.3.0"
+      ],
+      "profile": "chemistry"
+    },
+    "periodictable": {
+      "package": "periodictable",
+      "version": "2.1.0",
+      "repo": "python-periodictable/periodictable",
+      "commit": "83b643f4ca4c7d8cf5202c13e32921b572da9896",
+      "license": "Public-domain nsf.py; file-specific terms elsewhere",
+      "license_file": "LICENSE.txt",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "periodictable==2.1.0"
+      ],
+      "profile": "chemistry"
+    },
+    "porespy": {
+      "package": "porespy",
+      "version": "3.2.0",
+      "repo": "PMEAL/porespy",
+      "commit": "916fdc135bfb08d84b8d9173d6de9174ff217e5d",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "porespy==3.2.0",
+        "numba==0.68.0",
+        "scikit-image==0.26.0"
+      ],
+      "profile": "pores"
+    },
+    "geostatspy": {
+      "package": "geostatspy",
+      "version": "0.0.46",
+      "repo": "GeostatsGuy/GeostatsPy",
+      "commit": "45b2032a1e3f05de6cd0cb7f32ed43203399dbfa",
+      "license": "MIT",
+      "license_file": "LICENSE",
+      "source_mode": "immutable_source_archive",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "numba==0.68.0",
+        "geostatspy @ https://github.com/GeostatsGuy/GeostatsPy/archive/45b2032a1e3f05de6cd0cb7f32ed43203399dbfa.zip"
+      ],
+      "profile": "geostatspy",
+      "qualification": "Source __version__ is 0.0.46, not asserted to be PyPI 0.0.79. Requires direct_url.json archive identity."
+    },
+    "slope": {
+      "package": "pyslope",
+      "version": "1.4.0",
+      "repo": "JesseBonanno/PySlope",
+      "commit": "b50f46ac342b569e251890239560ec311c8015cb",
+      "license": "MIT",
+      "license_file": "LICENSE.txt",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pyslope==1.4.0"
+      ],
+      "profile": "slope",
+      "qualification": "Published package includes web/plot/test dependencies; numeric adapter does not start web services or export plots. Full transitive lock pending."
+    },
+    "melt": {
+      "package": "pyMelt",
+      "version": "2.3",
+      "repo": "simonwmatthews/pyMelt",
+      "commit": "53246591d796275b4d3c7e6102897a886b76d63a",
+      "license": "GPL-3.0 text; conflicting MIT setup classifier",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "pyMelt==2.3"
+      ],
+      "profile": "mantle",
+      "qualification": "Authoritative LICENSE is GPLv3 while setup.py classifier says MIT. Distribution interpretation/approval pending; do not describe as plain MIT."
+    },
+    "gempy": {
+      "package": "gempy",
+      "version": "2026.0.3",
+      "repo": "gempy-project/gempy",
+      "commit": "4bc16d39edbba98804a43d4ff0a62262140cbffe",
+      "license": "EUPL-1.2",
+      "license_file": "LICENSE",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "jsonschema==4.25.1",
+        "gempy==2026.0.3",
+        "gempy_engine==2026.0.3",
+        "pydantic==2.13.5",
+        "typing-extensions==4.16.0"
+      ],
+      "profile": "gempy",
+      "companion": {
+        "package": "gempy_engine",
+        "version": "2026.0.3",
+        "commit": "18a1f876d2816e1a953d14cdbfce28845c51c750",
+        "url": "https://github.com/gempy-project/gempy_engine",
+        "license": "EUPL-1.2",
+        "license_evidence": "https://github.com/gempy-project/gempy_engine/blob/18a1f876d2816e1a953d14cdbfce28845c51c750/LICENSE"
+      }
+    }
+  },
+  "license_copy_paths": [
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/pyslope-1.4.0.txt",
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/thermobar-v1.0.75-blocked.txt",
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/pymelt-2.3.txt",
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/gempy-2026.0.3.txt",
+    "catalog/source_delivery/expansion501-20261026/groups/geology/licenses/gempy-engine-2026.0.3.txt"
+  ],
+  "qualification": "Reviewed source and published package pins are distinct. No complete legal/AI Lab certification or general byte-identity claim."
+}

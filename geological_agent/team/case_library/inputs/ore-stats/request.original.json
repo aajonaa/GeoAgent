@@ -1,0 +1,64 @@
+{
+  "case_id": "rain-ols",
+  "operation": "ols",
+  "intercept": true,
+  "alpha": 0.05,
+  "predictors": [
+    {
+      "name": "rainfall",
+      "unit": "mm/day"
+    }
+  ],
+  "outcome": {
+    "name": "discharge",
+    "unit": "m3/s"
+  },
+  "observations": [
+    {
+      "sample_id": "d01",
+      "time": "2026-01-01",
+      "x": [
+        0
+      ],
+      "y": 1
+    },
+    {
+      "sample_id": "d02",
+      "time": "2026-01-02",
+      "x": [
+        1
+      ],
+      "y": 2
+    },
+    {
+      "sample_id": "d03",
+      "time": "2026-01-03",
+      "x": [
+        2
+      ],
+      "y": 2
+    },
+    {
+      "sample_id": "d04",
+      "time": "2026-01-04",
+      "x": [
+        3
+      ],
+      "y": 4
+    }
+  ],
+  "predict": [
+    {
+      "sample_id": "p1",
+      "x": [
+        0
+      ]
+    },
+    {
+      "sample_id": "p2",
+      "x": [
+        2
+      ]
+    }
+  ]
+}

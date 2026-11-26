@@ -1,0 +1,83 @@
+{
+  "operations": [
+    {
+      "id": "Geo500PoreDiffusionTortuosity",
+      "reason": "PoreSpy tortuosity_fd requires OpenPNM 3.6.1, whose scipy>=1.16.2 and pandas>=2.3.2 conflict with the fixed scipy1.15.3/pandas2.3.0 baseline. A separately approved complete solver environment/native identity and flux-convergence acceptance are not available; no main-environment replacement or bridge placeholder authored.",
+      "blockers": [
+        "private_openpnm_solver_profile_unresolved",
+        "native_solver_identity_and_convergence_pending"
+      ],
+      "evidence": [
+        "https://github.com/PMEAL/OpenPNM/blob/a8b46807f4d4f61ec9a9f0c16fa5d37fc95c9337/pyproject.toml"
+      ]
+    },
+    {
+      "id": "Geo50026ConstrainedChemicalEquilibrium",
+      "reason": "Reaktoro v2.13.0 source commit 3c5838e7c0ed2931ad152176414cb786311dbe47 is established, but no fixed CPU binary/ABI lock plus licensed offline thermodynamic-database content hash has been supplied. An auditable fixed equilibrium database/model binding is mandatory; no arbitrary database fetch or unpinned native runner is registered.",
+      "blockers": [
+        "reaktoro_native_cpu_binary_identity",
+        "offline_thermodynamic_database_hash_and_license"
+      ],
+      "evidence": [
+        "https://github.com/reaktoro/reaktoro/tree/3c5838e7c0ed2931ad152176414cb786311dbe47",
+        "https://reaktoro.org/tutorials/equilibrium/equilibrium-specifying-constraints.html"
+      ]
+    },
+    {
+      "id": "Geo50026MineralReactionKinetics",
+      "reason": "Same Reaktoro native/database blockers as equilibrium, plus a version-bound built-in rate-law parameter database, mineral-area convention and independent kinetic reference are not frozen. User-supplied code callbacks or an authored replacement rate kernel are forbidden; no registered placeholder.",
+      "blockers": [
+        "reaktoro_native_cpu_binary_identity",
+        "offline_database_and_rate_law_binding_unresolved"
+      ],
+      "evidence": [
+        "https://reaktoro.org/api/classReaktoro_1_1KineticsSolver.html"
+      ]
+    },
+    {
+      "id": "Geo50026ReactiveColumnTransport",
+      "reason": "Official run_string and advection/RUN_CELLS workflow are known, but no pinned IPhreeqc native build/hash, compatible PhreeqPy source commit and licensed phreeqc.dat content identity are established. The existing JSON-only bridge does not supply those identities or bounded native lifecycle. Arbitrary PHREEQC/BASIC inputs remain prohibited.",
+      "blockers": [
+        "iphreeqc_binary_and_wrapper_source_pin_missing",
+        "database_content_hash_missing",
+        "fixed_native_lifecycle_not_implemented"
+      ],
+      "evidence": [
+        "https://phreeqpy.com/examples.html",
+        "https://www.phreeqpy.com/phreeqpy.pdf"
+      ]
+    },
+    {
+      "id": "GeoConditionedResourceEnsemble",
+      "reason": "Reviewed GSTools 1.7.0 CondSRF returns kriging mean plus pointwise variance-scaled unconditional field. That does not in general reproduce joint conditional covariance. For unit exponential covariance conditioned at x=0, target x=-1,+1 has true conditional cross-covariance zero, while pointwise rescaling yields exp(-2)*(1-exp(-2))>0. A resource uncertainty ensemble cannot be represented as exact joint conditional simulation without an independently validated maintained fix/alternative; no local kernel substitution.",
+      "blockers": [
+        "joint_conditional_covariance_not_preserved"
+      ],
+      "evidence": [
+        "https://github.com/GeoStat-Framework/GSTools/blob/v1.7.0/src/gstools/field/cond_srf.py"
+      ]
+    },
+    {
+      "id": "GeoGeobodyTopology",
+      "reason": "The authoritative tutorial imports the separate gempy_plugins topology module. Its current repository exists and declares EUPL-1.2, but a reviewed immutable plugin commit/release and a verified binding to the selected GemPy/engine 2026.0.3 model layout have not been established. Core GemPy's license/version cannot stand in for this plugin; generic voxel labels are not substituted for its geobody topology kernel.",
+      "blockers": [
+        "plugin_immutable_pin_and_model_layout_binding_unresolved"
+      ],
+      "evidence": [
+        "https://docs.gempy.org/tutorials/c_advanced/d04_topology.html",
+        "https://github.com/gempy-project/gempy_plugins"
+      ]
+    },
+    {
+      "id": "GeoCpxMeltThermobarometry",
+      "reason": "Thermobar v.1.0.75 commit c1978e87f073902778b5589bd2b3b6adfd6de695 has a nonstandard LICENSE.txt requiring written author permission for GUI use and additional citation/payment terms. This application must not label it ordinary MIT or presume wrapper/GUI permission. Calibration-domain acceptance and an independent published P-T reference also remain pending; not registered.",
+      "blockers": [
+        "upstream_gui_permission_and_nonstandard_license_review",
+        "calibration_domain_and_independent_reference_pending"
+      ],
+      "evidence": [
+        "https://github.com/PennyWieser/Thermobar/blob/c1978e87f073902778b5589bd2b3b6adfd6de695/LICENSE.txt"
+      ]
+    }
+  ]
+}

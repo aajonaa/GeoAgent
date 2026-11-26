@@ -1,0 +1,9 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "topography_m": [
+    100,
+    -100
+  ],
+  "crust_density_kg_m3": 2670,
+  "water_density_kg_m3": 1040
+}

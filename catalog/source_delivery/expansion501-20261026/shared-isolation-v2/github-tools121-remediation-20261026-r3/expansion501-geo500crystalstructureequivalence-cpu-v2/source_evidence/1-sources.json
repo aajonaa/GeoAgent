@@ -1,0 +1,27 @@
+[
+  {
+    "path": "/data/wangjian/remediate121-20261026-r1/geology/upstream/pymelt-mantle.py",
+    "url": "https://raw.githubusercontent.com/simonwmatthews/pyMelt/53246591d796275b4d3c7e6102897a886b76d63a/pyMelt/mantle_class.py",
+    "sha256": "83eba747ccf7c9b67261603ffa4debba9c3287a40c51d9b88e084fbdf19d98e3"
+  },
+  {
+    "path": "/data/wangjian/remediate121-20261026-r1/geology/upstream/pymelt-katz.py",
+    "url": "https://raw.githubusercontent.com/simonwmatthews/pyMelt/53246591d796275b4d3c7e6102897a886b76d63a/pyMelt/lithologies/katz.py",
+    "sha256": "8c7cba1dfefc618e2a1e027bbd2052c89bc4011ead6cb96077347b84ca0468c4"
+  },
+  {
+    "path": "/data/wangjian/remediate121-20261026-r1/geology/upstream/pymelt-shorttle.py",
+    "url": "https://raw.githubusercontent.com/simonwmatthews/pyMelt/53246591d796275b4d3c7e6102897a886b76d63a/pyMelt/lithologies/shorttle.py",
+    "sha256": "3ac91338a2378ae55a5bdbc33b992486291e490b727e2594ad28fde9483ae80c"
+  },
+  {
+    "path": "/data/wangjian/remediate121-20261026-r1/geology/upstream/pymelt-properties.py",
+    "url": "https://raw.githubusercontent.com/simonwmatthews/pyMelt/53246591d796275b4d3c7e6102897a886b76d63a/pyMelt/lithology_classes.py",
+    "sha256": "43e5b64acff19ab776cec2269e21da36a846a133f6d86ebfa1896e42111019f6"
+  },
+  {
+    "path": "/data/wangjian/remediate121-20261026-r1/geology/upstream/pyslope.py",
+    "url": "https://raw.githubusercontent.com/JesseBonanno/PySlope/b50f46ac342b569e251890239560ec311c8015cb/pyslope/pyslope.py",
+    "sha256": "dfdc515897ec823164913fe1ab4f6405971a61abc9f92f359b54d7829a9dde8e"
+  }
+]

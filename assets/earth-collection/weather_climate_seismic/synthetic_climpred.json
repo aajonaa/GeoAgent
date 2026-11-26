@@ -1,0 +1,23 @@
+{
+  "fixture_id": "synthetic_climpred",
+  "forecast": [
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      4,
+      6
+    ]
+  ],
+  "observed": [
+    1,
+    3,
+    5
+  ],
+  "synthetic": true
+}

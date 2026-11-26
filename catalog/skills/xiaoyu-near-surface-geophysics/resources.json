@@ -1,0 +1,86 @@
+{
+  "skill_id": "xiaoyu_near_surface_geophysics",
+  "archive_sha256": "7d1c006c9de7175744a5b9c0d2a1d575b9ebec9fbb1be6f8bd4136c72d06a03b",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 46,
+          "archive_sha256": "866acc8319b9d6880426b405398a3468da83f21a50868071f7e393d476bfff42",
+          "member": "near-surface-geophysics/LICENSE"
+        },
+        {
+          "package_number": 89,
+          "archive_sha256": "6b57fe3e75b67e08d919aeb3c96ecc5470270ef4869285b22c3f44b6aa7a9112",
+          "member": "near-surface-geophysics/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 826,
+      "sha256": "efdb525cd14a5ef9ef4d512fbd3bc03c7b39d85e87335f8e95ffee69294740ac",
+      "origins": [
+        {
+          "package_number": 46,
+          "archive_sha256": "866acc8319b9d6880426b405398a3468da83f21a50868071f7e393d476bfff42",
+          "member": "near-surface-geophysics/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 7495,
+      "sha256": "d9367dab735ecbbe04cc47140edd9a3f615fd13020d90792e43de2cde653709b",
+      "origins": [
+        {
+          "package_number": 46,
+          "archive_sha256": "866acc8319b9d6880426b405398a3468da83f21a50868071f7e393d476bfff42",
+          "member": "near-surface-geophysics/SKILL.md"
+        },
+        {
+          "package_number": 89,
+          "archive_sha256": "6b57fe3e75b67e08d919aeb3c96ecc5470270ef4869285b22c3f44b6aa7a9112",
+          "member": "near-surface-geophysics/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/validated_branches.md",
+      "bytes": 4768,
+      "sha256": "911dfe3106fb271229f045c2d903a8caa4cb03ffb07386e89d8891fd9b8fb533",
+      "origins": [
+        {
+          "package_number": 46,
+          "archive_sha256": "866acc8319b9d6880426b405398a3468da83f21a50868071f7e393d476bfff42",
+          "member": "near-surface-geophysics/references/validated_branches.md"
+        },
+        {
+          "package_number": 89,
+          "archive_sha256": "6b57fe3e75b67e08d919aeb3c96ecc5470270ef4869285b22c3f44b6aa7a9112",
+          "member": "near-surface-geophysics/references/validated_branches.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/ert_layered_diagnostic.py",
+      "bytes": 10939,
+      "sha256": "eb8bbdcad758f3cacfe9b5f4bbe1cda4e72218a94c99a2671d6b8e11b7c56ffc",
+      "origins": [
+        {
+          "package_number": 46,
+          "archive_sha256": "866acc8319b9d6880426b405398a3468da83f21a50868071f7e393d476bfff42",
+          "member": "near-surface-geophysics/scripts/ert_layered_diagnostic.py"
+        },
+        {
+          "package_number": 89,
+          "archive_sha256": "6b57fe3e75b67e08d919aeb3c96ecc5470270ef4869285b22c3f44b6aa7a9112",
+          "member": "near-surface-geophysics/scripts/ert_layered_diagnostic.py"
+        }
+      ]
+    }
+  ]
+}

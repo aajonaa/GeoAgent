@@ -1,0 +1,9 @@
+{
+  "source_unchanged_after_tests": true,
+  "test_report_sha256": "68af90c2b952c0c2eb05e6d90ca436300f83f21b9721d244615e6dfb6dfbd3e0",
+  "test_log_sha256": "10f9dc6b1ea3818243f32bcd488e8c3935cac71da34030834e3ab55b76f27c67",
+  "runner_sha256": "e4c052060b162d0b2fc609084c12c1ad5bfc4725a8d3770b133fd874a1544316",
+  "source_status": "source_frozen_no_repairs_applied",
+  "science_acceptance": "not_run",
+  "deployed": false
+}

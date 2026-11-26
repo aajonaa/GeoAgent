@@ -1,0 +1,52 @@
+{
+  "tool": "GeoConditionedResourceEnsemble",
+  "args": {
+    "data_source": "SYNTHETIC controlled tracer X; ppm mass/mass dry basis; local Cartesian east,north,up metres on arbitrary common datum. Not field assays, mineral presence or resource evidence.",
+    "observation_coordinates_m": [
+      [
+        0,
+        0,
+        0
+      ]
+    ],
+    "observed_values_ppm": [
+      12
+    ],
+    "target_coordinates_m": [
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ]
+    ],
+    "known_mean_ppm": 10,
+    "prior_variance_ppm2": 4,
+    "correlation_length_m": 1,
+    "measurement_noise_variance_ppm2": 1,
+    "realization_count": 4096,
+    "random_seed": 20261031
+  },
+  "identity": {
+    "case_id": "CR01",
+    "observation_ids": [
+      "O00"
+    ],
+    "target_ids": [
+      "T000",
+      "T001",
+      "T002"
+    ],
+    "coordinate_convention": "local_cartesian_ENU_m",
+    "value_basis": "synthetic_tracer_ppm_mass_mass_dry"
+  }
+}

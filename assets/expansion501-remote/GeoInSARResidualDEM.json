@@ -1,0 +1,105 @@
+{
+  "grid": {
+    "crs": "EPSG:32650",
+    "affine": [
+      10,
+      0,
+      500000,
+      0,
+      -10,
+      3400000
+    ],
+    "nodata": null,
+    "mask": [
+      [
+        true,
+        true
+      ],
+      [
+        true,
+        true
+      ]
+    ]
+  },
+  "sar": {
+    "state": "coregistered_unwrapped_insar",
+    "processing_provenance": "SYNTHETIC analytic already-unwrapped/coregistered SAR fixture, not an RGB observation",
+    "wavelength_m": 0.12566370614359174,
+    "los_convention": "positive_toward_sensor"
+  },
+  "dates": [
+    "20200101",
+    "20201231",
+    "20211231",
+    "20221231"
+  ],
+  "displacement_unit": "m",
+  "los_displacement_m": [
+    [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0.014993155373032169,
+        0.014993155373032169
+      ],
+      [
+        0.014993155373032169,
+        0.014993155373032169
+      ]
+    ],
+    [
+      [
+        0.014986310746064338,
+        0.014986310746064338
+      ],
+      [
+        0.014986310746064338,
+        0.014986310746064338
+      ]
+    ],
+    [
+      [
+        0.03247946611909651,
+        0.03247946611909651
+      ],
+      [
+        0.03247946611909651,
+        0.03247946611909651
+      ]
+    ]
+  ],
+  "perpendicular_baseline_m": [
+    0,
+    100,
+    -100,
+    50
+  ],
+  "incidence_deg": [
+    [
+      30,
+      30
+    ],
+    [
+      30,
+      30
+    ]
+  ],
+  "slant_range_m": [
+    [
+      800000,
+      800000
+    ],
+    [
+      800000,
+      800000
+    ]
+  ]
+}

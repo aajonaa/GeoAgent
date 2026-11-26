@@ -1,0 +1,41 @@
+{
+  "id": "GeoSeismicMarchenkoRedatuming",
+  "synthetic": true,
+  "status": "not_run_not_registered",
+  "args": {
+    "reflection_response": [
+      [
+        [
+          0,
+          0.25,
+          0.125,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ]
+    ],
+    "direct_arrival": [
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "traveltime_s": [
+      3
+    ],
+    "dt_s": 1,
+    "receiver_spacing_m": 1,
+    "max_iterations": 100,
+    "reflection_convention": "twice_monopole_vertical_velocity_density"
+  },
+  "oracle": "Exact rational two-lag coupled circular-convolution system; reference_oracles_r6.py; no upstream-generated expected values."
+}

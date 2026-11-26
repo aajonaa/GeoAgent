@@ -1,0 +1,6 @@
+jsonschema==4.25.1
+matplotlib==3.10.7
+numpy==2.1.3
+pandas==2.3.0
+pyMelt==2.3
+scipy==1.15.3

@@ -1,0 +1,53 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "observations_enu_m": [
+    [
+      -50,
+      -50,
+      0
+    ],
+    [
+      -50,
+      50,
+      0
+    ],
+    [
+      50,
+      -50,
+      0
+    ],
+    [
+      50,
+      50,
+      0
+    ]
+  ],
+  "source_points_enu_m": [
+    [
+      0,
+      0,
+      -100
+    ]
+  ],
+  "prediction_points_enu_m": [
+    [
+      0,
+      0,
+      100
+    ]
+  ],
+  "field": [
+    8.16496580927726,
+    8.16496580927726,
+    8.16496580927726,
+    8.16496580927726
+  ],
+  "standard_deviation": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "field_unit": "nT",
+  "damping": 1e-10
+}

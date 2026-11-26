@@ -1,0 +1,20 @@
+{
+  "files_sha256": {
+    "geological_agent/__init__.py": "8a3732aa39927ca84516fbd64fb30494293928c241765ae727a89c2b8a6e172e",
+    "geological_agent/contracts.py": "d59ca2612bb1b5280e92a9b9357d4ffddffcd0d841f4b7bea30713cba3638226",
+    "geological_agent/settings.py": "a0c2144bfd5943b093be42c134dc823ddfe9d7a04983c8eaa60a5af1de461f88",
+    "geological_agent/tools.py": "3f9aa6861f5ff01f31e04d342b8549c277e8fd8ccf1e68b1a35226aff445b6ae",
+    "geological_agent/skills.py": "a54e266d37f1dc994efc8ad58dbd5fd829bdf3dcbd64a1dddb3ff95d50ae7959",
+    "geological_agent/geology/__init__.py": "6e566ea91d1b7ada96c3d838545a64bb03e138765f351ba63248219c15aeddcf",
+    "geological_agent/geology/source_registry.py": "ae81d25f2464ab003e96a617ec173da04ff96204fbd528f431bf903f6b04cd0a",
+    "geological_agent/geology/expansion501_spatial.py": "5fee0a0ebd604c532b7b3eb33646da9705bd20738259e28ac162ba127262a80b",
+    "legacy/ToolsAgent/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "legacy/ToolsAgent/ToolsFuns/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "legacy/ToolsAgent/ToolsFuns/GeoEval/__init__.py": "7eec86b846beb1d52e811942eb27633801a3c4dd75dad16a38098a4ae2f74df2",
+    "legacy/ToolsAgent/ToolsFuns/source_contracts.py": "10303dc89014564d4bcd7a00fbd22f1319c15c4d0a9393787c4327883b1e0d84",
+    "legacy/ToolsAgent/ToolsFuns/GeoEval/scientific_tools.py": "c9b919809f660da7cdbd8cc71719c33dff5467f49d3a9ec5261d4265b548298f"
+  },
+  "catalog_sha256": "14aaa4af79a434d344270e3c1c0675a44e7f87c7ed44fea878ce7135cfc41dc4",
+  "registry_source_modified": false,
+  "module_allowlist_modified": false
+}

@@ -1,0 +1,87 @@
+{
+  "id": "GeoSeismicTraveltimeTomography",
+  "synthetic": true,
+  "status": "not_run_not_registered",
+  "args": {
+    "x_nodes_m": [
+      0,
+      10,
+      20
+    ],
+    "elevation_nodes_m": [
+      -40,
+      -35,
+      -30,
+      -20,
+      -10,
+      -5,
+      0
+    ],
+    "sensors_x_elevation_m": [
+      [
+        0,
+        -35
+      ],
+      [
+        0,
+        -30
+      ],
+      [
+        0,
+        -10
+      ],
+      [
+        0,
+        -5
+      ],
+      [
+        20,
+        -35
+      ],
+      [
+        20,
+        -30
+      ],
+      [
+        20,
+        -10
+      ],
+      [
+        20,
+        -5
+      ]
+    ],
+    "source_indices": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "receiver_indices": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "traveltime_s": [
+      0.01,
+      0.01,
+      0.006666666666666667,
+      0.006666666666666667
+    ],
+    "uncertainty_s": [
+      0.00001,
+      0.00001,
+      0.00001,
+      0.00001
+    ],
+    "initial_velocity_m_s": 2500,
+    "velocity_bounds_m_s": [
+      1000,
+      4000
+    ],
+    "regularization": 0.0001,
+    "max_iterations": 20
+  },
+  "oracle": "Independent two-layer horizontal t=L/v: 0.01 s and 1/150 s. Model recovery is nonunique; do not claim recovered cells equal the generating layers."
+}

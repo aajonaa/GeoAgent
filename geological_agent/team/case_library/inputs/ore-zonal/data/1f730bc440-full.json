@@ -1,0 +1,38 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "zone_id": "A"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              500000,
+              4400000
+            ],
+            [
+              500020,
+              4400000
+            ],
+            [
+              500020,
+              4400020
+            ],
+            [
+              500000,
+              4400020
+            ],
+            [
+              500000,
+              4400000
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

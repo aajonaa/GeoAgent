@@ -1,0 +1,31 @@
+{
+  "case_id": "c001",
+  "source_skill": "ore-ndvi",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "DeepTimeZonalStatistics",
+      "arguments": {
+        "paths": [
+          "orig-points.csv"
+        ],
+        "zone_field": "zone",
+        "value_field": "value",
+        "operation": "mean"
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "mode": "direct",
+    "transport": "dict"
+  },
+  "input_path_bindings": [
+    {
+      "original": "orig-points.csv",
+      "workspace": "orig-points.csv",
+      "source": "ore-ndvi-1.0.1/tests/data/orig-points.csv"
+    }
+  ]
+}

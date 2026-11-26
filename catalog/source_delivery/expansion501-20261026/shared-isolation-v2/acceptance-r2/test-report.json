@@ -1,0 +1,34 @@
+{
+  "scope": "Windows_private_Python312_unchanged_v2_synthetic_contract_tests_not_GPR_science",
+  "identity": {
+    "ready": true,
+    "python": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\venv\\Scripts\\python.exe",
+    "python_sha256": "8e11f5c0c4cdea438059feea1b750721929433374b389674c8368ae8bfcbf525",
+    "python_version": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+    "jsonschema": "4.25.1",
+    "files_sha256": {
+      "geological_agent/geology/collection_contracts.py": "53e762929334bb3f6c10a40b65dd098684845a38bf9801652f79f063745720a3",
+      "geological_agent/geology/isolated_cpu_bridge_v2.py": "1389987925d451fe45facb884a3e3beeb6d54e3400161bff8691ce8be5c988e6",
+      "geological_agent/geology/isolated_cpu_worker_v2.py": "09032aa3448651b9f7aaca1796fa0a8cd943d5aa471e765f0a2e410f14e54125",
+      "tests/test_isolated_cpu_bridge_v2.py": "2f629084d67e46c5bd457f4a0d53aec28d15243297fdf07fd1800df6953d3abb"
+    }
+  },
+  "discovered": 41,
+  "tests_run_including_skips": 41,
+  "passed": 40,
+  "failures": [
+    {
+      "test": "test_real_process_deadline (unchanged_v2_contract_tests_r2.ProtocolTests.test_real_process_deadline)",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\jona\\github\\GeoAgent-tools220-release\\tests\\test_isolated_cpu_bridge_v2.py\", line 287, in test_real_process_deadline\n    with self.assertRaises(bridge.BridgeError) as caught:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: BridgeError not raised\n"
+    }
+  ],
+  "errors": [],
+  "skipped": [],
+  "scientific_tests_executed": 0,
+  "GPR_scientific_tests_executed": 0,
+  "remote_tests_executed": 0,
+  "source_modified": false,
+  "prior_reports_reused": false,
+  "environment_modified": false,
+  "exit_code": 1
+}

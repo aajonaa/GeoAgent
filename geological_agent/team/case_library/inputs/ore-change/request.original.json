@@ -1,0 +1,101 @@
+{
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "RemoteSensingPercentageChange",
+      "arguments": {
+        "a": 100,
+        "b": 125
+      },
+      "value_unit": "SYN-unit"
+    },
+    {
+      "operation_id": "op2",
+      "tool": "RemoteSensingExtremeSnowLossPercentage",
+      "arguments": {
+        "binary_map_path": "tests/data/snow.tif"
+      },
+      "value_unit": "1"
+    },
+    {
+      "operation_id": "op3",
+      "tool": "RemoteSensingBatchHotspotPercentage",
+      "arguments": {
+        "file_list": [
+          "tests/data/scene-a.tif",
+          "tests/data/scene-b.tif"
+        ],
+        "threshold": 2
+      },
+      "value_unit": "SYN-unit"
+    },
+    {
+      "operation_id": "op4",
+      "tool": "RemoteSensingCountAboveThreshold",
+      "arguments": {
+        "file_path": "tests/data/scene-a.tif",
+        "threshold": 2
+      },
+      "value_unit": "SYN-unit"
+    },
+    {
+      "operation_id": "op5",
+      "tool": "RemoteSensingBatchHotspotRaster",
+      "arguments": {
+        "file_list": [
+          "tests/data/scene-a.tif",
+          "tests/data/scene-b.tif"
+        ],
+        "threshold": 2
+      },
+      "value_unit": "SYN-unit"
+    },
+    {
+      "operation_id": "op6",
+      "tool": "RemoteSensingFireIncreaseMap",
+      "arguments": {
+        "change_image_path": "tests/data/change.tif",
+        "threshold": 0
+      },
+      "value_unit": "SYN-unit"
+    },
+    {
+      "operation_id": "op7",
+      "tool": "RemoteSensingMaxValueAndIndex",
+      "arguments": {
+        "x": [
+          3,
+          7,
+          7,
+          -2
+        ]
+      },
+      "value_unit": "SYN-unit"
+    },
+    {
+      "operation_id": "op8",
+      "tool": "RemoteSensingMinValueAndIndex",
+      "arguments": {
+        "x": [
+          3,
+          -2,
+          -2,
+          7
+        ]
+      },
+      "value_unit": "SYN-unit"
+    },
+    {
+      "operation_id": "op9",
+      "tool": "RemoteSensingArgmax",
+      "arguments": {
+        "x": [
+          0,
+          -1,
+          0
+        ]
+      },
+      "value_unit": "SYN-unit"
+    }
+  ]
+}

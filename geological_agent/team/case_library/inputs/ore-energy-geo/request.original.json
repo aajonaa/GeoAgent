@@ -1,0 +1,71 @@
+{
+  "operations": [
+    {
+      "operation_id": "facility",
+      "tool": "EnergyFacilityDistance",
+      "arguments": {
+        "first_id": "f1",
+        "second_id": "f2",
+        "dataset_path": "tests/data/facilities.csv",
+        "dataset_version": "SYNTHETIC-v1"
+      }
+    },
+    {
+      "operation_id": "mineral",
+      "tool": "EnergyMineralSiteDistance",
+      "arguments": {
+        "first_id": "m1",
+        "second_id": "m2",
+        "dataset_path": "tests/data/minerals.csv",
+        "dataset_version": "SYNTHETIC-v1"
+      }
+    },
+    {
+      "operation_id": "area",
+      "tool": "EnergyBBoxArea",
+      "arguments": {
+        "bbox": [
+          0,
+          0,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "operation_id": "nearest",
+      "tool": "EnergyNearestFacility",
+      "arguments": {
+        "latitude": 0,
+        "longitude": 0.6,
+        "dataset_path": "tests/data/facilities.csv",
+        "dataset_version": "SYNTHETIC-v1"
+      }
+    },
+    {
+      "operation_id": "cross",
+      "tool": "EnergyNearestMineralSite",
+      "arguments": {
+        "facilities_path": "tests/data/facilities.csv",
+        "facility_id": "f1",
+        "dataset_path": "tests/data/minerals.csv",
+        "dataset_version": "SYNTHETIC-v1"
+      }
+    },
+    {
+      "operation_id": "regional",
+      "tool": "EnergyRegionalOverlaySummary",
+      "arguments": {
+        "minerals_path": "tests/data/minerals.csv",
+        "bbox": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "dataset_path": "tests/data/facilities.csv",
+        "dataset_version": "SYNTHETIC-v1"
+      }
+    }
+  ]
+}

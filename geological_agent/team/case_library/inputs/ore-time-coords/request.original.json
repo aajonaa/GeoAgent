@@ -1,0 +1,45 @@
+{
+  "coordinate_reference": "EPSG:4326",
+  "operations": [
+    {
+      "operation_id": "coord",
+      "tool": "DeepTimeDecimalToDMS",
+      "arguments": {
+        "value": 42.5,
+        "field": "lat"
+      }
+    },
+    {
+      "operation_id": "distance",
+      "tool": "DeepTimeHaversineDistance",
+      "arguments": {
+        "lat1": 0,
+        "lon1": 0,
+        "lat2": 0,
+        "lon2": 90
+      }
+    },
+    {
+      "operation_id": "bearing",
+      "tool": "DeepTimeBearing",
+      "arguments": {
+        "lat1": 0,
+        "lon1": 0,
+        "lat2": 0,
+        "lon2": 90
+      }
+    },
+    {
+      "operation_id": "area",
+      "tool": "DeepTimeBBoxArea",
+      "arguments": {
+        "bbox": [
+          0,
+          0,
+          1,
+          1
+        ]
+      }
+    }
+  ]
+}

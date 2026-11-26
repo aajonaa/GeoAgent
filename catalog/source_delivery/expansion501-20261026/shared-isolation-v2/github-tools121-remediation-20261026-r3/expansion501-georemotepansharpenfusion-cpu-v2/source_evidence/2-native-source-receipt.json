@@ -1,0 +1,56 @@
+{
+  "archive": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/downloads/OTB-9.1.1-Linux.tar.gz",
+    "sha256": "7ae191482c7a1194a90c2b763c457290a335d630856eb7acde58c7c6172f9ad6",
+    "url": "https://www.orfeo-toolbox.org/packages/OTB-9.1.1-Linux.tar.gz",
+    "version": "9.1.1"
+  },
+  "copied_identity": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/native/OTB/expansion501-identity.json",
+    "sha256": "c928968c931223034e2909a4118d5ca6fa4ff86d62c85da4d080f5a5ab71b873"
+  },
+  "correspondence": "Official 9.1.1 release archive; source commit reviewed separately, no reproducible-build claim.",
+  "fixed_build_receipt": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/parent-replay/native/OTB/fixed-cpu-build-receipt.json",
+    "sha256": "bc44829ca4da6b29c93106e5b2c07a4c73d71f3e592b2a16cf4bb744d1e6d50e"
+  },
+  "original_identity": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/native/expansion501-identity.json",
+    "sha256": "c928968c931223034e2909a4118d5ca6fa4ff86d62c85da4d080f5a5ab71b873"
+  },
+  "original_native_closure": {
+    "path": "/data/wangjian/remediate121-20261026-r1/remote/native-project.json",
+    "sha256": "ab8a53d82f23fa6ff95f6c35b4effb162800a876dde90af35209a2b729eb4a43"
+  },
+  "source_commit": "154726b379fdb39b481ee8fd793fbd3d584884e6",
+  "system_runtime_files": {
+    "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2": {
+      "bytes": 240936,
+      "sha256": "41daf7836f7fce21a40ca63a00c5caf21b05a35a76ccc075d86f1716212cdf01"
+    },
+    "/usr/lib/x86_64-linux-gnu/libc.so.6": {
+      "bytes": 2220400,
+      "sha256": "b2cf6c33b74d2f22543b7a469a75b538911e690f769d0b238843a49465b83793"
+    },
+    "/usr/lib/x86_64-linux-gnu/libdl.so.2": {
+      "bytes": 14432,
+      "sha256": "3eaaa4aefd9c28f3867c96a427c3cbec9191cb61c4c9d0a2cb4a765d66064499"
+    },
+    "/usr/lib/x86_64-linux-gnu/libgcc_s.so.1": {
+      "bytes": 125488,
+      "sha256": "fc9d43b2f6c20e53b009238f767c5b949d202389e20de9e202ea684b4ba3729a"
+    },
+    "/usr/lib/x86_64-linux-gnu/libm.so.6": {
+      "bytes": 940560,
+      "sha256": "3dd5511ae94785c9f921429b0f2b2f7aabb461b6f0e6de6dfdbef15f24bdfee6"
+    },
+    "/usr/lib/x86_64-linux-gnu/libpthread.so.0": {
+      "bytes": 21448,
+      "sha256": "fbed9505adacada2abb37c6b43be2df6de81e742712c6025694ba48de62c7e78"
+    },
+    "/usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30": {
+      "bytes": 2260296,
+      "sha256": "ff0825e113603c3866680d5d52216bc6d8eedf3a59f52a0aef67ff01994db128"
+    }
+  }
+}

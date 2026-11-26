@@ -1,0 +1,5 @@
+scenario,horizon_year,estimate_c,lower_c,upper_c
+SSP2-4.5,2100,2.75,2.25,3.5
+SSP1-2.6,2050,1.5,1.25,1.75
+SSP5-8.5,2100,4.5,3.25,6
+SSP1-2.6,2100,1.75,1.25,2.5

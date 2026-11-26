@@ -1,0 +1,23 @@
+{
+  "case_id": "SR001",
+  "source_skill": "ore-structure",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "GeoStereonetAnalysis",
+      "arguments": {
+        "data_path": "SR001.json"
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {},
+  "input_path_bindings": [
+    {
+      "original": "SR001.json",
+      "workspace": "SR001.json",
+      "source": "ore-structure-1.0.2/tests/d/SR001.json"
+    }
+  ]
+}

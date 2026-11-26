@@ -1,0 +1,18 @@
+{
+  "data_source": "SYNTHETIC analytic acceptance fixture; not field observations or mineral evidence.",
+  "hole_id": "SYNTHETIC_HOLE",
+  "left_intervals": [
+    {
+      "top_m": 0,
+      "base_m": 10,
+      "label": "SYNTHETIC_UNIT_A"
+    }
+  ],
+  "right_intervals": [
+    {
+      "top_m": 4,
+      "base_m": 8,
+      "label": "SYNTHETIC_UNIT_B"
+    }
+  ]
+}

@@ -5,6 +5,15 @@
   const str = value => typeof value === 'string' ? value : '';
   const secret = /^(?:api[_-]?key|api[_-]?token|access[_-]?token|authorization|password|secret|credential|signature)$/i;
   const clean = value => JSON.parse(JSON.stringify(value ?? null, (key, item) => secret.test(key) ? '[凭证已遮蔽]' : item));
+  const webErrors = {
+    web_not_configured: '联网搜索尚未配置，请联系管理员。',
+    web_authentication_failed: '搜索服务鉴权失败，请联系管理员检查配置。',
+    web_quota_exhausted: '搜索服务额度已用完，请联系管理员。',
+    web_rate_limited: '搜索请求过多，请稍后重试。',
+    web_provider_busy: '搜索服务当前繁忙，请稍后重试。',
+    web_timeout: '搜索服务响应超时，请稍后重试。',
+    web_network_error: '暂时无法连接搜索服务，请稍后重试。'
+  };
   function safeURL(value) {
     try {
       const url = new URL(value);
@@ -27,6 +36,7 @@
   }
   function entry(title, kind, status) {
     const details = el('details', undefined, 'timeline-entry timeline-' + kind);
+    details.open = false;
     const summary = el('summary'), label = el('span',title,'timeline-label');
     const badge = el('span',status,'timeline-state'), arrow = el('span','','timeline-chevron'); arrow.setAttribute('aria-hidden','true');
     summary.append(icon(kind), label, badge, arrow);
@@ -39,8 +49,8 @@
   function attach(rid,ui) {
     if (ui.timeline) return ui.timeline;
     ui.activity.classList.add('activity-timeline'); ui.list.classList.add('timeline-list');
-    ui.summary.textContent='执行过程'; ui.activity.open=!ui.finished;
-    const view={rid,rows:new Map(),stages:new Map(),streams:new Map(),lastStage:null,sequence:-1,userToggled:false}; ui.timeline=view;
+    ui.summary.textContent='查看执行详情';
+    const view={rid,rows:new Map(),loadedSkills:new Set(),stages:new Map(),streams:new Map(),lastStage:null,sequence:-1,userToggled:false}; ui.timeline=view;
     // Programmatic open/close must not be mistaken for a user's preference.
     ui.summary.addEventListener('click',()=>{view.userToggled=true;});
     ui.summary.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key))view.userToggled=true;});
@@ -62,6 +72,7 @@
   }
   function phase(data,view) {
     if(data.message==='Checking the result')return ['核对结果','核对需求、已有工具记录与答复；此阶段开始不代表检查已通过。','check'];
+    if(data.message==='Retrying a model connection')return ['重连模型','模型尚未返回结果，正在发起第 '+data.attempt+' 次请求。','process'];
     if(data.message==='Preparing answer')return ['整理答复','根据已有执行结果组织说明与成果链接。','process'];
     if(data.message==='Compacting context')return ['整理上下文','压缩工作上下文，原始执行记录与工具证据仍保留。','process'];
     if(data.message==='Correcting the result')return ['处理检查问题','上一轮答复未通过检查，进入纠正流程。','check'];
@@ -140,7 +151,9 @@
     if(data.kind==='tool_start') {
       row.arguments=displayArguments(data.arguments);
       const args=row.arguments||{}, description=window.GeoAgentExperience?.describeTool(name,args);
-      row.label.textContent=name==='web_search'?'搜索资料'+(str(args.query)?' · '+str(args.query):''):name==='web_fetch'?'读取网页 · '+(safeURL(args.url)?.hostname||'来源网页'):(description?.title||name).replace(/^正在/,'');
+      const title=name==='web_search'?'搜索资料'+(str(args.query)?' · '+str(args.query):''):name==='web_fetch'?'读取网页 · '+(safeURL(args.url)?.hostname||'来源网页'):(description?.title||'').replace(/^正在/,'');
+      row.label.textContent=title && title!==name ? name+' · '+title : name;
+      row.label.title=row.label.textContent;
       row.description.textContent=name==='web_search'?str(args.query):description?.detail||name;
       row.input.textContent=JSON.stringify({tool:name,arguments:row.arguments??'[参数无法安全结构化显示；原始记录已保留]',...(typeof data.arguments==='string'&&row.arguments?{display_note:'JSON 字符串参数已展开显示，原始执行记录未修改。'}:{})},null,2);
       if(!row.result)row.content.replaceChildren(params(row.arguments),el('p','等待工具返回。','timeline-note'));
@@ -150,9 +163,12 @@
     const success=receipt.status==='ok', output=receipt.data && typeof receipt.data==='object'?receipt.data:{};
     row.status.textContent=success?(receipt.cached||output.cache_hit?'已复用':'已完成'):'未完成';
     row.details.dataset.state=success?'done':'error'; if(row.raw.open)row.output.textContent=JSON.stringify(receipt,null,2);
-    if(typeof data.duration_seconds==='number')row.status.textContent+=' · '+duration(data.duration_seconds);
     row.content.replaceChildren();
-    if(!success)row.content.append(el('p',str(receipt.error?.message)||'工具没有返回成功结果。','timeline-error'));
+    if(!success) {
+      const error=receipt.error;
+      const explanation=Object.hasOwn(webErrors,error?.code)?webErrors[error.code]:str(error?.message);
+      row.content.append(el('p',explanation||'工具没有返回成功结果。','timeline-error'));
+    }
     else if(name==='web_search'&&Array.isArray(output.results)) {
       row.status.textContent=output.results.length+' 条来源'+(output.cache_hit?' · 已复用':'');
       const sources=el('div',undefined,'timeline-sources');
@@ -172,6 +188,9 @@
       for(const file of artifacts)if(str(file?.path))row.content.append(el('p',file.path,'timeline-file'));
       row.content.append(el('p','以上来自工具返回；单位沿用字段，不由界面推断。图像与文件可在本轮成果中查看。','timeline-note'));
     }
+    const elapsed = Number.isFinite(data.duration_seconds) && data.duration_seconds >= 0 ? duration(data.duration_seconds) : '';
+    if (elapsed) row.status.textContent += ' · ' + elapsed;
+    row.content.prepend(el('p', elapsed ? '工具耗时 ' + elapsed : '工具耗时未记录', 'timeline-tool-elapsed'));
     const download=el('a','下载执行记录','timeline-receipt');
     download.href='/api/runs/'+encodeURIComponent(view.rid)+'/receipts/'+encodeURIComponent(id);download.download='tool-result.json';row.content.append(download);
   }
@@ -189,7 +208,8 @@
       const root=el('details',undefined,'timeline-timing'), summary=el('summary','阶段耗时');
       const grid=el('dl',undefined,'timeline-timing-grid');
       root.append(summary,grid,el('p','各阶段按实际运行计时，互不重叠；工具内的模型调用计入模型耗时。历史未记录的时间不补造。','timeline-note'));
-      ui.overview?.box?.append(root);
+      if (ui.overview?.box.dataset.layout === 'compact') ui.activity.append(root);
+      else ui.overview?.box.append(root);
       ui.timing={root,summary,grid};
     }
     ui.timing.snapshot=data;ui.timing.anchor=performance.now();tick(ui);
@@ -242,10 +262,20 @@
       if(!data.complete)row.body.append(el('p','响应不完整；没有因此执行部分工具调用。','timeline-error'));
     }
   }
+  function loadedSkill(ui, view, data) {
+    if (!data.id || !data.name || !['manual', 'automatic'].includes(data.source)) return;
+    if (view.loadedSkills.has(data.id)) return;
+    const row = entry('已加载技能 · ' + data.name, 'check', data.source === 'manual' ? '手动指定' : '自动匹配');
+    row.details.dataset.state = 'done';
+    row.body.append(el('p', '技能标识 · ' + data.id, 'timeline-note'));
+    view.loadedSkills.add(data.id);
+    ui.list.prepend(row.details);
+  }
   function event(rid,data,eventId) {
     const ui=state.runs.get(rid); if(!ui)return; const view=attach(rid,ui);
     const sequence=typeof eventId==='string'&&/^\d+$/.test(eventId)?Number(eventId):null;
     if(Number.isSafeInteger(sequence)){if(sequence<=view.sequence)return;view.sequence=sequence;}
+    if(data.kind==='skill_loaded')loadedSkill(ui,view,data);
     if(data.kind==='stage_timing')timing(ui,data);
     if(data.kind==='diagnostic') {
       closeStage(view);
@@ -260,10 +290,23 @@
     if(data.kind==='status')stage(ui,data,view);
     if(data.kind==='model_process')processText(ui,data,view);
     if(data.kind==='tool_start'||data.kind==='tool_result')tool(ui,data,view);
+    if(data.kind==='knowledge_start') {
+      closeStage(view);
+      view.knowledge=entry('自动检索知识库','search','检索中');
+      view.knowledge.details.dataset.state='running';
+      ui.list.append(view.knowledge.details);
+    }
     if(data.kind==='knowledge_sources'&&Array.isArray(data.references)) {
-      closeStage(view); const row=entry('检索知识资料','search',data.references.length+' 个片段');
+      closeStage(view);
+      const row=view.knowledge||entry('自动检索知识库','search','');
+      if(!view.knowledge)ui.list.append(row.details);
+      view.knowledge=null;
+      const unavailable=data.status==='unavailable';
+      row.status.textContent=unavailable?'检索失败':data.references.length+' 个片段';
+      if(Number.isFinite(data.duration_ms))row.status.textContent+=' · '+duration(data.duration_ms/1000);
+      row.details.dataset.state=unavailable?'error':'done';
       const sources=el('div',undefined,'timeline-sources');for(const ref of data.references)sources.append(sourceCard({...ref,url:ref.source}));
-      row.body.append(sources,el('p','知识库召回的原文片段，相关性不等于事实正确性。','timeline-note'));ui.list.append(row.details);
+      row.body.append(sources,el('p',unavailable?'知识库暂不可用。':data.references.length?'以下为知识库召回的原文片段。':'本次检索没有返回片段。','timeline-note'));
     }
     if(data.kind==='context_compacted') {
       const row=entry('上下文已整理','process','已结束');
@@ -274,8 +317,9 @@
       closeStage(view);if(!view.userToggled&&data.status==='completed')ui.activity.open=false;
       if(ui.timing?.snapshot){ui.timing.snapshot.active=null;tick(ui);}
       for(const row of view.rows.values())if(!row.result){row.status.textContent='未记录结果';row.details.dataset.state='unknown';}
+      if(view.knowledge){view.knowledge.status.textContent='未记录结果';view.knowledge.details.dataset.state='unknown';view.knowledge=null;}
     }
-    ui.summary.textContent='执行过程'+(view.rows.size?' · '+view.rows.size+' 次工具调用':'');
+    ui.summary.textContent='查看执行详情'+(view.rows.size?' · '+view.rows.size+' 次工具调用':'');
   }
-  window.GeoAgentTimeline={attach,event,tick};
+  window.GeoAgentTimeline={attach,event,tick,sourceURL:safeURL};
 })();

@@ -1,0 +1,86 @@
+{
+  "case_id": "HAZ-58",
+  "source_skill": "ore-hazard",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "load",
+      "tool": "NaturalHazardLoadEventTable",
+      "arguments": {
+        "source": "fixtures/base.csv"
+      }
+    },
+    {
+      "operation_id": "filter",
+      "tool": "NaturalHazardFilterRecords",
+      "arguments": {
+        "source": "fixtures/base.csv",
+        "filters": {
+          "Country": "Alpha"
+        }
+      }
+    },
+    {
+      "operation_id": "CountRecords",
+      "records_from": "filter",
+      "tool": "NaturalHazardCountRecords",
+      "arguments": {}
+    },
+    {
+      "operation_id": "SumField",
+      "records_from": "filter",
+      "tool": "NaturalHazardSumField",
+      "arguments": {
+        "measure": "Loss"
+      }
+    },
+    {
+      "operation_id": "GroupAggregate",
+      "records_from": "filter",
+      "tool": "NaturalHazardGroupAggregate",
+      "arguments": {
+        "group_by": "Country"
+      }
+    },
+    {
+      "operation_id": "SelectMaxRecord",
+      "records_from": "filter",
+      "tool": "NaturalHazardSelectMaxRecord",
+      "arguments": {
+        "measure": "Loss"
+      }
+    },
+    {
+      "operation_id": "BuildStartDate",
+      "records_from": "filter",
+      "tool": "NaturalHazardBuildStartDate",
+      "arguments": {}
+    },
+    {
+      "operation_id": "SelectLatest",
+      "records_from": "filter",
+      "tool": "NaturalHazardSelectLatest",
+      "arguments": {}
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "dataset_source": "provider_generated_synthetic_hazard_fixture_v1",
+    "measure_units": {
+      "Loss": "synthetic_currency_unit",
+      "Affected": "person"
+    }
+  },
+  "input_path_bindings": [
+    {
+      "original": "fixtures/base.csv",
+      "workspace": "fixtures/base.csv",
+      "source": "ore-hazard-1.0.2-review1/tests/fixtures/base.csv"
+    },
+    {
+      "original": "fixtures/base.csv",
+      "workspace": "fixtures/base.csv",
+      "source": "ore-hazard-1.0.2-review1/tests/fixtures/base.csv"
+    }
+  ]
+}

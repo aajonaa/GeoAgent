@@ -1,0 +1,26 @@
+{
+  "group": "geophysics",
+  "operations": [
+    {
+      "tool_id": "GeoRockStressAnisotropy",
+      "status": "blocked_upstream_defect",
+      "registered": false,
+      "counted": false,
+      "reason": "GM.johnson logarithm parentheses disagree with the angular integral for unequal strains. No accepted maintained replacement.",
+      "upstream_callable": "rockphypy.GM.GM.johnson",
+      "package_pin": "rockphypy==0.0.2",
+      "reviewed_release_commit": "54c89027fb99e00b53761a05fcd7c20bc796ce7e",
+      "reviewed_latest_commit": "2f13920ac29d4fc45c3f8dfc0443688b76242271",
+      "source_url": "https://github.com/yujiaxin666/rockphypy/blob/2f13920ac29d4fc45c3f8dfc0443688b76242271/rockphypy/GM.py",
+      "historical_fixture": "assets/github-expansion-geophysics/GeoRockStressAnisotropy.json",
+      "historical_source": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/diagnostics/r1-stress-anisotropy-source.txt",
+      "diagnostic_test": "TestBlockedStressAnisotropyDiagnostic.test_unequal_strain_angular_integral",
+      "diagnostic_status": "expected_failure_source_authored_not_run",
+      "prohibited_workarounds": [
+        "equal-strain-only admission",
+        "locally corrected upstream kernel",
+        "counting blocked diagnostics as operations"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_rock_physics_avo",
+  "archive_sha256": "c6e0fec6bb7dbf89d8b875298d3fc946c929b92d6e51b16780835b3de0d544f9",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 44,
+          "archive_sha256": "5337045fd18e36588ddbfa352bf5eb4158115da787b89b1eeb8e5d549a10767e",
+          "member": "rock-physics-avo/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 803,
+      "sha256": "3bae3989e12089130d5ef7a5131473f66a356375a3f6f9b9221bb1ebb7102346",
+      "origins": [
+        {
+          "package_number": 44,
+          "archive_sha256": "5337045fd18e36588ddbfa352bf5eb4158115da787b89b1eeb8e5d549a10767e",
+          "member": "rock-physics-avo/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 11851,
+      "sha256": "2b6b16ea4818a2c5c1440ba335f42056168033e45f4f22f8d64dce6d3b25096e",
+      "origins": [
+        {
+          "package_number": 44,
+          "archive_sha256": "5337045fd18e36588ddbfa352bf5eb4158115da787b89b1eeb8e5d549a10767e",
+          "member": "rock-physics-avo/SKILL.md"
+        }
+      ]
+    }
+  ]
+}

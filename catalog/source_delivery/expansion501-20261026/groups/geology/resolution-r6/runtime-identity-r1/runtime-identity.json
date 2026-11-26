@@ -1,0 +1,239 @@
+{
+  "status": "current_local_identity_verified_no_new_tests",
+  "tool_id": "GeoConditionedResourceEnsemble",
+  "fixed_callable": "geological_agent.geology.expansion501_geology:conditioned_resource_ensemble",
+  "argument_parameter": "args",
+  "python": {
+    "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\venv\\Scripts\\python.exe",
+    "bytes": 277808,
+    "sha256": "8e11f5c0c4cdea438059feea1b750721929433374b389674c8368ae8bfcbf525"
+  },
+  "python_version": "3.12.14",
+  "python_build": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win-amd64",
+  "architecture_bits": 64,
+  "code_root": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source",
+  "test_entry": {
+    "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local_gpr_acceptance_r6.py",
+    "bytes": 23724,
+    "sha256": "e11966ace50f7caf44fb13e15516a84dad01b5f3d4159bd87226b994e1b119ce"
+  },
+  "test_class": "LocalGPR",
+  "test_count": 20,
+  "test_entry_replay": "The original main() is deliberately one-shot and refuses overwriting the existing run. Parent must use a fresh acceptance revision, not rerun it in place.",
+  "binding_files": {
+    "python": {
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\venv\\Scripts\\python.exe",
+      "bytes": 277808,
+      "sha256": "8e11f5c0c4cdea438059feea1b750721929433374b389674c8368ae8bfcbf525"
+    },
+    "adapter": {
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\geology\\expansion501_geology.py",
+      "bytes": 52366,
+      "sha256": "20830b7edd3a93aecc6a99f3cf69d9f8d256201c9a44aea6286dcc2480259376"
+    },
+    "contract": {
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\geology\\collection_contracts.py",
+      "bytes": 8697,
+      "sha256": "25f805cf5531ff8bf1f8894f006dca40c6035efd44967507583c820dcc323fa9"
+    },
+    "registry": {
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\geology\\source_registry.py",
+      "bytes": 16204,
+      "sha256": "c107ec7ab91587122fcc77c9e02756ca2aa8800319407b5d7879e651362e3576"
+    },
+    "catalog": {
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\catalog\\registry.json",
+      "bytes": 24328,
+      "sha256": "c1d6acd39009465f3ce8212e83224df58b0890cf754618223732b5c6845ea2e6"
+    },
+    "tests": {
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local_gpr_acceptance_r6.py",
+      "bytes": 23724,
+      "sha256": "e11966ace50f7caf44fb13e15516a84dad01b5f3d4159bd87226b994e1b119ce"
+    },
+    "report": {
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\gpr-report.json",
+      "bytes": 916,
+      "sha256": "e7ce1d2f62825c2cf3026ecdeaddf1b7e1a27200be4887327a0a6b1e31d71471"
+    }
+  },
+  "source_files": [
+    {
+      "relative": "geological_agent/__init__.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\__init__.py",
+      "bytes": 109,
+      "sha256": "8a3732aa39927ca84516fbd64fb30494293928c241765ae727a89c2b8a6e172e"
+    },
+    {
+      "relative": "geological_agent/geology/__init__.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\geology\\__init__.py",
+      "bytes": 74,
+      "sha256": "6e566ea91d1b7ada96c3d838545a64bb03e138765f351ba63248219c15aeddcf"
+    },
+    {
+      "relative": "geological_agent/geology/expansion501_geology.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\geology\\expansion501_geology.py",
+      "bytes": 52366,
+      "sha256": "20830b7edd3a93aecc6a99f3cf69d9f8d256201c9a44aea6286dcc2480259376"
+    },
+    {
+      "relative": "geological_agent/geology/collection_contracts.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\geology\\collection_contracts.py",
+      "bytes": 8697,
+      "sha256": "25f805cf5531ff8bf1f8894f006dca40c6035efd44967507583c820dcc323fa9"
+    },
+    {
+      "relative": "legacy/ToolsAgent/ToolsFuns/source_contracts.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\legacy\\ToolsAgent\\ToolsFuns\\source_contracts.py",
+      "bytes": 10123,
+      "sha256": "10303dc89014564d4bcd7a00fbd22f1319c15c4d0a9393787c4327883b1e0d84"
+    },
+    {
+      "relative": "legacy/ToolsAgent/ToolsFuns/GeoEval/scientific_tools.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\legacy\\ToolsAgent\\ToolsFuns\\GeoEval\\scientific_tools.py",
+      "bytes": 21722,
+      "sha256": "c9b919809f660da7cdbd8cc71719c33dff5467f49d3a9ec5261d4265b548298f"
+    },
+    {
+      "relative": "geological_agent/skills.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\skills.py",
+      "bytes": 4583,
+      "sha256": "a54e266d37f1dc994efc8ad58dbd5fd829bdf3dcbd64a1dddb3ff95d50ae7959"
+    },
+    {
+      "relative": "geological_agent/tools.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\tools.py",
+      "bytes": 23650,
+      "sha256": "3f9aa6861f5ff01f31e04d342b8549c277e8fd8ccf1e68b1a35226aff445b6ae"
+    },
+    {
+      "relative": "geological_agent/contracts.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\contracts.py",
+      "bytes": 2704,
+      "sha256": "d59ca2612bb1b5280e92a9b9357d4ffddffcd0d841f4b7bea30713cba3638226"
+    },
+    {
+      "relative": "geological_agent/settings.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\settings.py",
+      "bytes": 2538,
+      "sha256": "a0c2144bfd5943b093be42c134dc823ddfe9d7a04983c8eaa60a5af1de461f88"
+    },
+    {
+      "relative": "geological_agent/tool_evidence.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\tool_evidence.py",
+      "bytes": 12680,
+      "sha256": "ff2b0a40b3b2161c71a870e904c2b61ffffcfbc485238dd0d013ff69bd7375d6"
+    },
+    {
+      "relative": "geological_agent/geology/source_registry.py",
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\source\\geological_agent\\geology\\source_registry.py",
+      "bytes": 16204,
+      "sha256": "c107ec7ab91587122fcc77c9e02756ca2aa8800319407b5d7879e651362e3576"
+    }
+  ],
+  "sys_prefix": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\venv",
+  "sys_base_prefix": "C:\\Users\\jona\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python",
+  "base_executable": "C:\\Users\\jona\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "base_runtime_files": [
+    {
+      "path": "C:\\Users\\jona\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "bytes": 107312,
+      "sha256": "5640e9be2fd33d05a1a9ae1228e2354609a69ab831605995ec4e2bd6da8fff5e"
+    },
+    {
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\venv\\pyvenv.cfg",
+      "bytes": 500,
+      "sha256": "873d8ea3e4daa64991f6b7cd9d0dd730bd497e7acbba263b14a9c8c4c9239978"
+    },
+    {
+      "path": "C:\\Users\\jona\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python312.dll",
+      "bytes": 6985520,
+      "sha256": "886fa6b89e09ca6c87599c802402fdca160e06b2fa9c658f6fe91ed926f63e1f"
+    },
+    {
+      "path": "C:\\Users\\jona\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python3.dll",
+      "bytes": 71984,
+      "sha256": "62845ba25fcd76557c127b01b9dc6680845f8a4acb97fadf72035d7a6eb2d2d3"
+    },
+    {
+      "path": "C:\\Users\\jona\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\vcruntime140.dll",
+      "bytes": 124544,
+      "sha256": "d5e4d9a3e835fa679450145d6a7d94e36573a509317111904d9b3712c30d9066"
+    },
+    {
+      "path": "C:\\Users\\jona\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\vcruntime140_1.dll",
+      "bytes": 49792,
+      "sha256": "1f2d41c4aa5db0bc33ebf7b66d72943a817d7ce6cbe880502a9403823633093f"
+    }
+  ],
+  "portability": "Identity receipt, not a relocatable standalone venv. Windows venv depends on its read-only base_prefix and host OS; shared standard-library/OS DLL build provenance is not fully attested.",
+  "dependency_lock": {
+    "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\resolution-r6\\runtime-identity-r1\\windows-cp312-wheel-lock.json",
+    "bytes": 22343,
+    "sha256": "7ed20d92c9ee9a9d8c1b62ef54aa90ed84f7ed71fa363324a782fdfcaf8c2e81"
+  },
+  "hash_checked_requirements": {
+    "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\resolution-r6\\runtime-identity-r1\\requirements-windows-cp312-hashed.txt",
+    "bytes": 2770,
+    "sha256": "6a1293d301b119e5395287ecb3f6f0aa3a74d40aca71f3acf2a7a6b65915403c"
+  },
+  "installed_files": {
+    "file_count": 8622,
+    "bytes": 296259663,
+    "distribution_count": 27,
+    "manifest": {
+      "path": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\resolution-r6\\runtime-identity-r1\\installed-files-sha256.json",
+      "bytes": 2028769,
+      "sha256": "05a74be6a090ffd4fab85540f4341f6ac5179f1abbca96e54ad3840a86f2bcf9"
+    },
+    "consistent": true
+  },
+  "required_environment_from_test": {
+    "GEOAGENT_EXPANSION501_GEOLOGY_CPU": "expansion501-geology-cpu-v1",
+    "CUDA_VISIBLE_DEVICES": "",
+    "NVIDIA_VISIBLE_DEVICES": "void",
+    "HIP_VISIBLE_DEVICES": "",
+    "ROCR_VISIBLE_DEVICES": "",
+    "ZE_AFFINITY_MASK": "",
+    "JAX_PLATFORMS": "cpu",
+    "JAX_PLATFORM_NAME": "cpu",
+    "GEMPY_USE_GPU": "False",
+    "GEMPY_GPU_FALLBACK": "False",
+    "MPLBACKEND": "Agg",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "LANGCHAIN_TRACING_V2": "false",
+    "LANGSMITH_TRACING": "false",
+    "HF_HUB_OFFLINE": "1",
+    "TRANSFORMERS_OFFLINE": "1",
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "NUMEXPR_NUM_THREADS": "2",
+    "VECLIB_MAXIMUM_THREADS": "2",
+    "BLIS_NUM_THREADS": "2",
+    "HOME": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\home",
+    "USERPROFILE": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\home",
+    "XDG_CACHE_HOME": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\cache",
+    "TMPDIR": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\tmp",
+    "TEMP": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\tmp",
+    "TMP": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\tmp",
+    "MPLCONFIGDIR": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\mpl",
+    "NUMBA_CACHE_DIR": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\acceptance\\local-r6-gpr-20261026\\numba"
+  },
+  "binding_cautions": [
+    "Private source snapshot contains the pre-v2 collection_contracts guard and parent r3 source whitelist; do not overwrite this accepted test evidence.",
+    "Ramanujan owns the v2 common profile/schema and actual cross-interpreter acceptance.",
+    "Version checks remain in the real child interpreter; CPU marker alone is not IPC authentication.",
+    "JSON-only args/result; artifacts=[], no output_dir, user executable, shell, module or arbitrary callable.",
+    "No acceptance count is added by hashing; local GPR remains 20/20, Linux/v2/model/platform not_run."
+  ],
+  "scientific_source_commit_reviewed_separately": "25dee604bae18205b01548348388baf7a1cdfe0e",
+  "scientific_git_to_wheel_correspondence": "not_established",
+  "source_authored": 26,
+  "blocked": 5,
+  "formal_eligible": false,
+  "deployment_status": "not_deployed",
+  "submission_status": "not_submitted"
+}

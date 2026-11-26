@@ -1,0 +1,75 @@
+{
+  "case_id": "ENE-17",
+  "source_skill": "ore-energy",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "value",
+      "tool": "EnergyCapacityValue",
+      "arguments": {
+        "dataset_path": "measurements/capacity.csv",
+        "dataset_version": "SYNTHETIC-test-v1",
+        "series": "Solar",
+        "year": 2021
+      }
+    },
+    {
+      "operation_id": "growth",
+      "tool": "EnergyCapacityGrowth",
+      "arguments": {
+        "dataset_path": "measurements/capacity.csv",
+        "dataset_version": "SYNTHETIC-test-v1",
+        "series": "Solar",
+        "start_year": 2020,
+        "end_year": 2021
+      }
+    },
+    {
+      "operation_id": "mix",
+      "tool": "EnergyCountryRenewableSummary",
+      "arguments": {
+        "dataset_path": "measurements/mix.csv",
+        "dataset_version": "SYNTHETIC-test-v1",
+        "country": "A",
+        "renewable_types": [
+          "Solar",
+          "Wind"
+        ]
+      }
+    },
+    {
+      "operation_id": "transition",
+      "tool": "EnergyTransitionMetrics",
+      "arguments": {
+        "dataset_path": "measurements/transition.csv",
+        "dataset_version": "SYNTHETIC-test-v1",
+        "country": "A",
+        "year": 2021
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {},
+  "input_path_bindings": [
+    {
+      "original": "measurements/capacity.csv",
+      "workspace": "measurements/capacity.csv",
+      "source": "ore-energy-1.0.1/tests/data/measurements/capacity.csv"
+    },
+    {
+      "original": "measurements/capacity.csv",
+      "workspace": "measurements/capacity.csv",
+      "source": "ore-energy-1.0.1/tests/data/measurements/capacity.csv"
+    },
+    {
+      "original": "measurements/mix.csv",
+      "workspace": "measurements/mix.csv",
+      "source": "ore-energy-1.0.1/tests/data/measurements/mix.csv"
+    },
+    {
+      "original": "measurements/transition.csv",
+      "workspace": "measurements/transition.csv",
+      "source": "ore-energy-1.0.1/tests/data/measurements/transition.csv"
+    }
+  ]
+}

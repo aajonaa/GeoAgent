@@ -1,0 +1,16 @@
+{
+  "fixture_id": "synthetic_wrf",
+  "shape": [
+    2,
+    3
+  ],
+  "synthetic": true,
+  "values": [
+    0,
+    2,
+    4,
+    10,
+    12,
+    14
+  ]
+}

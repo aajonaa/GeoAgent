@@ -27,7 +27,7 @@ include = ["geological_agent*", "legacy", "legacy.ToolsAgent", "legacy.ToolsAgen
 
 [tool.setuptools.package-data]
 geological_agent = ["web/*", "web/vendor/*", "team/web/*"]
-catalog = ["registry.json", "skills/*/SKILL.md"]
+catalog = ["registry.json", "skills/*/SKILL.md", "skills/*/resources.json", "skills/*/resources.zip", "imports/xiaoyu/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests_local"]

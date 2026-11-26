@@ -1,0 +1,42 @@
+{
+  "skill_id": "xiaoyu_plot_global_data_distribution",
+  "archive_sha256": "bebcfe09d8696d3afa0ef674e80cd851fa6c53b561f0f1876a5128f666aa1d28",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 998,
+      "sha256": "73a79b45a89422a1ed77a83b7b47867409ccbcf0f7b846cc5de1c3339922683d",
+      "origins": [
+        {
+          "package_number": 9,
+          "archive_sha256": "cd12e0257d04a864b7cc57fe043417f96b9d7ca09cd422fb4cdd67b3ef76b4a4",
+          "member": "skill-plot-data-distribution-main/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5143,
+      "sha256": "0ed59760b4c015eda1e34d992a0290ace2a0cd720f6f1545d52d19b7c13e19e4",
+      "origins": [
+        {
+          "package_number": 9,
+          "archive_sha256": "cd12e0257d04a864b7cc57fe043417f96b9d7ca09cd422fb4cdd67b3ef76b4a4",
+          "member": "skill-plot-data-distribution-main/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 379,
+      "sha256": "b13b339c5b9c28613d3a4579e34ab4e592d123b72e6d9aee1e1853559245629a",
+      "origins": [
+        {
+          "package_number": 9,
+          "archive_sha256": "cd12e0257d04a864b7cc57fe043417f96b9d7ca09cd422fb4cdd67b3ef76b4a4",
+          "member": "skill-plot-data-distribution-main/agents/openai.yaml"
+        }
+      ]
+    }
+  ]
+}

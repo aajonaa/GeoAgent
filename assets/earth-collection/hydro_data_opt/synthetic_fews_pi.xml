@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SYNTHETIC: fabricated FEWS-PI events -->
+<TimeSeries xmlns="http://www.wldelft.nl/fews/PI"><timeZone>0.0</timeZone><series><header>
+<moduleInstanceId>SYNTHETIC</moduleInstanceId><locationId>SYN001</locationId><stationName>SYNTHETIC station</stationName>
+<parameterId>Q.synthetic</parameterId><units>m3/s</units></header>
+<event date="2020-01-01" time="00:00:00" value="1.25" flag="0" user="SYNTHETIC"/>
+<event date="2020-01-02" time="00:00:00" value="2.5" flag="1" user="SYNTHETIC"/>
+</series></TimeSeries>

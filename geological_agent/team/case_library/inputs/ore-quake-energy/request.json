@@ -1,0 +1,19 @@
+{
+  "case_id": "N01",
+  "source_skill": "ore-quake-energy",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "GeoMagnitudeToEnergy",
+      "arguments": {
+        "mw": -3
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "mode": "direct"
+  },
+  "input_path_bindings": []
+}

@@ -1,0 +1,54 @@
+{
+  "skill_id": "xiaoyu_geo_data_engineering",
+  "archive_sha256": "7c1e359f1c4f5d35226e044b8d864d4941f6b0fbea1126db8233d18abdb256a6",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 5775,
+      "sha256": "f1c004afc1558361a71a1a7d8567d9a6822cfa989477b23932619626264b7d26",
+      "origins": [
+        {
+          "package_number": 64,
+          "archive_sha256": "5612714fe6cd986d8b36c4823b27ed8aeab27a54730f81c915c008797a231cfb",
+          "member": "geo-data-engineering/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "agents/openai.yaml",
+      "bytes": 220,
+      "sha256": "08c903f7c84dbbbba53e20d4760b2172375ddc635238c865f7753d2e2deef410",
+      "origins": [
+        {
+          "package_number": 64,
+          "archive_sha256": "5612714fe6cd986d8b36c4823b27ed8aeab27a54730f81c915c008797a231cfb",
+          "member": "geo-data-engineering/agents/openai.yaml"
+        }
+      ]
+    },
+    {
+      "path": "references/authoritative-sources.md",
+      "bytes": 811,
+      "sha256": "aea0ac624604b0f655257e3080ac33c2be1d3f74aad7728ae9f586866ce3f4d6",
+      "origins": [
+        {
+          "package_number": 64,
+          "archive_sha256": "5612714fe6cd986d8b36c4823b27ed8aeab27a54730f81c915c008797a231cfb",
+          "member": "geo-data-engineering/references/authoritative-sources.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/clean_vector.py",
+      "bytes": 3639,
+      "sha256": "9fe937ac0c6774ff2f746c53d89d9b49fcfcebf82bcfacdb9b72ee9cc2881067",
+      "origins": [
+        {
+          "package_number": 64,
+          "archive_sha256": "5612714fe6cd986d8b36c4823b27ed8aeab27a54730f81c915c008797a231cfb",
+          "member": "geo-data-engineering/scripts/clean_vector.py"
+        }
+      ]
+    }
+  ]
+}

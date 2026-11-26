@@ -1,0 +1,29 @@
+{
+  "case_id": "EW001",
+  "source_skill": "ore-ecweather",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "WrfDestaggerGrid",
+      "arguments": {
+        "data_path": "data/f38.json",
+        "stagger_dim": 1,
+        "data_unit": "m/s"
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "payload_path": "ore-ecweather/references/orig/f38.json",
+    "payload_sha256": "035d77d065c0cf34672c7b23b4950b91f18574a785195b763362b49bfe18ac47",
+    "workflow": null
+  },
+  "input_path_bindings": [
+    {
+      "original": "@DATA",
+      "workspace": "data/f38.json",
+      "source": "ore-ecweather-1.0.0-review1/ore-ecweather/references/orig/f38.json"
+    }
+  ]
+}

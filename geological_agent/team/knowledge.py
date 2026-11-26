@@ -1,6 +1,11 @@
 from fastapi import HTTPException, Request
+from .pdf_imports import install_pdf_routes
+from .pdf_reader import install_reader_routes, document_source
+from .literature import install_literature_routes
 from starlette.concurrency import run_in_threadpool
 from ..rag.store import configured_index, KnowledgeError
+from ..rag.profile import retrieval_profile
+from .knowledge_catalog import install_catalog_routes
 
 def install_knowledge_routes(app,auth,body):
     def index(user):
@@ -12,16 +17,19 @@ def install_knowledge_routes(app,auth,body):
         try: return await run_in_threadpool(fn,*args)
         except ValueError as exc: raise HTTPException(400,str(exc)) from None
         except KnowledgeError as exc: raise HTTPException(503,str(exc)) from None
-    from .pdf_imports import install_pdf_routes
-    pdfs = install_pdf_routes(app, auth, body, index)
+    imports=install_pdf_routes(app,auth,body,index)
+    install_reader_routes(app,auth,imports)
+    install_literature_routes(app,auth,body,imports,index)
+    organization=install_catalog_routes(app,auth)
     @app.get("/api/knowledge")
     async def listing(request: Request):
         user=auth(request)
         return {"documents":await perform(index(user).documents),
-                "formats":["text","markdown","pdf"],"max_characters":120000,
-                "pdf_service":pdfs.capabilities(),
-                "retrieval":"PostgreSQL dense + lexical / RRF / multilingual cross-encoder",
-                "privacy":"Account-scoped; selected excerpts go to your selected LLM and research-group traces."}
+                "formats":["text","markdown","pdf"],"pdf_service":imports.capabilities(),"max_characters":120000,
+                "organization":await perform(organization.listing,user["id"]),
+                "retrieval":"Qwen3 1024d + PostgreSQL lexical / RRF / Qwen3 Reranker",
+                "retrieval_profile":retrieval_profile(),
+                "privacy":"Personal uploads are private. Published research-group sources are read-only and included in retrieval; selected excerpts go to your chosen LLM and research-group traces."}
     @app.post("/api/knowledge")
     async def ingest(request: Request):
         user=auth(request,mutate=True); p=await body(request)
@@ -29,15 +37,22 @@ def install_knowledge_routes(app,auth,body):
     @app.post("/api/knowledge/search")
     async def search(request: Request):
         user=auth(request,mutate=True); p=await body(request)
-        return await perform(index(user).retrieve,p.get("query"))
+        result=await perform(index(user).retrieve,p.get('query'))
+        app.state.usage_audit.record(user['id'],'knowledge_search',query=p.get('query'),status=result.get('status'),references=result.get('references',[]),candidates=len(result.get('candidates',[])),source='knowledge_browser',duration_ms=result.get('duration_ms'))
+        return result
     @app.get("/api/knowledge/{document_id}")
     async def document(document_id:str,request:Request):
         user=auth(request); row=await perform(index(user).document,document_id)
-        if row is None: raise HTTPException(404,"Document not found")
-        return row
+        if row is None:
+            from ..rag.shared import document as shared_document
+            row=await perform(shared_document,index(user),document_id)
+            if row is None: raise HTTPException(404,'Document not found')
+            return {**row,'pdf_source':None}
+
+        return {**row,"pdf_source":await perform(document_source,imports,user["id"],document_id,row.get("sha256"))}
     @app.delete("/api/knowledge/{document_id}")
     async def delete(document_id:str,request:Request):
         user=auth(request,mutate=True)
         if not await perform(index(user).delete,document_id): raise HTTPException(404,"Document not found")
-        await perform(pdfs.unlink_document,user["id"],document_id)
+        imports.unlink_document(user["id"],document_id)
         return {"deleted":True}

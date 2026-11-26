@@ -1,0 +1,68 @@
+{
+  "dataset_source": "provider_generated_synthetic_hazard_fixture_v1",
+  "measure_units": {
+    "Loss": "synthetic_currency_unit",
+    "Affected": "person"
+  },
+  "operations": [
+    {
+      "operation_id": "load",
+      "tool": "NaturalHazardLoadEventTable",
+      "arguments": {
+        "source": "fixtures/base.csv"
+      }
+    },
+    {
+      "operation_id": "filter",
+      "tool": "NaturalHazardFilterRecords",
+      "arguments": {
+        "source": "fixtures/base.csv",
+        "filters": {
+          "Country": "Alpha"
+        }
+      }
+    },
+    {
+      "operation_id": "CountRecords",
+      "tool": "NaturalHazardCountRecords",
+      "records_from": "filter",
+      "arguments": {}
+    },
+    {
+      "operation_id": "SumField",
+      "tool": "NaturalHazardSumField",
+      "records_from": "filter",
+      "arguments": {
+        "measure": "Loss"
+      }
+    },
+    {
+      "operation_id": "GroupAggregate",
+      "tool": "NaturalHazardGroupAggregate",
+      "records_from": "filter",
+      "arguments": {
+        "group_by": "Country"
+      }
+    },
+    {
+      "operation_id": "SelectMaxRecord",
+      "tool": "NaturalHazardSelectMaxRecord",
+      "records_from": "filter",
+      "arguments": {
+        "measure": "Loss"
+      }
+    },
+    {
+      "operation_id": "BuildStartDate",
+      "tool": "NaturalHazardBuildStartDate",
+      "records_from": "filter",
+      "arguments": {}
+    },
+    {
+      "operation_id": "SelectLatest",
+      "tool": "NaturalHazardSelectLatest",
+      "records_from": "filter",
+      "arguments": {}
+    }
+  ]
+}

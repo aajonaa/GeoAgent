@@ -1,0 +1,15 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "geodetic_lon_lat_height": [
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      90,
+      0
+    ]
+  ]
+}

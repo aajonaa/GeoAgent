@@ -1,0 +1,22 @@
+{
+  "tool_id": "GeoConditionedResourceEnsemble",
+  "actual_provider": "scikit-learn==1.7.2",
+  "scope": "local_windows_python312_private_direct_and_group_registered_runtime",
+  "executed_unique_tests": 20,
+  "passed": 20,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "counts": {
+    "direct_decorated_invocations": 29,
+    "registered_runtime_invocations": 2
+  },
+  "independent_reference": "Scalar/2x2 analytic inversion of exponential covariance; full Schur complement, no upstream replay.",
+  "negative_psd_evidence": "Explicit upstream-predict fault injection, not a naturally produced covariance or numerical oracle.",
+  "v2_cross_interpreter_main_runtime": "not_run",
+  "linux_production_acceptance": "not_run",
+  "model_workflow": "not_run",
+  "formal_eligible": false,
+  "deployment": "not_deployed",
+  "source_status_change": "Only local evidence may advance; no claim of production integration."
+}

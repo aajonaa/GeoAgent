@@ -1,0 +1,400 @@
+{
+  "complete": false,
+  "scope": "Bounded original PyGLUE fixed model/operator, not a maintained-project impersonation",
+  "operations": [
+    {
+      "project_id": 84,
+      "project_directory_name": "pyGLUE",
+      "name": "EarthPyGLUEABCEnsemble",
+      "function": "pyglue_abc_ensemble",
+      "description": "Evaluate supplied fixed ABC rainfall-runoff parameter sets using the original PyGLUE evaluator and original RRMPG/SPOTPY kernels, without user callbacks.",
+      "source_mode": "vendored_source",
+      "package": null,
+      "version": null,
+      "requirements": [
+        "numpy==2.1.3",
+        "numba==0.68.0"
+      ],
+      "upstream_url": "https://github.com/julienmalard/pyGLUE",
+      "source_commit": "32a64c4a960c35e868f3f520bcbd4a7c7b7d36eb",
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "precipitation_mm": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 512,
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000000.0
+            },
+            "description": "Depth per model step, with zero initial-state placeholder t=0"
+          },
+          "observed_runoff_mm": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 512,
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000000.0
+            },
+            "description": "Observed runoff depth per step, with zero initial-state placeholder t=0"
+          },
+          "initial_storage_mm": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000.0,
+            "description": "Nonnegative initial storage in mm"
+          },
+          "parameter_sets": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 64,
+            "items": {
+              "type": "object",
+              "properties": {
+                "a": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "b": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                },
+                "c": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1
+                }
+              },
+              "required": [
+                "a",
+                "b",
+                "c"
+              ],
+              "additionalProperties": false
+            },
+            "description": "Fixed unique ABC parameter sets, a+b<=1"
+          },
+          "minimum_nse": {
+            "type": "number",
+            "minimum": -1000,
+            "maximum": 1,
+            "description": "Fixed behavioural NSE threshold, applied after the initial-state slot"
+          }
+        },
+        "required": [
+          "precipitation_mm",
+          "observed_runoff_mm",
+          "initial_storage_mm",
+          "parameter_sets",
+          "minimum_nse"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "runs": {
+            "type": "array",
+            "minItems": 1
+          },
+          "accepted_run_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "evaluated_count": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "behavioural_count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "units": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "runs",
+          "accepted_run_ids",
+          "evaluated_count",
+          "behavioural_count",
+          "units"
+        ],
+        "additionalProperties": true
+      },
+      "example_arguments": {
+        "precipitation_mm": [
+          0,
+          2,
+          0,
+          4,
+          1
+        ],
+        "observed_runoff_mm": [
+          0,
+          1.9,
+          0.45,
+          3.025,
+          1.2125
+        ],
+        "initial_storage_mm": 1,
+        "parameter_sets": [
+          {
+            "a": 0.2,
+            "b": 0.1,
+            "c": 0.5
+          },
+          {
+            "a": 0.9,
+            "b": 0,
+            "c": 0
+          }
+        ],
+        "minimum_nse": 0.99
+      },
+      "path_fields": [],
+      "produces_files": false,
+      "network_required": false,
+      "vendor_files": [
+        {
+          "upstream": "pyglue",
+          "file": "vendor/glue_evaluator.py",
+          "sha256": "00a2dfa9feca8d2061f25b6a6e57b17e41d4ffc2101e2a113abebfff92665831",
+          "excerpts": [
+            {
+              "symbol": "InputError",
+              "line_start": 68,
+              "line_end": 70,
+              "normalized_source_sha256": "c78cf00230300f8c522515544f632db3a0dfd04d1592c4226618cca4d0c7a90a"
+            },
+            {
+              "symbol": "GLUEEvaluator.__init__",
+              "line_start": 271,
+              "line_end": 289,
+              "normalized_source_sha256": "427a9a0e70fccd039a33b486780c8a77d626586275247b422a224850240c6a1d"
+            },
+            {
+              "symbol": "GLUEEvaluator.evaluate",
+              "line_start": 307,
+              "line_end": 316,
+              "normalized_source_sha256": "4e5edffe4ae315261c746ce39f7971de7d2428ed1634ddff4abba319ffdf30d5"
+            },
+            {
+              "symbol": "GLUEEvaluator.run_and_evaluate",
+              "line_start": 318,
+              "line_end": 328,
+              "normalized_source_sha256": "6822b5284634d554ed5c15e4941c96684ea25c68878a4fd2800c972de40b15e9"
+            }
+          ]
+        },
+        {
+          "upstream": "rrmpg",
+          "file": "vendor/rrmpg_abc.py",
+          "sha256": "5698464b486719564c30350db51e3a5275b979331ebdb062b9b52853d2aed9f0",
+          "excerpts": [
+            {
+              "symbol": "run_abcmodel",
+              "line_start": 15,
+              "line_end": 61,
+              "normalized_source_sha256": "283b6520cc3490f757194b76d13a31ee8632678a6bb4d613cc81dd11e6b5b69a"
+            }
+          ]
+        },
+        {
+          "upstream": "spotpy",
+          "file": "vendor/spotpy_nse.py",
+          "sha256": "2565ad70442b1882ad5f24ff9bc9c8498f12b43942c67f1ffce8e1c07e84809b",
+          "excerpts": [
+            {
+              "symbol": "nashsutcliffe",
+              "line_start": 79,
+              "line_end": 111,
+              "normalized_source_sha256": "662b4e441326c16d1cf435dd8f11e087f6c84fe49ee7bb68ad3d6bf7803bb767"
+            }
+          ]
+        }
+      ],
+      "original_files": [
+        {
+          "file": "originals/rrmpg/abcmodel_model.py",
+          "sha256": "af53e7c6e3385d08cfcf37da6d5489c2bd510947beabac4875b0b2a94b2fd80b",
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/RRMPG/rrmpg/models/abcmodel_model.py"
+        },
+        {
+          "file": "originals/spotpy/objectivefunctions.py",
+          "sha256": "3920ded47fec2e9e646035de2f6e198f9d16a95c29e8aa42f21dd21a977c7d68",
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/spotpy/src/spotpy/objectivefunctions.py"
+        },
+        {
+          "file": "originals/pyglue/GLUEmp.py",
+          "sha256": "41def1c8c933faeb60147a1c9e4637245e0fa70ebb6512bd49d11d10788b1c4c",
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/pyGLUE/pyGLUE/GLUEmp.py"
+        }
+      ],
+      "license_files": [
+        {
+          "file": "originals/rrmpg/LICENSE-0.txt",
+          "sha256": "010f63d1b6848754faf9de0a104c83d9f4552545b77018b78dcf8ab302d04cfa",
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/RRMPG/LICENSE"
+        },
+        {
+          "file": "originals/spotpy/LICENSE-0.txt",
+          "sha256": "f27c3458e6c4c788fa3ca0e8789e63d41da857413b6090df8bfb371ea4107ced",
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/spotpy/LICENSE"
+        },
+        {
+          "file": "originals/pyglue/LICENSE-0.txt",
+          "sha256": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/pyGLUE/LICENSE"
+        }
+      ],
+      "validation": "not_run",
+      "activation": "independent_CPU_and_parent_registration_pending",
+      "tags": [
+        "earth-collection",
+        "offline-originals",
+        "fixed-pyglue-model"
+      ],
+      "limitations": [
+        "Original scientific kernels are unchanged. Python-2 iteritems mapping compatibility is implemented only in the closed adapter.",
+        "A fixed educational ABC model and fixed NSE objective are deliberately supplied to the original evaluator; no arbitrary model/rule callback or pickle is exposed.",
+        "The user supplies parameter sets. No random sampling, posterior probability or confidence intervals are claimed.",
+        "Original ABC t=0 is an initial-state slot; only t>=1 observations participate in NSE.",
+        "Full PyGLUE multiprocessing and application compatibility are not claimed."
+      ]
+    }
+  ],
+  "provenance": {
+    "originals": {
+      "rrmpg": {
+        "id": 42,
+        "name": "RRMPG",
+        "directory": "03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/RRMPG",
+        "url": "https://github.com/kratzert/RRMPG",
+        "commit": "7de78c25acc1c255d2acaf739d65e9ce7bbd60c3",
+        "source": {
+          "file": "originals/rrmpg/abcmodel_model.py",
+          "sha256": "af53e7c6e3385d08cfcf37da6d5489c2bd510947beabac4875b0b2a94b2fd80b",
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/RRMPG/rrmpg/models/abcmodel_model.py"
+        },
+        "licenses": [
+          {
+            "file": "originals/rrmpg/LICENSE-0.txt",
+            "sha256": "010f63d1b6848754faf9de0a104c83d9f4552545b77018b78dcf8ab302d04cfa",
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/03_\u6c34\u6587-\u6c34\u6587\u6a21\u578b/RRMPG/LICENSE"
+          }
+        ]
+      },
+      "spotpy": {
+        "id": 80,
+        "name": "SPOTpy",
+        "directory": "06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/spotpy",
+        "url": "https://github.com/thouska/spotpy",
+        "commit": "315a75ab1025fce0b85de881cac39214a455fd90",
+        "source": {
+          "file": "originals/spotpy/objectivefunctions.py",
+          "sha256": "3920ded47fec2e9e646035de2f6e198f9d16a95c29e8aa42f21dd21a977c7d68",
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/spotpy/src/spotpy/objectivefunctions.py"
+        },
+        "licenses": [
+          {
+            "file": "originals/spotpy/LICENSE-0.txt",
+            "sha256": "f27c3458e6c4c788fa3ca0e8789e63d41da857413b6090df8bfb371ea4107ced",
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/spotpy/LICENSE"
+          }
+        ]
+      },
+      "pyglue": {
+        "id": 84,
+        "name": "PyGLUE",
+        "directory": "06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/pyGLUE",
+        "url": "https://github.com/julienmalard/pyGLUE",
+        "commit": "32a64c4a960c35e868f3f520bcbd4a7c7b7d36eb",
+        "source": {
+          "file": "originals/pyglue/GLUEmp.py",
+          "sha256": "41def1c8c933faeb60147a1c9e4637245e0fa70ebb6512bd49d11d10788b1c4c",
+          "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/pyGLUE/pyGLUE/GLUEmp.py"
+        },
+        "licenses": [
+          {
+            "file": "originals/pyglue/LICENSE-0.txt",
+            "sha256": "53927bd0b739d38c87a0a82236fd9b070c2dfff11c0c119be50372005d5047ad",
+            "archive_member": "\u5730\u5b66Python\u5de5\u5177\u96c6/06_\u6c34\u6587-\u4f18\u5316\u4e0e\u4e0d\u786e\u5b9a\u6027/pyGLUE/LICENSE"
+          }
+        ]
+      }
+    },
+    "kernels": [
+      {
+        "upstream": "pyglue",
+        "file": "vendor/glue_evaluator.py",
+        "sha256": "00a2dfa9feca8d2061f25b6a6e57b17e41d4ffc2101e2a113abebfff92665831",
+        "excerpts": [
+          {
+            "symbol": "InputError",
+            "line_start": 68,
+            "line_end": 70,
+            "normalized_source_sha256": "c78cf00230300f8c522515544f632db3a0dfd04d1592c4226618cca4d0c7a90a"
+          },
+          {
+            "symbol": "GLUEEvaluator.__init__",
+            "line_start": 271,
+            "line_end": 289,
+            "normalized_source_sha256": "427a9a0e70fccd039a33b486780c8a77d626586275247b422a224850240c6a1d"
+          },
+          {
+            "symbol": "GLUEEvaluator.evaluate",
+            "line_start": 307,
+            "line_end": 316,
+            "normalized_source_sha256": "4e5edffe4ae315261c746ce39f7971de7d2428ed1634ddff4abba319ffdf30d5"
+          },
+          {
+            "symbol": "GLUEEvaluator.run_and_evaluate",
+            "line_start": 318,
+            "line_end": 328,
+            "normalized_source_sha256": "6822b5284634d554ed5c15e4941c96684ea25c68878a4fd2800c972de40b15e9"
+          }
+        ]
+      },
+      {
+        "upstream": "rrmpg",
+        "file": "vendor/rrmpg_abc.py",
+        "sha256": "5698464b486719564c30350db51e3a5275b979331ebdb062b9b52853d2aed9f0",
+        "excerpts": [
+          {
+            "symbol": "run_abcmodel",
+            "line_start": 15,
+            "line_end": 61,
+            "normalized_source_sha256": "283b6520cc3490f757194b76d13a31ee8632678a6bb4d613cc81dd11e6b5b69a"
+          }
+        ]
+      },
+      {
+        "upstream": "spotpy",
+        "file": "vendor/spotpy_nse.py",
+        "sha256": "2565ad70442b1882ad5f24ff9bc9c8498f12b43942c67f1ffce8e1c07e84809b",
+        "excerpts": [
+          {
+            "symbol": "nashsutcliffe",
+            "line_start": 79,
+            "line_end": 111,
+            "normalized_source_sha256": "662b4e441326c16d1cf435dd8f11e087f6c84fe49ee7bb68ad3d6bf7803bb767"
+          }
+        ]
+      }
+    ]
+  },
+  "accepted_new_tools": 0,
+  "registered_runtime_acceptance": "not_run",
+  "gpu_used": false,
+  "deployed": false,
+  "pushed": false
+}

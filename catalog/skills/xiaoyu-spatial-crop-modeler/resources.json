@@ -1,0 +1,54 @@
+{
+  "skill_id": "xiaoyu_spatial_crop_modeler",
+  "archive_sha256": "087f5e0247e0355e27b124e2718315a62c317c7403bc91fba8cc11d754f9456e",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 25287,
+      "sha256": "2a84bc2e704c264a09d80d84cdadb4b8eec3c54714a6356a570502740b90a195",
+      "origins": [
+        {
+          "package_number": 55,
+          "archive_sha256": "1c5b1744401ffb8506f0a05df3e3a5eaa73142598a10f879c8c4a4c6e6139bed",
+          "member": "skill55ú║┐╒╝Σ╫≈╬∩─ú╨═-spatial-crop-modeler/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/agent-config.md",
+      "bytes": 1889,
+      "sha256": "f802859789448b00f5270fe8e75cccb89b44bdbcab998c2a8de7dd458bc059ad",
+      "origins": [
+        {
+          "package_number": 55,
+          "archive_sha256": "1c5b1744401ffb8506f0a05df3e3a5eaa73142598a10f879c8c4a4c6e6139bed",
+          "member": "skill55ú║┐╒╝Σ╫≈╬∩─ú╨═-spatial-crop-modeler/references/agent-config.md"
+        }
+      ]
+    },
+    {
+      "path": "references/evals.json",
+      "bytes": 4172,
+      "sha256": "035f0df54bd73cc654552b5f85aa7c5fc4221a019605f6f95b3e11e38d44d4fa",
+      "origins": [
+        {
+          "package_number": 55,
+          "archive_sha256": "1c5b1744401ffb8506f0a05df3e3a5eaa73142598a10f879c8c4a4c6e6139bed",
+          "member": "skill55ú║┐╒╝Σ╫≈╬∩─ú╨═-spatial-crop-modeler/references/evals.json"
+        }
+      ]
+    },
+    {
+      "path": "references/troubleshooting.md",
+      "bytes": 8434,
+      "sha256": "f4a84752fc860f1daaabaebfc17daee3f20f93473461406e18caaf20ea0b6105",
+      "origins": [
+        {
+          "package_number": 55,
+          "archive_sha256": "1c5b1744401ffb8506f0a05df3e3a5eaa73142598a10f879c8c4a4c6e6139bed",
+          "member": "skill55ú║┐╒╝Σ╫≈╬∩─ú╨═-spatial-crop-modeler/references/troubleshooting.md"
+        }
+      ]
+    }
+  ]
+}

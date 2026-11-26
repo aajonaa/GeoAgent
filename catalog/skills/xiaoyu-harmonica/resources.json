@@ -1,0 +1,110 @@
+{
+  "skill_id": "xiaoyu_harmonica",
+  "archive_sha256": "41961d7f5f3fe038784a5afbb342971abd2f02d96c65388bae3b4dee0fbf0189",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 5,
+          "archive_sha256": "bb8f00867546a34942ec20ed75a67f2b0bc66f68b3edb1630f6e066c6f547dd8",
+          "member": "harmonica/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 631,
+      "sha256": "d84f125499c559efdc8dfd6481628fa7c456ad04765de7d812cb445070c6adfa",
+      "origins": [
+        {
+          "package_number": 5,
+          "archive_sha256": "bb8f00867546a34942ec20ed75a67f2b0bc66f68b3edb1630f6e066c6f547dd8",
+          "member": "harmonica/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 7612,
+      "sha256": "ff6f17e4faa7c21ddc9425bfc79177f1fc2dd1de47f988a310e5f4f0d9907e9d",
+      "origins": [
+        {
+          "package_number": 5,
+          "archive_sha256": "bb8f00867546a34942ec20ed75a67f2b0bc66f68b3edb1630f6e066c6f547dd8",
+          "member": "harmonica/SKILL.md"
+        },
+        {
+          "package_number": 96,
+          "archive_sha256": "34776d911534b98aac7c259da7e46dd9e5256dcc241f3a49ec3230e5c982a82f",
+          "member": "harmonica/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_上游仓库许可/LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 96,
+          "archive_sha256": "34776d911534b98aac7c259da7e46dd9e5256dcc241f3a49ec3230e5c982a82f",
+          "member": "harmonica/_上游仓库许可/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "references/corrections.md",
+      "bytes": 5581,
+      "sha256": "aed34313a29ccbf2790c395548d7ad4ffb67158366aa1538d2e86f921a6f70f7",
+      "origins": [
+        {
+          "package_number": 5,
+          "archive_sha256": "bb8f00867546a34942ec20ed75a67f2b0bc66f68b3edb1630f6e066c6f547dd8",
+          "member": "harmonica/references/corrections.md"
+        },
+        {
+          "package_number": 96,
+          "archive_sha256": "34776d911534b98aac7c259da7e46dd9e5256dcc241f3a49ec3230e5c982a82f",
+          "member": "harmonica/references/corrections.md"
+        }
+      ]
+    },
+    {
+      "path": "references/forward_modeling.md",
+      "bytes": 7539,
+      "sha256": "d725d73a2550983a0e304366c2b17a95740fd67ae95cc2ed2e3b8fd20d0056b0",
+      "origins": [
+        {
+          "package_number": 5,
+          "archive_sha256": "bb8f00867546a34942ec20ed75a67f2b0bc66f68b3edb1630f6e066c6f547dd8",
+          "member": "harmonica/references/forward_modeling.md"
+        },
+        {
+          "package_number": 96,
+          "archive_sha256": "34776d911534b98aac7c259da7e46dd9e5256dcc241f3a49ec3230e5c982a82f",
+          "member": "harmonica/references/forward_modeling.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/gravity_processing.py",
+      "bytes": 8315,
+      "sha256": "cd45a2bcfe75f93ac3ff476a91e62759993c997725fb7d96474ef7538e7da17a",
+      "origins": [
+        {
+          "package_number": 5,
+          "archive_sha256": "bb8f00867546a34942ec20ed75a67f2b0bc66f68b3edb1630f6e066c6f547dd8",
+          "member": "harmonica/scripts/gravity_processing.py"
+        },
+        {
+          "package_number": 96,
+          "archive_sha256": "34776d911534b98aac7c259da7e46dd9e5256dcc241f3a49ec3230e5c982a82f",
+          "member": "harmonica/scripts/gravity_processing.py"
+        }
+      ]
+    }
+  ]
+}

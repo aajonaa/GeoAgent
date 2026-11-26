@@ -1,0 +1,87 @@
+{
+  "fixture_kind": "synthetic",
+  "status": "not_run",
+  "input": {
+    "crs": "EPSG:32631",
+    "origin_xy_m": [
+      500000,
+      1000
+    ],
+    "cell_size_m": 1,
+    "nodata_policy": "reject_missing",
+    "elevation_m": [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "search_cells": 2,
+    "skip_cells": 0,
+    "flat_angle_deg": 1,
+    "units": {
+      "origin_xy_m": "m",
+      "cell_size_m": "m",
+      "elevation_m": "m"
+    }
+  },
+  "numeric_oracle": "A constant plane has zero zenith/nadir deviations: interior cells are flat class 1. Edge-limited neighborhoods/nulls remain explicit, not zero-filled."
+}

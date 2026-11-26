@@ -1,0 +1,14 @@
+{
+  "status": "private_candidate_metadata_prepared_unbound_not_executed",
+  "profile_id": "expansion501-geology-gpr-cpu-v2",
+  "parent_catalog_sha256": "1673fec7f6ce187245a336ab0bff6d4c8e3b29494247abdcdd7ead38a763ea97",
+  "parent_catalog": "C:\\Users\\jona\\github\\GeoAgent-tools220-release\\catalog\\source_delivery\\expansion501-20261026\\groups\\geology\\catalog-additions.json",
+  "runtime_profile_bound": false,
+  "main_catalog_modified": false,
+  "science_module_modified": false,
+  "schema_contract_checks_passed": true,
+  "GPR_calls_executed": 0,
+  "Linux_operations": 0,
+  "remaining_gate": "Prepare a genuine administrator profile/source-lock/build-license receipt; no fabricated license_review_complete or existing-guard bypass.",
+  "latest_shared_regression": "local-plumbing-r5: unchanged 41/41 plus synthetic plumbing 11/11; not GPR science"
+}

@@ -1,0 +1,188 @@
+{
+  "status": "source_revised_unverified",
+  "sources": [
+    {
+      "package": "pyflwdir",
+      "version": "0.5.12",
+      "repository": "https://github.com/Deltares/pyflwdir",
+      "source_commit": "4e598e77611232bbf5fc620919d914de5bfd2cdb",
+      "license": "MIT",
+      "source_url": "https://github.com/Deltares/pyflwdir/tree/4e598e77611232bbf5fc620919d914de5bfd2cdb",
+      "license_evidence_url": "https://github.com/Deltares/pyflwdir/blob/4e598e77611232bbf5fc620919d914de5bfd2cdb/LICENSE",
+      "release_evidence_url": "https://pypi.org/project/pyflwdir/0.5.12/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "shapely",
+      "version": "2.1.2",
+      "repository": "https://github.com/shapely/shapely",
+      "source_commit": "5fb639d1056888d135fe56bfaf750c9648addeec",
+      "license": "BSD-3-Clause",
+      "source_url": "https://github.com/shapely/shapely/tree/5fb639d1056888d135fe56bfaf750c9648addeec",
+      "license_evidence_url": "https://github.com/shapely/shapely/blob/5fb639d1056888d135fe56bfaf750c9648addeec/LICENSE.txt",
+      "release_evidence_url": "https://pypi.org/project/shapely/2.1.2/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "tobler",
+      "version": "0.14.0",
+      "repository": "https://github.com/pysal/tobler",
+      "source_commit": "955790dac77f4a76d06591ffe9f246cfb0af4501",
+      "license": "BSD-3-Clause",
+      "source_url": "https://github.com/pysal/tobler/tree/955790dac77f4a76d06591ffe9f246cfb0af4501",
+      "license_evidence_url": "https://github.com/pysal/tobler/blob/955790dac77f4a76d06591ffe9f246cfb0af4501/LICENSE.txt",
+      "release_evidence_url": "https://pypi.org/project/tobler/0.14.0/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "flopy",
+      "version": "3.11.0",
+      "repository": "https://github.com/modflowpy/flopy",
+      "source_commit": "a43f79127d0383e5328a602e72faf9a9730c7d61",
+      "license": "CC0-1.0",
+      "source_url": "https://github.com/modflowpy/flopy/tree/a43f79127d0383e5328a602e72faf9a9730c7d61",
+      "license_evidence_url": "https://github.com/modflowpy/flopy/blob/a43f79127d0383e5328a602e72faf9a9730c7d61/LICENSE.md",
+      "release_evidence_url": "https://pypi.org/project/flopy/3.11.0/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "rasterio",
+      "version": "1.4.3",
+      "repository": "https://github.com/rasterio/rasterio",
+      "source_commit": "7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede",
+      "license": "BSD-3-Clause",
+      "source_url": "https://github.com/rasterio/rasterio/tree/7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede",
+      "license_evidence_url": "https://github.com/rasterio/rasterio/blob/7f8bda2e32df5b5eefc6e1ea6b5f04a946567ede/LICENSE.txt",
+      "release_evidence_url": "https://pypi.org/project/rasterio/1.4.3/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "esda",
+      "version": "2.10.0",
+      "repository": "https://github.com/pysal/esda",
+      "source_commit": "6ffd5b66565791cede8703c438c90a819aacd49f",
+      "license": "BSD-3-Clause",
+      "source_url": "https://github.com/pysal/esda/tree/6ffd5b66565791cede8703c438c90a819aacd49f",
+      "license_evidence_url": "https://github.com/pysal/esda/blob/6ffd5b66565791cede8703c438c90a819aacd49f/LICENSE.txt",
+      "release_evidence_url": "https://pypi.org/project/esda/2.10.0/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "libpysal",
+      "version": "4.15.0",
+      "repository": "https://github.com/pysal/libpysal",
+      "source_commit": "40cab61991086968799609f0856bf1eb2042e5ef",
+      "license": "BSD-3-Clause",
+      "source_url": "https://github.com/pysal/libpysal/tree/40cab61991086968799609f0856bf1eb2042e5ef",
+      "license_evidence_url": "https://github.com/pysal/libpysal/blob/40cab61991086968799609f0856bf1eb2042e5ef/LICENSE.txt",
+      "release_evidence_url": "https://pypi.org/project/libpysal/4.15.0/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "pointpats",
+      "version": "2.6.0",
+      "repository": "https://github.com/pysal/pointpats",
+      "source_commit": "524296c551488998a26000c072d69b76ca095d68",
+      "license": "BSD-3-Clause",
+      "source_url": "https://github.com/pysal/pointpats/tree/524296c551488998a26000c072d69b76ca095d68",
+      "license_evidence_url": "https://github.com/pysal/pointpats/blob/524296c551488998a26000c072d69b76ca095d68/LICENSE.txt",
+      "release_evidence_url": "https://pypi.org/project/pointpats/2.6.0/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "spopt",
+      "version": "0.8.0",
+      "repository": "https://github.com/pysal/spopt",
+      "source_commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+      "license": "BSD-3-Clause",
+      "source_url": "https://github.com/pysal/spopt/tree/8d282940ab2827f84cb5f8319e396aa90ac686aa",
+      "license_evidence_url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/LICENSE.txt",
+      "release_evidence_url": "https://pypi.org/project/spopt/0.8.0/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "landlab",
+      "version": "2.11.0",
+      "repository": "https://github.com/landlab/landlab",
+      "source_commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license": "MIT",
+      "source_url": "https://github.com/landlab/landlab/tree/575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+      "license_evidence_url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/LICENSE.md",
+      "release_evidence_url": "https://pypi.org/project/landlab/2.11.0/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "scikit-learn",
+      "version": "1.7.2",
+      "repository": "https://github.com/scikit-learn/scikit-learn",
+      "source_commit": "25dee604bae18205b01548348388baf7a1cdfe0e",
+      "license": "BSD-3-Clause",
+      "source_url": "https://github.com/scikit-learn/scikit-learn/tree/25dee604bae18205b01548348388baf7a1cdfe0e",
+      "license_evidence_url": "https://github.com/scikit-learn/scikit-learn/blob/25dee604bae18205b01548348388baf7a1cdfe0e/COPYING",
+      "release_evidence_url": "https://pypi.org/project/scikit-learn/1.7.2/",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "PDAL",
+      "version": "2.9.1",
+      "repository": "https://github.com/PDAL/PDAL",
+      "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license": "BSD-3-Clause",
+      "source_url": "https://github.com/PDAL/PDAL/tree/fceafbd400639f8376e3d4cd21230175d5b314d9",
+      "license_evidence_url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/LICENSE.txt",
+      "release_evidence_url": "https://github.com/PDAL/PDAL/releases/tag/2.9.1",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    },
+    {
+      "package": "GRASS",
+      "version": "8.5.0",
+      "repository": "https://github.com/OSGeo/grass",
+      "source_commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+      "license": "GPL-2.0-or-later",
+      "source_url": "https://github.com/OSGeo/grass/tree/8d6ceba290a2f0059a7301b9d4944455f313da72",
+      "license_evidence_url": "https://github.com/OSGeo/grass/blob/8d6ceba290a2f0059a7301b9d4944455f313da72/COPYING",
+      "release_evidence_url": "https://github.com/OSGeo/grass/releases/tag/8.5.0",
+      "correspondence": "Reviewed source identifier and pinned published distribution are recorded separately; byte-identical wheel/source correspondence and platform ABI acceptance remain pending."
+    }
+  ],
+  "dependency_evidence": [
+    {
+      "package": "geopandas",
+      "version": "1.1.2",
+      "url": "https://pypi.org/pypi/geopandas/1.1.2/json",
+      "wheel_sha256": "2bb0b1052cb47378addb4ba54c47f8d4642dcbda9b61375638274f49d9f0bb0d",
+      "source_commit": null,
+      "license": "BSD-3-Clause",
+      "license_review": "transitive redistribution review pending",
+      "note": "1.1.1 deliberately not pinned; official PyPI metadata reported to_postgis security fix in 1.1.2."
+    },
+    {
+      "package": "affine",
+      "version": "3.0.1",
+      "url": "https://pypi.org/project/affine/3.0.1/",
+      "source_commit": null,
+      "license_review": "full transitive license audit pending",
+      "evidence": "Exact installed version supplied by parent; not a claim of local execution."
+    }
+  ],
+  "native_runtime_evidence": {
+    "GEOS": {
+      "version": "3.13.1",
+      "basis": "parent-reported accepted environment; not probed here",
+      "coverage_gate": ">=3.12"
+    },
+    "GDAL": {
+      "version": null,
+      "status": "private pinned Rasterio build identity still required"
+    },
+    "PROJ": {
+      "version": null,
+      "status": "private pyproj data/native identity still required"
+    },
+    "Landlab_extensions": {
+      "status": "py-richdem and other compiled/transitive dependencies require private ABI/import acceptance"
+    }
+  },
+  "source_status": "Primary reviewed source/release references; runtime and source tree byte correspondence is not asserted; no source fetch/install/test occurred inside an adapter."
+}
+

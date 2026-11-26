@@ -1,0 +1,63 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockFluidPVT",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "temperature_c": 0,
+    "pressure_mpa": 10,
+    "salinity_mass_fraction": 0.1,
+    "reference_oil_density_kg_m3": 850,
+    "gas_specific_gravity": 0.7
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "density_water_brine_oil_gas_kg_m3",
+        0
+      ],
+      "value": 1004.8566999999999,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "density_water_brine_oil_gas_kg_m3",
+        1
+      ],
+      "value": 1076.1167,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "bulk_water_brine_oil_gas_gpa",
+        0
+      ],
+      "value": 2.0216914969916204,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "bulk_water_brine_oil_gas_gpa",
+        1
+      ],
+      "value": 2.589893185120115,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "pressure_mpa": 101
+  },
+  "numeric_oracle": "At T=0C,P=10MPa independent water polynomial rho=1.0048567g/cm3 and velocity cubic; evaluate brine salinity terms independently, then K=rho*v^2.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/BW.py",
+  "limitations": [
+    "Empirical PVT, not phase-equilibrium calculation; conservative pressure/temperature limits; no gas/oil identification.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

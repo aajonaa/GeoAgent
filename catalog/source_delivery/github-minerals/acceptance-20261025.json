@@ -1,0 +1,1477 @@
+{
+  "state": "passed",
+  "scope": "Independent CPU scientific, schema, standalone JSON, native transport and catalog/Skill tests; synthetic fixtures; no live model calls",
+  "deployed": false,
+  "gpu_used": false,
+  "source_sha256": {
+    "geological_agent/geology/github_minerals.py": "26e723aabb2fd6be42405fd90f1fef3dcd1503ab78cdc305c830ccf0c2fbf762",
+    "catalog/registry.json": "7bda4a776eb389cc265a64f428b7e262a09a035a37fffa494d15c577a022af79",
+    "requirements-github-minerals.txt": "327d990d27fb18deacdee9800855086bbeea4c04f745e9f1acfe99d404bcb9d5"
+  },
+  "passed": 292,
+  "failed": 0,
+  "skipped": 0,
+  "native_professional_operations": 229,
+  "cases": [
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_direct_json_native_transport_and_input_integrity[GeoSpectralAngleMatch]",
+      "time": "2.678"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_direct_json_native_transport_and_input_integrity[GeoSpectralContinuumRemoval]",
+      "time": "2.163"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_direct_json_native_transport_and_input_integrity[GeoSpectralLinearUnmix]",
+      "time": "2.265"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_direct_json_native_transport_and_input_integrity[GeoSpectralAngleMap]",
+      "time": "2.567"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_direct_json_native_transport_and_input_integrity[GeoGeochemCLR]",
+      "time": "3.639"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_direct_json_native_transport_and_input_integrity[GeoGeochemOxideMoles]",
+      "time": "2.247"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_direct_json_native_transport_and_input_integrity[GeoGeochemREEPattern]",
+      "time": "2.425"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_direct_json_native_transport_and_input_integrity[GeoStereonetAnalysis]",
+      "time": "2.186"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_direct_json_native_transport_and_input_integrity[GeoStructuralPlaneIntersection]",
+      "time": "1.213"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoSpectralAngleMatch-updates0]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoSpectralAngleMatch-updates1]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoSpectralAngleMatch-updates2]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoSpectralContinuumRemoval-updates3]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoSpectralContinuumRemoval-updates4]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoSpectralLinearUnmix-updates5]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoGeochemCLR-updates6]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoGeochemCLR-updates7]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoGeochemOxideMoles-updates8]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoGeochemOxideMoles-updates9]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoGeochemREEPattern-updates10]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoGeochemREEPattern-updates11]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoStereonetAnalysis-updates12]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_scientific_invalid_input_is_structured[GeoStereonetAnalysis-updates13]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_undeclared_argument_rejected_by_both_interfaces[GeoSpectralAngleMatch]",
+      "time": "1.152"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_undeclared_argument_rejected_by_both_interfaces[GeoSpectralContinuumRemoval]",
+      "time": "1.158"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_undeclared_argument_rejected_by_both_interfaces[GeoSpectralLinearUnmix]",
+      "time": "1.141"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_undeclared_argument_rejected_by_both_interfaces[GeoSpectralAngleMap]",
+      "time": "1.142"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_undeclared_argument_rejected_by_both_interfaces[GeoGeochemCLR]",
+      "time": "1.143"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_undeclared_argument_rejected_by_both_interfaces[GeoGeochemOxideMoles]",
+      "time": "1.331"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_undeclared_argument_rejected_by_both_interfaces[GeoGeochemREEPattern]",
+      "time": "1.141"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_undeclared_argument_rejected_by_both_interfaces[GeoStereonetAnalysis]",
+      "time": "1.140"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_undeclared_argument_rejected_by_both_interfaces[GeoStructuralPlaneIntersection]",
+      "time": "1.136"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_map_pixels_crs_nodata_and_mask_are_preserved",
+      "time": "0.337"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_map_explicit_calibration",
+      "time": "0.330"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_map_mask_mismatch_and_unknown_labels_rejected",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_parallel_planes_are_not_a_direction",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_native_input_path_cannot_escape",
+      "time": "1.164"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_catalog_is_exact_addition_to_accepted_baseline",
+      "time": "0.021"
+    },
+    {
+      "classname": "tests_local.test_github_minerals",
+      "name": "test_missing_dependency_is_explicit",
+      "time": "0.002"
+    },
+    {
+      "classname": "tests_local.test_catalog_metadata",
+      "name": "test_all_catalog_tools_have_the_additive_metadata_envelope",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_catalog_metadata",
+      "name": "test_protocol_applicability_does_not_conflate_unknown_and_not_applicable",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_catalog_metadata",
+      "name": "test_invalid_protocol_metadata_is_rejected[protocol0]",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_catalog_metadata",
+      "name": "test_invalid_protocol_metadata_is_rejected[protocol1]",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_catalog_metadata",
+      "name": "test_invalid_protocol_metadata_is_rejected[protocol2]",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_catalog_metadata",
+      "name": "test_invalid_protocol_metadata_is_rejected[protocol3]",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_catalog_metadata",
+      "name": "test_source_commit_and_runtime_environment_are_separate",
+      "time": "0.000"
+    },
+    {
+      "classname": "tests_local.test_catalog_metadata",
+      "name": "test_source_delivery_examples_cover_all_revised_tools",
+      "time": "0.002"
+    },
+    {
+      "classname": "tests_local.test_unified_skills",
+      "name": "test_all_skills_are_catalogued_without_runtime_extras[0]",
+      "time": "2.371"
+    },
+    {
+      "classname": "tests_local.test_unified_skills",
+      "name": "test_all_skills_are_catalogued_without_runtime_extras[1]",
+      "time": "2.383"
+    },
+    {
+      "classname": "tests_local.test_unified_skills",
+      "name": "test_former_local_skill_metadata_and_tool_links[geological_table_analysis-tools0]",
+      "time": "2.347"
+    },
+    {
+      "classname": "tests_local.test_unified_skills",
+      "name": "test_former_local_skill_metadata_and_tool_links[image_workflow-tools1]",
+      "time": "2.520"
+    },
+    {
+      "classname": "tests_local.test_unified_skills",
+      "name": "test_old_folder_is_not_a_registration_source",
+      "time": "1.146"
+    },
+    {
+      "classname": "tests_local.test_unified_skills",
+      "name": "test_removed_catalog_entry_is_not_silently_added_back",
+      "time": "1.179"
+    },
+    {
+      "classname": "tests_local.test_unified_skills",
+      "name": "test_catalog_document_and_dependency_contracts",
+      "time": "1.146"
+    },
+    {
+      "classname": "tests_local.test_unified_skills",
+      "name": "test_missing_runtime_dependency_is_explicit_not_invented",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_unified_skills",
+      "name": "test_document_cannot_escape_catalog",
+      "time": "0.067"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[AospyHybridPressure]",
+      "time": "1.285"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSBBoxArea]",
+      "time": "0.032"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSBatchVector]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSBearing]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSBuffer]",
+      "time": "0.014"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSCheckCRSConsistency]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSDecimalToDMS]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSHaversineDistance]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSInterpolateIDW]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSNearestNeighbor]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSOverlay]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSRasterAlgebra]",
+      "time": "0.012"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSRenderMap]",
+      "time": "0.029"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSStandardizeSpatialData]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSValidateSpatialData]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[CCSZonalStatistics]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[ClimateCompareEpochs]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[ClimateQueryDeepTime]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[ClimateQueryFutureSSP]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[ClimateQueryPresentMean]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[ClimlabLayerHeatCapacity]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[ClimpredEnsembleCrps]",
+      "time": "1.126"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepEarthGetUSGSEvent]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepEarthQueryLITHO1]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepEarthQuerySEMUCB]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepEarthQueryUSGSCatalog]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepEarthSampleEventModels]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeBBoxArea]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeBatchVector]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeBearing]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeBuffer]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeDecimalToDMS]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeHaversineDistance]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeInterpolateIDW]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeNearestNeighbor]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeOverlay]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeRasterAlgebra]",
+      "time": "0.012"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeRenderMap]",
+      "time": "0.026"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeStandardizeSpatialData]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeValidateSpatialData]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[DeepTimeZonalStatistics]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthCatchmodLinearStoreStep]",
+      "time": "0.511"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthERA5LocalMonthlyClimate]",
+      "time": "0.171"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthEflowMagnitudeIndices]",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthFlopyWaterTable]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthGeoNotebookPolygonSubset]",
+      "time": "0.029"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroBomWaterMLObservations]",
+      "time": "0.028"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroCamelsStationSeries]",
+      "time": "0.019"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroClimateAccumulation]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroEftsForecastEnsemble]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroFewsPiTimeSeries]",
+      "time": "0.032"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroHtimeseriesReadRecords]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroHyRiverFlowExceedance]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroHydrolmRegularizeDaily]",
+      "time": "0.015"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroHydropyChapmanBaseflow]",
+      "time": "0.013"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroHydrostatsDailyClimatology]",
+      "time": "0.015"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroOpenradarRainRate]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroPastasExponentialImpulse]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroPyemuExponentialCovariance]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroShareRasterBandRanges]",
+      "time": "0.280"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroSpotpyNashSutcliffe]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroUlmoWaterMLValues]",
+      "time": "0.020"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroWetterdienstElevationAdjustment]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthHydroboxFlashiness]",
+      "time": "0.013"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthIdfMaskedRasterAggregate]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthImodFreshwaterHead]",
+      "time": "0.245"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthIrisCubeCorrelation]",
+      "time": "0.126"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthLandlabFlowDirections]",
+      "time": "0.130"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthPangaeaGeographicGrid]",
+      "time": "0.021"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthPhydrusReadTlevel]",
+      "time": "0.020"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthPyGLUEABCEnsemble]",
+      "time": "0.268"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthPyOWMBeaufortWind]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthPyhelpStationDistances]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthPyhspfReachTable]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthPytesmoMeanStdScale]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthSimRasterCrossSection]",
+      "time": "0.016"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthSphyCropEvapotranspiration]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthTimmlSteadyWellHeads]",
+      "time": "0.486"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthTtimTransientWellDrawdown]",
+      "time": "6.770"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthWellapplicationBaseflow]",
+      "time": "0.015"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthWelltestBourdetDerivative]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthWflowKinematicWaveReachStep]",
+      "time": "0.174"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EarthXsboringenLithology]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyBBoxArea]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyCapacityGrowth]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyCapacityValue]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyCountryRenewableSummary]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyFacilityDistance]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyMineralSiteDistance]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyNearestFacility]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyNearestMineralSite]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyRegionalOverlaySummary]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[EnergyTransitionMetrics]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoBearing]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoBigDataExecuteGeoSPARQL]",
+      "time": "0.115"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoCartopyPointMap]",
+      "time": "0.424"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoCheckCRSConsistency]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoCollocatePressureMatch]",
+      "time": "0.020"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoDatashaderDensity]",
+      "time": "0.653"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoDecimalToDMS]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoExactZonalStatistics]",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoFionaDatasetInfo]",
+      "time": "0.020"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoGeemapBoundingPolygon]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoGeoViewsPolygonMap]",
+      "time": "2.015"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoGeochemCLR]",
+      "time": "0.274"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoGeochemOxideMoles]",
+      "time": "0.259"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoGeochemREEPattern]",
+      "time": "0.272"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoHPGLDirectionalSemivariogram]",
+      "time": "0.138"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoHVPlotHexbin]",
+      "time": "0.517"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoHaversineDistance]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoHoloViewsLineProfile]",
+      "time": "0.163"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoMagnitudeToEnergy]",
+      "time": "0.006"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoMapColorExtract]",
+      "time": "0.014"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoOrdinaryKrigingGrid]",
+      "time": "0.026"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoPandasSpatialJoin]",
+      "time": "0.013"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoPanelDataReport]",
+      "time": "0.050"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoPlotDigitize]",
+      "time": "0.024"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoPyshedsFlowAccumulation]",
+      "time": "41.860"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoPywrWaterAllocation]",
+      "time": "0.186"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoRasterChangeAnalysis]",
+      "time": "0.028"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoRasterIndexAnalysis]",
+      "time": "0.020"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoRasterioWindow]",
+      "time": "0.019"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoRegionMask]",
+      "time": "0.045"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoSalemProjectCoordinates]",
+      "time": "0.015"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoShapelyGeometry]",
+      "time": "0.008"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoSpectralAngleMap]",
+      "time": "0.443"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoSpectralAngleMatch]",
+      "time": "0.402"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoSpectralContinuumRemoval]",
+      "time": "0.318"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoSpectralLinearUnmix]",
+      "time": "0.376"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoStereonetAnalysis]",
+      "time": "0.339"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoStructuralPlaneIntersection]",
+      "time": "0.023"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoVerdeGrid]",
+      "time": "1.111"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[GeoWGS84BBoxAreaKm2]",
+      "time": "0.007"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroAnaFlowTheis]",
+      "time": "0.217"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroErrorMetrics]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroInterpolationGrid]",
+      "time": "0.019"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsCMFSoilConductivity]",
+      "time": "0.034"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsEXPHydroBucketWaterBalance]",
+      "time": "0.012"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsHidroCompEnsembleRMSE]",
+      "time": "0.016"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsHydPyFlowScores]",
+      "time": "2.685"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsHydroFunctionsFlowDuration]",
+      "time": "0.245"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsNeuralHydrologyFlowScores]",
+      "time": "0.041"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsPyDEMTerrainDerivatives]",
+      "time": "0.950"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsPyFloCurveNumberRunoff]",
+      "time": "0.699"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsPySTEPSPrecipitationAdvection]",
+      "time": "2.456"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsPyTOPKAPIGreenAmpt]",
+      "time": "0.034"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsRRMPGABCRunoff]",
+      "time": "0.024"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsSuperflexUnitHydrograph]",
+      "time": "1.860"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsTopoFlowSolarFlux]",
+      "time": "0.019"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroModelsXanthosMonthlyPET]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroReferenceET0]",
+      "time": "0.013"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[HydroVICPrecipitationPhase]",
+      "time": "0.836"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[ImproverRescaleForecastField]",
+      "time": "0.020"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[JamsDewPoint]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[MelodistDailyPrecipitationToHourly]",
+      "time": "0.031"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[MetPyWindComponents]",
+      "time": "0.264"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[MetSimPotentialEvapotranspiration]",
+      "time": "0.021"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[MineralResourcesCountrySummary]",
+      "time": "0.017"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[MineralResourcesGetDeposit]",
+      "time": "0.013"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[MineralResourcesRankCommodityCountries]",
+      "time": "0.015"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[MineralResourcesSearchDeposits]",
+      "time": "0.014"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[NaturalHazardBuildStartDate]",
+      "time": "0.024"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[NaturalHazardCountRecords]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[NaturalHazardFilterRecords]",
+      "time": "0.019"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[NaturalHazardGroupAggregate]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[NaturalHazardLoadEventTable]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[NaturalHazardSelectLatest]",
+      "time": "0.021"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[NaturalHazardSelectMaxRecord]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[NaturalHazardSumField]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanAnnualCarbonSummary]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanBBoxArea]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanCruiseQC]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanMonthlyGridValue]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanProfileDeduplication]",
+      "time": "0.012"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanProfileValue]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanRegionalMapSummary]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanStationDistance]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanSurfaceDeepMatch]",
+      "time": "0.012"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OceanVerticalProfileDifference]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OcgisHeatIndex]",
+      "time": "0.016"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[OocgcmSurfaceSpiciness]",
+      "time": "0.015"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[PyrockoDoubleCoupleTensor]",
+      "time": "0.059"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RainymotionPrecipitationScores]",
+      "time": "0.021"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingArgmax]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingBatchHotspotPercentage]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingBatchHotspotRaster]",
+      "time": "0.025"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingBatchImageMean]",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingBatchImageSum]",
+      "time": "0.016"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingBatchNDSI]",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingCloudMask]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingCoefficientOfVariation]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingCountAboveThreshold]",
+      "time": "0.013"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingDifference]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingDivision]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingExtremeSnowLossPercentage]",
+      "time": "0.012"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingFireIncreaseMap]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingKelvinToCelsius]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingKurtosis]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingLinearTrend]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingListFiles]",
+      "time": "0.015"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingMannKendallTest]",
+      "time": "0.028"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingMaxValueAndIndex]",
+      "time": "0.010"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingMean]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingMinValueAndIndex]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingNBR]",
+      "time": "0.023"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingNDTI]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingNDVI]",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingNDWI]",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingPercentageChange]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingSensSlope]",
+      "time": "0.009"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingSubtract]",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingTiffAverage]",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RemoteSensingTiffDifference]",
+      "time": "0.022"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[RsudpWindowAmplitude]",
+      "time": "0.012"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[ScientificCurveFit]",
+      "time": "0.057"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[ScipyGroundwaterFrequencyResponse]",
+      "time": "0.141"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[SeismicMadagascarFFT]",
+      "time": "0.168"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[SeismicObsPyBandpass]",
+      "time": "0.370"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[SeismicReflectivity]",
+      "time": "0.021"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[SeismicSegySummary]",
+      "time": "0.018"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[SeismicZfpCompressCube]",
+      "time": "0.037"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[SkdownscaleQuantileBiasCorrection]",
+      "time": "0.029"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[SpatialMoranI]",
+      "time": "0.279"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[StatsmodelsSeasonalFlowForecast]",
+      "time": "0.035"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[USGS \\u5730\\u9707\\u6570\\u636e\\u83b7\\u53d6]",
+      "time": "0.011"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[WrfDestaggerGrid]",
+      "time": "0.016"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[XgcmStaggeredGridDiagnostics]",
+      "time": "7.807"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[\\u5730\\u9707\\u4e8b\\u4ef6\\u5730\\u56fe\\u53ef\\u89c6\\u5316]",
+      "time": "0.151"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_every_ready_source_executes_through_native_runtime[\\u5730\\u9707\\u6570\\u636e\\u6e05\\u6d17\\u4e0e\\u5206\\u7ea7]",
+      "time": "0.023"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_all_registered_source_tools_are_discoverable",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_source_file_tools_reject_external_paths[../outside.csv]",
+      "time": "0.002"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_source_file_tools_reject_external_paths[/etc/passwd]",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_source_file_tools_reject_external_paths[C:/secret.csv]",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_source_file_tools_reject_external_paths[..\\\\secret.csv]",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_unavailable_skill_reports_exact_gap_without_exposure",
+      "time": "0.001"
+    },
+    {
+      "classname": "tests_local.test_professional_catalog",
+      "name": "test_changed_input_does_not_hit_numeric_pure_cache",
+      "time": "0.006"
+    }
+  ]
+}

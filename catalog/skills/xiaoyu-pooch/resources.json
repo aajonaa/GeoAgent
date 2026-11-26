@@ -1,0 +1,86 @@
+{
+  "skill_id": "xiaoyu_pooch",
+  "archive_sha256": "289f06850f44f12e4c766c733bd75fd221a51a07b923409fc618c37d34058022",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 38,
+          "archive_sha256": "0a7ee02aed9bb0b7b24230e255ee018836d90f7662e228427a94cb2435d5cf40",
+          "member": "pooch/LICENSE"
+        },
+        {
+          "package_number": 86,
+          "archive_sha256": "745feed35cd082cc4ecb1b0dd53bbf8af9ac5b2e39cc0fe59d0faa29b07e82b8",
+          "member": "pooch/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 719,
+      "sha256": "4ff309808dbf5022f92010e98fb9476aa8bdd0f4340db1425f8b05e78a0f52c9",
+      "origins": [
+        {
+          "package_number": 38,
+          "archive_sha256": "0a7ee02aed9bb0b7b24230e255ee018836d90f7662e228427a94cb2435d5cf40",
+          "member": "pooch/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5158,
+      "sha256": "4592936ad4f4711b5d43957968e3d8aa34eaec799f0b34b919a749b632f1a8a3",
+      "origins": [
+        {
+          "package_number": 38,
+          "archive_sha256": "0a7ee02aed9bb0b7b24230e255ee018836d90f7662e228427a94cb2435d5cf40",
+          "member": "pooch/SKILL.md"
+        },
+        {
+          "package_number": 86,
+          "archive_sha256": "745feed35cd082cc4ecb1b0dd53bbf8af9ac5b2e39cc0fe59d0faa29b07e82b8",
+          "member": "pooch/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/registry.md",
+      "bytes": 4970,
+      "sha256": "af3ab22f3d5ed2de30b5de3e0dcf0cde3386d8b04f8792d4b9cfaa40b36a9fb9",
+      "origins": [
+        {
+          "package_number": 38,
+          "archive_sha256": "0a7ee02aed9bb0b7b24230e255ee018836d90f7662e228427a94cb2435d5cf40",
+          "member": "pooch/references/registry.md"
+        },
+        {
+          "package_number": 86,
+          "archive_sha256": "745feed35cd082cc4ecb1b0dd53bbf8af9ac5b2e39cc0fe59d0faa29b07e82b8",
+          "member": "pooch/references/registry.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/create_registry.py",
+      "bytes": 3848,
+      "sha256": "ae746953d060cddf40ec3dd79edb9a55022db214d03db0bfdc0ee47e0feab825",
+      "origins": [
+        {
+          "package_number": 38,
+          "archive_sha256": "0a7ee02aed9bb0b7b24230e255ee018836d90f7662e228427a94cb2435d5cf40",
+          "member": "pooch/scripts/create_registry.py"
+        },
+        {
+          "package_number": 86,
+          "archive_sha256": "745feed35cd082cc4ecb1b0dd53bbf8af9ac5b2e39cc0fe59d0faa29b07e82b8",
+          "member": "pooch/scripts/create_registry.py"
+        }
+      ]
+    }
+  ]
+}

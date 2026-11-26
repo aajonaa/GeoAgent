@@ -1,0 +1,102 @@
+{
+  "skill_id": "xiaoyu_obspy",
+  "archive_sha256": "7006d413e8f56e068d36244b5b85b47c0c9e94e68e16b13ac9d24ad7f3151c76",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 15,
+          "archive_sha256": "c50ffee3339b349b427d0b6ce86fa55a08be0f64d23ce538452e6d897bf6e511",
+          "member": "obspy/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 728,
+      "sha256": "2283645fe59e6bc72b8a05fe29aeae4ad63733ce5dcbaaffbb73de2236be3cd8",
+      "origins": [
+        {
+          "package_number": 15,
+          "archive_sha256": "c50ffee3339b349b427d0b6ce86fa55a08be0f64d23ce538452e6d897bf6e511",
+          "member": "obspy/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5753,
+      "sha256": "86b5e688bc581e7644ac77272f20d5f4cfdbfc8d00a4985b46d2d0a58dd1d183",
+      "origins": [
+        {
+          "package_number": 15,
+          "archive_sha256": "c50ffee3339b349b427d0b6ce86fa55a08be0f64d23ce538452e6d897bf6e511",
+          "member": "obspy/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/channel_codes.md",
+      "bytes": 5946,
+      "sha256": "77bd3584c3feee7c154e56d96f7d306cc9a1c1e4ea4e60d706568ef7733fb1ca",
+      "origins": [
+        {
+          "package_number": 15,
+          "archive_sha256": "c50ffee3339b349b427d0b6ce86fa55a08be0f64d23ce538452e6d897bf6e511",
+          "member": "obspy/references/channel_codes.md"
+        }
+      ]
+    },
+    {
+      "path": "references/fdsn_clients.md",
+      "bytes": 5308,
+      "sha256": "61b0a6f2b09ce5df13df9ccffff9f5609697d240e2c2b9aebbe984642cc5d625",
+      "origins": [
+        {
+          "package_number": 15,
+          "archive_sha256": "c50ffee3339b349b427d0b6ce86fa55a08be0f64d23ce538452e6d897bf6e511",
+          "member": "obspy/references/fdsn_clients.md"
+        }
+      ]
+    },
+    {
+      "path": "references/troubleshooting.md",
+      "bytes": 8139,
+      "sha256": "771b06f39c51d4033d6a9b7ceae1f0a037da14e0ca8883c8c9f4bc8c71fcbf59",
+      "origins": [
+        {
+          "package_number": 15,
+          "archive_sha256": "c50ffee3339b349b427d0b6ce86fa55a08be0f64d23ce538452e6d897bf6e511",
+          "member": "obspy/references/troubleshooting.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/batch_process.py",
+      "bytes": 9382,
+      "sha256": "b9e723e2c410ec1fa27417d548698e5b460dab22d3c95f7ee58c337879212591",
+      "origins": [
+        {
+          "package_number": 15,
+          "archive_sha256": "c50ffee3339b349b427d0b6ce86fa55a08be0f64d23ce538452e6d897bf6e511",
+          "member": "obspy/scripts/batch_process.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/fetch_earthquake.py",
+      "bytes": 8212,
+      "sha256": "0a6128fcd4194feba0138438966873e9549bf41a81aee215b5e2486b0130a69a",
+      "origins": [
+        {
+          "package_number": 15,
+          "archive_sha256": "c50ffee3339b349b427d0b6ce86fa55a08be0f64d23ce538452e6d897bf6e511",
+          "member": "obspy/scripts/fetch_earthquake.py"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+test_01_fixed_source_registration_schemas_pins (__main__.LocalGPR.test_01_fixed_source_registration_schemas_pins) ... ok
+test_02_decorated_dictionary_full_covariance (__main__.LocalGPR.test_02_decorated_dictionary_full_covariance) ... ok
+test_03_decorated_json_full_covariance (__main__.LocalGPR.test_03_decorated_json_full_covariance) ... ok
+test_04_registered_executor_typed_result (__main__.LocalGPR.test_04_registered_executor_typed_result) ... ok
+test_05_explicit_measurement_noise_schur_covariance (__main__.LocalGPR.test_05_explicit_measurement_noise_schur_covariance) ... ok
+test_06_two_observation_full_schur_matrix (__main__.LocalGPR.test_06_two_observation_full_schur_matrix) ... ok
+test_07_observed_target_exact_conditioning_psd_boundary (__main__.LocalGPR.test_07_observed_target_exact_conditioning_psd_boundary) ... ok
+test_08_seeded_joint_realizations_repeat_without_clipping (__main__.LocalGPR.test_08_seeded_joint_realizations_repeat_without_clipping) ... ok
+test_09_joint_sample_covariance_statistical_check (__main__.LocalGPR.test_09_joint_sample_covariance_statistical_check) ... ok
+test_10_duplicate_conditioning_rejected (__main__.LocalGPR.test_10_duplicate_conditioning_rejected) ... ok
+test_11_duplicate_targets_rejected (__main__.LocalGPR.test_11_duplicate_targets_rejected) ... ok
+test_12_near_singular_conditioning_fails_without_jitter (__main__.LocalGPR.test_12_near_singular_conditioning_fails_without_jitter) ... ok
+test_13_non_psd_upstream_result_fault_injection_is_rejected (__main__.LocalGPR.test_13_non_psd_upstream_result_fault_injection_is_rejected) ... ok
+test_14_physical_parameter_domains (__main__.LocalGPR.test_14_physical_parameter_domains) ... ok
+test_15_nonfinite_arguments (__main__.LocalGPR.test_15_nonfinite_arguments) ... ok
+test_16_alignment_and_output_budget (__main__.LocalGPR.test_16_alignment_and_output_budget) ... ok
+test_17_arbitrary_dispatch_rejected (__main__.LocalGPR.test_17_arbitrary_dispatch_rejected) ... ok
+test_18_wrong_dependency_retains_native_hint (__main__.LocalGPR.test_18_wrong_dependency_retains_native_hint) ... ok
+test_19_missing_cpu_identity_is_not_a_pass (__main__.LocalGPR.test_19_missing_cpu_identity_is_not_a_pass) ... ok
+test_20_runtime_domain_failure_preserves_type_code_retryability (__main__.LocalGPR.test_20_runtime_domain_failure_preserves_type_code_retryability) ... ok
+
+----------------------------------------------------------------------
+Ran 20 tests in 18.022s
+
+OK

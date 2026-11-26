@@ -1,0 +1,328 @@
+{
+  "operations": [
+    {
+      "id": "GeoRemotePhaseUnwrap",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteBrightnessTemperature",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteGaussianClassify",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteEndmemberDiscovery",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteClassSeparability",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteDenseOpticalFlow",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteProjectiveTiePoints",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteTemplateLocate",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteScaleSpaceBlobs",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteHoughLineEvidence",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteWaveletPyramid",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSARDopplerDeskew",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSARSubaperture",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteTOAReflectance",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemotePansharpenFusion",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoRemoteMADChange",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSARPolarimetricHAlpha",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSARPolarizationSynthesis",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoInSARNetworkDisplacement",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoInSARResidualDEM",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoInSARIonosphericDelay",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoInSARPlateFrameCorrection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoInSARAscDescDecomposition",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoInSAREnvisatOscillatorCorrection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoInSARCoherenceNetworkSelection",
+      "state": "source_adapted_unverified",
+      "reason": "Concrete named adapter, closed schema, synthetic artifact oracle and primary source evidence authored; not executed or integrated.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSARCoherentChange",
+      "state": "source_adapted_unverified",
+      "reason": "User-approved complex-correlation magnitude adapter authored; upstream phase retained; shape/finite/physical bounds and independent acceptance test sources added. No execution yet.",
+      "blockers": []
+    },
+    {
+      "id": "GeoSARSigma0Calibration",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Original SAFE calibration/noise vector coverage, TIFF type and sensor-geolocation content validator/fixture still missing. Native OTB build receipt and artifact geolocation acceptance remain pending. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Original SAFE calibration/noise vector coverage, TIFF type and sensor-geolocation content validator/fixture still missing.",
+        "Native OTB build receipt and artifact geolocation acceptance remain pending.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "OTB SARCalibration requires original sensor calibration/noise LUTs and product metadata not preserved by the bounded array interface.",
+          "blockers": [
+            "A closed SAFE/product dependency manifest, safe copied sidecars, and independently calibrated sigma0 fixture remain unauthored; DN-only scaling would substitute an invented kernel."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json"
+    },
+    {
+      "id": "GeoInSARClosureAmbiguityCorrection",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: CVXOPT and complete component/stack HDF5 typed-copy validation and lock missing. A single triangle has nonunique edge corrections; closure=-2pi is not a sufficient correction oracle. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "CVXOPT and complete component/stack HDF5 typed-copy validation and lock missing.",
+        "A single triangle has nonunique edge corrections; closure=-2pi is not a sufficient correction oracle.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "MintPy mutates an interferogram HDF stack and solves integer ambiguities with cvxopt/connected-component sampling.",
+          "blockers": [
+            "Safe operation-specific mutable HDF/component transport, cvxopt ABI lock and an independently identifiable multi-triangle ambiguity fixture are not authored."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json"
+    },
+    {
+      "id": "GeoInSARTroposphericDelay",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: GRIB content validation, full pressure-level/DEM vertical coverage and ecCodes/GRIB dependency identities missing. No independently supplied ERA5 fixture or complete atmospheric-delay oracle. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "GRIB content validation, full pressure-level/DEM vertical coverage and ecCodes/GRIB dependency identities missing.",
+        "No independently supplied ERA5 fixture or complete atmospheric-delay oracle.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "MintPy tropo_pyaps3 CLI includes weather acquisition; offline use needs calc_delay_timeseries plus validated local ERA5 GRIB.",
+          "blockers": [
+            "PyAPS3/GRIB native identity and local pressure-level temperature/humidity/geopotential product coverage for every acquisition UTC are unresolved; no downloads authorized."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json"
+    },
+    {
+      "id": "GeoInSARSolidEarthTideCorrection",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Fortran binary/build receipt and IERS-derived notices pending. Independent same-ephemeris/time reference and complete masked LOS reference/correction fixture missing. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Fortran binary/build receipt and IERS-derived notices pending.",
+        "Independent same-ephemeris/time reference and complete masked LOS reference/correction fixture missing.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "Compiled PySolid kernel is required. Located v0.3.4 release does not yet close reviewed source/build/license identity.",
+          "blockers": [
+            "Need pinned licensed Fortran CPU build, acquisition UTC/tide references and independent nonzero tide oracle; no local replacement formula."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json"
+    },
+    {
+      "id": "GeoInSARMultilookClosureBias",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: ISCE2/SNAPHU source/build/license/transitive receipts and safe fixed native launch chain missing. No independently anchored nonzero bias example with complete closure-stack acquisition graph. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "ISCE2/SNAPHU source/build/license/transitive receipts and safe fixed native launch chain missing.",
+        "No independently anchored nonzero bias example with complete closure-stack acquisition graph.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "MintPy closure_phase_bias estimate path calls ISCE2/SNAPHU unwrapping; it is not a standalone Python kernel.",
+          "blockers": [
+            "No reviewed private ISCE2/SNAPHU identity/license/fixed nested-process transport, sequential-network contract or independent closure-bias fixture."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json"
+    },
+    {
+      "id": "GeoInSARSentinelInterplatformRangeBias",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Original SAFE/HDF5 content binding and georeferenced artifact producer remain pending. Upstream exact-zero bias becomes NaN; source rejects this domain instead of fabricating zero. Per-IW geometry summaries not inferred from array columns. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Original SAFE/HDF5 content binding and georeferenced artifact producer remain pending.",
+        "Upstream exact-zero bias becomes NaN; source rejects this domain instead of fabricating zero.",
+        "Per-IW geometry summaries not inferred from array columns.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "Data-estimation path reads inputs/geometryRadar.h5, derives IW masks from nonzero height and maps SAFE acquisition identity to A/B dates.",
+          "blockers": [
+            "Need closed three-IW-swath/SAFE-date/radar-geometry transport and independent recoverable bias fixture; genuine zero elevation must not silently become missing swath evidence."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json"
+    },
+    {
+      "id": "GeoRemoteAtmosphericRadiativeTransfer",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Underlying/component license review, fixed native binary/build receipt and safely bounded execution missing. No version-bound nontrivial independent atmosphere vector or validated vacuum-mode configuration. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Underlying/component license review, fixed native binary/build receipt and safely bounded execution missing.",
+        "No version-bound nontrivial independent atmosphere vector or validated vacuum-mode configuration.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "Py6S wraps an external 6S engine; reviewed matching native version/source/license/identity is not established.",
+          "blockers": [
+            "Confirm Py6S source/release correspondence and independently license/pin CPU 6S binary before fixed transport and oracle authoring."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json"
+    },
+    {
+      "id": "GeoRemoteCanopySoilRadiativeTransfer",
+      "state": "blocked",
+      "reason": "r6 source/evidence prepared; still blocked: Full dependency lock, packaged spectral-data identity and redistribution review remain pending. parent_owned_fixed_private_cpu_artifact_bridge_missing required_independent_scientific_acceptance_not_executed",
+      "blockers": [
+        "Full dependency lock, packaged spectral-data identity and redistribution review remain pending.",
+        "parent_owned_fixed_private_cpu_artifact_bridge_missing",
+        "required_independent_scientific_acceptance_not_executed"
+      ],
+      "resolution_history": [
+        {
+          "revision": "prior-to-blocked-r6",
+          "reason": "Inspected jgomezdans/prosail root and setup.py do not establish redistribution license.",
+          "blockers": [
+            "Explicit authoritative PROSAIL license and reviewed release/source identity are required; no invented license or replacement canopy formula."
+          ]
+        }
+      ],
+      "resolution_evidence": "catalog/source_delivery/expansion501-20261026/groups/remote/blocked-r6/assessment.json"
+    }
+  ]
+}

@@ -1,0 +1,1896 @@
+{
+  "GeoSpatialFlowNetworkUpscaleIHU": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "d8": [
+        [
+          1,
+          1,
+          1,
+          4
+        ],
+        [
+          1,
+          1,
+          1,
+          4
+        ],
+        [
+          1,
+          1,
+          1,
+          4
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "scale_factor": 2,
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "d8": "D8_code"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialFlowNetworkUpscaleIHU.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Synthetic 4x4 all-east-then-south network, scale 2: coarse east-then-south topology [[1,4],[1,0]], cell side 2 m; final outlet source index 15. Check routing to one terminal independently of upstream outlet choices.",
+    "negative_cases": [
+      "cycle",
+      "off-grid receiver",
+      "EPSG:4326",
+      "fractional scale",
+      "NoData 255"
+    ],
+    "output_schema_ref": "GeoSpatialFlowNetworkUpscaleIHU.output_schema"
+  },
+  "GeoSpatialFloodplainStageStorage": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 2,
+      "nodata_policy": "reject_missing",
+      "d8": [
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "hand_m": [
+        [
+          3,
+          1,
+          0
+        ]
+      ],
+      "outlet_indices": [
+        2
+      ],
+      "stages_m": [
+        1,
+        2,
+        4
+      ],
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "hand_m": "m",
+        "stages_m": "m",
+        "d8": "D8_code"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialFloodplainStageStorage.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Synthetic cells with areas 4 m2 and HAND [3,1,0] draining to index 2: stages [1,2,4] give [4,12,32] m3 by sum(area*max(stage-HAND,0)).",
+    "negative_cases": [
+      "negative HAND",
+      "nonincreasing stage",
+      "outlet outside grid",
+      "nonzero HAND at outlet",
+      "wrong CRS"
+    ],
+    "output_schema_ref": "GeoSpatialFloodplainStageStorage.output_schema"
+  },
+  "GeoSpatialCoverageSimplification": {
+    "input": {
+      "crs": "EPSG:32631",
+      "polygons_wkt": [
+        "POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))",
+        "POLYGON ((1 0, 2 0, 2 1, 1 1, 1 0))"
+      ],
+      "tolerance_m": 0.2,
+      "units": {
+        "tolerance_m": "m",
+        "geometry_coordinates": "m"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialCoverageSimplification.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Two adjacent unit squares stay a gap-free partition with total area 2 m2 and unchanged outer boundary; shared edge coordinates agree in both polygons.",
+    "negative_cases": [
+      "overlapping polygons",
+      "invalid ring",
+      "Z geometry",
+      "geographic CRS",
+      "negative tolerance"
+    ],
+    "output_schema_ref": "GeoSpatialCoverageSimplification.output_schema"
+  },
+  "GeoSpatialConservativeArealTransfer": {
+    "input": {
+      "crs": "EPSG:32631",
+      "source_wkt": [
+        "POLYGON ((0 0, 2 0, 2 1, 0 1, 0 0))",
+        "POLYGON ((2 0, 4 0, 4 1, 2 1, 2 0))"
+      ],
+      "target_wkt": [
+        "POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))",
+        "POLYGON ((1 0, 2 0, 2 1, 1 1, 1 0))",
+        "POLYGON ((2 0, 3 0, 3 1, 2 1, 2 0))",
+        "POLYGON ((3 0, 4 0, 4 1, 3 1, 3 0))"
+      ],
+      "source_totals": [
+        100,
+        200
+      ],
+      "quantity_unit": "kg",
+      "units": {
+        "geometry_coordinates": "m",
+        "source_totals": "declared_quantity_unit"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialConservativeArealTransfer.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Totals 100 and 200 kg on two equal-area source rectangles, each bisected: target totals [50,50,100,100], global mass 300 kg.",
+    "negative_cases": [
+      "unequal footprints",
+      "overlapping targets",
+      "negative total",
+      "length mismatch",
+      "CRS in degrees"
+    ],
+    "output_schema_ref": "GeoSpatialConservativeArealTransfer.output_schema"
+  },
+  "GeoSpatialGroundwaterZoneBudget": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "budget_path": "assets/expansion501-spatial/fixtures/two-zone.cbc",
+      "zones": [
+        [
+          [
+            1,
+            2
+          ]
+        ]
+      ],
+      "time_step_period": [
+        0,
+        0
+      ],
+      "budget_format": "classic_le_single_full_array",
+      "flow_unit": "m3/s",
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "zones": "zone_id"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialGroundwaterZoneBudget.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Synthetic two-cell budget: WELLS [+3,-3] m3/s and right-face flux [3,0]. Zone1 FROM_WELLS=3, TO_ZONE_2=3; Zone2 FROM_ZONE_1=3, TO_WELLS=3; both residuals 0.",
+    "negative_cases": [
+      "absolute path",
+      "symlink",
+      "negative NLAY compact header",
+      "truncation",
+      "shape mismatch",
+      "missing face term",
+      "wrong flow unit"
+    ],
+    "output_schema_ref": "GeoSpatialGroundwaterZoneBudget.output_schema"
+  },
+  "GeoSpatialDarcySpecificDischarge": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 2,
+      "nodata_policy": "reject_missing",
+      "top_m": [
+        [
+          5,
+          5
+        ],
+        [
+          5,
+          5
+        ]
+      ],
+      "bottom_m": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      ],
+      "saturation": "fully_saturated_active_cells",
+      "east_face_flux_m3_s": [
+        [
+          [
+            20,
+            20,
+            20
+          ],
+          [
+            20,
+            20,
+            20
+          ]
+        ]
+      ],
+      "north_face_flux_m3_s": [
+        [
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
+          ],
+          [
+            30,
+            30
+          ]
+        ]
+      ],
+      "up_face_flux_m3_s": [
+        [
+          [
+            16,
+            16
+          ],
+          [
+            16,
+            16
+          ]
+        ],
+        [
+          [
+            16,
+            16
+          ],
+          [
+            16,
+            16
+          ]
+        ]
+      ],
+      "flux_convention": "extended_faces_positive_east_north_up",
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "top_m": "m",
+        "bottom_m": "m",
+        "east_face_flux_m3_s": "m3/s",
+        "north_face_flux_m3_s": "m3/s",
+        "up_face_flux_m3_s": "m3/s"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialDarcySpecificDischarge.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "dx=2 m, thickness=5 m: side areas 10 m2 and horizontal area 4 m2; Qeast=20,Qnorth=30,Qup=16 m3/s yield q=(2,3,4) m/s on all faces.",
+    "negative_cases": [
+      "nonpositive thickness",
+      "incorrect face dimension",
+      "dry saturation mode",
+      "bad flux convention",
+      "degree CRS"
+    ],
+    "output_schema_ref": "GeoSpatialDarcySpecificDischarge.output_schema"
+  },
+  "GeoSpatialScreenedTransmissivity": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "top_m": [
+        [
+          10
+        ]
+      ],
+      "bottom_m": [
+        [
+          [
+            5
+          ]
+        ],
+        [
+          [
+            0
+          ]
+        ]
+      ],
+      "saturation": "heads_explicit",
+      "conductivity_m_s": [
+        [
+          [
+            0.01
+          ]
+        ],
+        [
+          [
+            0.002
+          ]
+        ]
+      ],
+      "heads_m": [
+        [
+          [
+            10
+          ]
+        ],
+        [
+          [
+            10
+          ]
+        ]
+      ],
+      "well_row_col": [
+        [
+          0,
+          0
+        ]
+      ],
+      "screen_top_m": [
+        10
+      ],
+      "screen_bottom_m": [
+        0
+      ],
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "top_m": "m",
+        "bottom_m": "m",
+        "conductivity_m_s": "m/s",
+        "heads_m": "m",
+        "screen_top_m": "m",
+        "screen_bottom_m": "m"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialScreenedTransmissivity.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Two 5 m saturated screened layers, K=[.01,.002] m/s: transmissivities [.05,.01] m2/s and total .06 m2/s; shortened 3 m first-layer interval gives .03 m2/s.",
+    "negative_cases": [
+      "screen outside model",
+      "screen inverted",
+      "nonpositive K",
+      "dry layer",
+      "index out of bounds"
+    ],
+    "output_schema_ref": "GeoSpatialScreenedTransmissivity.output_schema"
+  },
+  "GeoSpatialRPCGeolocation": {
+    "input": {
+      "rpc": {
+        "height_off": 0,
+        "lat_off": 0,
+        "line_off": 0,
+        "long_off": 0,
+        "samp_off": 0,
+        "height_scale": 1000,
+        "lat_scale": 1,
+        "line_scale": 1,
+        "long_scale": 1,
+        "samp_scale": 1,
+        "line_den_coeff": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "line_num_coeff": [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "samp_den_coeff": [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "samp_num_coeff": [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "image_shape": [
+        2,
+        2
+      ],
+      "rows": [
+        0
+      ],
+      "cols": [
+        0
+      ],
+      "height_m": [
+        0
+      ],
+      "height_datum": "WGS84_ellipsoid",
+      "pixel_reference": "centre_zero_based",
+      "units": {
+        "height_m": "m",
+        "rpc_coefficients": "1",
+        "rpc_angles": "degree",
+        "rpc_image_axes": "pixel",
+        "rpc_height": "m",
+        "rows": "pixel",
+        "cols": "pixel"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialRPCGeolocation.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Synthetic linear RPC line=P,sample=L with all offsets zero and scales one: pixel centre row=col=0 at ellipsoid height 0 gives lon=lat=0. Off-centre sample explicitly checks GDAL pixel-centre convention.",
+    "negative_cases": [
+      "zero scale",
+      "zero denominator",
+      "orthometric height datum",
+      "query outside image",
+      "height outside calibration"
+    ],
+    "output_schema_ref": "GeoSpatialRPCGeolocation.output_schema"
+  },
+  "GeoSpatialGCPGeoreferencing": {
+    "input": {
+      "crs": "EPSG:32631",
+      "control_row_col_xy": [
+        [
+          0,
+          0,
+          100,
+          200
+        ],
+        [
+          0,
+          10,
+          120,
+          200
+        ],
+        [
+          10,
+          0,
+          100,
+          170
+        ],
+        [
+          10,
+          10,
+          120,
+          170
+        ]
+      ],
+      "query_row_col": [
+        [
+          5,
+          5
+        ]
+      ],
+      "pixel_reference": "corner_zero_based",
+      "units": {
+        "control_pixel_axes": "pixel",
+        "control_ground_axes": "m",
+        "query_row_col": "pixel"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialGCPGeoreferencing.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Affine-compatible controls x=100+2*col,y=200-3*row are reproduced exactly by TPS; row=col=5 -> (110,185) m.",
+    "negative_cases": [
+      "collinear controls",
+      "duplicate controls",
+      "query outside hull",
+      "geographic CRS",
+      "wrong coordinate width"
+    ],
+    "output_schema_ref": "GeoSpatialGCPGeoreferencing.output_schema"
+  },
+  "GeoSpatialLocalHeteroscedasticity": {
+    "input": {
+      "crs": "EPSG:32631",
+      "values": [
+        0,
+        0,
+        0,
+        2
+      ],
+      "neighbors": [
+        [
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "value_unit": "m",
+      "units": {
+        "values": "declared_value_unit"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialLocalHeteroscedasticity.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Binary-weight four-node chain with y=[0,0,0,2]: local means [0,0,1,0], squared residuals [0,0,1,4], global mean 1.25; Hi=[0,.4,1.6,.8].",
+    "negative_cases": [
+      "constant values",
+      "island",
+      "asymmetric adjacency",
+      "nonfinite value",
+      "wrong CRS"
+    ],
+    "output_schema_ref": "GeoSpatialLocalHeteroscedasticity.output_schema"
+  },
+  "GeoSpatialContiguousRegionalization": {
+    "input": {
+      "crs": "EPSG:32631",
+      "attributes": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          10
+        ],
+        [
+          11
+        ]
+      ],
+      "neighbors": [
+        [
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "regions": 2,
+      "minimum_region_size": 2,
+      "attribute_unit": "1",
+      "units": {
+        "attributes": "1"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialContiguousRegionalization.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Four-node chain features [0,1,10,11], two regions of at least two: only feasible connected split [0,0,1,1], within-region absolute deviations total 2.",
+    "negative_cases": [
+      "disconnected graph",
+      "zero-dissimilarity edge",
+      "infeasible floor",
+      "mixed units",
+      "asymmetric graph"
+    ],
+    "output_schema_ref": "GeoSpatialContiguousRegionalization.output_schema"
+  },
+  "GeoSpatialKnoxSpaceTimeInteraction": {
+    "input": {
+      "crs": "EPSG:32631",
+      "points_xy_m": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "times_s": [
+        0,
+        1,
+        10
+      ],
+      "distance_m": 2,
+      "time_s": 2,
+      "time_reference": "common_epoch_seconds",
+      "units": {
+        "points_xy_m": "m",
+        "times_s": "s",
+        "distance_m": "m",
+        "time_s": "s"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialKnoxSpaceTimeInteraction.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Three events at x=[0,1,10] and t=[0,1,10], thresholds 2: one of three unordered pairs is jointly close; independent-margin expected joint count=1/3.",
+    "negative_cases": [
+      "length mismatch",
+      "negative threshold",
+      "invalid time reference",
+      "degree CRS",
+      "nonfinite epoch"
+    ],
+    "output_schema_ref": "GeoSpatialKnoxSpaceTimeInteraction.output_schema"
+  },
+  "GeoSpatialRipleyKObservedWindow": {
+    "input": {
+      "crs": "EPSG:32631",
+      "points_xy_m": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "radii_m": [
+        0.5,
+        1.1,
+        1.5
+      ],
+      "window_policy": "observed_bounding_box",
+      "edge_correction": "none",
+      "units": {
+        "points_xy_m": "m",
+        "radii_m": "m"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialRipleyKObservedWindow.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Four unit-square corners, area=1,n=4: unordered pairs within [.5,1.1,1.5] are [0,4,6]; K=2*A*pairs/n^2=[0,.5,.75] m2.",
+    "negative_cases": [
+      "collinear cloud",
+      "duplicate points",
+      "custom window mode",
+      "nonincreasing radii",
+      "degree CRS"
+    ],
+    "output_schema_ref": "GeoSpatialRipleyKObservedWindow.output_schema"
+  },
+  "GeoSpatialRegionBoundarySilhouette": {
+    "input": {
+      "crs": "EPSG:32631",
+      "attributes": [
+        [
+          0
+        ],
+        [
+          0
+        ],
+        [
+          10
+        ],
+        [
+          10
+        ]
+      ],
+      "labels": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "neighbors": [
+        [
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2
+        ]
+      ],
+      "attribute_unit": "1",
+      "units": {
+        "attributes": "1",
+        "labels": "region_id"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialRegionBoundarySilhouette.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Four-node chain with features [0,0,10,10], labels [0,0,1,1]: two boundary nodes have zero within and positive cross distance -> 1; two interior nodes -> upstream convention 0.",
+    "negative_cases": [
+      "singleton region",
+      "asymmetric graph",
+      "label length mismatch",
+      "nonfinite features",
+      "wrong units"
+    ],
+    "output_schema_ref": "GeoSpatialRegionBoundarySilhouette.output_schema"
+  },
+  "GeoSpatialLineworkPolygonTopology": {
+    "input": {
+      "crs": "EPSG:32631",
+      "lines_wkt": [
+        "LINESTRING (0 0, 1 0)",
+        "LINESTRING (1 0, 1 1)",
+        "LINESTRING (1 1, 0 1)",
+        "LINESTRING (0 1, 0 0)",
+        "LINESTRING (1 1, 2 1)"
+      ],
+      "input_policy": "already_noded_no_repair",
+      "units": {
+        "geometry_coordinates": "m"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialLineworkPolygonTopology.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Four unit-square edges plus one spur: exactly one polygon of area 1 m2 and one dangle; no cut edges or invalid rings.",
+    "negative_cases": [
+      "empty line",
+      "Z line",
+      "polygon instead of line",
+      "invalid WKT",
+      "degree CRS"
+    ],
+    "output_schema_ref": "GeoSpatialLineworkPolygonTopology.output_schema"
+  },
+  "GeoSpatialChannelFrechetDeviation": {
+    "input": {
+      "crs": "EPSG:32631",
+      "reference_wkt": "LINESTRING (0 0, 10 0)",
+      "survey_wkt": "LINESTRING (0 2, 10 2)",
+      "direction_policy": "input_order_preserved",
+      "units": {
+        "geometry_coordinates": "m"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialChannelFrechetDeviation.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Parallel 10 m lines separated by 2 m have discrete Frechet=2 m; reversing the second line gives sqrt(104) m, establishing traversal-order sensitivity.",
+    "negative_cases": [
+      "empty lines",
+      "Z coordinates",
+      "polygon input",
+      "geographic CRS",
+      "nonfinite coordinates"
+    ],
+    "output_schema_ref": "GeoSpatialChannelFrechetDeviation.output_schema"
+  },
+  "GeoSpatialEventKernelDensity": {
+    "input": {
+      "crs": "EPSG:32631",
+      "events_xy_m": [
+        [
+          0,
+          0
+        ]
+      ],
+      "query_xy_m": [
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "bandwidth_m": 2,
+      "normalization": "probability",
+      "units": {
+        "events_xy_m": "m",
+        "query_xy_m": "m",
+        "bandwidth_m": "m"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialEventKernelDensity.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "One event, bandwidth 2 m: origin density 1/(8*pi) m^-2; at x=2 density exp(-1/2)/(8*pi).",
+    "negative_cases": [
+      "nonpositive bandwidth",
+      "empty events",
+      "shape mismatch",
+      "degree CRS",
+      "NaN"
+    ],
+    "output_schema_ref": "GeoSpatialEventKernelDensity.output_schema"
+  },
+  "GeoSpatialDensityConnectedSiteClusters": {
+    "input": {
+      "crs": "EPSG:32631",
+      "points_xy_m": [
+        [
+          0,
+          0
+        ],
+        [
+          0.5,
+          0
+        ],
+        [
+          10,
+          0
+        ]
+      ],
+      "radius_m": 1,
+      "minimum_samples": 2,
+      "units": {
+        "points_xy_m": "m",
+        "radius_m": "m"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialDensityConnectedSiteClusters.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Sites x=[0,.5,10], epsilon=1,min_samples=2 -> labels [0,0,-1], one noise site; graph connectivity independently identifies cluster.",
+    "negative_cases": [
+      "duplicate sites",
+      "invalid min_samples",
+      "negative radius",
+      "geographic CRS",
+      "nonfinite XY"
+    ],
+    "output_schema_ref": "GeoSpatialDensityConnectedSiteClusters.output_schema"
+  },
+  "GeoSpatialHillslopeDiffusionStep": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "boundary": "fixed_value",
+      "elevation_m": [
+        [
+          8,
+          5,
+          4,
+          5,
+          8
+        ],
+        [
+          5,
+          2,
+          1,
+          2,
+          5
+        ],
+        [
+          4,
+          1,
+          0,
+          1,
+          4
+        ],
+        [
+          5,
+          2,
+          1,
+          2,
+          5
+        ],
+        [
+          8,
+          5,
+          4,
+          5,
+          8
+        ]
+      ],
+      "diffusivity_m2_s": 0.1,
+      "dt_s": 0.1,
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "elevation_m": "m",
+        "diffusivity_m2_s": "m2/s",
+        "dt_s": "s"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialHillslopeDiffusionStep.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Synthetic z=x^2+y^2 on 1 m grid: central 2D Laplacian=4; K=.1 m2/s,dt=.1 s -> centre elevation increase .04 m. Fixed guard nodes unchanged.",
+    "negative_cases": [
+      "unstable dt",
+      "nonpositive K",
+      "nonfinite elevation",
+      "missing guard nodes",
+      "degree CRS"
+    ],
+    "output_schema_ref": "GeoSpatialHillslopeDiffusionStep.output_schema"
+  },
+  "GeoSpatialStreamPowerErosionStep": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "boundary": "fixed_value",
+      "elevation_m": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "erodibility_s_inverse": 0.1,
+      "dt_s": 1,
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "elevation_m": "m",
+        "erodibility_s_inverse": "1/s",
+        "dt_s": "s"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialStreamPowerErosionStep.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Synthetic one-core-node 3x3 DEM: centre z=1, west fixed outlet z=0, all other neighbors z=2, dx=1,A=1,K=.1,dt=1 -> implicit z_new=1/(1+.1)=10/11 m. Guard nodes unchanged.",
+    "negative_cases": [
+      "negative erodibility",
+      "wrong time unit",
+      "nonfinite DEM",
+      "boundary mode change",
+      "degree CRS"
+    ],
+    "output_schema_ref": "GeoSpatialStreamPowerErosionStep.output_schema"
+  },
+  "GeoSpatialChannelChiCoordinate": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "boundary": "fixed_value",
+      "elevation_m": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ]
+      ],
+      "reference_area_m2": 1,
+      "minimum_area_m2": 1,
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "elevation_m": "m",
+        "reference_area_m2": "m2",
+        "minimum_area_m2": "m2"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialChannelChiCoordinate.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Independent path integral: when all contributing path nodes have A=A0, chi increments equal physical path lengths; a two-link 1 m path is chi=2 m. Also chi scales as sqrt(A0) with fixed area/routing. Masks must exclude nonchannels rather than report them as valid zero.",
+    "negative_cases": [
+      "nonpositive A0",
+      "nonpositive channel threshold",
+      "nonfinite grid",
+      "degree CRS",
+      "wrong area unit"
+    ],
+    "output_schema_ref": "GeoSpatialChannelChiCoordinate.output_schema"
+  },
+  "GeoSpatialUnconfinedGroundwaterStep": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "boundary": "closed",
+      "elevation_m": [
+        [
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        [
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        [
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        [
+          10,
+          10,
+          10,
+          10,
+          10
+        ],
+        [
+          10,
+          10,
+          10,
+          10,
+          10
+        ]
+      ],
+      "aquifer_base_m": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "water_table_m": [
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "conductivity_m_s": 0.001,
+      "porosity": 0.2,
+      "recharge_m_s": 0,
+      "dt_s": 1,
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "elevation_m": "m",
+        "aquifer_base_m": "m",
+        "water_table_m": "m",
+        "conductivity_m_s": "m/s",
+        "recharge_m_s": "m/s",
+        "dt_s": "s",
+        "porosity": "1"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialUnconfinedGroundwaterStep.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Flat closed aquifer with uniform 2 m head, base 0, land 10 and no recharge remains head=2 m and thickness=2 m exactly; no lateral gradient gives zero transport.",
+    "negative_cases": [
+      "base>=head",
+      "head>=surface",
+      "porosity>1",
+      "unstable timestep",
+      "degree CRS"
+    ],
+    "output_schema_ref": "GeoSpatialUnconfinedGroundwaterStep.output_schema"
+  },
+  "GeoSpatialOverlandFlowStep": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "boundary": "closed",
+      "elevation_m": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "water_depth_m": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ],
+      "dt_s": 0.1,
+      "rainfall_m_s": 0.00001,
+      "mannings_n": 0.03,
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "elevation_m": "m",
+        "water_depth_m": "m",
+        "dt_s": "s",
+        "rainfall_m_s": "m/s",
+        "mannings_n": "s/m^(1/3)"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSpatialOverlandFlowStep.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Flat closed wet grid h=.1 m, rainfall 1e-5 m/s, dt=.1 s: every core depth=.100001 m and every link q=0. Boundary guard values retained. Initial h_init=0 prevents hidden added water.",
+    "negative_cases": [
+      "dry cell",
+      "CFL violation",
+      "negative rain",
+      "Manning n outside domain",
+      "degree CRS"
+    ],
+    "output_schema_ref": "GeoSpatialOverlandFlowStep.output_schema"
+  },
+  "GeoMarineCarbonateAccretion": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "boundary": "fixed_value",
+      "elevation_m": [
+        [
+          -10,
+          -10,
+          -10,
+          -10,
+          -10
+        ],
+        [
+          -10,
+          -10,
+          -10,
+          -10,
+          -10
+        ],
+        [
+          -10,
+          -10,
+          -10,
+          -10,
+          -10
+        ],
+        [
+          -10,
+          -10,
+          -10,
+          -10,
+          -10
+        ],
+        [
+          -10,
+          -10,
+          -10,
+          -10,
+          -10
+        ]
+      ],
+      "sea_level_m": 0,
+      "dt_years": 1,
+      "maximum_rate_m_year": 0.01,
+      "extinction_m_inverse": 0.1,
+      "surface_light": 2000,
+      "saturating_light": 400,
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "elevation_m": "m",
+        "sea_level_m": "m",
+        "dt_years": "year",
+        "maximum_rate_m_year": "m/year",
+        "extinction_m_inverse": "1/m",
+        "surface_light": "microEinstein/m2/s",
+        "saturating_light": "microEinstein/m2/s"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoMarineCarbonateAccretion.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Uniform 10 m water depth: rate=.01*tanh(5*exp(-1)) m/year; dt=1 gives that thickness at each core. Surface light=0 gives exactly zero accretion. Outer nodes unchanged.",
+    "negative_cases": [
+      "emergent node",
+      "step could emerge",
+      "zero saturating light",
+      "negative extinction",
+      "wrong time unit"
+    ],
+    "output_schema_ref": "GeoMarineCarbonateAccretion.output_schema"
+  },
+  "GeoRegolithProductionRate": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "boundary": "fixed_value",
+      "soil_depth_m": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "maximum_rate_m_year": 0.01,
+      "decay_depth_m": 1,
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "soil_depth_m": "m",
+        "maximum_rate_m_year": "m/year",
+        "decay_depth_m": "m"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoRegolithProductionRate.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "At H=0, H=Hstar and H=2Hstar, rates W0, W0/e and W0/e^2; e.g. W0=.01 m/year, Hstar=1 m gives .0036787944117 at H=1.",
+    "negative_cases": [
+      "negative soil depth",
+      "zero decay depth",
+      "negative maximum rate",
+      "degree CRS",
+      "wrong rate unit"
+    ],
+    "output_schema_ref": "GeoRegolithProductionRate.output_schema"
+  },
+  "GeoLithosphereFlexure": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1000,
+      "nodata_policy": "reject_missing",
+      "boundary": "fixed_value",
+      "pressure_increment_pa": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "elastic_thickness_m": 65000,
+      "youngs_modulus_pa": 70000000000,
+      "mantle_density_kg_m3": 3300,
+      "load_outside_grid": "zero",
+      "plate_extent": "infinite",
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "pressure_increment_pa": "Pa",
+        "elastic_thickness_m": "m",
+        "youngs_modulus_pa": "Pa",
+        "mantle_density_kg_m3": "kg/m3"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoLithosphereFlexure.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Zero load produces exactly zero deflection. For a single point-cell force F=p*dx^2: centre w(0)=F/(8*rho*g*alpha^2), alpha=(D/(rho*g))^(1/4), D=E*Te^3/[12*(1-.25^2)]; verify alpha definition against pinned component and isotropic symmetry.",
+    "negative_cases": [
+      "nonpositive Te",
+      "nonpositive density",
+      "more than 256 nodes",
+      "negative load in this bounded interface",
+      "degree CRS"
+    ],
+    "output_schema_ref": "GeoLithosphereFlexure.output_schema"
+  },
+  "GeoSedimentTracerDiffusion": {
+    "input": {
+      "crs": "EPSG:32631",
+      "origin_xy_m": [
+        500000,
+        1000
+      ],
+      "cell_size_m": 1,
+      "nodata_policy": "reject_missing",
+      "boundary": "closed",
+      "elevation_m": [
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "soil_depth_m": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "concentration_kg_m3": [
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        [
+          2,
+          2,
+          2,
+          2,
+          2
+        ]
+      ],
+      "bedrock_concentration_kg_m3": [
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ],
+        [
+          3,
+          3,
+          3,
+          3,
+          3
+        ]
+      ],
+      "production_m_year": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0.01,
+          0.01,
+          0.01,
+          0
+        ],
+        [
+          0,
+          0.01,
+          0.01,
+          0.01,
+          0
+        ],
+        [
+          0,
+          0.01,
+          0.01,
+          0.01,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "dt_years": 0.1,
+      "transport_velocity_m_year": 0.01,
+      "transport_decay_m": 1,
+      "units": {
+        "origin_xy_m": "m",
+        "cell_size_m": "m",
+        "elevation_m": "m",
+        "soil_depth_m": "m",
+        "concentration_kg_m3": "kg/m3",
+        "bedrock_concentration_kg_m3": "kg/m3",
+        "production_m_year": "m/year",
+        "dt_years": "year",
+        "transport_velocity_m_year": "m/year",
+        "transport_decay_m": "m"
+      }
+    },
+    "input_path": "assets/expansion501-spatial/GeoSedimentTracerDiffusion.json",
+    "fixture_kind": "synthetic",
+    "status": "not_run",
+    "expected_behavior": "Flat terrain gives zero sediment flux. H=1,C=2,Cbed=3,R=.01 m/year,dt=.1 year: Hnew=1.001,Cnew=2.003/1.001; nine 1 m2 core cells mass increases by .027 kg. Nonflat closed domain must conserve tracer except prescribed source.",
+    "negative_cases": [
+      "nonzero boundary production",
+      "soil exhaustion dt",
+      "negative concentration",
+      "mismatched fields",
+      "wrong time unit"
+    ],
+    "output_schema_ref": "GeoSedimentTracerDiffusion.output_schema"
+  }
+}
+

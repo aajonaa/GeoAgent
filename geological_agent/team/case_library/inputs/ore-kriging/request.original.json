@@ -1,0 +1,18 @@
+{
+  "points_path": "inputs/synthetic-points.csv",
+  "crs": "EPSG:32650",
+  "value_unit": "ppm",
+  "grid": {
+    "xmin": 499950,
+    "ymin": 4399950,
+    "xmax": 500250,
+    "ymax": 4400250,
+    "width": 3,
+    "height": 3
+  },
+  "variogram_model": "linear",
+  "variogram_parameters": {
+    "slope": 0.01,
+    "nugget": 0
+  }
+}

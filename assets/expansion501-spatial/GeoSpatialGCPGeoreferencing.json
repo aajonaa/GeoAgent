@@ -1,0 +1,42 @@
+{
+  "crs": "EPSG:32631",
+  "control_row_col_xy": [
+    [
+      0,
+      0,
+      100,
+      200
+    ],
+    [
+      0,
+      10,
+      120,
+      200
+    ],
+    [
+      10,
+      0,
+      100,
+      170
+    ],
+    [
+      10,
+      10,
+      120,
+      170
+    ]
+  ],
+  "query_row_col": [
+    [
+      5,
+      5
+    ]
+  ],
+  "pixel_reference": "corner_zero_based",
+  "units": {
+    "control_pixel_axes": "pixel",
+    "control_ground_axes": "m",
+    "query_row_col": "pixel"
+  }
+}
+

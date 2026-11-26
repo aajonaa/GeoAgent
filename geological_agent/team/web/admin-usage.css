@@ -1,0 +1,128 @@
+#admin-usage-dialog{--u-green:#245b49;--u-ink:#263e33;--u-muted:#748078;--u-line:#e3e8df;width:min(1480px,96vw);max-width:96vw;height:min(960px,94dvh);max-height:94dvh;padding:0;border:1px solid #d8e1d6;border-radius:18px;background:#f6f8f2;color:var(--u-ink);font:14px/1.6 'Microsoft YaHei','PingFang SC',sans-serif;overflow:hidden;box-shadow:0 24px 100px #13291d33}
+#admin-usage-dialog[open]{display:grid;grid-template-columns:190px minmax(0,1fr)}
+#admin-usage-dialog::backdrop{background:#1e332a70;backdrop-filter:blur(4px)}
+#admin-usage-dialog button,#admin-usage-dialog input,#admin-usage-dialog select{font:inherit}
+#admin-usage-dialog button:focus-visible,#admin-usage-dialog summary:focus-visible,#admin-usage-dialog select:focus-visible,#admin-usage-dialog .usage-table-wrap:focus-visible{outline:2px solid #5f947b;outline-offset:3px}
+#admin-usage-dialog .usage-rail{background:#edf2e8;border-right:1px solid #dce5d8;display:flex;flex-direction:column;padding:30px 18px;min-height:0}
+#admin-usage-dialog .usage-brand{display:flex;gap:10px;align-items:center;margin:0 0 48px}
+#admin-usage-dialog .usage-brand-mark{background:#245b49;color:#fffdf5;border-radius:11px;width:38px;height:40px;display:grid;place-items:center;font:24px 'SimSun',serif}
+#admin-usage-dialog .usage-brand strong{display:block;font-size:15px;letter-spacing:.05em}
+#admin-usage-dialog .usage-brand small{display:block;color:#7b887b;font-size:9px;letter-spacing:.16em}
+#admin-usage-dialog .usage-rail-label{font-size:10px;letter-spacing:.14em;color:#82907f;margin:0 10px 12px}
+#admin-usage-dialog .usage-rail button{text-align:left;border-radius:8px;padding:12px 13px;font-size:13px;margin-bottom:6px}
+#admin-usage-dialog #usage-overview{background:#dce7d6;color:#28583f;font-weight:600}
+#admin-usage-dialog .usage-nav-icon{margin-right:9px;font-size:16px;vertical-align:-1px}
+#admin-usage-dialog .usage-rail-bottom{margin-top:auto;border-top:1px solid #d9e2d4;padding:18px 9px 0;color:#75816f;font-size:11px;line-height:1.9}
+#admin-usage-dialog .usage-rail-bottom strong{display:block;color:#49634e;font-weight:500;font-size:12px}
+#admin-usage-dialog .usage-workspace{min-width:0;display:flex;flex-direction:column;overflow:auto;scrollbar-gutter:stable}
+#admin-usage-dialog .usage-topline{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:21px 30px 15px;border-bottom:1px solid var(--u-line);background:#fbfcf7;flex-shrink:0}
+#admin-usage-dialog .usage-breadcrumb{font-size:11px;color:#8b968c;display:flex;gap:11px;align-items:center}
+#admin-usage-dialog .usage-breadcrumb strong{color:#405c48;font-weight:500}
+#admin-usage-dialog .usage-top-actions{display:flex;align-items:center;gap:16px}
+#admin-usage-dialog #usage-close{font-size:12px;color:#65776a;border:1px solid #dce4d6;padding:5px 10px;border-radius:7px;background:#fffef9}
+#admin-usage-dialog .usage-main{padding:24px 30px 26px}
+#admin-usage-dialog .usage-page-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:21px}
+#admin-usage-dialog .usage-eyebrow{font-size:9px;letter-spacing:.18em;color:#82917f;margin:0 0 6px}
+#admin-usage-dialog #usage-title{font-size:27px;font-weight:600;letter-spacing:-.03em;line-height:1.35;margin:0 0 9px;font-family:inherit}
+#admin-usage-dialog #usage-subtitle{font-size:12px;color:#7a877b;margin:0}
+#admin-usage-dialog .usage-heading-symbol{display:grid;place-items:center;width:50px;height:50px;border:1px solid #dbe4d5;border-radius:50%;color:#76906f;font:24px Georgia,serif;background:#f0f4e9}
+#admin-usage-dialog #usage-filter{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:13px 15px;border:1px solid var(--u-line);border-radius:10px;background:#fffefa;margin:0}
+#admin-usage-dialog #usage-filter label{display:flex;align-items:center;gap:9px;font-size:11px;color:#768172;margin:0}
+#admin-usage-dialog #usage-filter input{width:143px;padding:7px 9px;margin:0;border:1px solid #e0e6d9;background:#fcfdf9;border-radius:6px;font-size:12px;color:#425a47;min-width:0;color-scheme:light}
+#admin-usage-dialog .usage-quick-ranges{display:flex;margin-left:auto;gap:2px;border:1px solid #e1e7da;border-radius:6px;padding:2px}
+#admin-usage-dialog .usage-quick-ranges button{font-size:11px;padding:5px 9px;border-radius:4px}
+#admin-usage-dialog #usage-refresh{font-size:11px;border-radius:6px;padding:9px 14px;color:#fff;background:var(--u-green);min-width:88px}
+#admin-usage-dialog #usage-refresh:disabled{opacity:.6}
+#admin-usage-dialog .usage-message{color:#899080;font-size:10px;margin:11px 1px 17px;min-height:16px}
+#admin-usage-dialog .usage-message.is-error,#admin-usage-dialog .usage-log-error{color:#a04b35}
+#admin-usage-dialog .usage-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-bottom:20px}
+#admin-usage-dialog .usage-metric{border:1px solid #e0e7d9;background:#fffefa;border-radius:11px;padding:19px 19px 16px;min-width:0;display:flex;flex-direction:column}
+#admin-usage-dialog .usage-metric.is-primary{background:#285c48;color:#fffef5;border-color:#285c48;box-shadow:0 5px 15px #214a3510}
+#admin-usage-dialog .usage-metric-label{font-size:11px;color:#7d897b}
+#admin-usage-dialog .usage-metric strong{font:500 clamp(24px,2.3vw,32px)/1.2 'Segoe UI','Microsoft YaHei',sans-serif;letter-spacing:-.025em;margin:14px 0 11px;font-variant-numeric:tabular-nums}
+#admin-usage-dialog .usage-metric-note{font-size:10px;color:#90998a}
+#admin-usage-dialog .is-primary .usage-metric-label{color:#d1e0d2}
+#admin-usage-dialog .is-primary .usage-metric-note{color:#b4cebb}
+#admin-usage-dialog .usage-panel{background:#fffefa;border:1px solid #e0e7d9;border-radius:11px;padding:19px 20px;min-width:0}
+#admin-usage-dialog .usage-section-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:17px}
+#admin-usage-dialog .usage-section-heading h3{font-size:14px;font-weight:600;margin:0;line-height:1.5}
+#admin-usage-dialog .usage-section-heading p{font-size:10px;color:#899181;margin:5px 0 0}
+#admin-usage-dialog .usage-badge{display:inline-flex;align-items:center;width:fit-content;font-size:10px;line-height:1.6;white-space:nowrap;border-radius:5px;padding:3px 7px;color:#7b8875;background:#f1f4eb}
+#admin-usage-dialog .usage-badge.is-warning{color:#966b32;background:#faf0dd}
+#admin-usage-dialog .usage-badge.is-good{color:#50755c;background:#edf4e8}
+#admin-usage-dialog .usage-insights{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:15px;margin-bottom:20px}
+#admin-usage-dialog .usage-model-chart{display:grid;gap:15px;padding-top:2px}
+#admin-usage-dialog .usage-model-label{display:flex;gap:14px;justify-content:space-between;font-size:10px;color:#53684f;margin-bottom:7px}
+#admin-usage-dialog .usage-model-label span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#admin-usage-dialog .usage-model-label strong{font-weight:400;font-variant-numeric:tabular-nums;white-space:nowrap;color:#86917d}
+#admin-usage-dialog meter{width:100%;height:5px;display:block;border:0;background:#eef2e6;border-radius:4px}
+#admin-usage-dialog meter::-webkit-meter-bar{height:5px;background:#eef2e6;border:0;border-radius:4px}
+#admin-usage-dialog meter::-webkit-meter-optimum-value{background:#809b72;border-radius:4px}
+#admin-usage-dialog meter::-moz-meter-bar{background:#809b72;border-radius:4px}
+#admin-usage-dialog .usage-model-row:nth-child(2) meter::-webkit-meter-optimum-value{background:#a5b994}
+#admin-usage-dialog .usage-activity-row{display:flex;justify-content:space-between;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid #edf0e5}
+#admin-usage-dialog .usage-activity-row:last-child{border-bottom:0;padding-bottom:0}
+#admin-usage-dialog .usage-activity-row span{font-size:11px;color:#7c8878}
+#admin-usage-dialog .usage-activity-row strong{font-weight:500;font-size:16px;font-variant-numeric:tabular-nums;color:#526b4b}
+#admin-usage-dialog .usage-user-tools{display:flex;justify-content:space-between;gap:14px;margin-bottom:17px}
+#admin-usage-dialog .usage-user-tools input{width:260px;padding:8px 12px;border:1px solid #e1e7d9;border-radius:7px;font-size:11px;background:#fbfcf7}
+#admin-usage-dialog .usage-user-tools select{padding:6px 10px;max-width:100%;font-size:10px;color:#788371;border:1px solid #e1e7d9;border-radius:7px;background:#fffefa}
+#admin-usage-dialog .usage-table-wrap{overflow:auto;border:1px solid #e7ebdf;border-radius:7px;max-height:57vh}
+#admin-usage-dialog table{width:100%;border-collapse:separate;border-spacing:0;font-size:11px}
+#admin-usage-dialog th{position:sticky;top:0;background:#f3f6ed;text-align:left;font-size:10px;font-weight:500;color:#7b8972;padding:12px 13px;white-space:nowrap;z-index:1}
+#admin-usage-dialog td{padding:14px 13px;max-width:320px;border-top:1px solid #edf0e6;color:#63765d;vertical-align:middle;white-space:pre-wrap;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+#admin-usage-dialog tbody tr:hover td{background:#fafbf5}
+#admin-usage-dialog td:first-child{min-width:145px}
+#admin-usage-dialog .usage-identity{display:flex;align-items:center;gap:9px;min-width:0}
+#admin-usage-dialog .usage-avatar{height:30px;width:30px;flex-shrink:0;border-radius:9px;display:grid;place-items:center;font-size:11px;font-weight:600;color:#74896a;background:#edf2e4}
+#admin-usage-dialog .usage-identity strong{font-size:11px;font-weight:500;color:#3e593c;display:block;max-width:145px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#admin-usage-dialog td small{display:block;font-size:9px;color:#98a08e;margin-top:3px}
+#admin-usage-dialog .usage-token-cell strong{font-weight:500;color:#4e6547}
+#admin-usage-dialog .usage-link{padding:5px 0;font-size:10px;color:#3d7352;white-space:nowrap}
+#admin-usage-dialog .usage-link:hover{text-decoration:underline;background:transparent;text-underline-offset:4px}
+#admin-usage-dialog .usage-button{padding:7px 11px;border:1px solid #dfe6d6;border-radius:6px;font-size:11px;background:#fffefa;color:#59714f}
+#admin-usage-dialog .usage-button:disabled{opacity:.4;cursor:default}
+#admin-usage-dialog .usage-caption{color:#8b9582;font-size:10px}
+#admin-usage-dialog .usage-coverage{font-size:11px;color:#87917e;margin-top:18px;padding:14px 3px 0;border-top:1px solid #e1e6d8}
+#admin-usage-dialog .usage-coverage summary{cursor:pointer;width:fit-content;font-size:10px;color:#7e8b74}
+#admin-usage-dialog .usage-coverage p{font-size:11px;line-height:1.9;max-width:900px}
+#admin-usage-dialog .usage-empty,#admin-usage-dialog .usage-loading{padding:36px 20px;text-align:center;color:#91a083;font-size:12px}
+#admin-usage-dialog .usage-alert{background:#fbf3e4;border:1px solid #ebdfc7;border-radius:7px;font-size:11px;color:#9b773d;padding:11px 14px;margin:0 0 18px}
+#admin-usage-dialog .usage-detail-heading{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+#admin-usage-dialog .usage-detail-name{font-size:15px;font-weight:600;overflow-wrap:anywhere;min-width:0}
+#admin-usage-dialog .usage-detail-heading .usage-link{margin-right:5px}
+#admin-usage-dialog .usage-tabs{display:flex;gap:8px;border-bottom:1px solid #dfe6d7;margin-bottom:17px;overflow:auto;scrollbar-width:thin}
+#admin-usage-dialog .usage-tabs button{white-space:nowrap;padding:11px 10px 13px;border-radius:0;font-size:11px;border-bottom:2px solid transparent;color:#8a9580;margin-bottom:-1px}
+#admin-usage-dialog .usage-tabs button[aria-selected=true]{border-color:#3c704e;color:#305e3d;font-weight:600;background:transparent}
+#admin-usage-dialog .usage-tab-panel>.usage-section-heading:not(:first-child){margin-top:25px}
+#admin-usage-dialog .usage-pager{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:15px}
+#admin-usage-dialog .usage-pager>span{font-size:10px;color:#8d9782;margin-right:auto}
+#admin-usage-dialog .usage-run-id{color:#91a080;font-size:10px;white-space:nowrap}
+#admin-usage-dialog .usage-references{font-size:10px;min-width:160px}
+#admin-usage-dialog .usage-references summary{color:#528054;cursor:pointer}
+#admin-usage-dialog .usage-references article{margin-top:12px;border-top:1px solid #e1e7d8;padding-top:12px}
+#admin-usage-dialog .usage-references p{line-height:1.8}
+#admin-usage-dialog #usage-logs:not(:empty){margin-top:22px;background:#fffefa;border:1px solid #dfe6d7;border-radius:11px;padding:20px}
+#admin-usage-dialog .usage-log-run{display:block;font-size:10px;color:#86977b;overflow-wrap:anywhere;margin-bottom:18px}
+#admin-usage-dialog .usage-event{border-top:1px solid #edf0e6;padding:12px 0}
+#admin-usage-dialog .usage-event summary{display:flex;align-items:center;gap:10px;cursor:pointer;font-size:11px;list-style:none}
+#admin-usage-dialog .usage-event summary::-webkit-details-marker{display:none}
+#admin-usage-dialog .usage-event-dot{width:6px;height:6px;border-radius:50%;background:#9db189;flex-shrink:0}
+#admin-usage-dialog .usage-event summary strong{font-weight:500;overflow-wrap:anywhere;min-width:0}
+#admin-usage-dialog .usage-event summary time{font-size:10px;color:#9aa48d;margin-left:auto;white-space:nowrap}
+#admin-usage-dialog .usage-event summary:after{content:'+';color:#829873;margin-left:5px}
+#admin-usage-dialog .usage-event[open] summary:after{content:'−'}
+#admin-usage-dialog .usage-event pre{white-space:pre-wrap;overflow-wrap:anywhere;padding:15px;background:#f4f7ed;border:1px solid #e6ebdc;border-radius:7px;color:#6b7c5f;font:11px/1.8 Consolas,monospace;max-height:400px;overflow:auto}
+#admin-usage-dialog .usage-log-end{font-size:10px;text-align:center;color:#9aa58e;margin:20px 0 0}
+@media(min-width:1600px){#admin-usage-dialog .usage-main{padding:28px 36px}#admin-usage-dialog td{padding-top:17px;padding-bottom:17px}}
+@media(max-width:1100px){#admin-usage-dialog[open]{grid-template-columns:154px minmax(0,1fr)}#admin-usage-dialog .usage-rail{padding:24px 12px}#admin-usage-dialog .usage-main{padding:21px}#admin-usage-dialog .usage-metric{padding:16px 13px}#admin-usage-dialog .usage-quick-ranges{margin-left:0}#admin-usage-dialog .usage-metrics{gap:9px}#admin-usage-dialog .usage-insights{grid-template-columns:1.4fr 1fr}}
+@media(max-width:760px){#admin-usage-dialog{width:100vw;max-width:100vw;height:100dvh;max-height:100dvh;border-radius:0;border:0}#admin-usage-dialog[open]{grid-template-columns:minmax(0,1fr)}#admin-usage-dialog .usage-rail{display:none}#admin-usage-dialog .usage-topline{padding:15px 18px;position:sticky;top:0;z-index:3}#admin-usage-dialog .usage-main{padding:20px 16px}#admin-usage-dialog .usage-metrics{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}#admin-usage-dialog .usage-insights{grid-template-columns:minmax(0,1fr)}#admin-usage-dialog #usage-title{font-size:24px}#admin-usage-dialog .usage-heading-symbol{display:none}#admin-usage-dialog #usage-filter{gap:10px;padding:12px}#admin-usage-dialog #usage-filter label{flex:1;min-width:130px;flex-direction:column;align-items:stretch;gap:5px}#admin-usage-dialog #usage-filter input{width:100%}#admin-usage-dialog .usage-quick-ranges{margin-right:auto}#admin-usage-dialog .usage-panel{padding:17px 14px}#admin-usage-dialog .usage-user-tools{gap:8px}#admin-usage-dialog .usage-user-tools input{min-width:0;width:55%}#admin-usage-dialog .usage-user-tools select{min-width:0;width:45%;padding:7px 5px}#admin-usage-dialog .usage-table-wrap{max-height:65vh}#admin-usage-dialog .usage-top-actions>.usage-badge{display:none}#admin-usage-dialog .usage-detail-heading{gap:9px;flex-wrap:wrap}#admin-usage-dialog .usage-event summary{flex-wrap:wrap}#admin-usage-dialog .usage-event summary time{margin-left:16px}#admin-usage-dialog .usage-pager{flex-wrap:wrap}#admin-usage-dialog .usage-pager>span{width:100%}}
+@media(prefers-reduced-motion:reduce){#admin-usage-dialog *{scroll-behavior:auto!important;transition:none!important}}
+/* Keep secondary labels legible on ordinary laptop displays. */
+#admin-usage-dialog .usage-metric-label,#admin-usage-dialog .usage-activity-row span{font-size:12px;color:#64765e}
+#admin-usage-dialog .usage-metric-note,#admin-usage-dialog .usage-section-heading p,#admin-usage-dialog .usage-model-label,#admin-usage-dialog .usage-message,#admin-usage-dialog .usage-coverage summary{font-size:11px;color:#77846e}
+#admin-usage-dialog table,#admin-usage-dialog .usage-identity strong{font-size:12px}
+#admin-usage-dialog th,#admin-usage-dialog .usage-link,#admin-usage-dialog .usage-badge{font-size:11px}
+#admin-usage-dialog td small{font-size:10px;color:#7a8870}
+#admin-usage-dialog .is-primary .usage-metric-label{color:#d1e0d2}
+#admin-usage-dialog .is-primary .usage-metric-note{color:#c0d7c5}

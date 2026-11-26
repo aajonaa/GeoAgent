@@ -1,0 +1,16 @@
+# PROCUREMENT ONLY: blocked Bingham single-tool CPU worker, Python 3.12.
+# Never install into the main environment or the APSG 2.0.6 worker.
+# Immutable upstream source, NOT a published apsg==2.1.0 release.
+# Parent must create an offline wheelhouse and freeze/hash remaining build/runtime utilities.
+apsg @ https://github.com/ondrolexa/apsg/archive/44f9dde66e2e36417e09aebffd9992756705d7ab.zip
+numpy==2.1.3
+scipy==1.15.3
+pandas==2.3.0
+matplotlib==3.10.7
+jsonschema==4.25.1
+SQLAlchemy==1.4.54
+pygeomag==1.1.0
+# Retain these parent-confirmed application constraints; do not let a resolver replace them.
+typing-extensions==4.16.0
+pydantic==2.13.5
+langgraph==1.2.12

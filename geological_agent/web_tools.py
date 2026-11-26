@@ -14,6 +14,14 @@ from .contracts import strict_json
 from .tools import Tool, ToolDefinition, ToolFailure, ToolOutput, object_schema
 
 MAX_RESPONSE_BYTES = 8 * 1024 * 1024
+PROVIDER_ERRORS = {
+    401: "web_authentication_failed",
+    403: "web_authentication_failed",
+    429: "web_rate_limited",
+    432: "web_quota_exhausted",
+    433: "web_quota_exhausted",
+    434: "web_provider_busy",
+}
 
 
 class _NoRedirect(HTTPRedirectHandler):
@@ -27,7 +35,7 @@ def _open(request, timeout):
 
 
 def _clean(value):
-    key = os.environ.get("TAVILY_API_KEY", "")
+    key = os.environ.get("TAVILY_API_KEY", "").strip()
     if isinstance(value, str):
         return value.replace(key, "[REDACTED]") if key else value
     if isinstance(value, list):
@@ -92,9 +100,9 @@ def _post(endpoint, payload, ctx):
     except HTTPError as exc:
         code = exc.code
         exc.close()
-        label = "web_authentication_failed" if code in (401, 403) else "web_provider_error"
+        label = PROVIDER_ERRORS.get(code, "web_provider_error")
         raise ToolFailure(label, f"Tavily returned HTTP {code}; no result was obtained. The credential and provider error body are withheld.",
-                          retryable=code == 429 or code >= 500) from None
+                          retryable=code in (429, 434) or code >= 500) from None
     except (TimeoutError, socket.timeout):
         raise ToolFailure("web_timeout", "The web provider did not respond within the tool deadline; avoid blindly repeating requests", retryable=True) from None
     except (URLError, OSError):

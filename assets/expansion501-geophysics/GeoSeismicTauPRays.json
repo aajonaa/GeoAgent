@@ -1,0 +1,9 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "source_depth_km": 10,
+  "distance_deg": 30,
+  "phases": [
+    "P",
+    "S"
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "crs": "EPSG:32631",
+  "origin_xy_m": [
+    500000,
+    1000
+  ],
+  "cell_size_m": 1,
+  "nodata_policy": "reject_missing",
+  "top_m": [
+    [
+      10
+    ]
+  ],
+  "bottom_m": [
+    [
+      [
+        5
+      ]
+    ],
+    [
+      [
+        0
+      ]
+    ]
+  ],
+  "saturation": "heads_explicit",
+  "conductivity_m_s": [
+    [
+      [
+        0.01
+      ]
+    ],
+    [
+      [
+        0.002
+      ]
+    ]
+  ],
+  "heads_m": [
+    [
+      [
+        10
+      ]
+    ],
+    [
+      [
+        10
+      ]
+    ]
+  ],
+  "well_row_col": [
+    [
+      0,
+      0
+    ]
+  ],
+  "screen_top_m": [
+    10
+  ],
+  "screen_bottom_m": [
+    0
+  ],
+  "units": {
+    "origin_xy_m": "m",
+    "cell_size_m": "m",
+    "top_m": "m",
+    "bottom_m": "m",
+    "conductivity_m_s": "m/s",
+    "heads_m": "m",
+    "screen_top_m": "m",
+    "screen_bottom_m": "m"
+  }
+}
+

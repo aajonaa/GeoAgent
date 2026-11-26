@@ -1,0 +1,41 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockRandomCracks",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "crack_density": 0.05
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "bulk_gpa"
+      ],
+      "value": 17.295678149011483,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "shear_gpa"
+      ],
+      "value": 13.844047450873857,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "crack_density": 0.3
+  },
+  "numeric_oracle": "Independent O'Connell-Budiansky expression with nu0=1/5, corrected nu=41/225, crack density=1/20.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/EM.py",
+  "limitations": [
+    "Dry thin-crack approximation; crack density<=0.1; not an inversion.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

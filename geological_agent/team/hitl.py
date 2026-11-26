@@ -30,7 +30,8 @@ def install_input_routes(app):
     def cancel(request_id: str, request: Request):
         user = principal(request, mutation=True)
         try:
-            store.cancel_input(user["id"], request_id)
+            cancel_input = getattr(app.state, "cancel_input", store.cancel_input)
+            cancel_input(user["id"], request_id)
         except KeyError as exc:
             raise HTTPException(404, "Input request not found") from exc
         except ValueError as exc:

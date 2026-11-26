@@ -1,0 +1,44 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockDigbyContacts",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "porosity": 0.4,
+    "coordination": 6,
+    "effective_stress_mpa": 35.809862195676445,
+    "bond_radius_ratio": 0.1
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "bulk_gpa"
+      ],
+      "value": 1.0128558556767442,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    },
+    {
+      "path": [
+        "shear_gpa"
+      ],
+      "value": 1.18067130853687,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "effective_stress_mpa": -1
+  },
+  "numeric_oracle": "Choose pressure making the positive contact cubic root exactly d=.1 with a/R=.1; b/R=sqrt(.02). Independent spring sums give bulk and shear.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/GM.py",
+  "limitations": [
+    "Positive pressure avoids upstream zero-pressure complex-root ambiguity; bounded bond radius.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "scope": "synthetic_windows_or_local_contract_and_IPC_not_science",
+  "python": "3.14.4 (tags/v3.14.4:23116f9, Apr  7 2026, 14:10:54) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win32",
+  "jsonschema_available": false,
+  "executed_including_skips": 41,
+  "passed": 37,
+  "failures": [],
+  "errors": [],
+  "skipped": [
+    {
+      "test": "test_canonical_main_to_worker_artifact (__main__.CanonicalEndToEndTests.test_canonical_main_to_worker_artifact)",
+      "reason": "Actual canonical decorator dependency jsonschema is unavailable; no substitute/mock installed."
+    },
+    {
+      "test": "test_old_nonisolated_path (__main__.CanonicalEndToEndTests.test_old_nonisolated_path)",
+      "reason": "Actual canonical decorator dependency jsonschema is unavailable; no substitute/mock installed."
+    },
+    {
+      "test": "test_original_error_chain_survives (__main__.CanonicalEndToEndTests.test_original_error_chain_survives)",
+      "reason": "Actual canonical decorator dependency jsonschema is unavailable; no substitute/mock installed."
+    },
+    {
+      "test": "test_tampered_source_rejected (__main__.CanonicalEndToEndTests.test_tampered_source_rejected)",
+      "reason": "Actual canonical decorator dependency jsonschema is unavailable; no substitute/mock installed."
+    }
+  ],
+  "scientific_tests_executed": 0,
+  "remote_tests_executed": 0,
+  "log": "test_canonical_main_to_worker_artifact (__main__.CanonicalEndToEndTests.test_canonical_main_to_worker_artifact) ... skipped 'Actual canonical decorator dependency jsonschema is unavailable; no substitute/mock installed.'\ntest_old_nonisolated_path (__main__.CanonicalEndToEndTests.test_old_nonisolated_path) ... skipped 'Actual canonical decorator dependency jsonschema is unavailable; no substitute/mock installed.'\ntest_original_error_chain_survives (__main__.CanonicalEndToEndTests.test_original_error_chain_survives) ... skipped 'Actual canonical decorator dependency jsonschema is unavailable; no substitute/mock installed.'\ntest_tampered_source_rejected (__main__.CanonicalEndToEndTests.test_tampered_source_rejected) ... skipped 'Actual canonical decorator dependency jsonschema is unavailable; no substitute/mock installed.'\ntest_absolute_artifact (__main__.ProtocolTests.test_absolute_artifact) ... ok\ntest_artifact_limit (__main__.ProtocolTests.test_artifact_limit) ... ok\ntest_artifact_payload_roundtrip (__main__.ProtocolTests.test_artifact_payload_roundtrip) ... ok\ntest_artifact_traversal (__main__.ProtocolTests.test_artifact_traversal) ... ok\ntest_binary_not_text (__main__.ProtocolTests.test_binary_not_text) ... ok\ntest_closed_profile_no_placeholders (__main__.ProtocolTests.test_closed_profile_no_placeholders) ... ok\ntest_deep_json (__main__.ProtocolTests.test_deep_json) ... ok\ntest_duplicate_artifacts (__main__.ProtocolTests.test_duplicate_artifacts) ... ok\ntest_duplicate_json (__main__.ProtocolTests.test_duplicate_json) ... ok\ntest_empty_admin_allowlist (__main__.ProtocolTests.test_empty_admin_allowlist) ... ok\ntest_frame_roundtrip (__main__.ProtocolTests.test_frame_roundtrip) ... ok\ntest_invalid_png (__main__.ProtocolTests.test_invalid_png) ... ok\ntest_mismatched_frame_size (__main__.ProtocolTests.test_mismatched_frame_size) ... ok\ntest_nan_json (__main__.ProtocolTests.test_nan_json) ... ok\ntest_no_context_bypass (__main__.ProtocolTests.test_no_context_bypass) ... ok\ntest_nonce_mismatch (__main__.ProtocolTests.test_nonce_mismatch) ... ok\ntest_oversized_control_header (__main__.ProtocolTests.test_oversized_control_header) ... ok\ntest_ragged_csv (__main__.ProtocolTests.test_ragged_csv) ... ok\ntest_real_process_deadline (__main__.ProtocolTests.test_real_process_deadline) ... ok\ntest_real_process_nonzero_exit (__main__.ProtocolTests.test_real_process_nonzero_exit) ... ok\ntest_real_process_stderr_bound (__main__.ProtocolTests.test_real_process_stderr_bound) ... ok\ntest_real_process_stdout_bound (__main__.ProtocolTests.test_real_process_stdout_bound) ... ok\ntest_real_subprocess_framed_artifact (__main__.ProtocolTests.test_real_subprocess_framed_artifact) ... ok\ntest_response_not_object (__main__.ProtocolTests.test_response_not_object) ... ok\ntest_result_manifest_mismatch (__main__.ProtocolTests.test_result_manifest_mismatch) ... ok\ntest_snapshot_copy_and_tamper (__main__.ProtocolTests.test_snapshot_copy_and_tamper) ... ok\ntest_structured_error_preserved (__main__.ProtocolTests.test_structured_error_preserved) ... ok\ntest_tampered_artifact_hash (__main__.ProtocolTests.test_tampered_artifact_hash) ... ok\ntest_text_content_check (__main__.ProtocolTests.test_text_content_check) ... ok\ntest_trailing_bytes (__main__.ProtocolTests.test_trailing_bytes) ... ok\ntest_truncated_header (__main__.ProtocolTests.test_truncated_header) ... ok\ntest_unknown_error_field (__main__.ProtocolTests.test_unknown_error_field) ... ok\ntest_unknown_response_field (__main__.ProtocolTests.test_unknown_response_field) ... ok\ntest_unsupported_requirement (__main__.ProtocolTests.test_unsupported_requirement) ... ok\ntest_validator_binding (__main__.ProtocolTests.test_validator_binding) ... ok\ntest_windows_artifact (__main__.ProtocolTests.test_windows_artifact) ... ok\ntest_wrong_child_context (__main__.ProtocolTests.test_wrong_child_context) ... ok\n\n----------------------------------------------------------------------\nRan 41 tests in 1.385s\n\nOK (skipped=4)\n"
+}

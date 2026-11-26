@@ -1,0 +1,8 @@
+jsonschema==4.25.1
+landlab==2.11.0
+matplotlib==3.10.7
+numpy==2.1.3
+pandas==2.3.0
+pyproj==3.7.2
+scipy==1.15.3
+xarray==2026.9.0

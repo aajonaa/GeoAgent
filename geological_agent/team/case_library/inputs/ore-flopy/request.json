@@ -1,0 +1,34 @@
+{
+  "case_id": "FLO-001",
+  "source_skill": "ore-flopy",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [],
+  "original_request": "request.original.json",
+  "context": {
+    "mode": "original",
+    "length_unit": "m",
+    "time_unit": "day",
+    "horizontal_crs": "LOCAL_CARTESIAN_M",
+    "vertical_datum": "ARBITRARY_LOCAL_0_M",
+    "observations": [
+      {
+        "id": "HOLD_A",
+        "column": 2,
+        "sigma_m": 0.01,
+        "held_out": true,
+        "kind": "head_elevation",
+        "head_m": 9.801
+      },
+      {
+        "id": "HOLD_B",
+        "column": 4,
+        "sigma_m": 0.02,
+        "held_out": true,
+        "kind": "depth_below_collar",
+        "collar_elevation_m": 100,
+        "depth_below_collar_m": 90.4
+      }
+    ]
+  },
+  "input_path_bindings": []
+}

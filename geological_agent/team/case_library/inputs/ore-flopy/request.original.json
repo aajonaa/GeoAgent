@@ -1,0 +1,26 @@
+{
+  "mode": "original",
+  "length_unit": "m",
+  "time_unit": "day",
+  "horizontal_crs": "LOCAL_CARTESIAN_M",
+  "vertical_datum": "ARBITRARY_LOCAL_0_M",
+  "observations": [
+    {
+      "id": "HOLD_A",
+      "column": 2,
+      "sigma_m": 0.01,
+      "held_out": true,
+      "kind": "head_elevation",
+      "head_m": 9.801
+    },
+    {
+      "id": "HOLD_B",
+      "column": 4,
+      "sigma_m": 0.02,
+      "held_out": true,
+      "kind": "depth_below_collar",
+      "collar_elevation_m": 100,
+      "depth_below_collar_m": 90.4
+    }
+  ]
+}

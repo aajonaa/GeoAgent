@@ -1,0 +1,37 @@
+{
+  "operations": [
+    {
+      "tool": "GeoSpectralAngleMatch",
+      "arguments": {
+        "data_path": "tests/data/SPC-19-1.json"
+      }
+    },
+    {
+      "tool": "GeoSpectralContinuumRemoval",
+      "arguments": {
+        "data_path": "tests/data/SPC-19-2.json"
+      }
+    },
+    {
+      "tool": "GeoSpectralLinearUnmix",
+      "arguments": {
+        "data_path": "tests/data/SPC-19-3.json"
+      }
+    },
+    {
+      "tool": "GeoSpectralAngleMap",
+      "arguments": {
+        "raster_path": "tests/data/raster-main.tif",
+        "library_path": "tests/data/raster-main.json",
+        "raster_wavelength_nm": [
+          1000,
+          1500,
+          2000
+        ],
+        "reflectance_scale": 1,
+        "reflectance_offset": 0,
+        "quality_mask_path": "tests/data/raster-main-mask.tif"
+      }
+    }
+  ]
+}

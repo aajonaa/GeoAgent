@@ -1,0 +1,13 @@
+{
+  "mode": "direct",
+  "tool": "DeepTimeZonalStatistics",
+  "arguments": {
+    "paths": [
+      "orig-points.csv"
+    ],
+    "zone_field": "zone",
+    "value_field": "value",
+    "operation": "mean"
+  },
+  "transport": "dict"
+}

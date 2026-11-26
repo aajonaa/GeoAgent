@@ -1,0 +1,7 @@
+series,year,capacity_mw
+Solar,2020,10
+Solar,2021,25
+Wind,2020,0
+Wind,2021,5
+Coal,2020,100
+Coal,2021,75

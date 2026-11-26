@@ -1,0 +1,38 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockHashinShtrikman",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "stiff_fraction": 0.5,
+    "stiff_bulk_gpa": 40,
+    "soft_bulk_gpa": 20,
+    "stiff_shear_gpa": 20,
+    "soft_shear_gpa": 10
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "bulk_bounds_gpa"
+      ],
+      "value": [
+        27.692307692307693,
+        28.235294117647058
+      ],
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "stiff_bulk_gpa": 20
+  },
+  "numeric_oracle": "Independent two-phase variational expressions at f=1/2 give K_lower=360/13,K_upper=480/17GPa.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/EM.py",
+  "limitations": [
+    "Strictly ordered stiff/soft bulk and shear moduli; no automatic sorting.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

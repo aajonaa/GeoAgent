@@ -1,0 +1,36 @@
+{
+  "case_id": "ZON-01",
+  "source_skill": "ore-zonal",
+  "data_kind": "验证样例；来源声明见原请求",
+  "operations": [
+    {
+      "operation_id": "op1",
+      "tool": "GeoExactZonalStatistics",
+      "arguments": {
+        "raster_path": "data/fb53b72984-values.tif",
+        "zones_path": "data/1f730bc440-full.json",
+        "zones_crs": "EPSG:32650",
+        "value_unit": "ppm"
+      }
+    }
+  ],
+  "original_request": "request.original.json",
+  "context": {
+    "raster_path": "data/fb53b72984-values.tif",
+    "zones_path": "data/1f730bc440-full.json",
+    "zones_crs": "EPSG:32650",
+    "value_unit": "ppm"
+  },
+  "input_path_bindings": [
+    {
+      "original": "../data/values.tif",
+      "workspace": "data/fb53b72984-values.tif",
+      "source": "ore-zonal-1.0.1/tests/data/values.tif"
+    },
+    {
+      "original": "../data/full.json",
+      "workspace": "data/1f730bc440-full.json",
+      "source": "ore-zonal-1.0.1/tests/data/full.json"
+    }
+  ]
+}

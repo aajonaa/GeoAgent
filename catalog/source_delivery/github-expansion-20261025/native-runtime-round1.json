@@ -1,0 +1,33 @@
+{
+  "phase": "native_runtime_acceptance_failed",
+  "date": "2026-10-25",
+  "candidate_root": "/data/wangjian/github-expansion120-20261025-r1/candidate",
+  "selected_new_operations": 120,
+  "passed": 118,
+  "failed": 2,
+  "seconds": 26.24,
+  "pytest_exit_code": 1,
+  "test": "tests_local/test_professional_catalog.py::test_every_ready_source_executes_through_native_runtime",
+  "failed_operations": [
+    "GeoRemoteMatchedFilter",
+    "GeoPyroliteCIPWNorm"
+  ],
+  "coverage": [
+    "Actual AgentRuntime registration",
+    "Input and result Schema agreement with catalog",
+    "ToolExecutor execute via ToolCall",
+    "Existing native contract assertions"
+  ],
+  "evidence_directory": "tests_local/expansion-release-20261025-r1",
+  "evidence_files": [
+    "native-expansion120-nodes.json",
+    "native-expansion120.log",
+    "native-expansion120.xml"
+  ],
+  "scientific_acceptance": "Not achieved. Runtime success does not clear the independent numeric, scientific-domain, source, coordinate, unit, or distinctness findings in round1-acceptance.json.",
+  "repairs_applied": false,
+  "approval_pending": true,
+  "deployed": false,
+  "pushed": false,
+  "gpu_used": false
+}

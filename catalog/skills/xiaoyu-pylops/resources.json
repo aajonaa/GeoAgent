@@ -1,0 +1,103 @@
+{
+  "skill_id": "xiaoyu_pylops",
+  "archive_sha256": "70126c66eee11c327b397ab683d455ae7e63b640b160a49e5b6cad9732e8704f",
+  "files": [
+    {
+      "path": "LICENSE",
+      "bytes": 1056,
+      "sha256": "1126322e2cc8d165adc4c792eeb195717de2bcc7b39be1ce77959d78e87ef685",
+      "origins": [
+        {
+          "package_number": 25,
+          "archive_sha256": "ab301bcd5f63e1ca08327c0ca6a8223b9ccb5e02641b28cfcc8d6183ad74f6b4",
+          "member": "pylops/LICENSE"
+        },
+        {
+          "package_number": 82,
+          "archive_sha256": "e4e9abd7a83ec5b04c1811ae6f5414826ac6ef8d7da404bdc2b4062b3c68bbf3",
+          "member": "pylops/LICENSE"
+        }
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 735,
+      "sha256": "5c3ed65a0368acdddf147667b35614f5519fcc6abe2fc45326fdc483ad30f0e5",
+      "origins": [
+        {
+          "package_number": 25,
+          "archive_sha256": "ab301bcd5f63e1ca08327c0ca6a8223b9ccb5e02641b28cfcc8d6183ad74f6b4",
+          "member": "pylops/README.md"
+        }
+      ]
+    },
+    {
+      "path": "SKILL.md",
+      "bytes": 5965,
+      "sha256": "43beab2433f8b581503007daefe6d8f0663ca387418c44f06ddc92cb38b1126d",
+      "origins": [
+        {
+          "package_number": 25,
+          "archive_sha256": "ab301bcd5f63e1ca08327c0ca6a8223b9ccb5e02641b28cfcc8d6183ad74f6b4",
+          "member": "pylops/SKILL.md"
+        },
+        {
+          "package_number": 82,
+          "archive_sha256": "e4e9abd7a83ec5b04c1811ae6f5414826ac6ef8d7da404bdc2b4062b3c68bbf3",
+          "member": "pylops/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/operators.md",
+      "bytes": 6987,
+      "sha256": "37cfff2a4c2129661ad6decc1f3d72d836e6c6e4dabf8fbb55f14dae3c187a89",
+      "origins": [
+        {
+          "package_number": 25,
+          "archive_sha256": "ab301bcd5f63e1ca08327c0ca6a8223b9ccb5e02641b28cfcc8d6183ad74f6b4",
+          "member": "pylops/references/operators.md"
+        },
+        {
+          "package_number": 82,
+          "archive_sha256": "e4e9abd7a83ec5b04c1811ae6f5414826ac6ef8d7da404bdc2b4062b3c68bbf3",
+          "member": "pylops/references/operators.md"
+        }
+      ]
+    },
+    {
+      "path": "references/solvers.md",
+      "bytes": 8260,
+      "sha256": "7f0362ac5fdb055ebdfcf30f3512ecc1c5fd16867a37445e1e76d16cee16c17a",
+      "origins": [
+        {
+          "package_number": 25,
+          "archive_sha256": "ab301bcd5f63e1ca08327c0ca6a8223b9ccb5e02641b28cfcc8d6183ad74f6b4",
+          "member": "pylops/references/solvers.md"
+        },
+        {
+          "package_number": 82,
+          "archive_sha256": "e4e9abd7a83ec5b04c1811ae6f5414826ac6ef8d7da404bdc2b4062b3c68bbf3",
+          "member": "pylops/references/solvers.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/deconvolution.py",
+      "bytes": 10248,
+      "sha256": "36f392014af24311b1c6d8bae13c02eeac261b54c747b31836795a2435a2ee89",
+      "origins": [
+        {
+          "package_number": 25,
+          "archive_sha256": "ab301bcd5f63e1ca08327c0ca6a8223b9ccb5e02641b28cfcc8d6183ad74f6b4",
+          "member": "pylops/scripts/deconvolution.py"
+        },
+        {
+          "package_number": 82,
+          "archive_sha256": "e4e9abd7a83ec5b04c1811ae6f5414826ac6ef8d7da404bdc2b4062b3c68bbf3",
+          "member": "pylops/scripts/deconvolution.py"
+        }
+      ]
+    }
+  ]
+}

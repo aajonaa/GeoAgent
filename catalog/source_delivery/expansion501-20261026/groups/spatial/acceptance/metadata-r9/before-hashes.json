@@ -1,0 +1,16 @@
+{
+  "protected_sha256": {
+    "catalog/registry.json": "fb8775ec690afbf11deb4811e1fb887d48a9c04dc5b2d40d78e36d9aea1e58df",
+    "geological_agent/geology/source_registry.py": "ae81d25f2464ab003e96a617ec173da04ff96204fbd528f431bf903f6b04cd0a",
+    "geological_agent/geology/expansion501_spatial.py": "5fee0a0ebd604c532b7b3eb33646da9705bd20738259e28ac162ba127262a80b",
+    "catalog/source_delivery/expansion501-20261026/groups/spatial/examples-additions.json": "8542cb097ac0adefef89c4a525ce995682d71f9ea74523dfbd7e1a8c74bb9516"
+  },
+  "catalog_before_sha256": "0406a3cc2a1565585311e5f58dd8c99c632d0fd8af6330dfbb940b8c0dbcea5b",
+  "skill_before_sha256": {
+    "catalog/skills/expansion501-spatial-gis-georeferencing/SKILL.md": "64e1f1b4cb984d3bef8c2da7398b4affd418b5ca2e9efa942bca8e78974138b0",
+    "catalog/skills/expansion501-spatial-hydronetwork/SKILL.md": "81cc069522bdda65fc792b5090ef7482473d002fbda2b8b55c092eb181151fd1",
+    "catalog/skills/expansion501-spatial-groundwater/SKILL.md": "3fb7d93dbe8a96fb10b0cbe982346c5ebe02df8ff25c82c066afd91274977de5",
+    "catalog/skills/expansion501-spatial-spatial-statistics/SKILL.md": "a5a76de401dbf109624e5e5c01698627f119c610b09896193810cb3a25805e1a",
+    "catalog/skills/expansion501-spatial-landscape-evolution/SKILL.md": "28e5465c6d333beeb3cd09e71efd880ea375d680115f4b400ccabd49137a04ff"
+  }
+}

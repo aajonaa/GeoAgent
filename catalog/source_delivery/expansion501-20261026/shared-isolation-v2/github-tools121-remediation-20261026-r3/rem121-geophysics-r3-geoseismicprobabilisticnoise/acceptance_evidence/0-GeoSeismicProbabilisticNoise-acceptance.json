@@ -1,0 +1,164 @@
+{
+  "adapter_changed": false,
+  "boundary_note": "Inherited boundary helper checks declared rejection; explicit extra/physical/nonfinite negatives execute in all four routes.",
+  "checks": [
+    {
+      "stage": "source_registration",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_example",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_numerical",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_example",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_numerical",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_example",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_numerical",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_example",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_numerical",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_negative_extra",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_negative_physical",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_negative_nonfinite",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_negative_extra",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_negative_physical",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_negative_nonfinite",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_negative_extra",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_negative_physical",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_negative_nonfinite",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_negative_extra",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_negative_physical",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_negative_nonfinite",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_dict_boundary",
+      "status": "pass"
+    },
+    {
+      "stage": "direct_json_boundary",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_dict_boundary",
+      "status": "pass"
+    },
+    {
+      "stage": "runtime_json_boundary",
+      "status": "pass"
+    }
+  ],
+  "frozen_adapter": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/app/geological_agent/geology/expansion501_geophysics.py",
+    "sha256": "d44695e4b89c010a379715794d740e6415f84a238b8201418b9eb1c9b7af79c2"
+  },
+  "gpu_used": false,
+  "import_only_acceptance": false,
+  "primary_source_url": "https://github.com/obspy/obspy/blob/1.4.2/obspy/signal/spectral_estimation.py",
+  "prior_failure_retained": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/signals-r3/GeoSeismicProbabilisticNoise/report.json",
+    "sha256": "f07f90a7e1e8f01947fccb901ee00fe36add25d10a4336653bcefac7624391cc"
+  },
+  "raw_report": {
+    "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/runs/signals-v2-r3/GeoSeismicProbabilisticNoise/report.json",
+    "sha256": "3c3596a7b1ac6eaf8ee8fd77b8c270f70575927bd2fd27422340f46f65d03002"
+  },
+  "reference_files": [
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/run_signals_v2.py",
+      "sha256": "5259d00ce59f2bdd7f5f321b0b410167b6f423df1b06f912bb814b9fdb3bafc4"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/signal_oracle_cases_v2.py",
+      "sha256": "0d7b1a0736e1e6320523284b0cb20fca4d90dbdb02b08f0cde793cd0cc64be65"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/signal_oracle_cases.py",
+      "sha256": "b220f7231d23499c970d2025f89a0c72c60bce4c2fb9dfcdaaaadc74b393ffe1"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/potential_inverse_cases.py",
+      "sha256": "2018afcabcd0347084ab18f2246a26334fb9ad2cb9e2d3a39684649aeb0926db"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/advanced_cases.py",
+      "sha256": "352fc45311ba090db54db7478445cd033c0ae1ce0d45aa8e1303dc4eadaf2d0a"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/revised_cases.py",
+      "sha256": "72fd1e538a3cef445afae9f0da0126a1bf108ff662c23570565a7be597ce1821"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/references_r1.py",
+      "sha256": "d586941706d0380d7c36f7eeee102ad64954eef2317e6b67b36b57b85710f221"
+    },
+    {
+      "path": "/data/wangjian/remediate121-20261026-r1/geophysics/r3/signal-oracle-v2-notes.md",
+      "sha256": "8a20475ded6e36c24900dd10634332d39cb9aaa579ea951412a9b9f4f589759b"
+    }
+  ],
+  "reference_method": "Independent least-squares detrending, NumPy FFT Welch power, calibration and histogram; source-defined sequential octave edges. Original exact-edge and additional off-grid cases retained.",
+  "scientific_acceptance": "passed",
+  "test_production_bridge": "not claimed; full parent app replay required",
+  "tolerances": {
+    "period_absolute": 1e-12,
+    "period_relative": 1e-12,
+    "psd_db_absolute": 1e-05
+  },
+  "tool": "GeoSeismicProbabilisticNoise"
+}

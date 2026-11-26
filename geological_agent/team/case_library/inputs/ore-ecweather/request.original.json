@@ -1,0 +1,11 @@
+{
+  "tool": "WrfDestaggerGrid",
+  "arguments": {
+    "data_path": "@DATA",
+    "stagger_dim": 1,
+    "data_unit": "m/s"
+  },
+  "payload_path": "ore-ecweather/references/orig/f38.json",
+  "payload_sha256": "035d77d065c0cf34672c7b23b4950b91f18574a785195b763362b49bfe18ac47",
+  "workflow": null
+}

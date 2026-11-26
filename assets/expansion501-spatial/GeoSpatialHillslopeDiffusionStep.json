@@ -1,0 +1,57 @@
+{
+  "crs": "EPSG:32631",
+  "origin_xy_m": [
+    500000,
+    1000
+  ],
+  "cell_size_m": 1,
+  "nodata_policy": "reject_missing",
+  "boundary": "fixed_value",
+  "elevation_m": [
+    [
+      8,
+      5,
+      4,
+      5,
+      8
+    ],
+    [
+      5,
+      2,
+      1,
+      2,
+      5
+    ],
+    [
+      4,
+      1,
+      0,
+      1,
+      4
+    ],
+    [
+      5,
+      2,
+      1,
+      2,
+      5
+    ],
+    [
+      8,
+      5,
+      4,
+      5,
+      8
+    ]
+  ],
+  "diffusivity_m2_s": 0.1,
+  "dt_s": 0.1,
+  "units": {
+    "origin_xy_m": "m",
+    "cell_size_m": "m",
+    "elevation_m": "m",
+    "diffusivity_m2_s": "m2/s",
+    "dt_s": "s"
+  }
+}
+

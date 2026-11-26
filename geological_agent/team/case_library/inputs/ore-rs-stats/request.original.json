@@ -1,0 +1,9 @@
+{
+  "workflow": "actual_average_to_difference_to_summary",
+  "inputs": [
+    "A.tif",
+    "B.tif",
+    "C.tif"
+  ],
+  "reference": "reference.tif"
+}

@@ -1,0 +1,38 @@
+{
+  "input_source": "SYNTHETIC authoring fixture, not observations or an executed acceptance case",
+  "closed_loop_nodes_enu_m": [
+    [
+      -1,
+      -1,
+      0
+    ],
+    [
+      1,
+      -1,
+      0
+    ],
+    [
+      1,
+      1,
+      0
+    ],
+    [
+      -1,
+      1,
+      0
+    ],
+    [
+      -1,
+      -1,
+      0
+    ]
+  ],
+  "observations_enu_m": [
+    [
+      0,
+      0,
+      0
+    ]
+  ],
+  "current_a": 1
+}

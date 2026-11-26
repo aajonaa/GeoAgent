@@ -1,0 +1,88 @@
+{
+  "operations": [
+    {
+      "operation_id": "std",
+      "tool": "DeepTimeStandardizeSpatialData",
+      "arguments": {
+        "paths": [
+          "tests/data/p.geojson"
+        ]
+      }
+    },
+    {
+      "operation_id": "batch",
+      "tool": "DeepTimeBatchVector",
+      "arguments": {},
+      "paths_from": [
+        {
+          "operation_id": "std",
+          "pointer": "/standardized_layers/0/output"
+        }
+      ]
+    },
+    {
+      "operation_id": "clean",
+      "tool": "DeepTimeValidateSpatialData",
+      "arguments": {},
+      "paths_from": [
+        {
+          "operation_id": "batch",
+          "pointer": "/standardized_layers/0/output"
+        }
+      ]
+    },
+    {
+      "operation_id": "near",
+      "tool": "DeepTimeNearestNeighbor",
+      "arguments": {},
+      "paths_from": [
+        {
+          "operation_id": "clean",
+          "pointer": "/validation_reports/0/clean_output"
+        }
+      ]
+    },
+    {
+      "operation_id": "buffer",
+      "tool": "DeepTimeBuffer",
+      "arguments": {
+        "distance_km": 10
+      },
+      "paths_from": [
+        {
+          "operation_id": "clean",
+          "pointer": "/validation_reports/0/clean_output"
+        }
+      ]
+    },
+    {
+      "operation_id": "overlay",
+      "tool": "DeepTimeOverlay",
+      "arguments": {},
+      "paths_from": [
+        {
+          "operation_id": "clean",
+          "pointer": "/validation_reports/0/clean_output"
+        },
+        "tests/data/zones.geojson"
+      ]
+    },
+    {
+      "operation_id": "map",
+      "tool": "DeepTimeRenderMap",
+      "arguments": {
+        "title": "Vector workflow audit"
+      },
+      "paths_from": [
+        {
+          "operation_id": "buffer",
+          "pointer": "/buffer_output"
+        },
+        {
+          "operation_id": "overlay",
+          "pointer": "/overlay_output"
+        }
+      ]
+    }
+  ]
+}

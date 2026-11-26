@@ -1,0 +1,515 @@
+{
+  "id": "GeoInSARCoherenceNetworkSelection",
+  "source_revision": "3",
+  "source_lock": "/data/wangjian/remediate121-20261026-r1/remote/source-lock-r3.json",
+  "python": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/bin/python",
+  "python_prefix": "/data/wangjian/remediate121-20261026-r1/remote/venv-r3",
+  "python_realpath": "/data/wangjian/.local/share/geoagent/python312/bin/python3.12",
+  "python_version": "3.12.14 (main, Sep 24 2026, 17:57:43) [Clang 22.1.3 ]",
+  "sys_path": [
+    "/data/wangjian/.local/share/geoagent/python312/lib/python312.zip",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12",
+    "/data/wangjian/.local/share/geoagent/python312/lib/python3.12/lib-dynload",
+    "/data/wangjian/remediate121-20261026-r1/remote/venv-r3/lib/python3.12/site-packages"
+  ],
+  "registry_count": 467,
+  "stages": {
+    "registration": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_registry_GeoInSARCoherenceNetworkSelection",
+            "category": "private_catalog_lookup_and_schema",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_registry_GeoInSARCoherenceNetworkSelection (remote_original_cases.RemoteCases.test_registry_GeoInSARCoherenceNetworkSelection) ... ok\n"
+      }
+    },
+    "direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/direct_dict/result",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/direct_json/result",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_dict/results/04eef8feed974b088327e9d4e95b7322",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_json/results/bfce39d5ad064988bfdb2da56a9cbb01",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "threshold_upper_boundary_mst_retained_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_direct_dict/result",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "threshold_upper_boundary_mst_retained_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_direct_json/result",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "threshold_upper_boundary_mst_retained_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_runtime_dict/results/7622caf984ec4dd6bfec3660ce4acee5",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "threshold_upper_boundary_mst_retained_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/threshold_upper_boundary_mst_retained_runtime_json/results/a26d7540905e403cb0b2f46dc1668888",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "pair_order_012_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_direct_dict/result",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "pair_order_012_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_direct_json/result",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "pair_order_012_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_runtime_dict/results/d04bba7a1d8940dfa864658232c5a824",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "pair_order_012_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_012_runtime_json/results/fcc4036a523b4cc7871a2dd03f920cdb",
+        "artifacts": {
+          "selected-network.csv": "e3fd6ff7014526b4ea5d2b1c42f34f03f78233e4636322bf99e1eb75ed48fc27"
+        }
+      }
+    },
+    "pair_order_021_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_direct_dict/result",
+        "artifacts": {
+          "selected-network.csv": "8f5c5a26176c7f234e67e1956031077da9683573d9778e67b6d2b56070d04e26"
+        }
+      }
+    },
+    "pair_order_021_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_direct_json/result",
+        "artifacts": {
+          "selected-network.csv": "8f5c5a26176c7f234e67e1956031077da9683573d9778e67b6d2b56070d04e26"
+        }
+      }
+    },
+    "pair_order_021_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_runtime_dict/results/94fb93b81960412280691130090a7942",
+        "artifacts": {
+          "selected-network.csv": "8f5c5a26176c7f234e67e1956031077da9683573d9778e67b6d2b56070d04e26"
+        }
+      }
+    },
+    "pair_order_021_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_021_runtime_json/results/febf5542e6db4e898c3e66d5a0c2fd90",
+        "artifacts": {
+          "selected-network.csv": "8f5c5a26176c7f234e67e1956031077da9683573d9778e67b6d2b56070d04e26"
+        }
+      }
+    },
+    "pair_order_102_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_direct_dict/result",
+        "artifacts": {
+          "selected-network.csv": "afa12844fe633e3af7f07aaad74df3ac015fb4b61d274ffddbd1bb65aafa00e3"
+        }
+      }
+    },
+    "pair_order_102_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_direct_json/result",
+        "artifacts": {
+          "selected-network.csv": "afa12844fe633e3af7f07aaad74df3ac015fb4b61d274ffddbd1bb65aafa00e3"
+        }
+      }
+    },
+    "pair_order_102_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_runtime_dict/results/92251b774f0841998b3dc4509cab5f0d",
+        "artifacts": {
+          "selected-network.csv": "afa12844fe633e3af7f07aaad74df3ac015fb4b61d274ffddbd1bb65aafa00e3"
+        }
+      }
+    },
+    "pair_order_102_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_102_runtime_json/results/042b385c62cc415588e4d56aafc7b159",
+        "artifacts": {
+          "selected-network.csv": "afa12844fe633e3af7f07aaad74df3ac015fb4b61d274ffddbd1bb65aafa00e3"
+        }
+      }
+    },
+    "pair_order_120_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_direct_dict/result",
+        "artifacts": {
+          "selected-network.csv": "7679daa582d5b2c2a1343fabd934cfe5c9e63687ec590da8e9c9fa77a6ce34d2"
+        }
+      }
+    },
+    "pair_order_120_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_direct_json/result",
+        "artifacts": {
+          "selected-network.csv": "7679daa582d5b2c2a1343fabd934cfe5c9e63687ec590da8e9c9fa77a6ce34d2"
+        }
+      }
+    },
+    "pair_order_120_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_runtime_dict/results/2822f989a6ea4183af09b0cb6f50ad07",
+        "artifacts": {
+          "selected-network.csv": "7679daa582d5b2c2a1343fabd934cfe5c9e63687ec590da8e9c9fa77a6ce34d2"
+        }
+      }
+    },
+    "pair_order_120_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_120_runtime_json/results/ae637f433e54473886d7072de806a1c9",
+        "artifacts": {
+          "selected-network.csv": "7679daa582d5b2c2a1343fabd934cfe5c9e63687ec590da8e9c9fa77a6ce34d2"
+        }
+      }
+    },
+    "pair_order_201_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_direct_dict/result",
+        "artifacts": {
+          "selected-network.csv": "732644acb15b0eeb0b84cc8a24a04581e38b69ad96e10adc7c726c4c76548c45"
+        }
+      }
+    },
+    "pair_order_201_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_direct_json/result",
+        "artifacts": {
+          "selected-network.csv": "732644acb15b0eeb0b84cc8a24a04581e38b69ad96e10adc7c726c4c76548c45"
+        }
+      }
+    },
+    "pair_order_201_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_runtime_dict/results/e69d19fefa3a4cecb5cc1325a84b3f9e",
+        "artifacts": {
+          "selected-network.csv": "732644acb15b0eeb0b84cc8a24a04581e38b69ad96e10adc7c726c4c76548c45"
+        }
+      }
+    },
+    "pair_order_201_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_201_runtime_json/results/65fb600e3cd94eb2adb4e52545a7741c",
+        "artifacts": {
+          "selected-network.csv": "732644acb15b0eeb0b84cc8a24a04581e38b69ad96e10adc7c726c4c76548c45"
+        }
+      }
+    },
+    "pair_order_210_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_direct_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_direct_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_direct_dict/result",
+        "artifacts": {
+          "selected-network.csv": "bc9b087f10c535c117dc8d94f8dd6311c7ef75a138dbb946ce58dd6817e3bbf2"
+        }
+      }
+    },
+    "pair_order_210_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_direct_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_direct_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_direct_json/result",
+        "artifacts": {
+          "selected-network.csv": "bc9b087f10c535c117dc8d94f8dd6311c7ef75a138dbb946ce58dd6817e3bbf2"
+        }
+      }
+    },
+    "pair_order_210_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_runtime_dict/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_runtime_dict/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_runtime_dict/results/d1a5365ac8c04472866a96d235bee114",
+        "artifacts": {
+          "selected-network.csv": "bc9b087f10c535c117dc8d94f8dd6311c7ef75a138dbb946ce58dd6817e3bbf2"
+        }
+      }
+    },
+    "pair_order_210_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_runtime_json/raw-result.json",
+        "input": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_runtime_json/input.json",
+        "artifact_root": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/pair_order_210_runtime_json/results/e152332d53a342c1b608c3fd7fc30472",
+        "artifacts": {
+          "selected-network.csv": "bc9b087f10c535c117dc8d94f8dd6311c7ef75a138dbb946ce58dd6817e3bbf2"
+        }
+      }
+    },
+    "physical_domain_rejection_direct_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/physical_domain_rejection_direct_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_direct_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/physical_domain_rejection_direct_json/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_dict": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/physical_domain_rejection_runtime_dict/raw-result.json"
+      }
+    },
+    "physical_domain_rejection_runtime_json": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/physical_domain_rejection_runtime_json/raw-result.json"
+      }
+    },
+    "negative_extra": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_extra_GeoInSARCoherenceNetworkSelection",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_extra_GeoInSARCoherenceNetworkSelection (remote_original_cases.RemoteCases.test_reject_extra_GeoInSARCoherenceNetworkSelection) ... ok\n"
+      }
+    },
+    "negative_unit": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_unit_GeoInSARCoherenceNetworkSelection",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_unit_GeoInSARCoherenceNetworkSelection (remote_original_cases.RemoteCases.test_reject_unit_GeoInSARCoherenceNetworkSelection) ... ok\n"
+      }
+    },
+    "negative_nonfinite": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_nonfinite_GeoInSARCoherenceNetworkSelection",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_nonfinite_GeoInSARCoherenceNetworkSelection (remote_original_cases.RemoteCases.test_reject_nonfinite_GeoInSARCoherenceNetworkSelection) ... ok\n"
+      }
+    },
+    "negative_duplicate_json": {
+      "status": "pass",
+      "evidence": {
+        "run": 1,
+        "records": [
+          {
+            "test": "remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoInSARCoherenceNetworkSelection",
+            "category": "negative_input",
+            "state": "passed",
+            "detail": null
+          }
+        ],
+        "subcases": [],
+        "log": "test_reject_duplicate_json_GeoInSARCoherenceNetworkSelection (remote_original_cases.RemoteCases.test_reject_duplicate_json_GeoInSARCoherenceNetworkSelection) ... ok\n"
+      }
+    },
+    "runtime_dict_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_dict_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_dict_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_dict_boundary/raw-result.json"
+      }
+    },
+    "runtime_json_unknown_field": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_json_unknown_field/raw-result.json"
+      }
+    },
+    "runtime_json_boundary": {
+      "status": "pass",
+      "evidence": {
+        "expected_error": "invalid_arguments",
+        "raw_result": "/data/wangjian/remediate121-20261026-r1/remote/acceptance-r3/GeoInSARCoherenceNetworkSelection/runtime_json_boundary/raw-result.json"
+      }
+    },
+    "invariance": {
+      "status": "pass",
+      "evidence": {
+        "installed_source_files_unchanged": 1153,
+        "protected_shared_files_unchanged": true
+      }
+    }
+  },
+  "implementation_sha256": "d5805e9e1d84c74593da61bd55452a943b345c50ec96664d5f6f1f116f1a2ff5",
+  "status": "pass"
+}

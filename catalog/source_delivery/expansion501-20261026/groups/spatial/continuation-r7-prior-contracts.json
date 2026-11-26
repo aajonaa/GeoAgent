@@ -1,0 +1,5035 @@
+{
+  "pending": {
+    "GeoTidalCycleFlow": {
+      "id": "GeoTidalCycleFlow",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "landlab==2.11.0",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "xarray==2026.9.0"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "origin_xy_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -100000000.0,
+              "maximum": 100000000.0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "cell_size_m": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 100000.0
+          },
+          "nodata_policy": {
+            "const": "reject_missing"
+          },
+          "bed_elevation_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -12000,
+                "maximum": 10000
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "boundary_status": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "enum": [
+                  0,
+                  1,
+                  4
+                ]
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "cycles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "mean_sea_level_m": {
+                  "type": "number",
+                  "minimum": -10000.0,
+                  "maximum": 10000.0
+                },
+                "range_m": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 30
+                },
+                "period_s": {
+                  "type": "number",
+                  "minimum": 60,
+                  "maximum": 172800
+                }
+              },
+              "required": [
+                "mean_sea_level_m",
+                "range_m",
+                "period_s"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 16
+          },
+          "mannings_n": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 1
+          },
+          "scale_velocity_m_s": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 100
+          },
+          "minimum_depth_m": {
+            "type": "number",
+            "minimum": 0.0001,
+            "maximum": 1
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "origin_xy_m": {
+                "const": "m"
+              },
+              "cell_size_m": {
+                "const": "m"
+              },
+              "bed_elevation_m": {
+                "const": "m"
+              },
+              "mean_sea_level_m": {
+                "const": "m"
+              },
+              "range_m": {
+                "const": "m"
+              },
+              "period_s": {
+                "const": "s"
+              },
+              "mannings_n": {
+                "const": "s/m^(1/3)"
+              },
+              "scale_velocity_m_s": {
+                "const": "m/s"
+              },
+              "minimum_depth_m": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "origin_xy_m",
+              "cell_size_m",
+              "bed_elevation_m",
+              "mean_sea_level_m",
+              "range_m",
+              "period_s",
+              "mannings_n",
+              "scale_velocity_m_s",
+              "minimum_depth_m"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "crs",
+          "origin_xy_m",
+          "cell_size_m",
+          "nodata_policy",
+          "bed_elevation_m",
+          "boundary_status",
+          "cycles",
+          "mannings_n",
+          "scale_velocity_m_s",
+          "minimum_depth_m",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "const": "landlab.TidalFlowCalculator"
+          },
+          "grid": {
+            "type": "object",
+            "properties": {
+              "crs": {
+                "type": "string",
+                "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 64
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "origin_xy_m": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -100000000,
+                  "maximum": 100000000
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "cell_size_m": {
+                "type": "number",
+                "minimum": 1e-06,
+                "maximum": 100000000
+              },
+              "affine": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -10000000000,
+                  "maximum": 10000000000
+                },
+                "minItems": 6,
+                "maxItems": 6
+              },
+              "row_order": {
+                "const": "north_to_south"
+              },
+              "nodata": {
+                "const": null
+              }
+            },
+            "required": [
+              "crs",
+              "shape",
+              "origin_xy_m",
+              "cell_size_m",
+              "affine",
+              "row_order",
+              "nodata"
+            ],
+            "additionalProperties": false
+          },
+          "cycles": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "start_s": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1e+100
+                },
+                "end_s": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1e+100
+                },
+                "mean_depth_m": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "number",
+                      "minimum": 0,
+                      "maximum": 1e+100
+                    },
+                    "minItems": 3,
+                    "maxItems": 64
+                  },
+                  "minItems": 3,
+                  "maxItems": 64
+                },
+                "regularized_mask": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "boolean"
+                    },
+                    "minItems": 3,
+                    "maxItems": 64
+                  },
+                  "minItems": 3,
+                  "maxItems": 64
+                },
+                "flood_velocity_m_s": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -1e+100,
+                    "maximum": 1e+100
+                  },
+                  "minItems": 1,
+                  "maxItems": 8192
+                },
+                "ebb_velocity_m_s": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -1e+100,
+                    "maximum": 1e+100
+                  },
+                  "minItems": 1,
+                  "maxItems": 8192
+                },
+                "boundary_inflow_m3_s": {
+                  "type": "number",
+                  "minimum": -1e+100,
+                  "maximum": 1e+100
+                },
+                "inundation_m3_s": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1e+100
+                },
+                "balance_residual_m3_s": {
+                  "type": "number",
+                  "minimum": -1e+100,
+                  "maximum": 1e+100
+                }
+              },
+              "required": [
+                "start_s",
+                "end_s",
+                "mean_depth_m",
+                "regularized_mask",
+                "flood_velocity_m_s",
+                "ebb_velocity_m_s",
+                "boundary_inflow_m3_s",
+                "inundation_m3_s",
+                "balance_residual_m3_s"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 16
+          },
+          "link_endpoints_xy_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -100000000.0,
+                  "maximum": 100000000.0
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "minItems": 1,
+            "maxItems": 8192
+          },
+          "interpretation": {
+            "const": "independent_half_cycle_averages_not_transient_time_integration"
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "time": {
+                "const": "s"
+              },
+              "depth": {
+                "const": "m"
+              },
+              "velocity": {
+                "const": "m/s"
+              },
+              "volume_rate": {
+                "const": "m3/s"
+              }
+            },
+            "required": [
+              "time",
+              "depth",
+              "velocity",
+              "volume_rate"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 0
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "grid",
+          "cycles",
+          "link_endpoints_xy_m",
+          "interpretation",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "tidal_cycle_flow",
+        "argument_parameter": "args",
+        "output_directory_parameter": null
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.landlab_state",
+        "function": "tidal_cycle_flow"
+      },
+      "source": {
+        "project": "landlab",
+        "url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/tidal_flow/tidal_flow_calculator.py",
+        "source_commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+        "license": "MIT"
+      },
+      "numeric_oracle": "Three core cells, area 4 m2 each, tidal range 2 m / half-period 20000 s: boundary inflow 0.0012 m3/s. Ebb=-flood. Zero range gives zero velocity. Raising both bed and MSL equally must leave all fields unchanged.",
+      "negative_cases": [
+        "all boundaries closed",
+        "interior non-core",
+        "nonfinite",
+        "wrong CRS or units",
+        "zero period"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoBedrockLandslideEvolution": {
+      "id": "GeoBedrockLandslideEvolution",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "landlab==2.11.0",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "xarray==2026.9.0"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "origin_xy_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -100000000.0,
+              "maximum": 100000000.0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "cell_size_m": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 100000.0
+          },
+          "nodata_policy": {
+            "const": "reject_missing"
+          },
+          "bedrock_elevation_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -12000,
+                "maximum": 10000
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "soil_depth_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "critical_cells": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 63
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "minItems": 0,
+            "maxItems": 64
+          },
+          "dt_years": {
+            "type": "number",
+            "minimum": 1e-06,
+            "maximum": 100
+          },
+          "friction_slope": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 10
+          },
+          "deposition_slope": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 10
+          },
+          "cohesion_pa": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100000000.0
+          },
+          "rock_density_kg_m3": {
+            "type": "number",
+            "minimum": 1000,
+            "maximum": 10000
+          },
+          "fines_fraction": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "porosity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.9
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "origin_xy_m": {
+                "const": "m"
+              },
+              "cell_size_m": {
+                "const": "m"
+              },
+              "bedrock_elevation_m": {
+                "const": "m"
+              },
+              "soil_depth_m": {
+                "const": "m"
+              },
+              "dt_years": {
+                "const": "year"
+              },
+              "friction_slope": {
+                "const": "m/m"
+              },
+              "deposition_slope": {
+                "const": "m/m"
+              },
+              "cohesion_pa": {
+                "const": "Pa"
+              },
+              "rock_density_kg_m3": {
+                "const": "kg/m3"
+              },
+              "fines_fraction": {
+                "const": "1"
+              },
+              "porosity": {
+                "const": "1"
+              }
+            },
+            "required": [
+              "origin_xy_m",
+              "cell_size_m",
+              "bedrock_elevation_m",
+              "soil_depth_m",
+              "dt_years",
+              "friction_slope",
+              "deposition_slope",
+              "cohesion_pa",
+              "rock_density_kg_m3",
+              "fines_fraction",
+              "porosity"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "crs",
+          "origin_xy_m",
+          "cell_size_m",
+          "nodata_policy",
+          "bedrock_elevation_m",
+          "soil_depth_m",
+          "critical_cells",
+          "dt_years",
+          "friction_slope",
+          "deposition_slope",
+          "cohesion_pa",
+          "rock_density_kg_m3",
+          "fines_fraction",
+          "porosity",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "const": "landlab.BedrockLandslider_prescribed_events"
+          },
+          "grid": {
+            "type": "object",
+            "properties": {
+              "crs": {
+                "type": "string",
+                "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 64
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "origin_xy_m": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -100000000,
+                  "maximum": 100000000
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "cell_size_m": {
+                "type": "number",
+                "minimum": 1e-06,
+                "maximum": 100000000
+              },
+              "affine": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -10000000000,
+                  "maximum": 10000000000
+                },
+                "minItems": 6,
+                "maxItems": 6
+              },
+              "row_order": {
+                "const": "north_to_south"
+              },
+              "nodata": {
+                "const": null
+              }
+            },
+            "required": [
+              "crs",
+              "shape",
+              "origin_xy_m",
+              "cell_size_m",
+              "affine",
+              "row_order",
+              "nodata"
+            ],
+            "additionalProperties": false
+          },
+          "bedrock_elevation_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -12000,
+                "maximum": 10000
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "soil_depth_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1e+100
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "elevation_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -12000,
+                "maximum": 10000
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "erosion_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1e+100
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "deposition_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1e+100
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "dt_years": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1e+100
+          },
+          "suspended_rate_m3_year": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1e+100
+          },
+          "suspended_volume_m3": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1e+100
+          },
+          "exported_volume_m3": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1e+100
+          },
+          "solid_volume_residual_m3": {
+            "type": "number",
+            "minimum": -1e+100,
+            "maximum": 1e+100
+          },
+          "boundary": {
+            "const": "fixed_value_no_boundary_landslides"
+          },
+          "routing": {
+            "const": "D8_DepressionFinderAndRouter_plus_separate_slope_weighted_MFD"
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "elevation": {
+                "const": "m"
+              },
+              "time": {
+                "const": "year"
+              },
+              "volume": {
+                "const": "m3_solid"
+              },
+              "suspended_rate": {
+                "const": "m3_solid/year"
+              }
+            },
+            "required": [
+              "elevation",
+              "time",
+              "volume",
+              "suspended_rate"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 0
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "grid",
+          "bedrock_elevation_m",
+          "soil_depth_m",
+          "elevation_m",
+          "erosion_m",
+          "deposition_m",
+          "dt_years",
+          "suspended_rate_m3_year",
+          "suspended_volume_m3",
+          "exported_volume_m3",
+          "solid_volume_residual_m3",
+          "boundary",
+          "routing",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "bedrock_landslide_evolution",
+        "argument_parameter": "args",
+        "output_directory_parameter": null
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.landlab_state",
+        "function": "bedrock_landslide_evolution"
+      },
+      "source": {
+        "project": "landlab",
+        "url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/bedrock_landslider/bedrock_landslider.py",
+        "source_commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+        "license": "MIT"
+      },
+      "numeric_oracle": "No prescribed events: terrain unchanged, all yields zero. Forced toe at elevation 0 below plateau 10 with friction slope 1: adjacent cardinal erosion plane 5.5 m, diagonal 5.5*sqrt(2). Use fines=1 to avoid deposition masking the plane; dt=2 requires suspended_volume=2*raw_rate.",
+      "negative_cases": [
+        "boundary trigger",
+        "negative soil",
+        "duplicate trigger",
+        "porosity>=1",
+        "wrong CRS/unit"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoRiverSedimentParcelTransport": {
+      "id": "GeoRiverSedimentParcelTransport",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "landlab==2.11.0",
+        "pandas==2.3.0",
+        "matplotlib==3.10.7",
+        "xarray==2026.9.0"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "nodes_xy_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -100000000.0,
+                "maximum": 100000000.0
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "minItems": 2,
+            "maxItems": 256
+          },
+          "links": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 255
+              },
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "minItems": 1,
+            "maxItems": 255
+          },
+          "outlet_node": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          },
+          "bedrock_elevation_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -12000,
+              "maximum": 10000
+            },
+            "minItems": 2,
+            "maxItems": 256
+          },
+          "reach_length_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0.001,
+              "maximum": 1000000.0
+            },
+            "minItems": 1,
+            "maxItems": 255
+          },
+          "channel_width_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0.001,
+              "maximum": 10000.0
+            },
+            "minItems": 1,
+            "maxItems": 255
+          },
+          "flow_depth_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "minItems": 1,
+            "maxItems": 255
+          },
+          "parcels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "link": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 254
+                },
+                "location_fraction": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 0.999999999
+                },
+                "diameter_m": {
+                  "type": "number",
+                  "minimum": 1e-05,
+                  "maximum": 10
+                },
+                "volume_m3": {
+                  "type": "number",
+                  "minimum": 1e-09,
+                  "maximum": 1000000.0
+                },
+                "density_kg_m3": {
+                  "type": "number",
+                  "minimum": 1001,
+                  "maximum": 10000
+                },
+                "abrasion_m_inverse": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 0.1
+                }
+              },
+              "required": [
+                "link",
+                "location_fraction",
+                "diameter_m",
+                "volume_m3",
+                "density_kg_m3",
+                "abrasion_m_inverse"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 256
+          },
+          "steps_s": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 1e-06,
+              "maximum": 3600
+            },
+            "minItems": 1,
+            "maxItems": 16
+          },
+          "porosity": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 0.9
+          },
+          "fluid_density_kg_m3": {
+            "type": "number",
+            "minimum": 900,
+            "maximum": 1200
+          },
+          "minimum_slope": {
+            "type": "number",
+            "minimum": 1e-08,
+            "maximum": 0.1
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "nodes_xy_m": {
+                "const": "m"
+              },
+              "bedrock_elevation_m": {
+                "const": "m"
+              },
+              "reach_length_m": {
+                "const": "m"
+              },
+              "channel_width_m": {
+                "const": "m"
+              },
+              "flow_depth_m": {
+                "const": "m"
+              },
+              "steps_s": {
+                "const": "s"
+              },
+              "parcel_diameter": {
+                "const": "m"
+              },
+              "parcel_volume": {
+                "const": "m3"
+              },
+              "density": {
+                "const": "kg/m3"
+              },
+              "abrasion": {
+                "const": "1/m"
+              },
+              "porosity": {
+                "const": "1"
+              },
+              "minimum_slope": {
+                "const": "m/m"
+              }
+            },
+            "required": [
+              "nodes_xy_m",
+              "bedrock_elevation_m",
+              "reach_length_m",
+              "channel_width_m",
+              "flow_depth_m",
+              "steps_s",
+              "parcel_diameter",
+              "parcel_volume",
+              "density",
+              "abrasion",
+              "porosity",
+              "minimum_slope"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "crs",
+          "nodes_xy_m",
+          "links",
+          "outlet_node",
+          "bedrock_elevation_m",
+          "reach_length_m",
+          "channel_width_m",
+          "flow_depth_m",
+          "parcels",
+          "steps_s",
+          "porosity",
+          "fluid_density_kg_m3",
+          "minimum_slope",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "const": "landlab.NetworkSedimentTransporter_WilcockCrowe"
+          },
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "time_s": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1e+100
+                },
+                "parcels": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "link": {
+                        "anyOf": [
+                          {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 254
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "location_fraction": {
+                        "anyOf": [
+                          {
+                            "type": "number",
+                            "minimum": 0,
+                            "maximum": 1
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "diameter_m": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1e+100
+                      },
+                      "volume_m3": {
+                        "type": "number",
+                        "minimum": 0,
+                        "maximum": 1e+100
+                      },
+                      "active": {
+                        "type": "boolean"
+                      },
+                      "exported": {
+                        "type": "boolean"
+                      }
+                    },
+                    "required": [
+                      "link",
+                      "location_fraction",
+                      "diameter_m",
+                      "volume_m3",
+                      "active",
+                      "exported"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "minItems": 1,
+                  "maxItems": 256
+                },
+                "retained_mass_kg": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1e+100
+                },
+                "exported_mass_kg": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 1e+100
+                },
+                "abrasion_loss_kg": {
+                  "type": "number",
+                  "minimum": -1e+100,
+                  "maximum": 1e+100
+                },
+                "elevation_m": {
+                  "type": "array",
+                  "items": {
+                    "type": "number",
+                    "minimum": -1e+100,
+                    "maximum": 1e+100
+                  },
+                  "minItems": 2,
+                  "maxItems": 256
+                }
+              },
+              "required": [
+                "time_s",
+                "parcels",
+                "retained_mass_kg",
+                "exported_mass_kg",
+                "abrasion_loss_kg",
+                "elevation_m"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 17
+          },
+          "initial_mass_kg": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1e+100
+          },
+          "requested_duration_s": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1e+100
+          },
+          "actual_duration_s": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1e+100
+          },
+          "termination": {
+            "enum": [
+              "all_parcels_exported",
+              "requested_steps_completed"
+            ]
+          },
+          "routing": {
+            "const": "fixed_initial_downhill_tree"
+          },
+          "active_layer": {
+            "const": "Constant10cm"
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "coordinates": {
+                "const": "m"
+              },
+              "time": {
+                "const": "s"
+              },
+              "mass": {
+                "const": "kg"
+              },
+              "volume": {
+                "const": "m3"
+              },
+              "diameter": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "coordinates",
+              "time",
+              "mass",
+              "volume",
+              "diameter"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 0
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "crs",
+          "history",
+          "initial_mass_kg",
+          "requested_duration_s",
+          "actual_duration_s",
+          "termination",
+          "routing",
+          "active_layer",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "river_sediment_parcel_transport",
+        "argument_parameter": "args",
+        "output_directory_parameter": null
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.landlab_state",
+        "function": "river_sediment_parcel_transport"
+      },
+      "source": {
+        "project": "landlab",
+        "url": "https://github.com/landlab/landlab/blob/575b4b7b424e9c74c55fc5cf334fbec6bea92723/src/landlab/components/network_sediment_transporter/network_sediment_transporter.py",
+        "source_commit": "575b4b7b424e9c74c55fc5cf334fbec6bea92723",
+        "license": "MIT"
+      },
+      "numeric_oracle": "Zero flow implies zero shear and transport; three 1 m3 parcels of density 2650 retain 7950 kg, zero export/abrasion, unchanged link/location/diameter at times [0,1,3]. Reordered node/link input must preserve physical output identities.",
+      "negative_cases": [
+        "cyclic/disconnected tree",
+        "ambiguous downhill receiver",
+        "reach shorter than chord",
+        "density <= fluid",
+        "negative flow depth",
+        "wrong units"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoSpatialPointCloudGroundClassification": {
+      "id": "GeoSpatialPointCloudGroundClassification",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "points_xyz_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -100000000.0,
+                "maximum": 100000000.0
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "feature_unit": {
+            "const": "dimensionless"
+          },
+          "cell_m": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 100
+          },
+          "slope": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 5
+          },
+          "threshold_m": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 20
+          },
+          "window_m": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 100
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "points_xyz_m": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "points_xyz_m"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "crs",
+          "points_xyz_m",
+          "feature_unit",
+          "cell_m",
+          "slope",
+          "threshold_m",
+          "window_m",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 8
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -1e+100,
+                "maximum": 1e+100
+              },
+              "minItems": 5,
+              "maxItems": 8
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "native_version": {
+            "type": "string"
+          },
+          "native_binary_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "artifact_manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_.-]+$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 67108864
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "media_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "bytes",
+                "sha256",
+                "media_type"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "X": {
+                "const": "m"
+              },
+              "Y": {
+                "const": "m"
+              },
+              "Z": {
+                "const": "m"
+              },
+              "PointId": {
+                "const": "input_zero_based"
+              },
+              "Classification": {
+                "const": "dimensionless_label"
+              }
+            },
+            "required": [
+              "X",
+              "Y",
+              "Z",
+              "PointId",
+              "Classification"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "crs",
+          "columns",
+          "rows",
+          "native_version",
+          "native_binary_sha256",
+          "artifact_manifest",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "point_cloud_ground_classification",
+        "argument_parameter": "args",
+        "output_directory_parameter": "output_dir"
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.native",
+        "function": "ground_classification"
+      },
+      "source": {
+        "project": "PDAL",
+        "url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.smrf.md",
+        "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+        "license": "BSD-3-Clause"
+      },
+      "numeric_oracle": "A flat single-return plane has zero terrain residual: classify all 25 points as ground=2 without changing XYZ or point identity.",
+      "negative_cases": [
+        "raster memory budget",
+        "duplicate XYZ",
+        "degree CRS",
+        "nonfinite",
+        "caller pipeline/executable key"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoSpatialPointCloudHeightAboveGround": {
+      "id": "GeoSpatialPointCloudHeightAboveGround",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "points_xyz_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -100000000.0,
+                "maximum": 100000000.0
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "feature_unit": {
+            "const": "m"
+          },
+          "classification": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "neighbors": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 32
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "points_xyz_m": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "points_xyz_m"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "crs",
+          "points_xyz_m",
+          "feature_unit",
+          "classification",
+          "neighbors",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 8
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -1e+100,
+                "maximum": 1e+100
+              },
+              "minItems": 5,
+              "maxItems": 8
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "native_version": {
+            "type": "string"
+          },
+          "native_binary_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "artifact_manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_.-]+$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 67108864
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "media_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "bytes",
+                "sha256",
+                "media_type"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "X": {
+                "const": "m"
+              },
+              "Y": {
+                "const": "m"
+              },
+              "Z": {
+                "const": "m"
+              },
+              "PointId": {
+                "const": "input_zero_based"
+              },
+              "Classification": {
+                "const": "dimensionless_label"
+              },
+              "HeightAboveGround": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "X",
+              "Y",
+              "Z",
+              "PointId",
+              "Classification",
+              "HeightAboveGround"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "crs",
+          "columns",
+          "rows",
+          "native_version",
+          "native_binary_sha256",
+          "artifact_manifest",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "point_cloud_height_above_ground",
+        "argument_parameter": "args",
+        "output_directory_parameter": "output_dir"
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.native",
+        "function": "height_above_ground"
+      },
+      "source": {
+        "project": "PDAL",
+        "url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.hag_nn.md",
+        "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+        "license": "BSD-3-Clause"
+      },
+      "numeric_oracle": "Ground is constant z=10: four ground heights are 0 and the interior z=13 return has HAG=3 m. Outside-support query must reject rather than accept PDAL zero fill.",
+      "negative_cases": [
+        "no ground",
+        "collinear ground",
+        "outside convex hull",
+        "neighbors exceed ground",
+        "wrong CRS"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoSpatialIndividualTreeSegmentation": {
+      "id": "GeoSpatialIndividualTreeSegmentation",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "points_xyz_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -100000000.0,
+                "maximum": 100000000.0
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "feature_unit": {
+            "const": "dimensionless"
+          },
+          "height_above_ground_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 150
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "minimum_points": {
+            "type": "integer",
+            "minimum": 2,
+            "maximum": 1000
+          },
+          "minimum_height_m": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100
+          },
+          "radius_m": {
+            "type": "number",
+            "minimum": 0.1,
+            "maximum": 100
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "points_xyz_m": {
+                "const": "m"
+              },
+              "height_above_ground_m": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "points_xyz_m",
+              "height_above_ground_m"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "crs",
+          "points_xyz_m",
+          "feature_unit",
+          "height_above_ground_m",
+          "minimum_points",
+          "minimum_height_m",
+          "radius_m",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 8
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -1e+100,
+                "maximum": 1e+100
+              },
+              "minItems": 5,
+              "maxItems": 8
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "native_version": {
+            "type": "string"
+          },
+          "native_binary_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "artifact_manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_.-]+$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 67108864
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "media_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "bytes",
+                "sha256",
+                "media_type"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "X": {
+                "const": "m"
+              },
+              "Y": {
+                "const": "m"
+              },
+              "Z": {
+                "const": "m"
+              },
+              "PointId": {
+                "const": "input_zero_based"
+              },
+              "HeightAboveGround": {
+                "const": "m"
+              },
+              "ClusterID": {
+                "const": "dimensionless_label"
+              }
+            },
+            "required": [
+              "X",
+              "Y",
+              "Z",
+              "PointId",
+              "HeightAboveGround",
+              "ClusterID"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "crs",
+          "columns",
+          "rows",
+          "native_version",
+          "native_binary_sha256",
+          "artifact_manifest",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "individual_tree_segmentation",
+        "argument_parameter": "args",
+        "output_directory_parameter": "output_dir"
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.native",
+        "function": "individual_tree_segmentation"
+      },
+      "source": {
+        "project": "PDAL",
+        "url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.litree.md",
+        "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+        "license": "BSD-3-Clause"
+      },
+      "numeric_oracle": "Two compact three-return crowns separated by 20 m, radius 2 m: two nonzero clusters, no cluster spans both crowns; labels themselves are arbitrary. Source IDs/XYZ must survive the required height sort.",
+      "negative_cases": [
+        "negative HAG",
+        "length mismatch",
+        "nonfinite",
+        "untrusted pipeline key"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoSpatialPointCloudMorphologyDescriptors": {
+      "id": "GeoSpatialPointCloudMorphologyDescriptors",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "points_xyz_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -100000000.0,
+                "maximum": 100000000.0
+              },
+              "minItems": 3,
+              "maxItems": 3
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "feature_unit": {
+            "const": "dimensionless"
+          },
+          "neighbors": {
+            "type": "integer",
+            "minimum": 3,
+            "maximum": 64
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "points_xyz_m": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "points_xyz_m"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "crs",
+          "points_xyz_m",
+          "feature_unit",
+          "neighbors",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "columns": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 5,
+            "maxItems": 8
+          },
+          "rows": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -1e+100,
+                "maximum": 1e+100
+              },
+              "minItems": 5,
+              "maxItems": 8
+            },
+            "minItems": 4,
+            "maxItems": 4096
+          },
+          "native_version": {
+            "type": "string"
+          },
+          "native_binary_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "artifact_manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_.-]+$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 67108864
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "media_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "bytes",
+                "sha256",
+                "media_type"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "X": {
+                "const": "m"
+              },
+              "Y": {
+                "const": "m"
+              },
+              "Z": {
+                "const": "m"
+              },
+              "PointId": {
+                "const": "input_zero_based"
+              },
+              "Linearity": {
+                "const": "dimensionless"
+              },
+              "Planarity": {
+                "const": "dimensionless"
+              },
+              "Scattering": {
+                "const": "dimensionless"
+              },
+              "Verticality": {
+                "const": "dimensionless"
+              }
+            },
+            "required": [
+              "X",
+              "Y",
+              "Z",
+              "PointId",
+              "Linearity",
+              "Planarity",
+              "Scattering",
+              "Verticality"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "crs",
+          "columns",
+          "rows",
+          "native_version",
+          "native_binary_sha256",
+          "artifact_manifest",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "point_cloud_morphology_descriptors",
+        "argument_parameter": "args",
+        "output_directory_parameter": "output_dir"
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.native",
+        "function": "morphology_descriptors"
+      },
+      "source": {
+        "project": "PDAL",
+        "url": "https://github.com/PDAL/PDAL/blob/fceafbd400639f8376e3d4cd21230175d5b314d9/doc/stages/filters.covariancefeatures.md",
+        "source_commit": "fceafbd400639f8376e3d4cd21230175d5b314d9",
+        "license": "BSD-3-Clause"
+      },
+      "numeric_oracle": "Collinear distinct points have rank-one covariance: Linearity=1, Planarity=0, Scattering=0 under Raw eigenvalues. Verticality in an eigenspace tie is not assigned an invented unique oracle.",
+      "negative_cases": [
+        "neighbors >= point count",
+        "duplicate observations",
+        "nonfinite",
+        "user feature_set/mode key"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoSpatialTerrainViewshed": {
+      "id": "GeoSpatialTerrainViewshed",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "origin_xy_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -100000000.0,
+              "maximum": 100000000.0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "cell_size_m": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 100000.0
+          },
+          "nodata_policy": {
+            "const": "reject_missing"
+          },
+          "elevation_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -12000,
+                "maximum": 10000
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "observer_cell": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 63
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "observer_height_m": {
+            "type": "number",
+            "minimum": 0.01,
+            "maximum": 1000
+          },
+          "target_height_m": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "origin_xy_m": {
+                "const": "m"
+              },
+              "cell_size_m": {
+                "const": "m"
+              },
+              "elevation_m": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "origin_xy_m",
+              "cell_size_m",
+              "elevation_m"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "crs",
+          "origin_xy_m",
+          "cell_size_m",
+          "nodata_policy",
+          "elevation_m",
+          "observer_cell",
+          "observer_height_m",
+          "target_height_m",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "grid": {
+            "type": "object",
+            "properties": {
+              "crs": {
+                "type": "string",
+                "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 64
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "origin_xy_m": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -100000000,
+                  "maximum": 100000000
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "cell_size_m": {
+                "type": "number",
+                "minimum": 1e-06,
+                "maximum": 100000000
+              },
+              "affine": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -10000000000,
+                  "maximum": 10000000000
+                },
+                "minItems": 6,
+                "maxItems": 6
+              },
+              "row_order": {
+                "const": "north_to_south"
+              },
+              "nodata": {
+                "const": "*"
+              },
+              "edge_policy": {
+                "const": "native_truncated_neighborhood"
+              }
+            },
+            "required": [
+              "crs",
+              "shape",
+              "origin_xy_m",
+              "cell_size_m",
+              "affine",
+              "row_order",
+              "nodata",
+              "edge_policy"
+            ],
+            "additionalProperties": false
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "native_version": {
+            "type": "string"
+          },
+          "native_binary_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "artifact_manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_.-]+$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 67108864
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "media_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "bytes",
+                "sha256",
+                "media_type"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "elevation": {
+                "const": "m"
+              },
+              "result": {
+                "const": "categorical"
+              }
+            },
+            "required": [
+              "elevation",
+              "result"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "grid",
+          "values",
+          "native_version",
+          "native_binary_sha256",
+          "artifact_manifest",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "terrain_viewshed",
+        "argument_parameter": "args",
+        "output_directory_parameter": "output_dir"
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.native",
+        "function": "terrain_viewshed"
+      },
+      "source": {
+        "project": "GRASS",
+        "url": "https://grass.osgeo.org/grass85/manuals/r.viewshed.html",
+        "source_commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+        "license": "GPL-2.0-or-later"
+      },
+      "numeric_oracle": "Flat zero-elevation plane with observer 2 m above ground and no curvature/refraction flags: all cells visible=1. Preserve exact extent, spacing, CRS and explicit native nulls.",
+      "negative_cases": [
+        "out-of-grid observer",
+        "degree CRS",
+        "missing cells",
+        "native altered header"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoSpatialGeomorphonLandforms": {
+      "id": "GeoSpatialGeomorphonLandforms",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "crs": {
+            "type": "string",
+            "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+          },
+          "origin_xy_m": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": -100000000.0,
+              "maximum": 100000000.0
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "cell_size_m": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 100000.0
+          },
+          "nodata_policy": {
+            "const": "reject_missing"
+          },
+          "elevation_m": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": -12000,
+                "maximum": 10000
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "search_cells": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 32
+          },
+          "skip_cells": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 31
+          },
+          "flat_angle_deg": {
+            "type": "number",
+            "minimum": 0.001,
+            "maximum": 45
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "origin_xy_m": {
+                "const": "m"
+              },
+              "cell_size_m": {
+                "const": "m"
+              },
+              "elevation_m": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "origin_xy_m",
+              "cell_size_m",
+              "elevation_m"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "crs",
+          "origin_xy_m",
+          "cell_size_m",
+          "nodata_policy",
+          "elevation_m",
+          "search_cells",
+          "skip_cells",
+          "flat_angle_deg",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "grid": {
+            "type": "object",
+            "properties": {
+              "crs": {
+                "type": "string",
+                "pattern": "^EPSG:[1-9][0-9]{2,6}$"
+              },
+              "shape": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 64
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "origin_xy_m": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -100000000,
+                  "maximum": 100000000
+                },
+                "minItems": 2,
+                "maxItems": 2
+              },
+              "cell_size_m": {
+                "type": "number",
+                "minimum": 1e-06,
+                "maximum": 100000000
+              },
+              "affine": {
+                "type": "array",
+                "items": {
+                  "type": "number",
+                  "minimum": -10000000000,
+                  "maximum": 10000000000
+                },
+                "minItems": 6,
+                "maxItems": 6
+              },
+              "row_order": {
+                "const": "north_to_south"
+              },
+              "nodata": {
+                "const": "*"
+              },
+              "edge_policy": {
+                "const": "native_truncated_neighborhood"
+              }
+            },
+            "required": [
+              "crs",
+              "shape",
+              "origin_xy_m",
+              "cell_size_m",
+              "affine",
+              "row_order",
+              "nodata",
+              "edge_policy"
+            ],
+            "additionalProperties": false
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 10
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "minItems": 3,
+              "maxItems": 64
+            },
+            "minItems": 3,
+            "maxItems": 64
+          },
+          "native_version": {
+            "type": "string"
+          },
+          "native_binary_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "artifact_manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_.-]+$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 67108864
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "media_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "bytes",
+                "sha256",
+                "media_type"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "elevation": {
+                "const": "m"
+              },
+              "result": {
+                "const": "categorical"
+              }
+            },
+            "required": [
+              "elevation",
+              "result"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "grid",
+          "values",
+          "native_version",
+          "native_binary_sha256",
+          "artifact_manifest",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "geomorphon_landforms",
+        "argument_parameter": "args",
+        "output_directory_parameter": "output_dir"
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.native",
+        "function": "geomorphon_landforms"
+      },
+      "source": {
+        "project": "GRASS",
+        "url": "https://grass.osgeo.org/grass85/manuals/r.geomorphon.html",
+        "source_commit": "8d6ceba290a2f0059a7301b9d4944455f313da72",
+        "license": "GPL-2.0-or-later"
+      },
+      "numeric_oracle": "A constant plane has zero zenith/nadir deviations: interior cells are flat class 1. Edge-limited neighborhoods/nulls remain explicit, not zero-filled.",
+      "negative_cases": [
+        "skip>=search",
+        "wrong angle unit",
+        "untrusted flags",
+        "native shape change"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoSpatialDemandWeightedFacilitySiting": {
+      "id": "GeoSpatialDemandWeightedFacilitySiting",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "spopt==0.8.0",
+        "PuLP==3.3.0",
+        "libpysal==4.15.0",
+        "geopandas==1.1.2",
+        "shapely==2.1.2",
+        "pandas==2.3.0"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "cost_matrix": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1000000000.0
+              },
+              "minItems": 1,
+              "maxItems": 64
+            },
+            "minItems": 1,
+            "maxItems": 64
+          },
+          "cost_unit": {
+            "const": "m"
+          },
+          "demand_weights": {
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1000000000.0
+            },
+            "minItems": 1,
+            "maxItems": 64
+          },
+          "facility_count": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 64
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "cost_matrix": {
+                "const": "m"
+              },
+              "demand_weights": {
+                "const": "people"
+              }
+            },
+            "required": [
+              "cost_matrix",
+              "demand_weights"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "cost_matrix",
+          "cost_unit",
+          "demand_weights",
+          "facility_count",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "proven_optimal",
+              "infeasible",
+              "not_proven_optimal"
+            ]
+          },
+          "selected_facilities": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 63
+            },
+            "minItems": 0,
+            "maxItems": 64
+          },
+          "client_facilities": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 63
+              },
+              "minItems": 1,
+              "maxItems": 64
+            },
+            "minItems": 0,
+            "maxItems": 64
+          },
+          "objective": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1e+100
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tie_policy": {
+            "const": "any_proven_optimum_no_lexicographic_claim"
+          },
+          "native_version": {
+            "type": "string"
+          },
+          "native_binary_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "artifact_manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_.-]+$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 67108864
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "media_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "bytes",
+                "sha256",
+                "media_type"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "cost": {
+                "const": "m"
+              },
+              "objective": {
+                "const": "m*demand_weight"
+              }
+            },
+            "required": [
+              "cost",
+              "objective"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "status",
+          "selected_facilities",
+          "client_facilities",
+          "objective",
+          "tie_policy",
+          "native_version",
+          "native_binary_sha256",
+          "artifact_manifest",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "demand_weighted_facility_siting",
+        "argument_parameter": "args",
+        "output_directory_parameter": "output_dir"
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.native",
+        "function": "demand_weighted_facility_siting"
+      },
+      "source": {
+        "project": "spopt",
+        "url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/spopt/locate/p_median.py",
+        "source_commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+        "license": "BSD-3-Clause"
+      },
+      "numeric_oracle": "For p=1, candidate objectives are [11,7,17] weighted metres; unique optimum is facility 1, objective 7. Stopped integer-feasible status is NOT an optimality certificate.",
+      "negative_cases": [
+        "negative costs",
+        "nonfinite",
+        "untrusted solver/path/options",
+        "infeasible or stopped solution must not be returned as proven optimal"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    },
+    "GeoSpatialMinimumCoverageFacilitySet": {
+      "id": "GeoSpatialMinimumCoverageFacilitySet",
+      "status": "source_authored_unregistered_acceptance_pending",
+      "formal_eligible": false,
+      "metadata_profile": "scientific",
+      "catalog_registered": false,
+      "deployment": "not_deployed",
+      "submission": "not_submitted",
+      "model_workflow": "not_run",
+      "requirements": [
+        "numpy==2.1.3",
+        "scipy==1.15.3",
+        "pyproj==3.7.2",
+        "jsonschema==4.25.1",
+        "spopt==0.8.0",
+        "PuLP==3.3.0",
+        "libpysal==4.15.0",
+        "geopandas==1.1.2",
+        "shapely==2.1.2",
+        "pandas==2.3.0"
+      ],
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "cost_matrix": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1000000000.0
+              },
+              "minItems": 1,
+              "maxItems": 64
+            },
+            "minItems": 1,
+            "maxItems": 64
+          },
+          "cost_unit": {
+            "const": "m"
+          },
+          "service_radius": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1000000000.0
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "cost_matrix": {
+                "const": "m"
+              },
+              "service_radius": {
+                "const": "m"
+              }
+            },
+            "required": [
+              "cost_matrix",
+              "service_radius"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "cost_matrix",
+          "cost_unit",
+          "service_radius",
+          "units"
+        ],
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "type": "string"
+          },
+          "status": {
+            "enum": [
+              "proven_optimal",
+              "infeasible",
+              "not_proven_optimal"
+            ]
+          },
+          "selected_facilities": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 63
+            },
+            "minItems": 0,
+            "maxItems": 64
+          },
+          "client_facilities": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 63
+              },
+              "minItems": 1,
+              "maxItems": 64
+            },
+            "minItems": 0,
+            "maxItems": 64
+          },
+          "objective": {
+            "anyOf": [
+              {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1e+100
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tie_policy": {
+            "const": "any_proven_optimum_no_lexicographic_claim"
+          },
+          "native_version": {
+            "type": "string"
+          },
+          "native_binary_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "artifact_manifest": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "pattern": "^[A-Za-z0-9_.-]+$"
+                },
+                "bytes": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 67108864
+                },
+                "sha256": {
+                  "type": "string",
+                  "pattern": "^[0-9a-f]{64}$"
+                },
+                "media_type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name",
+                "bytes",
+                "sha256",
+                "media_type"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1,
+            "maxItems": 4
+          },
+          "units": {
+            "type": "object",
+            "properties": {
+              "cost": {
+                "const": "m"
+              },
+              "objective": {
+                "const": "facility_count"
+              }
+            },
+            "required": [
+              "cost",
+              "objective"
+            ],
+            "additionalProperties": false
+          },
+          "artifacts": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 0,
+            "maxItems": 4
+          },
+          "provenance": {
+            "type": "object",
+            "properties": {
+              "tool": {
+                "type": "string"
+              },
+              "upstream_url": {
+                "type": "string"
+              },
+              "source_mode": {
+                "type": "string"
+              },
+              "reviewed_archive_commit": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "installed_versions": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "vendored_source": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "input_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "implementation_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "contract_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "output_sha256": {
+                "type": "object",
+                "patternProperties": {
+                  "^.*$": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "additionalProperties": false
+              },
+              "network_required": {
+                "const": false
+              },
+              "runtime_source_correspondence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "tool",
+              "upstream_url",
+              "source_mode",
+              "reviewed_archive_commit",
+              "installed_versions",
+              "vendored_source",
+              "input_sha256",
+              "implementation_sha256",
+              "contract_sha256",
+              "output_sha256",
+              "network_required",
+              "runtime_source_correspondence"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "method",
+          "status",
+          "selected_facilities",
+          "client_facilities",
+          "objective",
+          "tie_policy",
+          "native_version",
+          "native_binary_sha256",
+          "artifact_manifest",
+          "units",
+          "artifacts",
+          "provenance"
+        ],
+        "additionalProperties": false
+      },
+      "entrypoint": {
+        "module": "geological_agent.geology.expansion501_spatial",
+        "function": "minimum_coverage_facility_set",
+        "argument_parameter": "args",
+        "output_directory_parameter": "output_dir"
+      },
+      "private_kernel": {
+        "module": "geological_agent.geology.expansion501_spatial_support.native",
+        "function": "minimum_coverage_facility_set"
+      },
+      "source": {
+        "project": "spopt",
+        "url": "https://github.com/pysal/spopt/blob/8d282940ab2827f84cb5f8319e396aa90ac686aa/spopt/locate/coverage.py",
+        "source_commit": "8d282940ab2827f84cb5f8319e396aa90ac686aa",
+        "license": "BSD-3-Clause"
+      },
+      "numeric_oracle": "Hand enumeration: minimum cover with radius 2 needs facility 2 plus either 0 or 1, objective 2. All-positive cost matrix with radius 0 is infeasible.",
+      "negative_cases": [
+        "negative costs",
+        "nonfinite",
+        "untrusted solver/path/options",
+        "infeasible or stopped solution must not be returned as proven optimal"
+      ],
+      "integration_gate": "parent_fixed_private_cpu_v2_and_actual_identity_receipt_and_CPU_acceptance"
+    }
+  },
+  "examples": {
+    "GeoTidalCycleFlow": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "crs": "EPSG:32631",
+        "origin_xy_m": [
+          500000,
+          1000
+        ],
+        "cell_size_m": 2,
+        "nodata_policy": "reject_missing",
+        "bed_elevation_m": [
+          [
+            -50,
+            -50,
+            -50,
+            -50,
+            -50
+          ],
+          [
+            -50,
+            -50,
+            -50,
+            -50,
+            -50
+          ],
+          [
+            -50,
+            -50,
+            -50,
+            -50,
+            -50
+          ]
+        ],
+        "boundary_status": [
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          [
+            4,
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            4,
+            4,
+            4,
+            4,
+            4
+          ]
+        ],
+        "cycles": [
+          {
+            "mean_sea_level_m": 0,
+            "range_m": 2,
+            "period_s": 40000
+          }
+        ],
+        "mannings_n": 0.01,
+        "scale_velocity_m_s": 1,
+        "minimum_depth_m": 0.01,
+        "units": {
+          "origin_xy_m": "m",
+          "cell_size_m": "m",
+          "bed_elevation_m": "m",
+          "mean_sea_level_m": "m",
+          "range_m": "m",
+          "period_s": "s",
+          "mannings_n": "s/m^(1/3)",
+          "scale_velocity_m_s": "m/s",
+          "minimum_depth_m": "m"
+        }
+      },
+      "numeric_oracle": "Three core cells, area 4 m2 each, tidal range 2 m / half-period 20000 s: boundary inflow 0.0012 m3/s. Ebb=-flood. Zero range gives zero velocity. Raising both bed and MSL equally must leave all fields unchanged."
+    },
+    "GeoBedrockLandslideEvolution": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "crs": "EPSG:32631",
+        "origin_xy_m": [
+          500000,
+          1000
+        ],
+        "cell_size_m": 1,
+        "nodata_policy": "reject_missing",
+        "bedrock_elevation_m": [
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ],
+          [
+            10,
+            10,
+            10,
+            10,
+            10
+          ]
+        ],
+        "soil_depth_m": [
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        "critical_cells": [],
+        "dt_years": 2,
+        "friction_slope": 1,
+        "deposition_slope": 1,
+        "cohesion_pa": 10000,
+        "rock_density_kg_m3": 2700,
+        "fines_fraction": 0.2,
+        "porosity": 0.3,
+        "units": {
+          "origin_xy_m": "m",
+          "cell_size_m": "m",
+          "bedrock_elevation_m": "m",
+          "soil_depth_m": "m",
+          "dt_years": "year",
+          "friction_slope": "m/m",
+          "deposition_slope": "m/m",
+          "cohesion_pa": "Pa",
+          "rock_density_kg_m3": "kg/m3",
+          "fines_fraction": "1",
+          "porosity": "1"
+        }
+      },
+      "numeric_oracle": "No prescribed events: terrain unchanged, all yields zero. Forced toe at elevation 0 below plateau 10 with friction slope 1: adjacent cardinal erosion plane 5.5 m, diagonal 5.5*sqrt(2). Use fines=1 to avoid deposition masking the plane; dt=2 requires suspended_volume=2*raw_rate."
+    },
+    "GeoRiverSedimentParcelTransport": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "crs": "EPSG:32631",
+        "nodes_xy_m": [
+          [
+            500000,
+            1000
+          ],
+          [
+            500100,
+            1000
+          ],
+          [
+            500200,
+            1000
+          ],
+          [
+            500300,
+            1000
+          ]
+        ],
+        "links": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "outlet_node": 3,
+        "bedrock_elevation_m": [
+          3,
+          2,
+          1,
+          0
+        ],
+        "reach_length_m": [
+          100,
+          100,
+          100
+        ],
+        "channel_width_m": [
+          15,
+          15,
+          15
+        ],
+        "flow_depth_m": [
+          0,
+          0,
+          0
+        ],
+        "parcels": [
+          {
+            "link": 0,
+            "location_fraction": 0.25,
+            "diameter_m": 0.05,
+            "volume_m3": 1,
+            "density_kg_m3": 2650,
+            "abrasion_m_inverse": 0
+          },
+          {
+            "link": 1,
+            "location_fraction": 0.25,
+            "diameter_m": 0.05,
+            "volume_m3": 1,
+            "density_kg_m3": 2650,
+            "abrasion_m_inverse": 0
+          },
+          {
+            "link": 2,
+            "location_fraction": 0.25,
+            "diameter_m": 0.05,
+            "volume_m3": 1,
+            "density_kg_m3": 2650,
+            "abrasion_m_inverse": 0
+          }
+        ],
+        "steps_s": [
+          1,
+          2
+        ],
+        "porosity": 0.3,
+        "fluid_density_kg_m3": 1000,
+        "minimum_slope": 0.0001,
+        "units": {
+          "nodes_xy_m": "m",
+          "bedrock_elevation_m": "m",
+          "reach_length_m": "m",
+          "channel_width_m": "m",
+          "flow_depth_m": "m",
+          "steps_s": "s",
+          "parcel_diameter": "m",
+          "parcel_volume": "m3",
+          "density": "kg/m3",
+          "abrasion": "1/m",
+          "porosity": "1",
+          "minimum_slope": "m/m"
+        }
+      },
+      "numeric_oracle": "Zero flow implies zero shear and transport; three 1 m3 parcels of density 2650 retain 7950 kg, zero export/abrasion, unchanged link/location/diameter at times [0,1,3]. Reordered node/link input must preserve physical output identities."
+    },
+    "GeoSpatialPointCloudGroundClassification": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "crs": "EPSG:32631",
+        "feature_unit": "dimensionless",
+        "points_xyz_m": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            2,
+            0
+          ],
+          [
+            0,
+            3,
+            0
+          ],
+          [
+            0,
+            4,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            2,
+            0
+          ],
+          [
+            1,
+            3,
+            0
+          ],
+          [
+            1,
+            4,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            2,
+            1,
+            0
+          ],
+          [
+            2,
+            2,
+            0
+          ],
+          [
+            2,
+            3,
+            0
+          ],
+          [
+            2,
+            4,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            3,
+            1,
+            0
+          ],
+          [
+            3,
+            2,
+            0
+          ],
+          [
+            3,
+            3,
+            0
+          ],
+          [
+            3,
+            4,
+            0
+          ],
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            4,
+            1,
+            0
+          ],
+          [
+            4,
+            2,
+            0
+          ],
+          [
+            4,
+            3,
+            0
+          ],
+          [
+            4,
+            4,
+            0
+          ]
+        ],
+        "cell_m": 1,
+        "slope": 0.15,
+        "threshold_m": 0.5,
+        "window_m": 3,
+        "units": {
+          "points_xyz_m": "m"
+        }
+      },
+      "numeric_oracle": "A flat single-return plane has zero terrain residual: classify all 25 points as ground=2 without changing XYZ or point identity."
+    },
+    "GeoSpatialPointCloudHeightAboveGround": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "crs": "EPSG:32631",
+        "feature_unit": "m",
+        "points_xyz_m": [
+          [
+            0,
+            0,
+            10
+          ],
+          [
+            2,
+            0,
+            10
+          ],
+          [
+            0,
+            2,
+            10
+          ],
+          [
+            2,
+            2,
+            10
+          ],
+          [
+            1,
+            1,
+            13
+          ]
+        ],
+        "classification": [
+          2,
+          2,
+          2,
+          2,
+          1
+        ],
+        "neighbors": 4,
+        "units": {
+          "points_xyz_m": "m"
+        }
+      },
+      "numeric_oracle": "Ground is constant z=10: four ground heights are 0 and the interior z=13 return has HAG=3 m. Outside-support query must reject rather than accept PDAL zero fill."
+    },
+    "GeoSpatialIndividualTreeSegmentation": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "crs": "EPSG:32631",
+        "feature_unit": "dimensionless",
+        "points_xyz_m": [
+          [
+            0,
+            0,
+            10
+          ],
+          [
+            0.1,
+            0,
+            9
+          ],
+          [
+            0,
+            0.1,
+            9
+          ],
+          [
+            20,
+            0,
+            10
+          ],
+          [
+            20.1,
+            0,
+            9
+          ],
+          [
+            20,
+            0.1,
+            9
+          ]
+        ],
+        "height_above_ground_m": [
+          10,
+          9,
+          9,
+          10,
+          9,
+          9
+        ],
+        "minimum_points": 2,
+        "minimum_height_m": 3,
+        "radius_m": 2,
+        "units": {
+          "points_xyz_m": "m",
+          "height_above_ground_m": "m"
+        }
+      },
+      "numeric_oracle": "Two compact three-return crowns separated by 20 m, radius 2 m: two nonzero clusters, no cluster spans both crowns; labels themselves are arbitrary. Source IDs/XYZ must survive the required height sort."
+    },
+    "GeoSpatialPointCloudMorphologyDescriptors": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "crs": "EPSG:32631",
+        "feature_unit": "dimensionless",
+        "points_xyz_m": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            2,
+            0,
+            0
+          ],
+          [
+            3,
+            0,
+            0
+          ],
+          [
+            4,
+            0,
+            0
+          ],
+          [
+            5,
+            0,
+            0
+          ],
+          [
+            6,
+            0,
+            0
+          ]
+        ],
+        "neighbors": 4,
+        "units": {
+          "points_xyz_m": "m"
+        }
+      },
+      "numeric_oracle": "Collinear distinct points have rank-one covariance: Linearity=1, Planarity=0, Scattering=0 under Raw eigenvalues. Verticality in an eigenspace tie is not assigned an invented unique oracle."
+    },
+    "GeoSpatialTerrainViewshed": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "crs": "EPSG:32631",
+        "origin_xy_m": [
+          500000,
+          1000
+        ],
+        "cell_size_m": 1,
+        "nodata_policy": "reject_missing",
+        "elevation_m": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "observer_cell": [
+          3,
+          3
+        ],
+        "observer_height_m": 2,
+        "target_height_m": 0,
+        "units": {
+          "origin_xy_m": "m",
+          "cell_size_m": "m",
+          "elevation_m": "m"
+        }
+      },
+      "numeric_oracle": "Flat zero-elevation plane with observer 2 m above ground and no curvature/refraction flags: all cells visible=1. Preserve exact extent, spacing, CRS and explicit native nulls."
+    },
+    "GeoSpatialGeomorphonLandforms": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "crs": "EPSG:32631",
+        "origin_xy_m": [
+          500000,
+          1000
+        ],
+        "cell_size_m": 1,
+        "nodata_policy": "reject_missing",
+        "elevation_m": [
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "search_cells": 2,
+        "skip_cells": 0,
+        "flat_angle_deg": 1,
+        "units": {
+          "origin_xy_m": "m",
+          "cell_size_m": "m",
+          "elevation_m": "m"
+        }
+      },
+      "numeric_oracle": "A constant plane has zero zenith/nadir deviations: interior cells are flat class 1. Edge-limited neighborhoods/nulls remain explicit, not zero-filled."
+    },
+    "GeoSpatialDemandWeightedFacilitySiting": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "cost_matrix": [
+          [
+            0,
+            2,
+            7
+          ],
+          [
+            2,
+            0,
+            5
+          ],
+          [
+            7,
+            5,
+            0
+          ]
+        ],
+        "cost_unit": "m",
+        "demand_weights": [
+          1,
+          2,
+          1
+        ],
+        "facility_count": 1,
+        "units": {
+          "cost_matrix": "m",
+          "demand_weights": "people"
+        }
+      },
+      "numeric_oracle": "For p=1, candidate objectives are [11,7,17] weighted metres; unique optimum is facility 1, objective 7. Stopped integer-feasible status is NOT an optimality certificate."
+    },
+    "GeoSpatialMinimumCoverageFacilitySet": {
+      "fixture_kind": "synthetic",
+      "status": "not_run",
+      "input": {
+        "cost_matrix": [
+          [
+            0,
+            2,
+            7
+          ],
+          [
+            2,
+            0,
+            5
+          ],
+          [
+            7,
+            5,
+            0
+          ]
+        ],
+        "cost_unit": "m",
+        "service_radius": 2,
+        "units": {
+          "cost_matrix": "m",
+          "service_radius": "m"
+        }
+      },
+      "numeric_oracle": "Hand enumeration: minimum cover with radius 2 needs facility 2 plus either 0 or 1, objective 2. All-positive cost matrix with radius 0 is infeasible."
+    }
+  }
+}

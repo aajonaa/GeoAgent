@@ -1,0 +1,11 @@
+{
+  "fixture_id": "synthetic_improver",
+  "synthetic": true,
+  "values": [
+    -5,
+    0,
+    5,
+    10,
+    15
+  ]
+}

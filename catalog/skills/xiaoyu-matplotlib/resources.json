@@ -1,0 +1,138 @@
+{
+  "skill_id": "xiaoyu_matplotlib",
+  "archive_sha256": "68fbc48cf05e86a0275e56c4d8e1c297083b77f09991baa03fdea8a18bee641f",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 12273,
+      "sha256": "0c20cceb3a05f09bf057c2f6952df3e7dc20796fbeed38d9101f28941e5a9bd9",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/matplotlib/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/1b96e4dc50-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pptx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/8e53b12f75-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/docx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/9c8ca586d5-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/xlsx/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "_repository_licenses/d594664132-LICENSE.txt",
+      "bytes": 1467,
+      "sha256": "79f6d8f5b427252fa3b1c11ecdbdb6bf610b944f7530b4de78f770f38741cfaa",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/document-skills/pdf/LICENSE.txt"
+        }
+      ]
+    },
+    {
+      "path": "references/api_reference.md",
+      "bytes": 11233,
+      "sha256": "988c2afffa9488bce338720f7b16719ea9bee95fbe3d2d0128139eafc99a65a2",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/matplotlib/references/api_reference.md"
+        }
+      ]
+    },
+    {
+      "path": "references/common_issues.md",
+      "bytes": 12836,
+      "sha256": "16fecf7bb99b830053cece408af4673feabd3f3e2696377c85909ffe14774868",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/matplotlib/references/common_issues.md"
+        }
+      ]
+    },
+    {
+      "path": "references/plot_types.md",
+      "bytes": 11839,
+      "sha256": "24501746fc5a6ae26a354cc14d9fed393e8efb96de64fe4bb9bf7a6fc4fb9f3e",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/matplotlib/references/plot_types.md"
+        }
+      ]
+    },
+    {
+      "path": "references/styling_guide.md",
+      "bytes": 13583,
+      "sha256": "1b39f691ac6fc33e4584893c05d0126a954dead08b8850473e5b9a912eeff37a",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/matplotlib/references/styling_guide.md"
+        }
+      ]
+    },
+    {
+      "path": "scripts/plot_template.py",
+      "bytes": 12093,
+      "sha256": "670e4879a39ef9a06a0221b80a68fddea4ade9311245652283ce2045103d752b",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/matplotlib/scripts/plot_template.py"
+        }
+      ]
+    },
+    {
+      "path": "scripts/style_configurator.py",
+      "bytes": 13179,
+      "sha256": "cb3dacaffed417ddca5d5e9afa530ab2d9fb0f9ef761146efb07dbeb835f9500",
+      "origins": [
+        {
+          "package_number": 50,
+          "archive_sha256": "cf355d4122ca6d76efe8ee8b802db4ab0a0964b5ccbb082cb8856060b19d724b",
+          "member": "claude-skills-for-earth-science-master/.claude/skills/matplotlib/scripts/style_configurator.py"
+        }
+      ]
+    }
+  ]
+}

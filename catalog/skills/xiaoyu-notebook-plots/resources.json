@@ -1,0 +1,30 @@
+{
+  "skill_id": "xiaoyu_notebook_plots",
+  "archive_sha256": "297a616dae453b2807fde6cdd270d69843f3cf259e42e6417ca09b41adeba931",
+  "files": [
+    {
+      "path": "SKILL.md",
+      "bytes": 8217,
+      "sha256": "211425909ee69ea56076fcfacd64a6ca565e1cb4722c300144e4e2223fb1fe2e",
+      "origins": [
+        {
+          "package_number": 56,
+          "archive_sha256": "1c323da4dfc600da211ef08617a77d464ea04f0ed692ce17d0efd101abb9a7a7",
+          "member": "skill56ú║Notebook╜╗╗Ñ╩╜╗µ═╝-notebook-plots/SKILL.md"
+        }
+      ]
+    },
+    {
+      "path": "references/evals.json",
+      "bytes": 4618,
+      "sha256": "410043edaac597ebdda378f2fef4058554c09beba775a0ae9341347204735209",
+      "origins": [
+        {
+          "package_number": 56,
+          "archive_sha256": "1c323da4dfc600da211ef08617a77d464ea04f0ed692ce17d0efd101abb9a7a7",
+          "member": "skill56ú║Notebook╜╗╗Ñ╩╜╗µ═╝-notebook-plots/references/evals.json"
+        }
+      ]
+    }
+  ]
+}

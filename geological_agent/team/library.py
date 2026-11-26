@@ -19,6 +19,26 @@ NOTICE = ("接入状态来自当前运行时注册表，不代表科学结果已
           "所需数据、依赖环境和参数仍需在执行时检查；浏览目录不会执行工具或调用模型。")
 
 
+# User-facing categories follow the task a researcher is trying to complete.
+# Keep source domains and runtime IDs available to their existing consumers.
+SKILL_CATEGORIES = {
+    "planning_with_files": "研究计划与进度",
+    "openalex_academic_search": "文献检索与写作",
+    "scientific_writing": "文献检索与写作",
+    "xiaoyu_openalex_database": "文献检索与写作",
+    "xiaoyu_citation_management": "文献检索与写作",
+    "xiaoyu_literature_review": "文献检索与写作",
+    "xiaoyu_scientific_writing": "文献检索与写作",
+    "ppt_master": "科研制图与展示",
+    "xiaoyu_scientific_slides": "科研制图与展示",
+    "xiaoyu_docx": "文档处理",
+    "xiaoyu_pdf": "文档处理",
+    "xiaoyu_pptx": "文档处理",
+    "xiaoyu_xlsx": "文档处理",
+    "xiaoyu_markitdown": "文档处理",
+}
+
+
 def _strings(value):
     if isinstance(value, str):
         return [value]
@@ -46,7 +66,9 @@ class LibraryCatalog:
                 )
                 native_to_source[native] = native
         runtime = {s.id: loader.load(s.id) for s in loader.registry.list()}
-        for spec in source["skills"]:
+        from ..research_skills import skill_specs
+        skill_rows = (*source["skills"], *skill_specs())
+        for spec in skill_rows:
             identifier = EXISTING_SKILLS.get(spec["id"], spec["id"].replace("-", "_"))
             actual = runtime.pop(identifier, None)
             self.skills[identifier] = self._skill(spec, identifier, actual, native_to_source)
@@ -62,7 +84,7 @@ class LibraryCatalog:
         fingerprint = json.dumps({"tools": self.tools, "skills": self.skills},
                                  sort_keys=True, ensure_ascii=False).encode("utf-8")
         self.revision = hashlib.sha256(fingerprint).hexdigest()[:12]
-        self.catalog_skill_count = len(source["skills"])
+        self.catalog_skill_count = len(skill_rows)
         self.catalog_tool_count = len(source["tools"])
         self.base_tools = tuple(base_tools)
 
@@ -129,7 +151,7 @@ class LibraryCatalog:
             "id": identifier, "source_id": spec["id"], "kind": "skills", "scope": scope,
             "name": actual.summary.name if actual else spec["name"],
             "description": actual.summary.description if actual else spec.get("description", ""),
-            "category": spec.get("metadata", {}).get("domain", {}).get("primary") or "Other",
+            "category": SKILL_CATEGORIES.get(identifier) or spec.get("metadata", {}).get("domain", {}).get("primary") or "Other",
             "tags": _strings(spec.get("applicability", {}).get("keywords")),
             "status": status,
             "reason": "" if status == "registered" else "部分关联工具尚未接入，请选择已接入的操作。" if status == "partial"
@@ -179,6 +201,17 @@ class LibraryCatalog:
             "tools": [self._summary(row) for row in self.tools.values()],
         }
 
+    def selection(self, identifier):
+        skill = self.skills.get(identifier)
+        if skill is None or skill["status"] == "blocked":
+            return None
+        return {
+            "id": identifier,
+            "name": skill["name"],
+            "revision": self.revision,
+            "instructions_sha256": hashlib.sha256(skill["instructions"].encode()).hexdigest(),
+        }
+
     def detail(self, kind, identifier):
         rows = {"skills": self.skills, "tools": self.tools}.get(kind, {})
         if identifier not in rows:
@@ -198,5 +231,7 @@ def install_library_routes(app, auth, *, human_input=False):
 
     @app.get("/api/library/{kind}/{identifier}")
     def library_detail(kind: str, identifier: str, request: Request):
-        auth(request)
+        auth(request, admin=True)
         return assets().detail(kind, identifier)
+
+    return assets

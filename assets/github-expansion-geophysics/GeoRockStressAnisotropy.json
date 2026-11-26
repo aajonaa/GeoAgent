@@ -1,0 +1,38 @@
+{
+  "synthetic": true,
+  "status": "source_authored_unverified",
+  "tool_id": "GeoRockStressAnisotropy",
+  "input_source": "SYNTHETIC analytic fixture; not geological observations",
+  "arguments": {
+    "input_source": "SYNTHETIC analytic fixture; not geological observations",
+    "bulk_gpa": 20,
+    "shear_gpa": 15,
+    "porosity": 0.4,
+    "coordination": 6,
+    "hydrostatic_strain": -0.001,
+    "axial_strain": -0.001
+  },
+  "expected_checks": [
+    {
+      "path": [
+        "stiffness_gpa",
+        2,
+        2
+      ],
+      "value": 0.8204500018501326,
+      "relative_tolerance": 1e-07,
+      "absolute_tolerance": 1e-12
+    }
+  ],
+  "negative_overrides": {
+    "axial_strain": 0.001
+  },
+  "numeric_oracle": "Equal compressive strains give alpha=1; independent angular integrals reduce to sqrt(2) and asinh(1)=ln(1+sqrt(2)); C33 evaluated from contact constants.",
+  "upstream_source": "https://github.com/yujiaxin666/rockphypy/blob/54c89027fb99e00b53761a05fcd7c20bc796ce7e/rockphypy/GM.py",
+  "limitations": [
+    "Fixed simultaneous path; negative small strains; ratio[.1,10]; compressive stresses negative.",
+    "NOT TESTED / NOT DEPLOYED / NOT SUBMITTED. Acceptance source exists but has not run.",
+    "Synthetic fixtures are not observations, mineral identification, ore grade, resources or reserves.",
+    "No network, automatic installation, arbitrary functions/code or scientific-kernel substitution."
+  ]
+}

@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-25",
+  "state": "cpu_integration_accepted_not_deployed",
+  "supersedes_summary": "round2-acceptance.json",
+  "prior_evidence_preserved": true,
+  "candidate": {
+    "additional_professional_operations": 117,
+    "original_professional_operations": 229,
+    "total_professional_operations": 346,
+    "skills": 70,
+    "groups": {
+      "geophysics": 29,
+      "remote": 30,
+      "geology": 28,
+      "spatial": 30
+    }
+  },
+  "formal_results": {
+    "junit_cases": 751,
+    "passed_cases": 751,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "formal_suites": {
+    "contracts": {
+      "passed_cases": 237,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "accepted": true,
+      "passed_subtests": 0
+    },
+    "geophysics": {
+      "passed_cases": 5,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "accepted": true,
+      "passed_subtests": 39
+    },
+    "remote": {
+      "passed_cases": 15,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "accepted": true,
+      "passed_subtests": 308
+    },
+    "geology": {
+      "passed_cases": 89,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "accepted": true,
+      "passed_subtests": 0
+    },
+    "spatial": {
+      "passed_cases": 44,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "accepted": true,
+      "passed_subtests": 345
+    },
+    "native-new": {
+      "passed_cases": 117,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "accepted": true,
+      "passed_subtests": 0
+    },
+    "baseline229": {
+      "passed_cases": 244,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "accepted": true,
+      "passed_subtests": 0
+    }
+  },
+  "passed_scientific_subtests": 692,
+  "reporting_control_tests": {
+    "passed": 9,
+    "failed": 0,
+    "counted_as_scientific_tools": false
+  },
+  "historical_diagnostic": {
+    "outcome": "known_upstream_failure",
+    "expected_failures": 1,
+    "passed_cases": 0,
+    "counted_as_available_tool": false,
+    "recorded": true
+  },
+  "exact_separate_node": "tests_local/test_github_expansion_geophysics.py::TestBlockedStressAnisotropyDiagnostic::test_unequal_strain_angular_integral",
+  "original_test_assertions_changed": false,
+  "scientific_algorithms_changed": false,
+  "readme_correction": {
+    "path": "catalog/source_delivery/github-expansion-20261025/groups/geophysics/README.md",
+    "old_sha256": "836eaaea2836b3222119e9bbe433a60fd6d4ad3ce3f224d9cc5ef6bdd67451d5",
+    "new_sha256": "4d41c206b87e2b501f8e06058b3f2c6f2445aefe566bc0c30c8192e9c90e8009",
+    "only_authorized_sentence_changed": true
+  },
+  "excluded_upstream_candidates": [
+    "StressAnisotropy",
+    "Bingham confidence",
+    "CIPW norm"
+  ],
+  "release_gate_passed": true,
+  "release_gate_scope": "CPU source integration, not production deployment or receiving-lab delivery approval",
+  "remote_candidate": "/data/wangjian/github-expansion120-20261025-r3/candidate",
+  "remote_reports": "/data/wangjian/github-expansion120-20261025-r3/reports",
+  "dependency_target": "/data/wangjian/github-expansion120-20261025-r2/deps",
+  "local_reports": "tests_local/expansion-release-20261025-r3/retrieved-reports/reports",
+  "production_modified": false,
+  "deployed": false,
+  "pushed": false,
+  "gpu_used": false
+}

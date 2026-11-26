@@ -1,0 +1,65 @@
+{
+  "revision": "remote-r1-ccd-magnitude",
+  "status": "source_revised_unverified",
+  "source_adapted": 26,
+  "blocked": 8,
+  "skills": 6,
+  "expected_delivery_file_count": 52,
+  "execution_status": "not_run",
+  "executed_tests": 0,
+  "planned_unique_operation_oracles": 26,
+  "planned_dict_numeric_artifact_calls": 26,
+  "planned_json_numeric_artifact_calls": 26,
+  "additional_ccd_cases": "Analytic coherence1/3, negative phase/gain invariance, nodata/full-window masks, physical/shape/nonfinite negatives, separate upstream contract fault injection.",
+  "test_source": "catalog/source_delivery/expansion501-20261026/groups/remote/test_expansion501_remote.py",
+  "execution_root": "/data/wangjian/expansion501-20261026/remote-r1",
+  "remote_setup": "not_started_confirmed_base_runtime_available",
+  "requirements": "Python stdlib unittest; existing per-operation exact dependency profiles unchanged. No pytest dependency.",
+  "source_copy": "Manifest-only transport, no recursive copy or symlink following; preserve failed snapshots and reports.",
+  "hash_contract": {
+    "environment_variable": "EXPANSION501_REMOTE_SOURCE_HASHES",
+    "schema": {
+      "files": {
+        "repository/relative/path": "64-hex SHA256"
+      }
+    },
+    "expected_origin": "Parent freezes source hashes before upload; do not regenerate expected hashes from the running copy.",
+    "required": "Every delivery-files.json entry plus collection_contracts.py and legacy source_contracts.py; parent must resolve and freeze all additional shared import dependencies.",
+    "shared_sources_to_resolve_by_parent": [
+      "geological_agent/geology/collection_contracts.py",
+      "legacy/ToolsAgent/ToolsFuns/source_contracts.py",
+      "legacy/ToolsAgent/ToolsFuns/GeoEval/scientific_tools.py"
+    ]
+  },
+  "cpu_environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "PYTHONNOUSERSITE": "1",
+    "threads": "OMP/OPENBLAS/MKL/NUMEXPR/BLIS/VECLIB_MAXIMUM_THREADS explicitly1or2",
+    "isolated_paths": [
+      "HOME",
+      "XDG_CACHE_HOME",
+      "TMPDIR",
+      "TMP",
+      "TEMP",
+      "PYTHONPYCACHEPREFIX",
+      "MPLCONFIGDIR",
+      "NUMBA_CACHE_DIR"
+    ],
+    "path_scope": "All HOME/cache/temp/result/source paths below remote-r1. Use a fresh private venv/prefix, not the probe interpreter environment directly."
+  },
+  "registry_scope": "Only a private in-process catalog ROOT with exactly26 own real tools. No shared registry files or profiles are modified. Merged central dispatcher tests remain parent-owned.",
+  "report_scope": "Fresh counts by category, skips separate from passes, numeric and mock fault-injection separated; no old report evidence.",
+  "model_workflow_validation": "not_run",
+  "platform_certification": "not_established",
+  "deployment": "not_deployed",
+  "submission": "not_submitted",
+  "confirmed_base_python": "/data/wangjian/earth-python-coverage101-imports-20261022/venv/bin/python",
+  "base_python_usage": "Create a fresh private venv only; never install into the confirmed base environment.",
+  "transport": "Approved SSH BatchMode explicit key/port; actual UTF8-no-BOM LF via ProcessStartInfo.StandardInput.Write, with child exit propagation.",
+  "approved_change": {
+    "previous_state": "blocked",
+    "defect": "Unregistered draft treated SarPy mem complex correlation as real magnitude; draft withheld, not an upstream defect.",
+    "repair": "abs of upstream complex CCD, unchanged upstream phase, strict shape/finite checks and [0,1] roundoff bounds",
+    "approval": "User explicitly approved this defect correction; no other adapter changes authorized."
+  }
+}

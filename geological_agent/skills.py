@@ -39,10 +39,55 @@ class SkillRegistry:
         summaries = tuple(skill.summary for skill in self._skills.values())
         if not query:
             return summaries
-        words = query.casefold().split()
-        matches = tuple(s for s in summaries if any(w in " ".join((s.id, s.name, s.description, s.when_to_use)).casefold() for w in words))
-        # Small V0 registry: no semantic scoring and no hidden automatic selection.
-        return matches
+        # Match complete words, excluding single-letter symbols and common
+        # connectors. Substring matching let "I", "u" and "v" match almost
+        # every description. Keep a simple, observable lexical ranking.
+        terms = _search_terms(query)
+        scored = []
+        for summary in summaries:
+            text = " ".join((summary.id, summary.name, summary.description, summary.when_to_use)).casefold()
+            tokens = _search_terms(text)
+            # Chinese has no word separators: a query bigram matches when it
+            # occurs anywhere in the summary text.
+            score = sum(term in tokens or (_CJK.match(term) is not None and term in text)
+                        for term in terms)
+            if score:
+                scored.append((score, summary))
+        return tuple(s for _, s in sorted(scored, key=lambda item: -item[0]))
+
+
+_CJK = re.compile(r"[\u3400-\u9fff]")
+_IGNORED = {"the", "and", "or", "for", "with", "from", "to", "of", "in", "on"}
+# Light English suffix folding so plural and inflected forms meet their stems
+# (statistic/statistics, interpolate/interpolated/interpolation). Ordered so the
+# longest applicable suffix is removed; a stem keeps at least four letters.
+_SUFFIXES = ("ings", "ing", "ions", "ion", "ies", "es", "ed", "s", "e")
+
+
+def _stem(word):
+    for suffix in _SUFFIXES:
+        if not word.endswith(suffix) or len(word) - len(suffix) < 4:
+            continue
+        if suffix == "s" and word.endswith(("ss", "is", "us")):
+            continue
+        base = word[:-len(suffix)]
+        if suffix == "ies":
+            return base + "y"
+        if suffix in ("ing", "ings", "ed") and len(base) >= 4 and base[-1] == base[-2] and base[-1] not in "lsz":
+            return base[:-1]
+        return base
+    return word
+
+
+def _search_terms(text):
+    terms = set()
+    for run in re.findall(r"[\u3400-\u9fff]+|[^\W\u3400-\u9fff]+", text.casefold()):
+        if _CJK.match(run):
+            # Single characters are as unspecific as single Latin letters.
+            terms.update(run[i:i + 2] for i in range(len(run) - 1))
+        elif len(run) > 1 and run not in _IGNORED:
+            terms.add(_stem(run))
+    return terms
 
 
 class SkillLoader:

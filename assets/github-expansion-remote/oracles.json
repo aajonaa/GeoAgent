@@ -1,0 +1,507 @@
+{
+  "fixture_status": "SYNTHETIC ONLY",
+  "execution_status": "NOT TESTED",
+  "operations": {
+    "GeoRemotePCA": {
+      "measurement": {
+        "path": [
+          "eigenvalues",
+          0
+        ],
+        "expected": 5.333333333333333,
+        "reason": "Four corners (0,0),(2,0),(0,4),(2,4) have unbiased covariance diag(4/3,16/3); the largest eigenvalue is 16/3."
+      },
+      "negative_overrides": {
+        "components": 65
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteNoiseCovariance": {
+      "measurement": {
+        "path": [
+          "covariance",
+          0,
+          0
+        ],
+        "expected": 0.6666666666666666,
+        "reason": "Differences -1,+1,-1,+1 have sample variance 4/3; independent equal-variance pixel noise contributes half, 2/3."
+      },
+      "negative_overrides": {
+        "wavelength_nm": [
+          1500,
+          1000
+        ]
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteMNF": {
+      "measurement": {
+        "path": [
+          "noise_adjusted_eigenvalues",
+          0
+        ],
+        "expected": 2.6666666666666665,
+        "reason": "Whitening diag(4/3,16/3) by noise diag(1,2) yields diag(4/3,8/3)."
+      },
+      "negative_overrides": {
+        "noise_covariance": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteRX": {
+      "measurement": {
+        "path": [
+          "mean"
+        ],
+        "expected": 2,
+        "reason": "For x=(2,1), mean=0 and covariance diag(4,1), x^T C^-1 x=4/4+1=2."
+      },
+      "negative_overrides": {
+        "background_covariance": [
+          [
+            1,
+            1
+          ],
+          [
+            0,
+            1
+          ]
+        ]
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteMatchedFilter": {
+      "measurement": {
+        "path": [
+          "mean"
+        ],
+        "expected": 1,
+        "reason": "For target=(2,0), x=(2,1), mean=0 and C=diag(4,1), t^T C^-1 x / (t^T C^-1 t)=1."
+      },
+      "negative_overrides": {
+        "target": [
+          0,
+          0
+        ]
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteACE": {
+      "measurement": {
+        "path": [
+          "mean"
+        ],
+        "expected": 0.5,
+        "reason": "Whitened target=(1,0) and pixel=(1,1) have squared cosine 1/(1*2)=1/2."
+      },
+      "negative_overrides": {
+        "background_mean": [
+          2,
+          1
+        ]
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteWhiteTophat": {
+      "measurement": {
+        "path": [
+          "maximum"
+        ],
+        "expected": 8,
+        "reason": "A single value 10 on uniform 2 has 3x3 opening 2 and white top-hat peak 10-2=8."
+      },
+      "negative_overrides": {
+        "radius_pixels": 0
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteSeedReconstruction": {
+      "measurement": {
+        "path": [
+          "maximum"
+        ],
+        "expected": 2,
+        "reason": "A seed of 2 propagates across the connected 3x3 plateau of height 5 but cannot cross its zero boundary; plateau value is 2."
+      },
+      "negative_overrides": {
+        "seed_path": "assets/github-expansion-remote/peak.tif"
+      },
+      "raster_probe": {
+        "band": 1,
+        "row": 7,
+        "column": 7,
+        "expected": 2
+      },
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteSkeleton": {
+      "measurement": {
+        "path": [
+          "skeleton_pixels"
+        ],
+        "expected": 9,
+        "reason": "An already one-pixel-wide isolated horizontal segment with 9 cells is a fixed point of topology-preserving thinning."
+      },
+      "negative_overrides": {
+        "input_unit": "DN"
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteRemoveSmallObjects": {
+      "measurement": {
+        "path": [
+          "foreground_pixels"
+        ],
+        "expected": 9,
+        "reason": "A 9-cell connected square survives max_size=1 while a disconnected singleton is removed."
+      },
+      "negative_overrides": {
+        "max_size_pixels": 0
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteFillSmallHoles": {
+      "measurement": {
+        "path": [
+          "filled_pixels"
+        ],
+        "expected": 1,
+        "reason": "A 3x3 foreground ring has a single-cell central background component; inclusive max_size=1 fills exactly one cell."
+      },
+      "negative_overrides": {
+        "max_size_pixels": 0
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteHMaxima": {
+      "measurement": {
+        "path": [
+          "maxima_pixels"
+        ],
+        "expected": 1,
+        "reason": "The isolated height-10 peak above background 2 has prominence 8>=3 and occupies one cell."
+      },
+      "negative_overrides": {
+        "height": 0
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteGLCM": {
+      "measurement": {
+        "path": [
+          "contrast"
+        ],
+        "expected": 1,
+        "reason": "Horizontal neighbors of a binary checkerboard always differ by one; symmetric P01=P10=1/2, hence contrast=1."
+      },
+      "negative_overrides": {
+        "levels": 1
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteLocalEntropy": {
+      "measurement": {
+        "path": [
+          "maximum"
+        ],
+        "expected": 1,
+        "reason": "At a straight image edge the truncated 2x3 checkerboard footprint contains three zeros and three ones, giving entropy 1 bit."
+      },
+      "negative_overrides": {
+        "radius_pixels": 0
+      },
+      "raster_probe": {
+        "band": 1,
+        "row": 8,
+        "column": 8,
+        "expected": 0.9910760598382222
+      },
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteLBP": {
+      "measurement": {
+        "path": [
+          "maximum"
+        ],
+        "expected": 255,
+        "reason": "Inside a constant image all eight radius-one neighbors equal the center, so all bits are set: 2^8-1=255."
+      },
+      "negative_overrides": {
+        "input_unit": "reflectance"
+      },
+      "raster_probe": {
+        "band": 1,
+        "row": 8,
+        "column": 8,
+        "expected": 255
+      },
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteStructureTensor": {
+      "measurement": {
+        "path": [
+          "maximum_principal_eigenvalue"
+        ],
+        "expected": 64,
+        "reason": "For unit column ramp, the 3x3 Sobel derivative is 8 and row derivative is zero; the tensor eigenvalues are 64 and 0."
+      },
+      "negative_overrides": {
+        "sigma_pixels": -1
+      },
+      "raster_probe": {
+        "band": 3,
+        "row": 8,
+        "column": 8,
+        "expected": 64
+      },
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteGabor": {
+      "measurement": {
+        "path": [
+          "maximum_real_response"
+        ],
+        "expected": 0.15915494309189535,
+        "reason": "A unit impulse sampled at the center of a sigma_x=sigma_y=1 Gabor kernel has real response 1/(2*pi)."
+      },
+      "negative_overrides": {
+        "frequency_cycles_per_pixel": 0
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteCanny": {
+      "measurement": {
+        "path": [
+          "edge_pixels"
+        ],
+        "expected": 28,
+        "reason": "A 16x16 vertical unit step with sigma=0 has two equal Sobel-ridge columns; nonmaximum suppression keeps both on 14 interior rows: 28 cells."
+      },
+      "negative_overrides": {
+        "low_threshold": 0.5,
+        "high_threshold": 0.2
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteOtsu": {
+      "measurement": {
+        "path": [
+          "threshold"
+        ],
+        "expected": 2,
+        "reason": "Equal populations at integer DN=2 and 6 share the same optimal split for thresholds 2..5; the first maximizing bin is 2."
+      },
+      "negative_overrides": {
+        "raster_path": "assets/github-expansion-remote/constant-dn.tif"
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteWatershed": {
+      "measurement": {
+        "path": [
+          "region_pixels",
+          0
+        ],
+        "expected": 256,
+        "reason": "A connected 16x16 flat cost domain with a single marker is entirely reached by that seed: 256 cells."
+      },
+      "negative_overrides": {
+        "markers_path": "assets/github-expansion-remote/zeros.tif"
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteSLIC": {
+      "measurement": {
+        "path": [
+          "region_pixels",
+          0
+        ],
+        "expected": 256,
+        "reason": "One requested cluster on a connected constant 16x16 image assigns all 256 cells to one superpixel."
+      },
+      "negative_overrides": {
+        "segments": 0
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteFelzenszwalb": {
+      "measurement": {
+        "path": [
+          "region_pixels",
+          0
+        ],
+        "expected": 256,
+        "reason": "All graph edges of a constant connected 16x16 image have weight zero, so the positive-scale merge criterion combines all 256 cells."
+      },
+      "negative_overrides": {
+        "scale": 0
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteRandomWalker": {
+      "measurement": {
+        "path": [
+          "probability_sums",
+          0
+        ],
+        "expected": 32,
+        "reason": "On an 8x8 uniform-conductance grid seeded left=1 and right=2, p1(c)=1-c/7; summing gives 8*4=32."
+      },
+      "negative_overrides": {
+        "beta": -1
+      },
+      "raster_probe": {
+        "band": 1,
+        "row": 4,
+        "column": 3,
+        "expected": 0.5714285714285714
+      },
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteRegionProperties": {
+      "measurement": {
+        "path": [
+          "area",
+          0
+        ],
+        "expected": 6,
+        "reason": "A labeled rectangle covering rows 2,3 and columns 2,3,4 contains 2*3=6 cells with centroid (2.5,3)."
+      },
+      "negative_overrides": {
+        "input_unit": "DN"
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemotePhaseRegistration": {
+      "measurement": {
+        "path": [
+          "shift_column_pixels"
+        ],
+        "expected": 1,
+        "reason": "Moving impulse at (8,5) and reference at (6,6) require shift (-2,+1); with 30 m pixels map translation is (+30,+60) m."
+      },
+      "negative_overrides": {
+        "raster_path": "assets/github-expansion-remote/flat.tif"
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteSSIMChange": {
+      "measurement": {
+        "path": [
+          "mean_ssim"
+        ],
+        "expected": 0.8000639795265515,
+        "reason": "Constant a=.25,b=.5 with range=1 give SSIM=(2ab+.01^2)/(a^2+b^2+.01^2); variance terms cancel."
+      },
+      "negative_overrides": {
+        "window_pixels": 4
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteSensorBandResample": {
+      "measurement": {
+        "path": [
+          "mean"
+        ],
+        "expected": 0.4,
+        "reason": "Source intervals [950,1050] and [1050,1150] nm partition a target Gaussian centered at 1050 nm with FWHM 200 nm into equal halves. Symmetry gives weights 1/2,1/2; reflectances .2,.6 therefore yield .4, independently of the upstream implementation."
+      },
+      "negative_overrides": {
+        "target_wavelength_nm": [
+          1300
+        ],
+        "target_fwhm_nm": [
+          100
+        ]
+      },
+      "raster_probe": {
+        "band": 1,
+        "row": 3,
+        "column": 3,
+        "expected": 0.4
+      },
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteTVDenoise": {
+      "measurement": {
+        "path": [
+          "mean"
+        ],
+        "expected": 0.5,
+        "reason": "A constant .5 field has zero total variation and is the exact minimizer of the nonnegative ROF objective; every output pixel remains .5."
+      },
+      "negative_overrides": {
+        "weight": 0
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteRichardsonLucy": {
+      "measurement": {
+        "path": [
+          "mean"
+        ],
+        "expected": 0.275,
+        "reason": "An identity PSF leaves the row ramp .2+.01*c unchanged; c=0..15 has mean 7.5, giving .275 (tolerance allows upstream epsilon)."
+      },
+      "negative_overrides": {
+        "psf": [
+          [
+            2
+          ]
+        ]
+      },
+      "raster_probe": {
+        "band": 1,
+        "row": 8,
+        "column": 10,
+        "expected": 0.3
+      },
+      "absolute_tolerance": 1e-07
+    },
+    "GeoRemoteRollingBall": {
+      "measurement": {
+        "path": [
+          "background_mean"
+        ],
+        "expected": 4,
+        "reason": "For a constant field 4, the ball tangent at its center yields background exactly 4; no lower background candidate exists."
+      },
+      "negative_overrides": {
+        "radius_pixels": 0
+      },
+      "raster_probe": null,
+      "absolute_tolerance": 1e-07
+    }
+  }
+}

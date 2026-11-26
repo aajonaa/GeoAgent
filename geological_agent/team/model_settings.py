@@ -44,6 +44,12 @@ class ModelProfile:
     def identity(self):
         return {"source": self.source, "base_url": self.base_url, "model": self.model}
 
+    def run_snapshot(self):
+        """Credential-free parameters from the immutable profile used by this run."""
+        settings = self.runtime_settings()
+        return {**self.identity(), **{key: settings[key] for key in
+                ("context_window_tokens", "max_output_tokens")}}
+
     def public(self):
         return {**self.identity(), "has_token": bool(self.api_token), "storage": self.storage,
                 "profile_id": self.profile_id, "name": self.name, "revision": self.revision,
@@ -52,15 +58,17 @@ class ModelProfile:
 
 
 def builtin_profile():
+    model = os.environ.get("GEOTOOL_MODEL") or os.environ.get("WORKSPACE_MODEL", "GeoGPT-Research-Project/Qwen2.5-72B-GeoGPT")
+    sol = model == "gpt-6.1-sol"
     return ModelProfile(
         "builtin",
         os.environ.get("GEOTOOL_MODEL_URL") or os.environ.get("WORKSPACE_MODEL_URL", "http://127.0.0.1:8000/v1"),
-        os.environ.get("GEOTOOL_MODEL") or os.environ.get("WORKSPACE_MODEL", "GeoGPT-Research-Project/Qwen2.5-72B-GeoGPT"),
+        model,
         os.environ.get("GEOTOOL_MODEL_KEY") or os.environ.get("WORKSPACE_MODEL_KEY", ""),
-        # The existing GeoGPT service runs with a 32,768-token window.
-        # Administrators can override both limits with the deployed service values.
-        context_window_tokens=int(os.environ.get("GEOTOOL_MODEL_CONTEXT_TOKENS", "32768")),
-        max_output_tokens=int(os.environ.get("GEOTOOL_MODEL_MAX_OUTPUT_TOKENS", "4096")),
+        # Preserve the local GeoGPT limits; Sol uses the configured API preset.
+        # Explicit deployment values override either model's defaults.
+        context_window_tokens=int(os.environ.get("GEOTOOL_MODEL_CONTEXT_TOKENS", str(DEFAULT_CONTEXT_WINDOW_TOKENS if sol else 32768))),
+        max_output_tokens=int(os.environ.get("GEOTOOL_MODEL_MAX_OUTPUT_TOKENS", str(DEFAULT_MAX_OUTPUT_TOKENS if sol else 4096))),
     )
 
 
@@ -85,8 +93,9 @@ def trace_credentials(profile, environment=None):
     append(values, env.get("GEOTOOL_MODEL_KEY", ""), "builtin", builtin_url)
     append(values, env.get("WORKSPACE_MODEL_KEY", ""), "builtin",
            env.get("WORKSPACE_MODEL_URL") or builtin_url)
-    if env.get("LANGSMITH_API_KEY"):
-        values.append(env["LANGSMITH_API_KEY"])
+    for name in ("LANGSMITH_API_KEY", "TAVILY_API_KEY"):
+        if key := env.get(name, "").strip():
+            values.append(key)
     append(values, profile.api_token, profile.source, profile.base_url)
     return tuple(dict.fromkeys(values))
 
