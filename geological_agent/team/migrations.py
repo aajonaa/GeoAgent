@@ -12,7 +12,7 @@ SQL_ROOT = Path(__file__).with_name('migration_sql')
 VERSION = '001_identity_activity_expand'
 DESCRIPTION = 'Add optional profiles, SMS storage, invitation usage and account events'
 NEW_TABLES = {'schema_migrations', 'user_profiles', 'sms_verifications', 'invite_uses', 'business_events'}
-RUNTIME_TABLES = {'generation_audit'}
+RUNTIME_TABLES = {'generation_audit', 'file_cas_index'}
 GENERATION_AUDIT_SQL = """
 CREATE TABLE IF NOT EXISTS generation_audit(
  cid TEXT REFERENCES conversations(id),
@@ -21,6 +21,16 @@ CREATE TABLE IF NOT EXISTS generation_audit(
  source_generation TEXT,
  created REAL NOT NULL,
  PRIMARY KEY(cid,generation)
+);
+"""
+FILE_CAS_INDEX_SQL = """
+CREATE TABLE IF NOT EXISTS file_cas_index(
+ cid TEXT,
+ generation TEXT,
+ name TEXT,
+ sha256 TEXT NOT NULL,
+ byte_size INTEGER NOT NULL,
+ PRIMARY KEY(cid,generation,name)
 );
 """
 
@@ -58,6 +68,7 @@ def schema(connection, *, include_runtime=False):
 def validate_runtime_schema(connection):
     with closing(sqlite3.connect(':memory:')) as reference:
         reference.execute(GENERATION_AUDIT_SQL)
+        reference.execute(FILE_CAS_INDEX_SQL)
         expected = schema(reference, include_runtime=True)
     actual = {name: value for name, value in schema(connection, include_runtime=True).items()
               if name in RUNTIME_TABLES}

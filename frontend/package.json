@@ -1,0 +1,22 @@
+{
+  "name": "orebogao-frontend",
+  "version": "0.32.0",
+  "private": true,
+  "type": "module",
+  "description": "Progressive Vite + TypeScript frontend engineering workspace for OreBOGAO",
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "build": "vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:legacy": "node scripts/check-legacy.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.11",
+    "jsdom": "^26.1.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vitest": "^3.2.4"
+  }
+}

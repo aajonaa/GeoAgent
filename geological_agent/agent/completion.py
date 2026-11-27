@@ -62,6 +62,7 @@ def observations(messages):
             result = strict_json(message.content)
             role = ("retrieval" if result["name"] in ("context_search", "context_read") else
                     "interaction" if result["name"] == "request_user_input" else
+                    "planning" if result["name"] == "update_todo" else
                     "discovery" if result["name"] in ("skill_find", "skill_load") else "execution")
             records.append({"call": calls.get(message.tool_call_id), "result": result, "evidence_role": role})
     return records

@@ -380,50 +380,113 @@ def _completion_view(request, state, archive, target, settings=None):
         messages[message_index] = replace(message, content=dumps(pack_data(payload)))
     return replace(request, messages=tuple(messages))
 
+SUPPORTING_CLEARABLE_TOOLS = frozenset({
+    "context_search", "context_read", "skill_find", "skill_load",
+    "web_search", "web_fetch", "read_file",
+})
+
+
+def _clear_supporting_tool_results(request, state, archive, target, settings=None):
+    """Lightweight Anthropic-style Tool Result Clearing without shared-values-v1.
+
+    Archives bulky stale supporting tool bodies to PostgreSQL while preserving
+    native assistant/tool turn structure, the latest native exchange, and the
+    most recent successful read for each supporting tool.
+    """
+    if archive is None:
+        return request, False
+    blocks = _blocks(list(request.messages))
+    native_indices = [i for i, block in enumerate(blocks) if block[0].tool_calls]
+    if len(native_indices) <= 1:
+        return request, False
+    boundary = native_indices[-1]
+    latest_support = {}
+    parsed_slots = {}
+    for block_idx in range(boundary):
+        block = blocks[block_idx]
+        if not block[0].tool_calls:
+            continue
+        for offset, message in enumerate(block[1:], start=1):
+            try:
+                payload = strict_json(message.content)
+            except (ValueError, TypeError):
+                continue
+            if not isinstance(payload, dict):
+                continue
+            name = payload.get("name")
+            if name in SUPPORTING_CLEARABLE_TOOLS and payload.get("status") == "ok":
+                latest_support[name] = (block_idx, offset)
+                parsed_slots[(block_idx, offset)] = payload
+    eligible = []
+    for key, payload in parsed_slots.items():
+        if latest_support.get(payload["name"]) == key:
+            continue
+        data = payload.get("data")
+        if isinstance(data, dict) and not data.get("cleared_for_context_budget"):
+            size = len(dumps(data))
+            if size > 1024:
+                eligible.append((size, key, payload))
+    if not eligible:
+        return request, False
+    measure = lambda value: request_budget_size(value, settings) if settings is not None else request_size(value)
+    updated_blocks = [list(block) for block in blocks]
+    cleared_any = False
+    for _, (block_idx, offset), payload in sorted(eligible, key=lambda item: item[0], reverse=True):
+        data = payload["data"]
+        name = payload["name"]
+        reference = archive.put(state["run_id"], "exchange", fingerprint(data), data,
+                                label="Cleared supporting tool result: " + str(name))
+        receipt = {
+            "archived_data": reference,
+            "cleared_for_context_budget": True,
+            "trust": "Original tool output archived intact. Use context_read(evidence_id) if exact details are needed; do not rerun.",
+        }
+        for field in ("path", "url", "query", "skill_id", "offset", "next_offset",
+                      "total_chars", "sha256", "truncated", "cache_hit"):
+            if field in data:
+                receipt[field] = deepcopy(data[field])
+        new_payload = {**payload, "data": receipt}
+        updated_blocks[block_idx][offset] = replace(
+            updated_blocks[block_idx][offset], content=dumps(new_payload))
+        cleared_any = True
+        flat = tuple(msg for block in updated_blocks for msg in block)
+        candidate = replace(request, messages=flat)
+        if measure(candidate) <= target:
+            return candidate, True
+    if not cleared_any:
+        return request, False
+    flat = tuple(msg for block in updated_blocks for msg in block)
+    return replace(request, messages=flat), True
+
+
 def fit_request(request, state, settings, *, phase="execution", summarize=None, archive=None):
     """Fit the FINAL assembled request, after delivery/schema enrichment."""
     measure = lambda value: request_budget_size(value, settings)
     before = measure(request)
     limit = input_allowance(settings)
-    if before <= int(limit * .9):
+    # Never mutate a request that already fits the allowance: premature
+    # compaction invalidates KV-cache prefixes and introduces pointer encoding.
+    if before <= limit:
         return request
     original = request
     strategies = []
-    candidate = _json_messages(request, state)
-    if measure(candidate) < measure(request):
-        request = candidate
-        strategies.append("lossless_json_interning")
-    if phase in ("review", "final_answer") and measure(request) > limit:
-        candidate = _completion_view(original, state, archive, int(limit * .9), settings)
-        if measure(candidate) < measure(request):
-            request = candidate
-            strategies.append("completion_evidence_references")
-    if phase == "execution":
-        # Use original history objects for identity; JSON minification must not
-        # make native tool results unrecognizable as existing state messages.
-        candidate = _json_messages(_history_view(original, state), state)
-        if measure(candidate) < measure(request):
-            request = candidate
-            strategies.append("exact_history_ledger")
-        if measure(request) > limit and archive is not None:
-            # Budget references against the ACTUAL final serialized request,
-            # including schemas and guidance. A fixed index fraction can itself
-            # cause overflow. The 90% trigger is a soft compaction hint, not
-            # permission to evict usable evidence from a request that fits.
-            # All current schemas and guidance are already included here.
+    if phase == "execution" and archive is not None:
+        # Tier 1: Lightweight Tool Result Clearing keeps native assistant/tool
+        # turns readable and avoids shared-values-v1 pointer indirection.
+        cleared, did_clear = _clear_supporting_tool_results(original, state, archive, limit, settings)
+        if did_clear and measure(cleared) < measure(request):
+            request = cleared
+            strategies.append("tool_result_clearing")
+        if measure(request) > limit:
             target = limit
-            minimal = _json_messages(_history_view(original, state, archive=archive,
-                                                   index_budget=0), state)
-            # Retain the largest recent native suffix that fits. Previously
-            # every old observation was archived at once, even when several
-            # complete exchanges would fit, forcing needless retrievals.
+            minimal = _history_view(original, state, archive=archive, index_budget=0)
             retained = 1
             low, high = 2, sum(bool(m.tool_calls) for m in original.messages)
             if measure(minimal) <= target:
                 while low <= high:
                     trial = (low + high) // 2
-                    recent = _json_messages(_history_view(original, state, archive=archive,
-                        index_budget=0, retain_exchanges=trial), state)
+                    recent = _history_view(original, state, archive=archive,
+                                           index_budget=0, retain_exchanges=trial)
                     if measure(recent) <= target:
                         minimal, retained, low = recent, trial, trial + 1
                     else:
@@ -433,16 +496,19 @@ def fit_request(request, state, settings, *, phase="execution", summarize=None, 
             if remaining:
                 budget = remaining
                 while budget > 0:
-                    indexed = _json_messages(_history_view(original, state, archive=archive,
-                                                          index_budget=budget, retain_exchanges=retained), state)
+                    indexed = _history_view(original, state, archive=archive,
+                                            index_budget=budget, retain_exchanges=retained)
                     excess = measure(indexed) - target
                     if excess <= 0:
                         candidate = indexed
                         break
                     budget = max(0, budget - max(1, excess))
+            if measure(candidate) > target:
+                packed = _json_messages(candidate, state)
+                if measure(packed) < measure(candidate):
+                    candidate = packed
+                    strategies.append("lossless_json_interning")
             if measure(candidate) > target and summarize is not None:
-                # Even a short draft can be the final overflow. Compression is
-                # driven by the residual budget, not a 4,000-character cutoff.
                 summary_target = max(64, min(2000, target // 20))
                 summarized = _json_messages(_history_view(
                     original, state, summarize, summary_target,
@@ -452,13 +518,30 @@ def fit_request(request, state, settings, *, phase="execution", summarize=None, 
             if measure(candidate) < measure(request):
                 request = candidate
                 strategies.append("postgres_evidence_references")
-        if measure(request) > limit and summarize is not None and archive is None:
-            candidate = _history_view(original, state, summarize,
-                                      max(256, min(2000, limit // 20)))
-            candidate = _json_messages(candidate, state)
+    else:
+        candidate = _json_messages(request, state)
+        if measure(candidate) < measure(request):
+            request = candidate
+            strategies.append("lossless_json_interning")
+        if phase in ("review", "final_answer") and measure(request) > limit:
+            candidate = _completion_view(original, state, archive, int(limit * .9), settings)
             if measure(candidate) < measure(request):
                 request = candidate
-                strategies.append("assistant_draft_summary")
+                strategies.append("completion_evidence_references")
+        if phase == "execution":
+            # Use original history objects for identity; JSON minification must not
+            # make native tool results unrecognizable as existing state messages.
+            candidate = _json_messages(_history_view(original, state), state)
+            if measure(candidate) < measure(request):
+                request = candidate
+                strategies.append("exact_history_ledger")
+            if measure(request) > limit and summarize is not None:
+                candidate = _history_view(original, state, summarize,
+                                          max(256, min(2000, limit // 20)))
+                candidate = _json_messages(candidate, state)
+                if measure(candidate) < measure(request):
+                    request = candidate
+                    strategies.append("assistant_draft_summary")
     after = measure(request)
     if after < before:
         event = {"phase": phase, "before_chars": request_size(original), "after_chars": request_size(request),
@@ -470,9 +553,9 @@ def fit_request(request, state, settings, *, phase="execution", summarize=None, 
                  "source_sha256": fingerprint(asdict(original)),
                  "original_history_retained": True, "tool_evidence_preserved": True,
                  "evidence_location": "postgresql" if any(
-                     name in strategies for name in ("postgres_evidence_references", "completion_evidence_references")) else "request",
+                     name in strategies for name in ("tool_result_clearing", "postgres_evidence_references", "completion_evidence_references")) else "request",
                  "retrieval_required": any(
-                     name in strategies for name in ("postgres_evidence_references", "completion_evidence_references"))}
+                     name in strategies for name in ("tool_result_clearing", "postgres_evidence_references", "completion_evidence_references"))}
         state.setdefault("metadata", {}).setdefault("context_compactions", []).append(event)
     if after > limit:
         raise ContextOverflow(

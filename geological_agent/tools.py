@@ -7,7 +7,7 @@ from pathlib import Path
 import signal
 import subprocess
 import sys
-from threading import Event
+from threading import Event, RLock
 import time
 from typing import Callable
 import uuid
@@ -60,6 +60,8 @@ class ToolExecutionContext:
     pure_cache: dict = field(default_factory=dict)
     evidence_state: dict = field(default_factory=dict)
     vision_invoke: Callable | None = None
+    subagent_runner: object | None = None
+    codeact_bridge: object | None = None
 
     def check(self):
         if self.cancel.is_set():
@@ -80,19 +82,63 @@ class ToolExecutionContext:
 class ToolRegistry:
     def __init__(self):
         self._tools = {}
+        self._unvalidated = set()
+        self._validators = {}
+        self._lock = RLock()
 
-    def register(self, tool: Tool):
+    def register(self, tool: Tool, *, validate_schema: bool = True):
         name = tool.definition.name
-        if name in self._tools:
-            raise ValueError(f"Duplicate tool: {name}")
-        Draft202012Validator.check_schema(tool.definition.input_schema)
-        Draft202012Validator.check_schema(tool.definition.result_schema)
-        self._tools[name] = tool
+        with self._lock:
+            if name in self._tools:
+                raise ValueError(f"Duplicate tool: {name}")
+            if validate_schema:
+                Draft202012Validator.check_schema(tool.definition.input_schema)
+                Draft202012Validator.check_schema(tool.definition.result_schema)
+            else:
+                self._unvalidated.add(name)
+            self._tools[name] = tool
 
-    def get(self, name):
+    def require_registered(self, name):
+        """Check existence without triggering upfront meta-schema validation."""
         if name not in self._tools:
             raise ToolFailure("unknown_tool", f"Unknown tool: {name}; use skill_find/skill_load", retryable=True)
-        return self._tools[name]
+
+    def _ensure_schema(self, name):
+        tool = self._tools.get(name)
+        if tool is None:
+            raise ToolFailure("unknown_tool", f"Unknown tool: {name}; use skill_find/skill_load", retryable=True)
+        if name in self._unvalidated:
+            with self._lock:
+                if name in self._unvalidated:
+                    Draft202012Validator.check_schema(tool.definition.input_schema)
+                    Draft202012Validator.check_schema(tool.definition.result_schema)
+                    self._unvalidated.discard(name)
+        return tool
+
+    def validators(self, name):
+        tool = self._ensure_schema(name)
+        cached = self._validators.get(name)
+        if cached is not None:
+            return cached
+        with self._lock:
+            cached = self._validators.get(name)
+            if cached is None:
+                cached = (
+                    Draft202012Validator(tool.definition.input_schema),
+                    Draft202012Validator(tool.definition.result_schema),
+                )
+                self._validators[name] = cached
+            return cached
+
+    def get(self, name):
+        return self._ensure_schema(name)
+
+    def peek(self, name):
+        """Return the registered Tool without forcing lazy schema validation."""
+        tool = self._tools.get(name)
+        if tool is None:
+            raise ToolFailure("unknown_tool", f"Unknown tool: {name}; use skill_find/skill_load", retryable=True)
+        return tool
 
     def names(self):
         """Stable registered IDs without exposing executable handlers."""
@@ -106,10 +152,10 @@ class ToolExecutor:
     def __init__(self, registry: ToolRegistry, *, execution_adapter=None):
         self.registry = registry
         self.execution_adapter = execution_adapter
+        self._state_lock = RLock()
 
     def execute(self, call: ToolCall, context: ToolExecutionContext) -> ToolResult:
         from .tool_evidence import EvidenceLedger
-        ledger = EvidenceLedger(context)
         try:
             tool = self.registry.get(call.name)
             args = strict_json(call.arguments) if isinstance(call.arguments, str) else call.arguments
@@ -117,16 +163,21 @@ class ToolExecutor:
                 return self._execute(call, context)
         except (ToolFailure, ValueError, TypeError):
             return self._execute(call, context)
-        try:
-            Draft202012Validator(tool.definition.input_schema).validate(args)
-            inputs = ledger.inputs(tool, args)
-        except (ToolFailure, ValidationError, OSError, ValueError, TypeError):
-            inputs = []
-        blocked = ledger.blocked(call, args, inputs)
-        if blocked is not None:
-            return blocked
+        in_validator, _ = self.registry.validators(call.name)
+        with self._state_lock:
+            ledger = EvidenceLedger(context)
+            try:
+                in_validator.validate(args)
+                inputs = ledger.inputs(tool, args)
+            except (ToolFailure, ValidationError, OSError, ValueError, TypeError):
+                inputs = []
+            blocked = ledger.blocked(call, args, inputs)
+            if blocked is not None:
+                return blocked
         result = self._execute(call, context)
-        return ledger.observe(call, args, tool, inputs, result)
+        with self._state_lock:
+            ledger = EvidenceLedger(context)
+            return ledger.observe(call, args, tool, inputs, result)
 
     def _execute(self, call: ToolCall, context: ToolExecutionContext) -> ToolResult:
         if self.execution_adapter is not None:
@@ -139,20 +190,23 @@ class ToolExecutor:
             tool = self.registry.get(call.name)
             if call.name not in ctx.allowed_tool_names:
                 raise ToolFailure("tool_not_exposed", "Load the relevant skill before calling this tool", retryable=True)
+            in_validator, out_validator = self.registry.validators(call.name)
             try:
                 args = strict_json(call.arguments) if isinstance(call.arguments, str) else call.arguments
                 json.dumps(args, allow_nan=False)
-                Draft202012Validator(tool.definition.input_schema).validate(args)
+                in_validator.validate(args)
             except (ValueError, TypeError, ValidationError) as exc:
                 raise ToolFailure("invalid_arguments", str(exc)[:1800], retryable=False) from exc
             key = json.dumps([call.name, args], sort_keys=True, allow_nan=False)
-            if tool.pure and key in ctx.pure_cache:
-                return replace(ctx.pure_cache[key], call_id=call.id, cached=True)
+            if tool.pure:
+                with self._state_lock:
+                    if key in ctx.pure_cache:
+                        return replace(ctx.pure_cache[key], call_id=call.id, cached=True)
             output = tool.handler(args, ctx)
             ctx.check()
             try:
                 json.dumps(output.data, allow_nan=False)
-                Draft202012Validator(tool.definition.result_schema).validate(output.data)
+                out_validator.validate(output.data)
                 for artifact in output.artifacts:
                     if not ctx.path(artifact.path).is_file():
                         raise ValueError(f"Artifact not found: {artifact.path}")
@@ -160,7 +214,8 @@ class ToolExecutor:
                 raise ToolFailure("invalid_result", str(exc)[:1800]) from exc
             result = ToolResult(call.id, call.name, "ok", output.data, output.artifacts)
             if tool.pure:
-                ctx.pure_cache[key] = result
+                with self._state_lock:
+                    ctx.pure_cache[key] = result
             return result
         except ToolFailure as exc:
             status = {"tool_timeout": "timeout", "cancelled": "cancelled"}.get(exc.error.code, "error")
@@ -375,7 +430,10 @@ finally:
 
 
 def execute_python(args, ctx):
-    """Trusted local execution, NOT a security sandbox."""
+    """Run Python in the task workspace; uses strict Linux bubblewrap isolation when configured."""
+    from pathlib import PurePosixPath
+    from .sandbox_exec import build_bwrap_command, collect_python_runtime_roots, python_sandbox_mode, resolve_bwrap
+
     # Optional scientific dependencies are deployment-owned, never tool arguments.
     package_paths = []
     for value in os.environ.get("GEOTOOL_PYTHON_PACKAGES", "").split(os.pathsep):
@@ -388,6 +446,18 @@ def execute_python(args, ctx):
                 or resolved.is_relative_to(work) or work.is_relative_to(resolved)):
             raise ToolFailure("python_environment_config", "Configured Python dependency directory is unavailable or overlaps the task workspace")
         package_paths.append(str(resolved))
+
+    try:
+        sandbox_policy = python_sandbox_mode()
+    except ValueError as exc:
+        raise ToolFailure("sandbox_configuration", str(exc)) from exc
+    bwrap_path = resolve_bwrap() if (sys.platform == "linux" and sandbox_policy != "off") else None
+    if sandbox_policy in ("required", "bwrap") and bwrap_path is None:
+        raise ToolFailure(
+            "sandbox_unavailable",
+            "Strict Python sandbox (bubblewrap) is required by GEOTOOL_PYTHON_SANDBOX but no valid bwrap executable is available.",
+        )
+
     before = _files(ctx)
     folder = ctx.path(".agent/processes/" + uuid.uuid4().hex)
     folder.mkdir(parents=True)
@@ -397,13 +467,57 @@ def execute_python(args, ctx):
     execution_trace = folder / "execution.jsonl"
     runner.write_text(_PYTHON_RUNNER, encoding="utf-8")
     out_path, err_path = folder / "stdout.txt", folder / "stderr.txt"
-    env = {k: v for k, v in os.environ.items() if not any(word in k.upper() for word in ("KEY", "TOKEN", "SECRET", "PASSWORD", "AUTHORIZATION"))}
-    env.update(PYTHONIOENCODING="utf-8", PYTHONUNBUFFERED="1",
-               MPLBACKEND="Agg", MPLCONFIGDIR=str(folder / "matplotlib"))
+
+    if bwrap_path is not None:
+        work_root = ctx.workspace.resolve()
+        rel_folder = folder.resolve().relative_to(work_root).as_posix()
+        c_folder = PurePosixPath("/work") / rel_folder
+        py_cmd = [
+            sys.executable, "-I",
+            str(c_folder / "runner.py"),
+            str(c_folder / "program.py"),
+            str(c_folder / "executed-files.json"),
+            str(c_folder / "execution.jsonl"),
+            str(ctx.settings.max_tool_output_chars),
+            json.dumps(package_paths),
+        ]
+        readonly_roots = collect_python_runtime_roots(sys.executable, extra_readonly=package_paths)
+        sandbox_env = {
+            "PATH": str(Path(sys.executable).parent) + ":/usr/bin:/bin",
+            "HOME": "/work",
+            "TMPDIR": "/tmp",
+            "LANG": "C.UTF-8",
+            "PYTHONIOENCODING": "utf-8",
+            "PYTHONUNBUFFERED": "1",
+            "PYTHONDONTWRITEBYTECODE": "1",
+            "MPLBACKEND": "Agg",
+            "MPLCONFIGDIR": str(c_folder / "matplotlib"),
+            "OPENBLAS_NUM_THREADS": os.environ.get("OPENBLAS_NUM_THREADS", "1"),
+            "OMP_NUM_THREADS": os.environ.get("OMP_NUM_THREADS", "1"),
+        }
+        try:
+            command = build_bwrap_command(
+                bwrap_path,
+                work_root,
+                py_cmd,
+                readonly_roots=readonly_roots,
+                env=sandbox_env,
+            )
+        except RuntimeError as exc:
+            raise ToolFailure("sandbox_configuration", str(exc)) from exc
+        env = {"PATH": "/usr/bin:/bin", "LANG": "C.UTF-8"}
+        sandbox_mode = "bwrap_strict"
+    else:
+        env = {k: v for k, v in os.environ.items() if not any(word in k.upper() for word in ("KEY", "TOKEN", "SECRET", "PASSWORD", "AUTHORIZATION"))}
+        env.update(PYTHONIOENCODING="utf-8", PYTHONUNBUFFERED="1",
+                   MPLBACKEND="Agg", MPLCONFIGDIR=str(folder / "matplotlib"))
+        command = [sys.executable, "-I", str(runner), str(code), str(execution_record), str(execution_trace), str(ctx.settings.max_tool_output_chars), json.dumps(package_paths)]
+        sandbox_mode = "trusted_local"
+
     stopped = None
     with out_path.open("wb") as out, err_path.open("wb") as err:
         options = {"creationflags": subprocess.CREATE_NO_WINDOW | subprocess.CREATE_NEW_PROCESS_GROUP} if os.name == "nt" else {"start_new_session": True}
-        process = subprocess.Popen([sys.executable, "-I", str(runner), str(code), str(execution_record), str(execution_trace), str(ctx.settings.max_tool_output_chars), json.dumps(package_paths)], cwd=ctx.workspace,
+        process = subprocess.Popen(command, cwd=ctx.workspace,
                                    env=env, stdout=out, stderr=err, **options)
         try:
             while process.poll() is None:
@@ -437,7 +551,8 @@ def execute_python(args, ctx):
             "execution_record_complete": record_data.get("complete", False),
             "execution_events": events, "execution_events_truncated": truncated,
             "execution_trace_path": execution_trace.relative_to(ctx.workspace).as_posix(),
-            "execution_trace_sha256": digest.hexdigest()}
+            "execution_trace_sha256": digest.hexdigest(),
+            "sandbox_mode": sandbox_mode}
     after = _files(ctx)
     artifacts = tuple(artifact(ctx.path(name), ctx) for name, stamp in after.items() if before.get(name) != stamp)
     if stopped:
@@ -458,13 +573,14 @@ def register_file_tools(registry):
          object_schema({"path": {**text, "description": "Workspace-relative output filename."}, "content": {**text, "description": "Complete new UTF-8 text."},
                         "expected_sha256": {**text, "pattern": "^[a-f0-9]{64}$", "description": "Hash from read_file; required when changing an existing file."}}, ["path", "content"]),
          object_schema({"path": text, "bytes": {"type": "integer"}, "sha256": text}, ["path", "bytes", "sha256"]), write_file),
-        ("execute_python", "Run Python in this workspace and return actual stdout, stderr and generated files. Trusted local use only; not a sandbox.", "Compute, inspect tabular data, run checks, or repair code.",
+        ("execute_python", "Run Python in this workspace and return actual stdout, stderr and generated files. Uses bubblewrap namespace isolation when configured.", "Compute, inspect tabular data, run checks, or repair code.",
          object_schema({"code": {**text, "pattern": r"^[\s\S]+$", "description": "Complete Python program. Use relative paths; avoid modifying inputs. Standard library is available; optional scientific packages are configured by the deployment. Use matplotlib's noninteractive backend for saved figures."}}, ["code"]),
          object_schema({"stdout": text, "stderr": text, "return_code": {"type": "integer"}, "stdout_path": text, "stderr_path": text, "code_path": text,
                         "executed_files": {"type": "array", "items": object_schema({"path": text, "sha256": text}, ["path", "sha256"]), "description": "Workspace source files entered in this Python process with load-time hashes. Loading alone does not prove functions or tests ran."},
                         "execution_record_complete": {"type": "boolean", "description": "The current-process trace finished with its hook active. Not proof of successful tests; child processes and other threads are not traced. Trusted local diagnostics, not tamperproof attestation."},
                         "execution_events": {"type": "array", "items": {"type": "object"}, "description": "Bounded preview of actual module loads, function arguments/returns and executed assert statements. Assertions record completion without an exception, not scientific correctness. Scalar values only; unsupported values are labelled. Same-line multiple assertions and generator/coroutine completion are not certified."},
-                        "execution_events_truncated": {"type": "boolean"}, "execution_trace_path": text, "execution_trace_sha256": text},
+                        "execution_events_truncated": {"type": "boolean"}, "execution_trace_path": text, "execution_trace_sha256": text,
+                        "sandbox_mode": {**text, "description": "Execution isolation mode used for this run (e.g. bwrap_strict or trusted_local)."}},
                        ["stdout", "stderr", "return_code", "stdout_path", "stderr_path", "code_path", "executed_files", "execution_record_complete", "execution_events", "execution_events_truncated", "execution_trace_path", "execution_trace_sha256"]), execute_python),
     ]
     for name, description, when, inputs, outputs, handler in definitions:

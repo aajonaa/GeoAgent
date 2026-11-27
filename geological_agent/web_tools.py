@@ -6,6 +6,7 @@ import json
 import os
 import socket
 import time
+import uuid
 from urllib.error import HTTPError, URLError
 from urllib.parse import parse_qsl, urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
@@ -151,7 +152,7 @@ def web_search(args, ctx):
     data = {"query": query, "results": results, "retrieved_at": datetime.now(timezone.utc).isoformat(),
             "provider": "tavily", "content_trust": "untrusted_external_source"}
     path.parent.mkdir(parents=True, exist_ok=True)
-    temporary = path.with_suffix(".tmp")
+    temporary = path.with_name(path.name + "." + uuid.uuid4().hex + ".tmp")
     temporary.write_text(json.dumps({"identity": identity_data, "data": data}, ensure_ascii=False), encoding="utf-8")
     os.replace(temporary, path)
     ctx.check()
@@ -181,7 +182,7 @@ def web_fetch(args, ctx):
                               retryable=True, data={"url": url, "failed_results": response.get("failed_results", [])})
         snapshot = {"url": url, "content": rows[0]["raw_content"], "retrieved_at": datetime.now(timezone.utc).isoformat()}
         path.parent.mkdir(parents=True, exist_ok=True)
-        temporary = path.with_suffix(".tmp")
+        temporary = path.with_name(path.name + "." + uuid.uuid4().hex + ".tmp")
         temporary.write_text(json.dumps(snapshot, ensure_ascii=False), encoding="utf-8")
         os.replace(temporary, path)
     offset, count = args.get("offset", 0), args.get("max_chars", 8000)

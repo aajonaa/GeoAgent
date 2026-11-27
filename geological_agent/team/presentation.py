@@ -148,10 +148,7 @@ def install_presentation_routes(app, auth, store):
         images, files = [], []
         if generation:
             # Never substitute the conversation's latest generation for this run.
-            with store.lock:
-                files = [dict(row) for row in store.db.execute(
-                    "SELECT name,length(content) AS bytes,sha256 FROM files WHERE cid=? AND generation=? ORDER BY name",
-                    (run["cid"], generation))]
+            files = store.file_manifest(uid, run["cid"], generation)
             for file in files:
                 suffix = PurePosixPath(file["name"]).suffix.lower()
                 if suffix in (".png", ".jpg", ".jpeg", ".webp", ".tif", ".tiff", ".svg"):
@@ -187,17 +184,15 @@ def install_presentation_routes(app, auth, store):
                          "generation": generation, "status": run["status"], "files": files, "blocks": blocks,
                          "citations": answer_citations(store, uid, run)})
 
-    def table_response(name, cid, generation, offset, limit, sort=-1, descending=False):
+    def table_response(uid, name, cid, generation, offset, limit, sort=-1, descending=False):
         name = relative_name(name)
         if not generation or PurePosixPath(name).suffix.lower() not in (".csv", ".tsv"):
             raise HTTPException(404, "Committed table not found")
-        with store.lock:
-            row = store.db.execute("SELECT content FROM files WHERE cid=? AND generation=? AND name=?",
-                                   (cid, generation, name)).fetchone()
-        if row is None:
+        raw = store.file(uid, cid, name, generation)
+        if raw is None:
             raise HTTPException(404, "Committed table not found")
         try:
-            return response(csv_page(bytes(row[0]), name, offset, limit, sort, descending))
+            return response(csv_page(raw, name, offset, limit, sort, descending))
         except (ValueError, UnicodeError, csv.Error) as exc:
             raise HTTPException(422, str(exc)) from exc
 
@@ -206,7 +201,7 @@ def install_presentation_routes(app, auth, store):
                            offset: int = Query(0, ge=0), limit: int = Query(50, ge=1, le=100)):
         uid = auth(request)["id"]
         store.conversation(uid, cid)
-        return table_response(name, cid, generation, offset, limit)
+        return table_response(uid, name, cid, generation, offset, limit)
 
     @app.get("/api/runs/{rid}/table")
     def table(rid: str, request: Request, name: str,
@@ -214,7 +209,7 @@ def install_presentation_routes(app, auth, store):
               sort: int = Query(-1, ge=-1), descending: bool = False):
         uid = auth(request)["id"]
         run = store.run(uid, rid)
-        return table_response(name, run["cid"], run.get("generation"), offset, limit, sort, descending)
+        return table_response(uid, name, run["cid"], run.get("generation"), offset, limit, sort, descending)
 
     @app.get("/api/runs/{rid}/receipts/{call_id}")
     def receipt(rid: str, call_id: str, request: Request):

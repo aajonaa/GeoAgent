@@ -1,8 +1,10 @@
 """Incremental source audits, with durable protocol-cycle recovery."""
+from concurrent.futures import ThreadPoolExecutor
 import json
 import math
 import re
 from dataclasses import replace
+import time
 
 from .completion import CompletionIssue
 from .compaction import ContextOverflow
@@ -137,6 +139,95 @@ def review_sources(state, *, settings, model, cancel, record, trace, activity, p
         if settings.max_model_turns is not None and state["model_turns"] >= settings.max_model_turns - 1:
             return {**state, "status": "budget_exhausted", "answer": "",
                     "last_error": "Model-turn budget exhausted before source semantic review; draft not published"}, []
+        # Parallelize independent 4-block library_first batches on clean passes
+        # to cut multi-paragraph citation audit latency by 2-3x without relaxing checks.
+        if state["metadata"].get("library_first") and len(pending) > 4 and feedback is None:
+            remaining_budget = (
+                max(0, (settings.max_model_turns - 1) - state["model_turns"])
+                if settings.max_model_turns is not None else 3
+            )
+            max_parallel = min(3, remaining_budget)
+            chunks = [pending[i:i + 4] for i in range(0, len(pending), 4)][:max_parallel]
+            if len(chunks) >= 2:
+                try:
+                    chunk_requests = [
+                        (chunk, replace(semantic_request(state, settings, block_ids=chunk),
+                                        transport=progress.get("response_transport", "auto")))
+                        for chunk in chunks
+                    ]
+                except ContextOverflow as exc:
+                    trace.emit("completion_check_error", run_id=state["run_id"], error=str(exc), phase="knowledge_semantics")
+                    return pause(state, "knowledge_semantics", str(exc)), []
+                chunk_meta = []
+                for chunk, req in chunk_requests:
+                    attempt += 1
+                    turn = state["model_turns"] + 1
+                    state = {**state, "model_turns": turn}
+                    chunk_meta.append((chunk, req, turn, attempt))
+                    trace.emit("completion_review_requested", run_id=state["run_id"], turn=turn, request=req,
+                               phase="knowledge_semantics", attempt=attempt)
+                    activity("completion_review", turn=turn, phase="knowledge_semantics", attempt=attempt)
+                record(state, state)
+                batch_t0 = time.monotonic()
+
+                def _invoke_chunk(req):
+                    try:
+                        return model.invoke(req), None
+                    except Exception as exc:
+                        return None, exc
+
+                with ThreadPoolExecutor(max_workers=len(chunk_meta)) as pool:
+                    futures = [pool.submit(_invoke_chunk, req) for _, req, _, _ in chunk_meta]
+                    outcomes = [f.result() for f in futures]
+                elapsed_ms = round((time.monotonic() - batch_t0) * 1000, 1)
+                state["metadata"]["semantic_parallel_batches"] = state["metadata"].get("semantic_parallel_batches", 0) + 1
+                trace.emit("semantic_review_parallel_batch", run_id=state["run_id"],
+                           chunks=len(chunk_meta), blocks=sum(len(c) for c, _, _, _ in chunk_meta),
+                           elapsed_ms=elapsed_ms)
+                transient_error = None
+                for (chunk, req, turn, att), (resp, exc) in zip(chunk_meta, outcomes):
+                    if exc is not None:
+                        if isinstance(exc, (RuntimeError, TimeoutError, ConnectionError)) and (
+                            isinstance(exc, (TimeoutError, ConnectionError)) or re.search(
+                                r"\b(?:502|503|504|524)\b|timed? ?out|connection (?:reset|broken)", str(exc), re.I)
+                        ):
+                            transient_error = exc
+                            continue
+                        if not isinstance(exc, ModelProtocolError):
+                            raise exc
+                        failure = {"turn": turn, "attempt": att, "error": str(exc), "pending_blocks": chunk}
+                        state["metadata"]["knowledge_semantic_protocol_errors"] = (
+                            state["metadata"].get("knowledge_semantic_protocol_errors", []) + [failure])
+                        trace.emit("completion_review_protocol_error", run_id=state["run_id"],
+                                   phase="knowledge_semantics", **failure)
+                        continue
+                    state = {**state, "metadata": {**state["metadata"],
+                             "usage": state["metadata"]["usage"] + [resp.usage]}}
+                    trace.emit("completion_review_responded", run_id=state["run_id"], turn=turn, response=resp,
+                               phase="knowledge_semantics", attempt=att)
+                    try:
+                        verdict = parse_semantic_review(resp, req)
+                    except ModelProtocolError as parse_exc:
+                        if isinstance(parse_exc, SemanticReviewProtocolError):
+                            progress["checks"].update(parse_exc.checks)
+                            progress["issues"].extend(parse_exc.issues)
+                        failure = {"turn": turn, "attempt": att, "error": str(parse_exc), "pending_blocks": chunk}
+                        state["metadata"]["knowledge_semantic_protocol_errors"] = (
+                            state["metadata"].get("knowledge_semantic_protocol_errors", []) + [failure])
+                        trace.emit("completion_review_protocol_error", run_id=state["run_id"],
+                                   phase="knowledge_semantics", **failure)
+                        continue
+                    progress["checks"].update(verdict["checks"])
+                    progress["issues"].extend(verdict["issues"])
+                state["metadata"]["semantic_review_progress"] = progress
+                record(state, state)
+                if transient_error is not None:
+                    state["metadata"]["source_review_unavailable"] = True
+                    record(state, state)
+                    return pause(state, "knowledge_semantics", "Source verification service temporarily unavailable"), []
+                stagnant_attempts = 0
+                feedback = None
+                continue
         try:
             batch = pending[:4] if state["metadata"].get("library_first") else pending
             request = semantic_request(state, settings, protocol_feedback=feedback, block_ids=batch)

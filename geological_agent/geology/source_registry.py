@@ -6,6 +6,7 @@ execution adapters. Workspace path preparation is an execution-runtime concern.
 """
 from copy import deepcopy
 from dataclasses import asdict
+from functools import lru_cache
 import importlib
 from pathlib import Path
 import re
@@ -13,6 +14,18 @@ import shutil
 import uuid
 
 import yaml
+
+_YAML_LOADER = getattr(yaml, "CSafeLoader", yaml.SafeLoader)
+
+
+@lru_cache(maxsize=512)
+def _parse_skill_document(path_str: str, mtime_ns: int, size: int):
+    parts = Path(path_str).read_text(encoding="utf-8").split("---", 2)
+    if len(parts) != 3 or parts[0].strip():
+        return None, None
+    metadata = yaml.load(parts[1], Loader=_YAML_LOADER)
+    body = parts[2].strip()
+    return metadata, body
 
 from legacy.ToolsAgent.ToolsFuns.source_contracts import catalog, ROOT
 from legacy.ToolsAgent.ToolsFuns.GeoEval.scientific_tools import ScientificToolError
@@ -233,10 +246,11 @@ def register(registry):
         if limitations:
             usage += " Limitations: " + "; ".join(map(str, limitations))
         registry.register(Tool(ToolDefinition(name, spec["description"], usage,
-                               deepcopy(spec["input_schema"]), deepcopy(spec["output_schema"])),
+                               spec["input_schema"], spec["output_schema"]),
                                _handler(spec), pure=spec["source_interface"].get("pure", not spec["source_interface"].get("path_fields") and not spec["source_interface"].get("network_required", False)),
                                input_paths=tuple(spec["source_interface"].get("path_fields", [])),
-                               reference_paths=REFERENCE_DATA_INPUTS.get(source_id, ())))
+                               reference_paths=REFERENCE_DATA_INPUTS.get(source_id, ())),
+                          validate_schema=False)
         registered[source_id] = name
     return registered
 
@@ -252,6 +266,8 @@ def load_source_skills(loader, registered, *, runtime_registry=None):
                 resolved.setdefault(name, name)
     loader.source_statuses = {}
     loader.unavailable_skills = []
+    skills_root = (ROOT / "catalog/skills").resolve()
+    from ..general_artifacts import extend_skill
     for spec in catalog()["skills"]:
         skill_id = EXISTING_SKILLS.get(spec["id"], spec["id"].replace("-", "_"))
         references = spec.get("tool_references", [])
@@ -264,13 +280,12 @@ def load_source_skills(loader, registered, *, runtime_registry=None):
             loader.unavailable_skills.append(asdict(summary))
             continue
         document = (ROOT / spec["skill_file"]).resolve()
-        if not document.is_relative_to((ROOT / "catalog/skills").resolve()):
+        if not document.is_relative_to(skills_root):
             raise ValueError("Skill document must be in the canonical catalog")
-        parts = document.read_text(encoding="utf-8").split("---", 2)
-        if len(parts) != 3 or parts[0].strip():
+        st = document.stat()
+        metadata, body = _parse_skill_document(str(document), st.st_mtime_ns, st.st_size)
+        if metadata is None and body is None:
             raise ValueError("Missing skill front matter: " + spec["id"])
-        metadata = yaml.safe_load(parts[1])
-        body = parts[2].strip()
         if not isinstance(metadata, dict) or not body:
             raise ValueError("Invalid skill document: " + spec["id"])
         if metadata.get("id", skill_id) != skill_id:
@@ -286,14 +301,13 @@ def load_source_skills(loader, registered, *, runtime_registry=None):
                                    metadata.get("when_to_use", metadata["description"]))
             constraints = tuple(metadata.get("constraints", []))
         else:
-            body += ("\nNative tool names available in this skill: " + ", ".join(available) +
+            body = body + ("\nNative tool names available in this skill: " + ", ".join(available) +
                      ". Call them directly after disclosure. Unavailable references are not callable: " +
                      "; ".join(item["name"] + ": " + item["reason"] for item in blocked) + ".\n")
             constraints = ("Choose only operations required by the task; never fabricate unavailable data or results.",
                            "Independent operations may share one response. No files or Python are needed unless the task requires them.")
         skill = Skill(summary, tuple(metadata.get("required_inputs", [])), body,
             constraints, available, tuple(metadata.get("expected_outputs", ["Observed results with units, provenance and limitations"])))
-        from ..general_artifacts import extend_skill
         loader.registry.register(extend_skill(skill, resolved))
     return loader
 

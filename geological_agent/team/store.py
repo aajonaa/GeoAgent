@@ -12,6 +12,7 @@ from threading import RLock
 import time
 import uuid
 
+from .cas import ContentAddressedStore
 from .protocol import MAX_FILE, MAX_FILES_TOTAL, relative_name
 
 SESSION_SECONDS = 12 * 60 * 60
@@ -46,6 +47,7 @@ class Store:
         if os.name != "nt":
             self.root.chmod(0o700)
         self.lock = RLock()
+        self.cas = ContentAddressedStore(self.root / "cas-blobs")
         self.db = sqlite3.connect(self.root / "team.sqlite3", check_same_thread=False)
         self.db.row_factory = sqlite3.Row
         self.db.execute("PRAGMA journal_mode=WAL")
@@ -59,6 +61,8 @@ class Store:
           generation TEXT NOT NULL, created REAL, updated REAL);
         CREATE TABLE IF NOT EXISTS files(cid TEXT REFERENCES conversations(id), generation TEXT, name TEXT,
           content BLOB NOT NULL, sha256 TEXT, PRIMARY KEY(cid,generation,name));
+        CREATE TABLE IF NOT EXISTS file_cas_index(cid TEXT, generation TEXT, name TEXT,
+          sha256 TEXT NOT NULL, byte_size INTEGER NOT NULL, PRIMARY KEY(cid,generation,name));
         CREATE TABLE IF NOT EXISTS file_origins(cid TEXT, generation TEXT, name TEXT,
           sha256 TEXT NOT NULL, record TEXT NOT NULL, PRIMARY KEY(cid,generation,name));
         CREATE TABLE IF NOT EXISTS generation_audit(cid TEXT REFERENCES conversations(id), generation TEXT,
@@ -83,6 +87,10 @@ class Store:
                 self.db.execute("ALTER TABLE runs ADD COLUMN finished_at REAL")
         if os.name != "nt":
             (self.root / "team.sqlite3").chmod(0o600)
+
+    def close(self):
+        with self.lock:
+            self.db.close()
 
     def user(self, username):
         with self.lock:
@@ -410,19 +418,105 @@ class Store:
                                    "IN ('tool_result','knowledge_sources') ORDER BY seq", (rid,)).fetchall()
         return [json.loads(row[0]) for row in rows]
 
+    def _read_file_row(self, content, cas_sha):
+        if cas_sha is not None:
+            return self.cas.get(cas_sha)
+        return bytes(content)
+
     def files(self, uid, cid, generation=None):
         conv = self.conversation(uid, cid)
         generation = generation or conv["generation"]
         with self.lock:
-            return {r[0]: bytes(r[1]) for r in self.db.execute("SELECT name,content FROM files WHERE cid=? AND generation=?", (cid, generation))}
+            rows = self.db.execute(
+                "SELECT f.name,f.content,c.sha256 FROM files f "
+                "LEFT JOIN file_cas_index c ON f.cid=c.cid AND f.generation=c.generation AND f.name=c.name "
+                "WHERE f.cid=? AND f.generation=?",
+                (cid, generation),
+            ).fetchall()
+        return {r[0]: self._read_file_row(r[1], r[2]) for r in rows}
 
     def file(self, uid, cid, name, generation=None):
         conv = self.conversation(uid, cid)
         generation = generation or conv["generation"]
         with self.lock:
-            row = self.db.execute("SELECT content FROM files WHERE cid=? AND generation=? AND name=?",
-                                  (cid, generation, name)).fetchone()
-        return bytes(row[0]) if row is not None else None
+            row = self.db.execute(
+                "SELECT f.content,c.sha256 FROM files f "
+                "LEFT JOIN file_cas_index c ON f.cid=c.cid AND f.generation=c.generation AND f.name=c.name "
+                "WHERE f.cid=? AND f.generation=? AND f.name=?",
+                (cid, generation, name),
+            ).fetchone()
+        return self._read_file_row(row[0], row[1]) if row is not None else None
+
+    def file_manifest(self, uid, cid, generation=None):
+        """Return lightweight file metadata (name, bytes, sha256) without reading blobs."""
+        conv = self.conversation(uid, cid)
+        generation = generation or conv["generation"]
+        with self.lock:
+            rows = self.db.execute(
+                "SELECT f.name,COALESCE(c.byte_size,length(f.content)) AS bytes,COALESCE(c.sha256,f.sha256) AS sha256 "
+                "FROM files f LEFT JOIN file_cas_index c ON f.cid=c.cid AND f.generation=c.generation AND f.name=c.name "
+                "WHERE f.cid=? AND f.generation=? ORDER BY f.name",
+                (cid, generation),
+            ).fetchall()
+        return [dict(row) for row in rows]
+
+    def migrate_blobs_to_cas(self, *, batch_size=64, vacuum=False):
+        """Idempotently migrate legacy inline SQLite file BLOBs into Content-Addressed Storage."""
+        if not isinstance(batch_size, int) or batch_size < 1:
+            raise ValueError("batch_size must be a positive integer")
+        migrated_rows = 0
+        reclaimed_bytes = 0
+        unique_blobs = set()
+        while True:
+            with self.lock:
+                rows = self.db.execute(
+                    "SELECT f.cid,f.generation,f.name,f.content,f.sha256 FROM files f "
+                    "LEFT JOIN file_cas_index c ON f.cid=c.cid AND f.generation=c.generation AND f.name=c.name "
+                    "WHERE c.cid IS NULL LIMIT ?",
+                    (batch_size,),
+                ).fetchall()
+            if not rows:
+                break
+            file_updates = []
+            cas_inserts = []
+            for row in rows:
+                raw = bytes(row["content"])
+                sha, nbytes = self.cas.put(raw)
+                expected = row["sha256"]
+                if expected and expected != sha:
+                    raise RuntimeError(f"Inline BLOB hash mismatch during CAS migration for {row['name']}")
+                unique_blobs.add(sha)
+                reclaimed_bytes += nbytes
+                file_updates.append((b"", sha, row["cid"], row["generation"], row["name"]))
+                cas_inserts.append((row["cid"], row["generation"], row["name"], sha, nbytes))
+            with self.lock, self.db:
+                self.db.execute("BEGIN IMMEDIATE")
+                self.db.executemany(
+                    "INSERT OR REPLACE INTO file_cas_index(cid,generation,name,sha256,byte_size) VALUES (?,?,?,?,?)",
+                    cas_inserts,
+                )
+                self.db.executemany(
+                    "UPDATE files SET content=?,sha256=? WHERE cid=? AND generation=? AND name=?",
+                    file_updates,
+                )
+            migrated_rows += len(file_updates)
+        if vacuum and migrated_rows:
+            with self.lock:
+                self.db.execute("VACUUM")
+        return {
+            "migrated_rows": migrated_rows,
+            "unique_blobs": len(unique_blobs),
+            "reclaimed_blob_bytes": reclaimed_bytes,
+        }
+
+    def gc_cas_blobs(self):
+        """Garbage-collect unreferenced CAS blobs not cited by any row in `file_cas_index`."""
+        with self.lock:
+            live = {
+                row[0]
+                for row in self.db.execute("SELECT DISTINCT sha256 FROM file_cas_index WHERE sha256 IS NOT NULL")
+            }
+        return self.cas.gc(live)
 
     def file_origins(self, uid, cid, generation=None):
         conv = self.conversation(uid, cid)
@@ -441,7 +535,9 @@ class Store:
         with self.lock:
             rows = self.db.execute("""
                 WITH snapshots AS (
-                  SELECT generation,name,length(content) AS bytes FROM files WHERE cid=?
+                  SELECT f.generation,f.name,COALESCE(c.byte_size,length(f.content)) AS bytes
+                  FROM files f LEFT JOIN file_cas_index c ON f.cid=c.cid AND f.generation=c.generation AND f.name=c.name
+                  WHERE f.cid=?
                   UNION ALL SELECT ?, '', 0
                   UNION ALL SELECT generation,'',0 FROM generation_audit WHERE cid=?
                   UNION ALL SELECT generation,'',0 FROM runs WHERE cid=? AND generation IS NOT NULL AND generation<>''
@@ -527,10 +623,26 @@ class Store:
                     origin = {"origin": "unknown", "sha256": sha,
                               "scope": "no matching runtime acquisition record"}
                 records.append((cid, generation, name, sha, json.dumps(origin, ensure_ascii=False)))
-            used = self.db.execute("SELECT COALESCE(sum(length(content)),0) FROM files JOIN conversations ON cid=conversations.id WHERE uid=?", (uid,)).fetchone()[0]
+            used = self.db.execute(
+                "SELECT COALESCE(sum(COALESCE(c.byte_size,length(f.content))),0) "
+                "FROM files f JOIN conversations cv ON f.cid=cv.id "
+                "LEFT JOIN file_cas_index c ON f.cid=c.cid AND f.generation=c.generation AND f.name=c.name "
+                "WHERE cv.uid=?",
+                (uid,),
+            ).fetchone()[0]
             if used + total > USER_QUOTA:
                 raise ValueError("User storage quota exceeded; snapshot was not committed")
-            self.db.executemany("INSERT INTO files VALUES (?,?,?,?,?)", [(cid, generation, name, data, hashlib.sha256(data).hexdigest()) for name, data in files.items()])
+            file_rows = []
+            cas_rows = []
+            for name, data in files.items():
+                sha, nbytes = self.cas.put(data)
+                file_rows.append((cid, generation, name, b"", sha))
+                cas_rows.append((cid, generation, name, sha, nbytes))
+            self.db.executemany("INSERT INTO files VALUES (?,?,?,?,?)", file_rows)
+            self.db.executemany(
+                "INSERT INTO file_cas_index(cid,generation,name,sha256,byte_size) VALUES (?,?,?,?,?)",
+                cas_rows,
+            )
             self.db.executemany("INSERT INTO file_origins VALUES (?,?,?,?,?)", records)
             self.db.execute("INSERT INTO generation_audit VALUES (?,?,?,?,?)",
                             (cid, generation, action, source_generation, time.time()))

@@ -13,46 +13,75 @@ from .protocol import MAX_PACKET, decode, encode, relative_name, unpack_files
 
 
 def tool_command(runner, workspace):
+    from ..sandbox_exec import SYSTEM_RO_MOUNTS, build_bwrap_command, collect_python_runtime_roots, resolve_bwrap
+
     manager = runner.process_ownership
     root = manager.recovery.store.root / 'sandbox-jobs'
     workspace = Path(workspace).resolve()
     if workspace.parent != root.resolve() or not workspace.is_dir():
         raise RuntimeError('Sandbox workspace lacks trusted run binding')
-    bwrap = Path(os.environ['GEOTOOL_TRUSTED_PROCESS_BWRAP'])
-    if not bwrap.is_absolute() or not bwrap.is_file():
+    bwrap = resolve_bwrap()
+    if bwrap is None:
         raise RuntimeError('Inspected candidate bubblewrap is required')
     app = Path(__file__).resolve().parents[2]
-    roots = list(dict.fromkeys([app, runner.runtime, *runner.readonly_paths]))
-    for path in roots:
-        if (not path.is_absolute() or not path.is_dir() or path in [Path('/'), Path('/data'), Path('/home'), Path('/run')]
-                or manager.recovery.directory.is_relative_to(path) or path.is_relative_to(manager.recovery.directory)):
-            raise RuntimeError('Unsafe sandbox runtime mount')
-    command = [str(bwrap), '--unshare-user', '--uid', str(os.getuid()), '--gid', str(os.getgid()),
-        '--unshare-pid', '--unshare-net', '--unshare-ipc', '--unshare-uts', '--unshare-cgroup',
-        '--cap-drop', 'ALL', '--new-session', '--clearenv', '--ro-bind', '/usr', '/usr']
-    for path in ['/lib', '/lib64']:
-        if Path(path).exists():command += ['--ro-bind', path, path]
-    for path in roots:command += ['--ro-bind', str(path), str(path)]
+    package_paths = [
+        Path(v).resolve()
+        for v in os.environ.get('GEOTOOL_PYTHON_PACKAGES', '').split(os.pathsep)
+        if v
+    ]
+    roots = collect_python_runtime_roots(
+        sys.executable,
+        extra_readonly=[app, runner.runtime, *runner.readonly_paths, *package_paths],
+    )
     python = Path(sys.executable)
-    if not any(python.is_relative_to(path) for path in roots):
+    covered_roots = (*roots, *(Path(p) for p in SYSTEM_RO_MOUNTS if Path(p).exists()))
+    if not any(python.is_relative_to(path) or python.resolve().is_relative_to(path) for path in covered_roots):
         raise RuntimeError('Python executable is outside inspected runtime mounts')
-    command += ['--proc', '/proc', '--dev', '/dev', '--tmpfs', '/tmp', '--bind', str(workspace), '/work',
-        '--setenv', 'PATH', str(python.parent) + ':/usr/bin:/bin', '--setenv', 'HOME', '/work',
-        '--setenv', 'LANG', 'C.UTF-8', '--setenv', 'PYTHONPATH', ':'.join(str(p) for p in [app, *runner.readonly_paths]),
-        '--setenv', 'PYTHONDONTWRITEBYTECODE', '1', '--setenv', 'OPENBLAS_NUM_THREADS', '1',
-        '--setenv', 'OMP_NUM_THREADS', '1', '--chdir', '/work', '--', str(python), '-B',
-        '-m', 'geological_agent.team.sandbox_tool']
-    return command
+    sandbox_env = {
+        'PATH': str(python.parent) + ':/usr/bin:/bin',
+        'HOME': '/work',
+        'TMPDIR': '/tmp',
+        'LANG': 'C.UTF-8',
+        'PYTHONPATH': ':'.join(str(p) for p in [app, *runner.readonly_paths]),
+        'PYTHONDONTWRITEBYTECODE': '1',
+        'OPENBLAS_NUM_THREADS': '1',
+        'OMP_NUM_THREADS': '1',
+        # This ToolCall process is already inside a strict per-ToolCall bwrap namespace.
+        'GEOTOOL_PYTHON_SANDBOX': 'off',
+    }
+    if package_paths:
+        sandbox_env['GEOTOOL_PYTHON_PACKAGES'] = os.pathsep.join(str(p) for p in package_paths)
+    return build_bwrap_command(
+        bwrap,
+        workspace,
+        [str(python), '-B', '-m', 'geological_agent.team.sandbox_tool'],
+        readonly_roots=roots,
+        forbidden_overlap=(manager.recovery.directory,),
+        env=sandbox_env,
+        chdir='/work',
+        unshare_cgroup=True,
+    )
 
 
-def execute_tool(runner, rid, scope, call, context):
+def execute_tool(runner, rid, scope, call, context, *, broker_executor=None):
     from .isolation import Cancelled
     manager = runner.process_ownership
     if manager is None or not isinstance(scope, dict) or set(scope) != {'uid', 'cid'}:
         raise RuntimeError('Authenticated Sandbox ownership scope is required')
-    if call.name not in runner.LOCAL_TOOLS:
+    route = runner.route_tool(call.name)
+    if route == 'broker':
+        if context.cancel.is_set():
+            return ToolResult(call.id, call.name, 'cancelled', error=ErrorInfo('cancelled', 'ToolCall stopped'))
+        executor = broker_executor
+        if executor is None:
+            from ..bootstrap import build_registry
+            from ..tools import ToolExecutor
+            registry, _, _ = build_registry()
+            executor = ToolExecutor(registry)
+        return executor._execute(call, context)
+    if route != 'sandbox':
         return ToolResult(call.id, call.name, 'error', error=ErrorInfo('sandbox_tool_unsupported',
-            'This tool is outside the verified local Sandbox scope; no host fallback was executed.'))
+            'This tool is outside the verified Sandbox scope; no host fallback was executed.'))
     entry = {'cancel': Event()}
     with runner.lock:
         if (rid, call.id) in runner.active:raise RuntimeError('ToolCall is already active')
@@ -165,8 +194,10 @@ def run_agent(runner, rid, query, files, cancel, model_call, on_trace, *, settin
         agent = create_agent(Model(), settings=Settings(**(settings or {})),
             memory=SnapshotMemoryStore.from_payload(memory_records), trace_factory=lambda *args: Trace(),
             read_only=read_only)
+        broker_executor = ToolExecutor(agent.tools)
         agent.executor = ToolExecutor(agent.tools,
-            execution_adapter=lambda call, context: runner.execute_tool(rid, process_scope, call, context))
+            execution_adapter=lambda call, context: runner.execute_tool(
+                rid, process_scope, call, context, broker_executor=broker_executor))
         outcome = agent.run(query, workspace=root, cancel_event=cancel, skill_id=skill_id)
         if cancel.is_set():raise Cancelled('Stopped. The last committed files are retained.')
         # File export now happens in the broker. Never traverse the workspace

@@ -26,7 +26,9 @@ def worker_environment():
              'GEOTOOL_KNOWLEDGE', 'GEOTOOL_KNOWLEDGE_DSN_FILE', 'GEOTOOL_QWEN_CONFIG_FILE',
              'GEOTOOL_KNOWLEDGE_TOKENIZER', 'GEOTOOL_KNOWLEDGE_TOKENIZER_SHA256',
              'GEOTOOL_KNOWLEDGE_LIMITS_FILE', 'GEOTOOL_LARGE_CORPUS',
-             'GEOTOOL_SHARED_KNOWLEDGE_FILE', 'GEOTOOL_KNOWLEDGE_SHARED_ANN')
+             'GEOTOOL_SHARED_KNOWLEDGE_FILE', 'GEOTOOL_KNOWLEDGE_SHARED_ANN',
+             'GEOTOOL_TRUSTED_PROCESS_BWRAP', 'GEOTOOL_SANDBOX_BWRAP',
+             'GEOTOOL_PYTHON_SANDBOX', 'GEOTOOL_PYTHON_PACKAGES')
     environment = {name: os.environ[name] for name in names if name in os.environ}
     if os.environ.get('GEOTOOL_WEB_ENABLED') == '1':
         environment['GEOTOOL_WEB_ENABLED'] = '1'
@@ -41,14 +43,15 @@ def worker_command(runner, manager):
     if not bwrap.is_absolute() or not bwrap.is_file():
         raise RuntimeError('An inspected candidate bubblewrap executable is required')
     target = runner.process_worker or [sys.executable, '-B', '-m', 'geological_agent.team.trusted_worker']
-    # Same UID remains a documented trust boundary, not an adversarial sandbox.
+    # Mount a writable /proc inside the worker namespace so execute_python can
+    # launch nested strict user/net/pid bubblewrap sandboxes cleanly.
     return [str(bwrap), '--unshare-user', '--uid', str(os.getuid()), '--gid', str(os.getgid()),
             '--unshare-ipc', '--unshare-uts', '--cap-drop', 'ALL', '--ro-bind', '/', '/',
             '--bind', str(runner.jobs_root.parent), str(runner.jobs_root.parent),
             '--tmpfs', str(manager.recovery.directory),
             '--ro-bind', '/sys/fs/cgroup', '/sys/fs/cgroup',
             '--ro-bind', str(manager.root.path), str(manager.root.path),
-            '--dev', '/dev', '--tmpfs', '/tmp',
+            '--proc', '/proc', '--dev', '/dev', '--tmpfs', '/tmp',
             '--chdir', str(runner.jobs_root), '--', *target]
 
 

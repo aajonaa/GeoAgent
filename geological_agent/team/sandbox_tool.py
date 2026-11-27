@@ -19,14 +19,14 @@ def main():
     from ..tools import ToolExecutionContext, ToolExecutor, ToolRegistry, register_file_tools
     from .isolation import SandboxRunner
     call = decode(initial['call'])
-    if not isinstance(call, ToolCall) or call.name not in SandboxRunner.LOCAL_TOOLS:
+    if not isinstance(call, ToolCall) or call.name in SandboxRunner.BROKER_ONLY_TOOLS:
         raise ValueError('Unsupported local Sandbox ToolCall')
-    if call.name in ('skill_find', 'skill_load'):
-        from ..bootstrap import build_registry
-        registry, _, _ = build_registry()
-    else:
+    if call.name in ('read_file', 'write_file', 'execute_python'):
         registry = ToolRegistry()
         register_file_tools(registry)
+    else:
+        from ..bootstrap import build_registry
+        registry, _, _ = build_registry()
     context = ToolExecutionContext(initial['core_run_id'], Path('/work'), tuple(initial['allowed_tool_names']),
         Settings(**initial['settings']), Event(), pure_cache=decode(initial['pure_cache']),
         evidence_state=decode(initial['evidence_state']))

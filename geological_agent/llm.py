@@ -40,6 +40,45 @@ def missing_native_tool_message(response):
     return "The model service did not honor native tool_choice=required; no tool from this response was executed"
 
 
+def _nonneg_int(value):
+    return value if type(value) is int and value >= 0 else None
+
+
+def extract_cache_usage(usage):
+    """Normalize provider-reported prompt cache telemetry without fabricating counts.
+
+    Supports OpenAI/vLLM (`prompt_tokens_details.cached_tokens`), DeepSeek
+    (`prompt_cache_hit_tokens` / `prompt_cache_miss_tokens`), and Anthropic
+    (`cache_read_input_tokens` / `cache_creation_input_tokens`).
+    """
+    if not isinstance(usage, dict):
+        return {"prompt_tokens": None, "cached_tokens": None,
+                "cache_creation_tokens": None, "cache_hit_ratio": None}
+    prompt_tokens = _nonneg_int(usage.get("prompt_tokens"))
+    if prompt_tokens is None:
+        prompt_tokens = _nonneg_int(usage.get("input_tokens"))
+    cached = None
+    details = usage.get("prompt_tokens_details")
+    if isinstance(details, dict):
+        cached = _nonneg_int(details.get("cached_tokens"))
+    if cached is None:
+        cached = _nonneg_int(usage.get("prompt_cache_hit_tokens"))
+    if cached is None:
+        cached = _nonneg_int(usage.get("cache_read_input_tokens"))
+    creation = _nonneg_int(usage.get("cache_creation_input_tokens"))
+    if prompt_tokens is None:
+        miss = _nonneg_int(usage.get("prompt_cache_miss_tokens"))
+        if cached is not None and miss is not None:
+            prompt_tokens = cached + miss
+    ratio = None
+    if prompt_tokens and cached is not None:
+        ratio = round(min(1.0, cached / prompt_tokens), 4)
+    elif prompt_tokens == 0 and cached == 0:
+        ratio = 0.0
+    return {"prompt_tokens": prompt_tokens, "cached_tokens": cached,
+            "cache_creation_tokens": creation, "cache_hit_ratio": ratio}
+
+
 class LLMClient(Protocol):
     def invoke(self, request: ModelRequest) -> ModelResponse: ...
     def stream(self, request: ModelRequest) -> Iterator[ModelEvent]: ...

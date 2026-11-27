@@ -23,8 +23,18 @@ class Skill:
 
 
 class SkillRegistry:
-    def __init__(self):
+    def __init__(self, *, hybrid_index=None):
         self._skills = {}
+        self._hybrid_index = hybrid_index
+
+    def _index(self):
+        if self._hybrid_index is None:
+            from .skill_search import SkillHybridIndex
+            self._hybrid_index = SkillHybridIndex()
+        return self._hybrid_index
+
+    def set_hybrid_index(self, hybrid_index):
+        self._hybrid_index = hybrid_index
 
     def register(self, skill: Skill):
         if not re.fullmatch(r"[a-z][a-z0-9_]*", skill.summary.id):
@@ -35,25 +45,11 @@ class SkillRegistry:
             raise ValueError("A skill needs instructions and tool references")
         self._skills[skill.summary.id] = skill
 
-    def list(self, query: str | None = None):
-        summaries = tuple(skill.summary for skill in self._skills.values())
-        if not query:
-            return summaries
-        # Match complete words, excluding single-letter symbols and common
-        # connectors. Substring matching let "I", "u" and "v" match almost
-        # every description. Keep a simple, observable lexical ranking.
-        terms = _search_terms(query)
-        scored = []
-        for summary in summaries:
-            text = " ".join((summary.id, summary.name, summary.description, summary.when_to_use)).casefold()
-            tokens = _search_terms(text)
-            # Chinese has no word separators: a query bigram matches when it
-            # occurs anywhere in the summary text.
-            score = sum(term in tokens or (_CJK.match(term) is not None and term in text)
-                        for term in terms)
-            if score:
-                scored.append((score, summary))
-        return tuple(s for _, s in sorted(scored, key=lambda item: -item[0]))
+    def list(self, query: str | None = None, *, limit: int | None = None):
+        if not query or not query.strip():
+            summaries = tuple(skill.summary for skill in self._skills.values())
+            return summaries[:limit] if limit is not None else summaries
+        return self._index().search(self._skills.values(), query, limit=limit)
 
 
 _CJK = re.compile(r"[\u3400-\u9fff]")

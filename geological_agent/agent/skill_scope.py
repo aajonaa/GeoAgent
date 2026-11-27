@@ -51,8 +51,11 @@ def fit_skill_scope(state, *, build_request, base_tool_names, skills, settings, 
 
     target = int(input_allowance(settings) * .9)
     full_size = measure(candidates)
-    active = list(candidates)
-    if full_size is None or full_size > target:
+    if full_size is not None and full_size <= target:
+        # Preserve existing append-only skill/tool order when every candidate fits
+        # so prompt prefixes and tool definitions remain KV-cache stable.
+        active = list(dict.fromkeys([*state["selected_skill_ids"], *focus]))
+    else:
         active = []
         for sid in candidates:
             size = measure([*active, sid])

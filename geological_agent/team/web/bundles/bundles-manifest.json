@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "entry": "core-bridge.js",
+  "globalNamespace": "OreBogaoCore",
+  "migratedGlobals": [
+    "GeoPresentationState",
+    "OreSageDrafts",
+    "GeoAgentRecovery",
+    "GeoAgentPlan"
+  ],
+  "cspSafe": true,
+  "files": {
+    "core-bridge.js": {
+      "size": 11900,
+      "sha256": "37c44392a006ea02279ace389c637009e55563a6a19f253878a1cfaf33539aa3"
+    },
+    "core-bridge.js.map": {
+      "size": 42060,
+      "sha256": "c52ee4abb68211485e9136a981faae7feffc9a95906abbab5a357087b45753f0"
+    }
+  }
+}
