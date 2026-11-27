@@ -396,10 +396,7 @@ const toolNames = {skill_find:'查找相关技能', skill_load:'读取技能说�
 function handleEvent(rid, data, eventId, historical = false) {
   const ui = state.runs.get(rid); if (!ui) return;
   const sequence = typeof eventId === 'string' && /^\d+$/.test(eventId) ? Number(eventId) : null;
-  if (Number.isSafeInteger(sequence)) {
-    if (sequence <= (ui.lastEventSequence ?? -1)) return;
-    ui.lastEventSequence = sequence;
-  }
+  if (Number.isSafeInteger(sequence) && sequence <= (ui.lastEventSequence ?? -1)) return;
   const wasNearEnd = $('messages').scrollHeight - $('messages').scrollTop - $('messages').clientHeight < 130;
   if (data.kind === 'run_mode' && ['ask','agent'].includes(data.mode)) {
     ui.mode = data.mode;
@@ -424,14 +421,18 @@ function handleEvent(rid, data, eventId, historical = false) {
   }
   const replacingDraft = data.kind === 'finished' && ui.overview?.preview.hidden === false;
   if (data.kind === 'finished' && !historical) {
-    setRunElapsed(ui, data); ui.finished = true; ui.answerText = data.answer || ''; markdown(ui.answer, ui.answerText, ui.artifactContext); ui.summary.textContent = '查看执行详情'; ui.reason.textContent = data.reason || '';
+    setRunElapsed(ui, data); ui.finished = true; ui.answerText = data.answer || '';
+    ui.summary.textContent = '查看执行详情'; ui.reason.textContent = data.reason || '';
     ui.replyActions.hidden = !ui.answerText.trim();
     const source = state.sources.get(rid); if (source) source.close(); state.sources.delete(rid); if (state.busy === rid) busy(null); window.GeoToolHITL?.refresh(data.status === 'needs_input'); refreshActiveTasks().catch(() => {}); loadFiles().catch(e => notice(e.message)); loadConversations().catch(e => notice(e.message));
+    try { markdown(ui.answer, ui.answerText, ui.artifactContext); }
+    catch { ui.answer.textContent = ui.answerText; notice('答复富文本显示失败，已保留原始答复。'); }
   }
   window.GeoAgentExperience?.event(rid, data, eventId);
   window.GeoAgentRecovery?.event(rid);
   if (!historical || data.kind !== 'stage_timing' || !ui.timing) window.GeoAgentTimeline?.event(rid, data, eventId);
   if (!historical) window.GeoAgentPresentation?.event(rid, data);
+  if (Number.isSafeInteger(sequence)) ui.lastEventSequence = sequence;
   if (wasNearEnd && !historical && !replacingDraft) scrollEnd();
 }
 function attachRunHistory(rid, ui) {
@@ -471,10 +472,21 @@ function subscribe(rid, after = 0) {
   const ui = state.runs.get(rid);
   if (ui && runIsWorking(ui.status)) api(`/api/runs/${rid}`).then(run => {
     if (state.cid !== cid || state.sources.get(rid) !== source || state.runs.get(rid) !== ui || ui.finished) return;
-    if (!runIsWorking(run.status)) handleEvent(rid, {kind:'finished', ...run});
+    if (!runIsWorking(run.status)) { handleEvent(rid, {kind:'finished', ...run}); attachRunHistory(rid, ui); }
     else setRunElapsed(ui, run);
   }).catch(() => { /* The SSE reconnect path owns connection errors. */ });
-  source.onmessage = event => { if (state.cid !== cid || state.sources.get(rid) !== source) return; try { handleEvent(rid,JSON.parse(event.data),event.lastEventId); $('connection').textContent = '已连接'; } catch { notice('事件显示失败，请重新打开这段对话。'); } };
+  source.onmessage = event => {
+    if (state.cid !== cid || state.sources.get(rid) !== source) return;
+    try { handleEvent(rid,JSON.parse(event.data),event.lastEventId); $('connection').textContent = '已连接'; }
+    catch {
+      notice('事件显示失败，正在重新同步这段对话。');
+      if (ui && !ui.finished) {
+        source.close(); state.sources.delete(rid);
+        const after = ui.lastEventSequence || 0;
+        setTimeout(() => { if (state.cid === cid && state.runs.get(rid) === ui) subscribe(rid, after); }, 0);
+      }
+    }
+  };
   let checking = false;
   const active = () => state.cid === cid && state.sources.get(rid) === source;
   source.onopen = () => {
@@ -491,11 +503,13 @@ function subscribe(rid, after = 0) {
     try {
       const run = await api(`/api/runs/${rid}`);
       if (!active()) return;
-      // Let EventSource replay the missing events using Last-Event-ID.
-      if (source.readyState === EventSource.CLOSED && !runIsWorking(run.status)) {
+      if (!runIsWorking(run.status)) {
+        source.close(); state.sources.delete(rid);
         handleEvent(rid, {kind:'finished', ...run});
-        attachRunHistory(rid, ui);
+        if (ui) attachRunHistory(rid, ui);
+        return;
       }
+      // Let EventSource replay the missing events using Last-Event-ID.
     } catch (error) {
       if (!active() || ![401, 403, 404].includes(error.status)) return;
       source.close();

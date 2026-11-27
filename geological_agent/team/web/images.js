@@ -489,6 +489,7 @@
     skill_find:'正在查找适用的分析方法', skill_load:'正在读取技能说明',
     read_file:'正在读取文件', write_file:'正在保存文件', execute_python:'正在运行计算程序',
     web_search:'正在搜索公开资料', web_fetch:'正在读取网页资料',
+    context_search:'正在检索历史上下文', context_read:'正在读取历史上下文',
     request_user_input:'正在准备需要你确认的问题',
     GeoIllustration:'正在绘制图件', GeoImageInspect:'正在检查影像尺寸、波段和坐标信息',
     GeoImageTransform:'正在处理图片', GeoRasterPreview:'正在生成栅格预览',
@@ -529,6 +530,8 @@
     }
     if (name === 'skill_load') detail = text(args.skill_id);
     if (name === 'skill_find') detail = '正在匹配已登记的技能与工具';
+    if (name === 'context_search') detail = text(args.query);
+    if (name === 'context_read') detail = text(args.name || args.path);
     if (name === 'execute_python') detail = 'Python · 以实际运行结果为准';
     return {title:title || '正在执行工具', detail:detail || name};
   }
@@ -623,13 +626,14 @@
       for (const call of view.calls.values()) {
         if (call.status === 'ok') continue;
         const name = call.name || '工具';
-        const group = calls.get(name) || {failed:0, running:0, retryable:false};
+        const group = calls.get(name) || {failed:0, running:0, unknown:0, retryable:false};
         if (call.status === 'running') group.running++;
+        else if (call.status === 'unknown') group.unknown++;
         else { group.failed++; group.retryable ||= call.retryable === true; }
         calls.set(name, group);
       }
       for (const [name, group] of calls) {
-        const state = [group.failed ? group.failed + ' 次未完成' : '', group.running ? group.running + ' 次执行中' : ''].filter(Boolean).join(' · ');
+        const state = [group.failed ? group.failed + ' 次未完成' : '', group.running ? group.running + ' 次执行中' : '', group.unknown ? group.unknown + ' 次结果未记录' : ''].filter(Boolean).join(' · ');
         items.push({key:'tool:' + name, label:name + ' · ' + state + (group.retryable ? ' · 可重试' : '')});
       }
       for (const [id, phase] of view.interrupted) items.push({key:'stream:' + id, label:'模型响应中断 · ' + (phaseLabels[phase] || phase || '执行阶段')});
@@ -856,12 +860,18 @@
               : '这一步未完成，正在判断下一步', detail:previous.action?.detail || text(name)};
       }
     }
+    if (data.kind === 'finished') {
+      for (const [id, call] of view.calls) {
+        if (call.status === 'running') view.calls.set(id, {...call, status:'unknown'});
+      }
+    }
     const calls = [...view.calls.values()];
     const count = status => calls.filter(call => call.status === status).length;
     view.counts.textContent = calls.length
       ? calls.length + ' 次工具调用 · ' + count('ok') + ' 成功'
         + (count('error') ? ' · ' + count('error') + ' 失败' : '')
         + (count('running') ? ' · ' + count('running') + ' 执行中' : '')
+        + (count('unknown') ? ' · ' + count('unknown') + ' 结果未记录' : '')
         + (calls.some(call => call.cached) ? ' · ' + calls.filter(call => call.cached).length + ' 复用' : '')
       : '尚无工具执行记录';
     if (view.turn) view.counts.textContent += ' · 执行轮次 ' + view.turn;
