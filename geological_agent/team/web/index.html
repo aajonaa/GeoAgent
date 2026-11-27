@@ -14,7 +14,7 @@
   <script src="/assets/email-auth.js?v=orebogao-20261125" defer></script>
   <link rel="stylesheet" href="/assets/profile.css?v=p2-03b2-1">
   <script src="/assets/profile.js?v=invite50-profile-20261110-r1" defer></script>
-  <title>OreBOGAO</title>
+  <title>Ore·BOGAO</title>
   <link rel="icon" href="/assets/bogao-symbol.svg" type="image/svg+xml" sizes="any">
   <link rel="stylesheet" href="/assets/style.css?v=20261127-evidence-versions-r2"><link rel="stylesheet" href="/assets/library.css?v=20261124-skill-picker"><link rel="stylesheet" href="/assets/model-profiles.css?v=20261003-context1"><link rel="stylesheet" href="/assets/knowledge.css?v=20261004-pdf2">
   <link rel="stylesheet" href="/assets/images.css?v=20261004-experience1">
@@ -27,7 +27,7 @@
 <script src="/assets/research-plan.js?v=20261127-plan-confirm" defer></script>
 <script src="/assets/recovery.js?v=20261127-evidence-versions-r2" defer></script>
 <script src="/assets/versions.js?v=20261127-evidence-versions-r2" defer></script>
-<script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261127-event-resync-r1" defer></script><script src="/assets/images.js?v=20261127-event-resync-r1" defer></script>
+<script src="/vendor/katex.min.js" defer></script><script src="/assets/app.js?v=20261127-kb-brand" defer></script><script src="/assets/images.js?v=20261127-event-resync-r1" defer></script>
   <script src="/assets/defaults.js?v=20261124-settings-anchor" defer></script>
 <script src="/assets/memorax.js?v=20261024-live3" defer></script>
 <link rel="stylesheet" href="/assets/timeline.css?v=20261127-task-summary">
@@ -47,7 +47,7 @@
     <p class="intro-copy">从地质线索出发，让找矿有据可循</p>
     <div class="contours" aria-hidden="true"></div>
   </section>
-  <section class="auth-panel"><p class="eyebrow">OreBOGAO</p><h2 id="auth-title">账号密码登录</h2><p id="auth-hint" class="muted">支持用户名或已验证邮箱与密码登录，邮箱验证码作为备用方式。</p>
+  <section class="auth-panel"><p class="eyebrow">Ore·BOGAO</p><h2 id="auth-title">账号密码登录</h2><p id="auth-hint" class="muted">支持用户名或已验证邮箱与密码登录，邮箱验证码作为备用方式。</p>
     <div class="reg-phone-row" id="auth-methods"><button id="password-mode" type="button" class="quiet">账号密码登录</button><button id="email-mode" type="button" class="quiet">邮箱验证码登录</button></div>
     <form id="email-login-form" novalidate hidden><label for="email-login-address">邮箱<input id="email-login-address" disabled type="email" autocomplete="email" maxlength="254" required></label><label for="email-login-code">六位邮箱验证码</label><div class="reg-phone-row"><input id="email-login-code" disabled inputmode="numeric" autocomplete="one-time-code" maxlength="6" required><button id="email-login-send" disabled type="button" class="quiet">发送验证码</button></div><p id="email-login-status" class="reg-status" role="status" aria-live="polite"></p><button id="email-login-submit" disabled type="submit" class="primary">验证并登录</button></form>
     <form id="auth-form" method="post"><label>用户名或邮箱<input id="username" name="username" autocomplete="username" required minlength="3" maxlength="254"></label><label>密码<input id="password" name="password" type="password" autocomplete="current-password" required minlength="12" maxlength="256"></label><button id="auth-submit" class="primary" type="submit" disabled>密码登录</button></form>
@@ -73,7 +73,7 @@
   </section>
 </div>
 <div id="app" class="shell" hidden>
-  <aside id="sidebar" class="sidebar"><a class="brand" href="/" aria-label="OreBOGAO"><img class="brand-mark small bogao-symbol" src="/assets/bogao-symbol.svg" width="39" height="39" alt=""><span class="brand-name">OreBOGAO</span></a><button id="new-chat" class="new-chat">＋ 新对话</button><button id="library-open" class="library-nav" type="button" aria-pressed="false"><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1M3 12h18M8 10.5v3M16 10.5v3"/></svg>技能与工具</button><button id="shared-open" class="library-nav" type="button" aria-haspopup="dialog" aria-controls="shared-dialog" aria-expanded="false" hidden><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>共享知识库</button><button id="knowledge-open" class="library-nav" type="button"><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6.5C9.7 4.8 6.8 4.2 3 5v14c3.8-.8 6.7-.2 9 1.5 2.3-1.7 5.2-2.3 9-1.5V5c-3.8-.8-6.7-.2-9 1.5Z"/><path d="M12 6.5v14"/></svg>个人资料库</button><p class="section-label">最近对话</p><nav id="conversation-list" aria-label="对话历史"></nav><div class="account"><strong id="account-name"></strong><span id="account-role"></span><button id="invite-button" hidden>邀请成员</button><button id="admin-usage-open" type="button" hidden>使用统计 / 日志</button><button id="admin-users-open" type="button" hidden>注册用户后台</button><button id="admin-releases-open" type="button" aria-haspopup="dialog" hidden>版本记录</button><button id="profile-open" type="button">个人资料</button><button id="password-button">设置 / 修改密码</button><button id="logout">退出登录</button></div></aside>
+  <aside id="sidebar" class="sidebar"><a class="brand" href="/" aria-label="Ore·BOGAO"><img class="brand-mark small bogao-symbol" src="/assets/bogao-symbol.svg" width="39" height="39" alt=""><span class="brand-name">Ore·BOGAO</span></a><button id="new-chat" class="new-chat">＋ 新对话</button><button id="library-open" class="library-nav" type="button" aria-pressed="false"><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v1M3 12h18M8 10.5v3M16 10.5v3"/></svg>技能与工具</button><button id="shared-open" class="library-nav" type="button" aria-haspopup="dialog" aria-controls="shared-dialog" aria-expanded="false" hidden><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4 4"/></svg>共享知识库</button><button id="knowledge-open" class="library-nav" type="button"><svg class="library-nav-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 6.5C9.7 4.8 6.8 4.2 3 5v14c3.8-.8 6.7-.2 9 1.5 2.3-1.7 5.2-2.3 9-1.5V5c-3.8-.8-6.7-.2-9 1.5Z"/><path d="M12 6.5v14"/></svg>个人资料库</button><p class="section-label">最近对话</p><nav id="conversation-list" aria-label="对话历史"></nav><div class="account"><strong id="account-name"></strong><span id="account-role"></span><button id="invite-button" hidden>邀请成员</button><button id="admin-usage-open" type="button" hidden>使用统计 / 日志</button><button id="admin-users-open" type="button" hidden>注册用户后台</button><button id="admin-releases-open" type="button" aria-haspopup="dialog" hidden>版本记录</button><button id="profile-open" type="button">个人资料</button><button id="password-button">设置 / 修改密码</button><button id="logout">退出登录</button></div></aside>
   <main class="main"><header class="topbar"><button id="menu-button" class="quiet mobile-only" aria-label="打开导航菜单">☰</button><div><span id="chat-title">新的研究问题</span></div><div class="top-actions"><span id="connection" class="badge">已连接</span><button id="files-toggle" class="quiet">文件 <span id="file-count">0</span></button></div></header>
     <div id="global-task" class="global-task" role="region" aria-label="跨会话任务状态" hidden><span class="global-task-dot" aria-hidden="true"></span><div class="global-task-copy"><strong id="global-task-title"></strong><span id="global-task-detail"></span></div><button id="global-task-open" class="quiet" type="button">返回任务</button></div>
     <section id="library-view" class="library-view" aria-labelledby="library-title" hidden>
@@ -205,7 +205,7 @@
 <input id="upload" type="file" hidden>
 
 <dialog id="profile-dialog" aria-labelledby="profile-title" data-state="closed" data-binding-state="idle" aria-busy="false">
-  <header class="profile-heading"><div><p class="eyebrow">OreBOGAO / ACCOUNT</p><h2 id="profile-title" tabindex="-1">个人资料</h2></div><button id="profile-close" type="button" class="quiet">返回主页</button></header>
+  <header class="profile-heading"><div><p class="eyebrow">Ore·BOGAO / ACCOUNT</p><h2 id="profile-title" tabindex="-1">个人资料</h2></div><button id="profile-close" type="button" class="quiet">返回主页</button></header>
   <p id="profile-status" class="profile-status" role="status" aria-live="polite"></p><p id="profile-error" class="error" role="alert"></p>
   <button id="profile-retry" type="button" class="quiet" hidden>重新读取资料</button>
   <div id="profile-content" hidden>
@@ -321,7 +321,7 @@
 </dialog>
 <dialog id="admin-usage-dialog" class="admin-users-dialog" aria-labelledby="usage-title">
   <aside class="usage-rail" aria-label="统计导航">
-    <div class="usage-brand"><img class="usage-brand-mark bogao-symbol" src="/assets/bogao-symbol.svg" width="38" height="40" alt=""><div><strong>OreBOGAO</strong><small>RESEARCH WORKSPACE</small></div></div>
+    <div class="usage-brand"><img class="usage-brand-mark bogao-symbol" src="/assets/bogao-symbol.svg" width="38" height="40" alt=""><div><strong>Ore·BOGAO</strong><small>RESEARCH WORKSPACE</small></div></div>
     <p class="usage-rail-label">管理后台</p>
     <button id="usage-overview" type="button"><span class="usage-nav-icon" aria-hidden="true">▦</span>使用概览</button>
     <button id="usage-definition" type="button"><span class="usage-nav-icon" aria-hidden="true">≡</span>统计口径</button>

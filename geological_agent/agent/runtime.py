@@ -70,6 +70,17 @@ def requested_library(query):
     return bool(re.search(r"知识库|资料库|文献库|共享资料|knowledge[- ]base|shared (?:library|collection)", query, re.I))
 
 
+_NON_LIBRARY_SCOPE = re.compile(
+    r"网上|联网|上网|互联网|公开网页|附件|上传|\b(?:web|internet|attachment)\b", re.I
+)
+
+
+def theory_library_query(query):
+    """Identify supported theory questions with no alternate source scope."""
+    from ..rag.theory import subject
+    return not _NON_LIBRARY_SCOPE.search(query) and bool(subject(query))
+
+
 def source_context(task, current):
     """Provide bounded conversation context for source selection and partial delivery."""
     header, marker, _ = task.rpartition("\nCurrent user request:\n")
@@ -369,7 +380,10 @@ class AgentRuntime:
                 }}}, state)
             context = source_context(state["task"], current_query)
             required = requested_library(current_query)
-            if not required or context["history"]:
+            # The indexed theory collections cover questions without a named
+            # locality. Ask mode should consult them before giving a synthesis.
+            theory_lookup = state["metadata"].get("read_only") and theory_library_query(current_query)
+            if not theory_lookup and (not required or context["history"]):
                 route = bounded_json(state, "source_selection",
                     'Choose how to answer the CURRENT question. Return only JSON {"source":"task" or "library","query":"standalone library search terms"}. '
                     'Default to library FIRST for regional geoscience: whenever the question asks what happened in a named province, belt, district, '
@@ -385,8 +399,7 @@ class AgentRuntime:
                 if source not in ("library", "task"):
                     # A fresh research question still gets a library lookup if the
                     # optional classifier fails. Preserve explicit web/file scope.
-                    use_context = bool(context["history"] or context["files"] or re.search(
-                        r"网上|联网|上网|互联网|公开网页|附件|上传|\b(?:web|internet|attachment)\b", current_query, re.I))
+                    use_context = bool(context["history"] or context["files"] or _NON_LIBRARY_SCOPE.search(current_query))
                     source = "task" if use_context else "library"
                 if not required and source == "task":
                     return record({"model_turns": state["model_turns"], "metadata": {**state["metadata"], "knowledge": {

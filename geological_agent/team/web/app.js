@@ -1,6 +1,6 @@
 'use strict';
 const $ = id => document.getElementById(id);
-const AGENT_NAME = 'OreBOGAO';
+const AGENT_NAME = 'Ore·BOGAO';
 const state = {me: null, cid: null, view: 0, runs: new Map(), sources: new Map(), busy: null, activeTasks: [], inputRequests: [], recovery: null};
 function element(tag, text, className) { const node = document.createElement(tag); if (text !== undefined) node.textContent = text; if (className) node.className = className; return node; }
 async function api(path, options = {}) {
