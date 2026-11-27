@@ -367,6 +367,25 @@ class Recovery:
             self._inspect(rid, enqueue)
             self.seen.add(rid)
 
+    def _terminal_tools_settled(self, row):
+        with self.store.lock:
+            rows = self.store.db.execute(
+                "SELECT data FROM events WHERE rid=? ORDER BY seq", (row['id'],)).fetchall()
+        pending = set()
+        try:
+            for (raw,) in rows:
+                event = json.loads(raw)
+                if event.get('kind') == 'tool_start':
+                    call_id = event.get('id')
+                    if not isinstance(call_id, str) or not call_id:
+                        return False
+                    pending.add(call_id)
+                elif event.get('kind') == 'tool_result':
+                    pending.discard(event.get('id'))
+        except (TypeError, ValueError):
+            return False
+        return not pending
+
     def _inspect(self, rid, enqueue):
         with self.store.lock:
             row = self.store.db.execute('SELECT r.*,c.uid FROM runs r JOIN conversations c ON r.cid=c.id WHERE r.id=?', (rid,)).fetchone()
@@ -398,7 +417,16 @@ class Recovery:
         if data and self.process_resources is not None and self.process_resources.local_ended(data):
             local_ended = True
         if row['status'] in TERMINAL:
-            self._note(rid, row, 'A', 'durable_terminal', state='reconciled' if local_ended or data is None or data.get('execution_authorized') is False else 'quarantined', resource_unverified=not (local_ended or data is None or data.get('execution_authorized') is False))
+            settled_without_process = bool(
+                data and dead is True and data.get('phase') == 'settled'
+                and data.get('terminal_status') == row['status']
+                and not data.get('process_coverage')
+                and self._terminal_tools_settled(row))
+            self._note(rid, row, 'A', 'durable_terminal',
+                       state='reconciled' if local_ended or settled_without_process
+                       or data is None or data.get('execution_authorized') is False else 'quarantined',
+                       resource_unverified=not (local_ended or settled_without_process
+                       or data is None or data.get('execution_authorized') is False))
             return
         if data is None or dead is not True:
             self._note(rid, row, 'D', 'missing_evidence' if data is None else 'owner_live_or_incomparable')
