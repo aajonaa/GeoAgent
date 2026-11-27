@@ -1,4 +1,5 @@
 import json
+from contextlib import nullcontext
 from types import SimpleNamespace
 
 import pytest
@@ -34,6 +35,44 @@ def completion(request, *, bad=False):
                 "requires_python_execution": False, "evidence_call_ids": ["t1"],
                 "requirement_checks": {key: {"ok": True, "a": ["a999" if bad else "a1"], "t": ["t1"]}
                                        for key in keys}})
+
+
+def test_read_only_ambiguous_input_pauses_before_any_tool(tmp_path):
+    class Archive:
+        scope = SimpleNamespace(owner_id="owner", conversation_id="conversation")
+
+        def begin_run(self, *args):
+            pass
+
+        def sync_state(self, state):
+            pass
+
+        def checkpoint(self):
+            return nullcontext(None)
+
+        def thread_id(self, run_id):
+            return run_id
+
+    model = Model(call("assess_task_intent", {
+        "objective_present": False,
+        "question": "您想了解哪个智能体或工具，以及遇到了什么问题？",
+    }))
+    result = create_agent(model, context_store=Archive(), read_only=True,
+                          settings=Settings(verify_completion=False)).run(
+        "这个智能体", workspace=tmp_path / "work")
+    assert result.status == "needs_input" and result.model_turns == 1
+    assert result.answer == "您想了解哪个智能体或工具，以及遇到了什么问题？"
+    assert not [message for message in result.state["messages"] if message.role == "tool"]
+    assert [tool.name for tool in model.requests[0].tools] == ["assess_task_intent"]
+
+
+def test_read_only_clear_question_runs_intent_then_answers(tmp_path):
+    model = Model(call("assess_task_intent", {"objective_present": True, "question": ""}),
+                  ModelResponse("断层是岩层发生明显位移的构造变形。"))
+    result = create_agent(model, read_only=True, settings=Settings(verify_completion=False)).run(
+        "什么是断层？", workspace=tmp_path / "work")
+    assert result.status == "completed" and result.model_turns == 2
+    assert result.answer == "断层是岩层发生明显位移的构造变形。"
 
 
 def test_bare_input_pauses_before_any_domain_or_file_tool(tmp_path, monkeypatch):

@@ -1,5 +1,6 @@
 """Real PostgreSQL acceptance. The deployment gate requires this suite to run."""
 from dataclasses import asdict
+from contextlib import nullcontext
 import json
 import os
 from pathlib import Path
@@ -151,3 +152,43 @@ def test_postgres_native_retrieval_and_archive_are_used_by_runtime(store, tmp_pa
     record = next(json.loads(m.content) for m in result.state["messages"] if m.role == "tool")
     assert record["data"]["source_run_id"] == prior
     assert store.search(run_id=result.run_id, kind="message")["matches"]
+
+
+def test_read_only_repeated_context_search_stops_and_answers(tmp_path):
+    class EmptyArchive:
+        scope = type("Scope", (), {"owner_id": "owner", "conversation_id": "conversation"})()
+
+        def begin_run(self, run_id, query, workspace):
+            pass
+
+        def sync_state(self, state):
+            pass
+
+        def checkpoint(self):
+            return nullcontext(None)
+
+        def thread_id(self, run_id):
+            return run_id
+
+        def search(self, query, **kwargs):
+            return {"matches": [], "has_more": False, "next_after": 0,
+                    "preview_is_complete": True, "scope": "authenticated conversation"}
+
+    from geological_agent.knowledge import NullKnowledgeRetriever
+
+    model = Scripted(
+        ModelResponse(tool_calls=(ToolCall("intent", "assess_task_intent",
+                     {"objective_present": True, "question": ""}),), finish_reason="tool_calls"),
+        *(ModelResponse(tool_calls=(ToolCall(f"search-{index}", "context_search",
+                         {"query": query, "limit": 10}),), finish_reason="tool_calls")
+          for index, query in enumerate(("智能体", "工具"))),
+        ModelResponse("请说明您想了解哪个智能体或工具，以及具体问题。"),
+    )
+    agent = create_agent(model, context_store=EmptyArchive(), knowledge=NullKnowledgeRetriever(),
+                         read_only=True, settings=Settings(verify_completion=False, max_model_turns=10))
+    result = agent.run("这个智能体", workspace=tmp_path / "work")
+    assert result.status == "completed", result.reason
+    assert result.model_turns == 4
+    assert len([message for message in result.state["messages"] if message.role == "tool"]) == 2
+    assert model.requests[-1].tool_choice == "none" and model.requests[-1].tools == ()
+    assert result.state["metadata"]["read_only_retrieval_exhausted"] is True

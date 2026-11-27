@@ -132,7 +132,7 @@ class AgentRuntime:
                    "combined_completion_review": os.environ.get("GEOTOOL_COMBINED_COMPLETION_REVIEW") == "1",
                    "requirement_coverage": os.environ.get("GEOTOOL_REQUIREMENT_COVERAGE") == "1",
                    "read_only": self.read_only,
-                   "intent_review": not self.read_only and os.environ.get("GEOTOOL_INTENT_REVIEW") == "1",
+                   "intent_review": self.read_only or os.environ.get("GEOTOOL_INTENT_REVIEW") == "1",
                    "compact_review": os.environ.get("GEOTOOL_COMPACT_REVIEW") == "1",
                    "compact_discovery": os.environ.get("GEOTOOL_COMPACT_DISCOVERY") == "1",
                    "review_reference_sets": os.environ.get("GEOTOOL_REVIEW_REFERENCE_SETS") == "1",
@@ -558,6 +558,8 @@ class AgentRuntime:
             turns = state["model_turns"] + 1
             metadata = dict(state["metadata"])
             tool_choice = metadata.pop("next_tool_choice", "auto")
+            if self.read_only and metadata.get("read_only_retrieval_exhausted"):
+                tool_choice = "none"
             stalled_retrieval = metadata.pop("retrieval_route_once", [])
             pending_execution = requested_execution_issues(state, self.professional_tool_names)
             if tool_choice == "auto" and pending_execution:
@@ -827,6 +829,13 @@ class AgentRuntime:
                         if call.name in SEARCH_TOOLS:
                             metadata["retrieval_route_once"] = list(dict.fromkeys([
                                 *metadata.get("retrieval_route_once", []), call.name]))
+                        if self.read_only and call.name in ("context_search", "context_read"):
+                            progress = metadata.setdefault("read_only_retrieval_progress", {})
+                            progress[call.name] = progress.get(call.name, 0) + 1
+                            if progress[call.name] >= 1:
+                                metadata["read_only_retrieval_exhausted"] = True
+                                trace.emit("read_only_retrieval_exhausted", run_id=run_id,
+                                           tool=call.name, unchanged_returns=count + 1)
                 messages.append(result.message())
                 trace.emit("tool_completed" if result.status == "ok" else "tool_failed", run_id=run_id, result=result)
                 if result.status == "ok" and call.name in self.professional_tool_names:
@@ -900,6 +909,11 @@ class AgentRuntime:
                 feedback = "Runtime progress feedback:\n" + "\n".join(repeated)
                 messages.append(Message("user", feedback))
                 trace.emit("repeated_observation", run_id=run_id, feedback=feedback)
+            if metadata.get("read_only_retrieval_exhausted"):
+                messages.append(Message("user",
+                    "Read-only historical retrieval has stopped after repeated unchanged evidence. "
+                    "Use the observations already available to answer now, or ask one concise clarification. "
+                    "Do not request another search or read."))
             if metadata.get("native_tool_recovery_pending"):
                 # Discovery is not yet the requested operation. Preserve native
                 # recovery across it, then restore auto after an actual result.
@@ -923,6 +937,8 @@ class AgentRuntime:
             # No side effect before interrupt: this node is replayed on resume.
             reply = interrupt(pending)
             update = apply_human_reply(state, reply)
+            update["metadata"].pop("read_only_retrieval_exhausted", None)
+            update["metadata"].pop("read_only_retrieval_progress", None)
             control = update["metadata"].get("runtime_control_resume")
             trace.emit("human_input_received", run_id=run_id, request_id=pending["id"],
                        input_kind="runtime_control" if control else "clarification",
