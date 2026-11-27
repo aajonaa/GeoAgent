@@ -12,6 +12,7 @@ from ..contracts import Message, ModelRequest, strict_json
 from ..llm import ModelProtocolError
 from ..tools import ToolDefinition, object_schema
 from .compaction import fit_request
+from .context import identity_instructions
 
 
 @dataclass(frozen=True)
@@ -182,7 +183,7 @@ def final_answer_request(state, context, settings, *, defer_compaction=False):
             "trust": "Unaccepted wording to repair; verify every number/unit against observed actions."}
     if not evidence["observed_actions"] and not state["artifacts"]:
         evidence["provisional_conversational_response"] = state.get("answer", "")
-    system = FINAL_ANSWER_SYSTEM
+    system = FINAL_ANSWER_SYSTEM + "\n" + identity_instructions(settings, state["metadata"]) + "\n"
     if source_rejection:
         system += (
             "\nRepair source attribution before polishing the rejected draft. "
@@ -299,6 +300,7 @@ def review_request(state, context, settings, *, phase="answer", protocol_feedbac
     if phase not in ("execution", "answer"):
         raise ValueError("Unknown assessment phase")
     system = EXECUTION_REVIEW_SYSTEM if phase == "execution" else REVIEW_SYSTEM
+    system += "\n" + identity_instructions(settings, state["metadata"]) + "\n"
     key = "working_draft" if phase == "execution" else "candidate_answer"
     availability = state["metadata"].get("resource_availability") or {}
     blocked = set(availability.get("blocked_tools", []))

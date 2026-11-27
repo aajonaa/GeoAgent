@@ -1,7 +1,7 @@
 'use strict';
 const $ = id => document.getElementById(id);
 const AGENT_NAME = 'OreBOGAO';
-const state = {me: null, cid: null, view: 0, runs: new Map(), sources: new Map(), busy: null};
+const state = {me: null, cid: null, view: 0, runs: new Map(), sources: new Map(), busy: null, activeTasks: [], inputRequests: [], recovery: null};
 function element(tag, text, className) { const node = document.createElement(tag); if (text !== undefined) node.textContent = text; if (className) node.className = className; return node; }
 async function api(path, options = {}) {
   const {timeoutMs, ...fetchOptions} = options; options = fetchOptions;
@@ -34,7 +34,7 @@ async function api(path, options = {}) {
   if (!response.ok) { if (response.status === 401 && state.me) showLogin(); const error = new Error(result.detail === 'CSRF validation failed' ? '登录校验未通过，请刷新页面后重试。' : result.detail || `HTTP ${response.status}`); error.status = response.status; error.code = result.code; error.activeConversation = response.headers.get('X-Active-Conversation'); error.retryAfter = Number(response.headers.get('Retry-After')) || null; throw error; }
   return result;
 }
-function showLogin() { $('admin-releases-dialog').close(); $('admin-releases-open').hidden = true; $('admin-releases-content').replaceChildren(); $('auth-submit').disabled = false; window.OreSageEmail?.showLogin(); window.OreSageProfile?.clear(); window.OreSagePassword?.clear(); window.OreSageAdminUsers?.clear(); window.OreSageAdminUsage?.clear(); window.OreSageSharedKnowledge?.clear(); window.GeoAgentCases?.clear(); window.GeoAgentDefaults?.clear(); window.GeoAgentImages?.clear(); stopRunElapsedClock(); submissionFeedback(); state.runs.clear(); window.GeoToolLibrary?.reset(); window.GeoToolHITL?.reset(); state.view++; state.cid = null; state.me = null; modelSettings = null; $('model-token').value = ''; $('model-dialog').close(); for (const source of state.sources.values()) source.close(); state.sources.clear(); $('app').hidden = true; $('auth-screen').hidden = false; }
+function showLogin() { $('admin-releases-dialog').close(); $('admin-releases-open').hidden = true; $('admin-releases-content').replaceChildren(); $('auth-submit').disabled = false; window.OreSageEmail?.showLogin(); window.OreSageProfile?.clear(); window.OreSagePassword?.clear(); window.OreSageAdminUsers?.clear(); window.OreSageAdminUsage?.clear(); window.OreSageSharedKnowledge?.clear(); window.GeoAgentCases?.clear(); window.GeoAgentDefaults?.clear(); window.GeoAgentImages?.clear(); window.GeoAgentPlan?.reset(); window.GeoAgentRecovery?.reset(); window.OreSageDrafts?.reset(); stopRunElapsedClock(); submissionFeedback(); state.runs.clear(); state.recovery = null; state.activeTasks = []; state.inputRequests = []; renderGlobalTask(); window.GeoToolLibrary?.reset(); window.GeoToolHITL?.reset(); state.view++; state.cid = null; state.me = null; modelSettings = null; $('model-token').value = ''; $('model-dialog').close(); for (const source of state.sources.values()) source.close(); state.sources.clear(); $('app').hidden = true; $('auth-screen').hidden = false; }
 function notice(message = '') { $('notice').textContent = message; }
 function submissionFeedback(message = '', conversationId = '') {
   const box = $('submission-feedback'), label = $('submission-status'), open = $('active-task-open');
@@ -52,6 +52,39 @@ $('active-task-open').addEventListener('click', async () => {
   } catch (error) {
     submissionFeedback('暂时无法打开正在执行的任务，请重试。', cid);
   }
+});
+function taskElapsed(seconds) {
+  const value = Math.max(0, Math.floor(Number(seconds) || 0));
+  if (value < 60) return value + ' 秒';
+  if (value < 3600) return Math.floor(value / 60) + ' 分 ' + value % 60 + ' 秒';
+  return Math.floor(value / 3600) + ' 小时 ' + Math.floor(value % 3600 / 60) + ' 分';
+}
+function renderGlobalTask() {
+  const box = $('global-task'), task = state.activeTasks[0], request = state.inputRequests.find(item => item.state === 'pending');
+  box.hidden = !task && !request;
+  if (!task && !request) return;
+  const pending = !task && request;
+  $('global-task-title').textContent = pending ? '需要补充信息 · ' + (request.title || '当前任务') : (task.title || '任务正在执行');
+  $('global-task-detail').textContent = pending ? request.question : task.query + ' · 已运行 ' + taskElapsed(task.elapsed_seconds);
+  const open = $('global-task-open'), cid = pending ? request.cid : task.cid;
+  open.textContent = pending ? '去回复' : '返回任务';
+  open.dataset.conversation = cid;
+  open.hidden = !pending && state.cid === cid && state.busy === task.id;
+}
+let activeTaskRequest = 0;
+async function refreshActiveTasks() {
+  const identity = state.me?.id;
+  if (!identity) return;
+  const request = ++activeTaskRequest;
+  const result = await api('/api/active-tasks');
+  if (state.me?.id !== identity || request !== activeTaskRequest) return;
+  state.activeTasks = Array.isArray(result.tasks) ? result.tasks : [];
+  state.inputRequests = Array.isArray(result.requests) ? result.requests : [];
+  renderGlobalTask();
+}
+$('global-task-open').addEventListener('click', async () => {
+  const cid = $('global-task-open').dataset.conversation;
+  if (cid) await openConversation(cid).catch(error => notice(error.message));
 });
 function inline(node, text, assets = null, citations = null) {
   const pattern = /(`[^`]+`|!?\[[^\]\n]*\]\((?:[^()\n]|\([^()\n]*\))*\)|\[K[0-9a-f]{16,64}_[0-9]+\]|\*\*[^*]+\*\*|\$\$[^\n]+?\$\$|\\\[[^\n]+?\\\]|\$[^$\n]+\$|\\\([^\n]+?\\\))/g; let index = 0;
@@ -126,7 +159,7 @@ function markdown(target, text, assets = null) {
 }
 async function initialize() {
   window.OreSagePassword?.clear();
-  state.me = await api('/api/me'); $('auth-screen').hidden = true; $('app').hidden = false;
+  state.me = await api('/api/me'); window.OreSageDrafts?.identity(state.me.id); $('auth-screen').hidden = true; $('app').hidden = false;
   $('account-name').textContent = state.me.username; $('account-role').textContent = state.me.role === 'admin' ? '管理员' : '成员';
   $('invite-button').hidden = state.me.role !== 'admin';
   $('admin-releases-open').hidden = state.me.role !== 'admin';
@@ -134,6 +167,8 @@ async function initialize() {
   setComposerMode('ask');
   await loadModelSettings();
   await loadConversations();
+  restoreComposerDraft();
+  refreshActiveTasks().catch(() => {});
   window.OreSageProfile?.session(state.me);
   window.OreSageAdminUsers?.session(state.me);
   window.OreSageAdminUsage?.session(state.me);
@@ -146,22 +181,24 @@ $('auth-form').addEventListener('submit', async event => {
     await api('/api/login', {method:'POST', body:credentials}); $('password').value = ''; await initialize();
   } catch (error) { $('auth-error').textContent = error.status===401?'用户名、邮箱或密码不正确。尚未设置密码可点击“首次设置密码”。':error.message; } finally { $('auth-submit').disabled = false; }
 });
+function composerDraftScope() { return 'composer:' + (state.cid || 'new'); }
+function restoreComposerDraft() { $('prompt').value = window.OreSageDrafts?.text(composerDraftScope()) || ''; }
 async function loadConversations() {
   const conversations = await api('/api/conversations'); $('conversation-list').replaceChildren();
   for (const conversation of conversations) { const button = element('button', conversation.title, conversation.id === state.cid ? 'selected' : ''); button.title = conversation.title; button.addEventListener('click', () => openConversation(conversation.id).catch(e => notice(e.message))); $('conversation-list').append(button); }
 }
 function closeStreams() { window.GeoAgentCitations?.clear(); stopRunElapsedClock(); for (const source of state.sources.values()) source.close(); state.sources.clear(); }
-function busy(rid) { state.busy = rid; $('composer-mode').disabled = Boolean(rid); $('send').disabled = Boolean(rid); $('stop').hidden = !rid; $('attach').disabled = Boolean(rid); $('upload-button').disabled = Boolean(rid); window.GeoToolHITL?.syncComposer(); }
+function busy(rid) { state.busy = rid; $('composer-mode').disabled = Boolean(rid); $('send').disabled = Boolean(rid); $('stop').hidden = !rid; $('attach').disabled = Boolean(rid); $('upload-button').disabled = Boolean(rid); window.GeoToolHITL?.syncComposer(); window.GeoAgentRecovery?.sync(); }
 async function openConversation(cid) {
   window.GeoToolLibrary?.close({focus:false});
   if (state.cid && state.cid !== cid) window.GeoToolLibrary?.clearSelection();
   if (!submittingRun) submissionFeedback();
-  window.GeoAgentImages?.clear(); closeStreams(); state.cid = cid; const view = ++state.view; state.runs.clear(); $('messages').replaceChildren(); notice(); busy(null);
+  window.OreSageDrafts?.flush(); window.GeoAgentImages?.clear(); window.GeoAgentPlan?.selectConversation(cid); window.GeoAgentRecovery?.reset(); state.recovery = null; closeStreams(); state.cid = cid; const view = ++state.view; state.runs.clear(); $('messages').replaceChildren(); notice(); busy(null); restoreComposerDraft();
   window.GeoToolHITL?.selectConversation(cid);
   const conversation = await api(`/api/conversations/${cid}`); if (state.cid !== cid || state.view !== view) return; $('chat-title').textContent = conversation.title;
   if (!conversation.runs.length) $('messages').append(welcome);
   for (const run of conversation.runs) { const ui = renderRun(run); if (runIsWorking(run.status)) { subscribe(run.id); busy(run.id); } else attachRunHistory(run.id, ui); }
-  $('sidebar').classList.remove('open'); await Promise.all([loadConversations(), loadFiles()]); scrollEnd(); window.GeoAgentCases?.conversation(cid);
+  $('sidebar').classList.remove('open'); await Promise.all([loadConversations(), loadFiles()]); refreshActiveTasks().catch(() => {}); scrollEnd(); window.GeoAgentCases?.conversation(cid);
 }
 async function ensureConversation() { if (!state.cid) { const conversation = await api('/api/conversations', {method:'POST'}); await openConversation(conversation.id); } return state.cid; }
 $('new-chat').addEventListener('click', async () => {
@@ -272,6 +309,24 @@ function setRunMessageTimes(ui, run) {
 }
 // End message timestamp helpers.
 
+async function prepareTerminalRecovery(rid, action) {
+  const ui = state.runs.get(rid), cid = state.cid, view = state.view, identity = state.me?.id;
+  if (!ui || state.busy || quickSwitching || submittingRun) throw new Error('当前有其他任务或视图正在切换，请稍后再试。');
+  const prepared = await api(`/api/runs/${encodeURIComponent(rid)}/recovery`, {method:'POST', body:{action}});
+  if (state.cid !== cid || state.view !== view || state.me?.id !== identity || state.runs.get(rid) !== ui) return false;
+  if (prepared.source_run_id !== rid || prepared.conversation_id !== cid || prepared.action !== action ||
+      prepared.mode !== 'agent' || prepared.execution !== 'new_run' || typeof prepared.query !== 'string' || !prepared.query.trim() || prepared.query.length > 20000) {
+    throw new Error('恢复草稿标识或格式不一致，未填入输入框。');
+  }
+  setComposerMode('agent');
+  state.recovery = {source_run_id:rid, action, conversation_id:cid};
+  $('prompt').value = prepared.query;
+  $('prompt').dispatchEvent(new Event('input'));
+  $('prompt').focus();
+  notice(prepared.message || '已准备续写草稿；请编辑后确认研究计划并发送。');
+  return true;
+}
+
 function replyActions(ui) {
   const box = element('div', undefined, 'reply-actions');
   const copy = element('button', '复制答复', 'quiet');
@@ -305,16 +360,28 @@ function renderRun(run) {
   const skillReceipt = element('div', undefined, 'run-skill'); skillReceipt.hidden = true;
   const modeReceipt = element('span', undefined, 'run-mode'); modeReceipt.hidden = true;
   const settingsReceipt = element('div', undefined, 'run-settings');
+  const planSlot = element('div', undefined, 'run-plan-slot');
   settingsReceipt.append(modeReceipt, skillReceipt);
-  userGroup.append(user, settingsReceipt, userTime.box);
+  userGroup.append(user, settingsReceipt, planSlot, userTime.box);
   const timeSeparator = element('div', undefined, 'message-time-separator'); timeSeparator.append(element('time')); timeSeparator.hidden = true;
   turn.append(timeSeparator, userGroup, label, elapsed, activity, answer, reason, answerTime.box); $('messages').append(turn);
-  const ui = {userTime, answerTime, timeSeparator, skillReceipt, modeReceipt, sentAt:null, finishedAt:null, mode:run.activity?.mode,
+  const ui = {userTime, answerTime, timeSeparator, skillReceipt, modeReceipt, planSlot, sentAt:null, finishedAt:null, mode:run.activity?.mode,
     hasExtendedProgress:Boolean(run.activity?.skill || run.activity?.tool_count || run.activity?.timing?.totals_seconds?.retrieval), elapsed, elapsedBase:0, elapsedAnchor:performance.now(), elapsedKnown:runIsWorking(run.status), status:run.status, turn, activity, summary, list, answer, answerText:run.answer || '', reason, tools:new Map(), finished:!['running','stopping'].includes(run.status)};
   ui.replyActions = replyActions(ui);
   reason.before(ui.replyActions);
   state.runs.set(run.id, ui); setRunElapsed(ui, run); window.GeoToolHITL?.attachCards(); window.GeoAgentExperience?.attach(run.id, ui); window.GeoAgentTimeline?.attach(run.id, ui); window.GeoAgentPresentation?.attach(run.id, ui);
+  window.GeoAgentRecovery?.attach(run.id, ui, {
+    blocked:() => Boolean(state.busy || quickSwitching || submittingRun),
+    compose:prepareTerminalRecovery,
+    inspect:current => {
+      if (state.runs.get(run.id) !== current) return;
+      current.activity.open = true;
+      if (current.overview?.openItems) current.overview.openItems.open = true;
+      current.overview?.openItems?.scrollIntoView?.({block:'nearest'});
+    }
+  });
   if (run.activity?.mode) handleEvent(run.id, {kind:'run_mode', mode:run.activity.mode}, null, true);
+  if (run.activity?.plan) handleEvent(run.id, {kind:'plan_confirmed', plan:run.activity.plan}, null, true);
   if (run.activity?.skill) handleEvent(run.id, {kind:'skill_selected', skill:run.activity.skill}, null, true);
   for (const receipt of Object.values(run.activity?.loaded_skills || {})) window.GeoAgentTimeline?.event(run.id, receipt);
   if (run.activity?.profile) handleEvent(run.id, {kind:'model_config', profile:run.activity.profile}, null, true);
@@ -329,16 +396,17 @@ const toolNames = {skill_find:'查找相关技能', skill_load:'读取技能说�
 function handleEvent(rid, data, eventId, historical = false) {
   const ui = state.runs.get(rid); if (!ui) return;
   const sequence = typeof eventId === 'string' && /^\d+$/.test(eventId) ? Number(eventId) : null;
-  if (Number.isSafeInteger(sequence)) {
-    if (sequence <= (ui.lastEventSequence ?? -1)) return;
-    ui.lastEventSequence = sequence;
-  }
+  if (Number.isSafeInteger(sequence) && sequence <= (ui.lastEventSequence ?? -1)) return;
   const wasNearEnd = $('messages').scrollHeight - $('messages').scrollTop - $('messages').clientHeight < 130;
   if (data.kind === 'run_mode' && ['ask','agent'].includes(data.mode)) {
     ui.mode = data.mode;
     ui.modeReceipt.textContent = data.mode === 'ask' ? '询问' : '执行';
     ui.modeReceipt.dataset.mode = data.mode;
     ui.modeReceipt.hidden = false;
+  }
+  if (data.kind === 'plan_confirmed' && data.plan && !ui.planReceipt) {
+    ui.planReceipt = window.GeoAgentPlan?.receipt(data.plan);
+    if (ui.planReceipt) ui.planSlot.append(ui.planReceipt);
   }
   if (data.kind === 'skill_selected' && data.skill) {
     const {name, id, revision, instructions_sha256: digest} = data.skill;
@@ -353,13 +421,18 @@ function handleEvent(rid, data, eventId, historical = false) {
   }
   const replacingDraft = data.kind === 'finished' && ui.overview?.preview.hidden === false;
   if (data.kind === 'finished' && !historical) {
-    setRunElapsed(ui, data); ui.finished = true; ui.answerText = data.answer || ''; markdown(ui.answer, ui.answerText, ui.artifactContext); ui.summary.textContent = '查看执行详情'; ui.reason.textContent = data.reason || '';
+    setRunElapsed(ui, data); ui.finished = true; ui.answerText = data.answer || '';
+    ui.summary.textContent = '查看执行详情'; ui.reason.textContent = data.reason || '';
     ui.replyActions.hidden = !ui.answerText.trim();
-    const source = state.sources.get(rid); if (source) source.close(); state.sources.delete(rid); if (state.busy === rid) busy(null); window.GeoToolHITL?.refresh(data.status === 'needs_input'); loadFiles().catch(e => notice(e.message)); loadConversations().catch(e => notice(e.message));
+    const source = state.sources.get(rid); if (source) source.close(); state.sources.delete(rid); if (state.busy === rid) busy(null); window.GeoToolHITL?.refresh(data.status === 'needs_input'); refreshActiveTasks().catch(() => {}); loadFiles().catch(e => notice(e.message)); loadConversations().catch(e => notice(e.message));
+    try { markdown(ui.answer, ui.answerText, ui.artifactContext); }
+    catch { ui.answer.textContent = ui.answerText; notice('答复富文本显示失败，已保留原始答复。'); }
   }
   window.GeoAgentExperience?.event(rid, data, eventId);
+  window.GeoAgentRecovery?.event(rid);
   if (!historical || data.kind !== 'stage_timing' || !ui.timing) window.GeoAgentTimeline?.event(rid, data, eventId);
   if (!historical) window.GeoAgentPresentation?.event(rid, data);
+  if (Number.isSafeInteger(sequence)) ui.lastEventSequence = sequence;
   if (wasNearEnd && !historical && !replacingDraft) scrollEnd();
 }
 function attachRunHistory(rid, ui) {
@@ -399,10 +472,21 @@ function subscribe(rid, after = 0) {
   const ui = state.runs.get(rid);
   if (ui && runIsWorking(ui.status)) api(`/api/runs/${rid}`).then(run => {
     if (state.cid !== cid || state.sources.get(rid) !== source || state.runs.get(rid) !== ui || ui.finished) return;
-    if (!runIsWorking(run.status)) handleEvent(rid, {kind:'finished', ...run});
+    if (!runIsWorking(run.status)) { handleEvent(rid, {kind:'finished', ...run}); attachRunHistory(rid, ui); }
     else setRunElapsed(ui, run);
   }).catch(() => { /* The SSE reconnect path owns connection errors. */ });
-  source.onmessage = event => { if (state.cid !== cid || state.sources.get(rid) !== source) return; try { handleEvent(rid,JSON.parse(event.data),event.lastEventId); $('connection').textContent = '已连接'; } catch { notice('事件显示失败，请重新打开这段对话。'); } };
+  source.onmessage = event => {
+    if (state.cid !== cid || state.sources.get(rid) !== source) return;
+    try { handleEvent(rid,JSON.parse(event.data),event.lastEventId); $('connection').textContent = '已连接'; }
+    catch {
+      notice('事件显示失败，正在重新同步这段对话。');
+      if (ui && !ui.finished) {
+        source.close(); state.sources.delete(rid);
+        const after = ui.lastEventSequence || 0;
+        setTimeout(() => { if (state.cid === cid && state.runs.get(rid) === ui) subscribe(rid, after); }, 0);
+      }
+    }
+  };
   let checking = false;
   const active = () => state.cid === cid && state.sources.get(rid) === source;
   source.onopen = () => {
@@ -419,11 +503,13 @@ function subscribe(rid, after = 0) {
     try {
       const run = await api(`/api/runs/${rid}`);
       if (!active()) return;
-      // Let EventSource replay the missing events using Last-Event-ID.
-      if (source.readyState === EventSource.CLOSED && !runIsWorking(run.status)) {
+      if (!runIsWorking(run.status)) {
+        source.close(); state.sources.delete(rid);
         handleEvent(rid, {kind:'finished', ...run});
-        attachRunHistory(rid, ui);
+        if (ui) attachRunHistory(rid, ui);
+        return;
       }
+      // Let EventSource replay the missing events using Last-Event-ID.
     } catch (error) {
       if (!active() || ![401, 403, 404].includes(error.status)) return;
       source.close();
@@ -445,8 +531,11 @@ $('composer').addEventListener('submit', async event => {
   const prompt = $('prompt'), draft = prompt.value, query = draft.trim();
   if (!query) return;
   const mode = composerMode();
+  const recovery = state.recovery;
   const skillId = mode === 'agent' ? window.GeoToolLibrary?.selectedId() : null;
-  const identity = state.me?.id;
+  const confirmedPlan = mode === 'agent' ? window.GeoAgentPlan?.consume(query, skillId) : null;
+  if (mode === 'agent' && !confirmedPlan && window.GeoAgentPlan?.open(query, skillId)) return;
+  const identity = state.me?.id, draftScope = composerDraftScope();
   let view = state.view, cid = state.cid;
   submittingRun = true;
   $('send').disabled = true;
@@ -462,13 +551,18 @@ $('composer').addEventListener('submit', async event => {
       cid = conversation.id;
     }
     if (state.cid !== cid || state.view !== view || state.me?.id !== identity) return;
-    const run = await api(`/api/conversations/${cid}/runs`, {method:'POST', body:{query, mode, ...(skillId ? {skill_id:skillId} : {})}});
+    const recoveryPayload = recovery && recovery.conversation_id === cid && mode === 'agent'
+      ? {source_run_id:recovery.source_run_id, recovery_action:recovery.action} : {};
+    const run = await api(`/api/conversations/${cid}/runs`, {method:'POST', body:{query, mode, ...(skillId ? {skill_id:skillId} : {}), ...(confirmedPlan ? {plan:confirmedPlan} : {}), ...recoveryPayload}});
     if (state.cid !== cid || state.view !== view || state.me?.id !== identity) return;
-    if (prompt.value === draft) prompt.value = '';
+    state.recovery = null;
+    if (prompt.value === draft) { prompt.value = ''; window.OreSageDrafts?.clear(composerDraftScope()); }
+    if (draftScope !== composerDraftScope()) window.OreSageDrafts?.clear(draftScope);
     window.GeoToolLibrary?.clearSelection();
-    renderRun({id:run.id,query,status:'running',answer:'',activity:{mode}});
+    if (confirmedPlan) window.GeoAgentPlan?.committed();
+    renderRun({id:run.id,query,status:'running',answer:'',activity:{mode, ...(confirmedPlan ? {plan:confirmedPlan} : {})}});
     submissionFeedback();
-    busy(run.id); subscribe(run.id); scrollEnd(); await loadConversations();
+    busy(run.id); subscribe(run.id); refreshActiveTasks().catch(() => {}); scrollEnd(); await loadConversations();
   } catch (error) {
     if (state.me?.id !== identity || state.view !== view) return;
     const active = error.status === 409 &&
@@ -491,12 +585,15 @@ window.GeoAgentCaseBridge = {
   load: async loaded => {
     await openConversation(loaded.conversation_id);
     if (state.cid !== loaded.conversation_id) return;
+    state.recovery = null;
     setComposerMode('agent');
     $('prompt').value = loaded.prompt;
+    $('prompt').dispatchEvent(new Event('input'));
     $('prompt').focus();
     notice(loaded.message);
   }
 };
+$('prompt').addEventListener('input', () => window.OreSageDrafts?.save(composerDraftScope(), 'text', $('prompt').value));
 $('prompt').addEventListener('keydown', event => { if (event.key === 'Enter' && !event.shiftKey && !event.isComposing) { event.preventDefault(); $('composer').requestSubmit(); } });
 $('stop').addEventListener('click', async () => { if (!state.busy) return; try { await api(`/api/runs/${state.busy}/stop`,{method:'POST'}); notice('正在停止任务。最近已保存的文件会保留。'); } catch(e) { notice(e.message); } });
 const welcome = $('welcome');
@@ -504,6 +601,7 @@ function composerMode() {
   return $('composer').elements.namedItem('mode').value;
 }
 function setComposerMode(mode) {
+  if (mode === 'ask') state.recovery = null;
   $('composer').elements.namedItem('mode').value = mode;
   const ask = mode === 'ask';
   $('skill-picker-button').hidden = ask;
@@ -515,8 +613,10 @@ function setComposerMode(mode) {
 $('composer-mode').addEventListener('change', event => setComposerMode(event.target.value));
 window.GeoAgentComposer = {mode: composerMode, useAgent: () => setComposerMode('agent')};
 for (const button of welcome.querySelectorAll('[data-prompt]')) button.addEventListener('click', () => {
+  state.recovery = null;
   setComposerMode(button.dataset.mode);
   $('prompt').value = button.dataset.prompt;
+  $('prompt').dispatchEvent(new Event('input'));
   $('prompt').focus();
 });
 async function loadFiles() {
@@ -536,6 +636,7 @@ async function loadFiles() {
   }
   if (!result.files.length) $('files-list').append(element('p','尚无文件。可添加材料，或让 Agent 生成文件。','muted'));
   window.GeoAgentImages?.render(result, cid);
+  window.GeoAgentVersions?.render(result, cid);
 }
 for (const id of ['attach','upload-button']) $(id).addEventListener('click',()=>$('upload').click());
 $('upload').addEventListener('change',async()=>{const file=$('upload').files[0]; if(!file)return; try{const cid=await ensureConversation();await api(`/api/conversations/${cid}/upload?name=${encodeURIComponent(file.name)}`,{method:'POST',body:file,headers:{'Content-Type':'application/octet-stream'}}); await loadFiles(); $('files-panel').hidden=false; notice('文件已加入当前对话。');}catch(e){notice(e.message);}finally{$('upload').value='';}});
@@ -878,3 +979,5 @@ window.OreSagePassword?.mount({api, identity:()=>state.me, showLogin, openCurren
 window.OreSageEmail?.mount({api, initialize, showLogin});
 if (window.OreSageEmail?.active) { $('auth-submit').disabled = false; }
 else initialize().catch(()=>showLogin());
+setInterval(() => { if (!document.hidden) refreshActiveTasks().catch(() => {}); }, 5000);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) refreshActiveTasks().catch(() => {}); });

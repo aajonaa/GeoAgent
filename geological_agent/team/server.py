@@ -136,6 +136,63 @@ class _TaskStartupError(HTTPException):
 
 
 
+_PLAN_TEXT_LIMITS = {'objective': 500, 'scope': 1000, 'materials': 1000, 'tools': 500, 'deliverables': 1000}
+
+
+def _confirmed_research_plan(value):
+    if value is None:
+        return None
+    if not isinstance(value, dict) or set(value) != {*_PLAN_TEXT_LIMITS, 'acceptance'}:
+        raise HTTPException(400, 'Invalid confirmed research plan')
+    plan = {}
+    for field, limit in _PLAN_TEXT_LIMITS.items():
+        text = value[field]
+        if not isinstance(text, str) or not text.strip() or len(text.strip()) > limit:
+            raise HTTPException(400, 'Invalid confirmed research plan')
+        plan[field] = text.strip()
+    acceptance = value['acceptance']
+    if not isinstance(acceptance, list) or not 1 <= len(acceptance) <= 5:
+        raise HTTPException(400, 'Invalid confirmed acceptance criteria')
+    plan['acceptance'] = []
+    for item in acceptance:
+        if not isinstance(item, str) or not item.strip() or len(item.strip()) > 300:
+            raise HTTPException(400, 'Invalid confirmed acceptance criteria')
+        plan['acceptance'].append(item.strip())
+    return plan
+
+
+_RECOVERY_ACTIONS = {
+    'follow_up': ({'completed'}, '请基于上一轮答复和已保存成果，进一步说明关键结论、支持依据、局限和仍待研究的问题。'),
+    'derive': ({'completed'}, '请基于本轮已保存的答复和成果，整理一份新的研究内容，包含目标、方法、结果、证据和局限。引用已有文件名，不要删除或改写原成果；新增文件使用新名称。'),
+    'resume': ({'stopped', 'cancelled', 'incomplete', 'budget_exhausted', 'interrupted'},
+               '请先读取同一对话中上一轮运行的执行详情和已保存文件，核对已完成与未完成步骤，再从中断位置继续。不要重复已确认完成的工具调用，不要删除或改写原成果；新增文件使用新名称。'),
+    'retry': ({'failed'},
+              '请保留同一对话中的原始问题、执行上下文和已保存文件，重试上次失败的任务。先判断哪些结果可以复用，避免重复已完成工作；不要删除或改写原成果，新增文件使用新名称。'),
+}
+
+
+def _terminal_recovery_prompt(run, action):
+    spec = _RECOVERY_ACTIONS.get(action) if isinstance(action, str) else None
+    if spec is None:
+        raise HTTPException(400, 'Invalid terminal recovery action')
+    statuses, prompt = spec
+    if run['status'] not in statuses:
+        raise HTTPException(409, 'This recovery action does not match the run status')
+    return prompt
+
+
+_RECOVERY_CONTEXT_LIMIT = 12000
+_RECOVERY_EVENT_FIELDS = {
+    'status': ('message', 'phase', 'turn'),
+    'tool_start': ('name', 'arguments'),
+    'tool_result': ('name', 'result'),
+    'knowledge_sources': ('sources',),
+    'plan_confirmed': ('plan',),
+    'skill_selected': ('skill',),
+    'finished': ('status', 'reason', 'answer'),
+}
+
+
 _LEGACY_DEADLINE_REASON = 'TimeoutError: Managed task execution deadline exceeded'
 _MANAGED_DEADLINE_REASON = '任务已达到执行时限。完整调研报告未完成。'
 
@@ -326,6 +383,57 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
 
     def safe(value):
         return scrub(value, secret_values)
+
+    def _recovery_event_context(event):
+        data = event['data']
+        kind = data.get('kind')
+        if kind not in _RECOVERY_EVENT_FIELDS:
+            return None
+        item = {'seq': event['id'], 'kind': kind}
+        for field in _RECOVERY_EVENT_FIELDS[kind]:
+            if field not in data:
+                continue
+            value = safe(data[field])
+            encoded = json.dumps(value, ensure_ascii=False, separators=(',', ':'))
+            item[field] = value if len(encoded) <= 1600 else {'preview': encoded[:1600] + '…'}
+        return item
+
+    def _terminal_recovery_context(uid, run):
+        first = store.history(uid, run['id'], limit=60)
+        events = list(first['events'])
+        if first['has_more']:
+            tail = store.history(uid, run['id'], after=max(0, first['through'] - 60),
+                                 through=first['through'], limit=60)
+            seen = {event['id'] for event in events}
+            events.extend(event for event in tail['events'] if event['id'] not in seen)
+        activity = safe(run.get('activity') or {})
+        encoded_activity = json.dumps(activity, ensure_ascii=False, separators=(',', ':'))
+        source = {
+            'run_id': run['id'],
+            'status': run['status'],
+            'query': (run.get('query') or '')[:3000],
+            'reason': (run.get('reason') or '')[:800],
+            'answer': (run.get('answer') or '')[:3000],
+            'generation': run.get('generation') or '',
+            'activity': activity if len(encoded_activity) <= 1600 else {'preview': encoded_activity[:1600] + '…'},
+            'events': [item for event in events if (item := _recovery_event_context(event)) is not None],
+        }
+        while len(json.dumps(source, ensure_ascii=False, separators=(',', ':'))) > _RECOVERY_CONTEXT_LIMIT and len(source['events']) > 1:
+            source['events'].pop(len(source['events']) // 2)
+        return safe(source)
+
+    def _terminal_recovery_source(uid, cid, rid, action):
+        if not isinstance(rid, str) or not re.fullmatch(r'[a-f0-9]{32}', rid):
+            raise HTTPException(400, 'Invalid source run identifier')
+        try:
+            run = store.run(uid, rid)
+        except KeyError as exc:
+            raise HTTPException(404, 'Source run not found') from exc
+        if run['cid'] != cid:
+            raise HTTPException(409, 'Source run belongs to another conversation')
+        run = archival_run_view(uid, run)
+        _terminal_recovery_prompt(run, action)
+        return run
 
     @app.exception_handler(KeyError)
     async def missing(request, exc):
@@ -641,6 +749,13 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     def conversations(request: Request):
         return store.conversations(auth(request)['id'])
 
+    @app.get('/api/active-tasks')
+    def active_tasks(request: Request):
+        uid = auth(request)['id']
+        tasks = [{key: run[key] for key in ('id', 'cid', 'title', 'query', 'status', 'created', 'elapsed_seconds')}
+                 for run in store.active_runs(uid)]
+        return {'tasks': tasks, 'requests': store.pending_inputs(uid)}
+
     @app.post('/api/conversations')
     def new_conversation(request: Request):
         return store.create_conversation(auth(request, mutate=True)['id'])
@@ -695,7 +810,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             current[name] = raw
             generation = store.snapshot(uid, cid, current, origins={
                 name: {"origin": "user_supplied", "sha256": hashlib.sha256(raw).hexdigest(),
-                       "scope": "uploaded by the authenticated caller; not independently verified"}})
+                       "scope": "uploaded by the authenticated caller; not independently verified"}}, action='upload')
         return {'ok': True, 'generation': generation}
 
     def model_call(request, cancel, profile, progress, *, uid=None, rid=None):
@@ -1055,7 +1170,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         return {'kind': 'skill_loaded', 'id': skill_id, 'name': name,
                 'source': 'manual' if manual else 'automatic'}
 
-    def execute(uid, cid, rid, query, cancel, profile, startup, skill=None, mode='agent'):
+    def execute(uid, cid, rid, query, cancel, profile, startup, skill=None, mode='agent', recovery_source=None):
         if not startup.claim():
             return  # A late thread cannot execute an already compensated run.
         try:
@@ -1140,7 +1255,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             store.event(rid, {'kind': 'status', 'message': 'Starting an isolated task environment' if isolated else 'Running in the service account environment (OS isolation disabled)'})
             if long_run:
                 store.event(rid, {'kind': 'status', 'message': '长任务执行已启用'})
-            query_context = conversation_memory.context(uid, cid, query, profile)
+            query_context = conversation_memory.context(uid, cid, query, profile, recovery_source=recovery_source)
             memory = memory_service.recall(uid, cid, query, supported=bool(getattr(runner, 'memory_snapshot_enabled', False)))
             if memory['status'] != 'disabled':
                 store.event(rid, {'kind': 'memory_status', 'status': memory['status'],
@@ -1237,14 +1352,26 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         if fatal_error is not None:
             raise fatal_error
 
-    def launch(uid, cid, query, profile, *, expected_input=None, skill_id=None, mode='agent'):
+    def launch(uid, cid, query, profile, *, expected_input=None, skill_id=None, mode='agent', plan=None,
+               source_run_id=None, recovery_action=None):
         store.conversation(uid, cid)
         if not isinstance(query, str) or not query.strip() or len(query) > 20000:
             raise HTTPException(400, 'Provide a task of 1 to 20,000 characters')
         if mode not in ('ask', 'agent'):
             raise HTTPException(400, 'Choose Ask or Agent mode')
-        if mode == 'ask' and skill_id is not None:
-            raise HTTPException(400, 'Switch to Agent mode to use a skill')
+        plan = _confirmed_research_plan(plan)
+        if mode == 'ask' and (skill_id is not None or plan is not None):
+            raise HTTPException(400, 'Switch to Agent mode to use a skill or confirmed plan')
+        if expected_input is not None and plan is not None:
+            raise HTTPException(400, 'A confirmed plan applies only to a new task')
+        if (source_run_id is None) != (recovery_action is None):
+            raise HTTPException(400, 'Provide both source run and recovery action')
+        recovery_run = recovery_source = None
+        if source_run_id is not None:
+            if expected_input is not None or mode != 'agent':
+                raise HTTPException(400, 'Terminal recovery requires a new Agent task')
+            recovery_run = _terminal_recovery_source(uid, cid, source_run_id, recovery_action)
+            recovery_source = _terminal_recovery_context(uid, recovery_run)
         require_recovery_admission()
         if expected_input is None:
             reconcile_startups(uid)
@@ -1292,13 +1419,22 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             try:
                 recovery.prepare(uid, cid, rid)
                 store.begin(uid, cid, query.strip(), expected_input=expected_input, _rid=rid)
+                if recovery_run is not None:
+                    store.event(rid, {'kind': 'recovery_source', 'run_id': recovery_run['id'],
+                                      'action': recovery_action})
+                if plan is not None:
+                    store.event(rid, {'kind': 'plan_confirmed', 'plan': plan})
                 store.event(rid, {'kind': 'model_config', 'profile': profile.run_snapshot(), 'context_budget': profile.context_budget()})
                 store.event(rid, {'kind':'run_mode', 'mode':mode})
                 if skill:
                     store.event(rid, {'kind': 'skill_selected', 'skill': skill})
+                execution_query = query.strip()
+                if plan is not None:
+                    execution_query += '\n\n用户已确认的研究计划与验收标准：\n' + json.dumps(plan, ensure_ascii=False)
                 conversation_memory.capture(uid, cid, rid)
                 cancel = Event()
-                thread = Thread(target=execute, args=(uid, cid, rid, query.strip(), cancel, profile, startup, skill, mode), daemon=True)
+                thread = Thread(target=execute, args=(uid, cid, rid, execution_query, cancel, profile, startup,
+                                                       skill, mode, recovery_source), daemon=True)
                 jobs[rid] = {'uid': uid, 'cid': cid, 'cancel': cancel, 'thread': thread, 'startup': startup}
                 shutdown.track_worker(rid, uid, cancel, thread, startup)
                 try:
@@ -1334,7 +1470,9 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         data = await body(request)
         profile = await run_in_threadpool(model_settings.get, request.cookies.get(COOKIE, ''))
         return await run_in_threadpool(launch, user['id'], cid, data.get('query', ''), profile,
-                                       skill_id=data.get('skill_id'), mode=data.get('mode', 'agent'))
+                                       skill_id=data.get('skill_id'), mode=data.get('mode', 'agent'),
+                                       plan=data.get('plan'), source_run_id=data.get('source_run_id'),
+                                       recovery_action=data.get('recovery_action'))
 
     def pending_input(uid, request_id, cid, rid):
         if not all(isinstance(value, str) and value for value in (request_id, cid, rid)):
@@ -1376,7 +1514,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             current[name] = raw
             generation = store.snapshot(uid, cid, current, origins={
                 name: {"origin": "user_supplied", "sha256": hashlib.sha256(raw).hexdigest(),
-                       "scope": "uploaded by the authenticated caller; not independently verified"}})
+                       "scope": "uploaded by the authenticated caller; not independently verified"}}, action='upload')
         return {'ok': True, 'name': name, 'generation': generation}
 
     @app.get('/api/runs/{rid}')
@@ -1394,6 +1532,27 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
             value['persistence'] = {key: pending[key] for key in ['kind', 'target_status', 'retry_count', 'attempts', 'persisted']}
             value['persistence']['state'] = 'pending'
         return archival_run_view(uid, value)
+
+    @app.post('/api/runs/{rid}/recovery')
+    async def prepare_terminal_recovery(rid: str, request: Request):
+        uid = auth(request, mutate=True)['id']
+        data = await body(request)
+        if set(data) != {'action'}:
+            raise HTTPException(400, 'Expected one terminal recovery action')
+        try:
+            run = store.run(uid, rid)
+        except KeyError as exc:
+            raise HTTPException(404, 'Run not found') from exc
+        run = _terminal_recovery_source(uid, run['cid'], rid, data['action'])
+        return {
+            'action': data['action'],
+            'query': _terminal_recovery_prompt(run, data['action']),
+            'mode': 'agent',
+            'conversation_id': run['cid'],
+            'source_run_id': rid,
+            'execution': 'new_run',
+            'message': '已准备续写草稿。确认研究计划并发送后，将在同一对话新建运行；原运行和成果版本保留。',
+        }
 
     @app.post('/api/runs/{rid}/stop')
     def stop(rid: str, request: Request, tool_invocation_id: str | None = None):
@@ -1518,7 +1677,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
 
     @app.get('/assets/{name}')
     def asset(name: str):
-        if name not in ('password-auth.js', 'admin-usage.js', 'admin-usage.css', 'shared-knowledge.js', 'shared-knowledge.css', 'admin-users.js', 'admin-users.css', 'email-auth.js', 'profile.js', 'profile.css', 'registration.js', 'registration.css', 'app.js', 'style.css', 'defaults.js', 'defaults.css', 'memorax.js', 'memorax.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css', 'citations.js', 'citations.css', 'bogao-wordmark.svg', 'bogao-symbol.svg'):
+        if name not in ('password-auth.js', 'admin-usage.js', 'admin-usage.css', 'shared-knowledge.js', 'shared-knowledge.css', 'admin-users.js', 'admin-users.css', 'email-auth.js', 'profile.js', 'profile.css', 'registration.js', 'registration.css', 'app.js', 'drafts.js', 'research-plan.js', 'recovery.js', 'versions.js', 'versions.css', 'style.css', 'defaults.js', 'defaults.css', 'memorax.js', 'memorax.css', 'hitl.js', 'library.js', 'library.css', 'model-profiles.css', 'knowledge.js', 'knowledge.css', 'images.js', 'images.css', 'presentation.js', 'presentation.css', 'presentation-state.js', 'timeline.js', 'timeline.css', 'citations.js', 'citations.css', 'bogao-wordmark.svg', 'bogao-symbol.svg'):
             raise HTTPException(404)
         return FileResponse(assets / name)
 
@@ -1551,6 +1710,8 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     install_image_routes(app, auth, store)
     from .presentation import install_presentation_routes
     install_presentation_routes(app, auth, store)
+    from .versions import install_generation_routes
+    install_generation_routes(app, auth, store, guard, jobs)
     from .memorax import install_memory_routes
     memory_service = install_memory_routes(app, auth, body, store, client_factory=memory_client_factory)
     from .conversation_memory import ConversationMemory

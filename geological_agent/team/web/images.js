@@ -354,7 +354,7 @@
     && context?.conversation_id === state.cid && typeof context.generation === 'string' && context.generation);
   const url = (ctx, file, kind = 'download') => '/api/conversations/' + encodeURIComponent(ctx.conversation_id)
     + '/' + kind + '?name=' + encodeURIComponent(file.name) + '&generation=' + encodeURIComponent(ctx.generation);
-  const terminal = status => ({completed:'已完成',needs_input:'等待补充信息',stopped:'已停止',failed:'执行失败',paused:'已暂停',stopping:'正在停止',budget_exhausted:'运行预算已耗尽',incomplete:'尚未完成'})[status] || '状态待确认';
+  const terminal = status => ({completed:'已完成',needs_input:'等待补充信息',stopped:'已停止',cancelled:'已停止',failed:'执行失败',paused:'已暂停',stopping:'正在停止',budget_exhausted:'运行预算已耗尽',incomplete:'尚未完成',interrupted:'执行中断'})[status] || '状态待确认';
   function classifyIssue(reason) {
     if (typeof reason !== 'string') return null;
     if (reason.startsWith('Invalid source review blocks: ')) {
@@ -440,6 +440,13 @@
     const indicator = el('span', '', 'run-action-indicator'); indicator.setAttribute('aria-hidden', 'true');
     const line = el('div', undefined, 'run-overview-line'); line.append(indicator, copy);
     if (ui.elapsed) line.append(ui.elapsed);
+    const summaryMeta = el('div', undefined, 'run-summary-meta');
+    const currentStage = el('span', '当前阶段 · 等待执行记录', 'run-current-stage');
+    const milestoneCount = el('span', '关键里程碑 · 0', 'run-milestone-count');
+    summaryMeta.append(currentStage, milestoneCount);
+    const openItems = el('details', undefined, 'run-open-items'); openItems.hidden = true; openItems.open = false;
+    const openSummary = el('summary', '未完成事项 · 0'), openList = el('ul');
+    openSummary.setAttribute('aria-label', '本轮未完成事项'); openItems.append(openSummary, openList);
     const counts = el('span', '等待执行记录', 'experience-muted');
     const technical = el('div', undefined, 'run-technical-details'); technical.append(counts);
     const details = el('details', undefined, 'run-model-details'); details.append(el('summary', '本轮模型参数'));
@@ -459,7 +466,7 @@
     preview.append(draftLabel, draftText);
     const researchNote = el('p', '', 'run-research-note');
     researchNote.hidden = true;
-    box.append(line, milestones, researchNote);
+    box.append(line, summaryMeta, openItems, milestones, researchNote);
     ui.activity.before(box);
     const findings = el('section', undefined, 'run-findings');
     findings.hidden = true;
@@ -467,7 +474,8 @@
     findings.setAttribute('aria-live', 'polite');
     ui.answer.before(findings, preview);
     ui.overview = {box, heading, target, counts, body, calls:new Map(), turn:0,
-      milestones, findings, findingsByKey:new Map(), shownPages:0, findingFiles:new Map(),
+      milestones, milestoneCount, currentStage, openItems, openSummary, openList, interrupted:new Map(), knowledgeIssue:false, timing:null, phase:'',
+      findings, findingsByKey:new Map(), shownPages:0, findingFiles:new Map(),
       researchNote, preview, draftLabel, draftBody, pendingDraft:null, visibleDraft:null, sourceUrls:new Set(),
       facts:{knowledgeCount:null, pagesRead:0, reviewed:false},
       action:{title:'任务已接收', detail:'正在准备执行'}, sequence:-1, connection:''};
@@ -481,6 +489,7 @@
     skill_find:'正在查找适用的分析方法', skill_load:'正在读取技能说明',
     read_file:'正在读取文件', write_file:'正在保存文件', execute_python:'正在运行计算程序',
     web_search:'正在搜索公开资料', web_fetch:'正在读取网页资料',
+    context_search:'正在检索历史上下文', context_read:'正在读取历史上下文',
     request_user_input:'正在准备需要你确认的问题',
     GeoIllustration:'正在绘制图件', GeoImageInspect:'正在检查影像尺寸、波段和坐标信息',
     GeoImageTransform:'正在处理图片', GeoRasterPreview:'正在生成栅格预览',
@@ -521,6 +530,8 @@
     }
     if (name === 'skill_load') detail = text(args.skill_id);
     if (name === 'skill_find') detail = '正在匹配已登记的技能与工具';
+    if (name === 'context_search') detail = text(args.query);
+    if (name === 'context_read') detail = text(args.name || args.path);
     if (name === 'execute_python') detail = 'Python · 以实际运行结果为准';
     return {title:title || '正在执行工具', detail:detail || name};
   }
@@ -591,8 +602,51 @@
     if (view.heading.textContent !== action.title) view.heading.textContent = action.title;
     if (view.target.textContent !== action.detail) view.target.textContent = action.detail;
     view.target.hidden = !action.detail; view.box.dataset.state = status;
+    paintSummary(view, ui);
   }
-  function paintMilestones(view) {
+  const stageLabels = {
+    runtime:'准备与调度', queue:'排队等待', model_wait:'等待模型响应', model_stream:'接收模型输出',
+    tools:'执行工具', retrieval:'检索资料', review_wait:'等待结果审核', review_stream:'接收审核输出',
+    publishing:'保存成果', context_compaction:'整理上下文'
+  };
+  const phaseLabels = {intent:'理解任务要求', source_selection:'选择资料来源', source_relevance:'筛选相关资料', vision:'解读影像内容',
+    execution:'执行分析', review:'核对结果', final_answer:'整理答复', human_input:'确认补充信息', knowledge_semantics:'核对文献与结论'};
+  function paintSummary(view, ui) {
+    const stage = view.timing?.active || view.phase;
+    const stageText = view.timing?.active ? stageLabels[stage] : phaseLabels[stage];
+    view.currentStage.textContent = '当前阶段 · ' + (ui.finished ? '本轮已结束' : stageText || '等待执行记录');
+    const milestoneCount = Number(view.facts.knowledgeCount > 0) + Number(view.sourceUrls.size > 0)
+      + Number(view.facts.pagesRead > 0) + Number(view.facts.reviewed);
+    view.milestoneCount.textContent = '关键里程碑 · ' + milestoneCount;
+    const items = [];
+    if (ui.status !== 'completed') {
+      if (view.issue) items.push({key:'issue', label:'运行检查仍需处理：' + issueAction(view.issue.category).title});
+      if (view.knowledgeIssue) items.push({key:'knowledge', label:'知识库检索未成功，可重试或改用其他来源'});
+      const calls = new Map();
+      for (const call of view.calls.values()) {
+        if (call.status === 'ok') continue;
+        const name = call.name || '工具';
+        const group = calls.get(name) || {failed:0, running:0, unknown:0, retryable:false};
+        if (call.status === 'running') group.running++;
+        else if (call.status === 'unknown') group.unknown++;
+        else { group.failed++; group.retryable ||= call.retryable === true; }
+        calls.set(name, group);
+      }
+      for (const [name, group] of calls) {
+        const state = [group.failed ? group.failed + ' 次未完成' : '', group.running ? group.running + ' 次执行中' : '', group.unknown ? group.unknown + ' 次结果未记录' : ''].filter(Boolean).join(' · ');
+        items.push({key:'tool:' + name, label:name + ' · ' + state + (group.retryable ? ' · 可重试' : '')});
+      }
+      for (const [id, phase] of view.interrupted) items.push({key:'stream:' + id, label:'模型响应中断 · ' + (phaseLabels[phase] || phase || '执行阶段')});
+      if (ui.finished && ui.status !== 'completed') items.push({key:'terminal', label:'本轮尚未交付完整结果，可在执行记录中查看中断位置和下一步操作'});
+    }
+    const signature = JSON.stringify(items);
+    if (view.openItems.dataset.signature === signature) return;
+    view.openItems.dataset.signature = signature;
+    view.openSummary.textContent = '未完成事项 · ' + items.length;
+    view.openList.replaceChildren(...items.map(item => el('li', item.label)));
+    view.openItems.hidden = !items.length;
+  }
+  function paintMilestones(view, ui) {
     const facts = view.facts;
     const labels = [];
     if (facts.knowledgeCount > 0) labels.push('找到 ' + facts.knowledgeCount + ' 个知识库片段');
@@ -604,6 +658,7 @@
       view.milestones.replaceChildren(...labels.map(label => el('li', label)));
       view.milestones.hidden = !labels.length;
     }
+    paintSummary(view, ui);
   }
   function recordPublicSources(view, results) {
     for (const result of results) {
@@ -732,6 +787,10 @@
     if (data.kind === 'connection_lost' || data.kind === 'connection_failed') view.connection = data.kind === 'connection_failed' ? 'failed' : 'reconnecting';
     else view.connection = '';
     if (data.kind === 'diagnostic') { view.issue = data; if (!ui.finished) view.action = issueAction(data.category); }
+    if (data.kind === 'stage_timing') {
+      view.timing = data;
+      if (!data.active) view.phase = '';
+    }
     if (data.kind === 'review_result') {
       view.facts.reviewed = data.passed === true;
       if (data.passed === true) {
@@ -743,6 +802,7 @@
       view.action = {title:'正在查找知识库资料', detail:''};
     }
     if (data.kind === 'knowledge_sources' && Array.isArray(data.references)) {
+      view.knowledgeIssue = data.status === 'unavailable';
       if (data.status !== 'unavailable') view.facts.knowledgeCount = data.references.length;
       if (ui.mode === 'agent' && data.status !== 'unavailable' && data.references.length) {
         const titles = [...new Set(data.references.map(ref => text(ref?.title)).filter(Boolean))];
@@ -762,6 +822,8 @@
       return;
     }
     if (data.kind === 'stream_end' && !ui.finished) {
+      if (data.request_id && data.complete === false) view.interrupted.set(data.request_id, data.phase || 'execution');
+      else if (data.request_id) view.interrupted.delete(data.request_id);
       if (data.native_tool_calls > 0 || data.finish_reason === 'tool_calls') ui.hasExtendedProgress = true;
       finishDraft(view, data);
     }
@@ -771,6 +833,7 @@
     if (data.kind === 'run_outcome') view.outcome = data;
     if (data.kind === 'model_config') view.body.replaceChildren(metadata(recordedProfile(data), '本轮实际使用 · 执行事件快照'));
     if (data.kind === 'status') {
+      if (!ui.finished && data.phase) view.phase = data.phase;
       if (!ui.finished) view.action = stageAction(data, view);
       if (Number.isSafeInteger(data.turn)) view.turn = Math.max(view.turn, data.turn);
     }
@@ -783,7 +846,7 @@
         const ok = data.result?.status === 'ok', cached = data.cached === true || data.result?.cached === true;
         toolFinding(ui, data.result);
         view.calls.set(data.id, {...previous, name:previous.name || data.name || data.result?.name,
-          status:ok ? 'ok' : 'error', cached});
+          status:ok ? 'ok' : 'error', cached, retryable:data.result?.error?.retryable === true});
         const name = previous.name || data.name || data.result?.name;
         if (ok && name === 'web_search' && Array.isArray(data.result?.data?.results)) {
           recordPublicSources(view, data.result.data.results);
@@ -797,12 +860,18 @@
               : '这一步未完成，正在判断下一步', detail:previous.action?.detail || text(name)};
       }
     }
+    if (data.kind === 'finished') {
+      for (const [id, call] of view.calls) {
+        if (call.status === 'running') view.calls.set(id, {...call, status:'unknown'});
+      }
+    }
     const calls = [...view.calls.values()];
     const count = status => calls.filter(call => call.status === status).length;
     view.counts.textContent = calls.length
       ? calls.length + ' 次工具调用 · ' + count('ok') + ' 成功'
         + (count('error') ? ' · ' + count('error') + ' 失败' : '')
         + (count('running') ? ' · ' + count('running') + ' 执行中' : '')
+        + (count('unknown') ? ' · ' + count('unknown') + ' 结果未记录' : '')
         + (calls.some(call => call.cached) ? ' · ' + calls.filter(call => call.cached).length + ' 复用' : '')
       : '尚无工具执行记录';
     if (view.turn) view.counts.textContent += ' · 执行轮次 ' + view.turn;
@@ -816,7 +885,7 @@
       view.researchNote.hidden = true;
     }
     paintActivity(ui);
-    if (['knowledge_sources','tool_result','review_result','finished'].includes(data.kind)) paintMilestones(view);
+    if (['knowledge_sources','tool_result','review_result','finished'].includes(data.kind)) paintMilestones(view, ui);
   }
   function openEvidence(ui) {
     const panel = ui?.rich?.panel;
