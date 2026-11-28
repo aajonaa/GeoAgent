@@ -1,11 +1,13 @@
 """Live presentation of native transport, never an alternative execution protocol."""
+from dataclasses import replace
 import re
-from threading import RLock
+from threading import Event, RLock
 import time
 import uuid
 
 import httpx
 
+from ..contracts import Message
 from ..llm import ModelProtocolError
 from ..run_status import issue_for_event, task_outcome
 from .isolation import Cancelled
@@ -47,6 +49,7 @@ class RunProgress:
         self.model_phase, self.turn, self.streamed_process = "execution", None, False
         self.tool_starts, self.tool_durations = {}, {}
         self.last_issue = None
+        self.smaller_model_steps = Event()
 
     def emit(self, data):
         with self.lock:
@@ -109,30 +112,70 @@ class RunProgress:
             return call
 
 
-def retryable_model_transport(error, call):
-    """Only retry unaccepted requests. Partial stream data never dispatches tools."""
+def model_transport_recovery(error, call):
+    """Classify transport failures before a response is accepted by the runner."""
     if call.get("accepted_response"):
-        return False
+        return None
     if isinstance(error, (httpx.ReadError, httpx.ReadTimeout, httpx.RemoteProtocolError)):
-        return call.get("streaming") is True
+        return "split" if call.get("streaming") else None
     if call.get("received_response"):
-        return False
+        return None
     if isinstance(error, httpx.HTTPStatusError):
-        return error.response.status_code in (502, 503, 504, 524)
-    return isinstance(error, (httpx.ConnectError, httpx.ConnectTimeout, httpx.PoolTimeout))
+        if error.response.status_code in (504, 524):
+            return "split"
+        if error.response.status_code in (502, 503):
+            return "reconnect"
+    if isinstance(error, (httpx.ConnectError, httpx.ConnectTimeout, httpx.PoolTimeout)):
+        return "reconnect"
+    return None
+
+
+def smaller_model_step(request, *, minimal=False):
+    """Give the provider a smaller action while preserving the original request evidence."""
+    if not request.tools or request.tool_choice == "none":
+        directive = ("The provider disconnected twice. Reuse verified evidence and saved artifacts "
+                     "already in the request. Return only the concise required response, retaining "
+                     "the expected schema, citations and actual file paths.")
+    else:
+        directive = (
+            "The provider disconnected twice. Continue the same task from the tool results already "
+            "in this request. Use at most one small next tool action in this response. Reuse verified "
+            "sources and existing files. If a figure is saved, keep it and focus on the next missing "
+            "deliverable. Write a short usable report draft before expanding it. For larger writes, "
+            "save a small self-contained section first and add the rest in later steps. "
+            "Keep the user's full goal open and finish it in subsequent steps."
+        )
+    if minimal:
+        directive += (" For this response, do the first missing section or smallest useful edit only. "
+                      "Omit a progress recap and lengthy model commentary.")
+    messages = request.messages
+    # Insert trusted runner guidance before the original conversation and intact
+    # tool call/result pairs. Keep native tools, choice and transport unchanged.
+    if messages and messages[0].role == "system":
+        system = replace(messages[0], content=messages[0].content + "\n\n" + directive)
+        messages = (system, *messages[1:])
+    else:
+        messages = (Message("system", directive), *messages)
+    return replace(request, messages=messages)
 
 
 def retry_model_connection(attempt, cancel, on_retry):
-    """Replay the current model request without re-entering its preceding tool steps."""
-    for number, delay in enumerate((1, 3, None), start=1):
+    """Keep past tool actions and adapt only the current unaccepted request."""
+    consecutive_splits = 0
+    smaller = False
+    for number, delay in enumerate((1, 3, 5, None), start=1):
         if cancel.is_set():
             raise Cancelled("Stopped before connecting to the model")
-        ok, value, retryable = attempt()
+        ok, value, recovery = attempt(smaller, number == 4)
         if ok:
             return value
-        if delay is None or not retryable:
+        if delay is None or recovery is None:
             raise value
-        on_retry(number + 1)
+        consecutive_splits = consecutive_splits + 1 if recovery == "split" else 0
+        smaller = smaller or consecutive_splits >= 2
+        if number == 3 and not smaller:
+            raise value
+        on_retry(number + 1, smaller)
         if cancel.wait(delay):
             raise Cancelled("Stopped while waiting to reconnect to the model")
 

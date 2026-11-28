@@ -554,6 +554,9 @@
     if (data.message === 'Correcting the result') return {title:'正在处理结果检查发现的问题', detail:'不会将未通过检查的内容当作最终结果'};
     if (data.message === 'Correcting a model response') return {title:'正在修正模型响应格式', detail:'不执行格式无效的工具调用'};
     if (data.message === 'Retrying the completion check') return {title:'正在重新检查完成情况', detail:''};
+    if (data.message === 'Continuing with a smaller model step') {
+      return {title:'模型连接连续中断，正在拆小步骤继续', detail:'用已有证据和已生成文件继续完成剩余内容'};
+    }
     if (data.message === 'Retrying the current model step') {
       return {title:'模型连接中断，正在继续当前步骤', detail:'已完成的工具结果会继续使用'};
     }

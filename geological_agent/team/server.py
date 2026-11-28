@@ -37,7 +37,9 @@ from .pg_store import open_team_store
 from .model_settings import EndpointPolicy, SessionModels, builtin_profile, profile_client, probe_model, redact, trace_credentials, provider_error_details, model_endpoint_error
 from .trusted import TrustedLocalRunner
 from .model_vault import ModelVaultError
-from .streaming import RunProgress, consume_model_stream, retry_model_connection, retryable_model_transport
+from .streaming import (
+    RunProgress, consume_model_stream, model_transport_recovery, retry_model_connection, smaller_model_step,
+)
 
 from .auth_routes import install_auth_and_model_routes
 from .capacity import read_capacity
@@ -390,13 +392,20 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     )
 
     def model_call(request, cancel, profile, progress, *, uid=None, rid=None):
-        def on_retry(number):
+        def on_retry(number, smaller):
+            if smaller:
+                progress.smaller_model_steps.set()
             if rid is not None:
-                store.event(rid, {'kind': 'status', 'message': 'Retrying the current model step',
-                                  'attempt': number})
+                message = ('Continuing with a smaller model step' if smaller
+                           else 'Retrying the current model step')
+                store.event(rid, {'kind': 'status', 'message': message, 'attempt': number})
 
-        return retry_model_connection(
-            lambda: model_attempt(request, cancel, profile, progress, uid=uid, rid=rid), cancel, on_retry)
+        def attempt(smaller, minimal):
+            use_smaller = smaller or progress.smaller_model_steps.is_set()
+            current = smaller_model_step(request, minimal=minimal) if use_smaller else request
+            return model_attempt(current, cancel, profile, progress, uid=uid, rid=rid)
+
+        return retry_model_connection(attempt, cancel, on_retry)
 
     def model_attempt(request, cancel, profile, progress, *, uid=None, rid=None):
         shutdown.require_admission()
@@ -415,12 +424,12 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                 client = usage_audit.client(new_model(profile),uid=uid,rid=rid,category='task',model=profile.model)
                 result.put((True, consume_model_stream(observed_model_client(client, record), request, progress, call, cancel), False))
             except Exception as exc:
-                retryable = retryable_model_transport(exc, call)
+                recovery = model_transport_recovery(exc, call)
                 if isinstance(exc, httpx.HTTPError):
                     exc = RuntimeError(model_endpoint_error(exc, run_secrets))
                 else:
                     exc.args = tuple(redact(arg, run_secrets) for arg in exc.args)
-                result.put((False, exc, retryable))
+                result.put((False, exc, recovery))
             finally:
                 try:
                     if client is not None:
