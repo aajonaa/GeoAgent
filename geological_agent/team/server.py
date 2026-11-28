@@ -818,13 +818,16 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                                  'strategies': fields['strategies']})
             elif kind == 'knowledge_requested':
                 store.event(rid, {'kind': 'knowledge_start'})
-            elif kind in ('knowledge_completed', 'knowledge_failed'):
+            elif kind in ('knowledge_completed', 'knowledge_failed', 'delegated_knowledge_completed'):
                 # Preserve the retrieval receipt, not a model-written bibliography.
                 payload = clean.get('result', {})
                 store.event(rid, {'kind': 'knowledge_sources',
                                  'status': payload.get('status'),
                                  'duration_ms': payload.get('duration_ms'),
-                                 'references': payload.get('references', [])})
+                                 'references': payload.get('references', []),
+                                 'returned_count': fields.get('returned_count'),
+                                 'source_run_id': fields.get('source_run_id') or fields.get('run_id'),
+                                 'subagent_id': fields.get('subagent_id')})
             elif kind in ('model_requested', 'completion_review_requested', 'completion_rejected', 'model_protocol_error', 'completion_review_protocol_error'):
                 labels = {'model_requested': 'Compacting context' if fields.get('phase') == 'context_compaction' else 'Preparing answer' if fields.get('phase') == 'final_answer' else 'Model is working',
                           'completion_review_requested': 'Checking the result', 'completion_rejected': 'Correcting the result',

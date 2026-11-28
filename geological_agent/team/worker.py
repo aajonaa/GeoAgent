@@ -32,12 +32,18 @@ def receive():
 class BrokerModel:
     def __init__(self):
         self.sequence = 0
+        self.exchange_lock = Lock()
 
     def invoke(self, request):
-        self.sequence += 1
-        send({"kind": "model", "id": self.sequence, "request": encode(request)})
-        reply = receive()
-        if reply.get("id") != self.sequence:
+        encoded = encode(request)
+        # Parallel reviewers and subagents share stdin. Keep the entire
+        # exchange together so a caller cannot consume another caller's reply.
+        with self.exchange_lock:
+            self.sequence += 1
+            request_id = self.sequence
+            send({"kind": "model", "id": request_id, "request": encoded})
+            reply = receive()
+        if reply.get("id") != request_id:
             raise ValueError("Mismatched model reply")
         if reply.get("error"):
             raise RuntimeError(reply["error"])

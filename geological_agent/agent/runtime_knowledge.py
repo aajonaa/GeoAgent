@@ -69,12 +69,25 @@ _NEW_MATERIAL = re.compile(
 )
 
 
+def current_knowledge_receipts(state):
+    """Return runtime-issued receipts bound to this run, including delegated lookups."""
+    metadata = state.get("metadata", {})
+    run_id = state.get("run_id")
+    receipt = metadata.get("knowledge_retrieval_receipt")
+    receipts = [receipt] if receipt and run_id and receipt.get("run_id") == run_id else []
+    receipts.extend(row for row in metadata.get("delegated_knowledge_retrieval_receipts", ())
+                    if run_id and row.get("parent_run_id") == run_id)
+    return receipts
+
+
 def knowledge_receipt_feedback(state, *claims):
     """Refute a missing lookup interface using the run's own retrieval receipt."""
-    receipt = state["metadata"].get("knowledge_retrieval_receipt") or {}
-    if (receipt.get("run_id") != state.get("run_id") or receipt.get("status") != "matched"
-            or not receipt.get("reference_ids")):
+    receipts = [row for row in current_knowledge_receipts(state) if row.get("status") == "matched"]
+    references = {cid for row in receipts for cid in row["reference_ids"]}
+    if not references:
         return None
+    shared_count = sum(row.get("scope") == "shared" and row.get("citation_id") in references
+                       for row in state["metadata"].get("knowledge", {}).get("references", ()))
     for claim in claims:
         if not isinstance(claim, str):
             continue
@@ -83,12 +96,12 @@ def knowledge_receipt_feedback(state, *claims):
                 continue
             if _NEW_MATERIAL.search(clause):
                 continue
-            if re.search(r"共享|\bshared\b", clause, re.I) and not receipt["shared_reference_count"]:
+            if re.search(r"共享|\bshared\b", clause, re.I) and not shared_count:
                 continue
             return (
                 "The runtime already performed this run's knowledge-base retrieval. "
-                f"The verified retrieval receipt contains {len(receipt['reference_ids'])} selected "
-                f"references, including {receipt['shared_reference_count']} shared-library excerpts. "
+                f"This run's verified retrieval receipts contain {len(references)} distinct selected "
+                f"references, including {shared_count} shared-library excerpts. "
                 "Use the existing exact excerpts and citation IDs from knowledge_sources. "
                 "A separate native tool or endpoint is unnecessary. Continue the requested work; "
                 "mention any specific evidence limitations without claiming this lookup did not occur."
@@ -266,7 +279,7 @@ def run_knowledge_retrieval(state, *, retriever, workspace, case_operations, bou
             indices = selection.get("relevant")
             keep = {i for i in indices if type(i) is int} if isinstance(indices, list) else set()
             payload = {**payload, "references": [row for i, row in enumerate(references) if i in keep]}
-        trace.emit("knowledge_completed", run_id=run_id, result=payload)
+        trace.emit("knowledge_completed", run_id=run_id, result=payload, returned_count=returned_count)
         activity("knowledge_completed", status=payload["status"], references=payload.get("references", []),
                  duration_ms=payload.get("duration_ms", 0))
     except Exception as exc:

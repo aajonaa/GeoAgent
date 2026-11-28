@@ -55,8 +55,13 @@ def answer_citations(store, uid, run):
             if cid in identities and identities[cid] != identity:
                 conflicts.add(cid)
             identities[cid] = identity
-            item.update({"origin_run_id": rid, "reused": rid != run["id"]})
-            found[cid] = item
+            item.update({"origin_run_id": rid, "reused": rid != run["id"],
+                         "source_run_id": event.get("source_run_id"),
+                         "subagent_id": event.get("subagent_id")})
+            prior = found.get(cid)
+            if prior is None or prior["origin_run_id"] != rid or (
+                    prior["subagent_id"] and not item["subagent_id"]):
+                found[cid] = item
     return {
         "items": [found[cid] for cid in requested if cid in found and cid not in conflicts],
         "unavailable_ids": [cid for cid in requested if cid not in found or cid in conflicts],

@@ -13,6 +13,7 @@ from ..llm import ModelProtocolError
 from ..tools import ToolDefinition, object_schema
 from .compaction import fit_request
 from .context import identity_instructions
+from .runtime_knowledge import current_knowledge_receipts
 
 
 @dataclass(frozen=True)
@@ -124,7 +125,9 @@ def completion_evidence(state, context):
                 "task": state["task"],
                 "knowledge_sources": state.get("metadata", {}).get("knowledge", {"status": "disabled", "references": []}),
                 "knowledge_retrieval_receipt": state.get("metadata", {}).get("knowledge_retrieval_receipt"),
-                "knowledge_scope": "A runtime_knowledge_retrieval_receipt for this run is proof of actual automatic lookup; "
+                "knowledge_retrieval_receipts": current_knowledge_receipts(state),
+                "knowledge_scope": "Runtime retrieval receipts are proof of actual lookup. The main receipt is one lookup. "
+                                   "Delegated receipts belong to the same run and have a subagent_id; count distinct IDs across all receipts for the run total. "
                                    "positive shared_reference_count satisfies a request to search the shared library. "
                                    "The corresponding excerpts are evidence, not proof of other operations. Check each claim against the exact excerpt identified by its citation, including bare K... IDs. Verify that titles, sample identifiers, numbers, units and limitations belong to that cited source, not merely another retrieved source. A known but swapped citation is revise_answer, not complete. Deterministic identity checks do not establish semantic entailment or scientific truth. Cite exact [K...] IDs when used. Empty retrieval does not establish a fact.",
 
@@ -417,6 +420,12 @@ def artifact_issues(state, execution, required_outputs=()):
     """Check actual outputs, including outputs a reviewer forgot to mention."""
     issues = []
     contents = {}
+    receipts = current_knowledge_receipts(state)
+    allowed_citations = {cid for row in receipts if row["status"] == "matched"
+                         for cid in row["reference_ids"]}
+    citation_formats = {".md", ".markdown", ".txt", ".html", ".htm", ".svg"}
+    from ..rag.store import _BARE_CITATION
+
     recorded = {a.path for a in state["artifacts"]}
     for relative in dict.fromkeys([a.path for a in state["artifacts"]] + list(required_outputs)):
         try:
@@ -428,17 +437,28 @@ def artifact_issues(state, execution, required_outputs=()):
                 issues.append(CompletionIssue("Recorded or required output does not exist: " + relative, True))
                 continue
             suffix = path.suffix.lower()
-            if suffix in (".py", ".json", ".md", ".txt", ".csv"):
+            inspect_citations = receipts and suffix in citation_formats
+            inspect_content = suffix in (".py", ".json", ".md", ".txt", ".csv")
+            if inspect_content or inspect_citations:
                 if path.stat().st_size > execution.settings.max_file_bytes:
                     issues.append(CompletionIssue("Output exceeds the configured file-validation allowance: " + relative, True))
                     continue
                 content = path.read_text(encoding="utf-8")
+                if inspect_citations:
+                    unknown = set(re.findall(_BARE_CITATION, content)) - allowed_citations
+                    if unknown:
+                        issues.append(CompletionIssue(
+                            f"Saved output {relative} cites IDs absent from this run's main and delegated "
+                            f"retrieval receipts: {', '.join(sorted(unknown))}. Edit the actual saved output. "
+                            "Use the exact receipt-backed excerpt for each claim, or remove the unsupported "
+                            "attribution and revise the affected claim. Recheck the saved file.", True))
                 if suffix == ".py":
                     compile(content, relative, "exec")
                 elif suffix == ".json":
                     strict_json(content)
-                limit = execution.settings.max_tool_output_chars
-                contents[relative] = {"content": content[:limit], "truncated": len(content) > limit}
+                if inspect_content:
+                    limit = execution.settings.max_tool_output_chars
+                    contents[relative] = {"content": content[:limit], "truncated": len(content) > limit}
         except Exception as exc:
             issues.append(CompletionIssue(f"Output validation failed for {relative}: {type(exc).__name__}: {exc}", True))
     state.setdefault("metadata", {})["verified_artifact_contents"] = contents

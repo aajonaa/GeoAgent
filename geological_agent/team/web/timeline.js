@@ -352,9 +352,11 @@
     }
     if(data.kind==='knowledge_sources'&&Array.isArray(data.references)) {
       closeStage(view);
-      const row=view.knowledge||entry('自动检索知识库','search','');
-      if(!view.knowledge)ui.list.append(row.details);
-      view.knowledge=null;
+      const row=data.subagent_id
+        ? entry('文献子任务检索知识库','search','')
+        : view.knowledge||entry('自动检索知识库','search','');
+      if(data.subagent_id||!view.knowledge)ui.list.append(row.details);
+      if(!data.subagent_id)view.knowledge=null;
       const unavailable=data.status==='unavailable';
       row.status.textContent=unavailable?'检索失败':data.references.length+' 个片段';
       if(Number.isFinite(data.duration_ms))row.status.textContent+=' · '+duration(data.duration_ms/1000);

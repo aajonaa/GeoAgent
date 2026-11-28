@@ -9,7 +9,6 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import asdict
 import hashlib
 import json
-import re
 from threading import Lock
 import time
 import uuid
@@ -77,14 +76,10 @@ SUBAGENT_ROLES = {
     },
 }
 
-_CITATION_PATTERN = re.compile(r"\bK[0-9a-f]{16,}_\d+\b")
-
-
 def _extract_subagent_evidence(result_state, workspace):
     """Extract verified tool usage, citations, URLs, and disk-verified artifacts."""
     tools_used = []
     urls_read = []
-    citations = set()
     for msg in result_state.get("messages", ()):
         if msg.role != "tool":
             continue
@@ -100,13 +95,6 @@ def _extract_subagent_evidence(result_state, workspace):
             data = receipt.get("data") or {}
             if name == "web_fetch" and isinstance(data.get("url"), str):
                 urls_read.append(data["url"])
-    for ref in result_state.get("metadata", {}).get("knowledge", {}).get("references", ()):
-        cid = ref.get("citation_id")
-        if isinstance(cid, str):
-            citations.add(cid)
-    answer = result_state.get("answer", "") or ""
-    citations.update(_CITATION_PATTERN.findall(answer))
-
     verified_files = []
     seen_paths = set()
     for art in result_state.get("artifacts", ()):
@@ -126,7 +114,6 @@ def _extract_subagent_evidence(result_state, workspace):
     return {
         "successful_tools": list(dict.fromkeys(tools_used)),
         "urls_read": list(dict.fromkeys(urls_read))[:20],
-        "citation_ids": sorted(citations)[:40],
         "artifacts": verified_files,
     }
 
@@ -264,6 +251,17 @@ class SubagentCoordinator:
         )
         elapsed_ms = round((time.monotonic() - t0) * 1000, 1)
         evidence = _extract_subagent_evidence(outcome.state, self.workspace)
+        sub_metadata = outcome.state["metadata"]
+        receipt = sub_metadata.get("knowledge_retrieval_receipt")
+        sub_refs = []
+        if receipt and receipt.get("run_id") == outcome.state["run_id"]:
+            if receipt["status"] == "matched":
+                selected = set(receipt["reference_ids"])
+                sub_refs = [row for row in sub_metadata["knowledge"]["references"]
+                            if row.get("citation_id") in selected]
+            receipt = {**receipt, "parent_run_id": self.parent_run_id, "subagent_id": sub_id}
+        else:
+            receipt = None
         summary = (outcome.answer or "").strip()
         if len(summary) > MAX_SUMMARY_CHARS:
             summary = summary[:MAX_SUMMARY_CHARS] + "\n...[truncated; see subagent audit file for full text]"
@@ -275,8 +273,11 @@ class SubagentCoordinator:
             "elapsed_ms": elapsed_ms,
             "summary": summary,
             "limitations": outcome.reason or "",
+            "citation_ids": [row["citation_id"] for row in sub_refs],
             **evidence,
         }
+        if receipt:
+            record["knowledge_retrieval_receipt"] = receipt
 
         # Persist immutable subagent audit trail under .agent/subagents/
         audit_rel = f".agent/subagents/{sub_id}.json"
@@ -287,13 +288,16 @@ class SubagentCoordinator:
                 **record,
                 "task": task.strip(),
                 "full_answer": outcome.answer or "",
+                "knowledge_references": sub_refs,
             }, ensure_ascii=False, indent=2), encoding="utf-8")
             record["audit_path"] = audit_rel
 
-        sub_usage = outcome.state.get("metadata", {}).get("usage", [])
-        sub_refs = outcome.state.get("metadata", {}).get("knowledge", {}).get("references", [])
+        sub_usage = sub_metadata.get("usage", [])
         with self.metadata_lock:
             self.parent_metadata["usage"] = self.parent_metadata.get("usage", []) + list(sub_usage)
+            if receipt:
+                self.parent_metadata["delegated_knowledge_retrieval_receipts"] = [
+                    *self.parent_metadata.get("delegated_knowledge_retrieval_receipts", ()), receipt]
             if sub_refs:
                 # Propagate real retriever-sourced references discovered by a subagent
                 # into the parent's knowledge ledger so parent citation_issues & UI
@@ -306,8 +310,7 @@ class SubagentCoordinator:
                         existing.append(row)
                         known_cids.add(row["citation_id"])
                 parent_k["references"] = existing
-                if parent_k.get("status") in (None, "disabled", "skipped", "empty"):
-                    parent_k["status"] = "matched"
+                parent_k["status"] = "matched"
                 self.parent_metadata["knowledge"] = parent_k
             self.parent_metadata["subagent_runs"] = self.parent_metadata.get("subagent_runs", []) + [{
                 "subagent_id": sub_id,
@@ -317,6 +320,11 @@ class SubagentCoordinator:
                 "elapsed_ms": elapsed_ms,
                 "artifacts": [a["path"] for a in evidence["artifacts"]],
             }]
+        if receipt:
+            self.trace.emit("delegated_knowledge_completed", run_id=self.parent_run_id, subagent_id=sub_id,
+                            source_run_id=receipt["run_id"], returned_count=receipt["returned_count"],
+                            result={"status": receipt["status"], "duration_ms": receipt["duration_ms"],
+                                    "references": sub_refs})
         self.trace.emit("subagent_completed", run_id=self.parent_run_id, subagent_id=sub_id,
                         role=role, status=outcome.status, turns_used=outcome.model_turns,
                         elapsed_ms=elapsed_ms, artifacts=[a["path"] for a in evidence["artifacts"]])

@@ -33,9 +33,13 @@ def local_reference(value, references):
         fail("only document-local fragment references are allowed")
     references.append(value[1:])
 
-def tokens_safe(tokens, references):
+def tokens_safe(tokens, references, *, selector=False):
     for token in tokens:
         kind = token.type
+        if selector and kind == "[] block":
+            terms = [term for term in token.content if term.type not in ("whitespace", "comment")]
+            if len(terms) == 1 and terms[0].type == "ident" and terms[0].value in PROPERTIES:
+                continue
         if kind in ("error", "at-keyword", "() block", "[] block", "{} block"):
             fail("unsupported CSS syntax")
         if kind == "url":
@@ -47,7 +51,9 @@ def tokens_safe(tokens, references):
                 if len(args) != 1 or args[0].type != "string":
                     fail("invalid CSS reference")
                 local_reference(args[0].value, references)
-            elif name in FUNCTIONS:
+            elif selector and name == "not":
+                tokens_safe(token.arguments, references, selector=True)
+            elif name in FUNCTIONS and not selector:
                 tokens_safe(token.arguments, references)
             else:
                 fail("unsupported CSS function")
@@ -68,7 +74,7 @@ def stylesheet(value, references):
     for rule in rules:
         if rule.type != "qualified-rule":
             fail("stylesheet imports and at-rules are not allowed")
-        tokens_safe(rule.prelude, references)
+        tokens_safe(rule.prelude, references, selector=True)
         result.append(tinycss2.serialize(rule.prelude) + "{" + declarations(rule.content, references) + "}")
     return "".join(result)
 

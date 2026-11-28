@@ -478,6 +478,7 @@
       findings, findingsByKey:new Map(), shownPages:0, shownObservations:0, findingFiles:new Map(),
       researchNote, preview, draftLabel, draftBody, pendingDraft:null, visibleDraft:null, sourceUrls:new Set(),
       facts:{knowledgeCount:null, pagesRead:0, reviewed:false},
+      knowledgeIds:new Set(),
       action:{title:'任务已接收', detail:'正在准备执行'}, sequence:-1, connection:''};
     box.dataset.state = ui.finished ? ui.status : 'working';
     if (ui.summary) ui.summary.textContent = '查看执行详情';
@@ -817,14 +818,21 @@
       view.action = {title:'正在查找知识库资料', detail:''};
     }
     if (data.kind === 'knowledge_sources' && Array.isArray(data.references)) {
-      view.knowledgeIssue = data.status === 'unavailable';
-      if (data.status !== 'unavailable') view.facts.knowledgeCount = data.references.length;
+      if (!data.subagent_id || data.references.length) view.knowledgeIssue = data.status === 'unavailable';
+      const seen = view.knowledgeIds.size;
+      if (data.status !== 'unavailable') {
+        for (const ref of data.references) if (ref?.citation_id) view.knowledgeIds.add(ref.citation_id);
+        view.facts.knowledgeCount = view.knowledgeIds.size;
+      }
       if (ui.mode === 'agent' && data.status !== 'unavailable' && data.references.length) {
         const titles = [...new Set(data.references.map(ref => text(ref?.title)).filter(Boolean))];
-        const message = '检索返回 ' + data.references.length + ' 个片段' + (titles.length ? '，包括《' + titles[0] + '》。' : '。');
-        finding(view, 'knowledge', '知识库检索', el('p', message));
+        if (!data.subagent_id || view.knowledgeIds.size > seen) {
+          const message = (data.subagent_id ? '文献子任务补充 ' + (view.knowledgeIds.size - seen) : '检索返回 ' + data.references.length)
+            + ' 个片段' + (titles.length ? '，包括《' + titles[0] + '》。' : '。');
+          finding(view, data.subagent_id || 'knowledge', '知识库检索', el('p', message));
+        }
       }
-      if (!ui.finished) view.action = data.status === 'unavailable'
+      if (!ui.finished && !data.subagent_id) view.action = data.status === 'unavailable'
         ? {title:'知识库暂不可用，正在继续任务', detail:''}
         : {title:'知识库检索已返回', detail:data.references.length ? '' : '本次未返回相关片段'};
     }

@@ -222,10 +222,9 @@ class ContextManager:
                 references.extend({"kind": "memory", **asdict(m)} for m in self.memory.search(state["task"], limit=3))
         if self.settings.knowledge_enabled:
             from ..rag.store import RAG_GUIDANCE
+            from .runtime_knowledge import current_knowledge_receipts
             pinned[0] = Message("system", pinned[0].content + "\n" + RAG_GUIDANCE)
-            receipt = metadata.get("knowledge_retrieval_receipt")
-            if receipt and receipt.get("run_id") == state["run_id"]:
-                references.append(receipt)
+            references.extend(current_knowledge_receipts(state))
             references.append({"kind": "knowledge_retrieval", **metadata.get(
                 "knowledge", {"status": "not_retrieved", "references": []})})
         if references:
