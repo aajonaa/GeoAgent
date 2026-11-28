@@ -123,7 +123,10 @@ def completion_evidence(state, context):
                 "resolved_input_origins": state.get("metadata", {}).get("tool_evidence", {}).get("files", {}),
                 "task": state["task"],
                 "knowledge_sources": state.get("metadata", {}).get("knowledge", {"status": "disabled", "references": []}),
-                "knowledge_scope": "Source excerpts are not executed tool results. Check each claim against the exact excerpt identified by its citation, including bare K... IDs. Verify that titles, sample identifiers, numbers, units and limitations belong to that cited source, not merely another retrieved source. A known but swapped citation is revise_answer, not complete. Deterministic identity checks do not establish semantic entailment or scientific truth. Cite exact [K...] IDs when used. Empty retrieval does not establish a fact.",
+                "knowledge_retrieval_receipt": state.get("metadata", {}).get("knowledge_retrieval_receipt"),
+                "knowledge_scope": "A runtime_knowledge_retrieval_receipt for this run is proof of actual automatic lookup; "
+                                   "positive shared_reference_count satisfies a request to search the shared library. "
+                                   "The corresponding excerpts are evidence, not proof of other operations. Check each claim against the exact excerpt identified by its citation, including bare K... IDs. Verify that titles, sample identifiers, numbers, units and limitations belong to that cited source, not merely another retrieved source. A known but swapped citation is revise_answer, not complete. Deterministic identity checks do not establish semantic entailment or scientific truth. Cite exact [K...] IDs when used. Empty retrieval does not establish a fact.",
 
                 "user_supplements": [{"request_id": reply.get("request_id"), "text": reply["text"]}
                                      for reply in state.get("metadata", {}).get("human_responses", [])],

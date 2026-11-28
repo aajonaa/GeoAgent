@@ -108,6 +108,11 @@ def svg_preview(raw):
             namespace, tag = tag[1:].split("}", 1)
             if namespace != SVG_NS:
                 fail("non-SVG elements are not allowed")
+        if tag == "a" and depth:
+            # Static previews may render the link's children, but never the link.
+            for attribute in ("href", "{" + XLINK_NS + "}href", "target"):
+                node.attrib.pop(attribute, None)
+            tag = "g"
         if tag not in TAGS:
             fail("active or unsupported element " + tag)
         if depth == 0 and tag != "svg":

@@ -18,6 +18,7 @@ TOOL = ToolDefinition("assess_human_input", "Decide whether a proposed interrupt
 SYSTEM = """Audit the CONTENT of the proposed question, not its self-reported reason_type.
 Return one native assess_human_input call. Use ask only when an essential objective, input, file, access decision or consequential authorization must actually come from the user.
 Use continue when the user already supplied what is needed or a grounded autonomous next step remains.
+A current runtime_knowledge_retrieval_receipt with shared references proves shared-library retrieval ran. Reuse it and do not ask for a separate query interface. A specific missing full text or a different source is a separate question.
 Whether the server has an installed package or a registered calculation tool is NOT missing user information. Discover/load the available skill and attempt its native tool first. Do not ask users to debug the runtime, install speculative packages, or approve calculations they already requested.
 Registered professional tools are real execution; Python reimplementation is not mandatory. Respect exclusions such as no Python or no files.
 Use the available skill summaries and actual observations below. A skill not yet loaded, a speculative package dependency, or an empty keyword search does not establish a missing resource.

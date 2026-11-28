@@ -51,6 +51,70 @@ _NON_LIBRARY_SCOPE = re.compile(
 )
 
 
+_LIBRARY_MENTION = re.compile(
+    r"知识库|共享库|共享语料|文献库|资料库|knowledge[- ]base|(?:shared|knowledge)[- ](?:library|collection|corpus)",
+    re.I,
+)
+_LOOKUP_ACCESS = re.compile(
+    r"查询入口|检索入口|查询接口|检索接口|查询操作|检索工具|查询工具|搜索接口|访问入口|api|"
+    r"(?:access|search|lookup|retrieval|query)\s+(?:endpoint|interface|tool|entry point)|"
+    r"(?:missing|unavailable|no)\s+(?:direct\s+)?(?:access|retrieval)|"
+    r"(?:未|没有|无法|不能|尚未).{0,8}(?:查|检索|访问)",
+    re.I,
+)
+_NEW_MATERIAL = re.compile(
+    r"全文|完整正文|原件|扫描件|新(?:库|馆藏|资料库)|"
+    r"full[- ]text|entire (?:paper|document)|additional (?:library|collection)",
+    re.I,
+)
+
+
+def knowledge_receipt_feedback(state, *claims):
+    """Refute a missing lookup interface using the run's own retrieval receipt."""
+    receipt = state["metadata"].get("knowledge_retrieval_receipt") or {}
+    if (receipt.get("run_id") != state.get("run_id") or receipt.get("status") != "matched"
+            or not receipt.get("reference_ids")):
+        return None
+    for claim in claims:
+        if not isinstance(claim, str):
+            continue
+        for clause in re.split(r"[。！？?!；;\n]", claim):
+            if not (_LIBRARY_MENTION.search(clause) and _LOOKUP_ACCESS.search(clause)):
+                continue
+            if _NEW_MATERIAL.search(clause):
+                continue
+            if re.search(r"共享|\bshared\b", clause, re.I) and not receipt["shared_reference_count"]:
+                continue
+            return (
+                "The runtime already performed this run's knowledge-base retrieval. "
+                f"The verified retrieval receipt contains {len(receipt['reference_ids'])} selected "
+                f"references, including {receipt['shared_reference_count']} shared-library excerpts. "
+                "Use the existing exact excerpts and citation IDs from knowledge_sources. "
+                "A separate native tool or endpoint is unnecessary. Continue the requested work; "
+                "mention any specific evidence limitations without claiming this lookup did not occur."
+            )
+    return None
+
+
+_PUBLIC_SUPPLEMENT = re.compile(
+    r"(?:补充|结合|辅以|同时(?:检索|查阅)?).{0,12}(?:公开(?:文献|来源|资料|网页)|网页|互联网)|"
+    r"(?:supplement|combine|include|also (?:consult|search|use)).{0,24}(?:public (?:sources|literature|web)|the web)",
+    re.I,
+)
+_LIBRARY_ONLY = re.compile(
+    r"(?:仅|只)(?:能|允许|限于|使用|查阅|查询|查|用)*\s*(?:本地|共享|个人)?(?:知识库|文献库|资料库|片段)|"
+    r"(?:不要|不许|请勿|禁止|无需).{0,8}(?:公网|公开(?:网页|来源|文献)|联网)|"
+    r"(?:library|knowledge[- ]base|local) only|only (?:the )?(?:shared )?(?:library|knowledge[- ]base)|"
+    r"(?:do not|don't|no) (?:use )?(?:the )?(?:web|public sources)",
+    re.I,
+)
+
+
+def public_supplements_requested(query):
+    """A request can explicitly require the library and permit public sources."""
+    return bool(_PUBLIC_SUPPLEMENT.search(query) and not _LIBRARY_ONLY.search(query))
+
+
 def theory_library_query(query):
     """Identify supported theory questions with no alternate source scope."""
     from ..rag.theory import subject
@@ -180,15 +244,17 @@ def run_knowledge_retrieval(state, *, retriever, workspace, case_operations, bou
             current_query = rewritten.strip()
     if cancel.is_set():
         return record({"status": "stopped", "model_turns": state["model_turns"], "last_error": "Stopped by user"}, state)
-    if not required:
+    if not required or public_supplements_requested(context["question"]):
         state["metadata"]["library_first"] = True
     trace.emit("knowledge_requested", run_id=run_id, query=current_query)
     activity("knowledge_requested", message="Retrieving your knowledge sources")
+    returned_count = 0
     try:
         if hasattr(retriever, "retrieve"):
             payload = retriever.retrieve(current_query, limit=4)
         else:
             payload = {"status": "matched", "references": [asdict(row) for row in retriever.search(current_query, limit=4)]}
+        returned_count = len(payload.get("references", []))
         if not required and payload.get("references"):
             references = payload["references"]
             selection = bounded_json(state, "source_relevance",
@@ -209,4 +275,17 @@ def run_knowledge_retrieval(state, *, retriever, workspace, case_operations, bou
         trace.emit("knowledge_failed", run_id=run_id, result=payload)
         activity("knowledge_failed", message=payload["error"])
     from ..rag.store import prompt_references
-    return record({"model_turns": state["model_turns"], "metadata": {**state["metadata"], "knowledge": prompt_references(payload)}}, state)
+
+    references = payload.get("references", [])
+    receipt = {
+        "kind": "runtime_knowledge_retrieval_receipt",
+        "run_id": run_id,
+        "status": payload["status"],
+        "duration_ms": payload.get("duration_ms"),
+        "returned_count": returned_count if payload["status"] != "unavailable" else 0,
+        "reference_ids": [row["citation_id"] for row in references if row.get("citation_id")],
+        "shared_reference_count": sum(row.get("scope") == "shared" for row in references),
+    }
+    return record({"model_turns": state["model_turns"],
+                   "metadata": {**state["metadata"], "knowledge": prompt_references(payload),
+                                "knowledge_retrieval_receipt": receipt}}, state)

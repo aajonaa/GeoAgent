@@ -223,6 +223,9 @@ class ContextManager:
         if self.settings.knowledge_enabled:
             from ..rag.store import RAG_GUIDANCE
             pinned[0] = Message("system", pinned[0].content + "\n" + RAG_GUIDANCE)
+            receipt = metadata.get("knowledge_retrieval_receipt")
+            if receipt and receipt.get("run_id") == state["run_id"]:
+                references.append(receipt)
             references.append({"kind": "knowledge_retrieval", **metadata.get(
                 "knowledge", {"status": "not_retrieved", "references": []})})
         if references:

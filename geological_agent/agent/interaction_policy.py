@@ -5,9 +5,10 @@ import math
 
 from ..contracts import Message, strict_json
 from .compaction import fit_request
+from .runtime_knowledge import knowledge_receipt_feedback
 
 
-def human_input_issue(call, state, registry):
+def human_input_issue(call, state, registry, *, check_requirements=True):
     if call.name != "request_user_input":
         return None
     try:
@@ -16,6 +17,9 @@ def human_input_issue(call, state, registry):
         return None  # The normal tool-schema validator reports malformed arguments.
     if not isinstance(args, dict):
         return None
+    issue = knowledge_receipt_feedback(state, args.get("question"))
+    if issue or not check_requirements:
+        return issue
     kind = args.get("reason_type")
     if kind not in {"missing_objective", "missing_input", "unavailable_resource", "approval"}:
         return "Classify the real blocker using reason_type. Requested calculations are already authorized; first discover/load the relevant skill, not ask permission to calculate."

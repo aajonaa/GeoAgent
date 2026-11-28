@@ -31,6 +31,7 @@ from .fast_path import can_skip_completion_review, has_clear_objective, is_direc
 from .review_policy import combined_review_request
 from .completion import CompletionIssue, artifact_issues, final_answer_request, resolve_final_answer, parse_review, review_evidence_issues, review_request, successful_evidence_ids
 from .runtime_knowledge import (
+    knowledge_receipt_feedback,
     _NON_LIBRARY_SCOPE,
     bounded_json_call,
     knowledge_query,
@@ -750,7 +751,8 @@ class AgentRuntime:
                         result = ToolResult(call.id, call.name, "error", error=ErrorInfo(
                             "discovery_order", "Inspect the skill_find results before choosing a real skill ID in the next model turn. This load was not executed.", True))
                     else:
-                        issue = human_input_issue(call, {**state, "messages": messages}, self.tools) if metadata.get("requirement_coverage") else None
+                        issue = human_input_issue(call, {**state, "messages": messages}, self.tools,
+                                                  check_requirements=bool(metadata.get("requirement_coverage")))
                         if not issue and call.name == "request_user_input" and metadata.get("requirement_coverage"):
                             state, issue = review_human_pause({**state, "messages": messages, "metadata": metadata}, call)
                             metadata = dict(state["metadata"])
@@ -1046,6 +1048,9 @@ class AgentRuntime:
                     metadata["completion_reviews"] = metadata.get("completion_reviews", []) + [review]
                     state = {**state, "metadata": metadata}
                     if review["verdict"] in ("clarify", "cannot_complete"):
+                        receipt_issue = knowledge_receipt_feedback(state, review["feedback"])
+                        if receipt_issue:
+                            return reject_final(state, [CompletionIssue(receipt_issue, False)])
                         if review["verdict"] == "clarify" and checkpoint_path is not None:
                             return ask_human(state, {"question": review["feedback"], "reason": review["feedback"], "missing": [], "options": []})
                         return publish({**state, "answer": review["feedback"]},
@@ -1067,6 +1072,9 @@ class AgentRuntime:
                     metadata["execution_reviews"] = metadata.get("execution_reviews", []) + [readiness]
                     state = {**state, "metadata": metadata}
                     if readiness["verdict"] in ("clarify", "cannot_complete"):
+                        receipt_issue = knowledge_receipt_feedback(state, readiness["feedback"])
+                        if receipt_issue:
+                            return reject_final(state, [CompletionIssue(receipt_issue, True)])
                         if readiness["verdict"] == "clarify" and checkpoint_path is not None:
                             return ask_human(state, {"question": readiness["feedback"], "reason": readiness["feedback"], "missing": [], "options": []})
                         return publish(state, "needs_input" if readiness["verdict"] == "clarify" else "incomplete", readiness["feedback"])
@@ -1137,6 +1145,9 @@ class AgentRuntime:
                 metadata = state["metadata"]
                 state["metadata"] = {**metadata, "completion_reviews": metadata.get("completion_reviews", []) + [review]}
                 if review["verdict"] in ("clarify", "cannot_complete"):
+                    receipt_issue = knowledge_receipt_feedback(state, review["feedback"])
+                    if receipt_issue:
+                        return reject_final(state, [CompletionIssue(receipt_issue, False)])
                     if review["verdict"] == "clarify" and checkpoint_path is not None:
                         return ask_human(state, {"question": review["feedback"], "reason": review["feedback"], "missing": [], "options": []})
                     return publish(state, "needs_input" if review["verdict"] == "clarify" else "incomplete", review["feedback"])
