@@ -29,6 +29,7 @@ from fastapi.responses import FileResponse, JSONResponse, Response, StreamingRes
 from ..llm import LocalChatClient
 from ..tracing import configured_trace
 from .isolation import Cancelled, SandboxRunner
+from .knowledge_inventory import inventory_answer, inventory_scope
 from .protocol import MAX_FILE, relative_name, scrub
 from .pdf_imports import MAX_PDF
 from .store import SESSION_SECONDS, Store
@@ -36,7 +37,7 @@ from .pg_store import open_team_store
 from .model_settings import EndpointPolicy, SessionModels, builtin_profile, profile_client, probe_model, redact, trace_credentials, provider_error_details, model_endpoint_error
 from .trusted import TrustedLocalRunner
 from .model_vault import ModelVaultError
-from .streaming import RunProgress, consume_model_stream, retry_model_connection
+from .streaming import RunProgress, consume_model_stream, retry_model_connection, retryable_model_transport
 
 from .auth_routes import install_auth_and_model_routes
 from .capacity import read_capacity
@@ -391,7 +392,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
     def model_call(request, cancel, profile, progress, *, uid=None, rid=None):
         def on_retry(number):
             if rid is not None:
-                store.event(rid, {'kind': 'status', 'message': 'Retrying a model connection',
+                store.event(rid, {'kind': 'status', 'message': 'Retrying the current model step',
                                   'attempt': number})
 
         return retry_model_connection(
@@ -414,14 +415,12 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                 client = usage_audit.client(new_model(profile),uid=uid,rid=rid,category='task',model=profile.model)
                 result.put((True, consume_model_stream(observed_model_client(client, record), request, progress, call, cancel), False))
             except Exception as exc:
-                retryable = isinstance(exc, (httpx.ConnectError, httpx.ConnectTimeout, httpx.PoolTimeout))
-                if isinstance(exc, httpx.HTTPStatusError):
-                    retryable = exc.response.status_code in (502, 503, 504)
+                retryable = retryable_model_transport(exc, call)
                 if isinstance(exc, httpx.HTTPError):
                     exc = RuntimeError(model_endpoint_error(exc, run_secrets))
                 else:
                     exc.args = tuple(redact(arg, run_secrets) for arg in exc.args)
-                result.put((False, exc, retryable and not call.get('received_response')))
+                result.put((False, exc, retryable))
             finally:
                 try:
                     if client is not None:
@@ -745,7 +744,8 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         return {'kind': 'skill_loaded', 'id': skill_id, 'name': name,
                 'source': 'manual' if manual else 'automatic'}
 
-    def execute(uid, cid, rid, query, cancel, profile, startup, skill=None, mode='agent', recovery_source=None):
+    def execute(uid, cid, rid, query, cancel, profile, startup, skill=None, mode='agent', recovery_source=None,
+                inventory=None):
         if not startup.claim():
             return  # A late thread cannot execute an already compensated run.
         try:
@@ -827,33 +827,39 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         runner_entered = False
         fatal_error = None
         try:
-            store.event(rid, {'kind': 'status', 'message': 'Starting an isolated task environment' if isolated else 'Running in the service account environment (OS isolation disabled)'})
-            if long_run:
-                store.event(rid, {'kind': 'status', 'message': '长任务执行已启用'})
-            query_context = conversation_memory.context(uid, cid, query, profile, recovery_source=recovery_source)
-            memory = memory_service.recall(uid, cid, query, supported=bool(getattr(runner, 'memory_snapshot_enabled', False)))
-            if memory['status'] != 'disabled':
-                store.event(rid, {'kind': 'memory_status', 'status': memory['status'],
-                                  'count': len(memory['records']), 'project_id': memory.get('project_id')})
-            base_generation = store.conversation(uid, cid)['generation']
-            runner_entered = True
-            result = runner.run(rid, query_context, store.files(uid, cid, base_generation), cancel,
-                                lambda request, event: model_call(request, event, profile, progress, uid=uid, rid=rid), on_trace,
-                                diagnostics=store.root / 'traces' / (rid + '.stderr.log'),
-                                **({'skill_id': skill['id']} if skill else {}),
-                                **({'read_only': True} if mode == 'ask' else {}),
-                                settings={**profile.runtime_settings(), 'max_model_turns': None,
-                                          **({'memory_enabled': True} if memory['records'] else {})},
-                                **({'long_run': True} if long_run else {}),
-                                **({'memory_records': memory['records']} if memory['records'] else {}),
-                                **({'input_origins': store.file_origins(uid, cid, base_generation)}
-                                   if getattr(runner, 'provenance_enabled', False) else {}),
-                                **({'context_scope': {'owner_id': uid, 'conversation_id': cid}}
-                                   if getattr(runner, 'context_archive_enabled', False) else {}),
-                                **({'process_scope': {'uid': uid, 'cid': cid}}
-                                   if process_ownership is not None else {}))
-            if mode == 'agent':
-                files, origins = dict(result['files']), result.get('file_origins')
+            if inventory is not None:
+                store.event(rid, {'kind': 'status', 'message': '正在读取知识库统计'})
+                if cancel.is_set():
+                    raise Cancelled('Task stopped before reading knowledge statistics')
+                result = inventory_answer(uid, inventory)
+            else:
+                store.event(rid, {'kind': 'status', 'message': 'Starting an isolated task environment' if isolated else 'Running in the service account environment (OS isolation disabled)'})
+                if long_run:
+                    store.event(rid, {'kind': 'status', 'message': '长任务执行已启用'})
+                query_context = conversation_memory.context(uid, cid, query, profile, recovery_source=recovery_source)
+                memory = memory_service.recall(uid, cid, query, supported=bool(getattr(runner, 'memory_snapshot_enabled', False)))
+                if memory['status'] != 'disabled':
+                    store.event(rid, {'kind': 'memory_status', 'status': memory['status'],
+                                      'count': len(memory['records']), 'project_id': memory.get('project_id')})
+                base_generation = store.conversation(uid, cid)['generation']
+                runner_entered = True
+                result = runner.run(rid, query_context, store.files(uid, cid, base_generation), cancel,
+                                    lambda request, event: model_call(request, event, profile, progress, uid=uid, rid=rid), on_trace,
+                                    diagnostics=store.root / 'traces' / (rid + '.stderr.log'),
+                                    **({'skill_id': skill['id']} if skill else {}),
+                                    **({'read_only': True} if mode == 'ask' else {}),
+                                    settings={**profile.runtime_settings(), 'max_model_turns': None,
+                                              **({'memory_enabled': True} if memory['records'] else {})},
+                                    **({'long_run': True} if long_run else {}),
+                                    **({'memory_records': memory['records']} if memory['records'] else {}),
+                                    **({'input_origins': store.file_origins(uid, cid, base_generation)}
+                                       if getattr(runner, 'provenance_enabled', False) else {}),
+                                    **({'context_scope': {'owner_id': uid, 'conversation_id': cid}}
+                                       if getattr(runner, 'context_archive_enabled', False) else {}),
+                                    **({'process_scope': {'uid': uid, 'cid': cid}}
+                                       if process_ownership is not None else {}))
+                if mode == 'agent':
+                    files, origins = dict(result['files']), result.get('file_origins')
             outcome = {'status': result['status'], 'answer': run_safe(result['answer']),
                        'reason': run_safe(result.get('reason', '')), 'turns': result.get('turns', 0)}
             successful_return = True
@@ -910,10 +916,10 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                 logging.getLogger(__name__).error('Task terminal reconciliation pending: run=%s error_type=%s', rid, type(exc).__name__)
                 queue_record(record)
         try:
-            if record['persisted']:
+            if inventory is None and record['persisted']:
                 with suppress(Exception):
                     conversation_memory.submit(uid, profile)
-            else:
+            elif inventory is None:
                 record['memory_submit_pending'] = True
         finally:
             with guard:
@@ -937,6 +943,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
         plan = _confirmed_research_plan(plan)
         if mode == 'ask' and (skill_id is not None or plan is not None):
             raise HTTPException(400, 'Switch to Agent mode to use a skill or confirmed plan')
+        inventory = inventory_scope(query) if mode == 'ask' and expected_input is None else None
         if expected_input is not None and plan is not None:
             raise HTTPException(400, 'A confirmed plan applies only to a new task')
         if (source_run_id is None) != (recovery_action is None):
@@ -1006,10 +1013,11 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                 execution_query = query.strip()
                 if plan is not None:
                     execution_query += '\n\n用户已确认的研究计划与验收标准：\n' + json.dumps(plan, ensure_ascii=False)
-                conversation_memory.capture(uid, cid, rid)
+                if inventory is None:
+                    conversation_memory.capture(uid, cid, rid)
                 cancel = Event()
                 thread = Thread(target=execute, args=(uid, cid, rid, execution_query, cancel, profile, startup,
-                                                       skill, mode, recovery_source), daemon=True)
+                                                       skill, mode, recovery_source, inventory), daemon=True)
                 jobs[rid] = {'uid': uid, 'cid': cid, 'cancel': cancel, 'thread': thread, 'startup': startup}
                 shutdown.track_worker(rid, uid, cancel, thread, startup)
                 try:

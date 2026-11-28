@@ -108,7 +108,7 @@ class ModelResources:
             run = self.recovery.store.run(data['uid'], data['run_id'])
         except KeyError:
             return False
-        return run['status'] in {'failed', 'interrupted', 'stopped', 'completed'} and run['finished_at'] is not None
+        return run['status'] in {'failed', 'interrupted', 'stopped', 'completed', 'incomplete'} and run['finished_at'] is not None
 
     def scan_step(self):
         with self.lock:
@@ -125,7 +125,8 @@ class ModelResources:
                     return not self.unresolved
                 if self.iterator is None:
                     self.iterator = os.scandir(self.directory)
-                for _ in range(4):
+                # Startup scans all receipts before the service can accept requests.
+                for _ in range(24):
                     entry = next(self.iterator, None)
                     if entry is None:
                         self.iterator.close()

@@ -475,7 +475,7 @@
     ui.answer.before(findings, preview);
     ui.overview = {box, heading, target, counts, body, calls:new Map(), turn:0,
       milestones, milestoneCount, currentStage, openItems, openSummary, openList, interrupted:new Map(), knowledgeIssue:false, timing:null, phase:'',
-      findings, findingsByKey:new Map(), shownPages:0, findingFiles:new Map(),
+      findings, findingsByKey:new Map(), shownPages:0, shownObservations:0, findingFiles:new Map(),
       researchNote, preview, draftLabel, draftBody, pendingDraft:null, visibleDraft:null, sourceUrls:new Set(),
       facts:{knowledgeCount:null, pagesRead:0, reviewed:false},
       action:{title:'任务已接收', detail:'正在准备执行'}, sequence:-1, connection:''};
@@ -554,6 +554,9 @@
     if (data.message === 'Correcting the result') return {title:'正在处理结果检查发现的问题', detail:'不会将未通过检查的内容当作最终结果'};
     if (data.message === 'Correcting a model response') return {title:'正在修正模型响应格式', detail:'不执行格式无效的工具调用'};
     if (data.message === 'Retrying the completion check') return {title:'正在重新检查完成情况', detail:''};
+    if (data.message === 'Retrying the current model step') {
+      return {title:'模型连接中断，正在继续当前步骤', detail:'已完成的工具结果会继续使用'};
+    }
     if (['Starting an isolated task environment', 'Running in the service account environment (OS isolation disabled)'].includes(data.message)) {
       return {title:'正在准备执行', detail:''};
     }
@@ -636,7 +639,7 @@
         const state = [group.failed ? group.failed + ' 次未完成' : '', group.running ? group.running + ' 次执行中' : '', group.unknown ? group.unknown + ' 次结果未记录' : ''].filter(Boolean).join(' · ');
         items.push({key:'tool:' + name, label:name + ' · ' + state + (group.retryable ? ' · 可重试' : '')});
       }
-      for (const [id, phase] of view.interrupted) items.push({key:'stream:' + id, label:'模型响应中断 · ' + (phaseLabels[phase] || phase || '执行阶段')});
+      for (const [id, {phase}] of view.interrupted) items.push({key:'stream:' + id, label:'模型响应中断 · ' + (phaseLabels[phase] || phase || '执行阶段')});
       if (ui.finished && ui.status !== 'completed') items.push({key:'terminal', label:'本轮尚未交付完整结果，可在执行记录中查看中断位置和下一步操作'});
     }
     const signature = JSON.stringify(items);
@@ -682,7 +685,7 @@
   }
   function pageFinding(view, output) {
     const content = typeof output.content === 'string' ? output.content.trim() : '';
-    if (!content || view.shownPages >= 3 || output.offset > 0) return;
+    if (!content || output.offset > 0) return;
     const url = window.GeoAgentTimeline?.sourceURL(output.url);
     if (!url) return;
     url.hash = '';
@@ -693,12 +696,21 @@
     link.href = url.href; link.target = '_blank'; link.rel = 'noopener noreferrer';
     const body = el('div'); body.append(link);
     const abstract = /(?:^|\n)\s*(?:#{1,6}\s*)?Abstract\s*[:\n]\s*(\S[^\n]+)/i.exec(content)?.[1];
-    if (abstract) {
+    // Show a directly attributable observation from the fetched abstract. Keep the
+    // text verbatim and avoid treating generic background or model drafts as evidence.
+    const sentences = abstract?.match(/[^。！？.!?]+[。！？.!?](?=\s|$)/g) || [];
+    const observation = sentences.map(sentence => sentence.trim()).find(sentence =>
+      sentence.length >= 55 && sentence.length <= 420 &&
+      /(?:\b(?:results?|indicat\w+|suggest\w+|conclud\w+|document\w+|reveal\w+|demonstrat\w+|found|shows?|showed)\b|结果表明|研究发现|数据显示)/iu.test(sentence));
+    if (observation ? view.shownObservations >= 3 : view.shownPages >= 3) return;
+    if (observation) body.append(el('blockquote', observation));
+    else if (abstract) {
       const excerpt = text(abstract);
       body.append(el('blockquote', excerpt + (abstract.length > excerpt.length ? '…' : '')));
     }
-    finding(view, key, abstract ? '已读取来源 · 摘要摘录' : '已读取来源', body);
-    view.shownPages++;
+    finding(view, key, observation ? '阶段发现 · 来源原文' : abstract ? '已读取来源 · 摘要摘录' : '已读取来源', body);
+    if (observation) view.shownObservations++;
+    else view.shownPages++;
   }
   function toolFinding(ui, receipt) {
     if (ui.mode !== 'agent' || receipt?.status !== 'ok') return;
@@ -822,8 +834,14 @@
       return;
     }
     if (data.kind === 'stream_end' && !ui.finished) {
-      if (data.request_id && data.complete === false) view.interrupted.set(data.request_id, data.phase || 'execution');
-      else if (data.request_id) view.interrupted.delete(data.request_id);
+      const phase = data.phase || 'execution';
+      if (data.request_id && data.complete === false) {
+        view.interrupted.set(data.request_id, {phase, turn:data.turn});
+      } else if (data.request_id && data.complete === true) {
+        for (const [id, interrupted] of view.interrupted) {
+          if (interrupted.phase === phase && interrupted.turn === data.turn) view.interrupted.delete(id);
+        }
+      }
       if (data.native_tool_calls > 0 || data.finish_reason === 'tool_calls') ui.hasExtendedProgress = true;
       finishDraft(view, data);
     }
@@ -931,6 +949,13 @@
       el('strong', files.length + ' 个文件 · ' + imageFiles.length + ' 幅图像'),
       el('p', '预览、下载和原始工具证据集中查看。', 'experience-muted'),
       btn('查看全部成果', () => open(rid, ui)));
+    const documents = files.filter(file => /\.(?:md|markdown|pdf)$/i.test(file.name));
+    for (const file of [...documents, ...imageFiles].slice(0, 6)) {
+      const action = btn(file.name.split('/').pop(), event =>
+        window.GeoAgentArtifacts.openFile({...context, files}, file.name, event.currentTarget), 'outline');
+      action.setAttribute('aria-label', '侧栏预览：' + file.name);
+      info.append(action);
+    }
     ui.rich.compact.append(info);
     if (!images.length && imageFiles.length) {
       const file = imageFiles.find(item => /\.(png|jpe?g|webp|svg)$/i.test(item.name)) || imageFiles[0];

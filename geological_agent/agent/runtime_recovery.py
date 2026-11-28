@@ -175,16 +175,20 @@ def compose_source_partial(state, *, execution, bounded_json):
         messages.pop()
     verified = partial_delivery(state)
     sections = [verified] if verified else []
+    saved_files = False
     for artifact in state.get("artifacts", []):
         try:
             path = execution.path(artifact.path)
             if path.is_file() and path.stat().st_size:
+                saved_files = True
                 sections.append("已生成文件 · [" + path.name.replace("[", "").replace("]", "") +
                                 "](" + quote(artifact.path, safe="/") + ")")
         except (ValueError, OSError):
             continue
     question = knowledge_query(state["task"])
-    if state["status"] != "failed" and not state["metadata"].get("partial_composition_attempted"):
+    if saved_files and state["status"] != "failed":
+        sections.append("**仍待核实**\n\n成果文件已生成。研究内容的最终审核未完成。")
+    if not saved_files and state["status"] != "failed" and not state["metadata"].get("partial_composition_attempted"):
         state["metadata"]["partial_composition_attempted"] = True
         context = source_context(state["task"], question)
         context["verified"] = verified[:7000]

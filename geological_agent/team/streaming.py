@@ -4,6 +4,8 @@ from threading import RLock
 import time
 import uuid
 
+import httpx
+
 from ..llm import ModelProtocolError
 from ..run_status import issue_for_event, task_outcome
 from .isolation import Cancelled
@@ -107,8 +109,21 @@ class RunProgress:
             return call
 
 
+def retryable_model_transport(error, call):
+    """Only retry unaccepted requests. Partial stream data never dispatches tools."""
+    if call.get("accepted_response"):
+        return False
+    if isinstance(error, (httpx.ReadError, httpx.ReadTimeout, httpx.RemoteProtocolError)):
+        return call.get("streaming") is True
+    if call.get("received_response"):
+        return False
+    if isinstance(error, httpx.HTTPStatusError):
+        return error.response.status_code in (502, 503, 504, 524)
+    return isinstance(error, (httpx.ConnectError, httpx.ConnectTimeout, httpx.PoolTimeout))
+
+
 def retry_model_connection(attempt, cancel, on_retry):
-    """Retry only errors that the transport identified before a response."""
+    """Replay the current model request without re-entering its preceding tool steps."""
     for number, delay in enumerate((1, 3, None), start=1):
         if cancel.is_set():
             raise Cancelled("Stopped before connecting to the model")
@@ -130,6 +145,7 @@ def consume_model_stream(client, request, progress, call, cancel):
     progress.switch(prefix + "_wait")
     streaming = request.transport != "full_response" and callable(getattr(client, "stream", None))
     full_required = request.tool_choice == "required" and getattr(client, "required_streaming", True) is False
+    call["streaming"] = streaming
     transport = "native_stream" if streaming and not full_required else "full_response"
     common = {"request_id": call["id"], "phase": call["phase"], "turn": call["turn"]}
     progress.emit({"kind": "stream_open", **common, "transport": transport,
@@ -192,6 +208,7 @@ def consume_model_stream(client, request, progress, call, cancel):
                        "first_text_seconds": max(0.0, first - started) if first is not None else None,
                        "native_tool_calls": len(completed.tool_calls),
                        "finish_reason": completed.finish_reason})
+        call["accepted_response"] = True
         return completed
     except Exception as exc:
         flush(final=True)
