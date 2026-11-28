@@ -13,6 +13,24 @@
     return '/api/conversations/' + encodeURIComponent(context.conversation_id) + '/' + kind
       + '?name=' + encodeURIComponent(name) + '&generation=' + encodeURIComponent(context.generation);
   }
+  function relativeName(value, markdownFile) {
+    if (!markdownFile) return null;
+    let decoded;
+    try { decoded = decodeURIComponent(value); } catch { return null; }
+    if (!decoded || /[\x00-\x1f\x7f\\:?#]/.test(decoded) || decoded.startsWith('/')) return null;
+    const path = markdownFile.split('/').slice(0, -1);
+    for (const part of decoded.split('/')) {
+      if (!part) return null;
+      if (part === '.') continue;
+      if (part === '..') {
+        if (!path.length) return null;
+        path.pop();
+      } else {
+        path.push(part);
+      }
+    }
+    return path.join('/') || null;
+  }
   const imagePattern = /\.(png|jpe?g|webp|tiff?|svg)$/i;
   const textPattern = /\.(md|markdown|txt|log|json|geojson|jsonl|ya?ml|xml|html|css|js|py|r|sql|tex|bib)$/i;
   const readerAssets = '/api/knowledge/pdf/reader-assets/pdfjs/';
@@ -195,7 +213,7 @@
         if (!current(view)) return;
         if (/\.(md|markdown)$/i.test(name)) {
           const article = element('article', undefined, 'artifact-preview-markdown');
-          markdown(article, text, context);
+          markdown(article, text, {...context, markdownFile:name});
           body.replaceChildren(article);
         } else {
           body.replaceChildren(element('pre', text, 'artifact-preview-text'));
@@ -243,9 +261,12 @@
     const titled = /^(?:<([^>]+)>|(.+?))(?:\s+["'][^"']*["'])$/.exec(destination);
     if (titled) destination = titled[1] || titled[2];
     else if (destination.startsWith('<') && destination.endsWith('>')) destination = destination.slice(1, -1);
-    const name = localName(destination);
+    const rootName = localName(destination);
+    const sibling = relativeName(destination, context?.markdownFile);
     const file = context?.generation && context.conversation_id && Array.isArray(context.files)
-      ? context.files.find(item => item.name === name) : null;
+      ? context.files.find(item => item.name === sibling) || context.files.find(item => item.name === rootName)
+      : null;
+    const name = file?.name || sibling || rootName;
     if (file) {
       const href = fileURL(context, name, 'download'), link = element('button', label, 'quiet answer-file-link');
       link.type = 'button';

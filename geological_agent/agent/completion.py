@@ -136,6 +136,13 @@ def completion_evidence(state, context):
                 "observed_actions": records, "recorded_artifacts": [asdict(a) for a in state["artifacts"]],
                 "older_tool_records_omitted": len(records) < full_count,
                 "observed_artifact_contents": state.get("metadata", {}).get("verified_artifact_contents", {}),
+                "public_source_repair": state.get("metadata", {}).get("public_source_repair_targets"),
+                "observed_revised_source_passages": state.get("metadata", {}).get("verified_source_repair_passages", {}),
+                "public_source_repair_policy": (
+                    "For a recorded public source repair, check the corrected claims and any observed revised "
+                    "report passages against the successful receipts. Do not require a fresh fetch when the "
+                    "available excerpt supports a correction or the unsupported attribution was removed."
+                    if state.get("metadata", {}).get("public_source_repair_targets") else None),
                 "artifact_checks_scope": "Observed file contents and readable syntax are not certification of numerical or scientific correctness."}
 
 
@@ -191,6 +198,17 @@ def final_answer_request(state, context, settings, *, defer_compaction=False):
     if not evidence["observed_actions"] and not state["artifacts"]:
         evidence["provisional_conversational_response"] = state.get("answer", "")
     system = FINAL_ANSWER_SYSTEM + "\n" + identity_instructions(settings, state["metadata"]) + "\n"
+    from .regional_research import regional_deliverables
+
+    if regional_deliverables(state) and state.get("artifacts"):
+        system += (
+            "\nFor this regional research delivery, give a concise synthesis and link the saved "
+            "report and embedded-figure artifact. The report holds the detailed region-by-region analysis. "
+            "Include at least one evidence-backed key conclusion with its exact citation or observed link. "
+            "Keep author bylines, years and technical "
+            "wording only when the observed source supplies them. Where the public receipt lacks a byline, "
+            "cite the observed link or title in the summary. Preserve source limits in the actual files.\n"
+        )
     if source_rejection:
         system += (
             "\nRepair source attribution before polishing the rejected draft. "
@@ -425,6 +443,13 @@ def artifact_issues(state, execution, required_outputs=()):
                          for cid in row["reference_ids"]}
     citation_formats = {".md", ".markdown", ".txt", ".html", ".htm", ".svg"}
     from ..rag.store import _BARE_CITATION
+    from .regional_research import regional_deliverables
+
+    regional = regional_deliverables(state)
+    report_found, figure_found = False, False
+    targets = state.get("metadata", {}).get("public_source_repair_targets", {}).get("blocks", {})
+    source_urls = {source["url"] for target in targets.values() for source in target["sources"].values()}
+    repaired_passages = {}
 
     recorded = {a.path for a in state["artifacts"]}
     for relative in dict.fromkeys([a.path for a in state["artifacts"]] + list(required_outputs)):
@@ -437,6 +462,27 @@ def artifact_issues(state, execution, required_outputs=()):
                 issues.append(CompletionIssue("Recorded or required output does not exist: " + relative, True))
                 continue
             suffix = path.suffix.lower()
+            if regional and suffix in {".md", ".markdown", ".pdf"}:
+                with path.open("rb") as stream:
+                    head = stream.read(256).strip()
+                report_found |= bool(head and (suffix != ".pdf" or head.startswith(b"%PDF-")))
+            if regional and suffix in {".svg", ".png", ".jpeg", ".jpg", ".webp"}:
+                try:
+                    if suffix == ".svg":
+                        from ..svg_preview import svg_preview
+
+                        svg_preview(path.read_bytes())
+                    else:
+                        from PIL import Image
+
+                        with Image.open(path) as image:
+                            image.verify()
+                    figure_found = True
+                except Exception:
+                    issues.append(CompletionIssue(
+                        f"Saved comparison image {relative} could not be opened as a previewable figure. "
+                        "Repair the image, or replace it with a self-contained SVG or PNG using the same "
+                        "evidence and labels. Verify the actual saved file.", True))
             inspect_citations = receipts and suffix in citation_formats
             inspect_content = suffix in (".py", ".json", ".md", ".txt", ".csv")
             if inspect_content or inspect_citations:
@@ -444,6 +490,11 @@ def artifact_issues(state, execution, required_outputs=()):
                     issues.append(CompletionIssue("Output exceeds the configured file-validation allowance: " + relative, True))
                     continue
                 content = path.read_text(encoding="utf-8")
+                if source_urls and suffix in {".md", ".markdown"}:
+                    passages = [paragraph for paragraph in content.split("\n\n")
+                                if any(url in paragraph for url in source_urls)]
+                    if passages:
+                        repaired_passages[relative] = [passage[:1400] for passage in passages[:6]]
                 if inspect_citations:
                     unknown = set(re.findall(_BARE_CITATION, content)) - allowed_citations
                     if unknown:
@@ -462,6 +513,13 @@ def artifact_issues(state, execution, required_outputs=()):
         except Exception as exc:
             issues.append(CompletionIssue(f"Output validation failed for {relative}: {type(exc).__name__}: {exc}", True))
     state.setdefault("metadata", {})["verified_artifact_contents"] = contents
+    if targets:
+        state["metadata"]["verified_source_repair_passages"] = repaired_passages
+    if regional and not report_found:
+        issues.append(CompletionIssue("Save a standalone nonempty Markdown report for this regional literature comparison.", True))
+    if regional and not figure_found:
+        issues.append(CompletionIssue("Save a previewable comparison figure (SVG or PNG) for the same regions and evidence. "
+                                      "A Markdown or CSV table is not a figure. Reuse the evidence already gathered.", True))
     issues.extend(quoted_artifact_issues(state.get("answer", ""), contents))
     return issues
 

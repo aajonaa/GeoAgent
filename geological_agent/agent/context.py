@@ -209,6 +209,10 @@ class ContextManager:
                 "`tools.batch([(name, args), ...])` instead of dumping many repetitive tool outputs into conversation context.\n"
             )
         instructions += "\n" + EXECUTION_GUIDANCE
+        from .regional_research import DELIVERY_GUIDANCE, regional_deliverables
+
+        if regional_deliverables(state):
+            instructions += "\n" + DELIVERY_GUIDANCE
         pinned = [Message("system", instructions), Message("user", state["task"])]
         references = []
         if self.settings.memory_enabled:

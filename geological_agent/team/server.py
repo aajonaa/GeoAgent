@@ -817,7 +817,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                                  'after_chars': fields['after_chars'], 'phase': fields['phase'],
                                  'strategies': fields['strategies']})
             elif kind == 'knowledge_requested':
-                store.event(rid, {'kind': 'knowledge_start'})
+                store.event(rid, {'kind': 'knowledge_start', 'attempt': fields.get('attempt')})
             elif kind in ('knowledge_completed', 'knowledge_failed', 'delegated_knowledge_completed'):
                 # Preserve the retrieval receipt, not a model-written bibliography.
                 payload = clean.get('result', {})
@@ -825,6 +825,7 @@ def create_app(root=None, *, runner=None, model_factory=None, trace_factory=None
                                  'status': payload.get('status'),
                                  'duration_ms': payload.get('duration_ms'),
                                  'references': payload.get('references', []),
+                                 'attempt': fields.get('attempt'),
                                  'returned_count': fields.get('returned_count'),
                                  'source_run_id': fields.get('source_run_id') or fields.get('run_id'),
                                  'subagent_id': fields.get('subagent_id')})

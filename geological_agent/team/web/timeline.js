@@ -346,7 +346,7 @@
     if(data.kind==='tool_start'||data.kind==='tool_result')tool(ui,data,view);
     if(data.kind==='knowledge_start') {
       closeStage(view);
-      view.knowledge=entry('自动检索知识库','search','检索中');
+      view.knowledge=entry(data.attempt>1?'换关键词补查知识库':'自动检索知识库','search','检索中');
       view.knowledge.details.dataset.state='running';
       ui.list.append(view.knowledge.details);
     }
